@@ -1,39 +1,49 @@
-site_name: Python Crash Course
+site_name: MCI | WING
 repo_url: https://github.com/mciwing/mciwing.github.io
-site_url: https://mydomain.org/mysite
+site_url: https://mydomain.org/
 theme:
   name: material
-  logo: https://avatars.githubusercontent.com/u/153168920?s=200&v=4
+  logo: assets/logo.png
+  favicon: assets/logo.png
   palette:
     scheme: slate
     primary: teal
-    accent: amber
+    accent: pink
   icon:
     repo: fontawesome/brands/git-alt
 
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.path
     - content.code.copy
     - navigation.footer
+    - toc.integrate  # display TOC on the left
+    - navigation.top  # 'back to top' button on scrolling
+    - header.autohide
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/mciwing
-copyright: 2024 MCI Wing
+copyright: 2024 - MCI Wing
+
 nav:
   - Home: index.md
-  - Basics: basics.md
-  - Packaging: packaging.md
+  - Python: /python
+  - Statistics: /statistics
 plugins:
-  - search
   - git-revision-date-localized:
       enable_creation_date: true
+      type: timeago
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
 markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:  # enable icons/emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
