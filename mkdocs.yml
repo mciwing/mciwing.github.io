@@ -1,6 +1,6 @@
 site_name: MCI | WING
 repo_url: https://github.com/mciwing/mciwing.github.io
-site_url: https://mydomain.org/
+site_url: https://mciwing.github.io
 theme:
   name: material
   logo: assets/logo.png
