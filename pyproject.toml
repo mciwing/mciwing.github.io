@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "mciwing-github-io"
+version = "0.1.0"
+description = "Landing page."
+authors = ["JakobKlotz <jakob.klotz@mci.edu>"]
+readme = "README.md"
+packages = [{include = "mciwing"}]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mkdocs-material = "^9.5.34"
+
+
+[tool.poetry.group.plugins.dependencies]
+mkdocs-git-revision-date-localized-plugin = "^1.2.8"
+mkdocs-git-committers-plugin-2 = "^2.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
