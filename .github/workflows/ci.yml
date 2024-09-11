@@ -26,5 +26,5 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install poetry
-      - run: python -m poetry install
+      - run: python -m poetry install --with plugins
       - run: poetry run mkdocs gh-deploy --force
