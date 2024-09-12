@@ -2,7 +2,10 @@
 name = "mciwing-github-io"
 version = "0.1.0"
 description = "Landing page."
-authors = ["JakobKlotz <jakob.klotz@mci.edu>"]
+authors = [
+    "JakobKlotz <jakob.klotz@mci.edu>",
+    "manuf3006 <manuel.ferdik@mci.edu>"
+]
 readme = "README.md"
 packages = [{include = "mciwing"}]
 package-mode = false
