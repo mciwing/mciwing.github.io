@@ -6,10 +6,13 @@
   <img src="docs/assets/logo.png" alt="WING Logo" style="width: 200px; height: auto;">
 </div>
 
+---
+
 **Visit the site [here](https://mciwing.github.io/).**
 
 </div>
 
+---
 
 <details>
 <summary>Local development</summary>
