@@ -17,7 +17,6 @@ theme:
     - navigation.tabs.sticky
     - content.code.copy
     - navigation.footer
-    - toc.integrate  # display TOC on the left
     - navigation.top  # 'back to top' button on scrolling
     - header.autohide
 extra:
@@ -28,7 +27,7 @@ copyright: 2024 - MCI Wing
 
 nav:
   - Home: index.md
-  - Python:
+  - Python Crash Course:
     - python/index.md
   - Statistics:
     - statistics/index.md
@@ -53,3 +52,5 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.keys  # render keyboard shortcuts
+  - footnotes
