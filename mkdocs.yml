@@ -28,8 +28,10 @@ copyright: 2024 - MCI Wing
 
 nav:
   - Home: index.md
-  - Python: /python
-  - Statistics: /statistics
+  - Python:
+    - python/index.md
+  - Statistics:
+    - statistics/index.md
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true

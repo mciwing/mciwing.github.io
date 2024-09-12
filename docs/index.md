@@ -12,7 +12,7 @@
     Learn the programming language `Python`. We will cover topics from basic 
     types, control structures and functions to packages.
     
-    [:octicons-arrow-right-24: Getting started](/python)
+    [:octicons-arrow-right-24: Getting started](python/index.md)
 
 - :material-chart-bar: __Statistics__
 
@@ -20,5 +20,5 @@
     
     Course on statistics, from hypothesis testing to linear regression.
     
-    [:octicons-arrow-right-24: Getting started](/statistics)
+    [:octicons-arrow-right-24: Getting started](statistics/index.md)
 </div>
