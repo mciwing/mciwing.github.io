@@ -11,6 +11,8 @@ theme:
     accent: pink
   icon:
     repo: fontawesome/brands/git-alt
+    #admonition: 
+      #quote: fontawesome/solid/quote-left
 
   features:
     - navigation.tabs
@@ -31,6 +33,11 @@ nav:
     - python/index.md
   - Statistics:
     - statistics/index.md
+    - Univariate Methods:
+      - statistics/univariate/General.md
+      - statistics/univariate/Frequency.md
+      - statistics/univariate/CentralTend.md
+      - statistics/univariate/Dispersion.md
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true
@@ -52,5 +59,16 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.details
   - pymdownx.keys  # render keyboard shortcuts
   - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
