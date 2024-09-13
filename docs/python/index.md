@@ -141,3 +141,14 @@ with Path("charmander.json").open("w") as file:
 You can create websites, **just like this one**. In fact, all the 
 heavy lifting of this site is done by `Python` and tools developed by its 
 community.
+
+## Getting Started...
+
+In the next sections, we will install `Python` including the code editor 
+`Visual Studio Code`.
+
+???+ info
+
+    Both Python and Visual Studio Code are already pre-installed on PCs in
+    the MCI computer rooms. If you are working with your own computer, 
+    please proceed to the installation page.
