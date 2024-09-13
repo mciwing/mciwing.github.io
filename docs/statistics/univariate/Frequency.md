@@ -139,8 +139,9 @@ For ordinally scaled variables, the values also correspond to the possible categ
         fig = px.histogram(
             data_ord, 
             x="round",
-            category_orders={"round": round_order},
+            category_orders={"round": round_order[::-1]},
         )
+
         # Adjust the plot
         fig.update_layout(
             title=dict(
@@ -221,37 +222,32 @@ In the case of ordinally scaled variables, a cumulative absolute or relative fre
 -   __Histogram (Abolute, Cumulative)__
 
     ---
-    ![Image title](/assets/statistics/uni_ordinal_histo_sort_abs_cum.png){ align=left}
+    <iframe src="/assets/statistics/uni_ordinal_histo_sort_abs_cum.html" width="100%" height="400px"></iframe>
     ??? code "Code"
         ``` py
         import plotly.express as px
+
         # HISTOGRAM sorted Cumulative Absolute
         round_order = ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'RR']  # Define order of the roundsd
         data['round'] = pd.Categorical(data['round'], categories=round_order, ordered=True)  # Define order of the rounds
+
         # Generate Histogram
         fig = px.histogram(
             data, 
             x="round",
-            title="Ordinal Variable: WITH Order (Absolute, Cumulated)",
-            category_orders={"round": round_order},
+            category_orders={"round": round_order[::-1]},
             cumulative=True,
-            width=500,
         )
-        # Add labels to the axes
+
+        # Adjust the plot
         fig.update_layout(
             xaxis_title_text='Round',
             yaxis_title_text='Absolute Frequency',
+            title=dict(
+                    text='<b><span style="font-size: 10pt">Ordinal Variable: Cumulated</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: round</span></b>',
+                ),
         )
-        # Add annotation to the pie chart
-        fig.add_annotation(dict(
-            x=-0.2,
-            y=-0.25,
-            showarrow=False,
-            text="Data: atp_matches_2023.csv; variable: round",
-            xref="paper",
-            yref="paper"))
-        # Adjust descending order
-        fig.update_xaxes(categoryorder='category descending')
+
         # Show the plot
         fig.show()
         ```
@@ -259,38 +255,32 @@ In the case of ordinally scaled variables, a cumulative absolute or relative fre
 -   __Histogram (Relative, Cumulative)__
 
     ---
-    ![Image title](/assets/statistics/uni_ordinal_histo_sort_rel_cum.png){ align=left}
+    <iframe src="/assets/statistics/uni_ordinal_histo_sort_rel_cum.html" width="100%" height="400px"></iframe>
     ??? code "Code"
         ``` py
         import plotly.express as px
         # HISTOGRAM sorted cumulated Relative
         round_order = ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'RR']  # Define order of the roundsd
         data['round'] = pd.Categorical(data['round'], categories=round_order, ordered=True)  # Define order of the rounds
+
         # Generate Histogram
         fig = px.histogram(
             data, 
             x="round",
-            title="Ordinal Variable: WITH Order (Relative, Cumulated)",
-            category_orders={"round": round_order},
+            category_orders={"round": round_order[::-1]},
             cumulative=True,
-            width=500,
             histnorm="percent"
         )
-        # Add labels to the axes
+
+        # Adjust the plot
         fig.update_layout(
             xaxis_title_text='Round',
             yaxis_title_text='Relative Frequency [%]',
+            title=dict(
+                    text='<b><span style="font-size: 10pt">Ordinal Variable: Cumulated</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: round</span></b>',
+                ),
         )
-        # Add annotation to the pie chart
-        fig.add_annotation(dict(
-            x=-0.2,
-            y=-0.25,
-            showarrow=False,
-            text="Data: atp_matches_2023.csv; variable: round",
-            xref="paper",
-            yref="paper"))
-        # Adjust descending order
-        fig.update_xaxes(categoryorder='category descending')
+
         # Show the plot
         fig.show()
         ```
@@ -371,7 +361,7 @@ When the number of values \( k \) for a metrically scaled variable is small, it 
 -   __Numeric Variable with Few of Values__
 
     ---
-    ![Image title](/assets/statistics/uni_numeric_histo_small.png){ align=left}
+    <iframe src="/assets/statistics/uni_numeric_histo_small.html" width="100%" height="400px"></iframe>
     ??? code "Code"
         ``` py
         import plotly.express as px
@@ -380,22 +370,17 @@ When the number of values \( k \) for a metrically scaled variable is small, it 
         fig = px.histogram(
             data, 
             x="draw_size",
-            title="Numeric Variable: Small Number of Values",
-            width=500,
         )
-        # Add labels to the axes
+
+        # Adjust the plot
         fig.update_layout(
             xaxis_title_text='Draw Size',
             yaxis_title_text='Absolute Frequency',
+            title=dict(
+                    text='<b><span style="font-size: 10pt">Small Number of Values</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: draw_size</span></b>',
+                ),
         )
-        # Add annotation to the chart
-        fig.add_annotation(dict(
-            x=-0.2,
-            y=-0.25,
-            showarrow=False,
-            text="Data: atp_matches_2023.csv; variable: draw_size",
-            xref="paper",
-            yref="paper"))
+
         # Show the plot
         fig.show()
         ```
@@ -403,7 +388,7 @@ When the number of values \( k \) for a metrically scaled variable is small, it 
 -   __Numeric Variable with Many Values__
 
     ---
-    ![Image title](/assets/statistics/uni_numeric_histo_large.png){ align=left}
+    <iframe src="/assets/statistics/uni_numeric_histo_large.html" width="100%" height="400px"></iframe>
     ??? code "Code"
         ``` py
         import plotly.express as px
@@ -412,25 +397,21 @@ When the number of values \( k \) for a metrically scaled variable is small, it 
         fig = px.bar(
             data['winner_rank_points'].value_counts().reset_index(), 
             x='winner_rank_points', 
-            y='count',
-            title="Numeric Variable: Large Number of Values",
-            width=500,)
+            y='count'
+            )
 
         # Adjust the width of the bars
         fig.update_traces(width=50)
-        # Add labels to the axes
+
+        # Adjust the plot
         fig.update_layout(
             xaxis_title_text='Winner Rank Points',
             yaxis_title_text='Absolute Frequency',
+            title=dict(
+                    text='<b><span style="font-size: 10pt">Large Number of Values</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: winner_rank_points</span></b>',
+                ),
         )
-        # Add annotation to the chart
-        fig.add_annotation(dict(
-            x=-0.2,
-            y=-0.25,
-            showarrow=False,
-            text="Data: atp_matches_2023.csv; variable: winner_rank_points",
-            xref="paper",
-            yref="paper"))
+
         # Show the plot
         fig.show()
         ```
@@ -443,7 +424,7 @@ In such cases, categories (intervals or bins) should be created to reduce the nu
 -   __Automatic Binning__
 
     ---
-    ![Image title](/assets/statistics/uni_numeric_histo_large_binned.png){ align=left}
+    <iframe src="/assets/statistics/uni_numeric_histo_large_binned.html" width="100%" height="400px"></iframe>
     ??? code "Code"
         ``` py
         import plotly.express as px
@@ -453,23 +434,17 @@ In such cases, categories (intervals or bins) should be created to reduce the nu
         fig = px.histogram(
             data, 
             x="winner_rank_points",
-            title="Numeric Variable: Large Number of Values Binned",
-            width=500,
         )
 
-        # Add labels to the axes
+        # Adjust the plot
         fig.update_layout(
             xaxis_title_text='Winner Rank Points',
             yaxis_title_text='Absolute Frequency',
+            title=dict(
+                    text='<b><span style="font-size: 10pt">Automatic Binning</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: winner_rank_points</span></b>',
+                ),
         )
-        # Add annotation to the chart
-        fig.add_annotation(dict(
-            x=-0.2,
-            y=-0.25,
-            showarrow=False,
-            text="Data: atp_matches_2023.csv; variable: winner_rank_points",
-            xref="paper",
-            yref="paper"))
+
         # Show the plot
         fig.show()
         ```
@@ -477,9 +452,10 @@ In such cases, categories (intervals or bins) should be created to reduce the nu
 -   __Manual Binning__
 
     ---
-    ![Image title](/assets/statistics/uni_numeric_histo_large_binned_self.png){ align=left}
+    <iframe src="/assets/statistics/uni_numeric_histo_large_binned_self.html" width="100%" height="400px"></iframe>
     ??? code "Code"
         ``` py
+        import plotly.express as px
         # Binning of the Data
         data['points_cat'] = pd.cut(data['winner_rank_points'], bins=range(0,int(data['winner_rank_points'].max()),100), right=False) # 100 Bins between 0 and the maximum value of winner_rank_points
         # data_num['points_cat'] = pd.cut(data_num['winner_rank_points'], bins=[0, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1140, 1200], right=False) # Custom Bins
@@ -491,24 +467,19 @@ In such cases, categories (intervals or bins) should be created to reduce the nu
         # Generate Bar Chart
         fig = px.bar(
             points_cat_count,
-            title ="Numeric Variable: Large Number of Values Binned",
-            width =500,
             )
 
-        # Add labels to the axes
+
+        # Adjust the plot
         fig.update_layout(
             xaxis_title_text='Winner Rank Points',
             yaxis_title_text='Absolute Frequency',
-            showlegend=False
+            showlegend=False,
+            title=dict(
+                    text='<b><span style="font-size: 10pt">Manual Binning</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: winner_rank_points</span></b>',
+                ),
         )
-        # Add annotation to the chart
-        fig.add_annotation(dict(
-            x=-0.2,
-            y=-0.68,
-            showarrow=False,
-            text="Data: atp_matches_2023.csv; variable: winner_rank_points",
-            xref="paper",
-            yref="paper"))
+
         # Show the plot
         fig.show()
         ```
