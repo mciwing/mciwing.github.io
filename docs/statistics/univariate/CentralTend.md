@@ -243,3 +243,52 @@ The following distributions have the same mean, median and mode
     <iframe src="/assets/statistics/uni_misleading2.html" width="100%" height="400px"></iframe>
 </div>
 </div>
+
+??? code "Code"
+    ``` py
+    a = [2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4]
+    b = [1,1,1,1,1,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,5,5,5,5,5,5,5,5]
+
+    import plotly.express as px
+    import pandas as pd
+    from scipy import stats
+    import numpy as np
+
+    # Distribution a
+    # Generate Histogram
+    fig = px.histogram(pd.DataFrame(a))
+
+    # Adjust the plot
+    fig.update_layout(
+        xaxis_title_text='Value',
+        yaxis_title_text='Absolute Frequency',
+        showlegend=False,
+    )
+
+    # Show the plot
+    fig.show()
+
+    # Calculate Measures
+    print('Mean: ' + str(np.mean(a)))
+    print('Median: ' + str(np.median(a)))
+    print('Mode: ' + str(stats.mode(a)))
+
+    # Distribution b
+    # Generate Histogram
+    fig = px.histogram(pd.DataFrame(b))
+
+    # Adjust the plot
+    fig.update_layout(
+        xaxis_title_text='Value',
+        yaxis_title_text='Absolute Frequency',
+        showlegend=False,
+    )
+
+    # Show the plot
+    fig.show()
+
+    # Calculate Measures
+    print('Mean: ' + str(np.mean(b)))
+    print('Median: ' + str(np.median(b)))
+    print('Mode: ' + str(stats.mode(b)))
+    ```
