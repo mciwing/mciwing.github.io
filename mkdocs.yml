@@ -29,6 +29,7 @@ nav:
   - Home: index.md
   - Python Crash Course:
     - python/index.md
+    - python/installation.md
   - Statistics:
     - statistics/index.md
 plugins:
