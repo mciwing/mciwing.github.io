@@ -48,8 +48,70 @@ Therefore, start VSC and click on the sidebar on `Extensions`. Then search
 and install `Jupyter` and `Python` (both from Microsoft). 
 
 <figure markdown="span">
-  ![VSCode Extensions](/assets/python/ide/extensions.png){ width="400" }
+  ![VSCode Extensions](../assets/python/ide/extensions.png){ width="400" }
   <figcaption>Install the Python and Jupyter extension</figcaption>
 </figure>
 
 Now, restart VSC.
+
+#### Jupyter notebook
+
+Next, we create a new file to execute our first Python code. 
+To do so, we use [Jupyter notebooks](https://jupyter.org/).
+Jupyter notebooks are basically composed of cells. A cell can either contain 
+code or text. However, first, we have to set up our first notebook. We will cover
+the notebooks in the next [section](#more-on-jupyter-notebooks) in more detail.
+
+Hence, we first select a folder in which we want to save our work. We go to 
+*`File`* :fontawesome-solid-arrow-right: *`Open Folder`* and choose a folder.
+Then click on explorer in the sidebar where your folder should be opened. Right 
+click somewhere in the explorer and select *`New File`*. Type a name for 
+your file with the extension `*.ipynb`.
+If not automatically, open the new file. Click on *`Select Kernel`* in the 
+upper right corner of VSCode and select *`Python Environment`*
+:fontawesome-solid-arrow-right: your `Python` installation.
+
+<figure markdown="span">
+  ![Select a Python kernel](../assets/python/ide/kernel.png){ height="400" }
+  <figcaption>Select your Python kernel.</figcaption>
+</figure>
+
+If your firewall asks, allow access.
+
+<figure markdown="span">
+  ![Firewall message](../assets/python/ide/firewall.png){ width="400" }
+  <figcaption>Allow access.</figcaption>
+</figure>
+
+Now, add your first code cell with the *`+ Code`* button in the upper left 
+corner. Add following line.
+
+```py
+print("Hello World!")
+```
+
+<figure markdown="span">
+  ![Run All](../assets/python/ide/first-cell.png){ width="680" }
+  <figcaption>Run your first code snippet.</figcaption>
+</figure>
+
+After clicking on *`Run All`*, a popup will appear to install the `ipykernel`.
+Click on *`Install`*. 
+
+<figure markdown="span">
+  ![VSCode Extensions](../assets/python/ide/ipykernel.png){ width="450" }
+  <figcaption>Last missing piece - the ipykernel.</figcaption>
+</figure>
+
+After the installation, you should be greeted with following output
+
+```py
+Hello World!
+```
+
+Congratulations 🎉, you've successfully executed your first `Python` 
+:fontawesome-brands-python: code!
+
+
+## ... more on Jupyter notebooks
+
