@@ -112,6 +112,44 @@ Hello World!
 Congratulations 🎉, you've successfully executed your first `Python` 
 :fontawesome-brands-python: code!
 
-
 ## ... more on Jupyter notebooks
 
+### Why?
+
+One of the key features of Jupyter Notebook is the combination of code cells 
+with rich text elements, allowing you to create comprehensive documents that 
+blend code, visualizations, and explanatory text. This makes it a powerful tool
+for creating data analysis reports, sharing research findings, or documenting 
+code workflows.
+
+In addition to code execution and documentation capabilities, Jupyter Notebook 
+offers a wide range of extensions and integrations with popular data science 
+libraries, plotting libraries, and other tools. It provides a flexible and 
+interactive environment for data manipulation, visualization, and analysis.
+
+### Cells
+
+As previously discussed, Jupyter notebooks are composed of cells. A cell can 
+contain Python code or text. To add a text cell, click on *`+ Markdown`*. 
+Markdown :fontawesome-brands-markdown: is a lightweight markup language with 
+plain text formatting syntax. You can simply write text, add images and links
+within a markdown cell. [This guide](https://www.markdownguide.org/basic-syntax/)
+offers a nice comprehensive overview of Markdown.
+
+???+ info
+
+    Don't worry about Markdown too much, it is simple to use and 'supports' 
+    plain text. So just start writing.
+
+#### Execution
+
+You can execute cells one by one. Either by clicking on the *`Exceute Cell`* 
+button on the left side of your current cell. Or by using the shortcut 
+++ctrl+alt+enter++.
+
+Run all cells with the corresponding *`Run All`* button on top.
+
+## Coming up ...
+
+Next, we will cover some basic Python concepts, and you will get more familiar 
+with code cells.
