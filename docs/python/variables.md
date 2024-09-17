@@ -10,20 +10,21 @@
 
 ## Introduction
 
-We encourage you to execute **all** upcoming code snippets on your machine. 
-You can easily copy each code snippet to your clipboard, by clicking the icon 
-in the top right corner. By doing so, you will be prepared for all upcoming 
-tasks within the sections. Tasks are indicated by a 
+We encourage you to execute **all** upcoming code snippets on your machine.
+You can easily copy each code snippet to your clipboard, by clicking the icon
+in the top right corner. By doing so, you will be prepared for all upcoming
+tasks within the sections. Tasks are indicated by a
 :fontawesome-solid-dumbbell: icon.
 
-We recommend to create a new notebook for each chapter, e.g. create 
-`variables.ipynb` for this chapter. Doing so, your notebooks will follow 
+We recommend to create a new notebook for each chapter, e.g. create
+`variables.ipynb` for this chapter. Doing so, your notebooks will follow
 the structure of this tutorial.
 
 Let's start with the first task.
 
 ???+ task "Notebook + first code cell"
-    Create a new Jupyter notebook and name it `variables.ipynb`. 
+
+    Create a new Jupyter notebook and name it `variables.ipynb`.
     Paste the following code snippet into a new cell and execute it.
 
     ```python
@@ -35,24 +36,24 @@ Let's start with the first task.
 ## Variable
 
 Computers can store lots of information. To do so, in `Python` :fontawesome-brands-python:
-we use variables. A variable is a name that refers to a value. Following code 
-snippet, assigns the value `4` to the variable `number`. In general, you pick 
-the variable name on the left hand side, assign a value with `=` and the value 
+we use variables. A variable is a name that refers to a value. Following code
+snippet, assigns the value `4` to the variable `number`. In general, you pick
+the variable name on the left hand side, assign a value with `=` and the value
 itself is on the right hand side.
 
 ```py
 number = 4
 ```
 
-You can change the value of a variable in your program at any time, and 
-Python will always keep track of its current value. 
+You can change the value of a variable in your program at any time, and
+Python will always keep track of its current value.
 
 ```py
 number = 4
 number = 4000
 ```
 
-You will notice that none of the cells had any output. To display the value 
+You will notice that none of the cells had any output. To display the value
 of a variable we use the `print()` function.
 
 ### `print()`
@@ -62,7 +63,7 @@ number = 4
 print(number)
 ```
 
-Now, we can also verify that in the above snippet the value of `number` was 
+Now, we can also verify that in the above snippet the value of `number` was
 actually changed.
 
 ```py
@@ -73,7 +74,7 @@ print(number)
 ```
 
 ???+ info
-    
+
     Within a notebook, the variables are stored in the background and can be 
     overwritten at any time. Therefore, it is good practice to execute all 
     cells from top to bottom of the notebook in the right order so that 
@@ -81,8 +82,8 @@ print(number)
 
 ### Comments
 
-Comments exist within your code but are not executed. They are used to 
-describe your code and are ignored by the `Python` interpreter. Comments 
+Comments exist within your code but are not executed. They are used to
+describe your code and are ignored by the `Python` interpreter. Comments
 are prefaced by a `#`.
 
 ```py
@@ -94,7 +95,6 @@ print("Hello World!")
 
     Comments help you and others understand what your code is doing. It is
     good practice to use comments as a tool for documentation.
-
 
 ### Variable naming
 
@@ -120,12 +120,13 @@ the following rules in mind:
 ### Errors (`NameError`)
 
 Every programmer makes mistakes and even after years of experience, mistakes
-are part of the process.
-Although good programmers might create errors, they also know how to respond to
-those errors efficiently. Let’s look at an error you’re likely to make early on
-and learn how to fix it.
+are part of the process. With time, you get more efficient in debugging
+those errors.
 
-We’ll write some code that generates an error on purpose. Copy the code and 
+<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="670"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/thzuhm/debugging_tactics/">Debugging tactics</a><br> by<a href="https://www.reddit.com/user/0ajs0jas/">u/0ajs0jas</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+Let’s look at an error you’re likely to make early on and learn how to fix it.
+We’ll write some code that generates an error on purpose. Copy the code and
 run your cell.
 
 ```py
@@ -164,11 +165,12 @@ a spelling mistake when entering the variable’s name or that the variable
 simply does not exist.
 
 ???+ task "Your first fix"
+
     Fix the `NameError` in your code cell.
 
 ## Recap
 
-In this section, we have covered variables in `Python` 
+In this section, we have covered variables in `Python`
 :fontawesome-brands-python:.
 
 You have learned (about):
