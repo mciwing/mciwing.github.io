@@ -78,7 +78,24 @@ print(number)
     overwritten at any time. Therefore, it is good practice to execute all 
     cells from top to bottom of the notebook in the right order so that 
     nothing unexpected is stored in a variable.
-    
+
+### Comments
+
+Comments exist within your code but are not executed. They are used to 
+describe your code and are ignored by the `Python` interpreter. Comments 
+are prefaced by a `#`.
+
+```py
+# this is a comment
+print("Hello World!")
+```
+
+???+ info
+
+    Comments help you and others understand what your code is doing. It is
+    good practice to use comments as a tool for documentation.
+
+
 ### Variable naming
 
 When you’re using variables in `Python`, you need to adhere to a few rules and
@@ -157,6 +174,7 @@ In this section, we have covered variables in `Python`
 You have learned (about):
 
 - To create and assign a value to a variable.
-- Use `print()` to display the value of a variable.
+- `print()` to display the value of a variable.
+- Comments
 - Naming conventions for variables.
 - How to fix a `NameError`.
