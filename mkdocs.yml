@@ -32,6 +32,8 @@ nav:
   - Python Crash Course:
     - python/index.md
     - python/variables.md
+    - Types:
+      - python/types/strings.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
