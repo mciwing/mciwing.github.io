@@ -35,6 +35,7 @@ nav:
     - Types:
       - python/types/strings.md
       - python/types/numbers.md
+      - python/types/bool_and_none.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
