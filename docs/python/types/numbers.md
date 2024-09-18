@@ -106,4 +106,30 @@ print(34.3 + 56.4)
 90.69999999999999
 ```
 
+???+ task "Calculate the BEP"
 
+    Use variables and arithmetic operations to calculate the break-even point (the number of units that need to be sold to cover the costs) for a product. The break-even point is given as:
+
+    $$
+    \text{BEP (units)} = \frac{\text{Fixed Costs}}{\text{Price per Unit} - \text{Variable Cost per Unit}}
+    $$
+    
+    Calculate the $\text{BEP}$ for the following values:
+
+    - **Fixed Costs**: 30000
+    - **Variable Cost per Unit**: 45
+    - **Price per Unit**: 75
+    
+    Assign each given value to a variable. Print the result in a sentence, e.g. `The break-even point is 200 units.`
+
+
+## Recap
+
+This section was all about numbers in Python. We have covered:
+
+- Whole numbers :octicons-arrow-right-24: `#!python int`
+- Decimal numbers :octicons-arrow-right-24: `#!python float`
+- Floating-point arithmetic issues and limitations
+
+Next up, we will introduce the `#!python bool` and `#!python NoneType` type in
+Python.
