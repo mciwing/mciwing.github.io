@@ -122,7 +122,7 @@ To explicitly cast a value into a float, use the function `#!python float()`.
     Remember the f-string (`#!python f"..."`) from the previous section?
     Try a slightly modified example from above.
 
-    ```py
+    ```py hl_lines="2"
     age = 23
     message = f"Happy {age}rd Birthday!"
     print(message)
