@@ -117,6 +117,22 @@ To explicitly cast a value into a float, use the function `#!python float()`.
     third = 12
     ```
 
+???+ note
+
+    Remember the f-string (`#!python f"..."`) from the previous section?
+    Try a slightly modified example from above.
+
+    ```py
+    age = 23
+    message = f"Happy {age}rd Birthday!"
+    print(message)
+    ```
+    
+    You'll notice, that there's no need for any explicit casting of `age`.
+
+    Whenver, you want to include a variable in a string, remember that 
+    f-strings might be more convenient. 😉
+
 ---
 
 ## Booleans
