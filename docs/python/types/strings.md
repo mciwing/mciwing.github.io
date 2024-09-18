@@ -173,4 +173,4 @@ This section was all about strings, we have covered:
 - Methods vs. functions
 - Concatenation
 
-Next, up we will introduce numbers in Python, namely integers.
+Next, up we will introduce numbers in Python, namely integers and floats. 

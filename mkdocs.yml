@@ -34,6 +34,7 @@ nav:
     - python/variables.md
     - Types:
       - python/types/strings.md
+      - python/types/numbers.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
