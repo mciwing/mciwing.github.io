@@ -95,3 +95,57 @@ age = 20
 print(not(age >= 18)) # not(True) -> False
 ```
 
+---
+
+<figure markdown="span">
+  ![Image title](https://preview.redd.it/j7i00nnpx6211.jpg?width=640&crop=smart&auto=webp&s=d4b58226076d45f0c637fd3789d3ccb547a4a54a){ width=50% }
+</figure>
+
+???+ task "Password strength: Part 1"
+
+    It's your time to check if a password meets certain requirements. 
+    Use the following defined variables `password_length` and 
+    `has_special_characters` to evaluate if the password is secure.
+
+    ```py
+    password_length = 18
+    has_special_characters = False
+    ```
+
+    The password is secure if:
+
+    - it exceeds a certain length (10 characters)
+    - and contains special characters.
+
+    Use comparison together with logical operators to solve the task.
+
+???+ task "Password strength: Part 2"
+
+    To increase security, a third variable is introduced, namely 
+    `already_used` which is a boolean value and indicates whether the password 
+    was already in use. Now, check if all of these requirements are met:
+
+    - Has more than 10 characters
+    - Contains special characters
+    - and was not already used before
+
+    ```py
+    password_length = 18
+    has_special_characters = True
+    already_used = False
+    ```
+
+## Recap
+
+We have covered the basic comparison and logical operators in `Python` 
+:fontawesome-brands-python:.
+
+- Comparisons
+    - `==` for equality
+    - `!=` for inequality
+    - `<`, `>`, `<=`, `>=` for numerical comparisons
+  
+- Logical operators
+    - `and`
+    - `or`
+    - `not`
