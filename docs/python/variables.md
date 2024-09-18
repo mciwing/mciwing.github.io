@@ -37,9 +37,9 @@ Let's start with the first task.
 
 Computers can store lots of information. To do so, in `Python` :fontawesome-brands-python:
 we use variables. A variable is a name that refers to a value. Following code
-snippet, assigns the value `4` to the variable `number`. In general, you pick
-the variable name on the left hand side, assign a value with `=` and the value
-itself is on the right hand side.
+snippet, assigns the value `#!python 4` to the variable `number`. In 
+general, you pick the variable name on the left hand side, assign a value 
+with `=` and the value itself is on the right hand side.
 
 ```py
 number = 4
@@ -54,7 +54,7 @@ number = 4000
 ```
 
 You will notice that none of the cells had any output. To display the value
-of a variable we use the `print()` function.
+of a variable we use the `#!python print()` function.
 
 ### `print()`
 
@@ -84,7 +84,7 @@ print(number)
 
 Comments exist within your code but are not executed. They are used to
 describe your code and are ignored by the `Python` interpreter. Comments
-are prefaced by a `#`.
+are prefaced by a `#!python #`.
 
 ```py
 # this is a comment
@@ -159,14 +159,14 @@ NameError: name 'mesage' is not defined
 
 The output reports that an error occurs in *line 2*. The interpreter shows this
 line to help us spot the error quickly and tells us what kind of error it
-found. In this case, it found a `NameError` and reports that
+found. In this case, it found a `#!python NameError` and reports that
 the variable `mesage` has not been defined. A name error usually means we made
 a spelling mistake when entering the variable’s name or that the variable
 simply does not exist.
 
 ???+ task "Your first fix"
 
-    Fix the `NameError` in your code cell.
+    Fix the `#!python NameError` in your code cell.
 
 ## Recap
 
@@ -176,7 +176,7 @@ In this section, we have covered variables in `Python`
 You have learned (about):
 
 - To create and assign a value to a variable.
-- `print()` to display the value of a variable.
+- `#!python print()` to display the value of a variable.
 - Comments
 - Naming conventions for variables.
-- How to fix a `NameError`.
+- How to fix a `#!python NameError`.
