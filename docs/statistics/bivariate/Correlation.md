@@ -202,30 +202,31 @@ A scatter plot provides a **graphical representation** of the relationship betwe
 
 ??? example
     <iframe src="/assets/statistics/bi_scatter.html" width="100%" height="400px"></iframe>
-        ??? code "Code"
-            ``` py
-            import pandas as pd
 
-            # Create a DataFrame
-            df = pd.DataFrame([(60, 330000), (72, 490000), (111, 600000), (67, 400000) , (90, 455000)], columns=['size', 'price'])
+    ??? code "Code"
+        ``` py
+        import pandas as pd
 
-            import plotly.express as px
+        # Create a DataFrame
+        df = pd.DataFrame([(60, 330000), (72, 490000), (111, 600000), (67, 400000) , (90, 455000)], columns=['size', 'price'])
 
-            # Create a scatter plot
-            fig = px.scatter(df, x="size", y="price")
+        import plotly.express as px
 
-            # Adjust the plot
-            fig.update_layout(
-                xaxis_title_text='Size',
-                yaxis_title_text='Price',
-                title=dict(
-                        text='<b><span style="font-size: 10pt">House Prices: Scatter Plot</span> <br> <span style="font-size:5">Variables: size, price</span></b>',
-                    ),
-            )
+        # Create a scatter plot
+        fig = px.scatter(df, x="size", y="price")
 
-            # Show the plot
-            fig.show()
-            ```
+        # Adjust the plot
+        fig.update_layout(
+            xaxis_title_text='Size',
+            yaxis_title_text='Price',
+            title=dict(
+                    text='<b><span style="font-size: 10pt">House Prices: Scatter Plot</span> <br> <span style="font-size:5">Variables: size, price</span></b>',
+                ),
+        )
+
+        # Show the plot
+        fig.show()
+        ```
 
 ## Recap
 
