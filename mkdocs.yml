@@ -38,6 +38,10 @@ nav:
       - statistics/univariate/Frequency.md
       - statistics/univariate/CentralTend.md
       - statistics/univariate/Dispersion.md
+    - Bivariate Methods:
+      - statistics/bivariate/General.md
+      - statistics/bivariate/Frequency.md
+      - statistics/bivariate/Correlation.md
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true
