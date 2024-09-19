@@ -72,7 +72,7 @@ John
     whether you are making a simple off-by-one error.
 
 
-```py
+```py hl_lines="2"
 beatles = ["John", "Paul", "George", "Ringo"]
 print(beatles[4])
 ```
@@ -89,9 +89,9 @@ IndexError: list index out of range
 
 ... since there is no official 5<sup>th</sup> Beatle. :fontawesome-solid-guitar:
 
-There is a special syntax for accessing the last element in a list. Use the 
-index `#!python -1` to access the last element, `#!python -2` to access the 
-second-to-last element, and so on.
+There is a special syntax for accessing the last element in a `#!python list`.
+Use the index `#!python -1` to access the last element, `#!python -2` to access
+the second-to-last element, and so on.
 
 ```py
 beatles = ["John", "Paul", "George", "Ringo"]
@@ -113,3 +113,125 @@ print(beatles[-2])  # George
     and use `#!python print()` to output:
     `"My favourite language is Python!"`
 
+## List manipulation
+
+`Python` provides several ways to add or remove data to existing lists.
+
+### Adding elements
+
+The simplest way to add a new element to a `#!python list`, is to append it. 
+When you append an item to a `#!python list`, the new element is added at 
+the end.
+
+```py hl_lines="3"
+numbers = [1, 2, 3]
+print(numbers)
+numbers.append(4)
+print(numbers)
+```
+
+... prints:
+
+```
+[1, 2, 3]
+[1, 2, 3, 4]
+```
+
+The `#!python append()` method makes it easy to build lists dynamically. For
+example, you can start with an empty `#!python list` and then add items by 
+repeatedly calling `#!python append()`.
+
+```py hl_lines="2-4"
+numbers = [1.0, 2.0, 0.5]
+numbers.append(4.0)
+numbers.append(3.0)
+numbers.append("one hundred")
+
+print(numbers)
+```
+
+```
+[1.0, 2.0, 0.5, 4.0, 3.0, 'one hundred']
+```
+
+Up until now, our lists contained only one type of elements - strings. However,
+as in the example above, you can store multiple different types of data in a
+`#!python list`. Moreover, you can do nesting (for example, you can store a 
+`#!python list` within a `#!python list` - more on that later). Hence, 
+lists can represent complex data structures.
+Nevertheless, don't mix and match every imaginable data type within a single 
+`#!python list` (just because you can) as it makes the handling of your 
+`#!python list` quite difficult.
+
+???+ info
+
+    Later, we will learn how to perform the same task without repeatedly 
+    calling the same `#!python append()` method over and over.
+
+### Inserting elements
+
+You can add a new element at **any position** in your `#!python list` by using
+the `#!python insert()` method. You do this by specifying the index of the new
+element and the value of the new item.
+
+```py hl_lines="2"
+pokemon = ["Charmander", "Charizard"]
+pokemon.insert(1, "Charmeleon")
+print(pokemon)
+```
+
+which gives:
+
+```
+['Charmander', 'Charmeleon', 'Charizard']
+```
+
+### Removing elements
+
+To remove an item from a `#!python list`, you can use the `#!python remove()` 
+method. You need to specify the value which you want to remove. However, 
+this it will only remove the first occurrence of the item.
+
+```py hl_lines="2"
+pokemon = ["Charmander", "Squirtle", "Charmeleon", "Charizard", "Squirtle"]
+pokemon.remove("Squirtle")
+print(pokemon)
+```
+
+... prints:
+
+```
+['Charmander', 'Charmeleon', 'Charizard', 'Squirtle']
+```
+
+### Popping elements
+
+Sometimes you’ll want to use the value of an item after you remove it from a
+`#!python list`. The `#!python pop()` method removes a specified element of a 
+`#!python list`. Additionally, the item is returned so you can work with that 
+item after removing it. 
+
+The term pop comes from thinking of a `#!python list` as a stack of items and
+popping one item off the top of the stack. In this analogy, the top of a stack 
+corresponds to the end of a `#!python list`.
+
+```py hl_lines="2"
+pokemon = ["Charmander", "Charmeleon", "Bulbasaur", "Charizard"]
+bulbasaur = pokemon.pop(2)
+print(pokemon)
+print(bulbasaur)
+```
+
+... prints:
+
+```
+['Charmander', 'Charmeleon', 'Charizard']
+Bulbasaur
+```
+
+???+ question "List manipulation"
+
+    Define a `#!python list` with a couple of elements (of your choice). Play
+    around with the methods `#!python append()`, `#!python insert()`, 
+    `#!python remove()` and `#!python pop()`. Print the `#!python list` after 
+    each operation to see the changes.
