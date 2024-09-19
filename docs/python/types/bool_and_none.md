@@ -104,7 +104,7 @@ print(type(number)) # <class 'int'>
 
 To explicitly cast a value into a float, use the function `#!python float()`.
 
-???+ task "Casting"
+???+ question "Casting"
     
     For each of the given variables, check whether you can cast them to
     another type. First, print the type of each variable. Then, use

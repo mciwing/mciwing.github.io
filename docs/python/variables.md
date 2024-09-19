@@ -14,7 +14,7 @@ We encourage you to execute **all** upcoming code snippets on your machine.
 You can easily copy each code snippet to your clipboard, by clicking the icon
 in the top right corner. By doing so, you will be prepared for all upcoming
 tasks within the sections. Tasks are indicated by a
-:fontawesome-solid-dumbbell: icon.
+:fontawesome-solid-circle-question:-icon.
 
 We recommend to create a new notebook for each chapter, e.g. create
 `variables.ipynb` for this chapter. Doing so, your notebooks will follow
@@ -22,7 +22,7 @@ the structure of this tutorial.
 
 Let's start with the first task.
 
-???+ task "Notebook + first code cell"
+???+ question "Notebook + first code cell"
 
     Create a new Jupyter notebook and name it `variables.ipynb`.
     Paste the following code snippet into a new cell and execute it.
@@ -164,7 +164,7 @@ the variable `mesage` has not been defined. A name error usually means we made
 a spelling mistake when entering the variable’s name or that the variable
 simply does not exist.
 
-???+ task "Your first fix"
+???+ question "Your first fix"
 
     Fix the `#!python NameError` in your code cell.
 

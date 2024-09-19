@@ -106,7 +106,7 @@ print(34.3 + 56.4)
 90.69999999999999
 ```
 
-???+ task "Calculate the BEP"
+???+ question "Calculate the BEP"
 
     Use variables and arithmetic operations to calculate the break-even point (the number of units that need to be sold to cover the costs) for a product. The break-even point is given as:
 
