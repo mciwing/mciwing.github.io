@@ -166,62 +166,63 @@ A single metric alone is not sufficient to fully characterize a distribution. Th
 
 A boxplot is a visualization of a distribution and provides a graphical representation of the Five Number Summary. The first and third quartiles ($Q_1$ and $Q_3$) mark the ends of the box, while the interquartile range (IQR) represents the length of the box. The median is depicted as a line within the box. Two lines, known as whiskers, extend from the box to the smallest and largest observations, provided these values are no more than $1.5\times$IQR above $Q_3$ or below $Q_1$. Outliers are marked separately.
 
-<div class="grid cards" markdown>
+??? example
+    <div class="grid cards" markdown>
 
--   __Without Outlier__
+    -   __Without Outlier__
 
-    ---
-    <iframe src="/assets/statistics/uni_box_ohne_out.html" width="100%" height="400px"></iframe>
-    ??? code "Code"
-        ``` py
-        import plotly.express as px
-        import pandas as pd
+        ---
+        <iframe src="/assets/statistics/uni_box_ohne_out.html" width="100%" height="400px"></iframe>
+        ??? code "Code"
+            ``` py
+            import plotly.express as px
+            import pandas as pd
 
-        Temp = [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
+            Temp = [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
 
-        # Generate Box Plot
-        fig = px.box(pd.DataFrame(Temp))
+            # Generate Box Plot
+            fig = px.box(pd.DataFrame(Temp))
 
-        # Adjust the plot
-        fig.update_layout(
-            xaxis_title_text=' ',
-            yaxis_title_text='Temperature',
-            title=dict(
-                    text='<b><span style="font-size: 10pt">Boxplot - no Outlier</span> <br> <span style="font-size:5">variable: Temperature</span></b>',
-                ),
-        )
+            # Adjust the plot
+            fig.update_layout(
+                xaxis_title_text=' ',
+                yaxis_title_text='Temperature',
+                title=dict(
+                        text='<b><span style="font-size: 10pt">Boxplot - no Outlier</span> <br> <span style="font-size:5">variable: Temperature</span></b>',
+                    ),
+            )
 
-        # Show the plot
-        fig.show()
-        ```
+            # Show the plot
+            fig.show()
+            ```
 
--   __With Outlier__
+    -   __With Outlier__
 
-    ---
-    <iframe src="/assets/statistics/uni_box_mit_out.html" width="100%" height="400px"></iframe>
-    ??? code "Code"
-        ``` py
-        import plotly.express as px
-        import pandas as pd
+        ---
+        <iframe src="/assets/statistics/uni_box_mit_out.html" width="100%" height="400px"></iframe>
+        ??? code "Code"
+            ``` py
+            import plotly.express as px
+            import pandas as pd
 
-        Temp2 = [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8, 50, 60]
+            Temp2 = [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8, 50, 60]
 
-        # Generate Box Plot
-        fig = px.box(pd.DataFrame(Temp2))
+            # Generate Box Plot
+            fig = px.box(pd.DataFrame(Temp2))
 
-        # Adjust the plot
-        fig.update_layout(
-            xaxis_title_text=' ',
-            yaxis_title_text='Temperature',
-            title=dict(
-                    text='<b><span style="font-size: 10pt">Boxplot - Outlier</span> <br> <span style="font-size:5">variable: Temperature</span></b>',
-                ),
-        )
+            # Adjust the plot
+            fig.update_layout(
+                xaxis_title_text=' ',
+                yaxis_title_text='Temperature',
+                title=dict(
+                        text='<b><span style="font-size: 10pt">Boxplot - Outlier</span> <br> <span style="font-size:5">variable: Temperature</span></b>',
+                    ),
+            )
 
-        # Show the plot
-        fig.show()
-        ```
-</div>
+            # Show the plot
+            fig.show()
+            ```
+    </div>
 
 
 ## Recap
@@ -235,13 +236,18 @@ A boxplot is a visualization of a distribution and provides a graphical represen
 
 The following distributions have the same mean, median and mode
 
-<div style="display: flex; justify-content: space-between;">
-<div style="flex: 1; margin-right: 5px;">
+<div class="grid cards" markdown>
+
+-   __Without Outlier__
+
+    ---
     <iframe src="/assets/statistics/uni_misleading1.html" width="100%" height="400px"></iframe>
-</div>
-<div style="flex: 1; margin-left: 5px;">
+
+-   __With Outlier__
+
+    ---
     <iframe src="/assets/statistics/uni_misleading2.html" width="100%" height="400px"></iframe>
-</div>
+
 </div>
 
 ??? code "Code"
@@ -292,3 +298,28 @@ The following distributions have the same mean, median and mode
     print('Median: ' + str(np.median(b)))
     print('Mode: ' + str(stats.mode(b)))
     ```
+
+## Tasks
+???+ question "Task"
+    Use the following dataset:
+    ``` py
+    from ucimlrepo import fetch_ucirepo 
+    
+    # fetch dataset 
+    cars = fetch_ucirepo(id=9) 
+    # https://archive.ics.uci.edu/dataset/9/auto+mpg
+    
+    # data (as pandas dataframes) 
+    data = cars.data.features
+    data = data.join(cars.data.ids)
+
+    # Show the first 5 rows
+    data.head()
+    ```
+    Work on the following task: 
+
+    1. Calculate all useful and meaningful measure of central tendency (mean, median, mode) for the following attributes (think about attribute types)
+        - `car_name`
+        - `origin`
+        - `displacement`
+    2. Calculate the quartiles and plot a Boxplot fo the attribute `acceleration`

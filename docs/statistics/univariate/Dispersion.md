@@ -197,3 +197,29 @@ We previously encountered the issue that variance and standard deviations of dif
 - For this reason, standard deviation is a more suitable measure for interpretation.
 - To better compare standard deviations across datasets, the coefficient of variation is used.
 - There are different formulas for variance depending on whether the entire population or a sample is being analyzed
+
+## Tasks
+???+ question "Task"
+    Use the following dataset:
+    ``` py
+    from ucimlrepo import fetch_ucirepo 
+    
+    # fetch dataset 
+    cars = fetch_ucirepo(id=9) 
+    # https://archive.ics.uci.edu/dataset/9/auto+mpg
+    
+    # data (as pandas dataframes) 
+    data = cars.data.features
+    data = data.join(cars.data.ids)
+
+    # Show the first 5 rows
+    data.head()
+    ```
+    Work on the following task: 
+
+    1. For the attribute `acceleration` calculate the following measures (use the sample formula - not population):
+        - Range
+        - IQR --> compare to the boxplot from the section *Measures of Central Tendency*
+        - Variance
+        - Standard Deviation
+        - CV

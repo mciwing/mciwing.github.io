@@ -1,0 +1,3 @@
+# General information 
+
+In many applications, there is an interest not only in individual characteristics but also in multiple features. This chapter introduces the fundamental statistical methods for appropriately processing and graphically representing bivariate data. The topics covered include **frequency distribution** (contingency table, conditional frequencies) and **measures of correlation**. Bivariate analysis means that exactly two characteristics, attributes, or variables are considered. For example, it can explore the relationship between educational level and unemployment.
