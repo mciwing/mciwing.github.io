@@ -269,3 +269,24 @@ Absolute and relative frequencies are not suitable for determining the relations
 - The conditional frequency examines the frequency distribution of one variable while fixing the second variable.
 
 ## Tasks
+
+???+ question "Task"
+    Use the following dataset:
+    ``` py
+    from ucimlrepo import fetch_ucirepo 
+    
+    # fetch dataset 
+    cars = fetch_ucirepo(id=9) 
+    # https://archive.ics.uci.edu/dataset/9/auto+mpg
+    
+    # data (as pandas dataframes) 
+    data = cars.data.features
+
+    # Show the first 5 rows
+    data.head()
+    ```
+    Work on the following task: 
+
+    1. Generate a 2D Histogram for the variables **origin** and **horsepower** (think about attribute types, title, labeling of the axes). Interpret the results. 
+    2. Calculate the crosstab for the absolute frequencies of the variables **origin** and **cylinders**
+    3. Calculate the conditional crosstab for the relative frequencies to answer the following question: Whats the cylinder distributed within each origin? 
