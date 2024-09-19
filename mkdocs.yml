@@ -39,6 +39,8 @@ nav:
       - python/types/numbers.md
       - python/types/bool_and_none.md
     - python/comparisons_and_logic.md
+    - Containers:
+      - python/containers/list.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
