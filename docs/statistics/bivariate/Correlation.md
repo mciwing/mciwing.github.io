@@ -254,6 +254,6 @@ A scatter plot provides a **graphical representation** of the relationship betwe
     ```
     Work on the following task: 
 
-    1. Analyze the correlation between the variables **horsepower** and **cylinders**. Therefore calculate the covariance, pearson correlation coefficient and spearman correlation coefficient. Interpret the results.
-    2. Generate a scatter plot for the variabels **horsepower** and **cylinders**. Compare the before result with the calculated measures. 
+    1. Analyze the correlation between the variables `horsepower` and `cylinders`. Therefore calculate the covariance, pearson correlation coefficient and spearman correlation coefficient. Interpret the results.
+    2. Generate a scatter plot for the variabels `horsepower` and `cylinders`. Compare the before result with the calculated measures. 
     3. Take a closer look on the different variables and the corresponding attribute type. Is there a variable, where the calculation of the correlation makes no sense? 

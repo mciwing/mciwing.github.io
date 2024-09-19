@@ -319,7 +319,7 @@ The following distributions have the same mean, median and mode
     Work on the following task: 
 
     1. Calculate all useful and meaningful measure of central tendency (mean, median, mode) for the following attributes (think about attribute types)
-        - **car_name**
-        - **origin**
-        - **displacement**
-    2. Calculate the quartiles and plot a Boxplot fo the attribute **acceleration**
+        - `car_name`
+        - `origin`
+        - `displacement`
+    2. Calculate the quartiles and plot a Boxplot fo the attribute `acceleration`

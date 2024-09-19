@@ -524,8 +524,8 @@ Tables and charts are well-suited for providing an overview of the data. However
         - Look at the [website](https://archive.ics.uci.edu/dataset/9/auto+mpg) of the dataset and get familiar 
         - What attribute types do we have? (use `cars.variables`)
     2. Generate the following plot (think about attribute types, title, labeling of the axes)
-        - Histogram | Absolute Frequency | Variable: **origin**
-        - Bar Chart | Absoulte Frequency | no binning | Variable: **weight**
-        - Histogram | Absoulte Frequency | automatic binning | Variable: **weight** 
-        - Histogram | Relative Frequency | cumulated | Variable: **hoursepower**
-        - Pie Chart | Relative Frequency | Variable: **cylinders**
+        - Histogram | Absolute Frequency | Variable: `origin`
+        - Bar Chart | Absoulte Frequency | no binning | Variable: `weight`
+        - Histogram | Absoulte Frequency | automatic binning | Variable: `weight` 
+        - Histogram | Relative Frequency | cumulated | Variable: `hoursepower`
+        - Pie Chart | Relative Frequency | Variable: `cylinders`

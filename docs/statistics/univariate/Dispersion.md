@@ -217,7 +217,7 @@ We previously encountered the issue that variance and standard deviations of dif
     ```
     Work on the following task: 
 
-    1. For the attribute **acceleration** calculate the following measures (use the sample formula - not population):
+    1. For the attribute `acceleration` calculate the following measures (use the sample formula - not population):
         - Range
         - IQR --> compare to the boxplot from the section *Measures of Central Tendency*
         - Variance

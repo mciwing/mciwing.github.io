@@ -181,7 +181,7 @@ The representation of the joint distribution of discrete features with few categ
 
 ## Conditional frequency
 
-Absolute and relative frequencies are not suitable for determining the relationship between variables. For example, the frequency of regions for 'New_Visitors' and 'Returning_Visitors' cannot be directly compared because the sizes of both groups are different. The conditional relative frequency allows for this comparison by accounting for the differences in group sizes.
+Absolute and relative frequencies are not suitable for determining the relationship between variables. For example, the frequency of regions for `New_Visitors` and `Returning_Visitors` cannot be directly compared because the sizes of both groups are different. The conditional relative frequency allows for this comparison by accounting for the differences in group sizes.
 
 
 ???+ defi "Definition"
@@ -287,6 +287,6 @@ Absolute and relative frequencies are not suitable for determining the relations
     ```
     Work on the following task: 
 
-    1. Generate a 2D Histogram for the variables **origin** and **horsepower** (think about attribute types, title, labeling of the axes). Interpret the results. 
-    2. Calculate the crosstab for the absolute frequencies of the variables **origin** and **cylinders**
+    1. Generate a 2D Histogram for the variables `origin` and `horsepower` (think about attribute types, title, labeling of the axes). Interpret the results. 
+    2. Calculate the crosstab for the absolute frequencies of the variables `origin` and `cylinders`
     3. Calculate the conditional crosstab for the relative frequencies to answer the following question: Whats the cylinder distributed within each origin? 
