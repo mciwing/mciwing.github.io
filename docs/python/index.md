@@ -12,7 +12,7 @@ will teach you the basics of the Python programming language.
 
 <div class="grid cards" markdown>
 
--   :fontawesome-brands-python: __Easy of use__
+-   :fontawesome-brands-python: __Ease of use__
 
     ---
 
