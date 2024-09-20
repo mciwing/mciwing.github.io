@@ -1,6 +1,12 @@
 # MCI | Wirtschaftsingenieurwesen
 
 
+???+ info ":fontawesome-solid-person-digging:"
+    
+    This site is currently under construction. Be aware, the content can change
+    at any time.
+
+
 ## Topics
 
 <div class="grid cards" markdown>
