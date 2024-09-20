@@ -373,3 +373,30 @@ the copied one. You can read about this in more detail
     
     print(id(original_list) == id(copied_list))  # True
     ```
+
+???+ question "Unknown method"
+    
+    Use the given `#!python list` (don't worry about the syntax, it's just a 
+    short expression to create a huge `#!python list`):
+
+    ```py
+    long_list = [True] * 1000
+    ```
+    
+    - Check the length of the `#!python list`.
+    - Apply a method that deletes all elements in the `#!python list` and 
+    returns an empty list `[]`. You might need to use Google, 
+    since it is a method not previously discussed.
+    - Check the length of the `#!python list` again.
+
+## Recap
+
+We extensively covered lists and their manipulation.
+
+- Accessing elements with indices (including slicing)
+- The `#!python IndexError`
+- Adding elements with `#!python append()` and `#!python insert()`
+- Removing elements with `#!python remove()` and `#!python pop()`
+- Sorting with `#!python sort()` and `#!python sorted()`
+- Length of a `#!python list` with `#!python len()`
+- Make a copy with `#!python copy()`
