@@ -235,3 +235,55 @@ Bulbasaur
     around with the methods `#!python append()`, `#!python insert()`, 
     `#!python remove()` and `#!python pop()`. Print the `#!python list` after 
     each operation to see the changes.
+
+## Organizing a `#!python list`
+
+For various reasons, often, your lists will be unordered. If you want to 
+present your `#!python list` in a particular order, you can use the method `#!python 
+sort()`, or the function `#!python sorted()`.
+
+### `#!python sort()`
+
+The `#!python sort()` method operates on the `#!python list` itself and 
+changes its order.
+
+```py hl_lines="2 5"
+numbers = [5, 4, 1, 3, 2]
+numbers.sort()  # sort in ascending order
+print(numbers)
+
+numbers.sort(reverse=True)  # sort in descending order
+print(numbers)
+```
+
+above code snippet returns:
+
+```
+[1, 2, 3, 4, 5]
+[5, 4, 3, 2, 1]
+```
+
+### `#!python sorted()`
+
+The `#!python sorted()` **function** maintains the original order of a 
+`#!python list` and returns a sorted `#!python list` as well.
+
+```py hl_lines="2"
+numbers = [5, 4, 1, 3, 2]
+sorted_numbers = sorted(numbers)
+
+print(f"Original list: {numbers}; Sorted list: {sorted_numbers}")
+```
+which prints:
+
+```
+Original list: [5, 4, 1, 3, 2]; Sorted list: [1, 2, 3, 4, 5]
+```
+
+## Length
+
+You can easily find the length of a `#!python list` with `#!python len()`.
+
+```py
+print(len([3.0, 1.23, 0.5]))  # 3
+```
