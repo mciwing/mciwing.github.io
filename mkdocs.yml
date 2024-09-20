@@ -42,6 +42,7 @@ nav:
     - Containers:
       - python/containers/list.md
       - python/containers/dict.md
+      - python/containers/tuple.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
