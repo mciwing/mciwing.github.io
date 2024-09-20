@@ -41,6 +41,7 @@ nav:
     - python/comparisons_and_logic.md
     - Containers:
       - python/containers/list.md
+      - python/containers/dict.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:

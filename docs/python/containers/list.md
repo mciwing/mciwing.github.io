@@ -1,4 +1,4 @@
-# List
+# Lists
 
 ## Introduction
 
