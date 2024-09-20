@@ -287,3 +287,89 @@ You can easily find the length of a `#!python list` with `#!python len()`.
 ```py
 print(len([3.0, 1.23, 0.5]))  # 3
 ```
+
+## Slicing
+
+To make a slice (part of a `#!python list`), you specify the index of the 
+first and last
+elements you want to work with. Elements **up until** the second index are 
+included. To output the first three elements in a `#!python list`, you would request
+indices 0 through 3, which would return elements 0, 1, and 2.
+
+```py
+players = ["charles", "martina", "michael", "florence", "eli"]
+print(players[0:3])
+```
+
+???+ question "Slicing"
+
+    Define a `#!python list` of your choice with at least `#!python 5` 
+    elements. 
+    
+    - Now, perform a slice from the second to (including) the fourth element.
+    - Next, omit the first index in the slice (only omit the number!). What 
+    happens?
+    - Lastly, re-add the first index and omit the second index of your 
+    slice. Print the result.
+
+## Copy
+
+To copy a `#!python list`, you can use the `#!python copy()` method.
+
+```py
+original_list = [1, 2, 3]
+copied_list = original_list.copy()
+
+# perform some changes to both lists
+original_list.append(4)
+copied_list.insert(0, "zero")
+
+print(f"Original list: {original_list}, Copied list: {copied_list}")
+```
+
+which prints:
+
+```
+Original list: [1, 2, 3, 4], Copied list: ['zero', 1, 2, 3]
+```
+
+### Be careful!
+
+You might wonder why we can't simply do something along the lines of 
+`#!python copied_list = original_list`. With lists, we have to be careful, 
+as this syntax simply creates a reference to the original `#!python list`.
+Let's look at an example:
+
+```py
+original_list = [1, 2, 3]
+copied_list = original_list
+
+# perform some changes to the original list
+original_list.append(4)
+
+print(f"Original list: {original_list}, Copied list: {copied_list}")
+```
+
+which leaves us with:
+```
+Original list: [1, 2, 3, 4], Copied list: [1, 2, 3, 4]
+```
+
+As you can see, the changes to the original `#!python list` are reflected in 
+the copied one. You can read about this in more detail 
+[here](https://realpython.com/pointers-in-python/).
+
+
+???+ note
+
+    We can actually check whether both lists point to the same object in memory
+    by using `#!python id()` which returns the memory address of an object. 
+    Just remember, to be careful when copying lists and check if your program 
+    behaves as intended!
+
+    ```py
+    original_list = [1, 2, 3]
+    copied_list = original_list
+    
+    print(id(original_list) == id(copied_list))  # True
+    ```
