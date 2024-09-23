@@ -1,4 +1,4 @@
-# `#!python for`
+# Loops - `#!python for`
 
 ## Introduction
 
@@ -86,7 +86,7 @@ watch for a few common indentation errors.
 
 #### Expected indentation
 
-```py
+```py hl_lines="2"
 for number in [1, 2, 3]:
 print(number)
 ```
@@ -103,7 +103,7 @@ block of code after the `#!python for` statement.
 
 #### Unexpected indentation
 
-```py
+```py hl_lines="2"
 message = "Hello"
     print(message)
 ```
@@ -116,3 +116,77 @@ IndentationError: unexpected indent
 ```
 
 In this case, the code snippet contains an unnecessary indentation.
+
+???+ question
+    
+    Square each number in a given list and print the result.
+    First, initialize a list of numbers from 1 to 10. Square each number and
+    `#!python print` it. Use a `#!python for` loop.
+
+
+## `#!python range()`
+
+The `#!python range()` function makes it easy to generate a series of numbers. 
+For example, you can use `#!python range()` to print a series of numbers like
+this:
+
+```py
+for value in range(3):
+  print(value)
+```
+
+```title=">>> Output"
+0
+1
+2
+```
+
+Remember, that `Python` 'starts counting at `#!python 0`'. `#!python 3` is not 
+included in the output, as `#!python range()` generates a sequence up to, but not including, the
+number you provide. You can also pass two arguments to `#!python range()`, the first and
+the last number of the sequence. In this case, the sequence will start at the
+first number and end at the last number minus one.
+
+```py
+for value in range(3, 6):
+    print(value)
+```
+
+```title=">>> Output"
+3
+4
+5
+```
+
+???+ question
+
+    Use `#!python range()` to build a `#!python list` which holds the numbers
+    from 15 to 20 - including 20.
+
+
+???+ question
+
+    Write a `#!python for` loop to calculate the growth of savings over a 
+    period of time. Use following formula to calculate the future value of 
+    savings in year $t$:
+
+    $$
+    \text{A} = \text{P} \times \left(1 + \frac{\text{r}}{100} \right)^{\text{t}}
+    $$
+    
+    where:
+
+    - $\text{A}$ is the future value of the savings account or investment.
+    - $\text{P}$ is the present value of the savings account or investment.
+    - $\text{r}$ is the annual interest rate.
+    - $\text{t}$ is the number of years the money is invested for.
+    
+    Given values:
+    
+    - $\text{P} = 1000$
+      - $\text{r} = 5$
+    
+    Print the future value of the savings account over a period of 10 years. 
+    Skip each second year. Use 
+    [`Python`s documentation on range()](https://docs.python.org/3.12/library/stdtypes.html#range)
+    as a starting point.
