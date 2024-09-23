@@ -117,7 +117,7 @@ IndentationError: unexpected indent
 
 In this case, the code snippet contains an unnecessary indentation.
 
-???+ question
+???+ question "Square numbers"
     
     Square each number in a given list and print the result.
     First, initialize a list of numbers from 1 to 10. Square each number and
@@ -158,13 +158,13 @@ for value in range(3, 6):
 5
 ```
 
-???+ question
+???+ question "`#!python range()`"
 
     Use `#!python range()` to build a `#!python list` which holds the numbers
     from 15 to 20 - including 20.
 
 
-???+ question
+???+ question "Savings account growth"
 
     Write a `#!python for` loop to calculate the growth of savings over a 
     period of time. Use following formula to calculate the future value of 
@@ -211,7 +211,7 @@ Maximum: 8.38
 Sum: 22.23
 ```
 
-???+ question
+???+ question "Calculate the average"
 
     Calculate the average of following list:
     ```py
@@ -226,7 +226,7 @@ A list comprehension combines a `#!python for` loop to create a new list in
 a single line.
 
 
-???+ question
+???+ question "Rewrite a list comprehension"
 
     Rewrite the following list comprehension in a regular for-loop to 
     achieve the same result:
@@ -275,7 +275,7 @@ P300 Hinge
 
 ### `#!python values()`, `#!python keys()`
 
-???+ question
+???+ question "Dictionary methods"
 
     Define a (non-empty) dictionary of your choice and use both methods
     `.values()` and `.keys()` to access solely values and keys respectively.
