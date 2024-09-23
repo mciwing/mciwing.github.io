@@ -152,3 +152,105 @@ Please create an account first!
     As you might have noticed, you can use a single `#!python if` statement or
     `#!python if` in combination with `#!python else`. For multiple conditions 
     you can add as many `#!python elif` parts as you wish.
+
+## `#!python while`
+
+The `#!python for` loop takes an iterable and executes a block of 
+code once for each element. In contrast, the `#!python while` loop runs as 
+long as a certain condition is `#!python True`.
+
+For instance, you can use a `#!python while` loop to count up through a 
+series of numbers. Here is an example:
+
+```py hl_lines="4"
+# set a counter
+current_number = 1
+
+while current_number <= 5:
+  print(current_number)
+  # increment the counter value by one
+  current_number = current_number + 1
+```
+
+```title=">>> Output"
+1
+2
+3
+4
+5
+```
+
+Note, that the variable, that is checked in the `#!python while`-condition 
+must be defined prior to the loop, otherwise we will encounter a `#!python NameError`.
+
+
+???+ question "While loop"
+    
+    Write some code, to print all **even** numbers up to 42 using a while 
+    loop.
+
+## Detour: User input
+
+Most programs are written to solve an end user’s problem. To do so, usually 
+we need to get some information from the user. For a simple example, let’s 
+say someone wants to enter a username.
+
+You can store the user input in the variable `user_name` like in the example 
+below.
+
+```py
+user_name = input("Please enter your username: ")
+```
+
+
+## `#!python break`
+
+To exit any loop immediately without running any remaining code, use the 
+`#!python break` statement. The `#!python break` statement directs the flow of 
+your program; you can use it to control which lines of code are executed and 
+which aren’t, so the program only executes code that you want it to, when you
+want it to.
+
+````py hl_lines="3"
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+````
+
+```title=">>> Output"
+0
+1
+2
+```
+
+## `#!python continue`
+
+Rather than breaking out of a loop entirely, you can use the `#!python continue` 
+statement to return to the beginning of the loop based on the result of a 
+condition.
+
+```py hl_lines="3"
+for i in range(5):
+    if i == 3:
+        continue
+    print(i)
+```
+
+```title=">>> Output"
+0
+1
+2
+4
+```
+
+## Recap
+
+In this section we have expanded on control structures. We discussed:
+
+- `#!python if` statements and how to use them
+- `#!python else` clauses
+- `#!python elif` statements for multiple conditions
+- `#!python while` loops
+- `#!python break` and `#!python continue` statements for more 'fine-grained'
+  control
