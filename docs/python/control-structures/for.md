@@ -190,3 +190,104 @@ for value in range(3, 6):
     Skip each second year. Use 
     [`Python`s documentation on range()](https://docs.python.org/3.12/library/stdtypes.html#range)
     as a starting point.
+
+## Detour: Simple statistics on lists with numbers
+
+A few functions are specific to lists of numbers. For example, you
+can easily find the minimum, maximum, and sum of a list of numbers:
+
+```py
+numbers = [1.0, 8.38, 3.14, 7.0, 2.71]
+print(
+    f"Minimum: {min(numbers)}",
+    f"Maximum: {max(numbers)}",
+    f"Sum: {sum(numbers)}", sep="\n"
+)
+```
+
+```title=">>> Output"
+Minimum: 1.0
+Maximum: 8.38
+Sum: 22.23
+```
+
+???+ question
+
+    Calculate the average of following list:
+    ```py
+    numbers = [4.52, 3.14, 2.71, 1.0, 8.38]
+    ```
+
+## List comprehensions
+
+... are a concise way to create lists.
+
+A list comprehension combines a `#!python for` loop to create a new list in
+a single line.
+
+
+???+ question
+
+    Rewrite the following list comprehension in a regular for-loop to 
+    achieve the same result:
+    
+    ```py
+    squares = [value**2 for value in range(1,11)]
+    print(squares)
+    ```
+
+    ```title=">>> Output"
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    ```
+
+## Looping over dictionaries
+
+As previously discussed, you can not only loop over a `#!python list` but 
+using a variety of different data types such as dictionaries.
+You can loop over a dictionary’s key-value pairs, solely over the keys 
+or just the values.
+
+### `#!python items()`
+
+Using the `.items()` method, we can loop over the key-value pairs. Take note,
+that the method returns two values, which we store in
+two separate variables (`key` and `value`).
+
+We can freely choose the variable names in the `#!python for`-loop. It does 
+not have to be `key` and `value` respectively.
+
+```py hl_lines="7"
+parts = {
+    "P100": "Bolt",
+    "P200": "Screw",
+    "P300": "Hinge",
+}
+
+for key, value in parts.items():
+    print(key, value)
+```
+
+```title=">>> Output"
+P100 Bolt
+P200 Screw
+P300 Hinge
+```
+
+### `#!python values()`, `#!python keys()`
+
+???+ question
+
+    Define a (non-empty) dictionary of your choice and use both methods
+    `.values()` and `.keys()` to access solely values and keys respectively.
+
+## Recap
+
+With the introduction of the `#!python for` loop, you can now start to 
+automate re-occurring tasks. We have covered:
+
+- Looping over lists
+- Indentation and possible resulting `#!python IndentationError`
+- `#!python range()` to generate a series of numbers
+- Simple statistics on lists of numbers
+- List comprehensions
+- Specific methods to loop over dictionaries
