@@ -132,7 +132,6 @@ These values are very similar and suggest a strong correlation.
 
     # Show the plot
     fig.show()
-    fig.write_html("outputpic/regression_scatter_unscale1.html", full_html=False, include_plotlyjs='cdn')
 
 
     # Create Plotly Express figure
