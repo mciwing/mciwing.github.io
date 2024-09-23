@@ -24,25 +24,24 @@ indented block following the test. If the condition evaluates to `True`,
 If the test evaluates to `False`, the code following the `#!python if` is ignored.
 
 ```py
-age = 27
+user = "admin"
 
-if age >= 18:
-  print("You're allowed to enter")
+if user == "admin":
+  print(f"Welcome {user}!")
 ```
 
 ```title=">>> Output"
-You're allowed to enter
+Welcome admin!
 ```
 
-First, the condition `#!python age > 18` is evaluated. If it evaluates to 
-`#!python True`, the 
-indented print is executed. If the condition evaluates to `#!python False`, 
-the indented code block is ignored.
+First, the condition `#!python user == "admin"` is evaluated. If it 
+evaluates to `#!python True`, the indented print is executed. If the condition
+evaluates to `#!python False`, the indented code block is ignored.
 
 Indentation plays the same role in `#!python if` statements as it did in 
 `#!python for` loops (see the [previous section](for.md#indentationerror)).
 
-???+ question "Password strength"
+???+ question "Password strength: Part 1"
 
     <figure markdown="span">
       ![Secure lock](https://preview.redd.it/j7i00nnpx6211.jpg?width=640&crop=smart&auto=webp&s=d4b58226076d45f0c637fd3789d3ccb547a4a54a){ width=50% }
@@ -88,4 +87,68 @@ Indentation plays the same role in `#!python if` statements as it did in
     
     Now, loop over the passwords and check if each password exceeds the 
     character limit of 12. If so, print the password.
+
+## `#!python else`
+
+Previously, every time the condition in the `#!python if` statement 
+evaluated to `#!python False`, 
+no action was taken. Hence, the `#!python else` clause is introduced which 
+allows you to define a set of actions that are executed when the conditional
+test fails.
+
+```py
+user = "random_user"
+
+if user == "admin":
+  print(f"Welcome {user}!")
+else:
+  print("Only admins can enter this area!")
+```
+
+```title=">>> Output"
+Only admins can enter this area!
+```
+
+???+ question "Password strength: Part 2"
     
+    Let's expand on our previous example. Re-use your code to check the length
+    of the generated passwords. Now, we would like to store all passwords that
+    did not meet our criteria in the empty list `invalid_passwords`.
+
+    *Hint*: Introduce an `else` statement to save the invalid passwords.
+
+## `#!python elif`
+
+Often, you’ll need to test more than two possible situations, and to evaluate
+these, you can use an `if-elif-else` syntax. `Python` executes only one
+block in an `if-elif-else` chain. It runs each conditional test in order until
+one passes. When a test passes, the code following that test is executed and
+the rest is skipped.
+
+```py hl_lines="12"
+user = "xX_user_Xx"
+registered_users = [
+    "admin",
+    "guest",
+    "SwiftShark22",
+    "FierceFalcon66",
+    "BraveWolf11"
+]
+
+if user == "admin":
+  print(f"Welcome {user}!")
+elif user not in registered_users:
+  print("Please create an account first!")
+else:
+  print("Only admins can enter this area!")
+```
+
+```title=">>> Output"
+Please create an account first!
+```
+
+???+ info
+    
+    As you might have noticed, you can use a single `#!python if` statement or
+    `#!python if` in combination with `#!python else`. For multiple conditions 
+    you can add as many `#!python elif` parts as you wish.
