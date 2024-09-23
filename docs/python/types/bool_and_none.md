@@ -41,14 +41,13 @@ print(message)
 
 ... results in.
 
-```
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-<ipython-input-17-80a141e301d6> in <cell line: 2>()
-      1 age = 23
-----> 2 message = "Happy " + age + "rd Birthday!"
-      3 print(message)
-
+```pytb
+Traceback (most recent call last):
+  File "C:\\IPython\core\interactiveshell.py", line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-34-80a141e301d6>", line 2, in <module>
+    message = "Happy " + age + "rd Birthday!"
+              ~~~~~~~~~^~~~~
 TypeError: can only concatenate str (not "int") to str
 ```
 

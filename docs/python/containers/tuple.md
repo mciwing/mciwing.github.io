@@ -35,7 +35,7 @@ coordinates[0] = 50.102
 
 we will encounter following error:
 
-```
+```pytb
 Traceback (most recent call last):
   File "<ipython-input-29-d74dc80ea879>", line 2, in <module>
     coordinates[0] = 50.102
