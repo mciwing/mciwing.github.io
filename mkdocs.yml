@@ -43,6 +43,8 @@ nav:
       - python/containers/list.md
       - python/containers/dict.md
       - python/containers/tuple.md
+    - Control Structures:
+      - python/control-structures/for.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
