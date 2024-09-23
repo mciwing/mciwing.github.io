@@ -85,7 +85,7 @@ type()`. Functions are standalone entities that perform a specific task.
 On the other hand, methods are associated with objects. In this case, the 
 `#!python title()` method is associated with the string object `name`.
 
-???+ task "String methods"
+???+ question "String methods"
 
     You start with the variable `input_string` that holds the value 
     `#!python "fEyD rAuThA"`. 
@@ -152,7 +152,7 @@ Hello, Alia Atreides!
 Hello, alia atreides!
 ```
 
-???+ task "A quote"
+???+ question "A quote"
 
     Find a quote from a famous person you admire. Store the 
     quote and name in variables and print both with an f-string.

@@ -101,7 +101,7 @@ print(not(age >= 18)) # not(True) -> False
   ![Image title](https://preview.redd.it/j7i00nnpx6211.jpg?width=640&crop=smart&auto=webp&s=d4b58226076d45f0c637fd3789d3ccb547a4a54a){ width=50% }
 </figure>
 
-???+ task "Password strength: Part 1"
+???+ question "Password strength: Part 1"
 
     It's your time to check if a password meets certain requirements. 
     Use the following defined variables `password_length` and 
@@ -119,7 +119,7 @@ print(not(age >= 18)) # not(True) -> False
 
     Use comparison together with logical operators to solve the task.
 
-???+ task "Password strength: Part 2"
+???+ question "Password strength: Part 2"
 
     To increase security, a third variable is introduced, namely 
     `already_used` which is a boolean value and indicates whether the password 
