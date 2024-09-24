@@ -85,8 +85,93 @@ We will continue with another exercise.
     calculate the variance. Hint: Use both the `#!python random` and 
     `#!python statistics` package.
 
+## Installing packages
 
+To get access to all the packages available online, we need to install them
+using a package manager. One such manager is `pip` which is 
+automatically installed alongside `Python`. To check if `pip` is available 
+on your system add following command as a code cell to your Jupyter notebook
+and execute it.
 
+```
+!pip
+```
 
+... you should see a list of commands and their description:
+
+```
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  inspect                     Inspect the python environment.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+...
+```
+
+???+ info
+
+    The exlamation mark (!) is used to run shell commands directly from your 
+    notebook. Alternatively, if you don't want to enter commands in your
+    notebook, open a new command prompt and execute the same command without
+    the exclamation mark.
+
+Now, we'll install our first package, called [`seaborn`](https://seaborn.pydata.org/).
+To install a package use pip's `install` command followed by the package name 
+(`!pip install <package-name>`). Execute the cell.
+Don't worry, it might take a couple of seconds.
+
+```
+!pip install seaborn
+```
+
+`seaborn` is a quite common package to visualize data. Now, run the following
+code to create your first plot. The code snippet was copied from the
+`seaborn` documentation
+[here](https://seaborn.pydata.org/examples/grouped_boxplot.html).
+
+```py
+# taken from https://seaborn.pydata.org/examples/grouped_boxplot.html
+import seaborn as sns
+sns.set_theme(style="ticks", palette="pastel")
+
+# Load the example tips dataset
+tips = sns.load_dataset("tips")
+
+# Draw a nested boxplot to show bills by day and time
+sns.boxplot(x="day", y="total_bill",
+            hue="smoker", palette=["m", "g"],
+            data=tips)
+sns.despine(offset=10, trim=True)
+```
+
+You don't have to fully understand the code snippet. It's more about the
+successful usage of a package. You might have noticed, that you didn't solely
+install `seaborn`. Among `seaborn`, `pip` also installed `pandas` (for data
+handling). We can 'verify' that by checking the type of `tips` (from the code
+snippet above).
+
+```py
+print(type(tips))
+```
+
+```title=">>> Output"
+<class 'pandas.core.frame.DataFrame'>
+```
+
+Most of the time, a package does not 'stand on its own'. It uses the
+functionalities of other packages as well. In our case, `seaborn` also needs
+`pandas` to properly function. Hence, a lot of packages are dependent on each
+other.
+
+???+ question "Remove a package"
+
+    Remove the `seaborn` package. Use `!pip` within a code cell to list all 
+    commands and find the appropriate one. Execute the command within a cell.
 
 <blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/70we66/it_works_on_my_machine/">It works on my machine...</a><br> by<a href="https://www.reddit.com/user/Shaheenthebean/">u/Shaheenthebean</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
