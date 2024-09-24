@@ -147,14 +147,14 @@ execute your code.
 Here’s an example of the traceback that `Python` provides, after you’ve
 accidentally misspelled a variable’s name:
 
-```
----------------------------------------------------------------------------
-NameError                                 Traceback (most recent call last)
-<ipython-input-6-c8f2adeaed02> in <cell line: 2>()
-      1 message = "Hello Python Crash Course reader!"
-----> 2 print(mesage)
-
-NameError: name 'mesage' is not defined
+```pytb
+Traceback (most recent call last):
+  File "C:\\IPython\core\interactiveshell.py", line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "<ipython-input-35-c8f2adeaed02>", line 2, in <module>
+    print(mesage)
+          ^^^^^^
+NameError: name 'mesage' is not defined. Did you mean: 'message'?
 ```
 
 The output reports that an error occurs in *line 2*. The interpreter shows this
