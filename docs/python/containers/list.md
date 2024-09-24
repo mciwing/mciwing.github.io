@@ -79,7 +79,7 @@ print(beatles[4])
 
 ... results in
 
-```
+```pytb
 Traceback (most recent call last):
   File "<ipython-input-7-68dd8df4c868>", line 2, in <module>
     print(beatles[4])

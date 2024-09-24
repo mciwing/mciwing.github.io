@@ -97,11 +97,12 @@ print(not(age >= 18)) # not(True) -> False
 
 ---
 
-<figure markdown="span">
-  ![Image title](https://preview.redd.it/j7i00nnpx6211.jpg?width=640&crop=smart&auto=webp&s=d4b58226076d45f0c637fd3789d3ccb547a4a54a){ width=50% }
-</figure>
 
 ???+ question "Password strength: Part 1"
+    
+    <figure markdown="span">
+      ![Secure lock](https://preview.redd.it/j7i00nnpx6211.jpg?width=640&crop=smart&auto=webp&s=d4b58226076d45f0c637fd3789d3ccb547a4a54a){ width=50% }
+    </figure>
 
     It's your time to check if a password meets certain requirements. 
     Use the following defined variables `password_length` and 
