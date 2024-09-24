@@ -38,7 +38,7 @@ an extensive list of all the packages that `Python` ships with.
 Let's use the `#!python random` package to generate some random numbers. 
 First, we have to import the package with following command:
 
-```py
+```py hl_lines="1"
 import random
 
 # with the package imported we can use its functions
@@ -138,6 +138,7 @@ code to create your first plot. The code snippet was copied from the
 ```py
 # taken from https://seaborn.pydata.org/examples/grouped_boxplot.html
 import seaborn as sns
+
 sns.set_theme(style="ticks", palette="pastel")
 
 # Load the example tips dataset
@@ -174,4 +175,136 @@ other.
     Remove the `seaborn` package. Use `!pip` within a code cell to list all 
     commands and find the appropriate one. Execute the command within a cell.
 
+### PyPI
+
+<figure markdown="span">
+  ![PyPI logo](https://pypi.org/static/images/logo-large.516e776d.svg){ width="75%" }
+</figure>
+
+You might wonder where `pip` downloads the packages?! In short, all packages
+are downloaded from the [Python Package Index (PyPI)](https://pypi.org/).
+That's where the open-source community (usually) publishes their packages.
+Simply put, if you type `pip install seaborn`, `pip` looks for a package called
+`seaborn` on PyPI and downloads it. `PyPI` is a valuable resource if you're
+searching for packages, certain versions, etc.
+
+## Virtual environments
+
+Previously, we have installed the package `seaborn`. The package itself was
+available system-wide as we did not create a virtual environment beforehand.
+That might not sound too bad, but it's actually considered bad practice. But
+what is good practice and what the heck is a virtual environment?
+
+To answer the latter, simply put, a virtual environment is a folder which
+encapsulates all packages for a specific project. Each project should have its
+own virtual environment. With a package manager like `pip`, you install the
+necessary packages into the project's virtual environment. `pip` lets you
+manage these packages/dependencies.
+
+### Why?
+
+To summarize, the `pip`/virtual environment combination facilitates:
+
+- **Dependency management**: You can keep track of the packages that your
+  project needs to function.
+- **Version management**: You can specify the exact versions of a package that
+  your project needs. This is important, because different versions of a 
+  package may have different functionalities or bugs.
+- **Environment management**: It's easier to work on multiple projects on a
+  single machine as you can install multiple versions of a package on a
+  per-project basis.
+- **Shareable**: Your projects will be shareable with other developers as they
+  can easily install all dependencies with a single command. No more it worked
+  on my machine excuses!
+
 <blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/70we66/it_works_on_my_machine/">It works on my machine...</a><br> by<a href="https://www.reddit.com/user/Shaheenthebean/">u/Shaheenthebean</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+### How?
+
+To create a virtual environment, open a new command prompt within VSCode (you
+can use the shortcut ++ctrl++ + `ö`).
+
+Execute the following command:
+
+```bash
+python -m venv .venv
+```
+
+This command creates a new folder structure. The folder is called `.venv`.
+Instead of `.venv` you can choose any name you want. However, this section
+assumes that you named it `.venv`.
+
+Now, we have to activate the environment in order to use it. Depending on your
+operating system, the command is slightly different.
+
+---
+
+=== "Windows :fontawesome-brands-windows:"
+  
+    As a Windows user type
+
+    ```
+    .venv\Scripts\activate
+    ```
+    
+    If an error occurs ("the execution of scripts is deactivated on this 
+    system") run
+    
+    ```
+    Set-ExecutionPolicy Unrestricted -Scope Process
+    ```
+    
+    ... and use the previous command again.
+
+=== "macOS/Linux :fontawesome-brands-apple:/:fontawesome-brands-linux:"
+
+    Type
+
+    ```bash
+    source .venv/bin/activate
+    ```
+    
+    to activate your environment.
+
+---
+
+???+ question "Fit a machine learning model"
+
+    Assuming your virtual environment is activated, try to get the following
+    code cell running. 
+ 
+    ```py
+    # Taken from https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html#train-tree-classifier
+
+    # pyplot is a submodule of matplotlib and can be directly imported with the `from` statement
+    from matplotlib import pyplot 
+    
+    # or you can import functions (like load_iris()) directly from its submodule (datasets)
+    from sklearn.datasets import load_iris
+    from sklearn.model_selection import train_test_split
+    from sklearn.tree import DecisionTreeClassifier, plot_tree
+    
+    iris = load_iris()
+    X = iris.data
+    y = iris.target
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+    
+    clf = DecisionTreeClassifier(max_leaf_nodes=3, random_state=0)
+    clf.fit(X_train, y_train)
+    
+    plot_tree(clf)
+    pyplot.show()
+    ```
+
+    Install the packages `matplotlib` and `scikit-learn` with `pip`.
+    Then try to execute the code cell 
+    (the code was taken from [here](https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html#train-tree-classifier)).
+   
+
+Congratulations 🎉, you've just fitted a machine learning model (simple decision
+tree) on a data set and visualized the model. That's the power of `Python` -
+easily accessible packages with a lot of functionality ready to use. 🦾
+
+Again, don't worry too much about the actual code lines above. Again, the
+important thing is to get the code running.
+

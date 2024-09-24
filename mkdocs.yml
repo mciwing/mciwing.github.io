@@ -87,6 +87,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - tables
+  - pymdownx.tabbed:  # enable content tabs
+        alternate_style: true
 
 extra_javascript:
   - javascripts/mathjax.js
