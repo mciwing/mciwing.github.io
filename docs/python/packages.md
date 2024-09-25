@@ -305,6 +305,65 @@ Congratulations 🎉, you've just fitted a machine learning model (simple decisi
 tree) on a data set and visualized the model. That's the power of `Python` -
 easily accessible packages with a lot of functionality ready to use. 🦾
 
-Again, don't worry too much about the actual code lines above. Again, the
-important thing is to get the code running.
+Don't worry too much about the actual code lines above. Again, the
+important thing is to get the code running. With the above exercise, you've 
+reproduced the result from the motivational section 
+[Why Python?](index.md/#machine-learningai).
 
+### `requirements.txt`
+
+In the following exercise, you will learn how to export all your packages 
+(your project's dependencies) to a file. We will cover a simple command that 
+facilitates sharing your project/code with co-developers.
+
+???+ question "Export dependencies"
+
+    Assume you want to share the code snippet from the previous task with 
+    someone. First, your colleague might not know which packages you used to 
+    get the code running. With no more information, one has to read the code 
+    and manually determine which packages are necessary.
+    To circumvent such situations, you export all your packages to a file. 
+    Open a command prompt/terminal and execute
+
+    ```bash
+    pip freeze > requirements.txt
+    ```
+    
+    A `requirements.txt` is written which contains all your used 
+    packages.
+
+Your colleague can now take the file and install all packages needed, at once.
+
+```bash
+pip install -r requirements.txt
+```
+... is the corresponding command.
+
+## Other choices?/Outlook 
+
+Apart from `pip` there are a couple of other package managers available.
+For example, there are
+
+* [`uv`](https://docs.astral.sh/uv/)
+* [`pipenv`](https://pipenv.pypa.io/en/latest/)
+* [`poetry`](https://python-poetry.org/docs/)
+* [`miniconda`](https://docs.anaconda.com/miniconda/)
+
+... and this is by no means an extensive list.
+All of these tools let you install and manage packages. Nevertheless, they have
+their differences. In the end, it is up to you, the developer which tool fits
+best. `pip` is always a solid choice (and the go-to choice to get the hang of
+package/virtual environment management). However, if you're working on larger
+scale projects with a couple of other developers, one of these package managers
+might offer some functionalities which facilitates the development workflow.
+
+## Recap
+
+In this section, you have learned how to install packages and manage them 
+within virtual environments. The topics covered:
+
+* `pip`
+* install/uninstall packages
+* PyPI
+* concept and benefits of virtual environments
+* creation and basic usage of a virtual environment
