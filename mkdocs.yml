@@ -49,20 +49,31 @@ nav:
     - python/functions.md 
   - Statistics:
     - statistics/index.md
-    - Univariate Methods:
-      - statistics/univariate/General.md
-      - statistics/univariate/Frequency.md
-      - statistics/univariate/CentralTend.md
-      - statistics/univariate/Dispersion.md
-    - Bivariate Methods:
-      - statistics/bivariate/General.md
-      - statistics/bivariate/Frequency.md
-      - statistics/bivariate/Correlation.md
-    - statistics/regression.md
-    - Parameter Estimation:
-      - statistics/parameter/General.md
-      - statistics/parameter/Random.md
-      - statistics/parameter/NormalDistribution.md
+    - Descriptive Statistics:
+      - Univariate Methods:
+        - statistics/univariate/Frequency.md
+        - statistics/univariate/CentralTend.md
+        - statistics/univariate/Dispersion.md
+      - Bivariate Methods:
+        - statistics/bivariate/Frequency.md
+        - statistics/bivariate/Correlation.md
+    - Inferential Statistics:
+      - Probability Theory:
+        - statistics/probability/General.md
+        - statistics/probability/Random.md
+        - statistics/probability/LawOfLargeNumbers.md
+        - statistics/probability/CentralLimitTheorem.md
+      - Hypothesis Testing:
+        - statistics/hypothesis/General.md
+        - statistics/hypothesis/Ttest.md
+        - statistics/hypothesis/Confidence.md
+        - statistics/hypothesis/ANOVA.md
+      - Regression Analysis:
+        - statistics/regression/General.md
+        - statistics/regression/LinearRegression.md
+        - statistics/regression/MultipleRegression.md
+        - statistics/regression/HigherRegression.md
+
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true

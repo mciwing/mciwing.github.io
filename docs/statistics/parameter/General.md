@@ -1,3 +1,0 @@
-# General information 
-
-So far, we have focused on describing a dataset. Since samples are random, all statistical measures are also considered random variables. If we want to draw conclusions about the entire population, we must take this randomness into account. In this section, we will explore key concepts such as random variables, the central limit theorem, the law of large numbers, as well as the normal distribution and confidence intervals. In descriptive statistics, results pertain to the specific dataset at hand, whereas in inferential statistics, we make inferences about the broader population based on a sample.

@@ -1,5 +1,4 @@
-# Estimation of Random Variables
-## Random Variables
+# Random Variables
 
 A **random variable** differs slightly from traditional mathematical variables. In mathematics, variables can:
 
