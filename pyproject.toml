@@ -12,7 +12,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
-mkdocs-material = "^9.5.34"
+mkdocs-material = "^9.5.37"
 
 
 [tool.poetry.group.plugins.dependencies]
