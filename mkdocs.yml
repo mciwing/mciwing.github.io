@@ -59,6 +59,10 @@ nav:
       - statistics/bivariate/Frequency.md
       - statistics/bivariate/Correlation.md
     - statistics/regression.md
+    - Parameter Estimation:
+      - statistics/parameter/General.md
+      - statistics/parameter/Random.md
+      - statistics/parameter/NormalDistribution.md
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true
