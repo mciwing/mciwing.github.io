@@ -232,6 +232,7 @@ By observing such patterns, we gain a deeper understanding of how random variabl
     import numpy as np
     import matplotlib.pyplot as plt
     import plotly.express as px
+    import pandas as pd
 
 
     def coin_flip_experiment(throws, repetitions):
