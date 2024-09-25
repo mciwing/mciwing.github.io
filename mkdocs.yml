@@ -46,7 +46,8 @@ nav:
     - Control Structures:
       - python/control-structures/for.md
       - python/control-structures/if.md
-    - python/functions.md 
+    - python/functions.md
+    - python/packages.md
   - Statistics:
     - statistics/index.md
     - Univariate Methods:
@@ -90,6 +91,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - tables
+  - pymdownx.tabbed:  # enable content tabs
+        alternate_style: true
 
 extra_javascript:
   - javascripts/mathjax.js
