@@ -221,6 +221,8 @@ To summarize, the `pip`/virtual environment combination facilitates:
 
 ### How?
 
+#### Create a virtual environment
+
 To create a virtual environment, open a new command prompt within VSCode (you
 can use the shortcut ++ctrl++ + `ö`).
 
@@ -233,6 +235,8 @@ python -m venv .venv
 This command creates a new folder structure. The folder is called `.venv`.
 Instead of `.venv` you can choose any name you want. However, this section
 assumes that you named it `.venv`.
+
+#### Activate a environment
 
 Now, we have to activate the environment in order to use it. Depending on your
 operating system, the command is slightly different.
@@ -265,6 +269,19 @@ operating system, the command is slightly different.
     ```
     
     to activate your environment.
+
+---
+
+#### Deactivate a environment
+
+Deactivating the environment is the same on all operating systems.
+To deactivate it, simply use
+
+```
+deactivate
+```
+
+in your command prompt/terminal.
 
 ---
 
@@ -338,6 +355,12 @@ Your colleague can now take the file and install all packages needed, at once.
 pip install -r requirements.txt
 ```
 ... is the corresponding command.
+
+???+ info
+
+    A `requirements.txt` file is a common way to share project dependencies.
+    However, it will also help you, to restore your environment, in case 
+    something goes wrong. Hence, keep your requirements file up-to-date.
 
 ## Other choices?/Outlook 
 
