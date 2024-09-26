@@ -1,6 +1,14 @@
 # Measure of Dispersion 
 Measures of dispersion characterize a distribution by indicating how data is spread around an average value. These metrics describe the variability or heterogeneity of the data.
 
+???+ info "Note"
+
+    Some formulas differ between samples and populations (e.g., variance), which may result in slight variations in the calculations. 
+    
+    <figure markdown="span">
+    ![Image title](/assets/statistics/Sample_Population.png){width=50% }
+    </figure>
+
 ## Range
 The range, denoted as \( R \), is the difference between the largest and smallest value in a dataset. However, in the presence of extremely large or small outliers, the range can provide a distorted view of the data's variability.
 
