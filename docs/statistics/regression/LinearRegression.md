@@ -1,4 +1,5 @@
-# Regression
+# Linear Regression
+
 
 In many cases, simply characterizing the data is not sufficient. Beyond explaining the data, the goal is often to enable predictions. This chapter introduces the basic approach of **linear regression**, which allows for approximating **bivariate** data. The topics covered include linear regression and the coefficient of determination. Regression aims to model the relationships between a dependent variable and one or more independent variables.
 
