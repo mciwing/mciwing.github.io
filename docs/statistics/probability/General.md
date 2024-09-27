@@ -126,28 +126,24 @@ In simpler terms, **probability** is typically used to discuss the likelihood of
 
 
 ## Calculation of Probability
+
+### Prerequisites
+
 Before we start calculating probability, it's important to note that certain types (scales) of data (see section [Attribute Types](../../databasics/DataBasics.md#attribute-types)), such as **nominal** and **ordinal** are suitable for probability calculations, while interval and ratio scaled data are not directly valid for such computations. Interval and ratio data must first be converted into a **discrete scale** (like creating bins in a histogram) before probability can be applied, as their values have infinite precision, making them unsuitable for exact probability calculations.
 
+???+ example "Example: Length of Wooden Beams"
+    An example involving the length of wooden beams can illustrate this point. Asking for the probability of a beam being exactly a certain length, down to a microscopic precision, is not a practical question. Instead, engineers or builders focus on the probability of a beam’s length falling within a certain range, such as between 3.0 and 3.5 meters, or even within more precise intervals like 3.2 to 3.25 meters. This approach allows for meaningful analysis while accounting for slight variations in manufacturing or cutting processes.
 
+Another key requirement for valid probability calculations is that the data categories must be mutually exclusive. For instance, when flipping a coin, the events "heads" and "tails" are mutually exclusive since both cannot happen at the same time. Similarly, if a wooden beam is measured to be between 3.5 and 4 m in length, it cannot also be between 4 and 4.5 m.
 
-An example involving the height of king penguins illustrates this point. Asking for the probability of a penguin being exactly a certain height, down to a microscopic level, is not a sensible question. Instead, researchers focus on the probability of a penguin's height falling within a range, such as between 60 and 70 cm, or even within narrower intervals like 65.2 to 65.3 cm.
-
-Another key requirement for valid probability calculations is that the data categories must be mutually exclusive. For instance, when flipping a coin, the events "heads" and "tails" are mutually exclusive since both cannot happen at the same time. Similarly, if a penguin is measured to be between 60 and 70 cm in height, it cannot also be between 70 and 80 cm.
+<figure markdown="span">
+  ![Correlation Types](/assets/statistics/meme_mutually.jpg){width=50% }
+  <figcaption>(Source: <a href="https://makeameme.org/meme/one-does-not-55c7e12c14">MakeAMeme</a>) </figcaption>
+</figure>
 
 However, some situations, like getting news from multiple sources, do not have mutually exclusive categories (a person can receive news from both TV and the internet). In such cases, probability cannot be computed unless the question is reformulated with exclusive categories.
 
-Finally, the method for calculating probability involves dividing the number of occurrences of a specific event by the total number of possible events. For example, with a jar containing 40 blue, 30 yellow, and 20 orange marbles, the probability of selecting a blue marble is 40/90, or about 44.4%. A sanity check ensures that the sum of all possible event probabilities equals 100%, although minor rounding errors can occur due to limitations in numerical precision.
-
-In conclusion, valid probability calculations depend on using the correct data types, ensuring mutually exclusive events, and properly converting raw data into probabilities.
-
-
-XXXXXXXX
-
-XXXXXXXX
-
-XXXXXXXX
-
-A **continuous random variable** can assume an infinite number of values, such as measuring the exact amount of rainfall. In this case, the value could be any real number within a range, provided there is no limitation on measurement precision. In contrast, a **discrete random variable** can take on a limited or finite set of values. Common examples include flipping a coin, rolling a die, or determining whether it will rain tomorrow. These situations involve distinct outcomes—heads or tails, the numbers on a die, or a binary yes/no for rain.
+### Calculation
 
 For discrete random variables, each outcome of an experiment can be assigned a **probability**. The probability of a specific outcome \(X = x\) is calculated using the formula:
 
@@ -306,111 +302,5 @@ The **probability distribution** of a discrete random variable shows the likelih
 
     As the number of coin tosses increases, the distribution of outcomes starts to resemble a **binomial distribution**, which predicts the likelihood of each possible outcome over a large number of trials. For example, as the number of coin tosses grows, the shape of the probability distribution becomes smoother and more predictable.
 
-As we increase the number of trials, the distribution gradually transitions from a rough pattern to a smooth curve resembling the binomial distribution. This is illustrated through histograms showing how the distribution evolves as the number of coin tosses increases from one to 50,000. Initially, the distribution appears discrete, but with more trials, it takes the form of a continuous curve, following the binomial distribution closely.
 
-By observing such patterns, we gain a deeper understanding of how random variables behave in large samples and how their probability distributions develop over time. This knowledge is fundamental to making accurate predictions in statistics and understanding the nature of random processes.
-
-<div class="grid cards" markdown>
--    
-
-    <iframe src="/assets/statistics/random_coin_1.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_5.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_50.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_500.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_5000.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_50000.html" width="100%" height="400px"></iframe>
-
-</div>
-
-??? code "Code"
-    ``` py 
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import plotly.express as px
-    import pandas as pd
-
-
-    def coin_flip_experiment(throws, repetitions):
-        # List to store the mean values of each repetition
-        mean_values = []
-        
-        for _ in range(repetitions):
-            # Simulate coin flips (0 = heads, 1 = tails)
-            flips = np.random.randint(0, 2, throws)
-            # Calculate the mean value of the flips
-            mean_value = np.mean(flips)
-            # Store the mean value
-            mean_values.append(mean_value)
-        
-        return mean_values
-
-    # Parameters for the experiment
-    throws = 50000  # Number of coin flips per repetition
-    repetitions = 50000  # Number of times the experiment is repeated
-
-    # Run the experiment and adjust format
-    mean_values = coin_flip_experiment(throws, repetitions)
-    mean_values = pd.DataFrame(mean_values, columns=['mean'])
-    probs = mean_values.value_counts().reset_index(),
-    probs = pd.DataFrame(probs[0])
-    probs['count'] = probs['count']/repetitions
-
-    # HISTOGRAM Large Number of Values
-    # Generate Histogram
-    fig = px.bar(
-        probs,
-        x='mean',
-        y='count',
-        )
-
-    # Adjust the plot
-    fig.update_layout(
-        xaxis_title_text='Arithmethic Mean',
-        yaxis_title_text='Probability',
-        title=dict(
-                text=f'<b><span style="font-size: 10pt">Probability: {throws} Coins </span><br> <span style="font-size:5">50.000 Flips</span></b>',
-            ),
-        #bargap=0.1,
-        xaxis_range=[-0.5,1.5],
-        showlegend=False,
-    )
-    fig.update_traces(marker=dict(color='#00416E', line=dict(color='#00416E', width=1)))
-
-    # Show the plot
-    fig.show()
-    ```
-
-# Recap
-
-- Random variables are quantities that can take on different values.
-- They assign numbers to each outcome of a random process.
-- There is a distinction between discrete and continuous random variables.
-- Each event has a certain probability associated with it.
-- The representation of these probabilities is called a probability distribution.
-- As the number of experiments increases, the distribution approaches a binomial distribution.
-
-
-# Tasks
-???+ question "Task"
-    Consider a defective die with the following sides: \( [1, 1, 2, 3, 5, 6] \).
-    Work on the following task: 
-
-    1. Display the probabilities of each face of the die in a histogram.
-    2. Conduct an experiment by rolling the die once using the `randint` function and plot the outcome in a histogram. How does the histogram change when you roll the die 10 times or 10,000 times? Interpret the results. Can you identify a binomial distribution?
-    3. Now, introduce an average value. Roll the die 10 times and calculate the average number. Repeat this process 10,000 times and display the averages in a histogram.
-    4. Increase the sample size from 10 to 1010 in increments of 100. Overlay the results in a histogram. Interpret the findings. Can you now identify a binomial distribution? 
+## Increasing Number of Experiments
