@@ -50,9 +50,9 @@ songs in Austria. You can find the corresponding playlist
 
 {{ read_raw("assets/python/pandas/spotify-top50.md") }}
 
-Download the whole data set 
-[here](../assets/python/pandas/spotify-top50.csv){:spotify-top50.csv} to 
-follow this section.
+Download the whole data set to follow this section:
+
+[Spotify Top 50 Austria :fontawesome-solid-download:](../assets/python/pandas/spotify-top50.csv){ .md-button }
 
 [^1]:
     The full data set is available on [Kaggle](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/data)
