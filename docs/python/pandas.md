@@ -372,5 +372,5 @@ that help you get started.
 
 We covered `pandas` and some selected functionalities which should provide 
 you with a solid foundation to work with tabular data sets. Moreover, you 
-should be able to follow the code portions in the upcoming
-[Statistics](../statistics/index.md) course more easily.
+should be able to follow the code portions in the upcoming chapters (e.g., 
+[Statistics](../statistics/index.md)) course more easily.
