@@ -174,6 +174,18 @@ you recall, a range does not include its `stop` value (`#!python 50`).
 By default, (if not otherwise specified) `pandas` will assign a range index
 to a data set in order to label the rows.
 
+The data set dimensions are accessed with the `#!python shape` attribute.
+
+```py 
+print(data.shape)
+```
+
+```title=">>> Output"
+(50, 25)
+```
+
+The data set has `#!python 50` rows and `#!python 25` columns.
+
 ### Data structures
 
 `pandas` has two main data structures: `Series` and `DataFrame`.
@@ -208,3 +220,156 @@ print(type(data["artists"]))
 
 <class 'pandas.core.series.Series'>
 ```
+
+A `DataFrame` is composed of at least one `Series`.
+
+### Selecting data
+
+Let's dive deeper into selecting data. To access specific rows, you can use 
+a slice (just like with lists).
+
+```py
+# rows 5 and 6
+print(data[5:7])
+```
+
+```title=">>> Output"
+               spotify_id        name  ...    tempo  time_signature
+5  0io16MKpbeDIdYzmGpQaES  Embrace It  ...  114.933               4
+6  3aJT51ya8amzpT3TKDVipL         FTW  ...   91.937               4
+```
+
+Select multiple columns by passing a list of column names.
+
+```py
+print(data[["name", "artists"]])
+```
+
+```title=">>> Output"
+                                  name    artists
+0                The Emptiness Machine    Linkin Park
+1                         Rote Flaggen    Berq
+2                       Bauch Beine Po    Shirin David
+...
+```
+
+#### Boolean indexing
+
+Most of the time, we want to filter the data based on criterias. 
+For example, we can select the tracks with a tempo higher than `#!python 120`
+beats per minute (BPM).
+
+```py
+high_tempo = data[data["tempo"] > 120]
+```
+
+Let's break the example down:
+
+- First, we select the column `tempo` from the data set with `#!python data["tempo"]`.
+- Next, we expand our expression to `#!python data["tempo"] > 120`.
+  This will return a `Series` of boolean values.
+- Lastly, we wrap the expression in another set of square brackets to 
+  filter the whole data set based on our boolean values.
+
+We end up with 27 tracks that meet the criteria. `high_tempo` is a new 
+`DataFrame` containing entries that exceed `#!python 120` BPM.
+
+
+???+ question "Danceable tracks"
+
+    <figure markdown="span">
+      ![Saturday Night Fever](https://pics.filmaffinity.com/saturday_night_fever-812741122-large.jpg){ width="350" }
+    <figcaption>Saturday Night Fever</figcaption>
+    </figure>
+
+    We assume that tracks with a danceability score higher than `#!python 0.8`
+    are danceable. :fontawesome-solid-martini-glass-citrus:
+
+    How many of the tracks are danceable?
+    
+    > Danceability describes how suitable a track is for dancing based on a 
+    combination of musical elements including tempo, rhythm stability, beat 
+    strength, and overall regularity. A value of 0.0 is least danceable and 
+    1.0 is most danceable.
+    >
+    > -- <cite>[Spotify for Developers][1]</cite>
+    
+    [1]: https://developer.spotify.com/documentation/web-api/reference/get-audio-features
+
+
+### Basic statistics
+
+`pandas` provides a variety of methods to calculate basic statistics. For 
+instance, `min()`, `max()`, `mean()` can be easily retrieved for a numeric 
+`Series` in the data set.
+
+```py
+print(data["tempo"].min())
+```
+
+```title=">>> Output"
+80.969
+```
+
+Conveniently, statistics can be calculated for each column at once using 
+the `DataFrame`. In this example, we calculate the standard deviation.
+
+```py
+print(data.std())
+```
+
+If you execute the above snippet, a `#!python TypeError` is raised.
+
+???+ question "Fix the error"
+    
+    Try to determine, why the error was raised in the first place.
+    Now, circumvent/fix the error.
+
+    **Hint:** Look at the documentation of the `std()` method and its 
+    parameters.
+
+If you want to calculate multiple statistics, you can call the `describe()` 
+method.
+
+```py
+stats = data.describe()
+print(stats)
+```
+
+```title=">>> Output"
+       daily_rank  daily_movement  ...       tempo  time_signature
+count    50.00000        50.00000  ...   50.000000       50.000000
+mean     25.50000         1.04000  ...  125.087260        3.920000
+std      14.57738         8.14902  ...   26.751323        0.340468
+min       1.00000       -22.00000  ...   80.969000        3.000000
+25%      13.25000        -3.00000  ...  104.990750        4.000000
+50%      25.50000         1.00000  ...  123.981500        4.000000
+75%      37.75000         3.00000  ...  137.487250        4.000000
+max      50.00000        29.00000  ...  184.115000        5.000000
+```
+
+`describe()` provides descriptive statistics for each column. The result of 
+`describe()` is a `DataFrame` itself.
+
+### Other functionalities
+
+`pandas` offers a plethora of functionalities. There's simply too much to 
+cover in a brief introductory section. Still, there are some common 
+`DataFrame` methods/properties that are worth mentioning:
+
+- [`sort_values()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html): Sort the data frame by a specific column.
+- [`groupby()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html): Group the data frame by a column.
+- [`merge()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html): Merge two data frames.
+- [`T`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.T.html): Transpose of the data frame.
+- [`drop_duplicates()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop_duplicates.html): Remove duplicates.
+- [`dropna()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html): Remove missing values.
+
+All methods are linked to its corresponding documentation with examples 
+that help you get started.
+
+## Recap
+
+We covered `pandas` and some selected functionalities which should provide 
+you with a solid foundation to work with tabular data sets. Moreover, you 
+should be able to follow the code portions in the upcoming
+[Statistics](../statistics/index.md) course more easily.
