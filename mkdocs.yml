@@ -29,6 +29,10 @@ copyright: 2024 - MCI Wing
 
 nav:
   - Home: index.md
+  - Data Basics:
+    - databasics/Terms.md
+    - databasics/Data.md
+    - databasics/DataBasics.md
   - Python Crash Course:
     - python/index.md
     - python/installation.md
@@ -61,7 +65,6 @@ nav:
     - Inferential Statistics:
       - Probability Theory:
         - statistics/probability/General.md
-        - statistics/probability/Random.md
         - statistics/probability/LawOfLargeNumbers.md
         - statistics/probability/CentralLimitTheorem.md
       - Hypothesis Testing:
