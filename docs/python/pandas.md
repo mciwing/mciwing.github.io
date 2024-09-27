@@ -8,9 +8,10 @@
 
 As the last topic in our `Python` :fontawesome-brands-python: Crash Course,
 we provide a brief introduction to `pandas` in order to handle data 
-sets. The package will be heavily used in the upcoming 
-[Statistics](../statistics/index.md) course.
-Therefore, knowledge of the package is needed to properly follow the course.
+sets. The package will be heavily used in the upcoming chapters (e.g.,
+[Statistics](../statistics/index.md)).
+Therefore, knowledge of the package is needed to properly follow the 
+chapters from now on.
 
 ???+ info
 
