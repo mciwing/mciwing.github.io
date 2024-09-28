@@ -11,8 +11,6 @@ theme:
     accent: pink
   icon:
     repo: fontawesome/brands/git-alt
-    #admonition: 
-      #quote: fontawesome/solid/quote-left
 
   features:
     - navigation.tabs
@@ -48,6 +46,7 @@ nav:
       - python/control-structures/if.md
     - python/functions.md
     - python/packages.md
+    - python/pandas.md
   - Statistics:
     - statistics/index.md
     - Descriptive Statistics:
@@ -82,6 +81,7 @@ plugins:
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
+  - table-reader
 markdown_extensions:
   - attr_list
   - md_in_html
