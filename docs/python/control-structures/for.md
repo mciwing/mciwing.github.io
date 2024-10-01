@@ -91,7 +91,7 @@ for number in [1, 2, 3]:
 print(number)
 ```
 
-```title=">>> Output"
+```pytb
   Cell In[4], line 2
     print(number)
     ^
@@ -108,7 +108,7 @@ message = "Hello"
     print(message)
 ```
 
-```title=">>> Output"
+```pytb
   Cell In[9], line 2
     print(message)
     ^
