@@ -94,11 +94,15 @@ number = 4000
 You will notice that none of the cells had any output. To display the value
 of a variable we use the `#!python print()` function.
 
-### `print()`
+### `#!python print()`
 
 ```py
 number = 4
 print(number)
+```
+
+```title=">>> Output"
+4
 ```
 
 Now, we can also verify that in the above snippet the value of `number` was
@@ -109,6 +113,11 @@ number = 4
 print(number)
 number = 4000
 print(number)
+```
+
+```title=">>> Output"
+4
+4000
 ```
 
 ???+ info
@@ -127,6 +136,10 @@ are prefaced by a `#!python #`.
 ```py
 # this is a comment
 print("Hello World!")
+```
+
+```title=">>> Output"
+Hello World!
 ```
 
 ???+ info
@@ -155,7 +168,7 @@ the following rules in mind:
   than `n`, `student_name` is better than `s_n`, and `name_length` is better
   than `length_of_persons_name`.
 
-### Errors (`NameError`)
+### Errors (`#!python NameError`)
 
 Every programmer makes mistakes and even after years of experience, mistakes
 are part of the process. With time, you get more efficient in debugging
