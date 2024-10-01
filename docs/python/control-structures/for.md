@@ -188,7 +188,7 @@ for value in range(3, 6):
     
     Print the future value of the savings account over a period of 10 years. 
     Skip each second year. Use 
-    [`Python`s documentation on range()](https://docs.python.org/3.12/library/stdtypes.html#range)
+    [Python's documentation on range()](https://docs.python.org/3.12/library/stdtypes.html#range)
     as a starting point.
 
 ## Detour: Simple statistics on lists with numbers
