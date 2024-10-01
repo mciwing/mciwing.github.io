@@ -199,7 +199,7 @@ You can store the user input in the variable `user_name` like in the example
 below.
 
 ```py
-user_name = input("Please enter your username: ")
+user_name = input("Please enter your username:")
 ```
 
 

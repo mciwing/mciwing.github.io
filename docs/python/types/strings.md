@@ -22,12 +22,20 @@ text = "One of Python's strengths is its diverse and supportive community."
 print(text)
 ```
 
+```title=">>> Output"
+One of Python's strengths is its diverse and supportive community.
+```
+
 ```py
 text = 'I told my friend, "Python is my favorite language!"'
 print(text)
 ```
 
-## `type()`
+```title=">>> Output"
+I told my friend, "Python is my favorite language!"
+```
+
+## `#!python type()`
 
 Let's check the type of the variable `text`.
 
@@ -36,9 +44,7 @@ text = "The language 'Python' is named after Monty Python, not the snake."
 print(type(text))
 ```
 
-which results in:
-
-```
+```title=">>> Output"
 <class 'str'>
 ```
 
@@ -63,7 +69,7 @@ name = "paul atreides"
 print(name.title())
 ```
 
-```py
+```title=">>> Output"
 Paul Atreides
 ```
 
@@ -113,13 +119,17 @@ you want to display someone’s full name.
 
 Python uses the plus symbol (`#!python +`) to combine strings. In this 
 example, we use `#!python +` to create a full name by combining a 
-`first_name`, a space, and a `last_name`, giving this result:
+`first_name`, a space, and a `last_name`:
 
 ```py
 first_name = "paul"
 last_name = "atreides"
 full_name = first_name + " " + last_name
 print(full_name)
+```
+
+```title=">>> Output"
+paul atreides
 ```
 
 Here, the full name is used in a sentence that greets the user, and
@@ -129,6 +139,10 @@ returns a simple but nicely formatted greeting:
 ```py
 full_name = "paul atreides"
 print("Hello, " + full_name.title() + "!")
+```
+
+```title=">>> Output"
+Hello, Paul Atreides!
 ```
 
 Another way to nicely format strings is by using f-strings. To achieve the same
@@ -145,9 +159,7 @@ print(f"Hello, {full_name}!")
 print(f"Hello, {full_name.lower()}!")
 ```
 
-which results in
-
-```
+```title=">>> Output"
 Hello, Alia Atreides!
 Hello, alia atreides!
 ```

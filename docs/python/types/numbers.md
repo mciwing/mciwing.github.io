@@ -20,7 +20,7 @@ number = 10176
 print(type(number))
 ```
 
-```
+```title=">>> Output"
 <class 'int'>
 ```
 
@@ -42,10 +42,20 @@ These are:
 
 ```py
 # Modulo
-20 % 3 # = 2
+20 % 3
+```
 
+```title=">>> Output"
+2
+```
+
+```py
 # Floor division
-20 // 3 # = 6
+20 // 3
+```
+
+```title=">>> Output"
+6
 ```
 
 Moreover, you can use multiple operations in one expression. You can also
@@ -53,11 +63,19 @@ use parentheses to modify the order of operations so Python can evaluate your
 expression in the order you specify. For example:
 
 ```py
-2 + 3 * 4 # = 14
+2 + 3 * 4
+```
+
+```title=">>> Output"
+14
 ```
 
 ```py
-(2 + 3) * 4 # = 20
+(2 + 3) * 4
+```
+
+```title=">>> Output"
+20
 ```
 
 ---
@@ -72,7 +90,7 @@ number = 10176.0
 print(type(number))
 ```
 
-```
+```title=">>> Output"
 <class 'float'>
 ```
 
@@ -97,12 +115,12 @@ All previously introduced arithmetic operations can be used for floats as well.
     calculations.
 
 ```py
-print(34.3 + 56.4)
+34.3 + 56.4
 ```
 
 ... results in
 
-```
+```title=">>> Output"
 90.69999999999999
 ```
 
