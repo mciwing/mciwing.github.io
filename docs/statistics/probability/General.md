@@ -102,6 +102,27 @@ In both cases, the random variable maps the outcome of a random process to a num
 
 Thus, random variables enable us to quantify the outcomes of random processes, allowing for further analysis and interpretation.
 
+???+ question "Task"
+    Now it's your turn to create a random variable. There are several packages in Python that we can use for this purpose. Use the `random` package we already used in the package [management section](../../python/packages.md#standard-library). 
+
+    <figure markdown="span">
+    ![Correlation Types](/assets/statistics/meme_dice.jpg){width=50% }
+    <figcaption>(Source: <a href="https://imgflip.com/i/9599pd">imgflip</a>) </figcaption>
+    </figure>
+
+    1. Now generate your own random number. Use the commands `randint`, `random` and `choices`. A good documentation can be found [here](https://www.w3schools.com/python/module_random.asp)
+    2. Are those numbers really random? Do some research about the `numpy.random.seed` command
+    3. Now create the following experiments: 
+        - **Fair Die**: Perform a virtual 'rolling of the die' for a fair (normal) die by using the `choices` command
+            ```py
+            die_fair = [1, 2, 3, 4, 5, 6]
+            ```
+        - **Biased Die**: Now use a biased die with no 3 but two times the side 6
+            ```py
+            die_biased = [1, 2, 4, 5, 6, 6]
+            ```
+
+
 ## Probability vs. Proportion
 
 Two concepts that students frequently mix up in statistics are **probability** and **proportion**.
@@ -114,9 +135,39 @@ In simpler terms, **probability** is typically used to discuss the likelihood of
 
 ???+ example "Example: Flip a Coin"
 
-    When flipping a fair coin, the **probability** of it landing on heads is 0.5, or 50%, which is based on theory. However, if we flip the coin 20 times, we can calculate the **proportion** of times it actually lands on heads. For instance, it might land on heads 40% of the time in those 20 flips.
+    When flipping a fair coin, the **probability** of it landing on heads is 0.5, or 50%, which is based on theory. However, if we flip the coin 20 times, we can calculate the **proportion** of times it actually lands on heads. For instance, it might land on tails 40% of the time in those 20 flips. In this case, probability is a theoretical expectation, while proportion is based on real, observable outcomes that we can count.
 
-    In this case, probability is a theoretical expectation, while proportion is based on real, observable outcomes that we can count.
+    <iframe src="/assets/statistics/probability_proportion.html" width="100%" height="400px"></iframe>
+    ??? code "Code"
+        ``` py
+        import random
+        import plotly.express as px
+
+        mylist = ["Heads", "Tails"]
+        random.seed(23) # Set seed for reproducibility
+        flips = random.choices(mylist, k=20)
+
+        # Create a histogram
+        fig = px.histogram(x=flips, nbins=2)
+
+        # Change bar mode
+        fig.update_traces(marker=dict(color='#00416E', line=dict(color='#00416E', width=0.5)))
+
+        # Set overlay mode
+        fig.update_layout(
+            xaxis_title_text='Result',
+            yaxis_title_text='Count',
+            title=dict(
+                    text=f'<b><span style="font-size: 10pt">Experiment: Flipping 20 Coins </span></b>',
+                ),
+            bargap=0.1,
+            #xaxis_range=[-0.5,1.5],
+            showlegend=False,)
+
+        fig.show()
+        ```
+
+    
 
 ???+ tip "Fun Fact: A Coin Toss is not 50/50"
     The term "coin toss" is often used as a symbol of randomness, but mathematicians have long suspected that even a fair coin has a slight tendency to land more often on one side. To investigate this bias, Ph.D. candidate František Bartoš gathered 47 volunteers who flipped coins over multiple weekends, eventually conducting 350,757 tosses. Their findings showed that coins landed with the same side facing upward as before the toss 50.8% of the time, confirming a small but significant bias in coin flips. (<cite>[Arxiv][2], [derStandard][3]</cite>)
@@ -124,6 +175,15 @@ In simpler terms, **probability** is typically used to discuss the likelihood of
 [2]: https://arxiv.org/abs/2310.04153
 [3]: https://www.derstandard.de/story/3000000191831/beim-muenzwurf-liegen-die-chancen-doch-nicht-genau-bei-50-zu-50
 
+
+???+ question "Task"
+    Let's stick with the example from before and perform further experiments. We use a fair die and a biased die and perform the following task:  
+
+    1. Roll each die 
+        - 5 
+        - 50  
+        - 500 times. 
+    2. Visualize the results in histogram (one for the fair die, one for the biased die). 
 
 ## Calculation of Probability
 
@@ -147,16 +207,117 @@ However, some situations, like getting news from multiple sources, do not have m
 
 For discrete random variables, each outcome of an experiment can be assigned a **probability**. The probability of a specific outcome \(X = x\) is calculated using the formula:
 
-???+ defi "Definition"
+???+ defi "Definition: Probability"
     Probability of a specific outcome
 
     \[
     P(X = x) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}
     \]
 
-
-## Probability Distribution
 The **probability distribution** of a discrete random variable shows the likelihood of various outcomes occurring. While this distribution helps us understand the chances of different events, it doesn’t allow us to predict the result of any single experiment. However, if the experiment is repeated many times, the overall pattern becomes clearer, following predictable rules.
+
+???+ example "Example: Flip a Coin"
+
+    <iframe src="/assets/statistics/probability_propprob.html" width="100%" height="400px"></iframe>
+    ??? code "Code"
+        ``` py
+        import random
+        import plotly.express as px
+
+        mylist = ["Heads", "Tails"]
+        random.seed(23) # Set seed for reproducibility
+        flips = random.choices(mylist, k=20)
+
+        # Create a histogram
+        fig = px.histogram(x=flips, nbins=2, histnorm='probability')
+
+        # Change bar mode
+        fig.update_traces(marker=dict(color='#00416E', line=dict(color='#00416E', width=0.5)))
+
+        # Set overlay mode
+        fig.update_layout(
+            xaxis_title_text='Result',
+            yaxis_title_text='Probability/Proportion',
+            title=dict(
+                    text=f'<b><span style="font-size: 10pt">Experiment: Flipping 20 Coins </span></b>',
+                ),
+            bargap=0.1,
+            #xaxis_range=[-0.5,1.5])
+
+        for i in range(0, 2):
+            fig.add_shape(
+                type='line',
+                x0=i-0.46,
+                x1=i+0.46,
+                y0=0.5,
+                y1=0.5,
+                line=dict(color='#E87F2B', width=5),
+                xref='x',
+                yref='y',
+                name='Probability' if i == 0 else None,
+                showlegend=(i == 0) 
+            )
+        fig.show()
+        ```
+
+???+ question "Task"
+    We will continue with our example of the fair and biased die. 
+
+    1. Calculate the probability for each side of the fair/biased die by using the `pandas` `value_counts` function
+    2. Visualize the experiment from before in a histogram and overlay the calculated probabilty. Use the `plotly express` `add_shape` function.
+
+## Odds
+
+When dealing with probabilities, you'll often encounter the term **odds**. So, what does odds mean? It’s frequently used in everyday language, especially in fields like medicine and gambling. While probability and odds are related, they are not the same thing. This explanation will clarify the meaning of odds and show how they differ from probability, as well as how to convert between them.
+
+Odds typically describe the ratio between two possibilities: the chance of something not happening compared to it happening. For example, when you hear "the odds are five to one," this means the odds ratio is 5:1, or 5 divided by 1. In mathematical terms, odds represent the ratio of the probability of an event not happening to the probability of it happening. It can be written as:
+
+
+???+ defi "Definition: Odds"
+
+    \[
+    \text{Odds ratio (r)} = \frac{p}{1 - p}
+    \]
+
+    where $p$ is the probability of the event happening, and $1 - p$ is the probability of the event not happening. To convert odds into probability, you can solve for $p$ using the equation:
+
+    \[
+    p = \frac{r}{1 + r}
+    \]
+
+    where $r$ is the odds ratio. 
+
+???+ example "Example: Flip a Coin"
+
+    When flipping a fair coin, there are two possible outcomes: **heads** or **tails**. Each outcome has an equal chance of occurring. Understanding the concept of **odds** in this simple scenario can help clarify the difference between probability and odds.
+
+    - **Probability of getting heads (P)**: \( \frac{1}{2} \) or 0.5 (50%)
+    - **Probability of getting tails**: \( 1 - P = \frac{1}{2} \) or 0.5 (50%)
+
+    **Calculating Odds:**
+
+    \[
+    \text{Odds in favor of heads} = \frac{P(\text{heads})}{P(\text{not heads})} = \frac{0.5}{0.5} = \frac{1}{1} = 1
+    \]
+
+    This means the odds in favor of getting heads are **1 to 1**, often written as **1:1**. This indicates an equal chance of getting heads or tails.
+
+
+???+ question "Task"
+    1. Calculate the odds for the fair die to roll 6
+    2. Now calculate the same thing for the biased die
+
+## Mass & Density Function
+
+## Expected Values
+
+
+
+## Central Limit Theorem
+
+
+
+
 
 ???+ example "Example: Biased Die"
     <iframe src="/assets/statistics/random_dice_fair.html" width="100%" height="400px"></iframe>
@@ -240,67 +401,3 @@ The **probability distribution** of a discrete random variable shows the likelih
     \[
     P(1 < X < 4) = \frac{1}{6} = 16.7\%
     \]
-
-
-???+ example "Example: Coin Toss"
-
-    For a random variable \( \bar{X} \), which represents the **arithmetic mean** after tossing a coin once, where heads is assigned a value of 1 and tails a value of 0, the result can be visualized in a histogram. Similarly, after five coin tosses, we can calculate the probability of various outcomes, such as:
-
-    <iframe src="/assets/statistics/random_coin1.html" width="100%" height="400px"></iframe>
-
-    ??? code "Code"
-        ``` py
-        import numpy as np
-        import plotly.express as px
-        import pandas as pd
-
-        x = [0,1]
-
-        df = pd.DataFrame(x, columns=['fair'])
-
-        fig = px.histogram(df, x='fair', histnorm='probability density')
-
-        # Adjust the plot
-        fig.update_layout(
-            title=dict(
-                    text='<b><span style="font-size: 10pt">Flip a Coin</span></b>',
-                ),
-            xaxis_title_text='Arithmetic Mean',
-            yaxis_title_text='Probability',
-            bargap=0.1,
-        )
-
-        # Scale the axis
-        fig.update_layout(yaxis_range=[0,0.5])
-
-        # Show the plot
-        fig.show()
-        ```
-
-    In the context of random variables, let's consider a situation where we toss a coin five times and examine the outcomes. The random variable \( \bar{X} \) represents the arithmetic mean after five coin tosses. We want to determine the probability of certain outcomes based on how many times heads or tails appear. For instance, the probability of getting no tails at all (meaning all heads, with an arithmetic mean of 0) after five tosses is:
-
-    \[
-    P(\bar{X} = 0) = P(00000) = \left(\frac{1}{2}\right)^5 = \frac{1}{32} = 0.03125
-    \]
-
-    Similarly, the probability of getting exactly one tail (and thus an arithmetic mean of 0.2) is:
-
-    \[
-    P(\bar{X} = 0.2) = 5 \cdot \frac{1}{32} = 0.15625
-    \]
-
-    The detailed breakdown of this calculation considers each specific sequence of outcomes where one tail appears, and each of these sequences has a probability of \( \frac{1}{32} \). Thus, the total probability is multiplied by the number of favorable outcomes, in this case, 5.
-
-    Now, we can extend this example to calculate the probabilities for other outcomes. What is the probability of obtaining exactly 1, 2, 3, 4, or 5 tails, corresponding to arithmetic means of 0.2, 0.4, 0.6, 0.8, and 1, respectively?
-
-    - The probability of no tails (mean = 0) is \( P(\bar{X} = 0) = \frac{1}{32} = 0.03125 \).
-    - The probability of one tail (mean = 0.2) is \( P(\bar{X} = 0.2) = 5 \cdot \frac{1}{32} = 0.15625 \).
-    - The probability of two tails (mean = 0.4) is \( P(\bar{X} = 0.4) = 10 \cdot \frac{1}{32} = 0.3125 \).
-    - The probability of three tails (mean = 0.6) is \( P(\bar{X} = 0.6) = 10 \cdot \frac{1}{32} = 0.3125 \).
-    - The probability of four tails (mean = 0.8) is \( P(\bar{X} = 0.8) = 5 \cdot \frac{1}{32} = 0.15625 \).
-    - The probability of all tails (mean = 1) is \( P(\bar{X} = 1) = \frac{1}{32} = 0.03125 \).
-
-    As the number of coin tosses increases, the distribution of outcomes starts to resemble a **binomial distribution**, which predicts the likelihood of each possible outcome over a large number of trials. For example, as the number of coin tosses grows, the shape of the probability distribution becomes smoother and more predictable.
-
-
-## Increasing Number of Experiments
