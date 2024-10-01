@@ -8,7 +8,15 @@
     A huge thank you goes to [@jhumci](https://github.com/jhumci) for providing
     the initial resource materials!
 
-## Introduction
+## Getting started
+
+---
+
+<span style="color: red;">
+  :fontawesome-solid-circle-exclamation:
+  Important
+  :fontawesome-solid-circle-exclamation:
+</span>
 
 We encourage you to execute **all** upcoming code snippets on your machine.
 You can easily copy each code snippet to your clipboard, by clicking the icon
@@ -18,7 +26,9 @@ tasks within the sections. Tasks are indicated by a
 
 We recommend to create a new notebook for each chapter, e.g. create
 `variables.ipynb` for this chapter. Doing so, your notebooks will follow
-the structure of this tutorial.
+the structure of this crash course.
+
+---
 
 Let's start with the first task.
 
@@ -30,8 +40,36 @@ Let's start with the first task.
     ```python
     print("Hello World!")
     ```
+    
+    The output should be:
 
-    The output should be `Hello World`.
+    ```title=">>> Output"
+    Hello World!
+    ```
+
+???+ info "Code blocks & Output"
+    
+    The upcoming content contains a lot of code snippets. They are easily 
+    recognizable due to their colourful syntax highlighting, such as:
+    
+    ```py
+    print(1+1)
+    ```
+
+    Code snippets are an integral part, to illustrate concepts, which are 
+    introduced and explained along the way. Commonly, these code snippets are
+    accompanied by an output block to display the result, for instance:
+
+    ```title=">>> Output"
+    2
+    ```
+
+    Nevertheless note, output blocks can be missing as there is not always 
+    an explicit result.
+
+    Again, execute and experiment with all code snippets on your machine to 
+    verify the results and get familiar with `Python` 
+    :fontawesome-brands-python:!
 
 ## Variable
 
