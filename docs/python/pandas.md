@@ -297,6 +297,53 @@ We end up with 27 tracks that meet the criteria. `high_tempo` is a new
     
     [1]: https://developer.spotify.com/documentation/web-api/reference/get-audio-features
 
+### Mathematical operations
+
+`pandas` supports mathematical operations on both `Series` and `DataFrame`.
+For instance, we weigh the popularity of a track by its energy level.
+
+> Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of
+intensity and activity. 
+>
+> -- <cite>[Spotify for Developers][1]</cite>
+
+[1]: https://developer.spotify.com/documentation/web-api/reference/get-audio-features
+
+```py
+weighted_popularity = data["popularity"].mul(data["energy"])
+print(type(weighted_popularity))
+
+# assign the Series to the DataFrame
+data["weighted_popularity"] = weighted_popularity
+```
+
+The `mul()` method is used to multiply the `popularity` and `energy` columns.
+The resulting `Series` is assigned to `data` as a new column.
+
+```title=">>> Output"
+<class 'pandas.core.series.Series'>
+```
+
+???+ question "Track length"
+    
+    <figure markdown="span">
+      ![Spotify App](https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/640x427/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/11596505/akrales_180620_1777_0169.jpg){ width="350" }
+    </figure>
+    
+    Since songs are [getting shorter](https://www.theverge.com/2019/5/28/18642978/music-streaming-spotify-song-length-distribution-production-switched-on-pop-vergecast-interview)
+    and shorter, we want to know how long the tracks in our data set are. 
+    To do so, calculate the length in **minutes**.
+    
+    - Explore the given data set to find the appropriate column (which 
+      holds information on the song length). 
+    - Calculate the length in minutes (hint: use the `pandas` 
+      [documentation](https://pandas.pydata.org/docs/reference/api/pandas.Series.div.html) 
+      or Google.)
+    - Assign the result to the data frame.
+    - Use boolean indexing, to check if there are any tracks longer than 
+      `#!python 4` minutes.
+    - Lastly, calculate the average track length in minutes.
+
 
 ### Basic statistics
 
@@ -374,3 +421,9 @@ We covered `pandas` and some selected functionalities which should provide
 you with a solid foundation to work with tabular data sets. Moreover, you 
 should be able to follow the code portions in the upcoming chapters (e.g., 
 [Statistics](../statistics/index.md)) course more easily.
+
+
+## Outlook
+
+todo add boxplot etc
+maybe regression example?
