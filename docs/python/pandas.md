@@ -422,8 +422,84 @@ you with a solid foundation to work with tabular data sets. Moreover, you
 should be able to follow the code portions in the upcoming chapters (e.g., 
 [Statistics](../statistics/index.md)) course more easily.
 
+## What's next?
 
-## Outlook
+The upcoming statistics chapter introduces foundational tools to further 
+analyse data. Among the topics are descriptive and inferential
+statistics which are previewed in this section. After completion, you 
+will be equipped with methods to explore, summarize and effectively visualize
+your data sets. 
 
-todo add boxplot etc
-maybe regression example?
+<figure markdown="span">
+  ![Apple Keynote](https://www.techjunkie.com/wp-content/uploads/2013/09/20130911_cumulativeiphonesales4.jpg){ width="550" }
+<figcaption>Maybe a not so effective chart, if the actual sales numbers are missing...
+</figcaption>
+</figure>
+
+### Example: Descriptive statistics
+
+One common tool within the descriptive realm is the box plot. For instance,
+using our Spotify data set, we can visualize the loudness (in dB) based on 
+whether a track contains explicit lyrics.
+
+<div style="text-align: center;">
+    <iframe src="/assets/python/pandas/boxplot-loudness.html" width="100%" height="550px">
+    </iframe>
+</div>
+
+The above plot suggests that songs with explicit lyrics 
+tend to be slightly louder than those without (looking at the median). 
+Apart from the more in-depth explanation of box plot, concepts are 
+introduced to further validate such claims.
+
+---
+
+### Example: Inferential statistics
+
+To illustrate another example, the inferential statistics part contains a 
+section on linear regression which equips you with the necessary knowledge to 
+fit your first model. The following code snippet models the popularity of a
+track with the given features (such as danceability, loudness, tempo, liveness, 
+etc.).
+
+```py
+from pathlib import Path
+
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+data = pd.read_csv(Path(r"data/spotify-top50.csv"))
+
+X = data[
+    [
+        "danceability",
+        "loudness",
+        "speechiness",
+        "acousticness",
+        "instrumentalness",
+        "liveness",
+        "valence",
+        "tempo",
+    ]
+]
+y = data["popularity"]
+
+# fit the model
+reg = LinearRegression().fit(X, y)
+```
+
+With the model at hand, we can predict the popularity of a track and compare
+it to the actual value.
+
+<div style="text-align: center;">
+    <iframe src="/assets/python/pandas/real-vs-predicted.html" width="100%" height="550px">
+    </iframe>
+</div>
+
+You will learn how to interpret these results and measure the goodness of 
+fit (i.e., if the popularity is accurately modelled) and apply it to your 
+own data sets.
+
+---
+
+See you in the Statistics chapter! :waving_hand:
