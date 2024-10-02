@@ -309,80 +309,86 @@ Odds typically describe the ratio between two possibilities: the chance of somet
 
 ## Mass & Density Function
 
-## Expected Values
+In statistics, we often encounter the concepts of **probability mass functions (PMF)** and **probability density functions (PDF)**. These functions help describe the probabilities of different types of events—whether they are discrete or continuous.
 
+### Probability Mass Function (PMF)
+A **probability mass function** is used to describe probabilities for **discrete events**. Discrete events are those that occur in distinct, countable states, such as flipping a coin, rolling a die, or drawing a card. For example, if we roll a die, each face (1, 2, 3, 4, 5, or 6) is a discrete event. A PMF assigns probabilities to each possible outcome. In this case, each side of a fair die has a probability of 1/6, and these probabilities are represented in a **bar plot or histogram**.
 
+Let’s say we have a biased die, and the probability of rolling a 6 is twice as hig than other numbers and there is no 3. In this case, the PMF would show different probabilities for each number, but the probabilities are still discrete values—there’s no such thing as rolling a 4.5 on a die.
 
-## Central Limit Theorem
+???+ example "Example: Rolling the Die"
+    <div class="grid cards" markdown>
 
+    -   __Fair Die__
 
+        ---
+        <iframe src="/assets/statistics/random_dice_fair.html" width="100%" height="400px"></iframe>
 
+        ??? code "Code"
+            ``` py
+            import numpy as np
+            import plotly.express as px
+            import pandas as pd
 
+            x = [1,2,3,4,5,6]
 
-???+ example "Example: Biased Die"
-    <iframe src="/assets/statistics/random_dice_fair.html" width="100%" height="400px"></iframe>
+            df = pd.DataFrame(x, columns=['fair'])
 
-    ??? code "Code"
-        ``` py
-        import numpy as np
-        import plotly.express as px
-        import pandas as pd
+            fig = px.histogram(df, x='fair', nbins=6, histnorm='probability density')
 
-        x = [1,2,3,4,5,6]
+            # Adjust the plot
+            fig.update_layout(
+                title=dict(
+                        text='<b><span style="font-size: 10pt">Rolling a Fair Die</span></b>',
+                    ),
+                xaxis_title_text='Number',
+                yaxis_title_text='Probability',
+                bargap=0.1,
+            )
 
-        df = pd.DataFrame(x, columns=['fair'])
+            # Scale the axis
+            fig.update_layout(yaxis_range=[0,1])
 
-        fig = px.histogram(df, x='fair', nbins=6, histnorm='probability density')
+            # Show the plot
+            fig.show()
+            ```
 
-        # Adjust the plot
-        fig.update_layout(
-            title=dict(
-                    text='<b><span style="font-size: 10pt">Rolling a Fair Die</span></b>',
-                ),
-            xaxis_title_text='Number',
-            yaxis_title_text='Probability',
-            bargap=0.1,
-        )
+    -   __Biased Die__
 
-        # Scale the axis
-        fig.update_layout(yaxis_range=[0,1])
+        ---
+        <iframe src="/assets/statistics/random_dice_unfair.html" width="100%" height="400px"></iframe>
 
-        # Show the plot
-        fig.show()
-        ```
+        ??? code "Code"
+            ``` py
+            import numpy as np
+            import plotly.express as px
+            import pandas as pd
 
-    Consider a biased die with a manufacturing defect: it shows the number 6 twice and never shows the number 3. 
+            x = [1,2,4,5,6,6]
 
-    <iframe src="/assets/statistics/random_dice_unfair.html" width="100%" height="400px"></iframe>
+            df = pd.DataFrame(x, columns=['unfair'])
 
-    ??? code "Code"
-        ``` py
-        import numpy as np
-        import plotly.express as px
-        import pandas as pd
+            fig = px.histogram(df, x='unfair', nbins=6, histnorm='probability density')
 
-        x = [1,2,4,5,6,6]
+            # Adjust the plot
+            fig.update_layout(
+                title=dict(
+                        text='<b><span style="font-size: 10pt">Rolling a Biased Die</span></b>',
+                    ),
+                xaxis_title_text='Number',
+                yaxis_title_text='Probability',
+                bargap=0.1,
+            )
 
-        df = pd.DataFrame(x, columns=['fair'])
+            # Scale the axis
+            fig.update_layout(yaxis_range=[0,1])
 
-        fig = px.histogram(df, x='fair', nbins=6, histnorm='probability density')
+            # Show the plot
+            fig.show()
+            ```
+    </div>
 
-        # Adjust the plot
-        fig.update_layout(
-            title=dict(
-                    text='<b><span style="font-size: 10pt">Rolling a Biased Die</span></b>',
-                ),
-            xaxis_title_text='Number',
-            yaxis_title_text='Probability',
-            bargap=0.1,
-        )
-
-        # Scale the axis
-        fig.update_layout(yaxis_range=[0,1])
-
-        # Show the plot
-        fig.show()
-        ```
+    **For the Biased Die**
 
     The probability of rolling a 6 would be:
 
@@ -401,3 +407,165 @@ Odds typically describe the ratio between two possibilities: the chance of somet
     \[
     P(1 < X < 4) = \frac{1}{6} = 16.7\%
     \]
+
+One key rule of PMFs is that the sum of all probabilities must equal 1. For example, in a deck of cards, the sum of the probabilities for drawing any card must equal 1, since you're certain to draw **some** card from the deck.
+
+### Probability Density Function (PDF)
+In contrast, a **probability density function** is used for **continuous events**. Continuous events don’t have discrete outcomes; instead, they can take on any value within a range. For example, if we’re measuring the height of a person, we can’t pinpoint an exact value (down to the atom). Instead, we look at the probability of the height falling within a range, such as between 180 cm and 190 cm. Unlike PMFs, PDFs are represented by smooth curves, showing how the probability is distributed over a range of values.
+
+With continuous data, we can’t assign a probability to a specific value (such as someone being exactly 165.432 cm tall). Instead, we compute the probability of a value falling within a range using the **area under the curve** of the PDF. For instance, we might ask, "What’s the probability that someone’s height is between 180 cm and 190 cm?" This probability is calculated by integrating the PDF over that range.
+
+???+ example "Example: Height of a Person"
+    <iframe src="/assets/statistics/probability_pdf.html" width="100%" height="400px"></iframe>
+
+    ??? code "Code"
+        ``` py
+        import numpy as np
+        import pandas as pd
+        import plotly.express as px
+        from scipy.stats import norm
+
+        # Initialization
+        limit_up = 190
+        limit_down = 180
+
+        # Generate data for the normal distribution
+        x = np.arange(130, 210, 0.1)
+        y = norm.pdf(x, 170, 10)
+        df = pd.DataFrame({'x': x, 'y': y})
+
+        # Create a column for the fill area
+        df['fill'] = np.where((df['x'] >= limit_down) & (df['x'] <= limit_up), df['y'], 0)
+
+
+        # Create the plot
+        fig = px.line(df, x='x', y='y')
+        fig.add_trace(px.line(df, x='x', y='fill').data[0])
+
+        # Adjust the plot
+        fig.data[0].update(line=dict(color='#00416E', width=2))
+
+        fig.data[1].update(
+            fill='tozeroy', 
+            fillcolor='rgba(0, 65, 110, 0.4)',
+            line=dict(width=0),)
+
+        fig.update_layout(
+            xaxis_title_text='x',
+            yaxis_title_text='Density',
+            title=dict(
+                    text=f'<b><span style="font-size: 10pt">Probability Density Function </span><br> <span style="font-size:5">µ=170cm, std=10cm</span> </b>',
+                ),
+            showlegend=False,
+        )
+
+        fig.show()
+        ```
+
+    Calculating the probability, that a person is between 180 and 190 cm:
+
+    \[
+    P(180 \le X \le 190) = \int_{180}^{190} f(X)dx
+    \]
+
+    or smaller than 150 cm:
+
+    \[
+    P(X \le 150) = \int_{-\infty}^{150} f(X)dx
+    \]
+
+### Cumulative Distribution Function (CDF)
+
+A **CDF** is a function that provides the cumulative probability for a given random variable. In simpler terms, it gives the probability that a random variable will take a value **less than or equal to** a specific point. To build a CDF from a PDF, you essentially **sum** all the probability values of the PDF **up to a certain point** on the x-axis. Mathematically, this is equivalent to calculating the **integral** of the PDF for continuous distributions. The CDF at a particular value \( x \) gives you the total probability of the random variable being less than or equal to \( x \).
+
+For example, imagine a probability density function that describes the heights of people in a population. The CDF at a specific height (say 150 cm) tells you the probability of randomly selecting someone who is 150 cm or shorter. As you move further along the x-axis, the CDF will continue to increase until it reaches 1, which represents 100% probability.
+
+???+ example "Example: Height of a Person"
+    <iframe src="/assets/statistics/probability_cdf.html" width="100%" height="400px"></iframe>
+
+    ??? code "Code"
+        ``` py
+        import numpy as np
+        import pandas as pd
+        import plotly.express as px
+        from scipy.stats import norm
+
+        # Initialization
+        limit_up = 190
+        limit_down = 180
+
+        # Generate data for the normal distribution
+        x = np.arange(130, 210, 0.1)
+        y = norm.cdf(x, 170, 10)
+        df = pd.DataFrame({'x': x, 'y': y})
+
+        # Create a column for the fill area
+        df['fill'] = np.where((df['x'] >= limit_down) & (df['x'] <= limit_up), df['y'], 0)
+
+
+        # Create the plot
+        fig = px.line(df, x='x', y='y')
+        fig.add_trace(px.line(df, x='x', y='fill').data[0])
+
+        # Adjust the plot
+        fig.data[0].update(line=dict(color='#00416E', width=2))
+
+        fig.data[1].update(
+            fill='tozeroy', 
+            fillcolor='rgba(0, 65, 110, 0.4)',
+            line=dict(width=0),)
+
+        fig.update_layout(
+            xaxis_title_text='x',
+            yaxis_title_text='Probability',
+            title=dict(
+                    text=f'<b><span style="font-size: 10pt">Cumulated Distribution Function </span><br> <span style="font-size:5">µ=170cm, std=10cm</span> </b>',
+                ),
+            showlegend=False,
+        )
+
+        fig.show()
+        ```
+
+    Calculating the probability, that a person is between 180 and 190 cm:
+
+    \[
+    P(180 \le X \le 190) = \int_{180}^{190} f(X)dx = 13.6\%
+    \]
+
+    or smaller than 150 cm:
+
+    \[
+    P(X \le 150) = \int_{-\infty}^{150} f(X)dx = 2.3\%
+    \]
+
+    ??? code "Code"
+        ``` py
+        print('Between 180cm and 190cm:', (norm.cdf(190, 170, 10) - norm.cdf(180, 170, 10))*100, '%')
+        print('Smaller than 150cm:', (norm.cdf(150, 170, 10))*100, '%')
+        ```
+
+
+Key Properties of CDFs:
+
+1. **CDFs start at 0**: The lowest x-value in the distribution will have a cumulative probability of 0.
+2. **CDFs increase monotonically**: As you move along the x-axis, the CDF always increases or stays the same. It never decreases, since probabilities cannot decrease over time.
+3. **CDFs approach 1**: As the x-values increase and encompass all possible outcomes, the cumulative probability approaches 1, representing 100%.
+
+
+While PDFs describe the probability density, CDFs are the **cumulative sum** of those probabilities. One important distinction is that summing all the values of a **PDF** equals 1 (as it represents the total probability), but summing all the values of a **CDF** does not necessarily give 1. Instead, the CDF gradually approaches 1 as the x-values increase.
+
+CDFs provide a powerful way to compute cumulative probabilities, especially when working with continuous distributions. By understanding the relationship between PDFs and CDFs, we can answer practical questions like "What is the probability of scoring above a certain value?" or "What is the probability of a variable falling within a specific range?"
+
+In practical terms, CDFs allow you to compute probabilities **up to a certain value** on the x-axis, making them essential tools in statistics, probability theory, and real-world applications like exam scores or analyzing biological data.
+
+???+ question "Task"
+    Assume the heights of individuals in a certain population follow a normal distribution with a mean of 170 cm and a standard deviation of 10 cm (see examples above).
+
+    Answer the following questions based on this normal distribution:
+
+    1. What percentage of individuals are taller than 190 cm?
+    2. What percentage of individuals are between 170 cm and 180 cm tall?
+    3. Plot the Probability Density Function (PDF) for a normal distribution with a mean of 180 cm and a standard deviation of 5 cm.
+
+    For the first two questions use the **Cumulative Distribution Function (CDF)** to calculate the corresponding probabilities.
