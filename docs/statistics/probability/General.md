@@ -161,7 +161,6 @@ In simpler terms, **probability** is typically used to discuss the likelihood of
                     text=f'<b><span style="font-size: 10pt">Experiment: Flipping 20 Coins </span></b>',
                 ),
             bargap=0.1,
-            #xaxis_range=[-0.5,1.5],
             showlegend=False,)
 
         fig.show()
