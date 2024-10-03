@@ -125,7 +125,7 @@ The \( q \)-quantile divides the data into \( q \) equal-sized parts. There are 
 	- If set of numbers are odd, you have to calculate the middle
 
 <figure markdown="span">
-  ![Image title](/assets/statistics/uni_quantiles.png){width=50% }
+  ![Image title](../../assets/statistics/uni_quantiles.png){width=50% }
 </figure>
 
 Most widely used forms

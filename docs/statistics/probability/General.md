@@ -45,7 +45,7 @@ A key point to note is that the sum of all probabilities for a set of outcomes m
 Let's make this concept more tangible by looking at an example from a common smartphone weather app. Imagine the app shows 
 
 <figure markdown="span">
-  ![Image title](/assets/statistics/rain.jpg){width=50% }
+  ![Image title](../../assets/statistics/rain.jpg){width=50% }
 </figure>
 
 
@@ -57,7 +57,7 @@ The correct interpretation, however, is that there is a 3 in 10 chance of rain a
 Why is probability so important? Probability plays a central role in fields like weather forecasting, actuarial science, and medical research. In medicine, for instance, probability is used to evaluate the effectiveness of treatments and to model the spread of diseases. It's also essential in physics, chemistry, biology, and even machine learning and artificial intelligence, where it helps make predictions based on data.
 
 <figure markdown="span">
-  ![Correlation Types](/assets/statistics/statisticsAI.png){width=50% }
+  ![Correlation Types](../../assets/statistics/statisticsAI.png){width=50% }
   <figcaption>(Source: <a href="https://www.instagram.com/sandserifcomics">sandserifcomics</a>) </figcaption>
 </figure>
 
@@ -196,7 +196,7 @@ Before we start calculating probability, it's important to note that certain typ
 Another key requirement for valid probability calculations is that the data categories must be mutually exclusive. For instance, when flipping a coin, the events "heads" and "tails" are mutually exclusive since both cannot happen at the same time. Similarly, if a wooden beam is measured to be between 3.5 and 4 m in length, it cannot also be between 4 and 4.5 m.
 
 <figure markdown="span">
-  ![Correlation Types](/assets/statistics/meme_mutually.jpg){width=50% }
+  ![Correlation Types](../../assets/statistics/meme_mutually.jpg){width=50% }
   <figcaption>(Source: <a href="https://makeameme.org/meme/one-does-not-55c7e12c14">MakeAMeme</a>) </figcaption>
 </figure>
 

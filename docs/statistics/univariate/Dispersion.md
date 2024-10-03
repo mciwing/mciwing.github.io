@@ -6,7 +6,7 @@ Measures of dispersion characterize a distribution by indicating how data is spr
     Some formulas differ between samples and populations (e.g., variance), which may result in slight variations in the calculations. 
     
     <figure markdown="span">
-    ![Image title](/assets/statistics/Sample_Population.png){width=50% }
+    ![Image title](../../assets/statistics/Sample_Population.png){width=50% }
     </figure>
 
 ## Range
