@@ -106,7 +106,7 @@ Thus, random variables enable us to quantify the outcomes of random processes, a
     Now it's your turn to create a random variable. There are several packages in Python that we can use for this purpose. Use the `random` package we already used in the package [management section](../../python/packages.md#standard-library). 
 
     <figure markdown="span">
-    ![Correlation Types](/assets/statistics/meme_dice.jpg){width=50% }
+    ![Correlation Types](../../assets/statistics/meme_dice.jpg){width=50% }
     <figcaption>(Source: <a href="https://imgflip.com/i/9599pd">imgflip</a>) </figcaption>
     </figure>
 
