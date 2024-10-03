@@ -361,7 +361,7 @@ By solving this, the **coefficients of the regression line** can be determined, 
 The best fit line is the one that minimizes the sum of squared differences between observed and predicted values. These differences, known as residuals, represent the distance between the actual \( Y \)-values and the predicted \( Y \)-values from the model.
 
 <figure markdown="span">
-  ![Correlation Types](/assets/statistics/Regression.svg){ width="400" }
+  ![Correlation Types](../../assets/statistics/Regression.svg){ width="400" }
 </figure>
 
 ## Coefficient of Determination
