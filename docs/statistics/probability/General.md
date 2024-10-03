@@ -111,7 +111,7 @@ Thus, random variables enable us to quantify the outcomes of random processes, a
     </figure>
 
     1. Now generate your own random number. Use the commands `randint`, `random` and `choices`. A good documentation can be found [here](https://www.w3schools.com/python/module_random.asp)
-    2. Are those numbers really random? Do some research about the `numpy.random.seed` command
+    2. Are those numbers really random? Do some research about the `random.seed` command
     3. Now create the following experiments: 
         - **Fair Die**: Perform a virtual 'rolling of the die' for a fair (normal) die by using the `choices` command
             ```py
