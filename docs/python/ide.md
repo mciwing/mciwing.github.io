@@ -105,7 +105,7 @@ Click on *`Install`*.
 
 After the installation, you should be greeted with following output
 
-```py
+```title=">>> Output"
 Hello World!
 ```
 

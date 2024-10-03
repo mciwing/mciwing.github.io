@@ -14,7 +14,7 @@ print(type(experiment))
 
 Above code snippet creates a simple dictionary and prints its type:
 
-```
+```title=">>> Output"
 <class 'dict'>
 ```
 
@@ -43,7 +43,11 @@ then place the key inside a set of square brackets.
 
 ```py
 experiment = {"sample_weight_in_grams": 5}
-print(experiment["sample_weight_in_grams"])  # 5
+print(experiment["sample_weight_in_grams"])
+```
+
+```title=">>> Output"
+5
 ```
 
 ???+ question "Create a dictionary"
@@ -71,9 +75,9 @@ print(experiment)
 ```
 
 In the above example, we start with an empty dictionary and add a key-value
-pair to it. The output is:
+pair to it.
 
-```
+```title=">>> Output"
 {'description': 'resource optimization'}
 ```
 
@@ -106,9 +110,7 @@ del experiment["supervisor"]
 print(experiment)
 ```
 
-which results in:
-
-```
+```title=">>> Output"
 {'supervisor': 'Alex', 'sample_weight_in_grams': 10}
 {'sample_weight_in_grams': 10}
 ```

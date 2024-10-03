@@ -11,8 +11,6 @@ theme:
     accent: pink
   icon:
     repo: fontawesome/brands/git-alt
-    #admonition: 
-      #quote: fontawesome/solid/quote-left
 
   features:
     - navigation.tabs
@@ -21,6 +19,7 @@ theme:
     - navigation.footer
     - navigation.top  # 'back to top' button on scrolling
     - header.autohide
+    - search.highlight
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -29,10 +28,12 @@ copyright: 2024 - MCI Wing
 
 nav:
   - Home: index.md
+
   - Data Basics:
     - databasics/Terms.md
     - databasics/Data.md
     - databasics/DataBasics.md
+
   - Python Crash Course:
     - python/index.md
     - python/installation.md
@@ -52,6 +53,8 @@ nav:
       - python/control-structures/if.md
     - python/functions.md
     - python/packages.md
+    - python/pandas.md
+
   - Statistics:
     - statistics/index.md
     - Descriptive Statistics:
@@ -79,12 +82,14 @@ nav:
         - statistics/regression/HigherRegression.md
 
 plugins:
+  - search
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
+  - table-reader
 markdown_extensions:
   - attr_list
   - md_in_html

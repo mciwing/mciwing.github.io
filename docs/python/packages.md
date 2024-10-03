@@ -1,4 +1,4 @@
-# Package management :material-package-variant:
+# Package Management :material-package-variant:
 
 ## Introduction
 

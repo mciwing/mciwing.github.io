@@ -12,9 +12,7 @@ of a comparison is a boolean value.
 print("Abc" == "abc")
 ```
 
-... which evaluates to
-
-```
+```title=">>> Output"
 False
 ```
 
@@ -25,7 +23,11 @@ checks if both strings are equal, using the `==` operator. The result is
 Let's check if two integers are equal:
 
 ```py
-print(1 == 1)  # True
+print(1 == 1)
+```
+
+```title=">>> Output"
+True
 ```
 
 ### Inequality
@@ -34,12 +36,21 @@ We can also check if two values are **not** equal with the `!=` operator:
 
 ```py
 user_name = "Eric"
-print(user_name != "admin") # True
+print(user_name != "admin")
+```
+
+```title=">>> Output"
+True
 ```
 
 ```py
-print(2 != 2.1) # True
-print(2 != 2)   # False
+print(2 != 2.1)
+print(2 != 2)
+```
+
+```title=">>> Output"
+True
+False
 ```
 
 ### Numerical comparisons
@@ -54,11 +65,23 @@ print(2 != 2)   # False
 | `>=`     | greater than or equal |
 
 ```py
-print(1 < 2)  # True
-print(1 > 2)  # False
+print(1 < 2)
+print(1 > 2)
+```
 
-print(10.2 <= 10.2)  # True
-print(9.99 >= 10)  # False
+```title=">>> Output"
+True
+False
+```
+
+```py
+print(10.2 <= 10.2)
+print(9.99 >= 10)
+```
+
+```title=">>> Output"
+True
+False
 ```
 
 ## Logical Operators
@@ -81,6 +104,10 @@ age = 20
 print(age >= 18 and age <= 25) # True and True -> True
 ```
 
+```title=">>> Output"
+True
+```
+
 ### `or`
 
 ```py
@@ -88,11 +115,19 @@ age = 20
 print(age >= 50 or age <= 25) # False or True -> True
 ```
 
+```title=">>> Output"
+True
+```
+
 ### `not`
 
 ```py
 age = 20
 print(not(age >= 18)) # not(True) -> False
+```
+
+```title=">>> Output"
+False
 ```
 
 ---

@@ -1,8 +1,8 @@
 # Boolean and None
 
 In this section, we introduce two more data types, namely boolean (`#!python 
-bool`) and None (`#!python NoneType`). Let's start with the latter one, `#!
-python NoneType`.
+bool`) and None (`#!python NoneType`). Let's start with the latter one, 
+`#!python NoneType`.
 
 ## None (`NoneType`)
 
@@ -16,7 +16,7 @@ print(type(nothing))
 
 ... which outputs:
 
-```
+```title=">>> Output"
 <class 'NoneType'>
 ```
 
@@ -69,6 +69,10 @@ message = "Happy " + str(age) + "rd Birthday!"
 print(message)
 ```
 
+```title=">>> Output"
+Happy 23rd Birthday!
+```
+
 Changing the type of `age` to string is called casting.
 
 ???+ info
@@ -85,7 +89,7 @@ which is a floating point number.
 print(type(3 / 2))
 ```
 
-```
+```title=">>> Output"
 <class 'float'>
 ```
 
@@ -94,11 +98,16 @@ integer, if possible. The value to be cast is passed as the input parameter.
 
 ```py
 number = 3.0
-print(type(number)) # <class 'float'>
+print(type(number))
 
 # casting
 number = int(number)
-print(type(number)) # <class 'int'>
+print(type(number))
+```
+
+```title=">>> Output"
+<class 'float'>
+<class 'int'>
 ```
 
 To explicitly cast a value into a float, use the function `#!python float()`.
@@ -149,7 +158,7 @@ can_edit = False
 print(type(True))
 ```
 
-```
+```title=">>> Output"
 <class 'bool'>
 ```
 

@@ -11,22 +11,27 @@ coordinates = (47.262996862335854, 11.393082185178823)
 print(type(coordinates))
 ```
 
-```
+```title=">>> Output"
 <class 'tuple'>
 ```
 
 A `#!python tuple` is created with round brackets (`()`). As with lists and dictionaries,
 the elements are separated by commas. Tuples can hold any type of data.
 
-Access the individual elements of a tuple using the index.
+Access the individual elements of a `#!python tuple` using the index.
 
 ```py
 coordinates = (47.262996862335854, 11.393082185178823)
-print(coordinates[0])  # 47.262996862335854
-print(coordinates[1])  # 11.393082185178823
+print(coordinates[0])
+print(coordinates[1])
 ```
 
-Let's try to change the value of an element in a tuple.
+```title=">>> Output"
+47.262996862335854
+11.39308218517882
+```
+
+Let's try to change the value of an element in a `#!python tuple`.
 
 ```py
 coordinates = (47.262996862335854, 11.393082185178823)
@@ -43,7 +48,8 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 ```
 
-As a `#!python tuple` is immutable, you can only redefine the entire tuple.
+As a `#!python tuple` is immutable, you can only redefine the entire 
+`#!python tuple`.
 
 ```py
 coordinates = (47.262996862335854, 11.393082185178823)
@@ -61,19 +67,19 @@ latitude, longitude = coordinates
 ???+ info
 
     Tuples are often used for constants. In the above examples, we used 
-    coordinates. As these coordinates are not going to change, a tuple is a 
-    fitting data type.
+    coordinates. As these coordinates are not going to change, a 
+    `#!python tuple` is a fitting data type.
 
 
 ???+ question "Tuple unpacking"
 
-    Use the following tuple with cities.
+    Use the following `#!python tuple` with cities.
     ```py
     cities = ("New York", "Los Angeles", "Chicago")
     ```
 
     - Print the first city.
-    - Use tuple unpacking and print the resulting variables.
+    - Use `#!python tuple` unpacking and print the resulting variables.
 
 ## Recap
 

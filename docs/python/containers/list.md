@@ -30,9 +30,7 @@ beatles = ["John", "Paul", "George", "Ringo"]
 print(beatles)
 ```
 
-which prints:
-
-```
+```title=">>> Output"
 ['John', 'Paul', 'George', 'Ringo']
 ```
 
@@ -40,7 +38,7 @@ which prints:
 print(type([]))  # print the type of an empty list
 ```
 
-```
+```title=">>> Output"
 <class 'list'>
 ```
 
@@ -57,9 +55,7 @@ beatles = ["John", "Paul", "George", "Ringo"]
 print(beatles[0])
 ```
 
-... returns:
-
-```
+```title=">>> Output"
 John
 ```
 
@@ -130,9 +126,7 @@ numbers.append(4)
 print(numbers)
 ```
 
-... prints:
-
-```
+```title=">>> Output"
 [1, 2, 3]
 [1, 2, 3, 4]
 ```
@@ -150,7 +144,7 @@ numbers.append("one hundred")
 print(numbers)
 ```
 
-```
+```title=">>> Output"
 [1.0, 2.0, 0.5, 4.0, 3.0, 'one hundred']
 ```
 
@@ -180,9 +174,7 @@ pokemon.insert(1, "Charmeleon")
 print(pokemon)
 ```
 
-which gives:
-
-```
+```title=">>> Output"
 ['Charmander', 'Charmeleon', 'Charizard']
 ```
 
@@ -198,9 +190,7 @@ pokemon.remove("Squirtle")
 print(pokemon)
 ```
 
-... prints:
-
-```
+```title=">>> Output"
 ['Charmander', 'Charmeleon', 'Charizard', 'Squirtle']
 ```
 
@@ -222,9 +212,7 @@ print(pokemon)
 print(bulbasaur)
 ```
 
-... prints:
-
-```
+```title=">>> Output"
 ['Charmander', 'Charmeleon', 'Charizard']
 Bulbasaur
 ```
@@ -256,9 +244,7 @@ numbers.sort(reverse=True)  # sort in descending order
 print(numbers)
 ```
 
-above code snippet returns:
-
-```
+```title=">>> Output"
 [1, 2, 3, 4, 5]
 [5, 4, 3, 2, 1]
 ```
@@ -274,9 +260,8 @@ sorted_numbers = sorted(numbers)
 
 print(f"Original list: {numbers}; Sorted list: {sorted_numbers}")
 ```
-which prints:
 
-```
+```title=">>> Output"
 Original list: [5, 4, 1, 3, 2]; Sorted list: [1, 2, 3, 4, 5]
 ```
 
@@ -285,7 +270,11 @@ Original list: [5, 4, 1, 3, 2]; Sorted list: [1, 2, 3, 4, 5]
 You can easily find the length of a `#!python list` with `#!python len()`.
 
 ```py
-print(len([3.0, 1.23, 0.5]))  # 3
+print(len([3.0, 1.23, 0.5]))
+```
+
+```title=">>> Output"
+3
 ```
 
 ## Slicing
@@ -299,6 +288,10 @@ indices 0 through 3, which would return elements 0, 1, and 2.
 ```py
 players = ["charles", "martina", "michael", "florence", "eli"]
 print(players[0:3])
+```
+
+```title=">>> Output"
+['charles', 'martina', 'michael']
 ```
 
 ???+ question "Slicing"
@@ -327,9 +320,7 @@ copied_list.insert(0, "zero")
 print(f"Original list: {original_list}, Copied list: {copied_list}")
 ```
 
-which prints:
-
-```
+```title=">>> Output"
 Original list: [1, 2, 3, 4], Copied list: ['zero', 1, 2, 3]
 ```
 
@@ -351,7 +342,7 @@ print(f"Original list: {original_list}, Copied list: {copied_list}")
 ```
 
 which leaves us with:
-```
+```title=">>> Output"
 Original list: [1, 2, 3, 4], Copied list: [1, 2, 3, 4]
 ```
 
