@@ -241,7 +241,6 @@ The **probability distribution** of a discrete random variable shows the likelih
                     text=f'<b><span style="font-size: 10pt">Experiment: Flipping 20 Coins </span></b>',
                 ),
             bargap=0.1,
-            #xaxis_range=[-0.5,1.5])
 
         for i in range(0, 2):
             fig.add_shape(
