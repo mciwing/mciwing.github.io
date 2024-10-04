@@ -1,12 +1,13 @@
 # Why Python?
 
-This crash course on
+![header](../assets/python/python-header.gif)
 
-<div style="text-align: center;">
-  <img src="https://www.python.org/static/img/python-logo.png" alt="Python Logo">
-</div>
+---
 
-will teach you the basics of the Python programming language.
+This crash course will teach you the basics of the 
+**:fontawesome-brands-python: Python** programming language.
+
+---
 
 ## Motivation
 
