@@ -2,8 +2,6 @@
 
 **Johannes Kepler** (1571-1630) is often considered one of the first **Data Scientists** due to his groundbreaking work in analyzing astronomical data to uncover the laws governing planetary motion. In the early 1600s, Kepler meticulously studied large amounts of observational data gathered by the astronomer Tycho Brahe. By applying mathematical models and repeated analysis, Kepler discovered that planets move in elliptical orbits around the sun, challenging the long-standing belief in circular orbits. His findings were published in the **Rudolphine Tables** in 1627, which were the most precise planetary position tables of the time. These tables, based on Kepler's laws of planetary motion, were crucial for navigation and scientific research for over a century, illustrating his innovative use of data to revolutionize our understanding of the solar system. This work laid the foundation for modern data analysis practices.
 
-
-
 <div class="grid cards" markdown>
 
 -   
@@ -39,3 +37,6 @@ In the world of data analysis and processing, terms like **Data Science**, **Mac
     - **Predictive Analytics**: Investigate what Predictive Analytics is and how it is used in the context of Data Science and BI. How is Predictive Analytics related to Machine Learning?
     
     - **Data Engineering**: Find out what tasks and responsibilities are included in Data Engineering and how it differs from Data Science. Why is Data Engineering an essential part of successful data projects?
+
+
+<iframe width=100% height="315" src="https://www.youtube.com/embed/X3paOmcrTjQ?si=Z3yP3TwOUfhTqhXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
