@@ -14,7 +14,7 @@ In order to do that, we need to distinguish between the terms data set, object a
     <figure markdown="span">
         ![Data Set](../assets/databasics/Dataset_3.png){ width=100% }
     </figure>
-    The displayed data shows a dataset consisting of three objects and seven attributes. The first attribute, `ID` is a key attribute and is meant to uniquely identify each object.
+    The displayed data shows a dataset consisting of three objects and seven attributes.
 
 ## Qualitative vs Quantitative
 A variable is called **qualitative** (categorical) when each observation distinctly falls into a specific category. Qualitative variables express different qualitative properties, but do not convey any magnitude. Conversely, a variable is termed **quantitative** (numerical) when it measures the magnitude of a property. Quantitative variables can be either **Discrete** (The variable can only take on a finite number of values) or **Continuous** (The variable can take on any value within a given interval).
