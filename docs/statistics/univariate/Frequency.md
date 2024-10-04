@@ -1,8 +1,33 @@
 # Frequency Distribution
 
-A list \( X \) consists of \( n \) elements \( x_1, \dots, x_n \). Within this list, \( X \) contains \( k \) distinct values (\( a_1, \dots, a_k \)). The **frequency** refers to how often a specific value \( a_k \) appears in \( X \). In the case of a nominal scale, \( k \) is equal to the number of categories, with \( k \) typically much smaller than \( n \). For a metric scale, there are often only a few identical values, meaning \( k \) is approximately equal to \( n \).
+A list \( X \) consists of \( n \) elements \( x_1, \dots, x_n \). Within this list, \( X \) contains \( k \) distinct values (\( a_1, \dots, a_k \)). The **frequency** refers to how often a specific value \( a_k \) appears in \( X \). 
 
-The **representation of frequencies** can be done in the form of a **table** or a **graphical** format. When a frequency distribution is depicted as a bar chart, it is referred to as a histogram. It is important that the data remains the focal point and is presented as accurately and objectively as possible, avoiding distortions such as 3D effects or shadows. Titles, axis labels, legends, the data source, and the time of data collection should always be clearly indicated.
+
+```py 
+drinks = ['small', 'small', 'small', 'medium', 'medium', 'medium', 'large']
+```
+
+In this example, 
+
+- \( X \): `#!python drinks`
+- \( n \): `#!python 7`
+- \( x_1, \dots, x_n \): `#!python ['small', 'small', 'small', 'medium', 'medium', 'medium', 'large']`
+- \( k \): 3
+- \( a_1, \dots, a_k \): `#!python ['small', 'medium', 'large']`
+
+In the case of a nominal scale, \( k \) is equal to the number of categories, with \( k \) typically much smaller than \( n \). For a metric scale, there are often only a few identical values, meaning \( k \) is approximately equal to \( n \).
+
+The **representation of frequencies** can be done in the form of a **table** or a **graphical** format. When a frequency distribution is depicted as a bar chart, it is referred to as a histogram. 
+
+```py 
+import plotly.express as px
+
+df = px.data.tips()
+fig = px.histogram(df, x="total_bill")
+fig.show()
+```
+
+It is important that the data remains the focal point and is presented as accurately and objectively as possible, avoiding distortions such as 3D effects or shadows. Titles, axis labels, legends, the data source, and the time of data collection should always be clearly indicated.
 
 ???+ defi "Definition"
     **Absolute Frequency** of the value \( a_j \)
@@ -36,12 +61,11 @@ The **representation of frequencies** can be done in the form of a **table** or 
 ## Nominal Scale
 For nominally scaled variables, the values correspond to the possible categories. The internal order of these categories is not relevant in the substantive analysis.
 
-??? example
+???+ example
     <div class="grid cards" markdown>
 
-    -   __Histogram__
+    -   
 
-        ---
         <iframe src="/assets/statistics/uni_nominal_histo.html" width="100%" height="400px"></iframe>
         ??? code "Code"
             ``` py
@@ -66,9 +90,8 @@ For nominally scaled variables, the values correspond to the possible categories
             fig.show()
             ```
 
-    -   __Pie Chart__
+    -   
 
-        ---
         <iframe src="/assets/statistics/uni_nominal_pie.html" width="100%" height="400px"></iframe>
         ??? code "Code"
             ``` py 
@@ -95,8 +118,28 @@ For nominally scaled variables, the values correspond to the possible categories
 
 ## Ordinal Scale
 For ordinally scaled variables, the values also correspond to the possible categories. However, the internal order of these categories is relevant in the substantive analysis. The values should always be presented in either ascending or descending order.
+In order to tell `Python` the correct order, we need to define it first
 
-??? example
+```py 
+round_order = ['F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128', 'RR']
+```
+
+Afterwards we can use this order in the histogram
+```py 
+fig = px.histogram(
+                data, 
+                x="round",
+                category_orders={"round": round_order}
+                )
+```
+
+and for the calculation of the corsstable
+```py 
+data['round'] = pd.Categorical(data['round'], categories=round_order, ordered=True)
+```
+            
+
+???+ example
     <div class="grid cards" markdown>
 
     -   __Histogram WITHOUT Order__
@@ -219,7 +262,27 @@ For ordinally scaled variables, the values also correspond to the possible categ
 
 In the case of ordinally scaled variables, a cumulative absolute or relative frequency can also be calculated. The cumulative absolute frequency indicates how often a reference value (or category) has not been exceeded. The cumulative relative frequency is this number divided by the total number of observations.
 
-??? example
+To calculate the cumulative relative frequency in the histogram, we need to add the lines: 
+```py hl_lines="5-6"
+fig = px.histogram(
+                data, 
+                x="round",
+                category_orders={"round": round_order[::-1]},
+                cumulative=True,
+                histnorm="percent"
+                )
+```
+To do the same for the crosstab we need to add:
+
+```py hl_lines="4-5"
+freq_rel_cum = pd.crosstab(
+                index=data['round'], 
+                columns='Relative Frequency',
+                normalize=True
+                ).cumsum()
+```
+
+???+ example
     <div class="grid cards" markdown>
 
     -   __Histogram (Abolute, Cumulative)__
@@ -359,7 +422,7 @@ In the case of ordinally scaled variables, a cumulative absolute or relative fre
 ## Numeric Scale
 When the number of values \( k \) for a metrically scaled variable is small, it can be presented in the same way as an ordinal scale. However, when \( k \) is large, the representation can become cluttered and lose clarity.
 
-??? example
+???+ example
     <div class="grid cards" markdown>
 
     -   __Numeric Variable with Few of Values__
@@ -421,7 +484,14 @@ When the number of values \( k \) for a metrically scaled variable is small, it 
             ```
     </div>
 
-In such cases, categories (intervals or bins) should be created to reduce the number of displayed values, making the data easier to interpret.
+In such cases, categories (intervals or bins) should be created to reduce the number of displayed values, making the data easier to interpret. This can be done automatically e.g. by `#!python px.histogram()` or manually:
+
+```py
+data['points_cat'] = pd.cut(
+                        data['winner_rank_points'], 
+                        bins=range(0,int(data['winner_rank_points'].max()),100), 
+                        right=False)
+```
 
 ??? example
     <div class="grid cards" markdown>
