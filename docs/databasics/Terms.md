@@ -7,7 +7,7 @@
 -   
     
     <figure markdown="span">
-        ![Johannes Keppler](/assets/databasics/keppler.png){ width=50% }
+        ![Johannes Keppler](../assets/databasics/keppler.png){ width=50% }
         <figcaption>Johannes Keppler (Source: <a href="https://de.wikipedia.org/wiki/Johannes_Kepler">Wikipedia</a>)</figcaption>
     </figure>
 
@@ -15,7 +15,7 @@
 -   
     
     <figure markdown="span">
-        ![Rudolphine Tables](/assets/databasics/rudolphine.png){ width=50% }
+        ![Rudolphine Tables](../assets/databasics/rudolphine.png){ width=50% }
         <figcaption>Rudolphine Tables (Source: <a href="https://en.wikipedia.org/wiki/Rudolphine_Tables">Wikipedia</a>)</figcaption>
     </figure>
 </div>

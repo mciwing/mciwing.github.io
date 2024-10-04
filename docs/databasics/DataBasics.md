@@ -12,7 +12,7 @@ In order to do that, we need to distinguish between the terms data set, object a
 
 ???+ example "Example: Data Set"
     <figure markdown="span">
-        ![Data Set](/assets/databasics/Dataset_3.png){ width=100% }
+        ![Data Set](../assets/databasics/Dataset_3.png){ width=100% }
     </figure>
     The displayed data shows a dataset consisting of three objects and seven attributes. The first attribute, `ID` is a key attribute and is meant to uniquely identify each object.
 
@@ -162,5 +162,5 @@ Ratio-scaled attributes possess an inherent zero-point, which indicates the comp
 
     Name the types of attributes in the following data set and justify
     <figure markdown="span">
-        ![Data Set](/assets/databasics/Attribute_Quiz.png){ width=60% }
+        ![Data Set](../assets/databasics/Attribute_Quiz.png){ width=60% }
     </figure>

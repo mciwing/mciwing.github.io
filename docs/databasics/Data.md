@@ -24,14 +24,14 @@ Classical data is ideal for tasks where data volumes are manageable, the structu
 - **Complexity**: The diversity and interconnectedness of data sources add to the complexity of managing and analyzing Big Data.
 
 <figure markdown="span">
-    ![Big Data](/assets/databasics/ibm.png){ width=100% }
+    ![Big Data](../assets/databasics/ibm.png){ width=100% }
     <figcaption>Visualisation of Big Data according to IBM (Source: <a href="https://blogdozouza.wordpress.com/2016/01/21/extracting-business-value-from-the-4-vs-of-big-data/">BlogDozouza</a>)</figcaption>
 </figure>
 
 Big Data requires specialized tools and technologies to handle its characteristics. Distributed computing frameworks like Apache Hadoop and Spark, NoSQL databases, and advanced machine learning algorithms are often employed to extract insights from these vast and complex datasets. Examples of Big Data include social media interactions, sensor data from the Internet of Things (IoT), and genomic sequences.
 
 <figure markdown="span">
-    ![60 Seconds in the Internet](/assets/databasics/60seconds.png){ width=100% }
+    ![60 Seconds in the Internet](../assets/databasics/60seconds.png){ width=100% }
     <figcaption>60 Seconds in the Internet (Source: eDiscovery Today & LTMG)</figcaption>
 </figure>
 
