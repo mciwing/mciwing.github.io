@@ -1,14 +1,22 @@
 # Why Python?
 
-This crash course on
+![header](../assets/python/python-header.gif)
 
-<div style="text-align: center;">
-  <img src="https://www.python.org/static/img/python-logo.png" alt="Python Logo">
-</div>
+---
 
-will teach you the basics of the Python programming language.
+This crash course will teach you the basics of the 
+**:fontawesome-brands-python: Python** programming language.
+
+---
 
 ## Motivation
+
+<img src="../assets/python/index/lattenspitze.gif" alt="lattenspitze" style="height: 300px;">
+<figcaption style="text-align: center;">Creation of a 3D surface plot of 
+the Lattenspitze 🏔️. That's the power of Python - ease of use 
+paired with a wide range of functionalities stemming from a large 
+developer community! 🦾
+</figcaption>
 
 <div class="grid cards" markdown>
 
