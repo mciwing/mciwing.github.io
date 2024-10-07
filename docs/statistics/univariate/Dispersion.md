@@ -12,6 +12,16 @@ Measures of dispersion characterize a distribution by indicating how data is spr
 ## Range
 The range, denoted as \( R \), is the difference between the largest and smallest value in a dataset. However, in the presence of extremely large or small outliers, the range can provide a distorted view of the data's variability.
 
+```py
+import numpy as np
+np.ptp([1,2,1,2,3,4,1,100,1,2,2])
+```
+
+```title=">>> Output"
+99
+```
+
+
 ???+ defi "Definition"
     \[
     R = \text{max}(X)-\text{min}(X)
@@ -19,7 +29,7 @@ The range, denoted as \( R \), is the difference between the largest and smalles
 
     with \( x_1, x_2, \dots, x_N \) representing a set of \( N \) values of a metric variable \( X \). 
 
-??? example
+???+ example
     Given a table with 14 temperature values in °C, the goal is to calculate the range of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -42,7 +52,18 @@ The range, denoted as \( R \), is the difference between the largest and smalles
         ```
 
 ## Interquartile Range
-The interquartile range (IQR) is the difference between the third and first quartile. It describes the spread of the middle 50% of the data, providing a measure of variability that is less sensitive to outliers
+The interquartile range (IQR) is the difference between the third and first quartile. 
+
+```py
+from scipy import stats
+stats.iqr([1,2,1,2,3,4,1,100,1,2,2], interpolation = 'nearest')
+```
+
+```title=">>> Output"
+2
+```
+
+It describes the spread of the middle 50% of the data, providing a measure of variability that is less sensitive to outliers
 
 ???+ defi "Definition"
     \[
@@ -52,7 +73,7 @@ The interquartile range (IQR) is the difference between the third and first quar
     Q1 and Q3 are the first and third quartiles of a dataset with \( N \) values of a variable \( X \).
 
 
-??? example
+???+ example
     Given a table with 14 temperature values in °C, the goal is to calculate the IQR of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -83,6 +104,17 @@ The interquartile range (IQR) is the difference between the third and first quar
 ## Variance
 Variance \( \sigma^2 \) is the mean of the squared deviations from the average. It indicates how spread out a distribution is.
 
+```py
+import statistics 
+print('Variance: ', statistics.variance([1,2,1,2,3,4,1,100,1,2,2]))
+print('Population Variance: ', statistics.pvariance([1,2,1,2,3,4,1,100,1,2,2]))
+```
+
+```title=">>> Output"
+Variance:  875.76
+Population Variance:  796.15
+```
+
 ???+ defi "Definition"
     \[
     \sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i-\bar{x})^2
@@ -91,7 +123,7 @@ Variance \( \sigma^2 \) is the mean of the squared deviations from the average. 
     with \( x_1, x_2, \dots, x_N \) representing a set of \( N \) values of a metric variable \( X \).
     This formula applies to the entire population. For samples, it differs slightly, as the division is by \( N - 1 \) instead of \( N \).
 
-??? example
+???+ example
     Given a table with 14 temperature values in °C, the goal is to calculate the variance of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -114,7 +146,20 @@ Variance \( \sigma^2 \) is the mean of the squared deviations from the average. 
         ```
 
 ## Standard Deviation
-The standard deviation \( \sigma \) describes a "typical" deviation from the mean. It indicates how spread out a distribution is. A small \( \sigma \) suggests that the data tends to be close to the mean, while a large \( \sigma \) indicates that the data is spread over a wide range of values.
+The standard deviation \( \sigma \) describes a "typical" deviation from the mean. It indicates how spread out a distribution is.
+
+```py
+import statistics 
+print('Standard Deviation: ', statistics.stdev([1,2,1,2,3,4,1,100,1,2,2]))
+print('Population Standard Deviation: ', statistics.pstdev([1,2,1,2,3,4,1,100,1,2,2]))
+```
+
+```title=">>> Output"
+Standard Deviation:  29.59
+Population Standard Deviation:  28.22
+```
+
+A small \( \sigma \) suggests that the data tends to be close to the mean, while a large \( \sigma \) indicates that the data is spread over a wide range of values.
 
 ???+ defi "Definition"
     \[
@@ -123,7 +168,7 @@ The standard deviation \( \sigma \) describes a "typical" deviation from the mea
 
     With \( x_1, x_2, \dots, x_N \) representing a set of \( N \) values of a metric variable \( X \), and \( \sigma^2 \) being the corresponding variance.
 
-??? example
+???+ example
     Given a table with 14 temperature values in °C, the goal is to calculate the standard deviation of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -153,6 +198,13 @@ The standard deviation \( \sigma \) describes a "typical" deviation from the mea
 ## Coefficient of Variation
 We previously encountered the issue that variance and standard deviations of different data series were difficult to compare. The coefficient of variation ($c_v$) can be used to solve this problem. It is often referred to as the relative standard deviation.
 
+```py
+stats.variation([1,2,1,2,3,4,1,100,1,2,2])
+```
+
+```title=">>> Output"
+2.61
+```
 
 ???+ defi "Definition"
     \[
@@ -161,7 +213,7 @@ We previously encountered the issue that variance and standard deviations of dif
 
     With \( x_1, x_2, \dots, x_N \) representing a set of \( N \) values of a metric variable \( X \), \( \sigma \) being the corresponding standard deviation, and \( \bar{x} \) the mean.
 
-??? example
+???+ example
     You are given a table of pizza prices in New York listed in various currencies.
     ``` py
     dollar = [1, 2, 3, 3, 5, 6, 7, 8, 9, 11]

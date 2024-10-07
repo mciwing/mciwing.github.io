@@ -493,7 +493,7 @@ data['points_cat'] = pd.cut(
                         right=False)
 ```
 
-??? example
+???+ example
     <div class="grid cards" markdown>
 
     -   __Automatic Binning__
