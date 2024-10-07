@@ -1,6 +1,6 @@
 # Probability  
 
-In this section we trasit from the exploration of descriptive statistics to the domain of inferential statistics. Inferential statistics plays an important role in interpreting data, making predictions, and drawing conclusions about broader populations based on sample data. At the heart of inferential statistics lies the concept of probability—an essential tool for calculating, interpreting, and applying likelihoods to real-world situations. This section delves into the fundamental principles of probability, providing a foundation for understanding the processes behind statistical inference and its practical applications.
+In this section we trasit from the exploration of descriptive statistics to the domain of inferential statistics. Inferential statistics plays an important role in interpreting data, making predictions, and drawing conclusions about broader populations based on sample data. At the heart of inferential statistics lies the concept of probability - an essential tool for calculating, interpreting, and applying likelihoods to real-world situations. This section delves into the fundamental principles of probability, providing a foundation for understanding the processes behind statistical inference and its practical applications.
 
 ## What is Probability? 
 
@@ -82,6 +82,11 @@ For example, consider the result of rolling a die:
 X = \text{The number shown when a fair die is rolled}
 \]
 
+```py
+import random
+random.randint(1, 6)
+```
+
 Or the result of flipping a coin:
 
 \[
@@ -91,6 +96,11 @@ X =
 0, & \text{if tails}
 \end{cases}
 \]
+
+
+```py
+random.choices(["Heads", "Tails"])
+```
 
 In both cases, the random variable maps the outcome of a random process to a numerical value. In the context of a coin flip:
 
@@ -213,6 +223,10 @@ For discrete random variables, each outcome of an experiment can be assigned a *
     P(X = x) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}
     \]
 
+```py
+p_head = 1/2 # favorable outcomes = head / total outcomes = head + tail
+```
+
 The **probability distribution** of a discrete random variable shows the likelihood of various outcomes occurring. While this distribution helps us understand the chances of different events, it doesn’t allow us to predict the result of any single experiment. However, if the experiment is repeated many times, the overall pattern becomes clearer, following predictable rules.
 
 ???+ example "Example: Flip a Coin"
@@ -312,7 +326,18 @@ In statistics, we often encounter the concepts of **probability mass functions (
 ### Probability Mass Function (PMF)
 A **probability mass function** is used to describe probabilities for **discrete events**. Discrete events are those that occur in distinct, countable states, such as flipping a coin, rolling a die, or drawing a card. For example, if we roll a die, each face (1, 2, 3, 4, 5, or 6) is a discrete event. A PMF assigns probabilities to each possible outcome. In this case, each side of a fair die has a probability of 1/6, and these probabilities are represented in a **bar plot or histogram**.
 
-Let’s say we have a biased die, and the probability of rolling a 6 is twice as hig than other numbers and there is no 3. In this case, the PMF would show different probabilities for each number, but the probabilities are still discrete values—there’s no such thing as rolling a 4.5 on a die.
+```py
+random.choices([1,2,3,4,5,6])
+```
+
+Let’s say we have a biased die, and the probability of rolling a 6 is twice as hig than other numbers and there is no 3. 
+
+```py
+random.choices([1,2,3,4,5,6], weights=[1/6, 1/6, 0, 1/6, 1/6, 2/6])
+```
+
+
+In this case, the PMF would show different probabilities for each number, but the probabilities are still discrete values—there’s no such thing as rolling a 4.5 on a die.
 
 ???+ example "Example: Rolling the Die"
     <div class="grid cards" markdown>
@@ -474,7 +499,17 @@ With continuous data, we can’t assign a probability to a specific value (such 
 
 ### Cumulative Distribution Function (CDF)
 
-A **CDF** is a function that provides the cumulative probability for a given random variable. In simpler terms, it gives the probability that a random variable will take a value **less than or equal to** a specific point. To build a CDF from a PDF, you essentially **sum** all the probability values of the PDF **up to a certain point** on the x-axis. Mathematically, this is equivalent to calculating the **integral** of the PDF for continuous distributions. The CDF at a particular value \( x \) gives you the total probability of the random variable being less than or equal to \( x \).
+A **CDF** is a function that provides the cumulative probability for a given random variable. In simpler terms, it gives the probability that a random variable will take a value **less than or equal to** a specific point. 
+
+```py
+from scipy.stats import norm
+norm.cdf(0)
+```
+```title=">>> Output"
+0.5
+```
+
+To build a CDF from a PDF, you essentially **sum** all the probability values of the PDF **up to a certain point** on the x-axis. Mathematically, this is equivalent to calculating the **integral** of the PDF for continuous distributions. The CDF at a particular value \( x \) gives you the total probability of the random variable being less than or equal to \( x \).
 
 For example, imagine a probability density function that describes the heights of people in a population. The CDF at a specific height (say 150 cm) tells you the probability of randomly selecting someone who is 150 cm or shorter. As you move further along the x-axis, the CDF will continue to increase until it reaches 1, which represents 100% probability.
 
