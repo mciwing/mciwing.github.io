@@ -112,7 +112,7 @@ In both cases, the random variable maps the outcome of a random process to a num
 
 Thus, random variables enable us to quantify the outcomes of random processes, allowing for further analysis and interpretation.
 
-???+ question "Task"
+???+ question "Task: Rolling the Dice"
     Now it's your turn to create a random variable. There are several packages in Python that we can use for this purpose. Use the `random` package we already used in the package [management section](../../python/packages.md#standard-library). 
 
     <figure markdown="span">
@@ -185,7 +185,7 @@ In simpler terms, **probability** is typically used to discuss the likelihood of
 [3]: https://www.derstandard.de/story/3000000191831/beim-muenzwurf-liegen-die-chancen-doch-nicht-genau-bei-50-zu-50
 
 
-???+ question "Task"
+???+ question "Task: Roll a Biased Die"
     Let's stick with the example from before and perform further experiments. We use a fair die and a biased die and perform the following task:  
 
     1. Roll each die 
@@ -272,7 +272,7 @@ The **probability distribution** of a discrete random variable shows the likelih
         fig.show()
         ```
 
-???+ question "Task"
+???+ question "Task: Probability of the Die"
     We will continue with our example of the fair and biased die. 
 
     1. Calculate the probability for each side of the fair/biased die by using the `pandas` `value_counts` function
@@ -315,7 +315,7 @@ Odds typically describe the ratio between two possibilities: the chance of somet
     This means the odds in favor of getting heads are **1 to 1**, often written as **1:1**. This indicates an equal chance of getting heads or tails.
 
 
-???+ question "Task"
+???+ question "Task: Odds of the Die"
     1. Calculate the odds for the fair die to roll 6
     2. Now calculate the same thing for the biased die
 
@@ -592,7 +592,7 @@ CDFs provide a powerful way to compute cumulative probabilities, especially when
 
 In practical terms, CDFs allow you to compute probabilities **up to a certain value** on the x-axis, making them essential tools in statistics, probability theory, and real-world applications like exam scores or analyzing biological data.
 
-???+ question "Task"
+???+ question "Task: Density Function"
     Assume the heights of individuals in a certain population follow a normal distribution with a mean of 170 cm and a standard deviation of 10 cm (see examples above).
 
     Answer the following questions based on this normal distribution:

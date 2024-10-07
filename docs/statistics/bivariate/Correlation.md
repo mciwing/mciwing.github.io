@@ -8,7 +8,7 @@ In the previous univariate parts, the metrics focused only on a single variable.
 
 
 
-???+ defi "Definition"
+???+ defi "Definition: Covariance"
 
     \[
     \text{cov}(X, Y) = \frac{\sum_{i=1}^{N}(x_i - \bar{x}) \cdot (y_i - \bar{y})}{N}
@@ -34,7 +34,7 @@ print(f"Covariance: {Covariance.iloc[0,1]}")
 By default, the degree of freedom `#!python ddof=1`. In this case the population formular will be used. For the sample formular, the `#!python ddof=0` needs to be set.
 
 
-???+ example
+???+ example "Example: Covariance of House Price" 
     Given is a table with the size and price of houses. Determine the covariance.
 
     ``` py
@@ -86,7 +86,7 @@ By default, the degree of freedom `#!python ddof=1`. In this case the population
 
 The Pearson correlation coefficient expresses both the **direction and strength** of the linear relationship between two variables. It is a normalized form of covariance and is **symmetric**: \( \rho_{X,Y} = \rho_{Y,X} \).
 
-???+ defi "Definition"
+???+ defi "Definition: Pearson  Correlation Coefficient"
 
     \[
     \rho = \frac{\text{cov}(X, Y)}{\sigma_x \cdot \sigma_y}
@@ -104,7 +104,7 @@ print(f"Pearson Correlation Coefficient: {Pearson}")
 0.68
 ```
 
-???+ example
+???+ example example "Example: Pearson Correlation Cofficient of House Price" 
     Given is a table with the size and price of houses. 
     ``` py
     size = [60, 72, 111, 67, 90]
@@ -185,7 +185,7 @@ print(f"Spearman Correlation Coefficient: {Spearman}")
 
 The interpretation of Spearman's rank correlation is similar to Pearson's.
 
-???+ defi "Definition"
+???+ defi "Definition: Spearman Rank Correlation Coefficient"
 
     \[
     \rho_s = 1 - \frac{6 \cdot \sum_{i=1}^{N} d_i^2}{N^3 - N} \quad \text{where } d_i = R(x_i) - R(y_i)
@@ -197,7 +197,7 @@ The interpretation of Spearman's rank correlation is similar to Pearson's.
 
 - The rank corresponds to the position a value holds when all values are arranged in order.
 
-    ???+ example 
+    ???+ example "Example: Ranking of Values" 
     
         | \(x_i\)   | 2.17 | 8.00 | 1.09 | 2.01 |
         |-----------|------|------|------|------|
@@ -205,7 +205,7 @@ The interpretation of Spearman's rank correlation is similar to Pearson's.
 
 - For identical values, the average rank (mean of the relevant ranks) is used.
 
-    ???+ example 
+    ???+ example "Example: Ranking of Equal Values" 
         | \(x_i\) | 1.09 | 2.17 | 2.17 | 2.17 | 3.02 | 4.50 |
         |---------|----|----|----|----|----|----|
         | \(R(x_i)\)| 1    | 3    | 3    | 3    | 5    | 6    |
@@ -214,7 +214,7 @@ The interpretation of Spearman's rank correlation is similar to Pearson's.
 
 
 
-???+ example
+???+ example example "Example: Spearman Correlation Coefficient of House Price" 
     Given is a table with the size and price of houses. 
     ``` py
     size = [60, 72, 111, 67, 90]
@@ -269,7 +269,7 @@ Each **data pair** is treated as a **coordinate** and is represented by a point 
   <figcaption>Different Types of Correlation (Source: https://www.geeksforgeeks.org/what-is-correlation-analysis/) </figcaption>
 </figure>
 
-???+ example
+???+ example "Example: Scatter Plot of House Prices"
     <iframe src="/assets/statistics/bi_scatter.html" width="100%" height="400px"></iframe>
 
     ??? code "Code"
@@ -307,7 +307,7 @@ Each **data pair** is treated as a **coordinate** and is represented by a point 
 
 ## Tasks
 
-???+ question "Task"
+???+ question "Task: Attribute Correlation"
     Use the following dataset:
     ``` py
     from ucimlrepo import fetch_ucirepo 

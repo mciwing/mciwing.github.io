@@ -27,7 +27,7 @@ In this example,
 Representation of frequencies can be done in the form of a table or a graphic. In tabular form, the so-called crosstab (or contingency table) is commonly used. For graphical representation, a histogram (or 2D bar chart) is suitable. 
 It is important that the data remain the focal point and are presented as accurately and objectively as possible, avoiding distortions like 3D effects or shadows. Titles, axis labels, legends, the data source, and the time of data collection should always be clearly indicated.
 
-???+ defi "Definition"
+???+ defi "Definition: Bivariate Frequency"
     **Absolute frequency** of the combination \( (a_i, b_j) \):
 
     \[
@@ -53,7 +53,7 @@ fig.show()
 
 Both absolute and relative frequencies can be visualized using this method (by adding the parameter `#!python histnorm='percent'`). Multidimensional histograms can be created using the Python package matplotlib.
 
-???+ example
+???+ example "Example: Plotly Heatmap" 
 
     <iframe src="/assets/statistics/bi_heatmap.html" width="100%" height="400px"></iframe>
     ??? code "Code"
@@ -82,7 +82,6 @@ Both absolute and relative frequencies can be visualized using this method (by a
 
         # Show the plot
         fig.show()
-
         ```
 
 
@@ -105,7 +104,7 @@ These tables can display both absolute and relative frequencies (by adding the p
 
 ### Absolute Frequency
 
-???+ defi "Definition"
+???+ defi "Definition: Absolute Crosstab"
     Crosstab of the absolute Frequencies
 
     <div class="grid cards" markdown>
@@ -132,7 +131,7 @@ These tables can display both absolute and relative frequencies (by adding the p
     </div>
 
 
-???+ example
+???+ example "Example: Absolute Crosstab Website Visitors" 
     Crosstab of the absolute Frequencies 
     
     \[
@@ -166,7 +165,7 @@ These tables can display both absolute and relative frequencies (by adding the p
 ### Relative Frequency
 
 
-???+ defi "Definition"
+???+ defi "Definition: Relative Crosstab"
     Crosstab of the relative Frequencies
 
     <div class="grid cards" markdown>
@@ -191,7 +190,7 @@ These tables can display both absolute and relative frequencies (by adding the p
         - \( f_{.j} = \frac{h_{.j}}{n} \): The relative marginal frequencies of \( Y \)
     </div>
 
-???+ example
+???+ example "Example: Relative Crosstab Website Visitors" 
     Crosstab of the relative Frequencies in [%]
     
     \[
@@ -228,7 +227,7 @@ These tables can display both absolute and relative frequencies (by adding the p
 Absolute and relative frequencies are not suitable for determining the relationship between variables. For example, the frequency of regions for `New_Visitors` and `Returning_Visitors` cannot be directly compared because the sizes of both groups are different. The conditional relative frequency allows for this comparison by accounting for the differences in group sizes. Therefore, in `#!python pd.crosstab()` you need to add `#!python normalize='index'` or `#!python normalize='columns'`
 
 
-???+ defi "Definition"
+???+ defi "Definition: Conditional Frequency"
 
     **Conditional Frequency Distribution of \( Y \) given \( X = a_i \):**
 
@@ -242,7 +241,7 @@ Absolute and relative frequencies are not suitable for determining the relations
     f_{X,ij} = \frac{f_{ij}}{f_{.j}} = \frac{h_{ij}}{h_{.j}}
     \]
 
-???+ example
+???+ example "Example: Condtional Frequency of Website Visitors" 
     Crosstab of the Conditional Frequencies for given Visitor Types in [%]
     
     \[
@@ -273,7 +272,7 @@ Absolute and relative frequencies are not suitable for determining the relations
         print(pd.crosstab( data['VisitorType'],data['Region'], margins=True, normalize='index'))
         ```
 
-???+ example
+???+ example "Example: Condtional Frequency of Website Visitors" 
     Crosstab of the Conditional Frequencies for given Region in [%]
     
     \[
@@ -314,7 +313,7 @@ Absolute and relative frequencies are not suitable for determining the relations
 
 ## Tasks
 
-???+ question "Task"
+???+ question "Task: Bivariate Frequency"
     Use the following dataset:
     ``` py
     from ucimlrepo import fetch_ucirepo 

@@ -29,7 +29,7 @@ fig.show()
 
 It is important that the data remains the focal point and is presented as accurately and objectively as possible, avoiding distortions such as 3D effects or shadows. Titles, axis labels, legends, the data source, and the time of data collection should always be clearly indicated.
 
-???+ defi "Definition"
+???+ defi "Definition: Frequency"
     **Absolute Frequency** of the value \( a_j \)
     
     \[
@@ -61,7 +61,7 @@ It is important that the data remains the focal point and is presented as accura
 ## Nominal Scale
 For nominally scaled variables, the values correspond to the possible categories. The internal order of these categories is not relevant in the substantive analysis.
 
-???+ example
+???+ example "Example: Graphical Representation of Nominal Variables"
     <div class="grid cards" markdown>
 
     -   
@@ -139,7 +139,7 @@ data['round'] = pd.Categorical(data['round'], categories=round_order, ordered=Tr
 ```
             
 
-???+ example
+???+ example "Example: Graphical Representation of Ordinal Variables"
     <div class="grid cards" markdown>
 
     -   __Histogram WITHOUT Order__
@@ -282,7 +282,7 @@ freq_rel_cum = pd.crosstab(
                 ).cumsum()
 ```
 
-???+ example
+???+ example "Example: Cumulative Frequency of Ordinal Variables"
     <div class="grid cards" markdown>
 
     -   __Histogram (Abolute, Cumulative)__
@@ -422,7 +422,7 @@ freq_rel_cum = pd.crosstab(
 ## Numeric Scale
 When the number of values \( k \) for a metrically scaled variable is small, it can be presented in the same way as an ordinal scale. However, when \( k \) is large, the representation can become cluttered and lose clarity.
 
-???+ example
+???+ example "Example: Few and Many Numeric Values"
     <div class="grid cards" markdown>
 
     -   __Numeric Variable with Few of Values__
@@ -493,7 +493,7 @@ data['points_cat'] = pd.cut(
                         right=False)
 ```
 
-???+ example
+???+ example "Example: Numeric Attribute Binning"
     <div class="grid cards" markdown>
 
     -   __Automatic Binning__
@@ -572,7 +572,7 @@ Tables and charts are well-suited for providing an overview of the data. However
 - Cumulative frequencies show how often a reference value has not been exceeded.
 
 ## Tasks
-???+ question "Task"
+???+ question "Task: Frequency Distribution"
     Use the following dataset:
     ``` py
     from ucimlrepo import fetch_ucirepo 
