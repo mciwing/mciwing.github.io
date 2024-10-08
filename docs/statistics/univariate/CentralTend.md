@@ -6,17 +6,42 @@ Measures of central tendency characterize a distribution by using an average val
 (for numeric attributes)
 The arithmetic mean \( \bar{x} \) is the most common and effective numerical measure for describing the average value of a distribution. 
 
-???+ defi "Definition"
+???+ defi "Definition: Arithmetic Mean"
     \[
     \bar{x}=\frac{\sum_{i=1}^{N}x_i}{N}=\frac{x_1+x_2+\dots+x_N}{N}
     \]
 
     with \( x_1, x_2, \dots, x_N \) representing a set of \( N \) values of a metric variable \( X \).
 
-One disadvantage of the mean is its sensitivity to outliers. Even a small number of extreme values can distort the result. To address this issue, the trimmed mean is used. This method involves removing a percentage of values from both the upper and lower ends of the distribution (e.g., 2%). However, this approach can lead to a loss of information, especially when a large portion of the data is trimmed.
+One disadvantage of the mean is its sensitivity to outliers. Even a small number of extreme values can distort the result.
+
+```py
+import statistics 
+
+statistics.mean([1,2,1,2,3,4,1,100,1,2,1])
+```
+
+```title=">>> Output"
+10.73
+```
+
+To address this issue, the trimmed mean is used. This method involves removing a percentage of values from both the upper and lower ends of the distribution (e.g., 1%). 
+
+```py
+from scipy import stats
+
+#calculate 10% trimmed mean
+stats.trim_mean([1,2,1,2,3,4,1,100,1,2,1], 0.1)
+```
+
+```title=">>> Output"
+1.889
+```
+
+However, this approach can lead to a loss of information, especially when a large portion of the data is trimmed.
 
 
-??? example
+???+ example "Example: Mean of the Temperature" 
     Given a table with 14 temperature values in °C, the goal is to calculate the mean and the trimmed mean (20% left and right) of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -52,15 +77,35 @@ One disadvantage of the mean is its sensitivity to outliers. Even a small number
         ```
 
 ## Median
-(for numeric and ordinal attributes) The median is more robust against outliers, as it splits the distribution into an upper and a lower half. It corresponds to the 50th percentile or the second quartile. However, one downside is that it can be more complex to calculate, especially when dealing with large datasets.
+(for numeric and ordinal attributes) The median is more robust against outliers, as it splits the distribution into an upper and a lower half. It corresponds to the 50th percentile or the second quartile. 
 
-???+ defi "Definition"
+```py
+import numpy as np
+np.sort([1,2,1,2,3,4,1,100,1,2,1])
+```
+
+```title=">>> Output"
+[1,1,1,1,1,2,2,2,3,4,100]
+           ↑
+```
+
+```py
+statistics.median([1,2,1,2,3,4,1,100,1,2,1])
+```
+
+```title=">>> Output"
+2
+```
+
+However, one downside is that it can be more complex to calculate, especially when dealing with large datasets.
+
+???+ defi "Definition: Median"
     A data set of \( N \) values of an attribute \( X \) is sorted in increasing order
 
 	- If \( N \) is odd, the median is the middle value of the ordered set
 	- \( N \) is even, the median is the two middlemost values and any value in between (average of those two for numeric attribute )
 
-??? example
+???+ example"Example: Median of the Temperature" 
     Given a table with 14 temperature values in °C, the goal is to calculate the median of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -86,12 +131,30 @@ One disadvantage of the mean is its sensitivity to outliers. Even a small number
 ## Mode
 (for numeric, ordinal and nominal attributes) The mode is the most frequently occurring value in a distribution. It is also more robust against outliers, making it a useful measure in certain cases where extreme values might distort other central tendency metrics.
 
-???+ defi "Definition"
+```py
+# Calculate the first Mode
+statistics.mode([1,2,1,2,3,4,1,100,1,2,2])
+```
+
+```title=">>> Output"
+1
+```
+
+```py
+# Calculate all Modes
+statistics.multimode([1,2,1,2,3,4,1,100,1,2,2])
+```
+
+```title=">>> Output"
+[1, 2]
+```
+
+???+ defi "Definition: Mode"
 	- Mode is the value that occurs most frequently in a data set.
 	- There can be more than one mode (unimodal, bimodal, multimodal)
 	- If each data value occurs only once, then there is no mode
 
-??? example
+???+ example "Example: Mode of the Temperature" 
     Given a table with 14 temperature values in °C, the goal is to calculate the mode of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -116,9 +179,33 @@ One disadvantage of the mean is its sensitivity to outliers. Even a small number
 
 ## Quantile
 (numeric and ordinal attributes)
-The \( q \)-quantile divides the data into \( q \) equal-sized parts. There are \( q - 1 \) quantiles (for example, 3 quantiles divide the data into 4 parts). The 2-quantile corresponds to the median. There are different methods for determining quantiles, especially when \( N \) is even. As a result, it is possible for different libraries to produce a different result than a manual calculation of quantiles.
+The \( q \)-quantile divides the data into \( q \) equal-sized parts. There are \( q - 1 \) quantiles (for example, 3 quantiles divide the data into 4 parts). The 2-quantile corresponds to the median. 
 
-???+ defi "Definition"
+```py
+import numpy as np
+np.sort([1,2,1,2,3,4,1,100,1,2,2])
+```
+
+```title=">>> Output"
+[1,1,1,1,2,2,2,2,3,4,100]
+ |----|----|----|----|
+      Q1   Q2   Q3   
+```
+
+
+```py
+from scipy import stats
+
+stats.mstats.mquantiles([1,2,1,2,3,4,1,100,1,2,2], prob=[0.25, 0.5, 0.75])
+```
+
+```title=">>> Output"
+[1. , 2. , 2.8]
+```
+
+There are different methods for determining quantiles, especially when \( N \) is even. As a result, it is possible for different libraries to produce a different result than a manual calculation of quantiles.
+
+???+ defi "Definition: Quantile"
     A data set of $N$ values of an attribute $X$ is sorted in increasing order
 
 	- The $k$-th $q$-quantile is the value $x$ where $k/q$ of the data values are less and $(q-k)/q$ values are more than $x$ (with $0 < k < q$)
@@ -134,7 +221,7 @@ Most widely used forms
 - 4-quantile = **quartiles**: Three data points split the data into four equal parts
 - 100-quantile = **percentiles**: Divide the data into 100 equal-sized sets
 
-??? example
+???+ example "Example: Quantiles of Temperature Distribution" 
     Given a table with 14 temperature values in °C, the goal is to calculate the quartiles of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
@@ -159,14 +246,23 @@ Most widely used forms
 ## Five Number Sumary & Boxplot
 A single metric alone is not sufficient to fully characterize a distribution. The Five Number Summary is a useful approach to gain a deeper understanding of a distribution by combining multiple key metrics, offering a more comprehensive view of the data.
 
-???+ defi "Definition"
+???+ defi "Definition: Five Number Summary"
     The Five Number Summary consists of the following metrics in this exact order:
 
 	[Minimum, $Q_1$, Median, $Q_3$, Maximum]
 
-A boxplot is a visualization of a distribution and provides a graphical representation of the Five Number Summary. The first and third quartiles ($Q_1$ and $Q_3$) mark the ends of the box, while the interquartile range (IQR) represents the length of the box. The median is depicted as a line within the box. Two lines, known as whiskers, extend from the box to the smallest and largest observations, provided these values are no more than $1.5\times$IQR above $Q_3$ or below $Q_1$. Outliers are marked separately.
+A boxplot is a visualization of a distribution and provides a graphical representation of the Five Number Summary. 
 
-??? example
+```py
+import plotly.express as px
+
+fig = px.box([1,2,1,2,3,4,1,100,1,2,2])
+fig.show()
+```
+
+The first and third quartiles ($Q_1$ and $Q_3$) mark the ends of the box, while the interquartile range (IQR) represents the length of the box. The median is depicted as a line within the box. Two lines, known as whiskers, extend from the box to the smallest and largest observations, provided these values are no more than $1.5\times$IQR above $Q_3$ or below $Q_1$. Outliers are marked separately.
+
+???+ example "Example: Boxplot of the Temperature" 
     <div class="grid cards" markdown>
 
     -   __Without Outlier__
@@ -300,7 +396,7 @@ The following distributions have the same mean, median and mode
     ```
 
 ## Tasks
-???+ question "Task"
+???+ question "Task: Measures of Central Tendency"
     Use the following dataset:
     ``` py
     from ucimlrepo import fetch_ucirepo 

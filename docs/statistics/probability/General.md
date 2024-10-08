@@ -1,6 +1,6 @@
 # Probability  
 
-In this section we trasit from the exploration of descriptive statistics to the domain of inferential statistics. Inferential statistics plays an important role in interpreting data, making predictions, and drawing conclusions about broader populations based on sample data. At the heart of inferential statistics lies the concept of probability—an essential tool for calculating, interpreting, and applying likelihoods to real-world situations. This section delves into the fundamental principles of probability, providing a foundation for understanding the processes behind statistical inference and its practical applications.
+In this section we trasit from the exploration of descriptive statistics to the domain of inferential statistics. Inferential statistics plays an important role in interpreting data, making predictions, and drawing conclusions about broader populations based on sample data. At the heart of inferential statistics lies the concept of probability - an essential tool for calculating, interpreting, and applying likelihoods to real-world situations. This section delves into the fundamental principles of probability, providing a foundation for understanding the processes behind statistical inference and its practical applications.
 
 ## What is Probability? 
 
@@ -82,6 +82,11 @@ For example, consider the result of rolling a die:
 X = \text{The number shown when a fair die is rolled}
 \]
 
+```py
+import random
+random.randint(1, 6)
+```
+
 Or the result of flipping a coin:
 
 \[
@@ -91,6 +96,11 @@ X =
 0, & \text{if tails}
 \end{cases}
 \]
+
+
+```py
+random.choices(["Heads", "Tails"])
+```
 
 In both cases, the random variable maps the outcome of a random process to a numerical value. In the context of a coin flip:
 
@@ -102,7 +112,7 @@ In both cases, the random variable maps the outcome of a random process to a num
 
 Thus, random variables enable us to quantify the outcomes of random processes, allowing for further analysis and interpretation.
 
-???+ question "Task"
+???+ question "Task: Rolling the Dice"
     Now it's your turn to create a random variable. There are several packages in Python that we can use for this purpose. Use the `random` package we already used in the package [management section](../../python/packages.md#standard-library). 
 
     <figure markdown="span">
@@ -175,7 +185,7 @@ In simpler terms, **probability** is typically used to discuss the likelihood of
 [3]: https://www.derstandard.de/story/3000000191831/beim-muenzwurf-liegen-die-chancen-doch-nicht-genau-bei-50-zu-50
 
 
-???+ question "Task"
+???+ question "Task: Roll a Biased Die"
     Let's stick with the example from before and perform further experiments. We use a fair die and a biased die and perform the following task:  
 
     1. Roll each die 
@@ -212,6 +222,10 @@ For discrete random variables, each outcome of an experiment can be assigned a *
     \[
     P(X = x) = \frac{\text{Number of favorable outcomes}}{\text{Total number of possible outcomes}}
     \]
+
+```py
+p_head = 1/2 # favorable outcomes = head / total outcomes = head + tail
+```
 
 The **probability distribution** of a discrete random variable shows the likelihood of various outcomes occurring. While this distribution helps us understand the chances of different events, it doesn’t allow us to predict the result of any single experiment. However, if the experiment is repeated many times, the overall pattern becomes clearer, following predictable rules.
 
@@ -258,7 +272,7 @@ The **probability distribution** of a discrete random variable shows the likelih
         fig.show()
         ```
 
-???+ question "Task"
+???+ question "Task: Probability of the Die"
     We will continue with our example of the fair and biased die. 
 
     1. Calculate the probability for each side of the fair/biased die by using the `pandas` `value_counts` function
@@ -301,7 +315,7 @@ Odds typically describe the ratio between two possibilities: the chance of somet
     This means the odds in favor of getting heads are **1 to 1**, often written as **1:1**. This indicates an equal chance of getting heads or tails.
 
 
-???+ question "Task"
+???+ question "Task: Odds of the Die"
     1. Calculate the odds for the fair die to roll 6
     2. Now calculate the same thing for the biased die
 
@@ -312,7 +326,18 @@ In statistics, we often encounter the concepts of **probability mass functions (
 ### Probability Mass Function (PMF)
 A **probability mass function** is used to describe probabilities for **discrete events**. Discrete events are those that occur in distinct, countable states, such as flipping a coin, rolling a die, or drawing a card. For example, if we roll a die, each face (1, 2, 3, 4, 5, or 6) is a discrete event. A PMF assigns probabilities to each possible outcome. In this case, each side of a fair die has a probability of 1/6, and these probabilities are represented in a **bar plot or histogram**.
 
-Let’s say we have a biased die, and the probability of rolling a 6 is twice as hig than other numbers and there is no 3. In this case, the PMF would show different probabilities for each number, but the probabilities are still discrete values—there’s no such thing as rolling a 4.5 on a die.
+```py
+random.choices([1,2,3,4,5,6])
+```
+
+Let’s say we have a biased die, and the probability of rolling a 6 is twice as hig than other numbers and there is no 3. 
+
+```py
+random.choices([1,2,3,4,5,6], weights=[1/6, 1/6, 0, 1/6, 1/6, 2/6])
+```
+
+
+In this case, the PMF would show different probabilities for each number, but the probabilities are still discrete values—there’s no such thing as rolling a 4.5 on a die.
 
 ???+ example "Example: Rolling the Die"
     <div class="grid cards" markdown>
@@ -474,7 +499,17 @@ With continuous data, we can’t assign a probability to a specific value (such 
 
 ### Cumulative Distribution Function (CDF)
 
-A **CDF** is a function that provides the cumulative probability for a given random variable. In simpler terms, it gives the probability that a random variable will take a value **less than or equal to** a specific point. To build a CDF from a PDF, you essentially **sum** all the probability values of the PDF **up to a certain point** on the x-axis. Mathematically, this is equivalent to calculating the **integral** of the PDF for continuous distributions. The CDF at a particular value \( x \) gives you the total probability of the random variable being less than or equal to \( x \).
+A **CDF** is a function that provides the cumulative probability for a given random variable. In simpler terms, it gives the probability that a random variable will take a value **less than or equal to** a specific point. 
+
+```py
+from scipy.stats import norm
+norm.cdf(0)
+```
+```title=">>> Output"
+0.5
+```
+
+To build a CDF from a PDF, you essentially **sum** all the probability values of the PDF **up to a certain point** on the x-axis. Mathematically, this is equivalent to calculating the **integral** of the PDF for continuous distributions. The CDF at a particular value \( x \) gives you the total probability of the random variable being less than or equal to \( x \).
 
 For example, imagine a probability density function that describes the heights of people in a population. The CDF at a specific height (say 150 cm) tells you the probability of randomly selecting someone who is 150 cm or shorter. As you move further along the x-axis, the CDF will continue to increase until it reaches 1, which represents 100% probability.
 
@@ -557,7 +592,7 @@ CDFs provide a powerful way to compute cumulative probabilities, especially when
 
 In practical terms, CDFs allow you to compute probabilities **up to a certain value** on the x-axis, making them essential tools in statistics, probability theory, and real-world applications like exam scores or analyzing biological data.
 
-???+ question "Task"
+???+ question "Task: Density Function"
     Assume the heights of individuals in a certain population follow a normal distribution with a mean of 170 cm and a standard deviation of 10 cm (see examples above).
 
     Answer the following questions based on this normal distribution:

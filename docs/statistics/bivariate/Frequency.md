@@ -1,9 +1,33 @@
 # Frequency Distribution
 Two variables, \(X\) and \(Y\), consist of \(n\) elements. The raw data list consists of the tuples \((x_1, y_1), \dots, (x_n, y_n)\). Possible values are \(a_1, \dots, a_k\) for \(X\) and \(b_1, \dots, b_m\) for \(Y\). The absolute frequency refers to how often a combination \((a_i, b_j)\) occurs.
 
-Representation of frequencies can be done in the form of a table or a graphic. In tabular form, the so-called crosstab (or contingency table) is commonly used. For graphical representation, a histogram (or 2D bar chart) is suitable. It is important that the data remain the focal point and are presented as accurately and objectively as possible, avoiding distortions like 3D effects or shadows. Titles, axis labels, legends, the data source, and the time of data collection should always be clearly indicated.
+```py 
+drinks = ['small', 'small', 'small', 'medium', 'medium', 'medium', 'large']
+kcal =   [    123,     154,     123,      201,      201,      201,     434]
+```
 
-???+ defi "Definition"
+
+In this example, 
+
+<div class="grid cards" markdown>
+
+-   
+    - \( X \): `#!python drinks`
+    - \( k \): 3
+    - \( a_1, \dots, a_k \): `#!python ['small', 'medium', 'large']`
+-   
+    - \( Y \): `#!python kcal`
+    - \( m \): 4
+    - \( b_1, \dots, b_m \): `#!python [123, 154, 201, 434]`
+</div>
+
+- \( n \): `#!python 7`
+- \((x_1, y_1), \dots, (x_n, y_n)\): `#!python ('small', 123), ('small', 154) ... ('large', 434)`
+
+Representation of frequencies can be done in the form of a table or a graphic. In tabular form, the so-called crosstab (or contingency table) is commonly used. For graphical representation, a histogram (or 2D bar chart) is suitable. 
+It is important that the data remain the focal point and are presented as accurately and objectively as possible, avoiding distortions like 3D effects or shadows. Titles, axis labels, legends, the data source, and the time of data collection should always be clearly indicated.
+
+???+ defi "Definition: Bivariate Frequency"
     **Absolute frequency** of the combination \( (a_i, b_j) \):
 
     \[
@@ -17,9 +41,19 @@ Representation of frequencies can be done in the form of a table or a graphic. I
     \]
 
 ## Histogram
-Histograms are also suitable for bivariate data to represent frequency. Both absolute and relative frequencies can be visualized using this method. Multidimensional histograms can be created using the Python package matplotlib. A specific type of representation is the density heatmap, which can also be generated using plotly.
+Histograms are also suitable for bivariate data to represent frequency. A specific type of representation is the density heatmap, which can also be generated using plotly.
 
-??? example
+```py 
+import plotly.express as px
+df = px.data.tips()
+
+fig = px.density_heatmap(df, x="total_bill", y="tip")
+fig.show()
+```
+
+Both absolute and relative frequencies can be visualized using this method (by adding the parameter `#!python histnorm='percent'`). Multidimensional histograms can be created using the Python package matplotlib.
+
+???+ example "Example: Plotly Heatmap" 
 
     <iframe src="/assets/statistics/bi_heatmap.html" width="100%" height="400px"></iframe>
     ??? code "Code"
@@ -48,20 +82,29 @@ Histograms are also suitable for bivariate data to represent frequency. Both abs
 
         # Show the plot
         fig.show()
-
         ```
 
 
 ## Crosstab (Contingency Table)
-The representation of the joint distribution of discrete features with few categories (if there are many categories, they need to be grouped into categories) can be done using contingency tables. These tables can display both absolute and relative frequencies. It is important to note that contingency tables use only the nominal scale level, even if a variable could be measured at a higher level (ordinal or numerical).
+The representation of the joint distribution of discrete features with few categories (if there are many categories, they need to be grouped into categories) can be done using contingency tables. 
 
-**Marginal Frequencies** refer to the row and column totals added to a table. The row totals are the marginal frequencies of the variable \(X\), calculated as \( h_{i.} = h_{i1} + \dots + h_{im} \) for \( i = 1, \dots, k \). The column totals are the marginal frequencies of the variable \(Y\), given by \( h_{.j} = h_{1j} + \dots + h_{kj} \) for \( j = 1, \dots, m \).
+```py 
+import pandas as pd
+import plotly.express as px
+
+df = px.data.tips()
+pd.crosstab( df['sex'], df['day'])
+```
+
+These tables can display both absolute and relative frequencies (by adding the parameter `#!python normalize=True`). It is important to note that contingency tables use only the nominal scale level, even if a variable could be measured at a higher level (ordinal or numerical).
+
+**Marginal Frequencies** refer to the row and column totals added to a table. The row totals are the marginal frequencies of the variable \(X\), calculated as \( h_{i.} = h_{i1} + \dots + h_{im} \) for \( i = 1, \dots, k \). The column totals are the marginal frequencies of the variable \(Y\), given by \( h_{.j} = h_{1j} + \dots + h_{kj} \) for \( j = 1, \dots, m \). In `Python` you just need to add the parameter `#!python margins=True`.
 
 **Marginal Distribution** refers to the marginal frequencies of a variable, which are the **simple frequencies** without considering the second variable. The collection of all marginal frequencies for a variable gives the marginal distribution of \(X\) (\(h_{1.}, h_{2.}, \dots, h_{k.}\)) or \(Y\)(\(h_{.1}, h_{.2}, \dots, h_{.m}\)) in absolute frequencies:
 
 ### Absolute Frequency
 
-???+ defi "Definition"
+???+ defi "Definition: Absolute Crosstab"
     Crosstab of the absolute Frequencies
 
     <div class="grid cards" markdown>
@@ -88,7 +131,7 @@ The representation of the joint distribution of discrete features with few categ
     </div>
 
 
-??? example
+???+ example "Example: Absolute Crosstab Website Visitors" 
     Crosstab of the absolute Frequencies 
     
     \[
@@ -122,7 +165,7 @@ The representation of the joint distribution of discrete features with few categ
 ### Relative Frequency
 
 
-???+ defi "Definition"
+???+ defi "Definition: Relative Crosstab"
     Crosstab of the relative Frequencies
 
     <div class="grid cards" markdown>
@@ -147,7 +190,7 @@ The representation of the joint distribution of discrete features with few categ
         - \( f_{.j} = \frac{h_{.j}}{n} \): The relative marginal frequencies of \( Y \)
     </div>
 
-??? example
+???+ example "Example: Relative Crosstab Website Visitors" 
     Crosstab of the relative Frequencies in [%]
     
     \[
@@ -181,10 +224,10 @@ The representation of the joint distribution of discrete features with few categ
 
 ## Conditional frequency
 
-Absolute and relative frequencies are not suitable for determining the relationship between variables. For example, the frequency of regions for `New_Visitors` and `Returning_Visitors` cannot be directly compared because the sizes of both groups are different. The conditional relative frequency allows for this comparison by accounting for the differences in group sizes.
+Absolute and relative frequencies are not suitable for determining the relationship between variables. For example, the frequency of regions for `New_Visitors` and `Returning_Visitors` cannot be directly compared because the sizes of both groups are different. The conditional relative frequency allows for this comparison by accounting for the differences in group sizes. Therefore, in `#!python pd.crosstab()` you need to add `#!python normalize='index'` or `#!python normalize='columns'`
 
 
-???+ defi "Definition"
+???+ defi "Definition: Conditional Frequency"
 
     **Conditional Frequency Distribution of \( Y \) given \( X = a_i \):**
 
@@ -198,7 +241,7 @@ Absolute and relative frequencies are not suitable for determining the relations
     f_{X,ij} = \frac{f_{ij}}{f_{.j}} = \frac{h_{ij}}{h_{.j}}
     \]
 
-??? example
+???+ example "Example: Condtional Frequency of Website Visitors" 
     Crosstab of the Conditional Frequencies for given Visitor Types in [%]
     
     \[
@@ -229,7 +272,7 @@ Absolute and relative frequencies are not suitable for determining the relations
         print(pd.crosstab( data['VisitorType'],data['Region'], margins=True, normalize='index'))
         ```
 
-??? example
+???+ example "Example: Condtional Frequency of Website Visitors" 
     Crosstab of the Conditional Frequencies for given Region in [%]
     
     \[
@@ -270,7 +313,7 @@ Absolute and relative frequencies are not suitable for determining the relations
 
 ## Tasks
 
-???+ question "Task"
+???+ question "Task: Bivariate Frequency"
     Use the following dataset:
     ``` py
     from ucimlrepo import fetch_ucirepo 

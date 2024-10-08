@@ -6,7 +6,9 @@ This chapter covers the measures of linear relationships, specifically covarianc
 
 In the previous univariate parts, the metrics focused only on a single variable. Covariance allows us to determine the **relationship between two variables**. 
 
-???+ defi "Definition"
+
+
+???+ defi "Definition: Covariance"
 
     \[
     \text{cov}(X, Y) = \frac{\sum_{i=1}^{N}(x_i - \bar{x}) \cdot (y_i - \bar{y})}{N}
@@ -16,7 +18,24 @@ In the previous univariate parts, the metrics focused only on a single variable.
 
 The name suggests that it is a type of 'variance,' as \( \text{cov}(X, X) = \sigma^2(X) \).
 
-??? example
+
+```py
+import plotly.express as px
+df = px.data.tips()
+
+Covariance = df['total_bill'].cov(df['tip'], ddof=0)
+print(f"Covariance: {Covariance}")
+print(f"Covariance: {Covariance.iloc[0,1]}")
+```
+
+```title=">>> Output"
+8.29
+```
+
+By default, the degree of freedom `#!python ddof=1`. In this case the population formular will be used. For the sample formular, the `#!python ddof=0` needs to be set.
+
+
+???+ example "Example: Covariance of House Price" 
     Given is a table with the size and price of houses. Determine the covariance.
 
     ``` py
@@ -68,7 +87,7 @@ The name suggests that it is a type of 'variance,' as \( \text{cov}(X, X) = \sig
 
 The Pearson correlation coefficient expresses both the **direction and strength** of the linear relationship between two variables. It is a normalized form of covariance and is **symmetric**: \( \rho_{X,Y} = \rho_{Y,X} \).
 
-???+ defi "Definition"
+???+ defi "Definition: Pearson  Correlation Coefficient"
 
     \[
     \rho = \frac{\text{cov}(X, Y)}{\sigma_x \cdot \sigma_y}
@@ -76,7 +95,17 @@ The Pearson correlation coefficient expresses both the **direction and strength*
 
     where \(X\) and \(Y\) are metric variables, \( \sigma_x \) and \( \sigma_y \) are their standard deviations, and \( \text{cov}(X, Y) \) is the covariance. 
 
-??? example
+
+```py
+Pearson = df['total_bill'].corr(df['tip'],method='pearson')
+print(f"Pearson Correlation Coefficient: {Pearson}")
+```
+
+```title=">>> Output"
+0.68
+```
+
+???+ example example "Example: Pearson Correlation Cofficient of House Price" 
     Given is a table with the size and price of houses. 
     ``` py
     size = [60, 72, 111, 67, 90]
@@ -123,9 +152,41 @@ The Pearson correlation coefficient expresses both the **direction and strength*
 
 ### Spearman
 
-Covariance and the Pearson correlation coefficient require variables to be at least metric. When one of the variables is **ordinal**, the rank correlation should be calculated, with Spearman's method being a common choice. The interpretation of Spearman's rank correlation is similar to Pearson's.
+Covariance and the Pearson correlation coefficient require variables to be at least metric. When one of the variables is **ordinal**, the rank correlation should be calculated, with Spearman's method being a common choice. 
 
-???+ defi "Definition"
+
+```py
+Spearman = df['total_bill'].corr(df['tip'],method='spearman')
+print(f"Spearman Correlation Coefficient: {Spearman}")
+```
+
+```title=">>> Output"
+0.68
+```
+
+In order for `#!python df.corr()` to deal with ordinal data, the input needs to be numeric. This means that for ordinal data consisting of letters, the data needs to be mapped: 
+
+```py
+day_order = {
+    'Thur' : 4, 
+    'Fri'  : 5, 
+    'Sat'  : 6,
+    'Sun'  : 7
+    }
+df['day_ord'] = df['day'].map(day_order)
+
+Spearman = df['day_ord'].corr(df['size'],method='spearman')
+print(f"Spearman Correlation Coefficient: {Spearman}")
+```
+
+```title=">>> Output"
+0.24
+```
+
+
+The interpretation of Spearman's rank correlation is similar to Pearson's.
+
+???+ defi "Definition: Spearman Rank Correlation Coefficient"
 
     \[
     \rho_s = 1 - \frac{6 \cdot \sum_{i=1}^{N} d_i^2}{N^3 - N} \quad \text{where } d_i = R(x_i) - R(y_i)
@@ -137,7 +198,7 @@ Covariance and the Pearson correlation coefficient require variables to be at le
 
 - The rank corresponds to the position a value holds when all values are arranged in order.
 
-    ??? example 
+    ???+ example "Example: Ranking of Values" 
     
         | \(x_i\)   | 2.17 | 8.00 | 1.09 | 2.01 |
         |-----------|------|------|------|------|
@@ -145,7 +206,7 @@ Covariance and the Pearson correlation coefficient require variables to be at le
 
 - For identical values, the average rank (mean of the relevant ranks) is used.
 
-    ??? example 
+    ???+ example "Example: Ranking of Equal Values" 
         | \(x_i\) | 1.09 | 2.17 | 2.17 | 2.17 | 3.02 | 4.50 |
         |---------|----|----|----|----|----|----|
         | \(R(x_i)\)| 1    | 3    | 3    | 3    | 5    | 6    |
@@ -154,7 +215,7 @@ Covariance and the Pearson correlation coefficient require variables to be at le
 
 
 
-??? example
+???+ example example "Example: Spearman Correlation Coefficient of House Price" 
     Given is a table with the size and price of houses. 
     ``` py
     size = [60, 72, 111, 67, 90]
@@ -193,14 +254,23 @@ Covariance and the Pearson correlation coefficient require variables to be at le
 
 ## Scatter Plot
 
-A scatter plot provides a **graphical representation** of the relationship between two metric variables on a Cartesian coordinate system. Each **data pair** is treated as a **coordinate** and is represented by a point on the plot. This allows for identifying relationships, patterns, or trends between the variables.
+A scatter plot provides a **graphical representation** of the relationship between two metric variables on a Cartesian coordinate system. 
+
+```py
+import plotly.express as px
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_width", y="sepal_length")
+fig.show()
+```
+
+Each **data pair** is treated as a **coordinate** and is represented by a point on the plot. This allows for identifying relationships, patterns, or trends between the variables.
 
 <figure markdown="span">
   ![Correlation Types](https://media.geeksforgeeks.org/wp-content/uploads/Correl.png){ width="400" }
   <figcaption>Different Types of Correlation (Source: https://www.geeksforgeeks.org/what-is-correlation-analysis/) </figcaption>
 </figure>
 
-??? example
+???+ example "Example: Scatter Plot of House Prices"
     <iframe src="/assets/statistics/bi_scatter.html" width="100%" height="400px"></iframe>
 
     ??? code "Code"
@@ -238,7 +308,7 @@ A scatter plot provides a **graphical representation** of the relationship betwe
 
 ## Tasks
 
-???+ question "Task"
+???+ question "Task: Attribute Correlation"
     Use the following dataset:
     ``` py
     from ucimlrepo import fetch_ucirepo 
