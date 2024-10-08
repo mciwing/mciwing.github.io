@@ -23,7 +23,8 @@ The name suggests that it is a type of 'variance,' as \( \text{cov}(X, X) = \sig
 import plotly.express as px
 df = px.data.tips()
 
-Covariance = df[['total_bill', 'tip']].cov(ddof=0)
+Covariance = df['total_bill'].cov(df['tip'], ddof=0)
+print(f"Covariance: {Covariance}")
 print(f"Covariance: {Covariance.iloc[0,1]}")
 ```
 
