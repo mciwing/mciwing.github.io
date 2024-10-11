@@ -405,29 +405,88 @@ To reduce the impact of sampling variability, one of the most effective strategi
 
 Additionally, **statistical tools** like confidence intervals can help you understand how close your sample estimate is to the actual population parameter. Confidence intervals provide a range within which the true average age of the factory workers is likely to fall, giving a better sense of the precision of your estimate.
 
+### Sampling Variability vs. Reliable Estimates
+
+So as we mentioned before, we can deal with the sampling variablility by using a larger sample. So we can repeat the experiment from before by randomly selecting a group of different people and calculating the mean of their age. We can do that, by looping through different sample sizes
+
+```py
+samplesizes = np.arange(5,1000)
+for sampi in range(len(samplesizes)):
+        sample = random.sample(list(data.age), samplesizes[sampi])
+```
+
+and for each sample, we calculate the mean age and then plot the result, showing how the mean changes with different sample sizes. Now, let’s consider: what do we expect to happen? Intuitively, as the sample size grows, we’d expect the sample mean to get closer and closer to the population mean, which represents the true average. So, as we increase the sample size, the variation in the sample means should decrease, and the results should start to stabilize around the population mean.
+
+
+<iframe src="/assets/statistics/prob_samplevar.html" width="100%" height="400px"></iframe>
+
+??? code "Code"
+    ``` py
+    ## Repeat for different sample sizes
+    samplesizes = np.arange(5,1000)
+    samplemeans = np.zeros(len(samplesizes))
+
+    for sampi in range(len(samplesizes)):
+        sample = random.sample(list(data.age), samplesizes[sampi])
+        samplemeans[sampi] = np.mean(sample)
+        
+    fig = px.line(x=samplesizes, y=samplemeans,markers=True)
+    fig.update_traces(line=dict(color='rgba(0, 65, 110, 0.6)'))
+
+    # Add a vertical line for the population mean
+    fig.add_hline(y=np.mean(data.age), line_dash="dash", annotation_text="Mean: "+str(np.mean(data.age)), annotation_position="top right", line_color="#E87F2B")
+
+    fig.update_layout(
+            xaxis_range=[samplesizes.min()-10,samplesizes.max()+10],
+            barmode='overlay',
+            yaxis_title_text='Mean Value',
+            xaxis_title_text='Sample Size',
+            title=dict(
+                text='<b><span style="font-size: 10pt">Sample Means of Age</span><br> <span style="font-size:5">Data: UCIML Repo: Adult; variable: age</span></b>',
+            ),
+        )
+
+    fig.show()
+    ```
+
+When we run the experiment, we see that the blue line represents the sample means, and they’re fluctuating quite a bit. The orange line is the true population mean, which is known in advance. While the sample means do start to get closer to the orange line as the sample size increases, they still bounce around quite a lot, even with large samples of up to 1,000 people. This variation is normal for sampling and doesn’t indicate a problem. In fact, it’s expected due to the natural randomness in sample selection. 
+
+To show something interesting, we take the mean of several sample means (in this case 10)
+
+```py
+print(np.mean(samplemeans[:10]))
+```
+```title=">>> Output"
+35.7
+```
+
+By averaging these sample means together, we get a result that’s much closer to the population mean. 
+
+```py
+population_mean = np.mean(data.age)
+population_mean
+```
+```title=">>> Output"
+38.6
+```
+
+As we increase the number of sample means we average, the average gets even closer to the true population mean.
+
+```py
+print(np.mean(samplemeans[:100]))
+print(np.mean(samplemeans[:1000]))
+```
+```title=">>> Output"
+38.3
+38.6
+```
+
+This leads to an important discovery: while individual sample means might not perfectly match the population mean, averaging over multiple sample means brings us much closer to the true value. This concept ties into two key statistical principles - the law of large numbers and the central limit theorem.
 
 ???+ question "Task: Sampling Variability"
+    Use the the dataset from before and work for the variable `#!python hours-per-week` on the following tasks:
 
-    In a production environment, suppose you want to determine the **average lifetime of machines** in a factory. Machines vary in quality, maintenance schedules, and usage, so there will naturally be variability in how long they last. Instead of measuring just one machine’s lifetime, you collect data from several machines and calculate the average lifespan. However, if you only sample a few machines, the result might not accurately reflect the factory's overall performance. By sampling a larger number of machines and using statistical tools like confidence intervals, you get a more reliable estimate of the machines' average lifespan.
-
-    In summary, understanding and managing **sampling variability** is key to making reliable and accurate conclusions in research. By taking multiple samples and applying statistical analysis, we can reduce the impact of variability and make better-informed decisions. Whether you are studying the age of workers, the lifespan of machines, or any other parameter, knowing how to handle variability is essential.
-
-    Use the following dataset:
-    ``` py
-    from ucimlrepo import fetch_ucirepo 
-    
-    # fetch dataset 
-    cars = fetch_ucirepo(id=9) 
-    # https://archive.ics.uci.edu/dataset/9/auto+mpg
-    
-    # data (as pandas dataframes) 
-    data = cars.data.features
-
-    # Show the first 5 rows
-    data.head()
-    ```
-    Work on the following task: 
-
-    1. Analyze the correlation between the variables `horsepower` and `cylinders`. Therefore calculate the covariance, pearson correlation coefficient and spearman correlation coefficient. Interpret the results.
-    2. Generate a scatter plot for the variabels `horsepower` and `cylinders`. Compare the before result with the calculated measures. 
-    3. Take a closer look on the different variables and the corresponding attribute type. Is there a variable, where the calculation of the correlation makes no sense? 
+    1. Calculate the standard deviation for `#!python sample_size = np.arange(5,1000)`
+    2. Calculate the standard deviation of the population
+    3. Visualize the results as shown above (incl. standard deviation of the population using `#!python fig.add_hline` )
+    4. Calculate the mean of the sample standard deviation for the first `10`, `100` and `1000` samples
