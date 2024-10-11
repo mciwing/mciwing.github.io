@@ -1,4 +1,4 @@
-# Boolean and None
+# Boolean & None
 
 In this section, we introduce two more data types, namely boolean (`#!python 
 bool`) and None (`#!python NoneType`). Let's start with the latter one, 

@@ -38,7 +38,7 @@ developer community! 🦾
 ---
 
 The below section should give you an impression of what you can do with 
-`Python`. This is not an extensive list by all means. I might sound 
+`Python`. This is not an extensive list by all means. It might sound 
 trashy but if you can imagine something you probably can build it in 
 `Python`.
 
@@ -75,6 +75,7 @@ fig = px.choropleth_map(
     map_style="carto-positron",
     zoom=9,
 )
+fig.show()
 ```
 
 <div style="text-align: center;">

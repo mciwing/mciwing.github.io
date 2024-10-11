@@ -106,7 +106,7 @@ All previously introduced arithmetic operations can be used for floats as well.
 
 ???+ info
 
-    Floats are not 100% precise. "[...] n general, the decimal floating-point 
+    Floats are not 100% precise. "[...] In general, the decimal floating-point 
     numbers you enter are only approximated by the binary floating-point 
     numbers actually stored in the machine." (The Python Tutorial, 2024)[^1]
     [^1]: [The Python Tutorial](https://docs.python.org/3/tutorial/floatingpoint.html#floating-point-arithmetic-issues-and-limitations)
