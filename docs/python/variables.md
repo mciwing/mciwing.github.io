@@ -28,6 +28,10 @@ We recommend to create a new notebook for each chapter, e.g. create
 `variables.ipynb` for this chapter. Doing so, your notebooks will follow
 the structure of this crash course.
 
+You will encounter multiple info boxes :fontawesome-solid-circle-info: 
+throughout the course. They provide additional information, tips, and tricks. 
+Be sure to read them thoroughly.
+
 ---
 
 Let's start with the first task.
@@ -47,7 +51,7 @@ Let's start with the first task.
     Hello World!
     ```
 
-???+ info "Code blocks & Output"
+???+ info
     
     The upcoming content contains a lot of code snippets. They are easily 
     recognizable due to their colourful syntax highlighting, such as:
