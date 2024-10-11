@@ -145,7 +145,7 @@ offers a nice comprehensive overview of Markdown.
 
 You can execute cells one by one. Either by clicking on the *`Exceute Cell`* 
 button on the left side of your current cell. Or by using the shortcut 
-++ctrl+alt+enter++.
+++ctrl+enter++.
 
 Run all cells with the corresponding *`Run All`* button on top.
 

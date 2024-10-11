@@ -11,11 +11,22 @@ This crash course will teach you the basics of the
 
 ## Motivation
 
-<img src="../assets/python/index/lattenspitze.gif" alt="lattenspitze" style="height: 300px;">
-<figcaption style="text-align: center;">Creation of a 3D surface plot of 
-the Lattenspitze 🏔️. That's the power of Python - ease of use 
-paired with a wide range of functionalities stemming from a large 
-developer community! 🦾
+<div style="text-align: center;">
+    <img 
+        src="../assets/python/index/lattenspitze-top.gif" alt="lattenspitze code" 
+        style="height: 400px; border-radius:10px;"
+    >
+</div>
+<div style="text-align: center;">
+    <img 
+        src="../assets/python/index/lattenspitze-bottom.gif" alt="lattenspitze plotly" 
+        style="height: 400px; border-radius:10px;"
+    >
+</div>
+<figcaption style="text-align: center;">
+    Creation of a 3D surface plot of the Lattenspitze. 🏔️<br>
+    That's the power of Python - ease of use paired with a wide range of 
+    functionalities stemming from a large developer community! 🦾
 </figcaption>
 
 <div class="grid cards" markdown>
@@ -38,7 +49,7 @@ developer community! 🦾
 ---
 
 The below section should give you an impression of what you can do with 
-`Python`. This is not an extensive list by all means. I might sound 
+`Python`. This is not an extensive list by all means. It might sound 
 trashy but if you can imagine something you probably can build it in 
 `Python`.
 
@@ -75,6 +86,7 @@ fig = px.choropleth_map(
     map_style="carto-positron",
     zoom=9,
 )
+fig.show()
 ```
 
 <div style="text-align: center;">
