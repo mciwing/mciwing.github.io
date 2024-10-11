@@ -58,6 +58,33 @@ These are:
 6
 ```
 
+???+ info
+    
+    The floor division `#!python //` is often referred to as integer division.
+    It rounds down to the nearest whole number.
+
+    ```py title="Integer division"
+    20 // 3
+    ```
+
+    ```title=">>> Output"
+    6
+    ```
+    
+    Contrary, the divison operator `#!python /` does not round the result.
+
+    ```py title="Float division"
+    20 / 3
+    ```
+
+    ```title=">>> Output"
+    6.666666666666667
+    ```
+
+    Hence, `#!python /` is referred to as float division as it always returns 
+    a  `#!python float` (a number with decimal places). More on floats in a 
+    second.
+
 Moreover, you can use multiple operations in one expression. You can also
 use parentheses to modify the order of operations so Python can evaluate your 
 expression in the order you specify. For example:
@@ -138,7 +165,8 @@ All previously introduced arithmetic operations can be used for floats as well.
     - **Variable Cost per Unit**: 45
     - **Price per Unit**: 75
     
-    Assign each given value to a variable. Print the result in a sentence, e.g. `The break-even point is 200 units.`
+    Assign each given value to a variable. Print the result in a sentence, e.g. 
+    `#!python "The break-even point is X units."`
 
 
 ## Recap
