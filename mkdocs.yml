@@ -68,6 +68,7 @@ nav:
     - Inferential Statistics:
       - Probability Theory:
         - statistics/probability/General.md
+        - statistics/probability/Sampling.md
         - statistics/probability/LawOfLargeNumbers.md
         - statistics/probability/CentralLimitTheorem.md
       - Hypothesis Testing:
