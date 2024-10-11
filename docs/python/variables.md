@@ -5,7 +5,7 @@
     The structure of following sections is based on the official [Python
     tutorial](https://docs.python.org/3/tutorial/index.html).
 
-    A huge thank you goes to [@jhumci](https://github.com/jhumci) for providing
+    Many thanks to [@jhumci](https://github.com/jhumci) for providing
     the initial resource materials!
 
 ## Getting started
@@ -32,7 +32,7 @@ the structure of this crash course.
 
 Let's start with the first task.
 
-???+ question "Notebook + first code cell"
+???+ question "Notebook & first code cell"
 
     Create a new Jupyter notebook and name it `variables.ipynb`.
     Paste the following code snippet into a new cell and execute it.
@@ -74,7 +74,7 @@ Let's start with the first task.
 ## Variable
 
 Computers can store lots of information. To do so, in `Python` :fontawesome-brands-python:
-we use variables. A variable is a name that refers to a value. Following code
+we use variables. A variable is a name that refers to a value. The following code
 snippet, assigns the value `#!python 4` to the variable `number`. In 
 general, you pick the variable name on the left hand side, assign a value 
 with `=` and the value itself is on the right hand side.
@@ -171,14 +171,14 @@ the following rules in mind:
 ### Errors (`#!python NameError`)
 
 Every programmer makes mistakes and even after years of experience, mistakes
-are part of the process. With time, you get more efficient in debugging
-those errors.
+are part of the process. With time, you get more efficient in debugging 
+(=process of finding and fixing errors).
 
 <blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="670"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/thzuhm/debugging_tactics/">Debugging tactics</a><br> by<a href="https://www.reddit.com/user/0ajs0jas/">u/0ajs0jas</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
 
 Let’s look at an error you’re likely to make early on and learn how to fix it.
-We’ll write some code that generates an error on purpose. Copy the code and
-run your cell.
+We’ll write some code that throws an error message on purpose. Copy the code
+and run your cell.
 
 ```py
 message = "Hello Python Crash Course reader!"
