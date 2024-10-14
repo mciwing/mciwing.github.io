@@ -9,7 +9,7 @@ manipulation. `Python` provides several built-in container types, each with its
 own characteristics and use cases. In this first section, we cover 
 `#!python list` objects, followed by dictionaries and tuples.
 
-## What Is a `#!python list`?
+## What is a `#!python list`?
 
 A `#!python list` is a collection of items. You can make a `#!python list` 
 including the letters of the alphabet or the digits from `#!python 0` to 
@@ -63,7 +63,7 @@ John
 
 ???+ info
 
-    In Python, index positions **start at 0**, not 1. This is true of most 
+    In Python, index positions **start at 0**, not 1. This is true for most 
     programming languages. If you’re receiving unexpected results, determine 
     whether you are making a simple off-by-one error.
 
@@ -148,11 +148,11 @@ print(numbers)
 [1.0, 2.0, 0.5, 4.0, 3.0, 'one hundred']
 ```
 
-Up until now, our lists contained only one type of elements - strings. However,
-as in the example above, you can store multiple different types of data in a
-`#!python list`. Moreover, you can do nesting (for example, you can store a 
-`#!python list` within a `#!python list` - more on that later). Hence, 
-lists can represent complex data structures.
+Up until now, our lists contained only one type of elements - 
+strings or integers. However, as in the example above, you can store 
+multiple different types of data in a `#!python list`. Moreover, you can do 
+nesting (for example, you can store a `#!python list` within a `#!python list`
+- more on that later). Hence, lists can represent complex data structures.
 Nevertheless, don't mix and match every imaginable data type within a single 
 `#!python list` (just because you can) as it makes the handling of your 
 `#!python list` quite difficult.
@@ -182,7 +182,7 @@ print(pokemon)
 
 To remove an item from a `#!python list`, you can use the `#!python remove()` 
 method. You need to specify the value which you want to remove. However, 
-this it will only remove the first occurrence of the item.
+this will only remove the first occurrence of the item.
 
 ```py hl_lines="2"
 pokemon = ["Charmander", "Squirtle", "Charmeleon", "Charizard", "Squirtle"]
@@ -227,8 +227,8 @@ Bulbasaur
 ## Organizing a `#!python list`
 
 For various reasons, often, your lists will be unordered. If you want to 
-present your `#!python list` in a particular order, you can use the method `#!python 
-sort()`, or the function `#!python sorted()`.
+present your `#!python list` in a particular order, you can use the method 
+`#!python sort()`, or the function `#!python sorted()`.
 
 ### `#!python sort()`
 
