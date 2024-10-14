@@ -100,6 +100,15 @@ Hello, admin!
 
     As you can see in the example above, a docstring can span multiple lines!
 
+Up until now, the functions had no parameters at all or just a single 
+parameter. However, you can define as many parameters as you like, seperated 
+by a comma (`#!python ,`):
+
+```py
+def greet(first_name, last_name):
+    print(f"Hello, {first_name} {last_name}!")
+```
+
 ???+ question "Break-even point"
     
     Remember the task to calculate the break-even point? Now, you'll wrap 
