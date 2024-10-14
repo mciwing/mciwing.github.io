@@ -58,6 +58,8 @@ error.
 This is a `#!python TypeError`. It means Python encounters an unexpected 
 type in `age`, as strings were mixed with integers in the expression.
 
+#### Casting
+
 When you use integers within strings like this, you need to specify explicitly 
 that you want Python to use the integer as a string of characters. 
 You can do this by wrapping the variable in the `#!python str()`

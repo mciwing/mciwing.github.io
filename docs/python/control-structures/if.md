@@ -242,7 +242,7 @@ print(type(age))
 <class 'str'>
 ```
 
-... use [casting](../types/bool_and_none.md#detour-python-typeerror) to 
+... use [casting](../types/bool_and_none.md#casting) to 
 convert the input to the desired type.
 
 
