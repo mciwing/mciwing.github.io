@@ -248,9 +248,9 @@ convert the input to the desired type.
 
 ## `#!python break`
 
-To exit any loop immediately without running any remaining code, use the 
-`#!python break` statement. The `#!python break` statement directs the flow of 
-your program; you can use it to control which lines of code are executed and 
+To exit any loop immediately without running any remaining 'loop code', use 
+the `#!python break` statement. The `#!python break` statement directs the flow
+of your program; you can use it to control which lines of code are executed and 
 which aren’t, so the program only executes code that you want it to, when you
 want it to.
 
@@ -259,12 +259,15 @@ for i in range(5):
     if i == 3:
         break
     print(i)
+
+print("Continue running the program...")
 ````
 
 ```title=">>> Output"
 0
 1
 2
+Continue running the program...
 ```
 
 ## `#!python continue`
