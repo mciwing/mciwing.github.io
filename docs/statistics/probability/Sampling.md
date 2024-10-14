@@ -401,7 +401,7 @@ Even though the overall population (all workers in the factory) has a true avera
 
 ### Dealing with Sampling Variability
 
-To reduce the impact of sampling variability, one of the most effective strategies is to **take multiple samples**. Instead of measuring just a few workers' ages, you would gather information from a larger sample, maybe 100 or more workers, and calculate the average age. The more samples you take, the closer you get to the true average age of the entire population. This is based on the [law of large numbers](#law-of-large-numbers_1), which states that as you increase the number of samples, the average of those samples will get closer to the population mean.
+To reduce the impact of sampling variability, one of the most effective strategies is to **take multiple samples**. Instead of measuring just a few workers' ages, you would gather information from a larger sample, maybe 100 or more workers, and calculate the average age. The more samples you take, the closer you get to the true average age of the entire population. This is based on the [law of large numbers](../../statistics/probability/LawOfLargeNumbers.md), which states that as you increase the number of samples, the average of those samples will get closer to the population mean.
 
 Additionally, **statistical tools** like confidence intervals can help you understand how close your sample estimate is to the actual population parameter. Confidence intervals provide a range within which the true average age of the factory workers is likely to fall, giving a better sense of the precision of your estimate.
 
