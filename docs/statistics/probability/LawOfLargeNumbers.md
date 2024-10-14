@@ -1,5 +1,6 @@
 # Law of Large Numbers
 
+
 ???+ example "Example: Coin Toss"
 
     For a random variable \( \bar{X} \), which represents the **arithmetic mean** after tossing a coin once, where heads is assigned a value of 1 and tails a value of 0, the result can be visualized in a histogram. Similarly, after five coin tosses, we can calculate the probability of various outcomes, such as:
@@ -62,9 +63,7 @@
 
 
     
-## Sample Estimate Distribution
-## Sampling Varibility
-## Law of Large Numbers 
+xxxxxxxxxxxxxxx
 
 As we increase the number of experiments, the distribution gradually transitions from a rough pattern to a smooth curve resembling the binomial distribution. This is illustrated through histograms showing how the distribution evolves as the number of coin tosses increases from one to 50,000. Initially, the distribution appears discrete, but with more trials, it takes the form of a continuous curve, following the binomial distribution closely.
 
