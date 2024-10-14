@@ -12,7 +12,7 @@ solve common problems. Therefore, you won't have to reinvent the wheel.
 For example the package `pandas` is the go-to tool for data manipulation and
 analysis. With `pandas` you can read text and Excel files 
 :fontawesome-regular-file-excel: among a lot of other
-formats and offers a lot of functionality to manipulate and even plot your
+formats and it offers a lot of functionality to manipulate and even plot your
 data. Hence, you will rarely see `Python` projects that are not dependent on
 `pandas`. Apart from `pandas` there are a wide variety of popular packages:
 
@@ -36,7 +36,7 @@ on the topic. [Here](https://docs.python.org/3/py-modindex.html) is
 an extensive list of all the packages that `Python` ships with.
 
 Let's use the `#!python random` package to generate some random numbers. 
-First, we have to import the package with following command:
+First, we have to import the package with the following command:
 
 ```py hl_lines="1"
 import random
@@ -386,7 +386,7 @@ In this section, you have learned how to install packages and manage them
 within virtual environments. The topics covered:
 
 * `pip`
-* install/uninstall packages
-* PyPI
-* concept and benefits of virtual environments
-* creation and basic usage of a virtual environment
+* How to install/uninstall packages
+* PyPI - the package hub
+* Concept and benefits of virtual environments
+* Creation and basic usage of a virtual environment
