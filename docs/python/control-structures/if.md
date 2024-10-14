@@ -185,6 +185,13 @@ Note, that the variable, that is checked in the `#!python while`-condition
 must be defined prior to the loop, otherwise we will encounter a 
 `#!python NameError`.
 
+<div style="text-align: center;">
+    <img src="../../../assets/python/control-structures/infinite-loop.jpg" 
+      alt="Infinite loops" width="400px" style="border-radius:10px;"
+    >
+    <figcaption>Infinite loops</figcaption>
+</div>
+
 Moreover, the variable must be updated within the loop
 to avoid an infinite loop. For example, if `#!python current_number` is not
 incremented by one, the condition `#!python current_number <= 5` will always
