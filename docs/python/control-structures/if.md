@@ -20,8 +20,9 @@ if condition is True:
 
 You can put any condition in the first line and just about any action in the 
 indented block following the test. If the condition evaluates to `True`,
-`Python` executes the code following the `#!python if` statement. 
-If the test evaluates to `False`, the code following the `#!python if` is ignored.
+`Python` executes the indented code following the `#!python if` statement. 
+If the test evaluates to `False`, the indented code block (following the 
+`#!python if`) is ignored.
 
 ```py
 user = "admin"
@@ -88,7 +89,7 @@ Indentation plays the same role in `#!python if` statements as it did in
     Now, loop over the passwords and check if each password exceeds the 
     character limit of 12. If so, print the password.
 
-## `#!python else`
+### `#!python else`
 
 Previously, every time the condition in the `#!python if` statement 
 evaluated to `#!python False`, 
@@ -117,7 +118,7 @@ Only admins can enter this area!
 
     *Hint*: Introduce an `else` statement to save the invalid passwords.
 
-## `#!python elif`
+### `#!python elif`
 
 Often, you’ll need to test more than two possible situations, and to evaluate
 these, you can use an `if-elif-else` syntax. `Python` executes only one
@@ -169,7 +170,7 @@ current_number = 1
 while current_number <= 5:
   print(current_number)
   # increment the counter value by one
-  current_number = current_number + 1
+  current_number += 1
 ```
 
 ```title=">>> Output"
@@ -181,7 +182,42 @@ while current_number <= 5:
 ```
 
 Note, that the variable, that is checked in the `#!python while`-condition 
-must be defined prior to the loop, otherwise we will encounter a `#!python NameError`.
+must be defined prior to the loop, otherwise we will encounter a 
+`#!python NameError`.
+
+<div style="text-align: center;">
+    <img src="../../../assets/python/control-structures/infinite-loop.jpg" 
+      alt="Infinite loops" width="400px" style="border-radius:10px;"
+    >
+    <figcaption>Infinite loops</figcaption>
+</div>
+
+Moreover, the variable must be updated within the loop
+to avoid an infinite loop. For example, if `#!python current_number` is not
+incremented by one, the condition `#!python current_number <= 5` will always
+evaluate to `#!python True`, leaving us stuck in an infinite loop.
+In such cases, simply click the `Stop` button (on the left-hand side of the 
+respective code cell) to interrupt the execution.
+
+???+ info "Addition assignment"
+
+    In the above example, we used the `#!python +=` operator, referred to as 
+    addition assignment. It is a shorthand for incrementing a variable by a 
+    certain value.
+
+    ```py hl_lines="2"
+    a = 10
+    a += 5
+    print(a)
+    ```
+
+    ```title=">>> Output"
+    15
+    ```
+    
+    The above code is equivalent to `#!python a = a + 5`.
+    This shorthand assignment can be used with all arithmetic
+    operators, such as subtraction `#!python -=` or division `#!python /=`.
 
 
 ???+ question "While loop"
@@ -202,12 +238,26 @@ below.
 user_name = input("Please enter your username:")
 ```
 
+However, the `#!python input()` function always returns a string.
+
+```py
+age = input("Please enter your age:")
+print(type(age))
+```
+
+```title=">>> Output"
+<class 'str'>
+```
+
+... use [casting](../types/bool_and_none.md#casting) to 
+convert the input to the desired type.
+
 
 ## `#!python break`
 
-To exit any loop immediately without running any remaining code, use the 
-`#!python break` statement. The `#!python break` statement directs the flow of 
-your program; you can use it to control which lines of code are executed and 
+To exit any loop immediately without running any remaining 'loop code', use 
+the `#!python break` statement. The `#!python break` statement directs the flow
+of your program; you can use it to control which lines of code are executed and 
 which aren’t, so the program only executes code that you want it to, when you
 want it to.
 
@@ -216,12 +266,15 @@ for i in range(5):
     if i == 3:
         break
     print(i)
+
+print("Continue running the program...")
 ````
 
 ```title=">>> Output"
 0
 1
 2
+Continue running the program...
 ```
 
 ## `#!python continue`

@@ -303,7 +303,7 @@ We end up with 27 tracks that meet the criteria. `high_tempo` is a new
 For instance, we weigh the popularity of a track by its energy level.
 
 > Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of
-intensity and activity. 
+> intensity and activity. 
 >
 > -- <cite>[Spotify for Developers][1]</cite>
 
@@ -422,6 +422,22 @@ you with a solid foundation to work with tabular data sets. Moreover, you
 should be able to follow the code portions in the upcoming chapters (e.g., 
 [Statistics](../statistics/index.md)) course more easily.
 
+???+ info "🎉"
+    
+    Congratulations, you've reached the end of the
+    **Python :fontawesome-brands-python:** Crash Course!
+
+    <blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="659"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/1g2tv7a/parsertongue/">parserTongue</a><br> by<a href="https://www.reddit.com/user/Ange1ofD4rkness/">u/Ange1ofD4rkness</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+    With the knowledge gained, you're now well-equipped to write your own 
+    scripts. Additionally, you're able to automate tasks, write functions to 
+    tackle complex problems and work with data sets. You can leverage
+    the functionalities of **Python :fontawesome-brands-python:** packages and
+    using virtual environments, you can efficiently manage the packages required
+    for your projects.
+
+    Lastly, let's have a brief look at the upcoming chapter.
+
 ## What's next?
 
 The upcoming statistics chapter introduces foundational tools to further 
@@ -463,12 +479,10 @@ track with the given features (such as danceability, loudness, tempo, liveness,
 etc.).
 
 ```py
-from pathlib import Path
-
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-data = pd.read_csv(Path(r"data/spotify-top50.csv"))
+data = pd.read_csv("spotify-top50.csv")
 
 X = data[
     [

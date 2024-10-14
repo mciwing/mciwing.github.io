@@ -100,6 +100,15 @@ Hello, admin!
 
     As you can see in the example above, a docstring can span multiple lines!
 
+Up until now, the functions had no parameters at all or just a single 
+parameter. However, you can define as many parameters as you like, seperated 
+by a comma (`#!python ,`):
+
+```py
+def greet(first_name, last_name):
+    print(f"Hello, {first_name} {last_name}!")
+```
+
 ???+ question "Break-even point"
     
     Remember the task to calculate the break-even point? Now, you'll wrap 
@@ -315,10 +324,10 @@ result = square_number(5)
 This section introduced the concept of functions to better structure your 
 code, make it more readable and reusable. We have covered:
 
-- The definition of functions
-- Docstrings
-- Parameters and arguments
+- How to define a function
+- Docstrings as a tool to document your functions
+- Parameters vs arguments
 - Positional and keyword arguments
-- Default values
-- `#!python return` statement
-- Structuring code with functions
+- Defining default values for parameters
+- The `#!python return` statement
+- How to use functions to solve smaller subtasks and structure your code
