@@ -151,7 +151,7 @@ print(experiment)
 
 We have covered following topics in this section:
 
-- Dictionaries store key-value pairs.
+- Dictionaries store key-value pairs
 - How to get and modify values
 - Adding key-value pairs
 - Removing key-value pairs with `#!python del`

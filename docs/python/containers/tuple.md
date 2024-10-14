@@ -88,4 +88,4 @@ In this rather short section, we introduced tuples and covered:
 - mutable vs. immutable
 - how to define a `#!python tuple`
 - accessing elements
-- and `#!python tuple` unpacking.
+- and `#!python tuple` unpacking

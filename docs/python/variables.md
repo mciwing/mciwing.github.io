@@ -230,8 +230,8 @@ In this section, we have covered variables in `Python`
 
 You have learned (about):
 
-- To create and assign a value to a variable.
-- `#!python print()` to display the value of a variable.
+- To create and assign a value to a variable
+- `#!python print()` to display the value of a variable
 - Comments
-- Naming conventions for variables.
-- How to fix a `#!python NameError`.
+- Naming conventions for variables
+- How to fix a `#!python NameError`

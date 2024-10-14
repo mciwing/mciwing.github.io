@@ -299,7 +299,8 @@ print(players[0:3])
     Define a `#!python list` of your choice with at least `#!python 5` 
     elements. 
     
-    - Now, perform a slice from the second to (including) the fourth element.
+    - Now, perform a slice from the second up to and including the fourth 
+    element.
     - Next, omit the first index in the slice (only omit the number!). What 
     happens?
     - Lastly, re-add the first index and omit the second index of your 
