@@ -463,12 +463,10 @@ track with the given features (such as danceability, loudness, tempo, liveness,
 etc.).
 
 ```py
-from pathlib import Path
-
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-data = pd.read_csv(Path(r"data/spotify-top50.csv"))
+data = pd.read_csv("spotify-top50.csv")
 
 X = data[
     [
