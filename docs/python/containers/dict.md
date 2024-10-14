@@ -55,10 +55,10 @@ print(experiment["sample_weight_in_grams"])
     Manage the cost of raw materials in a dictionary. The dictionary should 
     contain the following key-value pairs:
 
-    - `#!python "Steel"`: `#!python 100`
-    - `#!python "Aluminum"`: `#!python 150`
-    - `#!python "Copper"`: `#!python 200`
-    - `#!python "Plastic"`: `#!python 50`
+    - `#!python "steel"`: `#!python 100`
+    - `#!python "aluminium"`: `#!python 150`
+    - `#!python "copper"`: `#!python 200`
+    - `#!python "plastic"`: `#!python 50`
   
     Create the dictionary and print the price of copper.
 
@@ -122,9 +122,9 @@ print(experiment)
     
     ```py
     production = {
-        "singapore": {"steel": 100, "aluminum": 150},
-        "taipeh": {"steel": 200, "aluminum": 250},
-        "linz": {"steel": 300, "aluminum": 350, "copper": 100},
+        "singapore": {"steel": 100, "aluminium": 150},
+        "taipeh": {"steel": 200, "aluminium": 250},
+        "linz": {"steel": 300, "aluminium": 350, "copper": 100},
     }
     ```
     
@@ -133,7 +133,7 @@ print(experiment)
     
     - Remove `linz` from the dictionary.
     - Add a new location `vienna` with the production of 200 steel 
-    and 250 aluminum.
+    and 250 aluminium.
     - Print the `aluminium` value of `taipeh` (try accessing it step
     by step and use variables for each step).
 
