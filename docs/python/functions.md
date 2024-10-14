@@ -324,10 +324,10 @@ result = square_number(5)
 This section introduced the concept of functions to better structure your 
 code, make it more readable and reusable. We have covered:
 
-- The definition of functions
-- Docstrings
-- Parameters and arguments
+- How to define a function
+- Docstrings as a tool to document your functions
+- Parameters vs arguments
 - Positional and keyword arguments
-- Default values
-- `#!python return` statement
-- Structuring code with functions
+- Defining default values for parameters
+- The `#!python return` statement
+- How to use functions to solve smaller subtasks and structure your code
