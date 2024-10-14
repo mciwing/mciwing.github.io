@@ -185,6 +185,13 @@ Note, that the variable, that is checked in the `#!python while`-condition
 must be defined prior to the loop, otherwise we will encounter a 
 `#!python NameError`.
 
+Moreover, the variable must be updated within the loop
+to avoid an infinite loop. For example, if `#!python current_number` is not
+incremented by one, the condition `#!python current_number <= 5` will always
+evaluate to `#!python True`, leaving us stuck in an infinite loop.
+In such cases, simply click the `Stop` button (on the left-hand side of the 
+respective code cell) to interrupt the execution.
+
 ???+ info "Addition assignment"
 
     In the above example, we used the `#!python +=` operator, referred to as 
@@ -223,6 +230,20 @@ below.
 ```py
 user_name = input("Please enter your username:")
 ```
+
+However, the `#!python input()` function always returns a string.
+
+```py
+age = input("Please enter your age:")
+print(type(age))
+```
+
+```title=">>> Output"
+<class 'str'>
+```
+
+... use [casting](../types/bool_and_none.md#detour-python-typeerror) to 
+convert the input to the desired type.
 
 
 ## `#!python break`
