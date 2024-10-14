@@ -27,7 +27,8 @@
 - :fontawesome-brands-python: __Python__
 
     ---
-    ![header](assets/python/python-header.gif)
+
+    [![header](assets/python/python-header.gif)](python/index.md)
     Learn the programming language **:fontawesome-brands-python: Python**. 
     We will cover the basics from types, control structures and functions to 
     packages.

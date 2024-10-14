@@ -213,7 +213,7 @@ Sum: 22.23
 
 ???+ question "Calculate the average"
 
-    Calculate the average of following list:
+    Calculate the average of the following list:
     ```py
     numbers = [4.52, 3.14, 2.71, 1.0, 8.38]
     ```
@@ -242,8 +242,8 @@ a single line.
 
 ## Looping over dictionaries
 
-As previously discussed, you can not only loop over a `#!python list` but 
-using a variety of different data types such as dictionaries.
+As previously discussed, you can not only loop over a `#!python list`, but 
+also iterate over a variety of different data types, such as dictionaries.
 You can loop over a dictionary’s key-value pairs, solely over the keys 
 or just the values.
 

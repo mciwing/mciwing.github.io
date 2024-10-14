@@ -179,10 +179,10 @@ Hello, alia atreides!
 
 This section was all about strings, we have covered:
 
-- How to create strings.
-- Use `#!python type()` to check a variable's type.
-- String methods, such as `#!python title()` and `#!python lower()`.
-- Distinction between methods and functions.
-- String concatenation with `#!python +` and f-strings (`#!python f"..."`).
+- How to create strings
+- Use `#!python type()` to check a variable's type
+- String methods, such as `#!python title()` and `#!python lower()`
+- Distinction between methods and functions
+- String concatenation with `#!python +` and f-strings (`#!python f"..."`)
 
 Next, up we will introduce numbers in Python, namely integers and floats. 

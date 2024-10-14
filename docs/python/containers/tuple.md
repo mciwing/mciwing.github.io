@@ -18,7 +18,9 @@ print(type(coordinates))
 A `#!python tuple` is created with round brackets (`()`). As with lists and dictionaries,
 the elements are separated by commas. Tuples can hold any type of data.
 
-Access the individual elements of a `#!python tuple` using the index.
+## Accessing elements
+
+With indexing, the individual elements of a `#!python tuple` can be retrieved.
 
 ```py
 coordinates = (47.262996862335854, 11.393082185178823)
@@ -30,6 +32,8 @@ print(coordinates[1])
 47.262996862335854
 11.39308218517882
 ```
+
+## Immutability
 
 Let's try to change the value of an element in a `#!python tuple`.
 
@@ -56,6 +60,8 @@ coordinates = (47.262996862335854, 11.393082185178823)
 # redefine the entire tuple
 coordinates = (5.513615392318705, 95.2060492604128)
 ```
+
+## `#!python tuple` unpacking
 
 Tuples can be unpacked, to use them separately.
 
@@ -85,7 +91,7 @@ latitude, longitude = coordinates
 
 In this rather short section, we introduced tuples and covered:
 
-- mutable vs. immutable
-- how to define a `#!python tuple`
-- accessing elements
-- and `#!python tuple` unpacking.
+- Mutability vs. immutability
+- How to define a `#!python tuple`
+- Access elements with indexing
+- ... and `#!python tuple` unpacking

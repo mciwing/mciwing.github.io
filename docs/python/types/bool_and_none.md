@@ -30,6 +30,12 @@ For now, we simply keep in mind that `#!python None` is a thing.
 
 ### Detour: `#!python TypeError`
 
+
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/IFXVr2zDLAw7u" width="480" height="266" style="" frameBorder="15" class="giphy-embed" allowFullScreen></iframe>
+    <figcaption>... yet another error.</figcaption>
+</div>
+
 Often, you’ll want to use a variable’s value within a message. For example, say
 you want to wish someone a happy birthday. You might write code like this:
 
@@ -56,7 +62,10 @@ You might expect this code to print the simple birthday greeting, `Happy
 error.
 
 This is a `#!python TypeError`. It means Python encounters an unexpected 
-type in `age`, as strings were mixed with integers in the expression.
+type in `age`, as strings were mixed with integers in the expression. We will 
+easily fix the `#!python TypeError` in the next section.
+
+#### Casting
 
 When you use integers within strings like this, you need to specify explicitly 
 that you want Python to use the integer as a string of characters. 
