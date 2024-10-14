@@ -20,8 +20,9 @@ if condition is True:
 
 You can put any condition in the first line and just about any action in the 
 indented block following the test. If the condition evaluates to `True`,
-`Python` executes the code following the `#!python if` statement. 
-If the test evaluates to `False`, the code following the `#!python if` is ignored.
+`Python` executes the indented code following the `#!python if` statement. 
+If the test evaluates to `False`, the indented code block (following the 
+`#!python if`) is ignored.
 
 ```py
 user = "admin"
@@ -88,7 +89,7 @@ Indentation plays the same role in `#!python if` statements as it did in
     Now, loop over the passwords and check if each password exceeds the 
     character limit of 12. If so, print the password.
 
-## `#!python else`
+### `#!python else`
 
 Previously, every time the condition in the `#!python if` statement 
 evaluated to `#!python False`, 
@@ -117,7 +118,7 @@ Only admins can enter this area!
 
     *Hint*: Introduce an `else` statement to save the invalid passwords.
 
-## `#!python elif`
+### `#!python elif`
 
 Often, you’ll need to test more than two possible situations, and to evaluate
 these, you can use an `if-elif-else` syntax. `Python` executes only one
@@ -169,7 +170,7 @@ current_number = 1
 while current_number <= 5:
   print(current_number)
   # increment the counter value by one
-  current_number = current_number + 1
+  current_number += 1
 ```
 
 ```title=">>> Output"
@@ -181,7 +182,28 @@ while current_number <= 5:
 ```
 
 Note, that the variable, that is checked in the `#!python while`-condition 
-must be defined prior to the loop, otherwise we will encounter a `#!python NameError`.
+must be defined prior to the loop, otherwise we will encounter a 
+`#!python NameError`.
+
+???+ info "Addition assignment"
+
+    In the above example, we used the `#!python +=` operator, referred to as 
+    addition assignment. It is a shorthand for incrementing a variable by a 
+    certain value.
+
+    ```py hl_lines="2"
+    a = 10
+    a += 5
+    print(a)
+    ```
+
+    ```title=">>> Output"
+    15
+    ```
+    
+    The above code is equivalent to `#!python a = a + 5`.
+    This shorthand assignment can be used with all arithmetic
+    operators, such as subtraction `#!python -=` or division `#!python /=`.
 
 
 ???+ question "While loop"
