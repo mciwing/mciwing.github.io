@@ -1,176 +1,177 @@
 # Law of Large Numbers
 
-???+ example "Example: Coin Toss"
+## Understanding the Law
 
-    For a random variable \( \bar{X} \), which represents the **arithmetic mean** after tossing a coin once, where heads is assigned a value of 1 and tails a value of 0, the result can be visualized in a histogram. Similarly, after five coin tosses, we can calculate the probability of various outcomes, such as:
+The Law of Large Numbers states that as you increase the number of times you repeat an experiment, the average of your sample means will more closely approximate the population mean. In other words, if you conduct the same experiment repeatedly and calculate the mean of each sample, then average those means together, this average will converge toward the true population mean as the number of experiments increases. 
 
-    <iframe src="/assets/statistics/random_coin1.html" width="100%" height="400px"></iframe>
+<figure markdown="span">
+  ![Correlation Types](../../assets/statistics/meme_lln.jpg){width=70% }
+  <figcaption>(Source: <a href="http://www.quickmeme.com/meme/3owxws">QuickMeme</a>) </figcaption>
+</figure>
 
-    ??? code "Code"
-        ``` py
-        import numpy as np
-        import plotly.express as px
-        import pandas as pd
+This is crucial because we often don’t know the true population mean, but by conducting multiple trials, we can estimate it more accurately over time.
 
-        x = [0,1]
+## Mathematical Representation
 
-        df = pd.DataFrame(x, columns=['fair'])
+Now, let's explore how this law is expressed mathematically.
 
-        fig = px.histogram(df, x='fair', histnorm='probability density')
-
-        # Adjust the plot
-        fig.update_layout(
-            title=dict(
-                    text='<b><span style="font-size: 10pt">Flip a Coin</span></b>',
-                ),
-            xaxis_title_text='Arithmetic Mean',
-            yaxis_title_text='Probability',
-            bargap=0.1,
-        )
-
-        # Scale the axis
-        fig.update_layout(yaxis_range=[0,0.5])
-
-        # Show the plot
-        fig.show()
-        ```
-
-    In the context of random variables, let's consider a situation where we toss a coin five times and examine the outcomes. The random variable \( \bar{X} \) represents the arithmetic mean after five coin tosses. We want to determine the probability of certain outcomes based on how many times heads or tails appear. For instance, the probability of getting no tails at all (meaning all heads, with an arithmetic mean of 0) after five tosses is:
-
+???+ defi "Definition: Law of Large Numbers"
     \[
-    P(\bar{X} = 0) = P(00000) = \left(\frac{1}{2}\right)^5 = \frac{1}{32} = 0.03125
+    \lim_{n \to \infty} P\left( \left| \bar{x}_n - \mu \right| \geq \epsilon \right) = 0
     \]
 
-    Similarly, the probability of getting exactly one tail (and thus an arithmetic mean of 0.2) is:
+    Where:
 
-    \[
-    P(\bar{X} = 0.2) = 5 \cdot \frac{1}{32} = 0.15625
-    \]
+    - \( n \) is the number of trials (or experiment repetitions) - not the sample size,
+    - \( \bar{x}_n \) is the average of the sample means from \( n \) trials,
+    - \( \mu \) is the true population mean,
+    - \( \epsilon \) is an arbitrarily small positive number.
 
-    The detailed breakdown of this calculation considers each specific sequence of outcomes where one tail appears, and each of these sequences has a probability of \( \frac{1}{32} \). Thus, the total probability is multiplied by the number of favorable outcomes, in this case, 5.
+The essence of the formula is that the probability of our average deviating from the true population mean by more than ε approaches zero as n becomes very large. In simpler terms, the more experiments we conduct, the closer our average gets to the true mean, and the less likely it is to be significantly off.
 
-    Now, we can extend this example to calculate the probabilities for other outcomes. What is the probability of obtaining exactly 1, 2, 3, 4, or 5 tails, corresponding to arithmetic means of 0.2, 0.4, 0.6, 0.8, and 1, respectively?
+## Importance of the LLN
 
-    - The probability of no tails (mean = 0) is \( P(\bar{X} = 0) = \frac{1}{32} = 0.03125 \).
-    - The probability of one tail (mean = 0.2) is \( P(\bar{X} = 0.2) = 5 \cdot \frac{1}{32} = 0.15625 \).
-    - The probability of two tails (mean = 0.4) is \( P(\bar{X} = 0.4) = 10 \cdot \frac{1}{32} = 0.3125 \).
-    - The probability of three tails (mean = 0.6) is \( P(\bar{X} = 0.6) = 10 \cdot \frac{1}{32} = 0.3125 \).
-    - The probability of four tails (mean = 0.8) is \( P(\bar{X} = 0.8) = 5 \cdot \frac{1}{32} = 0.15625 \).
-    - The probability of all tails (mean = 1) is \( P(\bar{X} = 1) = \frac{1}{32} = 0.03125 \).
+So, why is the Law of Large Numbers so important? Because it tells us that any single sample or experiment can be heavily influenced by randomness, variability, and noise. This means relying on a single experiment might not give us an accurate estimate of the true population mean. We shouldn't place too much trust in just one set of results.
 
-    As the number of coin tosses increases, the distribution of outcomes starts to resemble a **binomial distribution**, which predicts the likelihood of each possible outcome over a large number of trials. For example, as the number of coin tosses grows, the shape of the probability distribution becomes smoother and more predictable.
+<figure markdown="span">
+  ![Correlation Types](https://i.imgflip.com/3iwpab.jpg){width=70% }
+  <figcaption>(Source: <a href="https://imgflip.com/memegenerator">Imgflip Meme Generator</a>) </figcaption>
+</figure>
 
 
-    
-## Sample Estimate Distribution
-## Sampling Varibility
-## Law of Large Numbers 
+However, by repeating the experiment multiple times we can obtain an average that closely approximates the true population mean. Even if we can't measure the population mean directly, averaging multiple samples allows us to estimate it with increasing accuracy.
 
-As we increase the number of experiments, the distribution gradually transitions from a rough pattern to a smooth curve resembling the binomial distribution. This is illustrated through histograms showing how the distribution evolves as the number of coin tosses increases from one to 50,000. Initially, the distribution appears discrete, but with more trials, it takes the form of a continuous curve, following the binomial distribution closely.
+## How Large is 'Large'?
 
-By observing such patterns, we gain a deeper understanding of how random variables behave in large samples and how their probability distributions develop over time. This knowledge is fundamental to making accurate predictions in statistics and understanding the nature of random processes.
+An important question arises: How large does our number of repetitions ($n$) need to be to get a reasonable estimate? The law doesn't specify a particular number. Unfortunately, there's no one-size-fits-all answer because it depends on various factors like the nature of the data, experimental conditions, and measurement methods.
 
-<div class="grid cards" markdown>
--    
+While we can't name an exact number, we now understand that the Law of Large Numbers operates more qualitatively - it tells us that more repetitions lead to better approximations without specifying exactly how many are needed.
 
-    <iframe src="/assets/statistics/random_coin_1.html" width="100%" height="400px"></iframe>
+## An Illustrative Example
 
--    
+Let's consider an example. Suppose we take a fair die, 
 
-    <iframe src="/assets/statistics/random_coin_5.html" width="100%" height="400px"></iframe>
+```py
+die_fair = [1, 2, 3, 4, 5, 6]
+```
 
--    
+roll it 50 times (sample size)
 
-    <iframe src="/assets/statistics/random_coin_50.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_500.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_5000.html" width="100%" height="400px"></iframe>
-
--    
-
-    <iframe src="/assets/statistics/random_coin_50000.html" width="100%" height="400px"></iframe>
-
-</div>
+<iframe src="/assets/statistics/prob_diesample.html" width="100%" height="400px"></iframe>
 
 ??? code "Code"
-    ``` py 
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import plotly.express as px
-    import pandas as pd
-
-
-    def coin_flip_experiment(throws, repetitions):
-        # List to store the mean values of each repetition
-        mean_values = []
-        
-        for _ in range(repetitions):
-            # Simulate coin flips (0 = heads, 1 = tails)
-            flips = np.random.randint(0, 2, throws)
-            # Calculate the mean value of the flips
-            mean_value = np.mean(flips)
-            # Store the mean value
-            mean_values.append(mean_value)
-        
-        return mean_values
-
-    # Parameters for the experiment
-    throws = 50000  # Number of coin flips per repetition
-    repetitions = 50000  # Number of times the experiment is repeated
-
-    # Run the experiment and adjust format
-    mean_values = coin_flip_experiment(throws, repetitions)
-    mean_values = pd.DataFrame(mean_values, columns=['mean'])
-    probs = mean_values.value_counts().reset_index(),
-    probs = pd.DataFrame(probs[0])
-    probs['count'] = probs['count']/repetitions
-
-    # HISTOGRAM Large Number of Values
-    # Generate Histogram
-    fig = px.bar(
-        probs,
-        x='mean',
-        y='count',
+    ``` py
+    fig = px.scatter(y=fair, x=np.arange(50), labels={'y': 'Die Number', 'x': 'Roll'})
+    fig.update_traces(marker=dict(color='rgba(0, 65, 110, 0.6)'))
+    fig.update_layout(
+            title=dict(
+                text='<b><span style="font-size: 10pt">Results of 50 Die Rolls</span><br> <span style="font-size:5">Data: Fair Die</span></b>',
+            ),
         )
 
-    # Adjust the plot
-    fig.update_layout(
-        xaxis_title_text='Arithmethic Mean',
-        yaxis_title_text='Probability',
-        title=dict(
-                text=f'<b><span style="font-size: 10pt">Probability: {throws} Coins </span><br> <span style="font-size:5">50.000 Flips</span></b>',
-            ),
-        #bargap=0.1,
-        xaxis_range=[-0.5,1.5],
-        showlegend=False,
-    )
-    fig.update_traces(marker=dict(color='#00416E', line=dict(color='#00416E', width=1)))
-
-    # Show the plot
     fig.show()
     ```
 
-# Recap
+and calculate the average of the results
 
-- Random variables are quantities that can take on different values.
-- They assign numbers to each outcome of a random process.
-- There is a distinction between discrete and continuous random variables.
-- Each event has a certain probability associated with it.
-- The representation of these probabilities is called a probability distribution.
-- As the number of experiments increases, the distribution approaches a binomial distribution.
+```py
+fair_mean = np.mean(fair)
+print('Mean of 50 rolls of a fair die:', fair_mean)
+```
+```title=">>> Output"
+Mean of 50 rolls of a fair die: 3.64
+```
+
+
+Then, we repeat this entire experiment 500 times ($n$). Here's what happens:
+
+- **Individual Experiment Results**: Each experiment's average varies. Sometimes it's close to the expected value of 3.5 (the average roll of a fair die), and other times it's further away. These averages fluctuate and don't necessarily converge to 3.5 on their own.
+
+<iframe src="/assets/statistics/prob_sampMeans.html" width="100%" height="400px"></iframe>
+??? code "Code"
+    ``` py
+    def mean_of_n_rolls(sample_size, number_of_samples):
+        return [np.mean(random.choices([1, 2, 3, 4, 5, 6], k=sample_size)) for _ in range(number_of_samples)]
+
+    sample_size = 50
+    number_of_samples = 500
+
+    means_result = mean_of_n_rolls(sample_size, number_of_samples)
+
+    fig = px.line(x=np.arange(number_of_samples), y=means_result,markers=True)
+    fig.update_traces(line=dict(color='rgba(0, 65, 110, 0.6)'))
+
+    # Add a vertical line for the population mean
+    fig.add_hline(y=3.5, line_dash="dash", annotation_text="Expected Value: 3.5", annotation_position="top right", line_color="#E87F2B")
+
+    fig.update_layout(
+            barmode='overlay',
+            yaxis_title_text='Sample Mean',
+            xaxis_title_text='# Experiment',
+            title=dict(
+                text='<b><span style="font-size: 10pt">Sample Means (Sample Size: 50)</span><br> <span style="font-size:5">Data: Fair Die</span></b>',
+            ),
+        )
+
+    fig.show()
+    ```
+  
+- **Cumulative Average**: Instead of looking at individual averages, we calculate the cumulative average up to each point. The first point is just the average of the first experiment. The second point is the average of the first two experiments, and so on, up to the 500th point, which is the average of all 500 experiments.
+
+<iframe src="/assets/statistics/prob_cumulativeAverage.html" width="100%" height="400px"></iframe>
+??? code "Code"
+    ``` py
+    # Cumulative Average
+    cumulative_average = np.cumsum(means_result) / np.arange(1, number_of_samples + 1)
+
+    # Plot the cumulative average
+    fig = px.line(x=np.arange(number_of_samples), y=cumulative_average,markers=True)
+    fig.update_traces(line=dict(color='rgba(0, 65, 110, 0.6)'))
+
+    # Add a horizontal line for the population mean
+    fig.add_hline(y=3.5, line_dash="dash", annotation_text="Expected Value: 3.5", annotation_position="top right", line_color="#E87F2B")
+
+    fig.update_layout(
+            barmode='overlay',
+            yaxis_title_text='Cumulative Average',
+            xaxis_title_text='# Experiment',
+            title=dict(
+                text='<b><span style="font-size: 10pt">Cumulative Average (Sample Size: 50)</span><br> <span style="font-size:5">Data: Fair Die</span></b>',
+            ),
+        )
+
+    fig.show()
+    ```
+
+
+What's interesting is how quickly the cumulative average converges to the expected value of 3.5. Even after just a few repetitions, the cumulative average is already quite close to 3.5 - much closer than most individual experiment averages. By the time we reach 500 repetitions, the cumulative average is almost exactly 3.5.
+
+
+
+## Recap
+
+In this session, we learned about the Law of Large Numbers. We've explored what it is, examined its mathematical formulation, and seen a demonstration of how it works. This fundamental principle is crucial for statistical analysis and scientific research, emphasizing the importance of repeated experimentation to obtain accurate estimates of population parameters.
 
 
 # Tasks
-???+ question "Task"
-    Consider a defective die with the following sides: \( [1, 1, 2, 3, 5, 6] \).
-    Work on the following task: 
+???+ question "Task: Law Of Large Numbers"
+    Use the following dataset: 
+    ``` py
+    from ucimlrepo import fetch_ucirepo 
 
-    1. Display the probabilities of each face of the die in a histogram.
-    2. Conduct an experiment by rolling the die once using the `randint` function and plot the outcome in a histogram. How does the histogram change when you roll the die 10 times or 10,000 times? Interpret the results. Can you identify a binomial distribution?
-    3. Now, introduce an average value. Roll the die 10 times and calculate the average number. Repeat this process 10,000 times and display the averages in a histogram.
-    4. Increase the sample size from 10 to 1010 in increments of 100. Overlay the results in a histogram. Interpret the findings. Can you now identify a binomial distribution? 
+    # fetch dataset 
+    adult = fetch_ucirepo(id=2)
+    # https://archive.ics.uci.edu/dataset/2/adult
+
+    # data (as pandas dataframes) 
+    data = adult.data.features 
+
+    # Show the first 5 rows
+    data.head()
+    ```
+    Work on the following tasks: 
+    
+    1. Calculate the population mean of the variable `age`
+    2. Take one sample of 100 entries from the variable `age` and visualize them in a scatter plot
+    3. Repeat this experiment 500 times and plot the means of each sample in a line chart. Add a horizontal line for the true population mean
+    4. Visualize the cumulative average in a line chart. Does it approach the expected value? 
