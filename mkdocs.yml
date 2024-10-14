@@ -7,8 +7,8 @@ theme:
   favicon: assets/logo.png
   palette:
     scheme: slate
-    primary: teal
-    accent: pink
+    primary: custom
+    accent: custom
   icon:
     repo: fontawesome/brands/git-alt
 

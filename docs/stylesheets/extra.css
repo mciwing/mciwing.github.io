@@ -33,3 +33,15 @@
     -webkit-mask-image: var(--md-admonition-icon--defi);
             mask-image: var(--md-admonition-icon--defi);
   }
+
+:root {
+    --md-primary-fg-color:        #E87F2B;
+    --md-primary-fg-color--light: #E87F2B;
+    --md-primary-fg-color--dark:  #E87F2B;
+  }
+
+:root {
+    --md-accent-fg-color:        #00416E;
+    --md-accent-fg-color--light: #00416E;
+    --md-accent-fg-color--dark:  #00416E;
+  }
