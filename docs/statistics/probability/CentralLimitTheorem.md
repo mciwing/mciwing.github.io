@@ -142,6 +142,6 @@ The Central Limit Theorem is a powerful reminder that, regardless of the origina
     2. Visualize the probability of each side in a histrogram.
     3. Now we perform some experiments:
         - Choose one random side (`#!python sample_size = 1`) of the biased die. Repeat this `100.000` times and visualize the frequency in a histogram. 
-        - Compare the result with the visualization of the the probability. 
+        - Compare the result with the visualization of the probability. 
         - Now increase the `sample_size` and inspect the change in histogram. 
         - Does the calculated expected value match with the mean value of the normal distribution? 
