@@ -8,7 +8,7 @@ Let's begin with the basic concepts of independent variables (IVs) and dependent
 
 In experimental research, independent variables are what you manipulate or control to observe their effect on the dependent variable. For example, if you're studying the effect of water on a plant, the amount of water is the independent variable, and the size or number of leaves are the dependent variable. 
 
-???+ Controlable Variables
+???+ info "Controlable Variables"
     Not all independent variables are under your control; some are observed variables that you believe have an impact on the dependent variable.
 
 <figure markdown="span">
@@ -115,23 +115,20 @@ By testing these hypotheses, we're evaluating whether adding a variable (making 
 
 In this section, we'll delve into the concept of hypothesis testing, a cornerstone of statistical analysis. Understanding what a hypothesis is and how to formulate a strong one is essential for designing experiments and interpreting data effectively.
 
-## What Is a Hypothesis?
+<figure markdown="span">
+  ![Correlation Types](https://i.imgflip.com/96wvpl.jpg){width=70% }
+  <figcaption>(Source: <a href="https://imgflip.com/memegenerator">Imgflip Meme Generator</a>) </figcaption>
+</figure>
 
-A **hypothesis** is a testable statement that predicts a relationship between variables. It is an educated guess based on prior knowledge and observation, which can be supported or refuted through experimentation or further observation. Crucially, a hypothesis must be **falsifiable**, meaning there must be a possible negative answer to the hypothesis.
+### What Is a Hypothesis?
 
+> Hypothesis: an idea or explanation for something that is based on known facts but has not yet been proved
+>
+> -- <cite>[Cambridge Dictionary][1]</cite>
 
+[1]: https://dictionary.cambridge.org/de/worterbuch/englisch/hypothesis
 
-
-
-XXXXXXXXXXXXXXXXXXXXXX
-XXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXX
-
-
-
-
-
-## Why Are Hypotheses Important?
+So in other words, a **hypothesis** is a testable statement that predicts a relationship between variables. It is an educated guess based on prior knowledge and observation, which can be rejected or not through experimentation or further observation. Crucially, a hypothesis must be **falsifiable**, meaning there must be a possible negative answer to the hypothesis.
 
 Hypotheses serve several critical functions in research and data analysis:
 
@@ -143,9 +140,9 @@ Hypotheses serve several critical functions in research and data analysis:
 
 By converting abstract ideas into specific, testable predictions, hypotheses facilitate meaningful research and discoveries.
 
-## Characteristics of a Strong Hypothesis
+### Characteristics of a Hypothesis
 
-A strong hypothesis should be:
+A Hypothesis should fullfill some requirements to be considered as strong. Those requirement are:
 
 - **Clear and Specific**: It precisely states the expected relationship between variables.
 - **Testable and Falsifiable**: It can be supported or refuted through experimentation or observation.
@@ -154,84 +151,76 @@ A strong hypothesis should be:
 - **Relevant**: It has implications for understanding broader phenomena, not just a single dataset.
 - **Directional (when appropriate)**: It specifies the expected direction of the relationship (e.g., increases, decreases).
 
-## Examples of Hypotheses
 
-### Not a Hypothesis
+???+ danger "Not a Hypothesis"
+    *"Technology is changing rapidly."*
 
-**Statement**: "Technology is changing rapidly."
+    **Explanation**: This is a general observation, not a testable hypothesis. It lacks specificity and does not predict a measurable outcome.
 
-- **Explanation**: This is a general observation, not a testable hypothesis. It lacks specificity and does not predict a measurable outcome.
+???+ warning "Weak Hypothesis"
+    *"Eating fruits affects health."*
 
-### Weak Hypothesis
+    **Explanation**: While somewhat testable, it's vague. It doesn't specify which fruits, what aspect of health, or the nature of the effect.
 
-**Statement**: "Eating fruits affects health."
+???+ success "Strong Hypothesis"
+    *"Adults who eat an apple a day have lower cholesterol levels than those who do not."*
 
-- **Explanation**: While somewhat testable, it's vague. It doesn't specify which fruits, what aspect of health, or the nature of the effect.
+    *Explanation**: This hypothesis is specific, testable, and based on prior knowledge about the health benefits of apples. It predicts a measurable outcome (cholesterol levels) in a defined group (adults).
 
-### Strong Hypothesis
+To explore the concept of hypothesis characteristics we can practice on some examples
 
-**Statement**: "Adults who eat an apple a day have lower cholesterol levels than those who do not."
+???+ question "Task: Hypothesis Characteristics"
+    Let's practice by classifying some statements (no/weak/strong hypothesis):
+   
+    1. "Does exercise improve mental health?"
+    2. "Drinking green tea leads to weight loss."
+    3. "College students who sleep at least 7 hours per night have higher GPAs than those who sleep less."
+    4. "Reading improves language skills."
+    5. "Children exposed to bilingual education from an early age will perform better on cognitive flexibility tests than those who are not."
 
-- **Explanation**: This hypothesis is specific, testable, and based on prior knowledge about the health benefits of apples. It predicts a measurable outcome (cholesterol levels) in a defined group (adults).
-
-## Practice: Classifying Hypotheses
-
-Let's practice by classifying some statements:
-
-1. **"Does exercise improve mental health?"**
-
-   - **Classification**: Not a hypothesis.
-   - **Reasoning**: It's a question, not a testable statement.
-
-2. **"Drinking green tea leads to weight loss."**
-
-   - **Classification**: Weak hypothesis.
-   - **Reasoning**: It's a testable statement but could be more specific (e.g., amount of tea, duration, population).
-
-3. **"College students who sleep at least 7 hours per night have higher GPAs than those who sleep less."**
-
-   - **Classification**: Strong hypothesis.
-   - **Reasoning**: It's specific, testable, and predicts a clear relationship.
-
-4. **"Reading improves language skills."**
-
-   - **Classification**: Weak hypothesis.
-   - **Reasoning**: It's general and lacks specificity about what type of reading or which language skills.
-
-5. **"Children exposed to bilingual education from an early age will perform better on cognitive flexibility tests than those who are not."**
-
-   - **Classification**: Strong hypothesis.
-   - **Reasoning**: It's specific, testable, and based on existing theories about bilingualism and cognition.
-
-## The Null Hypothesis
+### The Null Hypothesis
 
 In statistical testing, we often work with two hypotheses:
 
-- **Null Hypothesis (H₀)**: Assumes no effect or no difference between groups or variables.
-- **Alternative Hypothesis (H₁ or Ha)**: Proposes that there is an effect or a difference.
+???+ defi "Definition: Null & Alternative Hypothesis"
 
-**Example**:
+    - **Null Hypothesis (\( H_0 \))**: Assumes no effect or no difference between groups or variables.
+    - **Alternative Hypothesis (\( H_1 \) or \( H_a \))**: Proposes that there is an effect or a difference.
 
-- **Alternative Hypothesis (H₁)**: "Listening to classical music while studying improves memory retention in high school students."
-- **Null Hypothesis (H₀)**: "Listening to classical music while studying has no effect on memory retention in high school students."
+???+ example "Examples: \( H_0 \) & \( H_1 \)" 
 
-In statistical analyses, we test the null hypothesis to determine whether there is sufficient evidence to reject it in favor of the alternative hypothesis. Rejecting the null hypothesis suggests that the data support the alternative hypothesis.
+    - **Null Hypothesis \( H_0 \)**: "Listening to classical music while studying has no effect on memory retention in high school students."
+    - **Alternative Hypothesis \( H_1 \)**: "Listening to classical music while studying improves memory retention in high school students."
+    
+**In statistical analyses, we test the null hypothesis to determine whether there is sufficient evidence to reject it in favor of the alternative hypothesis.** Rejecting the null hypothesis suggests that the data support the alternative hypothesis.
 
-### Why Focus on the Null Hypothesis?
+<figure markdown="span">
+  ![Correlation Types](https://i.imgflip.com/96wtrp.jpg){width=70% }
+  <figcaption>(Source: <a href="https://imgflip.com/memegenerator">Imgflip Meme Generator</a>) </figcaption>
+</figure>
+
+But why Focus on the Null Hypothesis?
 
 - **Statistical Simplicity**: It's mathematically simpler to test for no effect than to prove a specific effect.
 - **Avoiding Bias**: It prevents researchers from seeing effects that aren't there due to expectations.
 - **Falsifiability**: It's easier to disprove (falsify) a universal negative (no effect) than to prove a universal positive.
 
+
+
+XXXXXXXXXXXXXXXXXXXXXX
+XXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+
+
+
+
+
 ## Conclusion
 
 Understanding how to formulate and test hypotheses is essential for conducting rigorous research and making meaningful contributions to knowledge. A strong hypothesis guides the research process, informs experimental design, and provides a basis for interpreting results. By mastering hypothesis testing, you enhance your ability to analyze data critically and draw valid conclusions.
-
----
-
-Feel free to incorporate this content into your Markdown file, adjusting any sections to better fit your specific needs or focus areas.
-
-
 
 xxxxxxxxxxxxxxxxx
 
@@ -251,20 +240,6 @@ XXXXXXXXXXXXXXXXXXXXXX
 XXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXX
 
-## Hypothesen
-
-### Definition
-104 Definition + Importance
-
-### Good Hypothesis
-104 strong + example
-
-### Null Hypothesis
-104 H0 + Example
-
-### Hypothesis Testing
-104 no prove --< reject or fail
-105 example
 
 ### P-Values
 106 allgemein
