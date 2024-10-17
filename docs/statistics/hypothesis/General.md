@@ -1,4 +1,4 @@
-# Hypothesis and Metrics
+# Hypothesis
 
 ## (In)dependent Variables
 Let's begin with the basic concepts of independent variables (IVs) and dependent variables (DVs). 
@@ -205,25 +205,6 @@ But why Focus on the Null Hypothesis?
 - **Avoiding Bias**: It prevents researchers from seeing effects that aren't there due to expectations.
 - **Falsifiability**: It's easier to disprove (falsify) a universal negative (no effect) than to prove a universal positive.
 
-
-
-XXXXXXXXXXXXXXXXXXXXXX
-XXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXX
-
-
-
-
-
-
-
-
-## Conclusion
-
-Understanding how to formulate and test hypotheses is essential for conducting rigorous research and making meaningful contributions to knowledge. A strong hypothesis guides the research process, informs experimental design, and provides a basis for interpreting results. By mastering hypothesis testing, you enhance your ability to analyze data critically and draw valid conclusions.
-
-xxxxxxxxxxxxxxxxx
-
 ## Recap
 
 - **Independent Variables (IVs)**: Factors you believe influence the outcome.
@@ -233,33 +214,5 @@ xxxxxxxxxxxxxxxxx
 - **Balance in Modeling**: Aim for models that are simple yet sufficiently complex to accurately capture the underlying patterns in the data.
 - **Hypothesis Testing**: A method of comparing models to determine which one better explains the data.
 
+Understanding how to formulate and test hypotheses is essential for conducting rigorous research and making meaningful contributions to knowledge. A strong hypothesis guides the research process, informs experimental design, and provides a basis for interpreting results. By mastering hypothesis testing, you enhance your ability to analyze data critically and draw valid conclusions.
 
-
-
-XXXXXXXXXXXXXXXXXXXXXX
-XXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXX
-
-
-### P-Values
-106 allgemein
-107 p-z- pairs (confidence)
-#### Significance
-112
-114
-
-
-### DOF
-108
-
-### Errors
-109
-
-## Tests
-### Parametric vs Non-Parametric
-110
-ev. 111
-
-
-## Confidence Intervals --> ev. zu Probability
-129-135

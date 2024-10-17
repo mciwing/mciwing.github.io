@@ -73,6 +73,7 @@ nav:
         - statistics/probability/CentralLimitTheorem.md
       - Hypothesis Testing:
         - statistics/hypothesis/General.md
+        - statistics/hypothesis/Metrics.md
         - statistics/hypothesis/Ttest.md
         - statistics/hypothesis/Confidence.md
         - statistics/hypothesis/ANOVA.md
