@@ -109,6 +109,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.details
   - pymdownx.keys  # render keyboard shortcuts
+  - pymdownx.critic
+  - pymdownx.tilde
   - footnotes
   - pymdownx.arithmatex:
       generic: true
