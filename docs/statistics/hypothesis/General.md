@@ -41,9 +41,9 @@ In some cases, distinguishing between the IV and DV can be ambiguous. For instan
 ## Models and Modeling
 
 <figure markdown="span">
-  ![Correlation Types](https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/277583525_517089613094581_1961330024807133502_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xyly4kjnDmwQ7kNvgEMMcq2&_nc_ht=scontent-vie1-1.xx&_nc_gid=A8U1R2vmOK_euO7sD2OWjJR&oh=00_AYDXsmLjLy7KTuzFCuBXO-Kion1YWGAaEtex2zLTYwTV7g&oe=67156D42){width=50% }
-  <figcaption>(Source: <a href="https://www.facebook.com/economemes0/photos">Economemes on FB</a>) </figcaption>
+  ![Correlation Types](../../assets/statistics/models.png){width=50% }
 </figure>
+
 
 ### Definition 
 Models are simplified representations of reality, designed to explain or predict phenomena by highlighting essential features while ignoring less critical details. The real world is incredibly complex, and models help us make sense of it by focusing on key variables.
