@@ -124,7 +124,7 @@ Again we stick with the `age` example and compare the age differences of mutlipl
             yaxis_title_text='Absolute Frequency',
             xaxis_title_text='Sample Means Difference',
             title=dict(
-                text='<b><span style="font-size: 10pt">Null Distribution</span><br><span style="font-size: 8pt">Age (Male) vs. Age (Female) </span><span style="font-size: 5pt"> Number of Samples: 10.000 | Data: UCIML Repo: Adult; variable: age</span> </b>',
+                text='<b><span style="font-size: 10pt">Alternative Distribution</span><br><span style="font-size: 8pt">Age (Male) vs. Age (Female) </span><span style="font-size: 5pt"> Number of Samples: 10.000 | Data: UCIML Repo: Adult; variable: age</span> </b>',
             ),
         )
 
