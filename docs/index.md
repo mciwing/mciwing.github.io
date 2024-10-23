@@ -1,4 +1,4 @@
-# MCI | Wirtschaftsingenieurwesen
+# MCI | Industrial Engineering & Management
 
 
 ???+ info ":fontawesome-solid-person-digging:"
@@ -14,6 +14,7 @@
 - :fontawesome-solid-database: __Data Basics__
 
     ---
+    [![header](assets/databasics/basics-header.png)](databasics/Terms.md)
     How is data structured? What are attribute types like nominal and 
     ordinal and what even is big data? The chapter **Data Basics** will
     introduce you to the world of data and answer these questions.
@@ -45,7 +46,7 @@
 - :material-chart-bar: __Statistics__
 
     ---
-    
+    [![header](assets/statistics/statistics-header.png)](statistics/index.md)
     Course on statistics, from hypothesis testing to linear regression.
     
     [:octicons-arrow-right-24: Get started](statistics/index.md)
