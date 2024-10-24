@@ -633,12 +633,26 @@ For the results of the two-sample t-test to be valid, the following assumptions 
 
 ???+ tip "Testing for Equal Variances"
 
-    Before deciding between Student's t-test and Welch's t-test, you can perform **Levene's Test** or **F-test** to assess the equality of variances.
+    Before deciding between Student's t-test and Welch's t-test, you can perform an **F-test** or **Levene's Test** (robust against non-normal distribution) to assess the equality of variances. 
 
+    ```py
+    from scipy import stats
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    stat, p_value = stats.levene(scores1, scores2)
+    print(f"Levene's Test Statistic: {stat:.2f}")
+    print(f"p-value: {p_value:.4f}")
+    ```
 
-### F-Test 
+    ```title=">>> Output"
+    Levene's Test Statistic: 2.00
+    p-value: 0.1623
+    ```
+
+    Since, the p-value is 0.1623, which is greater than the significance level of 0.05, we do not have sufficient evidence to conclude that the variances are different, and therefore we cannot reject the null hypothesis (H~0~: equal variance) 
+
+    So it's appropriate to use Student's t-test assuming equal variances and not the Welch's t-test.
+    which is above the  of 0.05. This suggests that 
+
 
 ## Nonparametric T-Tests
 
