@@ -309,13 +309,6 @@ The **one-sample t-test** is the simplest form of the t-test family and serves a
 ???+ info "Robustness"
     The t-test is relatively robust to violations of normality with larger sample sizes (n > 30).
 
-### Assumptions of the One-Sample t-test
-
-For the test results to be valid, the following assumptions should be met:
-
-1. **Independence**: Observations are independent of one another.
-2. **Normality**: The data should be approximately normally distributed, especially important for small sample sizes.
-3. **Scale of Measurement**: The data are continuous and measured on an interval or ratio scale.
 
 ???+ example "Example: Thickness Testing"
     A factory produces metal sheets that are supposed to have an average thickness of \(2.5 mm\). The quality control team wants to ensure that the production process is meeting this specification. They randomly sample 30 sheets from the production line and measure their thickness.
@@ -323,6 +316,7 @@ For the test results to be valid, the following assumptions should be met:
     They want to determine if the average thickness of the sampled sheets is statistically different from the target mean of \(2.5 mm\).
 
     Assumptions: 
+
     - Significance level \( \alpha = 0.05 \)
     - Two-Tailed Tests: There can be positive or negative deviations 
 
@@ -334,69 +328,113 @@ For the test results to be valid, the following assumptions should be met:
     
     ---
 
-    - **Collect sample data** & **Calculate the (\(\bar{x}\)) and (\s))**: 
-    Suppose the sample of 30 sheets has an average thickness of \(2.45 mm\) and a standard deviation of \(0.1 mm\).
+    - **Collect sample data** 
+        ```py
+        # Generate Data
+        import numpy as np
+
+        # Simulate a dataset for the example
+        np.random.seed(46)  # for reproducibility
+
+        # Given parameters
+        sample_size = 30
+        sample_mean = 2.45  # as found in the test example
+        std_dev = 0.1  # standard deviation
+
+        # Generate random sample data
+        data = np.random.normal(loc=sample_mean, scale=std_dev, size=sample_size)
+        ```                  
+    
+    ---
+
+    ??? example "Manual Calculation"
+
+        - **Calculate the \(\bar{x}\) and \(s\)**: 
+            ```py
+            print("Mean:", np.mean(data))
+            print("Standard Deviation:", np.std(data, ddof=1))
+            ```
+
+            ```title=">>> Output"
+            Mean: 2.448088453428328
+            Standard Deviation: 0.08337699472325459
+
+            ```
+
+            The sample of 30 sheets has an average thickness of \(2.45 mm\) and a standard deviation of \(0.08 mm\).
+
+        ---
+
+        - **Calculate the t-value:**
+
+            \[
+            t = \frac{2.45 - 2.5}{\frac{0.08}{\sqrt{30}}} ≈ -3.41
+            \]
+
+            ```py
+            true_mean = 2.5
+            t_statistic = (np.mean(data) - true_mean) / (np.std(data, ddof=1) / np.sqrt(sample_size))
+            print("t-statistic:", t_statistic)
+            ```
+
+            ```title=">>> Output"
+            t-statistic: -3.4101882835499286
+            ```
+
+        ---
+
+        - **Determine Degrees of Freedom:**
+
+            ```py
+            dof = sample_size - 1
+            print("Degrees of Freedom:", dof)
+            ```
+
+            ```title=">>> Output"
+            Degrees of Freedom: 29
+            ```
+
+        ---
+
+        - **Find the p-value:**
+            
+            ```py
+            p_val = stats.t.cdf(t_statistic, df=dof)*2
+            print ("p-value:", p_val)
+            ```
+
+            ```title=">>> Output"
+            p-value: 0.0019285965194208732
+            ```
+    ???+ example "Automatic Calculation"
+        For calculating the p-value, the t-statistics and the degree of freedom we can use the `ttest_1samp` method of the `scipy.stats` library:
+
+        ```py
+        res = stats.ttest_1samp(data, popmean=true_mean, alternative='two-sided')
+        print("t-statistic:", res.statistic)
+        print("p-value:", res.pvalue)
+        print("Degrees of Freedom:", res.df)
+        ```
+
+        ```title=">>> Output"
+        t-statistic: -3.4101882835499286
+        p-value: 0.0019285965194208732
+        Degrees of Freedom: 29
+        ```
 
     ---
 
-    - **Calculate the t-value:**
-
-    \[
-    t = \frac{2.45 - 2.5}{\frac{0.1}{\sqrt{30}}} = \frac{-0.05}{\frac{0.1}{5.477}} = \frac{-0.05}{0.01826} ≈ -2.74
-    \]
-
-    ---
-
-    - **Determine Degrees of Freedom:**
-
-    \[
-    df = n - 1 = 30 - 1 = 29 
-    \]
-
-    ---
-
-    - **Find the p-value:**
-    0.005
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-   
-
-5. **Compare with the critical t-value:**
-   - For a significance level of \( \alpha = 0.05 \) and \( df = 29 \), the critical t-value for a two-tailed test is approximately \( \pm 2.045 \).
-
-6. **Make a decision:**
-   - The calculated t-statistic is **-2.74**, which is more extreme than the critical value of \( -2.045 \). Therefore, we reject the null hypothesis.
-
-### **Conclusion:**
-There is significant evidence at the 5% level to conclude that the average thickness of the metal sheets is not 2.5 mm. The production process may need to be adjusted to ensure the thickness specification is met.
+    - **Make a Decision**
+        The calculated p-value of the sample data is lower than the signifance level \( \alpha = 0.05 \). Therefore, we reject the null hypothesis.So, there is significant evidence at the 5% level to conclude that the average thickness of the metal sheets is not 2.5 mm. The production process may need to be adjusted to ensure the thickness specification is met.
 
 
-**Example:** Suppose you're a psychologist studying the average stress level of employees in a high-pressure industry. The national average stress level, measured on a standardized scale, is known to be 50. You collect data from a sample of employees in a particular company to see if their average stress level deviates from the national average.
-- **Null Hypothesis (\(H_0\))**: The average stress level of employees in the company is equal to 50.
-- **Alternative Hypothesis (\(H_1\))**: The average stress level of employees in the company is not equal to 50.
+### Assumptions of the One-Sample t-test
 
+For the test results to be valid, the following assumptions should be met:
 
-
-
-
-**Key Points to Remember:**
-
-- Use the one-sample t-test when comparing a sample mean to a specific value.
-- Ensure that the data meet the test assumptions for valid results.
-- Interpret the results in the context of your research question and consider both statistical and practical significance.
-
-By mastering the one-sample t-test, you lay the groundwork for understanding more complex statistical tests and enhancing your data analysis skills.
-
-**Key Takeaways:**
-
-- The t-test compares group means relative to variability and sample size.
-- A larger absolute t-value indicates a more significant difference between groups.
-- Strategies to maximize the t-value include increasing mean differences, decreasing variability, and increasing sample size.
-- Always interpret statistical results within the context of your specific research question and practical significance.
-
-By mastering the t-test, you'll be better equipped to analyze data critically and contribute valuable insights in your field of study.
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1. **Independence**: Observations are independent of one another.
+2. **Normality**: The data should be approximately normally distributed, especially important for small sample sizes.
+3. **Scale of Measurement**: The data are continuous and measured on an interval or ratio scale.
 
 
 
