@@ -29,9 +29,11 @@ The t-test formula provides a standardized way to measure the difference between
     - \(n\) = number of samples
     - \(k\) = degree of freedom
 
-This formula essentially calculates how many standard deviations the difference between the two means is away from zero. A larger absolute value of \(t\) indicates a more significant difference between the groups.
+This formula essentially calculates how many standard deviations the difference between the two means is away from zero. A larger absolute value of \(t\) indicates a more significant difference between the groups. The degree of freedom is equal to the sample size minus 1:
 
-### Calculating the p-value
+\[dof = n-1\]
+
+### T-Distribution
 
 In the following graph you see the probability of a certain t-value occurring given that the null hypothesis is true. This curve is called the *t-distribution* (or sometimes Student's t-distribution).
 
@@ -72,21 +74,186 @@ In the following graph you see the probability of a certain t-value occurring gi
 
 If the null hypothesis is true, we expect the difference between the means to be zero \(\bar{x} - \bar{y} = 0\), resulting in a t-value of zero. This corresponds to the highest probability and the peak of the distribution. However, due to sampling variability and noise, the means will not be exactly equal (even if the null hypothesis is true), leading to t-values around zero and therefore to the t-distribution.
 
+
+In Python we can use the `scipy.stats` package to work easily with the t-distribution
+
+```py
+import scipy.stats as stats
+```
+There are different methods available for the t-distribution `#!python stats.t` which can be very helpful. 
+
+```py
+stats.t.pdf(1.5, df=10) # probability density function
+stats.t.cdf(1.5, df=10) # cumulative distribution function
+```
+
+### Dependency on the Degree of Freedom
+
+The t-distribution depends on the [degree of freedom](../../statistics/hypothesis/Metrics.md#degree-of-freedom).
+
+```py
+stats.t.pdf(x, df=dof)
+```
+
+The higher the DoF, the more the curve converge to a standard normal distribution. Because the DoF depends on the sample size n, the following rule of thumb can be stated: for a sample size >30 the standard normal distribution can be used for calculating the p-value. 
+
+
+<iframe src="/assets/statistics/prob_hypo_t_dof.html" width="100%" height="400px"></iframe>
+??? code "Code"
+    ``` py
+    # Import necessary libraries
+    import numpy as np
+    import pandas as pd
+    import plotly.express as px
+    import scipy.stats as stats
+
+    # Define the x-axis values (t-values)
+    x = np.arange(-5, 5.01, 0.01)
+
+    # Define the degrees of freedom you want to plot, including 'infinity' for Normal distribution
+    degrees_of_freedom = [1, 3, 5, 30, np.inf]  # np.inf represents infinite degrees of freedom (Normal distribution)
+
+    # Create an empty DataFrame to store the data for all curves
+    df_all = pd.DataFrame()
+
+    # Loop through each degree of freedom and compute the t-distribution
+    for df in degrees_of_freedom:
+        if df == np.inf:
+            y = stats.norm.pdf(x)  # Normal distribution for df = infinity
+            df_label = 'df=∞ (Normal)'
+        else:
+            y = stats.t.pdf(x, df=df)
+            df_label = f'df={df}'
+        df_temp = pd.DataFrame({'x': x, 'y': y, 'df': df_label})
+        df_all = pd.concat([df_all, df_temp])
+
+    # Create the plot using Plotly Express
+    fig = px.line(df_all, x='x', y='y', color='df', 
+                title="<b>t-Distribution for Different Degrees of Freedom</b>",
+                labels={'x': 't-Value', 'y': 'P(t|H0)', 'df': 'Degrees of Freedom'})
+
+    # Update layout
+    fig.update_layout(
+        title=dict(
+            text=f'<b><span style="font-size: 10pt">t-Distribution for Different Degrees of Freedom</span></b>',
+        ),
+        xaxis_title_text='t-Value',
+        yaxis_title_text='P(t|H0)',
+        showlegend=True,
+    )
+
+    # Show the plot
+    fig.show()
+
+    ```
+
+### T-Table
+
+As described in the previous chapter, the p-value represents the cumulative probability of obtaining a certain t-value or more extreme values. 
+
+**One-Tailed Test**
+
+```py
+stats.t.cdf(1.812, df=10)
+```
+
+```title=">>> Output"
+0.95
+```
+
+<iframe src="/assets/statistics/prob_hypo_t_p_conn.html" width="100%" height="400px"></iframe>
+
+**Two-Tailed Test**
+
+
+```py
+stats.t.cdf(2.228, df=10)-stats.t.cdf(-2.228, df=10)
+```
+
+```title=">>> Output"
+0.95
+```
+
+<iframe src="/assets/statistics/prob_hypo_t_p_conn2.html" width="100%" height="400px"></iframe>
+
+Graphically, the p-value is the area under the t-distribution starting from a given t-value. To fasten the evaluation of a t-test and avoid the need for constant calculations, precomputed values are available in what are known as t-tables.
+
+There are a lot of sources for t-tables around the internet. One very neatly is available on [Wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-distribution#Table_of_selected_values).
+
+The table basicaly consists of four areas: 
+
+- degree of freedom, 
+- significance level \(\alpha\)
+- Information about one oder two sided test
+- t-value
+
+The structure of the table can be read as follows
+
+![t-Table](../../assets/statistics/t-Tabelle.png){width=100% }
+
+???+ info "Using the t-table"
+    At least three of the four pieces of information must therefore be available in order to use the table. 
+
+???+ question "Task: t-table"
+    Take a closer look at the above shown t-table and compare it to the two examples show above. Can you see the connection? 
+
+### Calculating the p-Value
+
 The **p-value** helps determine the statistical significance of your results. It represents the probability of observing a t-value as extreme as the one calculated, assuming the null hypothesis is true.
+
+There are two ways to use the p-value in the T-Test: 
+
+**Calculate Critical t-Value**
+
+The first approach is to calculate the critical t-value. This value depends on the chosen significance level (\(\alpha\)), the degrees of freedom, and whether the test is one-tailed (e.g., alpha = 5% on one side) or two-tailed (alpha = 5%, meaning 2.5% on each side). Based on these factors, the critical t-values can be determined, for example by using the t-table shown above. 
+
+Next, the t-value of the sample can be calculated (using the before mentioned [formula](#introduction-to-t-tests)) and compared to the critical t-values in order to make a statement about the validity of the null hypothesis.
+
 
 ???+ example "Example: Math Score"
 
-    Let's stick with the example from before. Imagine you conduct the tutoring program study and calculate a t-value of 2.5 with a corresponding probability of 0.02. 
+    Let's stick with the example from before. Imagine you conduct the tutoring program study and calculate a t-value of \(2.5\). Because we are only interested in the fact that the grades get better, we can use a one-tailed test. Our significance level \(\alpha = 5\%\). The sample size was \(11\) and therefor the degree of freedom is \(10\). 
 
-    
-    <iframe src="/assets/statistics/prob_hypo_t_tutor.html" width="100%" height="400px"></iframe>
+    We can determine the critical t-value using a t-table or by using python
 
-    Since 2.5 is extremer than the common significance level of 0.05 with the corresponding critical t-value of 1.8, the null hypothesis can be rejected and you conclude that the tutoring program has a statistically significant effect on test scores.
+    ```py
+    stats.t.ppf(0.95, df=10)
+    ```
+
+    ```title=">>> Output"
+    1.812
+    ```
+
+    ![t-Table](../../assets/statistics/t-Tabelle_crit.png){width=100% }
+
+    Since the sampled t-value of 2.5 is extremer than the critical t-value of 1.8, the null hypothesis can be rejected and you conclude that the tutoring program has a statistically significant effect on test scores.
+
 
     <figure markdown="span">
     ![Tutor](https://memecreator.org/static/images/memes/4321085.jpg){width=70% }
     <figcaption>(Source: <a href="https://www.memecreator.org/meme/need-a-tutor-i-noah-guy/">Memecreator</a>) </figcaption>
     </figure>
+
+
+**Calculate p-Value of the Sample**
+
+The second approach tackles the problem from the opposite side. In this case, we start with the sample's t-value and calculate the corresponding p-value. If the p-value is below the significance level alpha, we can reject the null hypothesis.
+
+???+ example "Example: Math Score"
+
+    Now we use the second approach and start from the sample t-value. We calcualte the corresponding p-value
+
+    ```py
+    (1-stats.t.cdf(2.5, df=10))
+    ```
+
+    ```title=">>> Output"
+    0.016
+    ```
+
+    The calculated p-value (\(1.6\%\)) is lower than the significance level (\(\alpha = 5\%\)) and the null hypothesis can therefore be rejectet. 
+
+    <iframe src="/assets/statistics/prob_hypo_t_p_ex.html" width="100%" height="400px"></iframe>
 
 ### Strategies to Maximize the t-value
 

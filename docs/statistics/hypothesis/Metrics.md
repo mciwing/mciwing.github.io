@@ -287,7 +287,11 @@ So, based on this example, the Degree of Freedom (DoF) can be defined as:
     [1]: https://statisticsbyjim.com/hypothesis-testing/degrees-freedom-statistics/
 
 
-In statistics the Degrees of freedom are necessary to provide unbiased estimates of population parameters which is crucial for reliable statistical inference. Furthermore it affects the shape of statistical distributions used in hypothesis testing, influencing critical values and p-values.
+In statistics the degrees of freedom are necessary to provide unbiased estimates of population parameters which is crucial for reliable statistical inference. Furthermore it affects the shape of statistical distributions used in hypothesis testing, influencing critical values and p-values.
+
+In following test we will conduct, the degree of freedom will depend on the sample size and can be calculated as: 
+
+\[dof = n-1\]
 
 ## Errors
 
