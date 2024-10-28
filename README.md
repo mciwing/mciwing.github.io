@@ -1,15 +1,15 @@
-<div style="text-align: center;">
-
-# MCI | WING
-
-<div style="text-align: center;">
-  <img src="docs/assets/logo.png" alt="WING Logo" style="width: 200px; height: auto;">
+<div align="center">
+    <h1>MCI | WING</h1>
 </div>
 
----
+<p align="center">
+  <img src="docs/assets/logo.png" alt="WING Logo" style="width: 200px; height: auto;">
+</p>
 
-**Visit the site [here](https://mciwing.github.io/).**
+<div align="center">
+<hr>
 
+Visit the site <a href="https://mciwing.github.io/">here</a>
 </div>
 
 ---
@@ -59,6 +59,6 @@ poetry install
 poetry run mkdocs serve
 ```
 
-The site will be available at `localhost:8000`
+The site is served at `localhost:8000`
 
 </details>
