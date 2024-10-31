@@ -682,7 +682,7 @@ For the results of the two-sample t-test to be valid, the following assumptions 
     Since, the p-value is 0.1623, which is greater than the significance level of 0.05, we do not have sufficient evidence to conclude that the variances are different, and therefore we cannot reject the null hypothesis (H~0~: equal variance) 
 
     So it's appropriate to use Student's t-test assuming equal variances and not the Welch's t-test.
-    which is above the  of 0.05. This suggests that 
+    which is above the  of 0.05. This suggests that the variances are equal.
 
 ???+ question "Task: Firefighter Test Results"
     <figure markdown="span">
