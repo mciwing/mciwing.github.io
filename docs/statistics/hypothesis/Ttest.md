@@ -441,7 +441,7 @@ For the test results to be valid, the following assumptions should be met:
     <figure markdown="span">
     ![Tutor](https://upload.wikimedia.org/wikipedia/de/c/ca/1_Euro_Common_Sides_New_Design.gif){width=30% }
     </figure>
-    Download the following dataset from this [page]('https://jse.amstat.org/v14n2/datasets.aerts.html') and load it into your notebook.
+    Download the following dataset from this [page](https://jse.amstat.org/v14n2/datasets.aerts.html) and load it into your notebook.
     
     ```py
     # Website: https://jse.amstat.org/v14n2/datasets.aerts.html
