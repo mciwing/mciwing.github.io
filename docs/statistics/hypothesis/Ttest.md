@@ -436,8 +436,39 @@ For the test results to be valid, the following assumptions should be met:
 2. **Normality**: The data should be approximately normally distributed, especially important for small sample sizes.
 3. **Scale of Measurement**: The data are continuous and measured on an interval or ratio scale.
 
+???+ question "Task: Weight of Euro Coins"
+
+    <figure markdown="span">
+    ![Tutor](https://upload.wikimedia.org/wikipedia/de/c/ca/1_Euro_Common_Sides_New_Design.gif){width=30% }
+    </figure>
+    Download the following dataset from this [page]('https://jse.amstat.org/v14n2/datasets.aerts.html') and load it into your notebook.
+    
+    ```py
+    # Website: https://jse.amstat.org/v14n2/datasets.aerts.html
+    # Dataset: https://jse.amstat.org/datasets/euroweight.dat.txt
+    # Description: https://jse.amstat.org/datasets/euroweight.txt
+
+    import pandas as pd
+    import numpy as np
+
+    # Load the dataset
+    data = pd.read_csv('Daten/euroweight.dat.txt', sep='\t', header=None, index_col=0, names=['Weight', 'Batch'])
+
+    # Display the first few rows
+    data.head()
+    ```
+
+    It contains information about the weight of a sample of specially issued euro coins. Answer the following questions using Python. 
+    Assume a significance level $\alpha = 5 \%$ and a two-sided test:
+
+    1. Determine the average weight and the standard deviation of the sample.
+    2. Formulate the hypothesis (Null and Alternative)
+    3. Test the hypothesis that the population mean weight is $7.5$ g.
+    4. Test the hypothesis that the population mean weight is $7.51$ g and $7.52$ g, respectively. 
+    5. Interpret the results.
+
+
 ## Two-Sample T-Test
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 The **two-sample t-test**, also known as the **independent samples t-test**, is used to determine whether there is a statistically significant difference between the means of **two independent groups**. Unlike the one-sample t-test, which compares a sample mean to a known population mean, the two-sample t-test compares the means from two separate groups to see if they come from the same population.
 
@@ -653,14 +684,41 @@ For the results of the two-sample t-test to be valid, the following assumptions 
     So it's appropriate to use Student's t-test assuming equal variances and not the Welch's t-test.
     which is above the  of 0.05. This suggests that 
 
+???+ question "Task: Firefighter Test Results"
+    <figure markdown="span">
+    ![Tutor](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Firefighter%2C_Ashton_Bay%2C_March_2017.jpg/320px-Firefighter%2C_Ashton_Bay%2C_March_2017.jpg){width=1000% }
+    <figcaption>(Source: <a href="https://de.wikipedia.org/wiki/Datei:Firefighter,_Ashton_Bay,_March_2017.jpg">Wikipedia</a> | Copyright: Steven Terblanche) </figcaption>
+    </figure>
 
-## Nonparametric T-Tests
+    To become a Captain or Lieutenant in the New Haven Fire Department, both a written and oral test must be passed. 
+    Download the following [dataset](https://www.openml.org/search?type=data&sort=runs&id=42665&status=active) and load it into your notebook. Therefore the python package `liac-arff` needs to be installed first. 
+    
+    ```py
+    #Website: https://www.openml.org/search?type=data&sort=runs&id=42665&status=active
+    #Download: https://www.openml.org/data/download/22044446/ricci_processed.arff
 
-### Wilcoxon Signed-Rank
+    import arff #Installation: pip install liac-arff
+    import pandas as pd
 
-### Mann-Whitney U Test
+    # Load the .arff dataset
+    with open('ricci_processed.arff', 'r') as file:
+        data = arff.load(file)
 
-## Permutation Testing
+    # Convert data into dataframe
+    df = pd.DataFrame(data['data'], columns=[attr[0] for attr in data['attributes']])
 
+    # Show the first 5 rows
+    df.head()
+    ```
+    
+    It contains the results of 118 exams. Answer the following questions using Matlab:
 
+    1. Are the exam results of Captains significantly different ($\alpha = 5\%$) from those of Lieutenants?
+    2. Are the exam results of candidates belonging to a minority (`Race == H` or `B`) significantly different ($\alpha = 5\%$) from those of candidates who do not belong to a minority?
 
+    For both questions, proceed as follows:
+
+    - The analysis should focus on the total exam scores (attribute `Combine`).
+    - Perform an F-test to ensure that both samples have equal variance.
+    - Conduct a two-sided, two-sample t-test (Student or Welch; depending on the F-test results).
+    - Interpret the results.
