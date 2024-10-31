@@ -711,7 +711,7 @@ For the results of the two-sample t-test to be valid, the following assumptions 
     df.head()
     ```
     
-    It contains the results of 118 exams. Answer the following questions using Matlab:
+    It contains the results of 118 exams. Answer the following questions using Python:
 
     1. Are the exam results of Captains significantly different ($\alpha = 5\%$) from those of Lieutenants?
     2. Are the exam results of candidates belonging to a minority (`Race == H` or `B`) significantly different ($\alpha = 5\%$) from those of candidates who do not belong to a minority?
