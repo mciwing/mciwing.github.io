@@ -180,14 +180,14 @@ Graphically, the p-value is the area under the t-distribution starting from a gi
 
 There are a lot of sources for t-tables around the internet. One very neatly is available on [Wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-distribution#Table_of_selected_values).
 
-The table basicaly consists of four areas: 
+The table basically consists of four areas: 
 
 - degree of freedom, 
 - significance level \(\alpha\)
 - Information about one oder two sided test
 - t-value
 
-The structure of the table can be read as follows
+The structure of the table can be read as follows:
 
 ![t-Table](../../assets/statistics/t-Tabelle.png){width=100% }
 
@@ -195,7 +195,7 @@ The structure of the table can be read as follows
     At least three of the four pieces of information must therefore be available in order to use the table. 
 
 ???+ question "Task: t-table"
-    Take a closer look at the above shown t-table and compare it to the two examples show above. Can you see the connection? 
+    Take a closer look at the above shown t-table and compare it to the two examples shown above. Can you see the connection? 
 
 ### Calculating the p-Value
 
@@ -212,7 +212,7 @@ Next, the t-value of the sample can be calculated (using the before mentioned [f
 
 ???+ example "Example: Math Score"
 
-    Let's stick with the example from before. Imagine you conduct the tutoring program study and calculate a t-value of \(2.5\). Because we are only interested in the fact that the grades get better, we can use a one-tailed test. Our significance level \(\alpha = 5\%\). The sample size was \(11\) and therefor the degree of freedom is \(10\). 
+    Let's stick with the example from before. Imagine you conduct the tutoring program study and calculate a t-value of \(2.5\). Because we are only interested in the fact that the grades get better, we can use a one-tailed test. Our significance level \(\alpha = 5\%\). The sample size was \(11\) and therefore the degree of freedom is \(10\). 
 
     We can determine the critical t-value using a t-table or by using python
 
