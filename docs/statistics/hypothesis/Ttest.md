@@ -581,7 +581,7 @@ The **two-sample t-test**, also known as the **independent samples t-test**, is 
         - **Calculate the t-value**:
 
             \[
-            t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} = \frac{74.86 - 80.99}{\sqrt{\frac{75.26}{30} + \frac{143.03}{35}}} \approx -2.09
+            t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} = \frac{73.12- 78.01}{\sqrt{\frac{81}{30} + \frac{119.45}{35}}} \approx -1.98
             \]
 
             ```py
