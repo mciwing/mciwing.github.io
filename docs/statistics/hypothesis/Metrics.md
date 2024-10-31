@@ -232,7 +232,72 @@ Understanding the relationship between p-values and z-scores is crucial for hypo
     \]
     
     - **Interpretation:** Any score **above 664.5** is considered statistically significant at the 5% level in a one-tailed test.
+######################################################################################################
 
+## Confidence Interval
+
+While z-scores are instrumental in understanding the position of a data point within a distribution, **confidence intervals** provide a range within which we expect a population parameter (like the mean) to lie, based on our sample data. Integrating the concept of confidence intervals with z-scores enhances our ability to make informed statistical inferences.
+
+### What is a Confidence Interval?
+
+A **confidence interval (CI)** is a range of values derived from sample data that is likely to contain the true population parameter. The confidence level, typically expressed as a percentage (e.g., 95%), represents the degree of certainty that the interval captures the parameter.
+
+- **Confidence Level:** The probability that the confidence interval contains the true parameter in repeated sampling.
+- **Interval Width:** Reflects the precision of the estimate; narrower intervals indicate higher precision.
+- **Dependence on Sample Size and Variability:** Larger sample sizes and lower variability lead to narrower confidence intervals.
+
+### Calculating Confidence Intervals Using Z-Scores
+
+In the context of the normal distribution, z-scores play a crucial role in constructing confidence intervals for the population mean when the population standard deviation is known. Specifically, the z-score determines the number of standard deviations to extend from the sample mean to achieve the desired confidence level.
+
+???+ defi "Definition: Confidence Interval"
+    When the population standard deviation (\(\sigma\)) is known, the confidence interval for the population mean (\(\mu\)) can be calculated using the following formula:
+
+    \[
+    \left[\bar{x} - z_{(1-\frac{\alpha}{2})} \frac{\sigma}{\sqrt{n}}; \quad \bar{x} + z_{(1-\frac{\alpha}{2})} \frac{\sigma}{\sqrt{n}} \right]
+    \]
+
+    with
+
+    - **\(\bar{x}\):** Sample mean
+    - **\(z\):** Critical value from the standard normal distribution corresponding to the desired confidence level
+    - **\(\sigma\):** Population standard deviation
+    - **\(n\):** Sample size
+
+???+ example "Exmple: Estimating Average Height with Confidence Interval"
+
+    Using the earlier example of adult women’s heights:
+
+    - **Sample Size (n):** 100
+    - **Sample Mean (𝑥̄):** 165 cm
+    - **Population Standard Deviation (σ):** 6.35 cm
+    - **Confidence Level:** 95%
+
+    1. **Critical Value (\(z^*\)):** For a 95% confidence level, \(z^* \approx 1.96\).
+    2. **Standard Error:** \( \frac{6.35}{\sqrt{100}} = 0.635 \) cm
+    3. **Margin of Error:** \(1.96 \times 0.635 \approx 1.245\) cm
+    4. **Confidence Interval:** \(165 \pm 1.245\) → [163.755 cm, 166.245 cm]
+
+    **Interpretation:** We are 95% confident that the true average height of adult women in the country lies between **163.755 cm** and **166.245 cm**.
+
+### Factors Affecting Confidence Interval Width
+
+Several factors influence the width of a confidence interval:
+
+1. **Sample Size (n):**
+   - **Larger Sample Size:** Leads to a smaller standard error, resulting in a narrower confidence interval.
+   - **Smaller Sample Size:** Increases the standard error, leading to a wider confidence interval.
+
+2. **Variability in Data (σ or s):**
+   - **Lower Variability:** Decreases the standard error, narrowing the confidence interval.
+   - **Higher Variability:** Increases the standard error, widening the confidence interval.
+
+3. **Confidence Level:**
+   - **Higher Confidence Level (e.g., 99%):** Requires a larger critical value, resulting in a wider interval.
+   - **Lower Confidence Level (e.g., 90%):** Uses a smaller critical value, leading to a narrower interval.
+
+
+######################################################################################################
 
 ## Degree of Freedom
 ???+ example "Example: DoF Mean"

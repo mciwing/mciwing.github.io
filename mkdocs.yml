@@ -76,7 +76,6 @@ nav:
         - statistics/hypothesis/Testing.md
         - statistics/hypothesis/Metrics.md
         - statistics/hypothesis/Ttest.md
-        - statistics/hypothesis/Confidence.md
         - statistics/hypothesis/ANOVA.md
       - Regression Analysis:
         - statistics/regression/General.md
