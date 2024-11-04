@@ -103,6 +103,7 @@ On the other hand, methods are associated with objects. In this case, the
     Experiment and apply a combination of the following methods:
 
     - `capitalize()`
+    - `title()`
     - `istitle()`
     - `isupper()`
     - `upper()`
