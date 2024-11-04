@@ -240,7 +240,7 @@ There are many sources for z-tables around the internet. One well-organized vers
 
 The table basically consists of two areas:
 
-- **z-values** (divided into rows and columns): need to be summed up (row ü column)
+- **z-values** (divided into rows and columns): need to be summed up (row + column)
 - **Cumulative probabilities**: the values in the table
 
 The structure of the table can be read as follows:
