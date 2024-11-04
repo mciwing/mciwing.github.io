@@ -233,6 +233,100 @@ Understanding the relationship between p-values and z-scores is crucial for hypo
     
     - **Interpretation:** Any score **above 664.5** is considered statistically significant at the 5% level in a one-tailed test.
 
+### z-Table
+However, these common p-value and z-score pairs are not always sufficient for every analysis. For more precise probability calculations or for confidence levels not listed in standard tables, you can use z-tables. A **z-table**, also known as the standard normal distribution table, provides the cumulative probabilities associated with z-scores in a standard normal distribution. By using the z-table, you can determine the probability that a data point falls below a specific z-score or find the z-score corresponding to a particular cumulative probability. This table is essential for various statistical analyses, including hypothesis testing and constructing confidence intervals, as it allows for the translation of z-scores into meaningful probability values. Mastery of the z-table enhances the ability to interpret and apply statistical findings accurately.
+
+There are many sources for z-tables around the internet. One well-organized version is available on [Wikipedia](https://en.wikipedia.org/wiki/Standard_normal_table#Cumulative_(less_than_Z)).
+
+The table basically consists of two areas:
+
+- **z-values** (divided into rows and columns): need to be summed up (row + column)
+- **Cumulative probabilities**: the values in the table
+
+The structure of the table can be read as follows:
+
+![z-Table](../../assets/statistics/z-Tabelle.png){width=100% }
+
+???+ info "Using the z-table"
+    It is not sufficient to know the significance level \(\alpha = 0.05\) for determining the z-value; we also need to know if we are going to perform a one-tailed or two-tailed test. For a one-tailed test, we need to look up the cumulative probability of \(95\%\). For a two-tailed test, we need to split the significance level of \(5\%\) and look for the critical values corresponding to \(2.5\%\) and \(97.5\%\). Since the normal distribution is symmetric around zero, both critical values for the two-tailed test will be the same.
+
+## Confidence Interval
+
+While z-scores are instrumental in understanding the position of a data point within a distribution, **confidence intervals** provide a range within which we expect a population parameter (like the mean) to lie, based on our sample data. Integrating the concept of confidence intervals with z-scores enhances our ability to make informed statistical inferences.
+
+### What is a Confidence Interval?
+
+A **confidence interval (CI)** is a range of values derived from sample data that is likely to contain the true population parameter. The confidence level, typically expressed as a percentage (e.g., 95%), represents the degree of certainty that the interval captures the parameter.
+
+- **Confidence Level:** The probability that the confidence interval contains the true parameter in repeated sampling.
+- **Interval Width:** Reflects the precision of the estimate; narrower intervals indicate higher precision.
+- **Dependence on Sample Size and Variability:** Larger sample sizes and lower variability lead to narrower confidence intervals.
+
+### Calculating Confidence Intervals Using Z-Scores
+
+In the context of the normal distribution, z-scores play a crucial role in constructing confidence intervals for the population mean when the population standard deviation is known. Specifically, the z-score determines the number of standard deviations to extend from the sample mean to achieve the desired confidence level.
+
+???+ defi "Definition: Confidence Interval"
+    When the population standard deviation (\(\sigma\)) is known, the confidence interval for the population mean (\(\mu\)) can be calculated using the following formula:
+
+    \[
+    \left[\bar{x} - z_{(1-\frac{\alpha}{2})} \frac{\sigma}{\sqrt{n}}; \quad \bar{x} + z_{(1-\frac{\alpha}{2})} \frac{\sigma}{\sqrt{n}} \right]
+    \]
+
+    with
+
+    - **\(\bar{x}\):** Sample mean
+    - **\(z\):** Critical value from the standard normal distribution corresponding to the desired confidence level
+    - **\(\sigma\):** Population standard deviation
+    - **\(n\):** Sample size
+
+???+ example "Exmple: Estimating Average Height with Confidence Interval"
+
+    Using the earlier example of adult women’s heights:
+
+    - **Sample Size (\(n\)):** 100
+    - **Sample Mean (\(\bar{x}\)):** 165 cm
+    - **Population Standard Deviation (\(\sigma\)):** 6.35 cm
+    - **Confidence Level:** 95% → \(\alpha = 0.05\)
+
+    Calculate the confidence interval: 
+
+    1. **Critical Value (\(z_{(1-\frac{\alpha}{2})}\)):** For a 95% confidence level, \(z_{(1-\frac{\alpha}{2})} \approx 1.96\).
+    2. **Standard Error:** 
+
+        \[ 
+            \frac{\sigma}{\sqrt{n}}= \frac{6.35}{\sqrt{100}} = 0.635 cm 
+        \]
+
+    3. **Margin of Error:** 
+
+        \[ 
+            z_{(1-\frac{\alpha}{2})} \frac{\sigma}{\sqrt{n}} = 1.96 \times 0.635 \approx 1.245 cm
+        \]
+    
+    4. **Confidence Interval:** \(165 \pm 1.245\)
+
+        \[
+            \left[163.755 cm, 166.245 cm\right]
+        \]
+
+    **Interpretation:** We are 95% confident that the true average height of adult women in the country lies between **163.755 cm** and **166.245 cm**.
+
+### Factors Affecting Confidence Interval Width
+
+Several factors influence the width of a confidence interval:
+
+1. **Sample Size (\(n\)):**
+    - **Larger Sample Size:** Leads to a smaller standard error, resulting in a narrower confidence interval.
+    - **Smaller Sample Size:** Increases the standard error, leading to a wider confidence interval.
+
+2. **Variability in Data (\(\sigma\)):**
+    - **Lower Variability:** Decreases the standard error, narrowing the confidence interval.
+    - **Higher Variability:** Increases the standard error, widening the confidence interval.
+
+3. **Confidence Level:**
+    - **Higher Confidence Level (e.g., 99%):** Requires a larger critical value, resulting in a wider interval.
+    - **Lower Confidence Level (e.g., 90%):** Uses a smaller critical value, leading to a narrower interval.
 
 ## Degree of Freedom
 ???+ example "Example: DoF Mean"
