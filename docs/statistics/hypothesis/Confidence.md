@@ -75,16 +75,16 @@ For **Study A** with \(n = 30\), \( \bar{x} = 170 \) cm, \( s = 10 \) cm, and a 
 Several factors influence the width of a confidence interval:
 
 1. **Sample Size (n):**
-   - **Larger Sample Size:** Leads to a smaller standard error, resulting in a narrower confidence interval.
-   - **Smaller Sample Size:** Increases the standard error, leading to a wider confidence interval.
+      - **Larger Sample Size:** Leads to a smaller standard error, resulting in a narrower confidence interval.
+      - **Smaller Sample Size:** Increases the standard error, leading to a wider confidence interval.
 
 2. **Variability in Data (s):**
-   - **Lower Variability:** Decreases the standard error, narrowing the confidence interval.
-   - **Higher Variability:** Increases the standard error, widening the confidence interval.
+      - **Lower Variability:** Decreases the standard error, narrowing the confidence interval.
+      - **Higher Variability:** Increases the standard error, widening the confidence interval.
 
 3. **Confidence Level:**
-   - **Higher Confidence Level (e.g., 99%):** Requires a larger critical value, resulting in a wider interval.
-   - **Lower Confidence Level (e.g., 90%):** Uses a smaller critical value, leading to a narrower interval.
+      - **Higher Confidence Level (e.g., 99%):** Requires a larger critical value, resulting in a wider interval.
+      - **Lower Confidence Level (e.g., 90%):** Uses a smaller critical value, leading to a narrower interval.
 
 ### Visualization
 
