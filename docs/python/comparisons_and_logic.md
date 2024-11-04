@@ -166,6 +166,9 @@ False
     - Has more than 10 characters
     - Contains special characters
     - and was not already used before
+    
+    Again, the password itself is not needed. The following variables are 
+    sufficient:
 
     ```py
     password_length = 18
