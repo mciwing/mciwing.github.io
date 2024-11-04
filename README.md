@@ -1,3 +1,7 @@
+[![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://mciwing.github.io/)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 <div align="center">
     <h1>MCI | WING</h1>
 </div>
@@ -62,3 +66,8 @@ poetry run mkdocs serve
 The site is served at `localhost:8000`
 
 </details>
+
+## License
+
+This work is licensed under a 
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
