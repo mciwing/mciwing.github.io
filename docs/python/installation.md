@@ -24,7 +24,7 @@ After the successful installation, we recommend to open a command prompt
 typing 
 
 ```commandline
-python --version.
+python --version
 ```
 
 Which should result in:
