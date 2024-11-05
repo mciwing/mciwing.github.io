@@ -164,24 +164,33 @@ False
     Use comparisons and logical operators to create a single expression 
     that evaluates whether **BOTH** requirements are met.
 
-???+ question "Password strength: Part 2"
+???+ question "Evaluate password security requirements: Part 2"
 
-    To increase security, a third variable is introduced, namely 
-    `already_used` which is a boolean value and indicates whether the password 
-    was already in use. Now, check if all of these requirements are met:
+    To increase security, a third variable is introduced alongside the 
+    previous password properties:
 
-    - Has more than 10 characters
-    - Contains special characters
-    - and was not already used before
-    
-    Again, the password itself is not needed. The following variables are 
-    sufficient:
+    `already_used` - represents whether this password has been used before
+        (`#!python True`/`#!python False`)
+
+    Variables to use:
 
     ```py
     password_length = 18
     has_special_characters = True
     already_used = False
     ```
+
+    Task:
+
+    Write code that checks if this password is secure based on these three
+    requirements:
+
+    1. The password must be longer than 10 characters
+    2. The password must contain special characters
+    3. The password must not have been used before
+
+    Build on your previous solution and evaluate whether all **THREE** 
+    requirements are met.
 
 ## Recap
 
