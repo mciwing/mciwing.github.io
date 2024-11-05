@@ -133,29 +133,36 @@ False
 ---
 
 
-???+ question "Password strength: Part 1"
+???+ question "Evaluate password security requirements: Part 1"
     
     <figure markdown="span">
       ![Secure lock](https://preview.redd.it/j7i00nnpx6211.jpg?width=640&crop=smart&auto=webp&s=d4b58226076d45f0c637fd3789d3ccb547a4a54a){ width=50% }
     </figure>
 
-    It's your time to check if a certain yet unknown (!) password meets 
-    the requirements. However, you won't need the password itself.
-
-    Solely use the following defined variables `password_length` and 
-    `has_special_characters` to evaluate if the password is secure.
+    You are given two variables that describe properties of a password:
+    
+    - `password_length` - represents how many characters are in the password
+        (`#!python int`)
+    - `has_special_characters` - represents whether the password contains 
+        special characters (`#!python True`/`#!python False`)
+    
+    Variables to use:
 
     ```py
     password_length = 18
     has_special_characters = False
     ```
 
-    The password is secure if:
+    Task:
 
-    - it exceeds a certain length (10 characters)
-    - and contains special characters.
+    Write code that checks if this password is secure based on these
+    requirements:
 
-    Use comparisons together with logical operators to solve the task.
+    1. The password must be longer than 10 characters
+    2. The password must contain special characters
+
+    Use comparisons and logical operators to create a single expression 
+    that evaluates whether **BOTH** requirements are met.
 
 ???+ question "Password strength: Part 2"
 
