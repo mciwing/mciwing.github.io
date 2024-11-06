@@ -105,7 +105,7 @@ However, one downside is that it can be more complex to calculate, especially wh
 	- If \( N \) is odd, the median is the middle value of the ordered set
 	- \( N \) is even, the median is the two middlemost values and any value in between (average of those two for numeric attribute )
 
-???+ example"Example: Median of the Temperature" 
+???+ example "Example: Median of the Temperature" 
     Given a table with 14 temperature values in °C, the goal is to calculate the median of the distribution.
     ``` py
     [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
