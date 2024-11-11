@@ -1,6 +1,12 @@
 # ANOVA
 **ANOVA**, which stands for **Analysis of Variance**, is a statistical method used to determine whether there are statistically significant differences between the means of three or more groups. Unlike the t-test, which examines whether there is a difference between two groups, ANOVA is used to assess differences among multiple group means simultaneously by comparing the variances within each group to the variances between the groups. The primary goal of ANOVA is to determine whether any of those differences are statistically significant.
 
+<figure markdown="span">
+  ![Correlation Types](https://i.imgflip.com/99yide.jpg){width=70% }
+  <figcaption>(Source: <a href="https://imgflip.com/memegenerator">Imgflip Meme Generator</a>) </figcaption>
+</figure>
+
+
 ## Types of ANOVA
 
 <div class="grid cards" markdown>
@@ -35,17 +41,37 @@
 
 </div>
 
+<figure markdown="span">
+  ![Correlation Types](https://i.imgflip.com/99yiu9.jpg){width=70% }
+  <figcaption>(Source: <a href="https://imgflip.com/memegenerator">Imgflip Meme Generator</a>) </figcaption>
+</figure>
 
 ## One-Way ANOVA
 
 One-Way ANOVA is a statistical method used to determine whether there are any statistically significant differences between the means of three or more independent (unrelated) groups. Unlike the t-test, which compares the means of two groups, One-Way ANOVA can handle multiple groups simultaneously, making it a powerful tool for analyzing variations within and between groups.
 
+???+ example "Example One-Way ANOVA in Production Scenario"
+    In a factory, there are three different machines used to assemble electronic components: Machine A, Machine B, and Machine C. The production manager wants to know if the type of machine impacts the production time of the components.
+
 The key concepts of the One-Way ANOVA includes: 
+
 - Factor: The independent variable that categorizes the data. In One-Way ANOVA, there is only one factor.
 - Levels: The different categories or groups within the factor.
 - Dependent Variable: The outcome or response variable that is measured.
 - Null Hypothesis (H~0~): Assumes that all group means are equal.
 - Alternative Hypothesis (H~1~): Assumes that at least one group mean is different.
+
+???+ example "Example One-Way ANOVA in Production Scenario"
+    - Factor: Machine Types
+    - Levels: Machine A, Machine B, Machine C
+    - Dependent Variable: Production Time
+    - Null Hypothesis (H~0~): there is no difference in the average assembly time among the three machines.
+
+        \[
+            H_0 : \mu_A = \mu_B = \mu_C
+        \]
+
+    - Alternative Hypothesis (H~1~): at least one group mean is different.
 
 ### When to Use One-Way ANOVA
 One-Way ANOVA is appropriate when you want to:
@@ -53,14 +79,6 @@ One-Way ANOVA is appropriate when you want to:
 - Compare the means of three or more independent groups.
 - Assess the impact of a single categorical factor on a continuous dependent variable.
 - Determine if at least one group mean significantly differs from the others.
-
-
-### Assumptions of One-Way ANOVA
-Before performing One-Way ANOVA, ensure that your data meet the following assumptions:
-
-- Independence of Observations: The samples are independent of each other.
-- Normality: The data in each group are approximately normally distributed.
-- Homogeneity of Variances: The variance among the groups should be approximately equal.
 
 
 ### Approach
@@ -154,6 +172,7 @@ At its core, ANOVA partitions the total variance in the data into components att
     As we have have seen before in the T-Test and F-Test, if the p-value is smaller than \( \alpha\) (commonly 0.05) we reject H~0~. If \(p> \alpha\) we fail to reject \( H_0 \).
 
     If the ANOVA is significant, determine which specific groups differ using post-hoc tests like the **Tukey HSD** test to control for multiple comparisons.
+
 
 
 ???+ example "Example One-Way ANOVA in Production Scenario"
@@ -335,6 +354,14 @@ At its core, ANOVA partitions the total variance in the data into components att
     - **Conclusion**: All three machines have significantly different production times, with Machine B (`Y_mean_A = 17.6`) being the slowest and Machine C (`Y_mean_A = 10.8`) being the fastest.
 
 
+### Assumptions of One-Way ANOVA
+Before performing One-Way ANOVA, ensure that your data meet the following assumptions:
+
+- Independence of Observations: The samples are independent of each other.
+- Normality: The data in each group are approximately normally distributed.
+- Homogeneity of Variances: The variance among the groups should be approximately equal.
+
+### Task
 
 ???+ question "Task: Student Performance"
     ![anova](../../assets/statistics/hypo_anova_student.png){width=100% }

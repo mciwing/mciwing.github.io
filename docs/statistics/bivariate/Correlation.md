@@ -328,3 +328,23 @@ Each **data pair** is treated as a **coordinate** and is represented by a point 
     1. Analyze the correlation between the variables `horsepower` and `cylinders`. Therefore calculate the covariance, pearson correlation coefficient and spearman correlation coefficient. Interpret the results.
     2. Generate a scatter plot for the variabels `horsepower` and `cylinders`. Compare the before result with the calculated measures. 
     3. Take a closer look on the different variables and the corresponding attribute type. Is there a variable, where the calculation of the correlation makes no sense? 
+
+???+ question "Task: Income vs. Expenditures"
+    Given below are the incomes and weekly consumption expenditures of four households (sample), each measured in euros:
+    ``` py
+    # 
+    import pandas as pd
+
+    income = [150, 250, 175, 165]
+    expenditure = [135, 150, 140, 150]
+
+    # convert the lists to pandaframe
+    df = pd.DataFrame({'income': income, 'expenditure': expenditure})
+    df.head()
+    ```
+    Work on the following task: 
+
+    1. Calculate the covariance between `income` and `expenditure`. Interpret the result.
+    2. Calculate the covariance when `income` is measured in Euro cents. How does this affect the interpretation?
+    3. Switch back to `income` in Euro. Calculate the Pearson correlation coefficient. Interpret the results.
+    4. Calculate the correlation coefficient when income is measured in Euro Cents. How does this affect the interpretation?
