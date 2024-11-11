@@ -333,3 +333,31 @@ At its core, ANOVA partitions the total variance in the data into components att
     ---
 
     - **Conclusion**: All three machines have significantly different production times, with Machine B (`Y_mean_A = 17.6`) being the slowest and Machine C (`Y_mean_A = 10.8`) being the fastest.
+
+
+
+???+ question "Task: Student Performance"
+    ![anova](../../assets/statistics/hypo_anova_student.png){width=100% }
+
+    Download the following [dataset](https://www.openml.org/search?type=data&status=active&id=43098) and load it into your notebook. Therefore use the python package `openml`. 
+    
+    ```py
+    # Dataset: https://www.openml.org/search?type=data&status=active&id=43098
+    import openml
+
+    dataset = openml.datasets.get_dataset(43098)
+    df ,_ ,_ ,_  = dataset.get_data(dataset_format="dataframe", target=None)
+    df.head()
+    ```
+    
+    It contains the academic performance of 1000 students in different subjects. Answer the following questions using Python:
+
+    1. Are the `math.score` results of different `race.ethnicity` groups significantly different ($\alpha = 5\%$)?
+    2. Are the `reading.score` results of different `lunch` groups significantly different?
+
+    For both questions, proceed as follows:
+
+    - Perform an ANOVA to answer both questions. Formulate an H~0~ and perform:
+        - Manual calculation of the ANOVA
+        - Automatic calculation of the ANOVA using `scipiy.stats`.
+    - Are both results matching? Interpret the results.
