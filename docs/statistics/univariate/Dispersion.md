@@ -283,3 +283,31 @@ stats.variation([1,2,1,2,3,4,1,100,1,2,2])
         - Variance
         - Standard Deviation
         - CV
+
+???+ question "Task: Weight of Euro Coins"
+
+    <figure markdown="span">
+    ![Tutor](https://upload.wikimedia.org/wikipedia/de/c/ca/1_Euro_Common_Sides_New_Design.gif){width=30% }
+    </figure>
+    Download the following dataset from this [page](https://jse.amstat.org/v14n2/datasets.aerts.html) and load it into your notebook.
+    
+    ```py
+    # Website: https://jse.amstat.org/v14n2/datasets.aerts.html
+    # Dataset: https://jse.amstat.org/datasets/euroweight.dat.txt
+    # Description: https://jse.amstat.org/datasets/euroweight.txt
+
+    import pandas as pd
+    import numpy as np
+
+    # Load the dataset
+    data = pd.read_csv('Daten/euroweight.dat.txt', sep='\t', header=None, index_col=0, names=['Weight', 'Batch'])
+
+    # Display the first few rows
+    data.head()
+    ```
+
+    As the Head of Quality Control at the European Central Bank (ECB), you are responsible, among other duties, for the quality management of 1-Euro coins. Consequently, you have tasked an employee with selecting a random sample of 2,000 coins. (Dataset: 'euro.csv', Unit: grams)
+
+    1. Calculate the average weight of the coins.
+    2. Determine the corresponding standard deviation and interpret its significance.
+    3. Create a histogram. Ensure that all axes are labeled and the chart is properly titled.

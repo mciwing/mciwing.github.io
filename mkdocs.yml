@@ -78,10 +78,7 @@ nav:
         - statistics/hypothesis/Ttest.md
         - statistics/hypothesis/ANOVA.md
       - Regression Analysis:
-        - statistics/regression/General.md
         - statistics/regression/LinearRegression.md
-        - statistics/regression/MultipleRegression.md
-        - statistics/regression/HigherRegression.md
 
 plugins:
   - search
@@ -92,6 +89,7 @@ plugins:
       repository: mciwing/mciwing.github.io
       branch: main
   - table-reader
+
 markdown_extensions:
   - attr_list
   - md_in_html

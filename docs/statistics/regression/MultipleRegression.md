@@ -1,3 +1,0 @@
-# Multiple Regression
-
-Under Construction
