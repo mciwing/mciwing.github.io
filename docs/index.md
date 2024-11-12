@@ -7,7 +7,8 @@
 
     As we continously try to improve the materials and this page, content
     might be subject to change. If you have any questions or suggestions,
-    feel free to open an issue on GitHub or contact the maintainers:
+    feel free to open an [issue](https://github.com/mciwing/mciwing.github.io/issues)
+    on GitHub or contact the maintainers:
     
     <div class="grid cards" markdown>
 
