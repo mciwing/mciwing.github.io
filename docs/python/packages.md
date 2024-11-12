@@ -90,7 +90,8 @@ We will continue with another exercise.
 To get access to all the packages available online, we need to install them
 using a package manager. One such manager is `pip` which is 
 automatically installed alongside `Python`. To check if `pip` is available 
-on your system open a new terminal within VSC by navigating in the menu bar `Terminal` :octicons-arrow-right-24: `New Terminal` 
+on your system open a new terminal within VSC by navigating in the menu bar 
+`Terminal` :octicons-arrow-right-24: `New Terminal` 
 
 <figure markdown="span">
   ![Terminal](../assets/python/package/terminal.png){ width=100% }
@@ -175,8 +176,9 @@ other.
 
 ???+ question "Remove a package"
 
-    Remove the `seaborn` package. Use `pip` within a code cell to list all 
-    commands and find the appropriate one. Execute the command within a cell.
+    Remove the `seaborn` package. Like above, use `pip` within a terminal to 
+    list all commands and find the appropriate one. Execute the command 
+    to remove the package.
 
 ### PyPI
 
