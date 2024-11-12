@@ -24,8 +24,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/mciwing
-copyright: 2024 - MCI Wing
-
+copyright:
+  MCI | Industrial Engineering & Management<br>
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 
+    - Manuel Ferdik, Jakob Klotz
 nav:
   - Home: index.md
 
