@@ -25,7 +25,6 @@ df = px.data.tips()
 
 Covariance = df['total_bill'].cov(df['tip'], ddof=0)
 print(f"Covariance: {Covariance}")
-print(f"Covariance: {Covariance.iloc[0,1]}")
 ```
 
 ```title=">>> Output"
