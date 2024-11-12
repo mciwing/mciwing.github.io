@@ -68,9 +68,9 @@ However, this approach can lead to a loss of information, especially when a larg
 
     ??? code "Code"
         ``` py
-        import numpy as np
+        import statistics 
         Temp = [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
-        print('Mean: ' + str(np.mean(Temp)))
+        print('Mean: ' + str(statistics.mean(Temp)))
 
         from scipy import stats
         print('Trimmed Mean: ' + str(stats.trim_mean(Temp, 0.2)))
@@ -123,9 +123,9 @@ However, one downside is that it can be more complex to calculate, especially wh
 
     ??? code "Code"
         ``` py
-        import numpy as np
+        import statistics 
         Temp = [28.3, 27.2, 27.4, 22.7, 14.3, 11.9, 13.8, 19.8, 9.6, 21.1, 20.8, 19.8, 25.3, 22.8]
-        print('Median: ' + str(np.median(Temp)))
+        print('Median: ' + str(statistics.median(Temp)))
         ```
 
 ## Mode
