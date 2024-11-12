@@ -187,11 +187,18 @@ np.sort([1,2,1,2,3,4,1,100,1,2,2])
 ```
 
 ```title=">>> Output"
+[1,1,1,1,2,2,2,2,3,4,100] 
+```
+
+The quartiles can be determined graphically using
+
+```
 [1,1,1,1,2,2,2,2,3,4,100]
  |----|----|----|----|
       Q1   Q2   Q3   
 ```
 
+or by using pythons `scipy` package
 
 ```py
 from scipy import stats
