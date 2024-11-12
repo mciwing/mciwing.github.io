@@ -187,11 +187,18 @@ np.sort([1,2,1,2,3,4,1,100,1,2,2])
 ```
 
 ```title=">>> Output"
+[1,1,1,1,2,2,2,2,3,4,100] 
+```
+
+The quartiles can be determined graphically using
+
+```
 [1,1,1,1,2,2,2,2,3,4,100]
  |----|----|----|----|
       Q1   Q2   Q3   
 ```
 
+or by using pythons `scipy` package
 
 ```py
 from scipy import stats
@@ -414,7 +421,7 @@ The following distributions have the same mean, median and mode
     ```
     Work on the following task: 
 
-    1. Calculate all useful and meaningful measure of central tendency (mean, median, mode) for the following attributes (think about attribute types)
+    1. Calculate all useful and meaningful measure of central tendency (mean, median, mode) for the following attributes (think about [attribute types](../../databasics/DataBasics.md#attribute-types))
         - `car_name`
         - `origin`
         - `displacement`
