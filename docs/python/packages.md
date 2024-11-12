@@ -123,7 +123,11 @@ Commands:
 ```
 
 ???+ info
-  You can run shell commands directly from your notebook by using an exclamation mark (`!`) as a prefix (e.g., `!pip`). However, in some cases, such as when uninstalling a package, this approach may cause issues. Therefore, it's often recommended to use the terminal instead.
+    
+    You can run shell commands directly from your notebook by using an 
+    exclamation mark (`!`) as a prefix (e.g., `!pip`). However, in some cases,
+    such as when uninstalling a package, this approach may cause issues. 
+    Therefore, it's often recommended to use the terminal instead.
 
 Now, we'll install our first package, called [`seaborn`](https://seaborn.pydata.org/).
 To install a package use pip's `install` command followed by the package name 
