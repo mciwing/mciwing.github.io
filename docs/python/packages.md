@@ -90,11 +90,18 @@ We will continue with another exercise.
 To get access to all the packages available online, we need to install them
 using a package manager. One such manager is `pip` which is 
 automatically installed alongside `Python`. To check if `pip` is available 
-on your system add following command as a code cell to your Jupyter notebook
-and execute it.
+on your system open a new terminal within VSC by navigating in the menu bar `Terminal` :octicons-arrow-right-24: `New Terminal` 
+
+<figure markdown="span">
+  ![Terminal](../assets/python/package/terminal.png){ width=100% }
+  <figcaption>VSC Terminal</figcaption>
+</figure>
+
+
+and execute the following command:
 
 ```
-!pip
+pip
 ```
 
 ... you should see a list of commands and their description:
@@ -115,19 +122,15 @@ Commands:
 ```
 
 ???+ info
-
-    The exlamation mark (!) is used to run shell commands directly from your 
-    notebook. Alternatively, if you don't want to enter commands in your
-    notebook, open a new command prompt and execute the same command without
-    the exclamation mark.
+  You can run shell commands directly from your notebook by using an exclamation mark (`!`) as a prefix (e.g., `!pip`). However, in some cases, such as when uninstalling a package, this approach may cause issues. Therefore, it's often recommended to use the terminal instead.
 
 Now, we'll install our first package, called [`seaborn`](https://seaborn.pydata.org/).
 To install a package use pip's `install` command followed by the package name 
-(`!pip install <package-name>`). Execute the cell.
+(`pip install <package-name>`).
 Don't worry, it might take a couple of seconds.
 
 ```
-!pip install seaborn
+pip install seaborn
 ```
 
 `seaborn` is a quite common package to visualize data. Now, run the following
@@ -172,7 +175,7 @@ other.
 
 ???+ question "Remove a package"
 
-    Remove the `seaborn` package. Use `!pip` within a code cell to list all 
+    Remove the `seaborn` package. Use `pip` within a code cell to list all 
     commands and find the appropriate one. Execute the command within a cell.
 
 ### PyPI

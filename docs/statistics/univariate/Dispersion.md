@@ -213,7 +213,7 @@ stats.variation([1,2,1,2,3,4,1,100,1,2,2])
 
     With \( x_1, x_2, \dots, x_N \) representing a set of \( N \) values of a metric variable \( X \), \( \sigma \) being the corresponding standard deviation, and \( \bar{x} \) the mean.
 
-???+ example "Example: Coefficient of Variation of the Temperature" 
+???+ example "Example: Pizza Prices" 
     You are given a table of pizza prices in New York listed in various currencies.
     ``` py
     dollar = [1, 2, 3, 3, 5, 6, 7, 8, 9, 11]

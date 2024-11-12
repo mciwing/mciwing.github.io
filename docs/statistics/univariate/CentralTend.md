@@ -414,7 +414,7 @@ The following distributions have the same mean, median and mode
     ```
     Work on the following task: 
 
-    1. Calculate all useful and meaningful measure of central tendency (mean, median, mode) for the following attributes (think about attribute types)
+    1. Calculate all useful and meaningful measure of central tendency (mean, median, mode) for the following attributes (think about [attribute types](../../databasics/DataBasics.md#attribute-types))
         - `car_name`
         - `origin`
         - `displacement`
