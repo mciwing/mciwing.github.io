@@ -1,10 +1,34 @@
 # MCI | Industrial Engineering & Management
 
 
-???+ info ":fontawesome-solid-person-digging:"
+???+ info
     
-    This site is currently under construction. Be aware, the content can change
-    at any time.
+    This page hosts all course materials for *Mathematics & IT*.
+
+    As we continously try to improve the materials and this page, content
+    might be subject to change. If you have any questions or suggestions,
+    feel free to open an issue on GitHub or contact the maintainers:
+    
+    <div class="grid cards" markdown>
+
+    - <img 
+          src="https://avatars.githubusercontent.com/u/124151705?v=4" 
+          style="width:50px; height:50px; border-radius:50%; display: block; 
+          margin-left: auto; margin-right: auto;" 
+      />
+        Manuel
+
+        :fontawesome-regular-envelope: - [manuel.ferdik@mci.edu](mailto:manuel.ferdik@mci.edu)
+
+    - <img 
+          src="https://avatars.githubusercontent.com/u/177755923?v=4" 
+          style="width:50px; height:50px; border-radius:50%; display: block; 
+          margin-left: auto; margin-right: auto;" 
+      />
+        Jakob
+
+        :fontawesome-regular-envelope: - [jakob.klotz@mci.edu](mailto:jakob.klotz@mci.edu)
+    </div>
 
 
 ## Topics
