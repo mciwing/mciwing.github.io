@@ -3,7 +3,8 @@
 
 ???+ info
     
-    This page hosts all course materials for *Mathematics & IT*.
+    This page hosts course materials for various Python
+    :fontawesome-brands-python: lectures.
 
     As we continously try to improve the materials and this page, content
     might be subject to change. If you have any questions or suggestions,
