@@ -67,8 +67,8 @@ By default, the degree of freedom `#!python ddof=1`. In this case the population
         df = pd.DataFrame([(60, 330000), (72, 490000), (111, 600000), (67, 400000) , (90, 455000)], columns=['size', 'price'])
 
         # Calculate covariance
-        house_cov = df[['size', 'price']].cov(ddof=0) # ddof=0 --> Formlar for sample | ddof=1 --> Formlar for population (default)
-        print(f"Covariance: {house_cov.iloc[0,1]}")
+        house_cov = df['size'].cov(df['price'], ddof=0) # ddof=0 --> Formlar for sample | ddof=1 --> Formlar for population (default)
+        print(f"Covariance: {house_cov}")
         ```
 
 **Interpretation of Covariance:**  
