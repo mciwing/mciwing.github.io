@@ -61,6 +61,18 @@ So in other words, computer vision transforms visual data into meaningful inform
         ```
     </div>
 
+    ??? code "Code"
+    
+        ``` py
+        from ultralytics import YOLO
+
+        # Load a model
+        model = YOLO("yolo11n.pt")  # load an official model
+
+        # Predict with the model
+        results = model("dog.jpg")  # predict on an image
+        ```
+
 
 - **Object Localization**: Determining the exact location of an object within an image.
 
@@ -84,6 +96,19 @@ So in other words, computer vision transforms visual data into meaningful inform
 
     </div>
 
+    ??? code "Code"
+    
+        ``` py
+        from ultralytics import YOLO
+
+        # Load a model
+        model = YOLO("yolo11n.pt")  # load an official model
+
+        # Predict with the model
+        results = model("dog.jpg", save=True)  # predict on an image
+        results[0].show()  # display the image
+        ```
+
 - **Object Segmentation**: Precisely delineating the pixels that belong to an object, separating it from the background.
 ???+ example "Example: Segmentation"
 
@@ -103,24 +128,296 @@ So in other words, computer vision transforms visual data into meaningful inform
 
     </div>
 
+    ??? code "Code"
+    
+        ``` py
+        from ultralytics import YOLO
+
+        # Load a model
+        model = YOLO("yolo11n-seg.pt")  # load an official model
+
+        # Predict with the model
+        results = model("dog.jpg", save=True)  # predict on an image
+        results[0].show()  # display the image
+        ```
+
 
 
 
 - **Object Tracking**: Monitoring the movement of objects over time in videos or live streams, analyzing factors like velocity and relative position.
 
-  *Example*: Surveillance systems tracking individuals across multiple camera feeds for security purposes.
+???+ example "Example: Tracking"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <div style="text-align: center;">
+            <img 
+                src="../assets/yolo/street.gif" alt="streetvideo" 
+                style="border-radius:10px;"
+            >
+        </div>
+
+    -   __Output__
+
+        ---
+
+        <div style="text-align: center;">
+            <img 
+                src="../assets/yolo/street_track.gif" alt="streetvideo" 
+                style="border-radius:10px;"
+            >
+        </div>
+
+    </div>
+
+    ??? code "Code"
+    
+        ``` py
+        from collections import defaultdict
+        import cv2
+        import numpy as np
+
+        from ultralytics import YOLO
+
+        # Load the YOLO11 model
+        model = YOLO("yolo11n.pt")
+
+        # Open the video file
+        video_path = "street2.mp4"
+        cap = cv2.VideoCapture(video_path)
+
+        # Store the track history
+        track_history = defaultdict(lambda: [])
+
+        video = cv2.VideoWriter("output.mp4", 0, 25, (960,540))
+
+        # Loop through the video frames
+        while cap.isOpened():
+            # Read a frame from the video
+            success, frame = cap.read()
+
+            if success:
+                # Run YOLO11 tracking on the frame, persisting tracks between frames
+                results = model.track(frame, persist=True, classes=[2])
+
+                # Get the boxes and track IDs
+                boxes = results[0].boxes.xywh.cpu()
+                track_ids = results[0].boxes.id.int().cpu().tolist()
+
+                # Visualize the results on the frame
+                annotated_frame = results[0].plot()
+
+                # Plot the tracks
+                for box, track_id in zip(boxes, track_ids):
+                    x, y, w, h = box
+                    track = track_history[track_id]
+                    track.append((float(x), float(y)))  # x, y center point
+                    if len(track) > 30:  # retain 90 tracks for 90 frames
+                        track.pop(0)
+
+                    # Draw the tracking lines
+                    points = np.hstack(track).astype(np.int32).reshape((-1, 1, 2))
+                    cv2.polylines(annotated_frame, [points], isClosed=False, color=(230, 230, 230), thickness=10)
+
+                # Display the annotated frame
+                cv2.imshow("YOLO11 Tracking", annotated_frame)
+                video.write(annotated_frame)
+                # Break the loop if 'q' is pressed
+                if cv2.waitKey(1) & 0xFF == ord("q"):
+                    break
+            else:
+                # Break the loop if the end of the video is reached
+                break
+
+        # Release the video capture object and close the display window
+        cap.release()
+        cv2.destroyAllWindows()
+        video.release()
+        ```
 
 - **Optical Character Recognition (OCR)**: Recognizing and extracting printed or handwritten text from images, enabling machines to read and process written information.
 
-  *Example*: Digitizing handwritten notes into editable text documents using a smartphone camera.
+???+ example "Example: OCR"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/scan.png){width=100% } </figure>
+
+    -   __Output__
+
+        ---
+
+        ```title=">>> Output"
+        LAN DOR.
+
+        CHAPTER IL
+
+        BIRTH AND PARENTAGE—SCHOOL — COLLEGE.
+        (1775 —1794.)
+
+        Few men have ever impressed their peers so much, or the
+        general public so little, as Watrer Savage Lanpor. Of
+        all celebrated authors, he has hitherto been one of the
+        least popular. Nevertheless he is among the most strik-
+        ing figures in the history of English literature ; striking
+        alike by his character and his powers. Personally, Landor
+        exercised the spell of genius upon every one who came
+        near him. His gifts, attainments, impetuosities, his
+        originality, his force, his charm, were all of the same
+        conspicuous and imposing kind. Not to know what is
+        to be known of so remarkable a man is evidently to be a
+        loser. Not to be familiar with the works of so noble
+        ```
+    </div>
+
+    ??? code "Code"
+    
+        ``` py
+        # Need to install tesseract on your PC https://www.nutrient.io/blog/how-to-use-tesseract-ocr-in-python/
+        from PIL import Image
+        import pytesseract
+
+        print(pytesseract.image_to_string(Image.open('scan.png')))
+        ```
 
 - **Facial Recognition**: Identifying individuals based on their facial features and recognizing various facial expressions.
 
-  *Example*: Unlocking smartphones using face ID technology that verifies the user's identity.
+???+ example "Example: Facial Recognition"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/trump2.jpg){width=100% } </figure>
+
+    -   __Output__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/trump_out.jpg){width=100% } </figure>
+
+    </div>
+    (Source: <a href="https://unsplash.com/de/@libraryofcongress?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Library of Congress</a> on <a href="https://unsplash.com/de/fotos/prasident-donald-trump-jPN_oglAjOU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>)
+
+    ??? code "Code"
+    
+        ``` py
+        # You need to install cmake on your PC first
+        # https://github.com/ageitgey/face_recognition?tab=readme-ov-file
+
+        import face_recognition
+        import cv2
+        import numpy as np
+
+        # Load a sample picture and learn how to recognize it.
+        obama_image = face_recognition.load_image_file("obama.jpg")
+        obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+
+        # Load a sample picture and learn how to recognize it.
+        trump_image = face_recognition.load_image_file("trump.jpg")
+        trump_face_encoding = face_recognition.face_encodings(trump_image)[0]
+
+        # Load a second sample picture and learn how to recognize it.
+        biden_image = face_recognition.load_image_file("biden.jpg")
+        biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
+
+        # Create arrays of known face encodings and their names
+        known_face_encodings = [
+            obama_face_encoding,
+            trump_face_encoding,
+            biden_face_encoding
+        ]
+        known_face_names = [
+            "Barack Obama",
+            "Donald Trump",
+            "Joe Biden"
+        ]
+
+        # Initialize some variables
+        face_locations = []
+        face_encodings = []
+        face_names = []
+        process_this_frame = True
+
+        rgb_small_frame = face_recognition.load_image_file("trump2.jpg")
+
+        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+
+        face_names = []
+        for face_encoding in face_encodings:
+            # See if the face is a match for the known face(s)
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+            name = "Unknown"
+
+            # Or instead, use the known face with the smallest distance to the new face
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+            best_match_index = np.argmin(face_distances)
+            if matches[best_match_index]:
+                name = known_face_names[best_match_index]
+
+            face_names.append(name)
+
+        # Display the results
+        for (top, right, bottom, left), name in zip(face_locations, face_names):
+
+            # Draw a box around the face
+            cv2.rectangle(rgb_small_frame, (left, top), (right, bottom), (0, 0, 255), 2)
+
+            # Draw a label with a name below the face
+            cv2.rectangle(rgb_small_frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+            font = cv2.FONT_HERSHEY_DUPLEX
+            cv2.putText(rgb_small_frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+
+        # Display the resulting image
+        cv2.imshow('Video', cv2.cvtColor(rgb_small_frame, cv2.COLOR_BGR2RGB))
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        cv2.imwrite('trump_out.jpg', cv2.cvtColor(rgb_small_frame, cv2.COLOR_BGR2RGB))
+        ```
 
 - **Pose Estimation**: Determining the position and orientation of an object or person relative to a reference point or coordinate system.
 
-  *Example*: Virtual reality systems tracking a user's movements to replicate them within a virtual environment.
+???+ example "Example: Pose Estimation"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog.jpg){width=100% } </figure>
+
+    -   __Output__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog_pose.jpg){width=100% } </figure>
+
+    </div>
+
+    ??? code "Code"
+    
+        ``` py
+        from ultralytics import YOLO
+
+        # Load a model
+        model = YOLO("yolo11n-pose.pt")  # load an official model
+
+        # Predict with the model
+        results = model("dog.jpg", save=True)  # predict on an image
+        results[0].show()  # display the image
+        ```
 
 These categories represent the core tasks in computer vision, each contributing to its wide-ranging real-world applications. From enabling machines to read and understand handwritten documents to enhancing interactive gaming experiences through accurate motion tracking, the advancements in computer vision are transforming industries and everyday life.
 
