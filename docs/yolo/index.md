@@ -37,64 +37,136 @@ At its core, computer vision seeks to automate tasks that the human visual syste
 
 So in other words, computer vision transforms visual data into meaningful information. 
 
+### Typical Computer Vision Tasks
+
+
+- **Object Classification**: Assigning objects within an image to predefined categories or classes.
+
+???+ example "Example: Classification"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog.jpg){width=100% } </figure>
+
+    -   __Output__
+
+        ---
+
+        ```title=">>> Output"
+        1 person, 1 dog
+        ```
+    </div>
+
+
+- **Object Localization**: Determining the exact location of an object within an image.
+
+- **Object Detection**: Identifying and locating multiple objects within an image, effectively combining classification and localization.
+
+???+ example "Example: Detection"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog.jpg){width=100% } </figure>
+
+    -   __Output__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog_detect.jpg){width=100% } </figure>
+
+    </div>
+
+- **Object Segmentation**: Precisely delineating the pixels that belong to an object, separating it from the background.
+???+ example "Example: Segmentation"
+
+    <div class="grid cards" markdown>
+
+    -   __Input__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog.jpg){width=100% } </figure>
+
+    -   __Output__
+
+        ---
+
+        <figure markdown="span"> ![Input](../assets/yolo/dog_seg.jpg){width=100% } </figure>
+
+    </div>
+
+
+
+
+- **Object Tracking**: Monitoring the movement of objects over time in videos or live streams, analyzing factors like velocity and relative position.
+
+  *Example*: Surveillance systems tracking individuals across multiple camera feeds for security purposes.
+
+- **Optical Character Recognition (OCR)**: Recognizing and extracting printed or handwritten text from images, enabling machines to read and process written information.
+
+  *Example*: Digitizing handwritten notes into editable text documents using a smartphone camera.
+
+- **Facial Recognition**: Identifying individuals based on their facial features and recognizing various facial expressions.
+
+  *Example*: Unlocking smartphones using face ID technology that verifies the user's identity.
+
+- **Pose Estimation**: Determining the position and orientation of an object or person relative to a reference point or coordinate system.
+
+  *Example*: Virtual reality systems tracking a user's movements to replicate them within a virtual environment.
+
+These categories represent the core tasks in computer vision, each contributing to its wide-ranging real-world applications. From enabling machines to read and understand handwritten documents to enhancing interactive gaming experiences through accurate motion tracking, the advancements in computer vision are transforming industries and everyday life.
 
 ### Applications
 
 Computer vision has a wide range of applications across various industries.
 
 ???+ example "Possible Applications for Computer Vision"
-    <div class="grid cards" markdown>
 
-    -   __Robotics__
-
-        ---
+    === "Robotics"
 
         <figure markdown="span"> ![Image title](../assets/yolo/robot.jpg){width=100% } </figure>
 
-    -   __Autonomous Vehicles__
-
-        ---
+    === "Autonomous Vehicles"
 
         <figure markdown="span"> ![Image title](../assets/yolo/auto.jpg){width=100% } </figure>
 
 
-    -   __Medical Applications__
-
-        ---
+    === "Medical"
 
         <figure markdown="span">
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Model_of_a_segmented_femur_-_journal.pone.0079004.g005.png" style="width: 50%;">
         <figcaption style="text-align: center;">(Source: Newe A, Ganslandt T on <a href="https://de.wikipedia.org/wiki/Datei:Model_of_a_segmented_femur_-_journal.pone.0079004.g005.png">Wikipedia</a>) </figcaption>
         </figure>
 
-    -   __Quality Control__
-
-        ---
+    === "Quality Control"
 
         <figure markdown="span">
             <img src="https://www.elunic.com/de/wp-content/uploads/2020/07/Crack-Bounding-Box-2-450x450.png" style="width: 90%;">
         <figcaption style="text-align: center;">(Source: <a href="https://www.elunic.com/de/showcase/automatisierte-risserkennung/">elunic</a>) </figcaption>
         </figure>
 
-    -   __Retail__
-
-        ---
+    === "Retail"
 
         <figure markdown="span">
             <img src="https://imageio.forbes.com/specials-images/imageserve/60a53427c26131a1df84b6ef/snapchat-ar/960x0.png" style="width: 100%;">
         <figcaption style="text-align: center;">(Source: SNAP INC via <a href="https://www.forbes.com/sites/lelalondon/2021/05/20/virtual-try-on-is-more-than-a-pandemic-trendand-these-brands-are-reaping-the-rewards/">Forbes</a>) </figcaption>
         </figure>
 
-    -   __Facial Recognition__
-
-        ---
+    === "Facial Recognition"
 
         <figure markdown="span">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Face_detection.jpg" style="width: 100%;">
         <figcaption style="text-align: center;">(Source: Sylenius on <a href="https://commons.wikimedia.org/wiki/File:Face_detection.jpg">Wikipedia</a>) </figcaption>
         </figure>
 
-    </div>
 
 ### How can Machines "See"?
 
@@ -207,22 +279,91 @@ However, interpreting these images to understand the scene involves complex algo
 
 
 ## Approaches in Computer Vision
-
-Over the years, various approaches have been developed to tackle this complex problem.
+To tackle those complex problems, over the years, various approaches have been developed.
 
 ### Traditional Approaches in Object Detection
 
 Before the rise of deep learning, object detection relied heavily on handcrafted features and traditional machine learning techniques.
 
 - **Haar Cascades**: Introduced by Viola and Jones in 2001, Haar-like features were used for rapid face detection by scanning an image at multiple scales and positions.
-    https://medium.com/analytics-vidhya/haar-cascades-explained-38210e57970d
+???+ example "Example: Haar Cascades"
+    
+    <figure markdown="span"> ![Image title](../assets/yolo/output_haar_cascade.jpg){width=70% } </figure>
+
+    ??? code "Code"
+    
+        ``` py
+        #Source: https://medium.com/analytics-vidhya/haar-cascades-explained-38210e57970d
+
+        #-- Load Packages
+        import cv2
+        from skimage import data
+
+        #-- Load Image and Convert to RGB
+        image = data.astronaut()
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Convert to RGB
+
+        #-- Load Haar Cascades
+        f_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+        e_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
+
+        #-- Detect Faces and Eyes
+        faces = f_cascade.detectMultiScale(image, 1.3, 5)
+        for (x,y,w,h) in faces:
+            img = cv2.rectangle(image,(x,y),(x+w,y+h),(255,0,0),2)
+            roi_color = img[y:y+h, x:x+w]
+            eyes = e_cascade.detectMultiScale(roi_color)
+            for (ex,ey,ew,eh) in eyes:
+                cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
+
+        #-- Display and Save Image
+        cv2.imwrite('output_haar_cascade.jpg',image)
+        cv2.imshow('Haar Cascade',image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        ```
+
 - **Histogram of Oriented Gradients (HOG)**: Proposed for human detection, HOG features capture edge orientations and are combined with Support Vector Machines (SVMs) for classification.
-    https://de.wikipedia.org/wiki/Histogram_of_oriented_gradients
+???+ example "Example: Haar Cascades"
+    
+    <figure markdown="span"> ![Image title](../assets/yolo/output_hog.jpg){width=70% } </figure>
 
-comparison: https://medium.com/@goutam0157/haar-cascade-classifier-vs-histogram-of-oriented-gradients-hog-6f4373ca239b
+    ??? code "Code"
+    
+        ``` py
+        #Source: https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_hog.html
+
+        #-- Load Packages
+        import cv2
+        from skimage.feature import hog
+        from skimage import data, exposure
+
+        #-- Load Image
+        image = data.astronaut()
+
+        #-- Compute HOG
+        fd, hog_image = hog(
+            image,
+            orientations=8,
+            pixels_per_cell=(16, 16),
+            cells_per_block=(1, 1),
+            visualize=True,
+            channel_axis=-1,
+        )
+        # Rescale histogram for better display
+        hog_image= exposure.rescale_intensity(hog_image, in_range=(0, 10))
+        hog_image = cv2.normalize(hog_image, dst=None, alpha=0, beta=255,norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
+
+        #-- Display and Save Image
+        cv2.imwrite('output_hog.jpg',hog_image)
+        cv2.imshow('HOG',hog_image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        ```
+    
+If you want to learn more about Haar Cascades and HOG, look [here](https://medium.com/@goutam0157/haar-cascade-classifier-vs-histogram-of-oriented-gradients-hog-6f4373ca239b)
 
 
---<> https://medium.com/@rajshekhar_k/introduction-to-computer-vision-7cfdacfc3f2e
 
 ### Deep Learning Approaches
 The advent of deep learning revolutionized computer vision by enabling models to learn features directly from data. Convolutional Neural Networks (CNNs) can automatically learn hierarchical feature representations from images, eliminating the need for manual feature extraction.
