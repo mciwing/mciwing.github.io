@@ -83,6 +83,7 @@ nav:
         - statistics/regression/LinearRegression.md
 
   - Programming:
+      - programming/index.md  # TODO: remove if all materials are finished
       - python/index.md  # TODO: rework specific mentions on the Crash Course
 
       - Setup:
