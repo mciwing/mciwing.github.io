@@ -1,1 +1,1 @@
-# Plotting with `pandas`
+# Plotting

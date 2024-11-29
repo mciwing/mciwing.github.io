@@ -84,13 +84,14 @@ nav:
 
   - Programming:
       - programming/index.md  # TODO: remove if all materials are finished
-      - python/index.md  # TODO: rework specific mentions on the Crash Course
 
-      - Setup:
-        - python/installation.md
-        - python/ide.md
+      - Basics & Data Types:
+        - python/index.md  # TODO: rework specific mentions on the Crash Course
 
-      - Python:
+        - Setup:
+          - python/installation.md
+          - python/ide.md
+
         - python/variables.md
 
         - Types:
@@ -98,6 +99,7 @@ nav:
           - python/types/numbers.md
           - python/types/bool_and_none.md
 
+      - Logic & Containers:
         - python/comparisons_and_logic.md
 
         - Containers:
@@ -105,25 +107,28 @@ nav:
           - python/containers/dict.md
           - python/containers/tuple.md
 
+      - Control Structures & Functions:
         - Control Structures:
           - python/control-structures/for.md
           - python/control-structures/if.md
 
-        - python/functions.md  # TODO: methods vs. functions
+        - python/functions.md  # TODO: methods vs. functions; variable scope
 
-      - Packages:
+      - Dev Tools & Data Handling:
         - python/packages.md
         - python/pandas.md  # TODO: emphasis on loading files; reading docs;
           # more in-depth about pandas functionalities
         - programming/plotting.md  # TODO: plotting with pandas
 
-      - Data:
+      - Data Acquisition & Export:
         - databasics/DataBasics.md
         - programming/data/retrieval.md  # TODO: practical tips on data retrieval
         - programming/data/export.md  # TODO: how to write files
 
-      - programming/oop.md  # TODO: objet oriented programming
-      - programming/gui.md  # TODO: graphical user interfaces
+      - Graphical User Interface:
+        - programming/oop.md  # TODO: objet oriented programming
+        - programming/gui.md  # TODO: graphical user interfaces
+
       - programming/git.md  # TODO: Bonus chapter on Git
 
 plugins:
