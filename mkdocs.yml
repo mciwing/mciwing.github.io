@@ -145,6 +145,7 @@ plugins:
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
+      enabled: !ENV [ENABLE_GIT_COMMITTERS, true]
   - table-reader
   - include-markdown
 

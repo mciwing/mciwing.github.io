@@ -55,13 +55,17 @@ To install all project dependencies, navigate to the project root and execute
 poetry install
 ```
 
-### Serve the site
+### Serve the site (on Windows)
 
 ... with
 
 ```bash
-poetry run mkdocs serve
+.\serve-local.bat
 ```
+
+which will build and serve the site. The script is just a convenience wrapper
+to disable the `git-committers` plugin for local builds which should reduce the
+build time by a couple of seconds.
 
 The site is served at `localhost:8000`
 
