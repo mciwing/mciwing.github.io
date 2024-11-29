@@ -15,6 +15,17 @@ files = [
 dev = ["freezegun (>=1.0,<2.0)", "pytest (>=6.0)", "pytest-cov"]
 
 [[package]]
+name = "bracex"
+version = "2.5.post1"
+description = "Bash style brace expander."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "bracex-2.5.post1-py3-none-any.whl", hash = "sha256:13e5732fec27828d6af308628285ad358047cec36801598368cb28bc631dbaf6"},
+    {file = "bracex-2.5.post1.tar.gz", hash = "sha256:12c50952415bfa773d2d9ccb8e79651b8cdb1f31a42f6091b804f6ba2b4a66b6"},
+]
+
+[[package]]
 name = "certifi"
 version = "2024.8.30"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -407,6 +418,24 @@ pytz = "*"
 all = ["GitPython", "babel (>=2.7.0)", "click", "codecov", "mkdocs (>=1.0)", "mkdocs-gen-files", "mkdocs-git-authors-plugin", "mkdocs-material", "mkdocs-static-i18n", "pytest", "pytest-cov", "pytz"]
 base = ["GitPython", "babel (>=2.7.0)", "mkdocs (>=1.0)", "pytz"]
 dev = ["click", "codecov", "mkdocs-gen-files", "mkdocs-git-authors-plugin", "mkdocs-material", "mkdocs-static-i18n", "pytest", "pytest-cov"]
+
+[[package]]
+name = "mkdocs-include-markdown-plugin"
+version = "7.1.1"
+description = "Mkdocs Markdown includer plugin."
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "mkdocs_include_markdown_plugin-7.1.1-py3-none-any.whl", hash = "sha256:046a452dea2796e93f1385a1db106209a18bb9417162063ffe0a432a97c9b837"},
+    {file = "mkdocs_include_markdown_plugin-7.1.1.tar.gz", hash = "sha256:3ca17da4d5d77cfa5f4da564e65dc74ee2aa6a7368119db23d650fb24d95fce9"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.4"
+wcmatch = "*"
+
+[package.extras]
+cache = ["platformdirs"]
 
 [[package]]
 name = "mkdocs-material"
@@ -1028,7 +1057,21 @@ files = [
 [package.extras]
 watchmedo = ["PyYAML (>=3.10)"]
 
+[[package]]
+name = "wcmatch"
+version = "10.0"
+description = "Wildcard/glob file name matcher."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wcmatch-10.0-py3-none-any.whl", hash = "sha256:0dd927072d03c0a6527a20d2e6ad5ba8d0380e60870c383bc533b71744df7b7a"},
+    {file = "wcmatch-10.0.tar.gz", hash = "sha256:e72f0de09bba6a04e0de70937b0cf06e55f36f37b3deb422dfaf854b867b840a"},
+]
+
+[package.dependencies]
+bracex = ">=2.1.1"
+
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.13"
-content-hash = "409f7bea26e4ecb59462c82e3401dac0109c6ce5a0406d7f18b37dc964ad0529"
+content-hash = "46dd234da8f8250c19488bae889eb5203a14a304715dac49e44429bd4f62db0c"
