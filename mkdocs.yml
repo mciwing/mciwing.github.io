@@ -58,53 +58,53 @@ nav:
     - python/pandas.md
 
   - Python Extensive Course:
-    - programming/index.md  # TODO: remove if all materials are finished
+    - python-extensive/index.md  # TODO: remove if all materials are finished
 
     - Basics & Data Types:
-      - "Motivation": programming/python-index.md  # TODO: rework specific mentions on the Crash Course
+      - "Motivation": python-extensive/python-index.md  # TODO: rework specific mentions on the Crash Course
 
       - Setup:
-        - programming/installation.md
-        - "IDE": programming/ide.md
+        - python-extensive/installation.md
+        - "IDE": python-extensive/ide.md
 
-      - programming/variables.md
+      - python-extensive/variables.md
 
       - Types:
-        - programming/types/strings.md
-        - programming/types/numbers.md
-        - programming/types/bool_and_none.md
+        - python-extensive/types/strings.md
+        - python-extensive/types/numbers.md
+        - python-extensive/types/bool_and_none.md
 
     - Logic & Containers:
-      - programming/comparisons_and_logic.md
+      - python-extensive/comparisons_and_logic.md
 
       - Containers:
-        - programming/containers/list.md
-        - programming/containers/dict.md
-        - programming/containers/tuple.md
+        - python-extensive/containers/list.md
+        - python-extensive/containers/dict.md
+        - python-extensive/containers/tuple.md
 
     - Control Structures & Functions:
       - Control Structures:
-        - programming/control-structures/for.md
-        - programming/control-structures/if.md
+        - python-extensive/control-structures/for.md
+        - python-extensive/control-structures/if.md
 
-      - programming/functions.md  # TODO: methods vs. functions; variable scope
+      - python-extensive/functions.md  # TODO: methods vs. functions; variable scope
 
     - Dev Tools & Data Handling:
-      - programming/packages.md
-      - programming/pandas.md # TODO: emphasis on loading files; reading docs;
+      - python-extensive/packages.md
+      - python-extensive/pandas.md # TODO: emphasis on loading files; reading docs;
       # more in-depth about pandas functionalities
-      - programming/plotting.md  # TODO: plotting with pandas
+      - python-extensive/plotting.md  # TODO: plotting with pandas
 
     - Data Acquisition & Export:
-      - programming/DataBasics.md
-      - programming/data/retrieval.md  # TODO: practical tips on data retrieval
-      - programming/data/export.md  # TODO: how to write files
+      - python-extensive/DataBasics.md
+      - python-extensive/data/retrieval.md  # TODO: practical tips on data retrieval
+      - python-extensive/data/export.md  # TODO: how to write files
 
     - Graphical User Interface:
-      - programming/oop.md  # TODO: objet oriented programming
-      - programming/gui.md  # TODO: graphical user interfaces
+      - python-extensive/oop.md  # TODO: objet oriented programming
+      - python-extensive/gui.md  # TODO: graphical user interfaces
 
-    - programming/git.md  # TODO: Bonus chapter on Git
+    - python-extensive/git.md  # TODO: Bonus chapter on Git
 
   - Statistics:
     - statistics/index.md
