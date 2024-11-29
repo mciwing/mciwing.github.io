@@ -82,7 +82,7 @@ nav:
         - statistics/regression/LinearRegression.md
         - statistics/regression/MultipleRegression.md
         - statistics/regression/HigherRegression.md
-  - YOLO: 
+  - Vision: 
     - yolo/index.md
     - yolo/yolo.md
     - Image Processing:
