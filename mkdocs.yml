@@ -58,61 +58,61 @@ nav:
     - python/pandas.md
 
   - Python Extensive Course:
-      - programming/index.md  # TODO: remove if all materials are finished
+    - programming/index.md  # TODO: remove if all materials are finished
 
-      - Basics & Data Types:
-          - python/index.md  # TODO: rework specific mentions on the Crash Course
+    - Basics & Data Types:
+      - "Motivation": programming/python-index.md  # TODO: rework specific mentions on the Crash Course
 
-          - Setup:
-              - python/installation.md
-              - python/ide.md
+      - Setup:
+        - programming/installation.md
+        - "IDE": programming/ide.md
 
-          - python/variables.md
+      - programming/variables.md
 
-          - Types:
-              - python/types/strings.md
-              - python/types/numbers.md
-              - python/types/bool_and_none.md
+      - Types:
+        - programming/types/strings.md
+        - programming/types/numbers.md
+        - programming/types/bool_and_none.md
 
-      - Logic & Containers:
-          - python/comparisons_and_logic.md
+    - Logic & Containers:
+      - programming/comparisons_and_logic.md
 
-          - Containers:
-              - python/containers/list.md
-              - python/containers/dict.md
-              - python/containers/tuple.md
+      - Containers:
+        - programming/containers/list.md
+        - programming/containers/dict.md
+        - programming/containers/tuple.md
 
-      - Control Structures & Functions:
-          - Control Structures:
-              - python/control-structures/for.md
-              - python/control-structures/if.md
+    - Control Structures & Functions:
+      - Control Structures:
+        - programming/control-structures/for.md
+        - programming/control-structures/if.md
 
-          - python/functions.md  # TODO: methods vs. functions; variable scope
+      - programming/functions.md  # TODO: methods vs. functions; variable scope
 
-      - Dev Tools & Data Handling:
-          - python/packages.md
-          - python/pandas.md  # TODO: emphasis on loading files; reading docs;
-          # more in-depth about pandas functionalities
-          - programming/plotting.md  # TODO: plotting with pandas
+    - Dev Tools & Data Handling:
+      - programming/packages.md
+      - programming/pandas.md # TODO: emphasis on loading files; reading docs;
+      # more in-depth about pandas functionalities
+      - programming/plotting.md  # TODO: plotting with pandas
 
-      - Data Acquisition & Export:
-          - databasics/DataBasics.md
-          - programming/data/retrieval.md  # TODO: practical tips on data retrieval
-          - programming/data/export.md  # TODO: how to write files
+    - Data Acquisition & Export:
+      - programming/DataBasics.md
+      - programming/data/retrieval.md  # TODO: practical tips on data retrieval
+      - programming/data/export.md  # TODO: how to write files
 
-      - Graphical User Interface:
-          - programming/oop.md  # TODO: objet oriented programming
-          - programming/gui.md  # TODO: graphical user interfaces
+    - Graphical User Interface:
+      - programming/oop.md  # TODO: objet oriented programming
+      - programming/gui.md  # TODO: graphical user interfaces
 
-      - programming/git.md  # TODO: Bonus chapter on Git
+    - programming/git.md  # TODO: Bonus chapter on Git
 
   - Statistics:
     - statistics/index.md
 
     - Data Basics:
-        - databasics/Terms.md
-        - databasics/Data.md
-        - databasics/DataBasics.md
+      - databasics/Terms.md
+      - databasics/Data.md
+      - databasics/DataBasics.md
 
     - Descriptive Statistics:
       - Univariate Methods:
@@ -146,6 +146,7 @@ plugins:
       repository: mciwing/mciwing.github.io
       branch: main
   - table-reader
+  - include-markdown
 
 markdown_extensions:
   - attr_list
