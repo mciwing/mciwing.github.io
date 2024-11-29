@@ -135,6 +135,7 @@ plugins:
       repository: mciwing/mciwing.github.io
       branch: main
   - table-reader
+  - mkdocs_quiz
 
 markdown_extensions:
   - attr_list
