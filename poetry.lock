@@ -449,6 +449,20 @@ files = [
 ]
 
 [[package]]
+name = "mkdocs-quiz"
+version = "0.0.41"
+description = "A mkdocs plugin to create a quiz in your markdown document."
+optional = false
+python-versions = "*"
+files = [
+    {file = "mkdocs_quiz-0.0.41-py3-none-any.whl", hash = "sha256:b83992ef5ba3b62e2cd804b8e8a382514e19a2374e732836274f7e0d9b0ff0ce"},
+    {file = "mkdocs_quiz-0.0.41.tar.gz", hash = "sha256:9c9b18d9112068bf3f776e333aadf087c62f62a418ab67207b60a3e1751ba748"},
+]
+
+[package.dependencies]
+mkdocs = "*"
+
+[[package]]
 name = "mkdocs-table-reader-plugin"
 version = "3.1.0"
 description = "MkDocs plugin to directly insert tables from files into markdown."
@@ -1031,4 +1045,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.13"
-content-hash = "409f7bea26e4ecb59462c82e3401dac0109c6ce5a0406d7f18b37dc964ad0529"
+content-hash = "1836cc5abbdde6b213cf331fd038fce181927037c74bc6a7294577241b559493"
