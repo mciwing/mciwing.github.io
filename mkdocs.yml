@@ -31,34 +31,40 @@ copyright:
 nav:
   - Home: index.md
 
-  - Data Basics:
-    - databasics/Terms.md
-    - databasics/Data.md
-    - databasics/DataBasics.md
-
   - Python Crash Course:
     - python/index.md
     - python/installation.md
     - python/ide.md
     - python/variables.md
+
     - Types:
       - python/types/strings.md
       - python/types/numbers.md
       - python/types/bool_and_none.md
+
     - python/comparisons_and_logic.md
+
     - Containers:
       - python/containers/list.md
       - python/containers/dict.md
       - python/containers/tuple.md
+
     - Control Structures:
       - python/control-structures/for.md
       - python/control-structures/if.md
+
     - python/functions.md
     - python/packages.md
     - python/pandas.md
 
   - Statistics:
     - statistics/index.md
+
+    - Data Basics:
+        - databasics/Terms.md
+        - databasics/Data.md
+        - databasics/DataBasics.md
+
     - Descriptive Statistics:
       - Univariate Methods:
         - statistics/univariate/Frequency.md
