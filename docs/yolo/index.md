@@ -621,7 +621,7 @@ Before the rise of deep learning, object detection relied heavily on handcrafted
         ```
 
 - **Histogram of Oriented Gradients (HOG)**: Proposed for human detection, HOG features capture edge orientations and are combined with Support Vector Machines (SVMs) for classification.
-???+ example "Example: Haar Cascades"
+???+ example "Example: HOG"
     
     <figure markdown="span"> ![Image title](../assets/yolo/output_hog.jpg){width=70% } </figure>
 
