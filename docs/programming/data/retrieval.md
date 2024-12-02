@@ -109,7 +109,7 @@ data = response.json()  # assign the response (JSON) to a variable
     What type is returned by the `#!python response.json()` method? 
     Check the `#!python type()` of the `data` variable.
 
-#### Detour: Methods
+#### Methods
 
 In the above code snippet, we used `requests` `get()` method to send a
 `GET` request to the server. `GET` is solely to retrieve data from the 
@@ -193,13 +193,13 @@ cryptocurrency, we need to settle on a single cryptocurrency. The concept
 of query parameters is introduced with another practical example.
 
 For the following examples, we will use an emerging (at the time of writing) 
-cryptocurrency called `Pepe` (more of a meme-coin).
+cryptocurrency called `Pepe-Cash` (more of a meme-coin).
 
 <p align="center">
   <img src="https://tokenscan.io/img/cards/PEPECASH.jpg" alt="Pepe">
 </p>
 
-To get access to the price history of `Pepe`, we need to consult the API 
+To get access to the price history of `Pepe-Cash`, we need to consult the API 
 documentation and find the appropriate endpoint.
 
 <?quiz?>
@@ -222,7 +222,7 @@ solved the quiz question.
 
     ```python
     api_url = "https://api.coincap.io/v2"
-    coin_id = "pepe"
+    coin_id = "pepe-cash"
     endpoint = f"/assets/{coin_id}/history"
     query_params = "?interval=d1"  # daily interval
     
@@ -232,13 +232,14 @@ solved the quiz question.
     Let's walk through the URL construction step by step:
     
     1. `api_url` is the base URL of the API.
-    2. `coin_id` is the identifier of the cryptocurrency we want to 
-        retrieve data 
+    2. `coin_id` :fontawesome-solid-arrow-right: `pepe-cash` is the 
+        identifier of the cryptocurrency we want to retrieve data 
         for. We have already requested all cryptocurrency identifiers with the 
         `/assets` endpoint. A couple of identifier entries are in the response, 
         formatted as a table (the `id` column).
     3. `endpoint` contains the endpoint name we want to access, in this 
-        particular case :fontawesome-solid-arrow-right: `/assets/pepe/history`.
+        particular case :fontawesome-solid-arrow-right: 
+        `/assets/pepe-cash/history`.
     4. `query_params` stands for *query parameters* which are additional 
         parameters that are passed to the server. Think of a `Python` 
         function with parameters that are used for fine-grained control.
@@ -253,9 +254,146 @@ solved the quiz question.
         specified in the API documentation.
     
     Finally, we end up with the URL 
-    `#!python "https://api.coincap.io/v2/assets/pepe/history?interval=d1"`
+    `#!python "https://api.coincap.io/v2/assets/pepe-cash/history?interval=d1"`
     
     <div style="text-align: center;">
         <iframe src="https://giphy.com/embed/l1Etfpt5pdYl34BuU" width="480" height="360" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-l1Etfpt5pdYl34BuU"></a></p>
         <figcaption>Quite a complicated URL.</figcaption>
+    </div>
+
+#### Request
+
+If you've followed the construction of the URL closely, we can easily send 
+another request to retrieve market data. This time around it is another `GET`
+request, however with a query parameter.
+
+```python
+# construct the URL
+api_url = "https://api.coincap.io/v2"
+coin_id = "pepe-cash"
+endpoint = f"/assets/{coin_id}/history"
+query_params = "?interval=d1"  # daily interval
+
+url = f"{api_url}{endpoint}{query_params}"
+
+# send the request
+response = requests.get(url=url)
+```
+
+Again, convert the response to a `DataFrame` and print the first few rows.
+
+```python
+pepe_history = response.json()
+pepe_history = pd.DataFrame(pepe_history["data"])
+
+print(pepe_history.head())
+```
+
+| priceUsd               | time          | date                      |
+|------------------------|---------------|---------------------------|
+| 0.00975866781659570875 | 1702771200000 | 2023-12-17T00:00:00.000Z  |
+| 0.00599678454631789979 | 1702857600000 | 2023-12-18T00:00:00.000Z  |
+| 0.00343804151117114038 | 1702944000000 | 2023-12-19T00:00:00.000Z  |
+| 0.00450507670901954119 | 1703721600000 | 2023-12-28T00:00:00.000Z  |
+| 0.00751113050249688877 | 1703808000000 | 2023-12-29T00:00:00.000Z  |
+
+We are now looking at the daily price history of `Pepe-Cash` in USD.
+
+#### Detour: Visualizations
+
+As a bonus we can plot the price history and try to recreate the price 
+charts seen on various market platforms. This Visualizations section is 
+optional and should provide a glimpse into the possibilities of working with
+APIs.
+
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/BQUITFiYVtNte" width="480" height="293" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/imagination-BQUITFiYVtNte"></a></p>
+</div>
+
+Regardless of whether you plot the price chart 
+dynamically or statically, two preprocessing steps are necessary.
+
+```python
+# convert date and price to their appropriate types
+pepe_history["date"] = pd.to_datetime(pepe_history["date"])
+pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
+```
+
+=== "Option 1: Dynamic plot :fontawesome-solid-arrow-right: `plotly`"
+
+    ```python
+    import plotly.express as px
+    
+    fig = px.area(
+        data_frame=pepe_history,
+        x="date",
+        y="priceUsd",
+        title="Pepe Cash - Price History in USD",
+        color_discrete_sequence=["#009485"],
+    )
+    fig.show()
+    ```
+    
+    <div style="text-align: center;">
+        <iframe src="/assets/python-extensive/data/pepe-plotly.html" width="100%" height="450px">
+        </iframe>
+    </div>
+
+
+=== "Option 2: Static plot :fontawesome-solid-arrow-right: `matplotlib`"
+
+    ```python
+    import matplotlib.pyplot as plt
+    
+    # pandas plot method:
+    # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html
+    pepe_history.plot(
+        x="date",
+        y="priceUsd",
+        kind="area",
+        title="Pepe Cash - Price History in USD",
+        color="#009485",
+    )
+    plt.show()
+    ```
+
+    <div style="text-align: center;">
+        <img src="/assets/python-extensive/data/pepe-matplotlib.svg" alt="Pepe Cash - Price History in USD">
+    </div>
+
+??? tip "Bonus: Styling the plot"
+
+    If you want to style the dynamic plot further (to more closely resemble the
+    price charts seen on market platforms) adjust colors, labels and add a 
+    logo.
+
+    ```python
+    fig = px.area(
+        data_frame=pepe_history,
+        x="date",
+        y="priceUsd",
+        title="Pepe Cash - Price History in USD",
+        color_discrete_sequence=["#009485"],
+        template="plotly_dark"  # dark theme
+    )
+    # add the logo
+    fig.add_layout_image(
+        dict(
+            source="https://cryptologos.cc/logos/pepe-pepe-logo.png?v=035",
+            xref="paper",
+            yref="paper",
+            x=1,
+            y=1.15,
+            sizex=0.2,
+            sizey=0.2,
+            xanchor="right",
+            yanchor="top",
+        )
+    )
+    fig.show()
+    ```
+
+    <div style="text-align: center;">
+        <iframe src="/assets/python-extensive/data/pepe-stylish.html" width="100%" height="450px">
+        </iframe>
     </div>
