@@ -1,9 +1,4 @@
-# Where to get data?
-
-In this section, we will explore different ways to retrieve data.
-We will start with tabular data, move on to APIs, and finish with some tips.
-
-## API
+# API
 
 An application programming interface (API) is a set of rules and protocols
 that allows one software application to interact with another.
@@ -35,7 +30,7 @@ line chart to visualize the data.
     Open the CoinCap API documentation ([here](https://docs.coincap.io/)) and 
     browse through the site for a minute or two.
 
-### Rate limits
+## Rate limits
 
 During the task, you should have noticed that the API provides information 
 on rate limits. Rate limits are the number of requests that can be made to
@@ -47,7 +42,7 @@ These rate limits are set by the provider and can vary from one API to another.
 But how can we request data from the server to retrieve a price history? To 
 answer this question, the concept of endpoints is introduced.
 
-### Endpoints
+## Endpoints
 
 An endpoint is a specific URL that the API uses to perform a specific action.
 For example, the endpoint `/assets` returns a list of all cryptocurrencies.
@@ -109,7 +104,7 @@ data = response.json()  # assign the response (JSON) to a variable
     What type is returned by the `#!python response.json()` method? 
     Check the `#!python type()` of the `data` variable.
 
-#### Methods
+### Methods
 
 In the above code snippet, we used `requests` `get()` method to send a
 `GET` request to the server. `GET` is solely to retrieve data from the 
@@ -136,7 +131,7 @@ worry about these methods too much for now as we will continue solely with
     If you need to revisit the topic of HTTP methods or simply want to dive 
     deeper, [here's](https://restfulapi.net/http-methods/) a great article.
 
-### Endpoints continued...
+## Endpoints continued...
 
 Let's revisit the code snippet from above and extend it. After requesting the 
 `/assets` endpoint we convert the response (the `#!python dict`) into a tabular 
@@ -186,7 +181,7 @@ print(data.head())
     Nevertheless, that's the power of APIs as they allow you to 
     programmatically access up to date information. 🦾
 
-### Query parameters
+## Query parameters
 
 To continue on our quest to visualize the latest price history of a
 cryptocurrency, we need to settle on a single cryptocurrency. The concept 
@@ -261,7 +256,7 @@ solved the quiz question.
         <figcaption>Quite a complicated URL.</figcaption>
     </div>
 
-#### Request
+### Request
 
 If you've followed the construction of the URL closely, we can easily send 
 another request to retrieve market data. This time around it is another `GET`
@@ -299,7 +294,7 @@ print(pepe_history.head())
 
 We are now looking at the daily price history of `Pepe-Cash` in USD.
 
-#### Detour: Visualizations
+### Detour: Visualizations
 
 As a bonus we can plot the price history and try to recreate the price 
 charts seen on various market platforms. This Visualizations section is 
@@ -398,7 +393,7 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
         </iframe>
     </div>
 
-???+ question "Rate conversion to EUR"
+???+ question "Rate conversion to :fontawesome-solid-euro-sign:"
 
     Since the price history is in USD, convert the prices to EUR. Conveniently,
     the API provides an endpoint for current exchange rates. 
@@ -423,7 +418,7 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
     # get exchange rate; your solution ...
     ```
 
-### Conclusion
+## Conclusion
 
 In this end-to-end example, we have seen how to retrieve data from an API, 
 store it in a `DataFrame` and visualize it. With consecutive requests, we 
