@@ -96,7 +96,7 @@ nav:
       - python-extensive/plotting.md  # TODO: plotting with pandas
 
     - Data Acquisition & Export:
-      - python-extensive/DataBasics.md
+      - "Data Basics": python-extensive/DataBasics.md
       - python-extensive/data/retrieval.md  # TODO: practical tips on data retrieval
       - python-extensive/data/export.md  # TODO: how to write files
 
@@ -112,7 +112,7 @@ nav:
     - Data Basics:
       - databasics/Terms.md
       - databasics/Data.md
-      - databasics/DataBasics.md
+      - "Data Basics": databasics/DataBasics.md
 
     - Descriptive Statistics:
       - Univariate Methods:
