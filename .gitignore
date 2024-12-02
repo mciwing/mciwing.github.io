@@ -108,8 +108,8 @@ ENV/
 .idea/
 
 # folders
-data/
-dev/
+/data/
+/dev/
 
 # mkdocs
 /.cache
