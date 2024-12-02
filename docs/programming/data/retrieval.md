@@ -77,7 +77,7 @@ content:
 <p>Correct! The server response you got was actually in the form of a 
 <code>JSON</code> file. 
 This is a common format for APIs to return data. We can easily read the 
-<code>JSON</code> with <code>Python</code>.
+<code>JSON</code> with <code>Python</code> and convert it to a dictionary.
 </p>
 <?/quiz?>
 
@@ -117,7 +117,7 @@ server no data is changed on the server-side. If you have another look at the
 CoinCap API docs you will discover that all endpoints like `/assets`, `/rates`,
 or `/markets` are prefaced by the `GET` method.
 
-Nevertheless, there `GET` is not the only method, there are also `POST`, `PUT`,
+Nevertheless, `GET` is not the only method, there are also `POST`, `PUT`,
 `DELETE`, and `PATCH`. Following table provides a brief overview, but don't 
 worry about these methods too much for now as we will continue solely with 
 `GET` methods.
@@ -136,6 +136,126 @@ worry about these methods too much for now as we will continue solely with
     If you need to revisit the topic of HTTP methods or simply want to dive 
     deeper, [here's](https://restfulapi.net/http-methods/) a great article.
 
-**Validate a response etc**
+### Endpoints continued...
 
-![](https://tokenscan.io/img/cards/PEPECASH.jpg)
+Let's revisit the code snippet from above and extend it. After requesting the 
+`/assets` endpoint we convert the response (the `#!python dict`) into a tabular 
+format in order to process the data more easily.
+
+```python hl_lines="6 7"
+import requests
+
+response = requests.get(url="https://api.coincap.io/v2/assets")
+data = response.json()
+
+print(data.keys())  # print all dictionary keys
+print(data["data"]) # closer look at the value of the "data" key
+```
+
+```title=">>> Output"
+dict_keys(['data', 'timestamp'])
+[{'id': 'bitcoin', 'rank': '1', 'symbol': 'BTC', 'name': 'Bitcoin', ....] 
+```
+
+A closer look at the response reveals that the `#!python dict` is nested. 
+The `data` key is of particular interest, since it contains a list of 
+dictionaries containing information on cryptocurrencies. 
+We can convert this list to a `pandas` `DataFrame`.
+
+```python
+import pandas as pd
+
+data = pd.DataFrame(data["data"])
+print(data.head())
+```
+
+| id       | rank | symbol | name     | ... |
+|----------|------|--------|----------|-----|
+| bitcoin  | 1    | BTC    | Bitcoin  | ... |
+| ethereum | 2    | ETH    | Ethereum | ... |
+| tether   | 3    | USDT   | Tether   | ... |
+| solana   | 4    | SOL    | Solana   | ... |
+| xrp      | 5    | XRP    | XRP      | ... |
+
+???+ info 
+
+    The content of your `DataFrame` can differ slightly as responses 
+    contain the latest data from the server. Since we are dealing with 
+    cryptocurrency market data, changes can occur rapidly.
+
+    Nevertheless, that's the power of APIs as they allow you to 
+    programmatically access up to date information. 🦾
+
+### Query parameters
+
+To continue on our quest to visualize the latest price history of a
+cryptocurrency, we need to settle on a single cryptocurrency. The concept 
+of query parameters is introduced with another practical example.
+
+For the following examples, we will use an emerging (at the time of writing) 
+cryptocurrency called `Pepe` (more of a meme-coin).
+
+<p align="center">
+  <img src="https://tokenscan.io/img/cards/PEPECASH.jpg" alt="Pepe">
+</p>
+
+To get access to the price history of `Pepe`, we need to consult the API 
+documentation and find the appropriate endpoint.
+
+<?quiz?>
+question: Which endpoint provides the market data of a specific cryptocurrency?
+answer: /markets
+answer-correct: /assets/{{id}}/history
+answer: /rates
+answer: /assets - The endpoint we used before already contains the information we need.
+content:
+<p>Exactly, by providing an <code>id</code> of an asset, we can retrieve 
+the price history from the <code>/assets/{{id}}/history</code> endpoint.
+</p>
+<?/quiz?>
+
+With the endpoint name at hand, we can send another request to the server. 
+But first, we need to construct the URL. Expand the code snippet below if you 
+solved the quiz question.
+
+??? info "URL construction"
+
+    ```python
+    api_url = "https://api.coincap.io/v2"
+    coin_id = "pepe"
+    endpoint = f"/assets/{coin_id}/history"
+    query_params = "?interval=d1"  # daily interval
+    
+    url = f"{api_url}{endpoint}{query_params}"
+    ```
+    
+    Let's walk through the URL construction step by step:
+    
+    1. `api_url` is the base URL of the API.
+    2. `coin_id` is the identifier of the cryptocurrency we want to 
+        retrieve data 
+        for. We have already requested all cryptocurrency identifiers with the 
+        `/assets` endpoint. A couple of identifier entries are in the response, 
+        formatted as a table (the `id` column).
+    3. `endpoint` contains the endpoint name we want to access, in this 
+        particular case :fontawesome-solid-arrow-right: `/assets/pepe/history`.
+    4. `query_params` stands for *query parameters* which are additional 
+        parameters that are passed to the server. Think of a `Python` 
+        function with parameters that are used for fine-grained control.
+
+        Query parameters are separated from the URL by a `?`.
+        In this case, we specified `?interval=d1`. `interval` is the 
+        parameter name followed by the value `d1` which stands for daily 
+        price history intervals. Again, with a `Python` function you can think 
+        of `interval=d1` as a named argument.
+    
+        More detailed explanations on both parameters and values are 
+        specified in the API documentation.
+    
+    Finally, we end up with the URL 
+    `#!python "https://api.coincap.io/v2/assets/pepe/history?interval=d1"`
+    
+    <div style="text-align: center;">
+        <iframe src="https://giphy.com/embed/l1Etfpt5pdYl34BuU" width="480" height="360" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-l1Etfpt5pdYl34BuU"></a></p>
+        <figcaption>Quite a complicated URL.</figcaption>
+    </div>
