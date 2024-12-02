@@ -18,7 +18,7 @@ We will pull the latest price history of a specific
 cryptocurrency, perform a conversion from USD to EUR, and plot a 
 line chart to visualize the data.
 
-???+ info "Disclaimer"
+???+ info "<span style='color:red;'>Disclaimer</span>"
     
     This section merely demonstrates APIs on the example of cryptocurrency 
     market data.
@@ -397,3 +397,64 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
         <iframe src="/assets/python-extensive/data/pepe-stylish.html" width="100%" height="450px">
         </iframe>
     </div>
+
+???+ question "Rate conversion to EUR"
+
+    Since the price history is in USD, convert the prices to EUR. Conveniently,
+    the API provides an endpoint for current exchange rates. 
+
+    1. Use the appropriate `/rates/{{id}}` endpoint.
+    2. Use the identifier (`id`) :fontawesome-solid-arrow-right: `euro` for the 
+       endpoint.
+    3. Construct the URL and send a `GET` request.
+    4. Extract the exchange rate from the response.
+    5. Convert `#!python pepe_history["priceUsd"]` to EUR.
+    
+    Start with the given code snippet below.
+
+    ```python
+    import requests
+
+    # get current Pepe price history in USD
+    response = requests.get(url="https://api.coincap.io/v2/assets/pepe-cash/history?interval=d1")
+    pepe_history = pd.DataFrame(response.json()["data"])
+    pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
+
+    # get exchange rate; your solution ...
+    ```
+
+### Conclusion
+
+In this end-to-end example, we have seen how to retrieve data from an API, 
+store it in a `DataFrame` and visualize it. With consecutive requests, we 
+have pulled a list of cryptocurrencies, the price history of a specific 
+coin and even converted the prices to EUR. 
+
+Despite this specific use case, concepts like rate limits, endpoints, request
+methods and query parameters were introduced along the way which are 
+universal to APIs.
+
+???+ info "Apply your knowledge"
+    
+    You should be able to apply your knowledge to other APIs as well. Here 
+    are just a couple of other APIs[^1]:
+    [^1]:
+        Some of these APIs require authentication or are paid services.
+    
+    - [OpenWeatherMap](https://openweathermap.org/api) for weather data
+    - [NASA](https://api.nasa.gov/) from astronomy pictures to earth 
+        observation data
+    - [Google Search](https://developers.google.com/custom-search/v1/overview?hl=de) 
+        access search results programmatically
+    - [Spotify](https://developer.spotify.com/documentation/web-api) access 
+        Spotify's music data
+    - [Instagram](https://developers.facebook.com/docs/instagram-platform) 
+        access Instagram's data
+
+    The possibilities are endless. 🚀
+
+If you want to dive deeper into APIs, we recommend the following resources:
+
+- [HTTP Status Codes](https://developer.mozilla.org/de/docs/Web/HTTP/Status): 
+    Dive deeper into the server responses and their various status codes.
+- [FastAPI](https://fastapi.tiangolo.com/): Build an API yourself with Python
