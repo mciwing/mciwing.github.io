@@ -1,5 +1,9 @@
 # API
 
+<div style="text-align: center;">
+    <img src="/assets/python-extensive/data/api/api-thumbnail.png" alt="API">
+</div>
+
 An application programming interface (API) is a set of rules and protocols
 that allows one software application to interact with another.
 In other words, it is a way to communicate with a server. Some of these
@@ -338,7 +342,7 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
     ```
     
     <div style="text-align: center;">
-        <iframe src="/assets/python-extensive/data/pepe-plotly.html" width="100%" height="450px">
+        <iframe src="/assets/python-extensive/data/api/pepe-plotly.html" width="100%" height="450px">
         </iframe>
     </div>
 
@@ -361,7 +365,7 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
     ```
 
     <div style="text-align: center;">
-        <img src="/assets/python-extensive/data/pepe-matplotlib.svg" alt="Pepe Cash - Price History in USD">
+        <img src="/assets/python-extensive/data/api/pepe-matplotlib.svg" alt="Pepe Cash - Price History in USD">
     </div>
 
 ??? tip "Bonus: Styling the plot"
@@ -397,7 +401,7 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
     ```
 
     <div style="text-align: center;">
-        <iframe src="/assets/python-extensive/data/pepe-stylish.html" width="100%" height="450px">
+        <iframe src="/assets/python-extensive/data/api/pepe-stylish.html" width="100%" height="450px">
         </iframe>
     </div>
 
