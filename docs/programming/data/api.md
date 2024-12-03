@@ -9,9 +9,9 @@ Others require authentication and are therefore paid services.
 To illustrate the practical interaction with APIs, we will retrieve
 cryptocurrency data from the [CoinCap API](https://docs.coincap.io/).
 
-We will pull the latest price history of a specific 
-cryptocurrency, perform a conversion from USD to EUR, and plot a 
-line chart to visualize the data.
+We will pull a list of available cryptocurrencies, the latest price history 
+of a specific coin, plot a line chart to visualize the data and 
+lastly perform a conversion from USD to EUR.
 
 ???+ info "<span style='color:red;'>Disclaimer</span>"
     
@@ -34,13 +34,16 @@ line chart to visualize the data.
 
 During the task, you should have noticed that the API provides information 
 on rate limits. Rate limits are the number of requests that can be made to
-the server in a given time frame. If you exceed the rate limit, the server
-will respond with an error message. In this specific case, we can make up to
-200 requests per minute which is more than enough for our use case.
-These rate limits are set by the provider and can vary from one API to another.
+the server in a given time frame. If you as the user exceed the rate limit, 
+the server will respond with an error message.
+In this specific case, we can make up to 200 requests per minute which is more
+than enough for our use case. These rate limits are set by the provider and 
+can vary from one API to another. Some APIs may not have any rate limits at 
+all.
 
-But how can we request data from the server to retrieve a price history? To 
-answer this question, the concept of endpoints is introduced.
+But how can we even request data from the server to retrieve a list of 
+cryptocurrencies? To answer this question, the concept of endpoints is 
+introduced.
 
 ## Endpoints
 
@@ -65,9 +68,9 @@ the endpoint of our interest.
 
 <?quiz?>
 question: Which Python type does the output of your request most closely resemble?
-answer: A <code>pandas</code> <code>DataFrame</code>
-answer: A simple <code>list</code>
-answer-correct: A simple <code>dictionary</code>
+answer: A pandas DataFrame
+answer: A simple list
+answer-correct: A simple dictionary
 content:
 <p>Correct! The server response you got was actually in the form of a 
 <code>JSON</code> file. 
@@ -96,7 +99,7 @@ response in a variable.
 import requests
 
 response = requests.get(url="https://api.coincap.io/v2/assets")
-data = response.json()  # assign the response (JSON) to a variable
+data = response.json()  # assign the response to a variable
 ```
 
 ???+ question "Validate the above quiz question"
@@ -107,15 +110,13 @@ data = response.json()  # assign the response (JSON) to a variable
 ### Methods
 
 In the above code snippet, we used `requests` `get()` method to send a
-`GET` request to the server. `GET` is solely to retrieve data from the 
-server no data is changed on the server-side. If you have another look at the 
-CoinCap API docs you will discover that all endpoints like `/assets`, `/rates`,
-or `/markets` are prefaced by the `GET` method.
+`GET` request to the server. `GET` solely retrieves data from the 
+server, that is no data is changed on the server-side. If you have another 
+look at the CoinCap API docs you will discover that all endpoints like 
+`/assets`, `/rates`, or `/markets` are prefaced by the `GET` method.
 
 Nevertheless, `GET` is not the only method, there are also `POST`, `PUT`,
-`DELETE`, and `PATCH`. Following table provides a brief overview, but don't 
-worry about these methods too much for now as we will continue solely with 
-`GET` methods.
+`DELETE`, and `PATCH`. Following table provides a brief overview:
 
 | Method | Description                         | `requests` method   |
 |--------|-------------------------------------|---------------------|
@@ -125,6 +126,12 @@ worry about these methods too much for now as we will continue solely with
 | DELETE | Delete data on the server           | `requests.delete()` |
 | PATCH  | Partially update data on the server | `requests.patch()`  |
 
+Don't worry about these methods too much for now as we will continue solely
+with `GET` methods.
+
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" width="350" height="280" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/retro-thumbs-up-XreQmk7ETCak0"></a></p>
+</div>
 
 ???+ info
     
@@ -176,7 +183,7 @@ print(data.head())
 
     The content of your `DataFrame` can differ slightly as responses 
     contain the latest data from the server. Since we are dealing with 
-    cryptocurrency market data, changes can occur rapidly.
+    cryptocurrency market data, changes occur rapidly.
 
     Nevertheless, that's the power of APIs as they allow you to 
     programmatically access up to date information. 🦾
@@ -204,13 +211,13 @@ answer-correct: /assets/{{id}}/history
 answer: /rates
 answer: /assets - The endpoint we used before already contains the information we need.
 content:
-<p>Exactly, by providing an <code>id</code> of an asset, we can retrieve 
+<p>Exactly, by providing a asset <code>id</code>, we can retrieve 
 the price history from the <code>/assets/{{id}}/history</code> endpoint.
 </p>
 <?/quiz?>
 
 With the endpoint name at hand, we can send another request to the server. 
-But first, we need to construct the URL. Expand the code snippet below if you 
+But first, we need to construct the URL. Expand the code snippet below, if you 
 solved the quiz question.
 
 ??? info "URL construction"
@@ -226,18 +233,19 @@ solved the quiz question.
     
     Let's walk through the URL construction step by step:
     
-    1. `api_url` is the base URL of the API.
+    1. `api_url` is the base URL of the API (nothing new here).
     2. `coin_id` :fontawesome-solid-arrow-right: `pepe-cash` is the 
         identifier of the cryptocurrency we want to retrieve data 
-        for. We have already requested all cryptocurrency identifiers with the 
-        `/assets` endpoint. A couple of identifier entries are in the response, 
-        formatted as a table (the `id` column).
+        for. We have already requested all cryptocurrency identifiers like 
+        `bitcoin` or `ethereum` with the `/assets` endpoint. Have another look 
+        at the table [here](#endpoints-continued).
     3. `endpoint` contains the endpoint name we want to access, in this 
         particular case :fontawesome-solid-arrow-right: 
         `/assets/pepe-cash/history`.
-    4. `query_params` stands for *query parameters* which are additional 
+    4. `query_params` stands for ==query parameters== which are additional 
         parameters that are passed to the server. Think of a `Python` 
-        function with parameters that are used for fine-grained control.
+        function with the endpoint being the function name and the query 
+        parameters being the function parameters used for fine-grained control.
 
         Query parameters are separated from the URL by a `?`.
         In this case, we specified `?interval=d1`. `interval` is the 
@@ -263,7 +271,7 @@ another request to retrieve market data. This time around it is another `GET`
 request, however with a query parameter.
 
 ```python
-# construct the URL
+# construct the URL (same as above)
 api_url = "https://api.coincap.io/v2"
 coin_id = "pepe-cash"
 endpoint = f"/assets/{coin_id}/history"
@@ -402,10 +410,12 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
     2. Use the identifier (`id`) :fontawesome-solid-arrow-right: `euro` for the 
        endpoint.
     3. Construct the URL and send a `GET` request.
-    4. Extract the exchange rate from the response.
+    4. Extract the exchange rate from the response. ==Hint:== 
+        This time it is, easier to deal with the `#!python dict` and not 
+        perform a conversion to a `DataFrame`.
     5. Convert `#!python pepe_history["priceUsd"]` to EUR.
     
-    Start with the given code snippet below.
+    Start with the given code snippet below:
 
     ```python
     import requests
