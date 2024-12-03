@@ -154,6 +154,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.keys  # render keyboard shortcuts
   - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
   - pymdownx.tilde
   - footnotes
   - pymdownx.arithmatex:
