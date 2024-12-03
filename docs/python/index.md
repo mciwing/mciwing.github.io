@@ -13,13 +13,13 @@ This crash course will teach you the basics of the
 
 <div style="text-align: center;">
     <img 
-        src="../assets/python/index/lattenspitze-top.gif" alt="lattenspitze code" 
+        src="/assets/python/index/lattenspitze-top.gif" alt="lattenspitze code" 
         style="height: 400px; border-radius:10px;"
     >
 </div>
 <div style="text-align: center;">
     <img 
-        src="../assets/python/index/lattenspitze-bottom.gif" alt="lattenspitze plotly" 
+        src="/assets/python/index/lattenspitze-bottom.gif" alt="lattenspitze plotly" 
         style="height: 400px; border-radius:10px;"
     >
 </div>
