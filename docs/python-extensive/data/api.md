@@ -113,11 +113,11 @@ data = response.json()  # assign the response to a variable
 
 ### Methods
 
-In the above code snippet, we used `requests` `get()` method to send a
-`GET` request to the server. `GET` solely retrieves data from the 
-server, that is no data is changed on the server-side. If you have another 
-look at the CoinCap API docs you will discover that all endpoints like 
-`/assets`, `/rates`, or `/markets` are prefaced by the `GET` method.
+In the above code snippet, we applied `requests` `get()` method.
+The `get` method solely retrieves data from the server, that is no data is 
+changed on the server-side. If you have another look at the CoinCap API docs
+you will discover that all endpoints like `/assets`, `/rates`, or `/markets` 
+are prefaced by the `GET` method.
 
 Nevertheless, `GET` is not the only method, there are also `POST`, `PUT`,
 `DELETE`, and `PATCH`. Following table provides a brief overview:
@@ -209,7 +209,7 @@ To get access to the price history of `Pepe-Cash`, we need to consult the API
 documentation and find the appropriate endpoint.
 
 <?quiz?>
-question: Which endpoint provides the market data of a specific cryptocurrency?
+question: Which endpoint provides the historic market data of a specific cryptocurrency?
 answer: /markets
 answer-correct: /assets/{{id}}/history
 answer: /rates
@@ -230,7 +230,7 @@ solved the quiz question.
     api_url = "https://api.coincap.io/v2"
     coin_id = "pepe-cash"
     endpoint = f"/assets/{coin_id}/history"
-    query_params = "?interval=d1"  # daily interval
+    query_params = "?interval=d1"  # daily interval (if available)
     
     url = f"{api_url}{endpoint}{query_params}"
     ```
@@ -279,7 +279,7 @@ request, however with a query parameter.
 api_url = "https://api.coincap.io/v2"
 coin_id = "pepe-cash"
 endpoint = f"/assets/{coin_id}/history"
-query_params = "?interval=d1"  # daily interval
+query_params = "?interval=d1"  # daily interval (if available)
 
 url = f"{api_url}{endpoint}{query_params}"
 
@@ -304,7 +304,8 @@ print(pepe_history.head())
 | 0.00450507670901954119 | 1703721600000 | 2023-12-28T00:00:00.000Z  |
 | 0.00751113050249688877 | 1703808000000 | 2023-12-29T00:00:00.000Z  |
 
-We are now looking at the daily price history of `Pepe-Cash` in USD.
+We are now looking at the daily (if available) price history of `Pepe-Cash` in 
+USD.
 
 ### Detour: Visualizations
 
@@ -415,7 +416,7 @@ pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
        endpoint.
     3. Construct the URL and send a `GET` request.
     4. Extract the exchange rate from the response. ==Hint:== 
-        This time it is, easier to deal with the `#!python dict` and not 
+        This time it is easier to deal with the `#!python dict` and not 
         perform a conversion to a `DataFrame`.
     5. Convert `#!python pepe_history["priceUsd"]` to EUR.
     
