@@ -3,7 +3,7 @@
 ???+ info "Running the Code"
     This chapter serves as an introduction to the topic of computer vision. Selected tools and methods are listed and their use is demonstrated with the help of code snippets. Even though this is only an introductory chapter and the code does not yet need to be understood, feel free to run the code on your own computer. 
 
-    To follow along, we recommend setting up a new project folder with a Jupyter notebook. Additionally, create a new [virtual environment ](../../docs/python/packages.md#virtual-environments) and **activate** it. [Install the required packages](../../docs/python/packages/#installing-packages):
+    To follow along, we recommend setting up a new project folder with a Jupyter notebook. Additionally, create a new [virtual environment ](../python/packages.md#virtual-environments) and **activate** it. [Install the required packages](../python/packages.md#installing-packages):
 
     ```bash
     pip install torch torchvision matplotlib ultralytics opencv-python scikit-image face-recognition
