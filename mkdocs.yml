@@ -139,7 +139,7 @@ nav:
       - Regression Analysis:
         - statistics/regression/LinearRegression.md
 
-  - Vision: 
+  - Computer Vision: 
     - yolo/index.md
     - yolo/approaches.md
     - yolo/yolo.md

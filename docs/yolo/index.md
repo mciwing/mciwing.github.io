@@ -1,34 +1,44 @@
 # Computer Vision
 
+???+ info
+
+    The `Computer Vision` section is currently under construction. 
+    :fontawesome-solid-person-digging:
+
+    Please check back later for updates.
+
 ???+ info "Running the Code"
-    This chapter serves as an introduction to the topic of computer vision. Selected tools and methods are listed and their use is demonstrated with the help of code snippets. Even though this is only an introductory chapter and the code does not yet need to be understood, feel free to run the code on your own computer. 
+    This chapter serves as an introduction to the topic of computer vision. We'll explore various tasks, demonstrating their use with code snippets. Even though this is just an introductory chapter and you might not grasp all the details yet, we encourage you to run the code on your own computer.
 
     To follow along, we recommend setting up a new project folder with a Jupyter notebook. Additionally, create a new [virtual environment ](../python/packages.md#virtual-environments) and **activate** it. [Install the required packages](../python/packages.md#installing-packages):
 
     ```bash
-    pip install torch torchvision matplotlib ultralytics opencv-python scikit-image face-recognition
+    pip install ultralytics opencv-python pytesseract face-recognition
     ```
 
     Your project structure should look like this:
 
     ```
-    📁 object-detection/
+    📁 computer_vision/
     ├── 📁 .venv/
     ├── 📄 input.jpg
-    └── 📄 object_detection_tutorial.ipynb
+    └── 📄 cv_intro.ipynb
     ```
 
-Computer Vision is a field of artificial intelligence that enables machines to interpret and understand the visual world. By using digital images from cameras and videos and deep learning models, machines can accurately identify and classify objects - and then react to what they "see." This introduction aims to provide an overview of computer vision, its challenges, and its interconnections with other fields.
 
-## What Is Computer Vision?
+Computer Vision is a field of artificial intelligence that enables machines to interpret and understand the visual world. By using digital images from cameras and videos along with deep learning models, machines can accurately identify and classify objects - and then react to what they "see."
 
-Befor we take a closer look at computer vision, we need to introduce artificial intelligence (AI). AI is a broad field that aims to create systems capable of performing tasks that typically require human intelligence. As one of the pioneers of AI, described it:
+In this introduction, we'll delve into the basics of computer vision, its challenges, and how it's interconnected with other fields. Let's embark on this visual journey together!
+
+## What Is Computer Vision? :material-eye:
+
+Before diving into computer vision, let's briefly touch upon artificial intelligence (AI). AI is a broad field aiming to create systems capable of performing tasks that typically require human intelligence. As one of the pioneers of AI, John McCarthy, described it:
 
 > "An attempt will be made to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves."
 >
 > -- *John McCarthy*
 
-Artificial Intelligence is a multidiciplinary field that can be divided into several subfields, each contributing to the overarching goal of simulating intelligent behavior in machines. These subfields include:
+Artificial Intelligence is a multidisciplinary field divided into several subfields, each contributing to simulating intelligent behavior in machines. These include:
 
 - **Machine Learning**
 - **Natural Language Processing**
@@ -36,10 +46,9 @@ Artificial Intelligence is a multidiciplinary field that can be divided into sev
 - **Computer Graphics**
 - **Computer Vision**
 
-
 These subfields are interconnected; advancements in one often benefit the others. For instance, computer vision is essential in robotics for environment perception and in natural language processing for image captioning.
 
-But now we still want to know: **What is computer vision itself?**
+But now we still want to know: **What is computer vision exactly?**
 
 At its core, computer vision seeks to automate tasks that the human visual system can do. It involves techniques for acquiring, processing, analyzing, and understanding images to produce numerical or symbolic information.
 
@@ -53,12 +62,13 @@ At its core, computer vision seeks to automate tasks that the human visual syste
 ???+ tip "Interesting Fact"   
     Did you know, that over 50% of the processing in the human brain is devoted directly or indirectly to visual information (Source: [MIT News](https://news.mit.edu/1996/visualprocessing))
 
-So in other words, computer vision transforms visual data into meaningful information. 
+In other words, computer vision transforms visual data into meaningful information. Now, let's explore some typical computer vision :material-eye: tasks and see how they come to life through examples you can try yourself!
 
 ### Typical Computer Vision Tasks
 
 
-- **Object Classification**: Assigning objects within an image to predefined categories or classes.
+#### Classification
+Assigning objects within an image to predefined categories or classes.
 
 ???+ example "Example: Classification"
 
@@ -92,9 +102,11 @@ So in other words, computer vision transforms visual data into meaningful inform
         ```
 
 
-- **Object Localization**: Determining the exact location of an object within an image.
+#### Localization
+Determining the exact location of an object within an image.
 
-- **Object Detection**: Identifying and locating multiple objects within an image, effectively combining classification and localization.
+#### Detection
+Identifying and locating multiple objects within an image, effectively combining classification and localization.
 
 ???+ example "Example: Detection"
 
@@ -127,7 +139,9 @@ So in other words, computer vision transforms visual data into meaningful inform
         results[0].show()  # display the image
         ```
 
-- **Object Segmentation**: Precisely delineating the pixels that belong to an object, separating it from the background.
+#### Segmentation
+Precisely delineating the pixels that belong to an object, separating it from the background.
+
 ???+ example "Example: Segmentation"
 
     <div class="grid cards" markdown>
@@ -160,9 +174,8 @@ So in other words, computer vision transforms visual data into meaningful inform
         ```
 
 
-
-
-- **Object Tracking**: Monitoring the movement of objects over time in videos or live streams, analyzing factors like velocity and relative position.
+#### Tracking
+Monitoring the movement of objects over time in videos or live streams, analyzing factors like velocity and relative position.
 
 ???+ example "Example: Tracking"
 
@@ -257,7 +270,8 @@ So in other words, computer vision transforms visual data into meaningful inform
         video.release()
         ```
 
-- **Optical Character Recognition (OCR)**: Recognizing and extracting printed or handwritten text from images, enabling machines to read and process written information.
+#### Optical Character Recognition
+Recognizing and extracting printed or handwritten text from images, enabling machines to read and process written information.
 
 ???+ example "Example: OCR"
 
@@ -306,7 +320,8 @@ So in other words, computer vision transforms visual data into meaningful inform
         print(pytesseract.image_to_string(Image.open('scan.png')))
         ```
 
-- **Facial Recognition**: Identifying individuals based on their facial features and recognizing various facial expressions.
+#### Facial Recognition
+Identifying individuals based on their facial features and recognizing various facial expressions.
 
 ???+ example "Example: Facial Recognition"
 
@@ -404,7 +419,8 @@ So in other words, computer vision transforms visual data into meaningful inform
         cv2.imwrite('trump_out.jpg', cv2.cvtColor(rgb_small_frame, cv2.COLOR_BGR2RGB))
         ```
 
-- **Pose Estimation**: Determining the position and orientation of an object or person relative to a reference point or coordinate system.
+####  Pose Estimation
+Determining the position and orientation of an object or person relative to a reference point or coordinate system.
 
 ???+ example "Example: Pose Estimation"
 
@@ -437,7 +453,10 @@ So in other words, computer vision transforms visual data into meaningful inform
         results[0].show()  # display the image
         ```
 
-These categories represent the core tasks in computer vision, each contributing to its wide-ranging real-world applications. From enabling machines to read and understand handwritten documents to enhancing interactive gaming experiences through accurate motion tracking, the advancements in computer vision are transforming industries and everyday life.
+These tasks represent the core of computer vision, each contributing to its wide-ranging real-world applications. From enabling machines to read and understand handwritten documents to enhancing interactive gaming experiences through accurate motion tracking, the advancements in computer vision are transforming industries and everyday life.
+
+And: as you can see, they're not just theoretical concepts - you can try them out yourself :octicons-file-code-16:!
+
 
 ### Applications
 
@@ -447,43 +466,55 @@ Computer vision has a wide range of applications across various industries.
 
     === "Robotics"
 
-        <figure markdown="span"> ![Image title](../assets/yolo/robot.jpg){width=100% } </figure>
+        Robots use computer vision to navigate and interact with their environment.
+
+        <figure markdown="span"> ![Robotics](../assets/yolo/robot.jpg){width=100% } </figure>
 
     === "Autonomous Vehicles"
 
-        <figure markdown="span"> ![Image title](../assets/yolo/auto.jpg){width=100% } </figure>
+        Self-driving cars rely heavily on computer vision to perceive the road and make driving decisions.
 
+        <figure markdown="span"> ![Autonomous Vehicles](../assets/yolo/auto.jpg){width=100% } </figure>
 
     === "Medical"
 
+        Computer vision aids in medical imaging for diagnostics and treatment planning.
+
         <figure markdown="span">
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Model_of_a_segmented_femur_-_journal.pone.0079004.g005.png" style="width: 50%;">
-        <figcaption style="text-align: center;">(Source: Newe A, Ganslandt T on <a href="https://de.wikipedia.org/wiki/Datei:Model_of_a_segmented_femur_-_journal.pone.0079004.g005.png">Wikipedia</a>) </figcaption>
+            <figcaption style="text-align: center;">(Source: Newe A, Ganslandt T on <a href="https://de.wikipedia.org/wiki/Datei:Model_of_a_segmented_femur_-_journal.pone.0079004.g005.png">Wikipedia</a>)</figcaption>
         </figure>
 
     === "Quality Control"
 
+        Automated inspection systems detect defects in manufacturing processes.
+
         <figure markdown="span">
-            <img src="https://www.elunic.com/de/wp-content/uploads/2020/07/Crack-Bounding-Box-2-450x450.png" style="width: 90%;">
-        <figcaption style="text-align: center;">(Source: <a href="https://www.elunic.com/de/showcase/automatisierte-risserkennung/">elunic</a>) </figcaption>
+            <img src="https://www.elunic.com/wp-content/uploads/2020/09/AI-SEE-Mikro-Risserkennung-2-800x664.jpg" style="width: 90%;">
+            <figcaption style="text-align: center;">(Source: <a href="https://www.elunic.com/de/showcase/automatisierte-risserkennung/">elunic</a>)</figcaption>
         </figure>
 
     === "Retail"
 
+        Augmented reality shopping experiences enhance customer engagement.
+
         <figure markdown="span">
             <img src="https://imageio.forbes.com/specials-images/imageserve/60a53427c26131a1df84b6ef/snapchat-ar/960x0.png" style="width: 100%;">
-        <figcaption style="text-align: center;">(Source: SNAP INC via <a href="https://www.forbes.com/sites/lelalondon/2021/05/20/virtual-try-on-is-more-than-a-pandemic-trendand-these-brands-are-reaping-the-rewards/">Forbes</a>) </figcaption>
+            <figcaption style="text-align: center;">(Source: SNAP INC via <a href="https://www.forbes.com/sites/lelalondon/2021/05/20/virtual-try-on-is-more-than-a-pandemic-trendand-these-brands-are-reaping-the-rewards/">Forbes</a>)</figcaption>
         </figure>
 
     === "Facial Recognition"
 
+        Used for security and authentication purposes.
+
         <figure markdown="span">
             <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Face_detection.jpg" style="width: 100%;">
-        <figcaption style="text-align: center;">(Source: Sylenius on <a href="https://commons.wikimedia.org/wiki/File:Face_detection.jpg">Wikipedia</a>) </figcaption>
+            <figcaption style="text-align: center;">(Source: Sylenius on <a href="https://commons.wikimedia.org/wiki/File:Face_detection.jpg">Wikipedia</a>)</figcaption>
         </figure>
 
 
-### How can Machines "See"?
+
+### How can Machines "See"? :eyes:
 
 When we look at the world, our eyes receive light reflected from objects. Similarly, cameras capture light to create images. 
 
@@ -503,13 +534,14 @@ However, interpreting these images to understand the scene involves complex algo
 
 
 ### Challenges in Computer Vision
+Despite the advancements, computer vision faces several challenges. Let's explore them.
 
 <div class="grid cards" markdown>
 
 -   __Inverse Problem__ 
 
     --- 
-    One of the fundamental challenges in computer vision is the inverse problem: reconstructing a 3D scene from a 2D image. Since multiple 3D scenes can produce the same 2D projection, the problem is ill-posed.
+    One of the fundamental challenges in computer vision is the inverse problem: Reconstructing a 3D scene from a 2D image is challenging because multiple 3D scenes can produce the same 2D projection.
 
 -   <figure markdown="span">
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Ames_room_forced_perspective.jpg" style="width: 100%;">
@@ -591,3 +623,11 @@ However, interpreting these images to understand the scene involves complex algo
     </figure>
 
 </div>
+
+By understanding these challenges, you're better equipped to appreciate the complexities involved in teaching machines to see.
+
+---
+
+Congratulations! You've taken your first steps into the world of computer vision. Feel free to experiment with the code examples provided and explore further. In the next chapters, we'll delve deeper into specific algorithms and techniques.
+
+See you in the next chapter! 👋
