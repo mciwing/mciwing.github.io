@@ -97,8 +97,10 @@ nav:
 
     - Data Acquisition & Export:
       - "Data Basics": python-extensive/DataBasics.md
-      - python-extensive/data/retrieval.md  # TODO: practical tips on data retrieval
-      - python-extensive/data/export.md  # TODO: how to write files
+      - "Data Acquisition":
+        - python-extensive/data/tabular.md  # TODO: practical tips on data retrieval
+        - python-extensive/data/api.md
+        - python-extensive/data/export.md  # TODO: how to write files
 
     - Graphical User Interface:
       - python-extensive/oop.md  # TODO: objet oriented programming
@@ -148,6 +150,7 @@ plugins:
       enabled: !ENV [ENABLE_GIT_COMMITTERS, true]
   - table-reader
   - include-markdown
+  - mkdocs_quiz
 
 markdown_extensions:
   - attr_list
@@ -166,6 +169,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.keys  # render keyboard shortcuts
   - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
   - pymdownx.tilde
   - footnotes
   - pymdownx.arithmatex:
