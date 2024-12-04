@@ -144,7 +144,6 @@ nav:
     - yolo/approaches.md
     - yolo/yolo.md
     - Image Processing:
-      - yolo/image/index.md
       - yolo/image/detection.md
       - yolo/image/segmentation.md
       - yolo/image/kp-extraction.md
