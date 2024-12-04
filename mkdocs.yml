@@ -24,39 +24,98 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/mciwing
-copyright: 2024 - MCI Wing
-
+copyright:
+  MCI | Industrial Engineering & Management<br>
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 
+    - Manuel Ferdik, Jakob Klotz
 nav:
   - Home: index.md
-
-  - Data Basics:
-    - databasics/Terms.md
-    - databasics/Data.md
-    - databasics/DataBasics.md
 
   - Python Crash Course:
     - python/index.md
     - python/installation.md
     - python/ide.md
     - python/variables.md
+
     - Types:
       - python/types/strings.md
       - python/types/numbers.md
       - python/types/bool_and_none.md
+
     - python/comparisons_and_logic.md
+
     - Containers:
       - python/containers/list.md
       - python/containers/dict.md
       - python/containers/tuple.md
+
     - Control Structures:
       - python/control-structures/for.md
       - python/control-structures/if.md
+
     - python/functions.md
     - python/packages.md
     - python/pandas.md
 
+  - Python Extensive Course:
+    - python-extensive/index.md  # TODO: remove if all materials are finished
+
+    - Basics & Data Types:
+      - "Motivation": python-extensive/python-index.md  # TODO: rework specific mentions on the Crash Course
+
+      - Setup:
+        - python-extensive/installation.md
+        - "IDE": python-extensive/ide.md
+
+      - python-extensive/variables.md
+
+      - Types:
+        - python-extensive/types/strings.md
+        - python-extensive/types/numbers.md
+        - python-extensive/types/bool_and_none.md
+
+    - Logic & Containers:
+      - python-extensive/comparisons_and_logic.md
+
+      - Containers:
+        - python-extensive/containers/list.md
+        - python-extensive/containers/dict.md
+        - python-extensive/containers/tuple.md
+
+    - Control Structures & Functions:
+      - Control Structures:
+        - python-extensive/control-structures/for.md
+        - python-extensive/control-structures/if.md
+
+      - python-extensive/functions.md  # TODO: methods vs. functions; variable scope
+
+    - Dev Tools & Data Handling:
+      - python-extensive/packages.md
+      - python-extensive/pandas.md # TODO: emphasis on loading files; reading docs;
+      # more in-depth about pandas functionalities
+      - python-extensive/plotting.md  # TODO: plotting with pandas
+
+    - Data Acquisition & Export:
+      - "Data Basics": python-extensive/DataBasics.md
+      - "Data Acquisition":
+        - python-extensive/data/tabular.md  # TODO: practical tips on data retrieval
+        - python-extensive/data/api.md
+        - python-extensive/data/export.md  # TODO: how to write files
+
+    - Graphical User Interface:
+      - python-extensive/oop.md  # TODO: objet oriented programming
+      - python-extensive/gui.md  # TODO: graphical user interfaces
+
+    - python-extensive/git.md  # TODO: Bonus chapter on Git
+
   - Statistics:
     - statistics/index.md
+
+    - Data Basics:
+      - databasics/Terms.md
+      - databasics/Data.md
+      - "Data Basics": databasics/DataBasics.md
+
     - Descriptive Statistics:
       - Univariate Methods:
         - statistics/univariate/Frequency.md
@@ -78,10 +137,8 @@ nav:
         - statistics/hypothesis/Ttest.md
         - statistics/hypothesis/ANOVA.md
       - Regression Analysis:
-        - statistics/regression/General.md
         - statistics/regression/LinearRegression.md
-        - statistics/regression/MultipleRegression.md
-        - statistics/regression/HigherRegression.md
+
   - Vision: 
     - yolo/index.md
     - yolo/approaches.md
@@ -110,7 +167,11 @@ plugins:
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
+      enabled: !ENV [ENABLE_GIT_COMMITTERS, true]
   - table-reader
+  - include-markdown
+  - mkdocs_quiz
+
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -128,6 +189,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.keys  # render keyboard shortcuts
   - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
   - pymdownx.tilde
   - footnotes
   - pymdownx.arithmatex:

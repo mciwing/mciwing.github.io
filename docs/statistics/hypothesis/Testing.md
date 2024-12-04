@@ -185,5 +185,5 @@ Examples of Statistical Tests:
 
 - [t-test](../../statistics/hypothesis/Ttest.md): Compares the means of two groups relative to the variability within the groups.
 - [ANOVA](../../statistics/hypothesis/ANOVA.md): Analyzes differences among group means in a sample.
-- [Regression Analysis](../../statistics/regression/General.md): Assesses the relationship between variables, considering residual variability.
+- [Regression Analysis](../../statistics/regression/LinearRegression.md): Assesses the relationship between variables, considering residual variability.
 
