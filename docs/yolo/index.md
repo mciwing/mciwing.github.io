@@ -1,5 +1,23 @@
 # Computer Vision
 
+???+ info "Running the Code"
+    This chapter serves as an introduction to the topic of computer vision. Selected tools and methods are listed and their use is demonstrated with the help of code snippets. Even though this is only an introductory chapter and the code does not yet need to be understood, feel free to run the code on your own computer. 
+
+    To follow along, we recommend setting up a new project folder with a Jupyter notebook. Additionally, create a new [virtual environment ](../../docs/python/packages.md#virtual-environments) and **activate** it. [Install the required packages](../../docs/python/packages/#installing-packages):
+
+    ```bash
+    pip install torch torchvision matplotlib ultralytics opencv-python scikit-image face-recognition
+    ```
+
+    Your project structure should look like this:
+
+    ```
+    📁 object-detection/
+    ├── 📁 .venv/
+    ├── 📄 input.jpg
+    └── 📄 object_detection_tutorial.ipynb
+    ```
+
 Computer Vision is a field of artificial intelligence that enables machines to interpret and understand the visual world. By using digital images from cameras and videos and deep learning models, machines can accurately identify and classify objects - and then react to what they "see." This introduction aims to provide an overview of computer vision, its challenges, and its interconnections with other fields.
 
 ## What Is Computer Vision?
@@ -573,134 +591,3 @@ However, interpreting these images to understand the scene involves complex algo
     </figure>
 
 </div>
-
-
-## Approaches in Computer Vision
-To tackle those complex problems, over the years, various approaches have been developed.
-
-### Traditional Approaches in Object Detection
-
-Before the rise of deep learning, object detection relied heavily on handcrafted features and traditional machine learning techniques.
-
-- **Haar Cascades**: Introduced by Viola and Jones in 2001, Haar-like features were used for rapid face detection by scanning an image at multiple scales and positions.
-???+ example "Example: Haar Cascades"
-    
-    <figure markdown="span"> ![Image title](../assets/yolo/output_haar_cascade.jpg){width=70% } </figure>
-
-    ??? code "Code"
-    
-        ``` py
-        #Source: https://medium.com/analytics-vidhya/haar-cascades-explained-38210e57970d
-
-        #-- Load Packages
-        import cv2
-        from skimage import data
-
-        #-- Load Image and Convert to RGB
-        image = data.astronaut()
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Convert to RGB
-
-        #-- Load Haar Cascades
-        f_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        e_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
-
-        #-- Detect Faces and Eyes
-        faces = f_cascade.detectMultiScale(image, 1.3, 5)
-        for (x,y,w,h) in faces:
-            img = cv2.rectangle(image,(x,y),(x+w,y+h),(255,0,0),2)
-            roi_color = img[y:y+h, x:x+w]
-            eyes = e_cascade.detectMultiScale(roi_color)
-            for (ex,ey,ew,eh) in eyes:
-                cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
-
-        #-- Display and Save Image
-        cv2.imwrite('output_haar_cascade.jpg',image)
-        cv2.imshow('Haar Cascade',image)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-        ```
-
-- **Histogram of Oriented Gradients (HOG)**: Proposed for human detection, HOG features capture edge orientations and are combined with Support Vector Machines (SVMs) for classification.
-???+ example "Example: HOG"
-    
-    <figure markdown="span"> ![Image title](../assets/yolo/output_hog.jpg){width=70% } </figure>
-
-    ??? code "Code"
-    
-        ``` py
-        #Source: https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_hog.html
-
-        #-- Load Packages
-        import cv2
-        from skimage.feature import hog
-        from skimage import data, exposure
-
-        #-- Load Image
-        image = data.astronaut()
-
-        #-- Compute HOG
-        fd, hog_image = hog(
-            image,
-            orientations=8,
-            pixels_per_cell=(16, 16),
-            cells_per_block=(1, 1),
-            visualize=True,
-            channel_axis=-1,
-        )
-        # Rescale histogram for better display
-        hog_image= exposure.rescale_intensity(hog_image, in_range=(0, 10))
-        hog_image = cv2.normalize(hog_image, dst=None, alpha=0, beta=255,norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
-
-        #-- Display and Save Image
-        cv2.imwrite('output_hog.jpg',hog_image)
-        cv2.imshow('HOG',hog_image)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-        ```
-    
-If you want to learn more about Haar Cascades and HOG, look [here](https://medium.com/@goutam0157/haar-cascade-classifier-vs-histogram-of-oriented-gradients-hog-6f4373ca239b)
-
-
-
-### Deep Learning Approaches
-The advent of deep learning revolutionized computer vision by enabling models to learn features directly from data. Convolutional Neural Networks (CNNs) can automatically learn hierarchical feature representations from images, eliminating the need for manual feature extraction.
-
-**ImageNet Challenge**: In 2012, AlexNet significantly reduced error rates in image classification, demonstrating the power of CNNs.
-
-Extending CNNs to object detection led to the development of region-based methods that combine localization and classification.
-
-#### Multi-Stage Object Detection
-
-- R-CNN (Regions with CNN Features)
-- Fast R-CNN
-- Faster R-CNN
-
-#### One-Stage Object Detection
-- SSD (Single Shot MultiBox Detector)
-- YOLO
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-yolo vs ssd
-https://keylabs.ai/blog/yolov8-vs-ssd-choosing-the-right-object-detection-model/
-
-ssd
-https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab
-https://developers.arcgis.com/python/latest/guide/how-ssd-works/
-
-rcnn vs fast-rcnn vs faster-rcnn vs yolo
-https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e
-
-faster-rcnn vs yolo vs ssd
-https://medium.com/ibm-data-ai/faster-r-cnn-vs-yolo-vs-ssd-object-detection-algorithms-18badb0e02dc
-https://pro.arcgis.com/en/pro-app/latest/tool-reference/image-analyst/object-detection.htm
-
-
-
-### Limitations of Previous Methods
-
-Despite advancements, these methods faced challenges:
-
-- **Complex Pipelines**: Multiple stages increased system complexity and potential error points.
-- **Speed vs. Accuracy Trade-off**: Achieving real-time performance often meant sacrificing detection accuracy.
-- **Resource Demands**: High computational and memory requirements limited deployment on devices with constrained resources.
