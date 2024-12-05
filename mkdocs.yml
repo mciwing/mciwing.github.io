@@ -139,6 +139,13 @@ nav:
       - Regression Analysis:
         - statistics/regression/LinearRegression.md
 
+  - Data Science:
+      - data-science/index.md
+
+      - Data Preparation & Preprocessing:
+        - data-science/data/preparation.md  # TODO: merge files and drop duplicates
+        - data-science/data/preprocessors.md  # TODO: different transformations
+
   - Computer Vision: 
     - yolo/index.md
     - yolo/approaches.md
