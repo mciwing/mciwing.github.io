@@ -101,7 +101,7 @@ Getting started with YOLO is straightforward. You can use the Ultralytics implem
     📁 computer_vision/
     ├── 📁 .venv/
     ├── 📁 pics/
-    └── 📄 yolo_image.ipynb
+    └── 📄 your_files.ipynb
     ```
 
 2. Install the required packages:

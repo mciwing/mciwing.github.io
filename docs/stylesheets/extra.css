@@ -89,3 +89,7 @@
     -webkit-mask-image: var(--md-admonition-icon--disadv);
             mask-image: var(--md-admonition-icon--disadv);
   }
+
+.center-button {
+    text-align: center;
+}
