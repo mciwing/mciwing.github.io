@@ -4,7 +4,7 @@
 
 ???+ info
 
-    Starting with this chapter, we will work with data from:
+    Starting with this chapter, we will work with ^^adapted data^^ from:
     
     ^^S. Moro, P. Cortez and P. Rita (2014). *A Data-Driven Approach to 
     Predict the Success of Bank Telemarketing*[^1]^^
@@ -106,7 +106,7 @@ couple of things to break down:
 Let's read the second file :fontawesome-solid-arrow-right: `bank-social.csv`.
 
 <?quiz?>
-question: Open the file `bank-social.csv` with your text editor. Which separator is used in the file?
+question: Open the file <code>bank-social.csv</code> with your text editor. Which separator is used in the file?
 answer: : (colon)
 answer: None, it is not a valid csv file.
 answer-correct: ; (semicolon)
@@ -118,4 +118,80 @@ content:
 ???+ question "Read the second file"
     
     Simply read the second file (`bank-social.csv`) with `pd.read_csv()` 
-    and specify the appropriate seperator.
+    and specify the appropriate seperator. Store the `DataFrame` in a 
+    variable called `data_social`.
+
+## Merge data
+
+Now, with both files in memory, let's examine them closer in order to 
+perform a merge.
+
+=== "`print(data.head())`"
+
+       | id | age | default | housing | ... | cons.conf.idx | euribor3m | nr.employed | y  |
+       |----|-----|---------|---------|-----|---------------|-----------|-------------|----|
+       | 1  | 30  | no      | yes     | ... | -46.2         | 1.313     | 5099.1      | no |
+       | 2  | 39  | no      | no      | ... | -36.4         | 4.855     | 5191.0      | no |
+       | 3  | 25  | no      | yes     | ... | -41.8         | 4.962     | 5228.1      | no |
+       | 4  | 38  | no      | unknown | ... | -41.8         | 4.959     | 5228.1      | no |
+       | 5  | 47  | no      | yes     | ... | -42.0         | 4.191     | 5195.8      | no |
+
+      The rows represent customers and the columns are features of the 
+      customers. The column `y` indicates whether a customer subscribed to a 
+      term deposit or not. Customers are uniquely identified by the `id` 
+      column.
+
+=== "`print(data_social.head())`"
+
+      | id   | job           | marital | education           |
+      |------|---------------|---------|---------------------|
+      | 2178 | technician    | married | professional.course |
+      | 861  | blue-collar   | single  | professional.course |
+      | 3020 | technician    | married | professional.course |
+      | 2129 | self-employed | married | basic.9y            |
+      | 3201 | blue-collar   | married | basic.9y            |
+
+      Again, each row represents a customer (uniquely identified with `id`).
+      The remaining columns `job`, `marital`, and `education` are social
+      attributes.
+
+---
+
+Let's examine the shape of both `DataFrame`s as well.
+
+```python
+print(f"Shape of data: {data.shape}; Shape of data_social: {data_social.shape}")
+```
+
+```title=">>> Output"
+Shape of data: (4530, 18); Shape of data_social: (4304, 4)
+```
+
+The output indicates that `data` contains more observations (customers) than
+`data_social`. This is a common scenario in real-world data and one has to 
+find the fitting method to merge both data sets.
+
+### Join/merge methods
+
+To combine both data sets we will use the `#!python pd.DataFrame.merge()` 
+method to
+
+> Merge DataFrame or named Series objects with a database-style join
+> 
+> -- <cite>[pandas documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)</cite>
+
+Looking at the `how` parameter we are presented with 5 (!) different options 
+to perform a merge. The most common ones are:
+
+- `#!python "left"`
+- `#!python "right"`
+- `#!python "inner"`
+- `#!python "outer"`
+
+<div style="text-align: center;">
+ <iframe src="https://giphy.com/embed/kaq6GnxDlJaBq" width="218" height="240" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chloe-concerned-kaq6GnxDlJaBq"></a></p>
+ <figcaption style="text-align: center;">
+      And now what?!
+ </figcaption>
+
+</div>
