@@ -59,15 +59,15 @@ like this:
 
 ???+ question "Open the files"
 
-    Before we start, open the files simply with a text editor
-    to get a first impression of the data. Scroll through both files and 
-    read a couple of rows to get acquainted with the data.
+    Before we start, simply open the files with a text editor.
+    Scroll through both files and read a couple of rows to get acquainted with 
+    the data.
 
 ## Read the files
 
-Since we are obviously dealing with two files, we need to read them both 
-with `Python` :fontawesome-brands-python:. At the end of this section we 
-want to end up with a single (clean!) data set.
+Since we are obviously dealing with two rather large files, we opt to read 
+them with `Python` :fontawesome-brands-python:. At the end of this section
+we end up with a single (clean!) data set.
 
 ???+ info
     
@@ -95,7 +95,7 @@ couple of things to break down:
    are separated by a tab character (`\t`). The fact that we are dealing 
    with a tab-separated file is indicated by the file extension `.tsv` and 
    the space surrounding the values within the file.
-2. Although we do not have a `csv` file at hand `pandas` is versatile enough 
+2. Although we do not have a `csv` file at hand, `pandas` is versatile enough 
    to handle different separators. 
    Thus, we can utilize the `#!python pd.read_csv()` function to read the 
    file. ==Tip==: All sorts of text files can be usually read with 
@@ -118,10 +118,10 @@ content:
 ???+ question "Read the second file"
     
     Simply read the second file (`bank-social.csv`) with `pd.read_csv()` 
-    and specify the appropriate seperator. Store the `DataFrame` in a 
+    and specify the appropriate separator. Store the `DataFrame` in a 
     variable called `data_social`.
 
-## Merge data
+## Duplicated data
 
 Now, with both files in memory, let's examine them closer in order to 
 perform a merge.
@@ -168,10 +168,52 @@ Shape of data: (4530, 18); Shape of data_social: (4304, 4)
 ```
 
 The output indicates that `data` contains more observations (customers) than
-`data_social`. This is a common scenario in real-world data and one has to 
-find the fitting method to merge both data sets.
+`data_social`. However, first and foremost it is good practice to check 
+for duplicated data.
 
-### Join/merge methods
+```python
+# check for duplicated rows
+print(data.duplicated().sum())
+```
+
+```title=">>> Output"
+np.int64(411)
+```
+
+`data` contains `#!python 411` duplicated rows. These can be removed easily:
+
+```python
+data = data.drop_duplicates()
+```
+
+???+ question "Check for duplicates"
+    
+    Check for duplicates in `data_social` and remove them if necessary.
+
+<?quiz?>
+question: How many duplicates were present in <code>data_social</code>?
+answer: None
+answer: 3760
+answer: 411
+answer-correct: 376
+content:
+<p><code>data_social</code> had 376 duplicated rows.</p>
+<?/quiz?>
+
+???+ info "A note on `#!python pd.DataFrame.drop_duplicates()`"
+        
+    By default, the method `#!python pd.DataFrame.drop_duplicates()` removes
+    all duplicated rows. However, you can pass an argument to `subset` in 
+    order to remove duplicates based on specific columns. For example, if we 
+    want to drop duplicates based on the `id` column, we can do so by:
+    
+    ```python
+    data_social = data_social.drop_duplicates(subset=["id"])
+    ```
+
+    `subset` can also be all list of multiple columns.
+
+### Merge methods
 
 To combine both data sets we will use the `#!python pd.DataFrame.merge()` 
 method to
