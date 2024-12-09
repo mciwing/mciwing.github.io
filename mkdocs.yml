@@ -143,7 +143,7 @@ nav:
       - data-science/index.md
 
       - Data Preparation & Preprocessing:
-        - data-science/data/preparation.md  # TODO: merge files and drop duplicates
+        - data-science/data/preparation.md
         - data-science/data/preprocessors.md  # TODO: different transformations
 
   - Computer Vision: 
