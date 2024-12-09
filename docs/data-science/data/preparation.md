@@ -213,7 +213,7 @@ content:
 
     `subset` can also be all list of multiple columns.
 
-### Merge methods
+## Merge methods
 
 To combine both data sets we will use the `#!python pd.DataFrame.merge()` 
 method to
@@ -237,3 +237,47 @@ to perform a merge. The most common ones are:
  </figcaption>
 
 </div>
+
+In order to be able to choose the appropriate method, we need to break them 
+down:
+
+![Merge types](../../assets/data-science/data/merge-types.png)
+
+- **Left join**: The resulting `DataFrame` will contain all rows from the 
+  left `DataFrame` (data 1) and the matched rows from the right `DataFrame` 
+  (data 2).
+- **Right join**: The resulting `DataFrame` will contain all rows from the 
+  right `DataFrame` (data 2) and the matched rows from the left `DataFrame` 
+  (data 1).
+- **Inner join**: The resulting `DataFrame` will contain only the rows that 
+  have matching values in both `DataFrame`s.
+- **Outer join**: The resulting `DataFrame` will contain all rows from both 
+  `DataFrame`s.
+
+Since we are interested in customer data that is present in both data sets,
+we opt for an `#!python "inner"` merge (or join). Additionally, we need to pass
+a column name to the parameter `on` that is present in both data sets and can 
+be used to match the rows. Conveniently, we have the `id` column which uniquely
+identifies a customer. Long story short, the merge is as simple as:
+
+```python
+data_merged = data.merge(data_social, on="id", how="inner")
+```
+
+Let's examine the shape of the merged data set.
+
+```python
+print(f"Shape of data_merged: {data_merged.shape}")
+```
+
+```title=">>> Output"
+Shape of data_merged: (3928, 21)
+```
+
+We end up with `#!python 3928` customers that are present in both data sets.
+Lastly, we can write the merged data set to a new file. Let's use a common 
+format :fontawesome-solid-arrow-right: `csv` with the default `,` as separator.
+
+```python
+data_merged.to_csv("data/bank-merged.csv", index=False)
+```
