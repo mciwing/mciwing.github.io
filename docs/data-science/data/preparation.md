@@ -139,7 +139,8 @@ perform a merge.
       The rows represent customers and the columns are features of the 
       customers. The column `y` indicates whether a customer subscribed to a 
       term deposit or not. Customers are uniquely identified by the `id` 
-      column.
+      column. Later on, we will have a closer look at the attributes when 
+      modelling the data.
 
 === "`print(data_social.head())`"
 
@@ -281,3 +282,11 @@ format :fontawesome-solid-arrow-right: `csv` with the default `,` as separator.
 ```python
 data_merged.to_csv("data/bank-merged.csv", index=False)
 ```
+
+## Recap
+
+Using the bank marketing data, we have seen how to find and remove duplicated 
+data, explored different merge methods and ended up with a single data set.
+
+In the next chapter, we will explore this data further, look for missing 
+values and perform some basic data transformations.
