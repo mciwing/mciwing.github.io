@@ -59,8 +59,7 @@ Now, restart VSCode.
 Next, we create a new file to execute our first Python code. 
 To do so, we use [Jupyter notebooks](https://jupyter.org/).
 Jupyter notebooks are basically composed of cells. A cell can either contain 
-code or text. However, first, we have to set up our first notebook. We will cover
-the notebooks in the next [section](#more-on-jupyter-notebooks) in more detail.
+code or text. However, first, we have to create our first notebook.
 
 Hence, we first select a folder in which we want to save our work. We go to 
 *`File`* :fontawesome-solid-arrow-right: *`Open Folder`* and choose a folder.
