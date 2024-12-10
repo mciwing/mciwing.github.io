@@ -283,6 +283,12 @@ format :fontawesome-solid-arrow-right: `csv` with the default `,` as separator.
 data_merged.to_csv("data/bank-merged.csv", index=False)
 ```
 
+With `#!python index=False`, we do ==not==
+
+> Write row names (index).
+> 
+> -- <cite>[pandas `to_csv()` docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)</cite>
+
 ## Recap
 
 Using the bank marketing data, we have seen how to find and remove duplicated 
