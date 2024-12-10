@@ -223,7 +223,7 @@ There are multiple ways to save the resulting image.
         results = model_det(picpath, save=True)
         ```
 
-        Unless other specified, the file will be saved in a new folder `📁 runs/detect/predict/`. Use the argument `save_dir='your/custom/path'` to specify a differnt folder.
+        Unless other specified, the file will be saved in a new folder `📁 runs/detect/predict/`. Use the argument `save_dir='your/custom/path'` to specify a different folder.
 
     === "Option 2: openCV"
         When you install `ultralytics` the package `opencv-python` will be installed automatically as dependency. `openCV` is a powerful tool for image and video processing and can also be used for saving the image
