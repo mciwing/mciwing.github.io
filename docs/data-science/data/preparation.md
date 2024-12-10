@@ -221,7 +221,7 @@ method to
 
 > Merge DataFrame or named Series objects with a database-style join
 > 
-> -- <cite>[pandas documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)</cite>
+> -- <cite>[pandas `merge()`docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)</cite>
 
 Looking at the `how` parameter we are presented with 5 (!) different options 
 to perform a merge. The most common ones are:
@@ -255,11 +255,100 @@ down:
 - **Outer join**: The resulting `DataFrame` will contain all rows from both 
   `DataFrame`s.
 
-Since we are interested in customer data that is present in both data sets,
-we opt for an `#!python "inner"` merge (or join). Additionally, we need to pass
-a column name to the parameter `on` that is present in both data sets and can 
-be used to match the rows. Conveniently, we have the `id` column which uniquely
-identifies a customer. Long story short, the merge is as simple as:
+
+### Perform merges
+
+To get further acquainted with merge methods, we simply perform them all.
+But first, we need to pick a column which uniquely identifies a row (customer)
+in both data sets. Conveniently, we have the `id` column. Regardless
+of the merge we perform, the parameter `on` requires a column to match the 
+rows (in our case we set `#!python on="id"`).
+
+```python
+left_join = data.merge(data_social, on="id", how="left")
+right_join = data.merge(data_social, on="id", how="right")
+inner_join = data.merge(data_social, on="id", how="inner")
+outer_join = data.merge(data_social, on="id", how="outer")
+```
+
+#### A closer look
+
+To comprehend on of these merges, have a look at the resulting shape and the 
+identifiers the `DataFrame` contains. Let's examine the `right_join`:
+
+```python
+equal_nrows = len(data_social) == len(right_join)
+print(f"Merged data has the same number of rows as data_social: {equal_nrows}")
+
+all_ids_present = data_social["id"].isin(right_join["id"]).all()
+print(f"All identifiers from data_social are present? {all_ids_present}")
+```
+
+```title=">>> Output"
+Merged data has the same number of rows as data_social: True
+All identifiers from data_social are present? True
+```
+
+A breakdown of the code snippet:
+
+1. `equal_nrows` indicates that all rows from `data_social` are present in 
+   `right_join`.
+
+    ???+ info
+    
+        `#!python len(data_social)` is equivalent to 
+        `#!python data_social.shape[0]`.
+
+2. To verify that `right_join` contains all identifiers of `data_social`, 
+   we make use of the `#!python pd.Series.isin()` method. This method checks 
+   whether each element of a `Series` is contained in another `Series`.
+
+    ???+ info
+    
+        `#!python pd.Series.all()` returns `#!python True` if all elements in 
+        the `Series` are `#!python True`.
+    
+???+ question "Counter check"
+
+    Extend, the previous code snippet:
+
+    1. Do the number of rows from `data` and `right_join` match?
+    2. Are all identifiers from `data` present in `right_join`?
+
+Our examinations should conclude that `right_join` contains all 
+rows/customer data from `data_social` and solely the matching records 
+from `data`.
+
+---
+
+???+ question "Examine remaining merges"
+
+    Look at the shapes of the remaining merges (`left_join`, 
+    `inner_join`, `outer_join`) to get a better understanding of the
+    different merge methods and its results.
+    
+    Compare the shape of each merge with the shapes of `data` and 
+    `data_social`.
+    
+### Final merge (application)
+
+With a solid understanding of different merge methods, we revisit our 
+initial task to join both data sets. But how can we choose the appropriate 
+method? The short answer; it depends on your data and task at hand. 
+There is no method that fits all scenarios.
+
+<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/13oxtqs/sql_explained/">SQL Explained</a><br> by<a href="https://www.reddit.com/user/UnorthodoxPrimitive/">u/UnorthodoxPrimitive</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+
+Since we are eventually fitting a machine learning model on the data, we are 
+interested in customer data that is present in both data sets. I.e., we 
+want to prevent the introduction of additional missing values that would 
+result from an outer join. Furthermore, a left join would leave us with missing
+attributes from `social_data`. The same applies to a right join, just vice 
+versa.
+
+Long story short, we opt for an `#!python "inner"` merge (or join) which 
+leaves us with only the customers that are present in both data sets. The 
+final merge is as simple as:
 
 ```python
 data_merged = data.merge(data_social, on="id", how="inner")
@@ -288,6 +377,15 @@ With `#!python index=False`, we do ==not==
 > Write row names (index).
 > 
 > -- <cite>[pandas `to_csv()` docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)</cite>
+
+<div style="text-align: center;">
+
+    <iframe src="https://giphy.com/embed/3oKIPf3C7HqqYBVcCk" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/reactionseditor-3oKIPf3C7HqqYBVcCk"></a></p>
+    <figcaption>
+        Congratulations! 🎉 You have finally completed your quest to merge the
+        data.
+    </figcaption>
+</div>
 
 ## Recap
 
