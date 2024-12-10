@@ -139,6 +139,12 @@ nav:
       - Regression Analysis:
         - statistics/regression/LinearRegression.md
 
+  - Data Science:
+      - data-science/index.md
+
+      - Data Preparation & Preprocessing:
+        - data-science/data/preparation.md
+
   - Computer Vision: 
     - yolo/index.md
     - yolo/approaches.md
@@ -168,6 +174,7 @@ plugins:
       repository: mciwing/mciwing.github.io
       branch: main
       enabled: !ENV [ENABLE_GIT_COMMITTERS, true]
+      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
   - table-reader
   - include-markdown
   - mkdocs_quiz
