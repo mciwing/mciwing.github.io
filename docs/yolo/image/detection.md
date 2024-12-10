@@ -85,7 +85,7 @@ Now we can take a closer look at the different parts of the output:
 - Information about the image:
     - `image 1/1 c:\path\to\pics\pic2.jpg: 448x640`
 
-        This includes the path to the image and the image size YOLO uses for the detection (this ist not the original image size)
+        This includes the path to the image and the image size YOLO uses for the detection (this is not the original image size)
 
     - `shape (1, 3, 448, 640)`
 
