@@ -144,7 +144,7 @@ print(result)
     ```
 
 
-Now, that we are familiar with the results, we can write a little function to print a more detailes overview:
+Now, that we are familiar with the results, we can write a little function to print a more detailed overview:
 
 ```py
 def print_overview(result): 
