@@ -9,7 +9,7 @@ We start with the project structur from [before](../yolo.md#installation-and-set
     ├── 📁 pics/
     └── 📄 yolo_image.ipynb
 ```
-Make sure the virutal environment (here `.venv`) is selected and all needed packages (`ultralytics`) are installed. 
+Make sure the virtual environment (here `.venv`) is selected and all needed packages (`ultralytics`) are installed. 
 
 Now we can download our test pictures, extract the ZIP file and save it in the `📁 pics/` folder.
 
