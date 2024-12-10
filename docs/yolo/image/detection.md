@@ -49,7 +49,7 @@ Fortunately, so that we don't have to start from scratch, there are already pre-
 
 ### Running the Detection
 
-Based on these pretrained model, to detect objects in an image with YOLO, only a few lines of code are required:
+Based on these pretrained models, to detect objects in an image with YOLO, only a few lines of code are required:
 
 ```py
 # Import required librarys
