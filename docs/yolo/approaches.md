@@ -183,7 +183,7 @@ Deep learning models, particularly Convolutional Neural Networks (CNNs), automat
 
 ### Multi-Stage Object Detection
 
-Multi-stage object detection approaches break down the detection problem into sequential steps, typically starting with region proposals followed by classification. This methodology emerged from the need to combine localization and classification effectively. Let's explore some key models in this category.
+Multi-stage object detection approaches the detection problem in sequential steps, typically starting with region proposals followed by classification. This methodology emerged from the need to combine localization and classification effectively. Let's explore some key models in this category.
 
 #### R-CNN
 R-CNN, introduced in 2014, was a breakthrough in applying deep learning to object detection. It follows a three-step process:
