@@ -22,7 +22,7 @@ Now we can download our test pictures, extract the ZIP file and save it in the `
 
 Now we are all set for our first detection 🎉
 
-We will start with the picture `pic2.jpg` which is quite challenging to due motion blur. 
+We will start with the picture `pic2.jpg` which is quite challenging due to motion blur. 
 
 <figure markdown="span"> ![Detection](../../assets/yolo/input_detect.jpg){width=50% } </figure>
 
