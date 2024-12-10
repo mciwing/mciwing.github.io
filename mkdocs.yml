@@ -144,7 +144,6 @@ nav:
 
       - Data Preparation & Preprocessing:
         - data-science/data/preparation.md
-        - data-science/data/preprocessors.md  # TODO: different transformations
 
   - Computer Vision: 
     - yolo/index.md
