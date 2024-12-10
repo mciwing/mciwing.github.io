@@ -183,18 +183,16 @@ Deep learning models, particularly Convolutional Neural Networks (CNNs), automat
 
 ### Multi-Stage Object Detection
 
-Multi-stage detectors involve multiple steps to detect objects within images. They generally consist of generating region proposals and then classifying these proposals. Let's explore some key models in this category.
+Multi-stage object detection approaches the detection problem in sequential steps, typically starting with region proposals followed by classification. This methodology emerged from the need to combine localization and classification effectively. Let's explore some key models in this category.
 
-#### R-CNN 
-R-CNN is an object detection algorithm that combines region proposals with Convolutional Neural Networks (CNNs). 
+#### R-CNN
+R-CNN, introduced in 2014, was a breakthrough in applying deep learning to object detection. It follows a three-step process:
 
 ???+ process
 
-    - Generating Possible Object Areas (Region Proposals): The algorithm starts by scanning the image to find areas that might contain an object. It creates a bunch of boxes (called region proposals) that potentially surround objects in the image. Think of it as highlighting all the spots where something interesting might be.
-    - Analyzing Each Region with a CNN: Each of these proposed boxes is then analyzed individually using a Convolutional Neural Network (CNN). The CNN examines the contents of each box to determine if it contains an object and identifies what that object is (like a cat, dog, car, etc.).
-
-    In simple terms, R-CNN first guesses where objects could be in an image by proposing regions, and then it uses deep learning (CNNs) to look closely at each guessed area to see if an object is actually there and what type it is.
-
+    1. **Region Proposal**: The algorithm starts by scanning the image to find areas that might contain an object. It creates a bunch of boxes (called region proposals) that potentially surround objects in the image. Think of it as highlighting all the spots where something interesting might be.
+    2. **Feature Extraction**: Each proposed region is warped to a fixed size and passed through a pre-trained CNN (often AlexNet at the time) to extract a feature vector.
+    3. **Classification**: The extracted features are fed into Support Vector Machines (SVMs) to classify the presence of objects in each region. A separate regression model refines the bounding box coordinates.
 
 
 <figure markdown="span">
@@ -216,13 +214,13 @@ R-CNN is an object detection algorithm that combines region proposals with Convo
 
 #### Fast R-CNN
 
-Fast R-CNN is an improved version of the R-CNN algorithm designed to detect objects in images more efficiently.
+Fast R-CNN, published in 2015, addressed several inefficiencies of R-CNN while maintaining its accuracy. Key improvements include:
 
 ???+ process
 
-    - Processing the Whole Image at Once: Unlike R-CNN, which processes each potential object region individually, Fast R-CNN feeds the entire image through a Convolutional Neural Network (CNN) just one time. This generates a detailed feature map of the whole image, capturing important visual information.
-    - Region of Interest (ROI) Pooling: Fast R-CNN uses a special technique called ROI pooling. This method takes the feature map and extracts fixed-size feature representations for each proposed region where an object might be. Essentially, it "zooms in" on each region of interest within the feature map and reshapes it into a uniform size that the network can process.
-
+    1. **Single CNN Pass**: Instead of running the CNN thousands of times on each region proposal, Fast R-CNN processes the entire image once to create a feature map, then projects the region proposals onto this map.
+    2. **RoI Pooling**: This layer transforms regions of different sizes into fixed-size feature vectors efficiently, enabling end-to-end training.
+    3. **Multi-task Learning**: The network simultaneously predicts object class probabilities and bounding box coordinates, eliminating the need for separate SVM classifiers
 
 <figure markdown="span">
     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200219160147/fast-RCNN1-1024x416.png" style="width: 100%;">
@@ -243,13 +241,20 @@ Fast R-CNN is an improved version of the R-CNN algorithm designed to detect obje
 
 #### Faster R-CNN
 
-Faster R-CNN integrates the region proposal mechanism into the network using a Region Proposal Network (RPN), allowing for nearly cost-free region proposals by sharing convolutional features with the detection network.
+Faster R-CNN, also from 2015, introduced the Region Proposal Network (RPN), making the entire object detection pipeline trainable end-to-end. This architecture consists of two main networks:
 
 ???+ process 
 
-    - Region Proposal Network (RPN): Faster R-CNN introduces a new component called the Region Proposal Network directly into the neural network. Instead of using a separate algorithm to suggest where objects might be in the image, the RPN quickly generates these proposals as part of the network's operations.
-
-    - Sharing Computations: Both the RPN (which proposes potential object regions) and the part of the network that classifies these regions use the same underlying data from the image. In other words, they share the same convolutional features extracted from the image. This means the heavy processing of the image is done only once, and both tasks use this shared information.
+    1. **Region Proposal Network** (RPN):
+        - Slides a small network over the CNN feature map
+        - At each location, predicts multiple potential object regions using anchor boxes
+        - Outputs "objectness" scores and box coordinates for each proposal
+    2. **Detection Network**:
+        - Similar to Fast R-CNN
+        - Uses RoI Pooling on proposals from RPN
+        - Outputs final classifications and refined box coordinates
+    
+    Both the RPN (which proposes potential object regions) and the part of the network that classifies these regions use the same underlying data from the image. In other words, they share the same convolutional features extracted from the image. This means the heavy processing of the image is done only once, and both tasks use this shared information.
 
 
 <figure markdown="span">
@@ -363,11 +368,11 @@ Faster R-CNN integrates the region proposal mechanism into the network using a R
 
 ### One-Stage Object Detection
 
-One-stage detectors perform detection in a single, unified network without separate region proposal steps. This results in faster inference suitable for real-time applications.
+One-stage detectors aim to predict object classes and bounding boxes directly from image pixels in a single network forward pass, without the region proposal step. This approach trades some accuracy for significant speed improvements.
 
 #### SSD 
 
-SSD is a one-stage object detection model that performs object localization and classification in a single forward pass of the network, using default boxes of different scales and aspect ratios.
+SSD, introduced in 2016, is a one-stage object detection model that performs object localization and classification in a single forward pass of the network, using default boxes of different scales and aspect ratios.
 
 ???+ process 
 
