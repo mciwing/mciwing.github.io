@@ -139,5 +139,37 @@ essential to have a good understanding of the data. Let's get more
 familiarized with the data.
 
 Visit the UCI Machine Learning Repository 
-[here](https://archive.ics.uci.edu/dataset/222/bank+marketing) which hosts the 
-data set and some additional information.
+[here](https://archive.ics.uci.edu/dataset/222/bank+marketing) which also 
+hosts the data set and some additional information. Interestingly, the section 
+*Dataset Information* states:
+
+> **Has Missing Values?**
+>
+> No
+
+Although that might be technical correct (the data contains no empty values), 
+we have to dig deeper.
+
+???+ question "Detect the encoding of missing values"
+    
+    Open the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/222/bank+marketing).
+    Look at the *Variables Table*. How are the missing values encoded in the 
+    data set?
+
+    Use the following quiz question to validate your answer.
+
+    Remember, the bigger picture :fontawesome-solid-arrow-right:
+    get familiar with the data, to train the best possible model to predict 
+    the target variable `y` (subscribed to term deposit).
+
+<?quiz?>
+question: How are missing values encoded in this specific data set?
+answer-correct: "unknown"
+answer: -1
+answer: "NA"
+answer: 999
+content:
+<p>Correct, the label "unknown" is used for missing values. Nominal attributes 
+like <u>occupation</u>, <u>marital status</u> and ordinal attributes for 
+example <u>education</u> contain "unknown" values.</p>
+<?/quiz?>
