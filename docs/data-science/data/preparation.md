@@ -43,8 +43,10 @@
 
 Let's dive right in and download both files:
 
+<div class="center-button" markdown>
 [Bank Marketing :fontawesome-solid-download:](../../assets/data-science/data/bank.tsv){ .md-button }
 [Bank Marketing Social Features :fontawesome-solid-download:](../../assets/data-science/data/bank-social.csv){ .md-button }
+</div>
 
 Place the files in a new folder called `data`. Your project now should look 
 like this:
