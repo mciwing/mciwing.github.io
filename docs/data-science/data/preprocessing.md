@@ -67,3 +67,77 @@ we provide a distilled version of the code from
 
 Again, we urge you to use a virtual environment which by now, should be second 
 nature anyway.
+
+## Missing values
+
+After dropping duplicates and merging the data, the next step is to check 
+for missing values. First, we read the data.
+
+```python
+import pandas as pd
+
+data = pd.read_csv("preprocessing/bank-merged.csv")
+```
+
+We chain a couple of methods to count the missing values in each column.
+
+```python
+print(data.isna().sum())
+```
+
+The `#!python isna()` method checks each element and whether it is a missing 
+value or not. The result is a `DataFrame` with boolean values of the same 
+shape as the initial `DataFrame` (in our case `data`), with `#!python True` 
+being a missing value. With the addition of `#!python sum()` we simply sum the 
+`#!python True` values (missing values) for each column.
+
+A truncated version of the output is shown below:
+
+
+| Column      | Missing Values |
+|-------------|----------------|
+| id          | 0              |
+| age         | 0              |
+| default     | 0              |
+| housing     | 0              |
+| loan        | 0              |
+| contact     | 0              |
+| ...         | ...            |
+
+
+It seems like the columns have no missing values. To sum missing values of 
+the whole `DataFrame`, we can chain another `#!python sum()`.
+
+```python
+print(data.isna().sum().sum())
+```
+
+The output once more indicates that the whole data set has `#!python 0` 
+missing values. So far so good, but this is not the end of the story (who 
+saw that coming 🤯).
+
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/aWPGuTlDqq2yc" width="480" height="254" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/celebrity-reshuffle-aWPGuTlDqq2yc"></a></p>
+    <figcaption>
+        Plot twist...
+    </figcaption>
+</div>
+
+Although, it seems like we don't have to bother with missing values, they 
+are simply a bit more hidden.
+
+### Missing values in disguise
+
+`pandas` considers types like `#!python None` or `#!python np.nan` as 
+missing. However in practice, missing values are encoded in various ways.
+For instance, strings like `#!python "NA"` or integers like `#!python -999` 
+are used. Consequently, we can't detect these ways of encoding with 
+simply calling `#!python isna()`.
+
+Since we have to manually detect these encoded missing values, it is 
+essential to have a good understanding of the data. Let's get more 
+familiarized with the data.
+
+Visit the UCI Machine Learning Repository 
+[here](https://archive.ics.uci.edu/dataset/222/bank+marketing) which hosts the 
+data set and some additional information.
