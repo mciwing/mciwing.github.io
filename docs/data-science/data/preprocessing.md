@@ -313,6 +313,11 @@ values is called imputation.
 There are various imputation techniques available, each with its own
 advantages and disadvantages.
 
+##### Fill manually
+
+Of course, there is always the option to fill the values manually which 
+could be time-consuming and infeasible for large data sets.
+
 ##### Global constant
 
 The simplest way to impute missing values is to replace them with a global
@@ -330,3 +335,38 @@ some drawbacks:
   nominal/ordinal and numerical attributes)
 
 ##### Central tendency
+
+Another common approach is to replace missing values with the mean, median,
+or mode of the respective column.
+
+Fill a nominal attribute with the mode:
+
+```python
+job_mode = data["job"].mode()
+print(job_mode)
+
+data["job"] = data["job"].fillna(job_mode[0])
+```
+
+```title=">>> Output"
+0    admin.
+```
+
+Fill a numerical attribute with the mean:
+
+```python
+age_mean = data["age"].mean()
+print(age_mean)
+
+data["age"] = data["age"].fillna(age_mean)
+```
+
+```title=">>> Output"
+np.float64(40.1433299389002)
+```
+
+???+ info
+
+    Since the bank data does not contain any numerical attribute with 
+    missing values, the above code snippet assumed gaps in *age*. As there 
+    are none, the operation did not change the data. 
