@@ -93,17 +93,17 @@ being a missing value. With the addition of `#!python sum()` we simply sum the
 
 A truncated version of the output is shown below:
 
-
-| Column      | Missing Values |
-|-------------|----------------|
-| id          | 0              |
-| age         | 0              |
-| default     | 0              |
-| housing     | 0              |
-| loan        | 0              |
-| contact     | 0              |
-| ...         | ...            |
-
+| Column    | Missing Values |
+|-----------|----------------|
+| id        | 0              |
+| age       | 0              |
+| default   | 0              |
+| housing   | 0              |
+| ...       | ...            |
+| job       | 0              |
+| marital   | 0              |
+| education | 0              |
+| ...       | ...            |
 
 It seems like the columns have no missing values. To sum missing values of 
 the whole `DataFrame`, we can chain another `#!python sum()`.
@@ -173,3 +173,76 @@ content:
 like <u>occupation</u>, <u>marital status</u> and ordinal attributes for 
 example <u>education</u> contain "unknown" values.</p>
 <?/quiz?>
+
+### Missing values uncovered
+
+Now that we now the encoding of missing values, we replace them with 
+`#!python None` to properly detect them and handle them more easily.
+
+???+ question "Replace encoding with `#!python None`"
+    
+    Since, you've detected the particular encoding of missing values, replace 
+    them with `#!python None` across the whole data frame.
+    
+    Use the `DataFrame.replace()` method and read the 
+    [docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html), 
+    especially the *Examples* section for usage guidance.
+
+Again, let's sum up the missing values per column.
+
+```python
+print(data.isna().sum())
+```
+
+A truncated version of the output:
+
+| Column    | Missing Values |
+|-----------|----------------|
+| id        | 0              |
+| age       | 0              |
+| default   | 760            |
+| housing   | 97             |
+| ...       | ...            |
+| job       | 35             |
+| marital   | 11             |
+| education | 161            |
+| ...       | ...            |
+
+At first glance, a lot of columns contain missing values. Let's calculate 
+the ratio to get a better feeling.
+
+```python hl_lines="4"
+count_missing = data.isna().sum()
+n_rows = len(data)
+
+missing_ratio = (count_missing / n_rows) * 100
+print(missing_ratio.round(2))
+```
+
+| Column    | Missing Values (%) |
+|-----------|--------------------|
+| id        | 0.00               |
+| age       | 0.00               |
+| default   | 19.35              |
+| housing   | 2.47               |
+| ...       | ...                |
+| job       | 0.89               |
+| marital   | 0.28               |
+| education | 4.10               |
+| ...       | ...                |
+
+Compared to the initial observation where we found `#!python 0` 
+missing values across the whole data set, it's a stark contrast.
+
+Looking at the attribute *default*, nearly a fifth of the observations are 
+missing (19.35 %). Other attributes contain less, yet we still need to handle 
+them. Therefore, we explore different strategies to deal with missing values.
+
+???+ info
+
+    Though it might not seem much, being able to detect these missing values 
+    will prove invaluable in the future.
+
+    By identifying and properly handling these gaps, we might be able to 
+    train a better fitting model as unaddressed missing values can lead to 
+    biased predictions.
