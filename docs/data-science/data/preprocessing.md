@@ -245,4 +245,88 @@ them. Therefore, we explore different strategies to deal with missing values.
 
     By identifying and properly handling these gaps, we might be able to 
     train a better fitting model as unaddressed missing values can lead to 
-    biased predictions.
+    biased predictions. Most importantly, most algorithms can't handle 
+    missing values at all.
+
+### Sources
+
+We have extensively covered how to detect missing values but have not 
+talked about their possible origins.
+
+The reasons for missing values can be manifold:
+
+- Data collection issues
+    - Non-responses in a survey
+    - Equipment failures
+    - Simple human errors when entering data
+- Technical challenges
+    - Preprocessing errors (i.e., merging data sets from multiple sources)
+- Intentional omissions
+    - Privacy concerns or legal restrictions
+
+... or the information is simply not available.
+
+### Drop columns/rows
+
+One simple way to handle missing values is to drop (i.e. remove) the 
+respective columns which contain any missing values.
+
+```python
+data_dropped = data.dropna(axis=1)
+```
+
+`#!python axis=1` specified the columns to be dropped.
+
+To comprehend the impact of this operation, we calculate the number of 
+columns that were removed.
+
+```python
+print(data.shape[1] - data_dropped.shape[1])
+```
+This operation removed `#!python 6` out of `#!python 21` columns/attributes. 
+
+???+ question "Remove rows with missing values"
+
+    Contrary, we can leave all columns and instead drop the rows containing 
+    missing values.
+
+    1. Use the [`DataFrame.dropna()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html)
+    method to remove rows with missing values.
+    2. Calculate the number of rows that were removed.
+
+Depending on the data at hand, dropping rows or columns might be a valid 
+option if you're dealing with a small number of missing values. However, in 
+other cases these operations might lead to a significant loss of information.
+Since, we are dealing with a substantial amount of missing values, we are 
+looking for more sophisticated ways to handle them.
+
+### Imputation techniques
+
+What about filling in the missing values? The process of replacing missing 
+values is called imputation.
+
+![](../../assets/data-science/data/imputation.gif)
+<figcaption style="text-align: center;">
+    Data imputation
+</figcaption>
+
+There are various imputation techniques available, each with its own
+advantages and disadvantages.
+
+##### Global constant
+
+The simplest way to impute missing values is to replace them with a global
+constant, i.e., filling gaps across ^^all^^ columns with the same value.
+
+```python
+data_filled = data.fillna("no")
+```
+
+This method is straightforward and easy to implement. However, there are 
+some drawbacks:
+
+- how to choose the global constant?
+- introduces further challenges with mixed attributes (i.e., 
+  nominal/ordinal and numerical attributes)
+
+##### Central tendency
