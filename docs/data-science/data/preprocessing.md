@@ -384,3 +384,63 @@ Linear regression, k-nearest neighbors, or decision trees are common choices.
     [this](https://scikit-learn.org/stable/auto_examples/impute/plot_missing_values.html)
     scikit-learn comparison of imputation techniques (including k-nearest 
     neighbors) is a good starting point for further exploration.
+
+## Transformation
+
+Step by step, we are getting closer to actually train a machine learning 
+model. Beforehand, we introduce data transformations that are commonly applied
+to improve the fit of the model.
+
+For starters, install the `scikit-learn` package within your activated 
+environment.
+
+```bash
+pip install scikit-learn
+```
+
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/xT5LMxAxpGSb5AZt8A" width="480" height="362" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-5-the-simpsons-5x8-xT5LMxAxpGSb5AZt8A"></a></p>
+    <figcaption>
+        <code>scikit-learn</code> the swiss-army knife for data 
+        preprocessing and machine learning in Python.
+    </figcaption>
+</div>
+
+From now on, we will heavily use `scikit-learn`'s functionalities.
+
+### Discretize numerical attributes
+
+When dealing with noisy data, it is often beneficial to discretize 
+numerical (continuous) attributes. This process is also known as binning. 
+
+???+ "Noise in data"
+
+    Noise is a random error or variance in a measured variable. It is 
+    meaningless information that can distort the data.
+    
+    Noise can be identified using basic statistical methods and 
+    visualization techniques like boxplots or scatter plots.
+
+As an example, we pick the attribute *age* and visualize it with a boxplot.
+
+<div style="text-align: center;">
+    <iframe src="/assets/data-science/data/age-boxplot.html" width="350px" height="500px">
+    </iframe>
+</div>
+
+??? tip "Create a static boxplot"
+
+    To create a static version of the boxplot, perfect for a quick overview:
+      
+    ```python
+    import matplotlib.pyplot as plt
+    
+    data["age"].plot(kind="box")  # (1)!
+    plt.show()
+    ```
+    
+    1.  The `#!python plot()` method uses `matplotlib` as backend.
+  
+    <div style="text-align: center;">
+        <img src="/assets/data-science/data/age-boxplot.svg" alt="Age boxplot">
+    </div>
