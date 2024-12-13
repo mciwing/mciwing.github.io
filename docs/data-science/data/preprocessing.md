@@ -411,7 +411,7 @@ From now on, we will heavily use `scikit-learn`'s functionalities.
 ### Discretize numerical attributes
 
 When dealing with noisy data, it is often beneficial to discretize 
-numerical (continuous) attributes. This process is also known as binning. 
+numerical (continuous) attributes.
 
 ???+ "Noise in data"
 
@@ -420,6 +420,10 @@ numerical (continuous) attributes. This process is also known as binning.
     
     Noise can be identified using basic statistical methods and 
     visualization techniques like boxplots or scatter plots.
+
+The process of discretizing is called binning. I.e., the continuous data 
+is separated into intervals (bins).
+Bins can generally lead to a smoothing effect which in turn reduce the noise.
 
 As an example, we pick the attribute *age* and visualize it with a boxplot.
 
@@ -444,3 +448,43 @@ As an example, we pick the attribute *age* and visualize it with a boxplot.
     <div style="text-align: center;">
         <img src="/assets/data-science/data/age-boxplot.svg" alt="Age boxplot">
     </div>
+
+Since, *age* contains outliers, we discretize the attribute *age* into five 
+^^equal^^ sized bins.
+
+```python
+from sklearn.preprocessing import KBinsDiscretizer
+
+bins = KBinsDiscretizer(n_bins=5, strategy="uniform", encode="ordinal")
+bins.fit(data[["age"]])
+bins.transform(data[["age"]])
+```
+
+Though the actual binning is just two three lines of code, we have a couple of 
+things to dissect.
+
+???+ tip "Working with `scikit-learn`"
+
+    Although the package is named `scikit-learn`, it is imported as 
+    `#!python import sklearn`. Package names on 
+    [PyPI (Python Package Index)](../../python/packages.md/#pypi)
+    can be different from the import name.
+
+    ---
+
+    `scikit-learn` frequently uses classes (e.g., `KBinsDiscretizer`)
+    to represent different models and preprocessing techniques. Two important 
+    methods that many of these classes implement are `fit` and `transform`.
+
+    - `#!python fit(X)`: This method is used to learn the parameters from the 
+    data (referred to as `X`). 
+    
+    - `#!python transform(X)`: This method is used to apply the learned 
+    parameters to the data :fontawesome-solid-arrow-right: `X`.
+
+    Put simply, think about the `#!python fit(X)` method as scikit-learn takes 
+    a look at the data and learns from it. The `#!python transform(X)` 
+    method then transfers this knowledge and applies it to the data.
+
+    The `#!python fit_transform()` method combines both of these steps in one.
+
