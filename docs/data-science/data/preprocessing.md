@@ -450,15 +450,21 @@ As an example, we pick the attribute *age* and visualize it with a boxplot.
     </div>
 
 Since, *age* contains outliers, we discretize the attribute *age* into five 
-^^equal^^ sized bins.
+bins with the same width. For example five bins with a width of 20 years 
+(0-20, 20-40, 40-60, 60-80, 80-100).
 
 ```python
 from sklearn.preprocessing import KBinsDiscretizer
 
 bins = KBinsDiscretizer(n_bins=5, strategy="uniform", encode="ordinal")
 bins.fit(data[["age"]])
-bins.transform(data[["age"]])
+bins.transform(data[["age"]])  # (1)!
 ```
+
+1.  The additional square brackets in `#!python data[["age"]]` are used to 
+    select the column *age* as a `DataFrame` (instead of a `Series`). 
+    This is necessary for the `#!python transform()` method as a 
+    two-dimensional input is required.
 
 Though the actual binning is just two three lines of code, we have a couple of 
 things to dissect.
@@ -487,4 +493,20 @@ things to dissect.
     method then transfers this knowledge and applies it to the data.
 
     The `#!python fit_transform()` method combines both of these steps in one.
+
+
+Alternatively, use `#!python strategy="quantile"` to bin the data based on
+quantiles and thus create bins with the same number of observations.
+
+```python
+bins = KBinsDiscretizer(n_bins=5, strategy="quantile", encode="ordinal")
+bins.fit_transform(data[["age"]])
+```
+
+No matter the strategy `#!python "uniform"` or `#!python "quantile"`, a 
+matrix is returned with the
+
+> bin identifier encoded as an integer value.
+> 
+> [`KBinsDiscretizer` docs](https://scikit-learn.> org/stable/modules/generated/sklearn.preprocessing.KBinsDiscretizer.html)
 
