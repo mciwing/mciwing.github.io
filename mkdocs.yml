@@ -16,6 +16,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - content.code.copy
+    - content.code.annotate
     - navigation.footer
     - navigation.top  # 'back to top' button on scrolling
     - header.autohide
