@@ -370,3 +370,17 @@ np.float64(40.1433299389002)
     Since the bank data does not contain any numerical attribute with 
     missing values, the above code snippet assumed gaps in *age*. As there 
     are none, the operation did not change the data. 
+
+#### Machine Learning
+
+Lastly, we can use machine learning algorithms to predict the missing values.
+The idea is to estimate the missing values based on the other attributes. 
+Linear regression, k-nearest neighbors, or decision trees are common choices.
+
+???+ info
+
+    As we have not covered machine learning yet, we won't get into the details.
+    But feel free to return to this section. Especially, 
+    [this](https://scikit-learn.org/stable/auto_examples/impute/plot_missing_values.html)
+    scikit-learn comparison of imputation techniques (including k-nearest 
+    neighbors) is a good starting point for further exploration.
