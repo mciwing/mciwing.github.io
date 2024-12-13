@@ -510,3 +510,105 @@ matrix is returned with the
 > 
 > [`KBinsDiscretizer` docs](https://scikit-learn.> org/stable/modules/generated/sklearn.preprocessing.KBinsDiscretizer.html)
 
+### Normalization
+
+Normalization is a common preprocessing step to scale the data to a standard
+range, which can improve the performance and training stability of machine
+learning models. Two popular normalization techniques are Min-Max normalization
+and Z-score normalization.
+
+#### Min-Max Normalization
+
+Min-Max normalization scales the data to a fixed range, usually [0, 1].
+
+???+ defi "Definition: Min-Max Normalization"
+
+    \[
+    X' = \frac{X - X_{min}}{X_{max} - X_{min}}
+    \]
+
+    where \(X\) is the original value, \(X_{min}\) is the minimum value of the 
+    feature, and \(X_{max}\) is the maximum value of the feature.
+
+This technique is useful when you want to ensure that all features have the 
+same scale without distorting differences in the ranges of values.
+
+To illustrate the normalization, we use the attribute *euribor3m* (3 month
+Euribor rate).
+
+> Euribor is short for Euro Interbank Offered Rate. The Euribor rates are based
+> on the average interest rates at which a large panel of European banks borrow
+> funds from one another.
+> 
+> [euribor-rates.eu](https://www.euribor-rates.eu/en/)
+
+```python
+from sklearn.preprocessing import MinMaxScaler
+
+print(f"X_min: {data['euribor3m'].min()}, X_max: {data['euribor3m'].max()}")
+
+scaler = MinMaxScaler()
+scaler.fit(data[["euribor3m"]])
+scaled = scaler.transform(data[["euribor3m"]])
+print(f"Min: {scaled.min()}, Max: {scaled.max()}")
+```
+
+```title=">>> Output"
+X_min: 0.635, X_max: 4.97
+
+[[0.15640138]
+ [0.97347174]
+ [0.99815456]
+ ...
+ [0.16585928]
+ [0.99907728]
+ [0.80392157]]
+ 
+Min: 0.0, Max: 1.0
+```
+
+???+ question "Normalization of new data"
+
+    Assume new data is added:
+    
+    ```python
+    new_data = pd.DataFrame({"euribor3m": [0.5, 5.0, 2.5]})
+    ```
+    We would like to transform these three new interest rates using the Min 
+    Max normalization.
+    Remember that the `MinMaxScaler` was already fitted on the original 
+    data with \(X_{min}=0.635\) and \(X_{max}=4.97\).
+
+    Answer the following quiz question. Look at the formula again and try 
+    to answer the question without executing code.
+
+<?quiz?>
+question: What happens if you call <code>transform(new_data)</code>?
+answer: An error is raised, since the new data has not been fitted.
+answer: The new data is normalized.
+answer-correct: The normalization works, but the range [0, 1] is not preserved.
+content:
+<p>Correct, since the newly added Euribor rates of 0.5 and 5.0, are lower or 
+higher than the previous minimum and maximum respectively, the normalization 
+will not preserve the range [0, 1], i.e. resulting in the normalized values:
+<br>
+<code>[[-0.03114187], [1.00692042], [0.43021915]]</code>
+<p>
+<?/quiz?>
+
+#### Z-Score Normalization
+
+Z-score normalization, also known as standardization, scales the data based on
+the mean and standard deviation of an attribute. 
+
+???+ defi "Definition: Z-Score Normalization"
+
+    \[
+    X' = \frac{X - \mu}{\sigma}
+    \]
+
+    where \(\mu\) is the mean of the feature and \(\sigma\) is the standard 
+    deviation.
+
+This technique centers the data around zero with a standard deviation of one, 
+which is useful for algorithms that assume the data is normally distributed.
