@@ -19,9 +19,7 @@
         Decision Support Systems, Volume 62, June 2014, Pages 22-31:
         [https://doi.org/10.1016/j.dss.2014.03.001](https://doi.org/10.1016/j.dss.2014.03.001)
 
-    Check-out the excellent [scikit-learn documentation](https://scikit-learn.org/stable/),
-    especially [6.3 Preprocessing data](https://scikit-learn.org/stable/modules/preprocessing.html)
-    which this section is based on.
+    Check-out the excellent [scikit-learn documentation](https://scikit-learn.org/stable/).
 
 ## Prerequisites
 
@@ -68,6 +66,10 @@ we provide a distilled version of the code from
 Again, we urge you to use a virtual environment which by now, should be second 
 nature anyway.
 
+???+ info "Create a new notebook"
+
+    To follow along, create a new Jupyter notebook within your project.
+
 ## Missing values
 
 After dropping duplicates and merging the data, the next step is to check 
@@ -76,7 +78,7 @@ for missing values. First, we read the data.
 ```python
 import pandas as pd
 
-data = pd.read_csv("preprocessing/bank-merged.csv")
+data = pd.read_csv("data/bank-merged.csv")
 ```
 
 We chain a couple of methods to count the missing values in each column.
@@ -88,7 +90,7 @@ print(data.isna().sum())
 The `#!python isna()` method checks each element and whether it is a missing 
 value or not. The result is a `DataFrame` with boolean values of the same 
 shape as the initial `DataFrame` (in our case `data`), with `#!python True` 
-being a missing value. With the addition of `#!python sum()` we simply sum the 
+being a missing value. With the chaining of `#!python sum()` we simply sum the 
 `#!python True` values (missing values) for each column.
 
 A truncated version of the output is shown below:
@@ -159,8 +161,9 @@ we have to dig deeper.
     Use the following quiz question to validate your answer.
 
     Remember, the bigger picture :fontawesome-solid-arrow-right:
-    get familiar with the data, to train the best possible model to predict 
-    the target variable `y` (subscribed to term deposit).
+    by getting more familiar with the data, we can train a better fitting 
+    model to predict the target variable `y` (subscribed to term deposit or 
+    not).
 
 <?quiz?>
 question: How are missing values encoded in this specific data set?
@@ -170,13 +173,13 @@ answer: "NA"
 answer: 999
 content:
 <p>Correct, the label "unknown" is used for missing values. Nominal attributes 
-like <u>occupation</u>, <u>marital status</u> and ordinal attributes for 
-example <u>education</u> contain "unknown" values.</p>
+like <u>occupation</u>, <u>marital status</u> and ordinal attributes, for 
+example <u>education</u>, contain "unknown" values.</p>
 <?/quiz?>
 
 ### Missing values uncovered
 
-Now that we now the encoding of missing values, we replace them with 
+Now that we uncovered the encoding of missing values, we replace them with 
 `#!python None` to properly detect them and handle them more easily.
 
 ???+ question "Replace encoding with `#!python None`"
@@ -188,7 +191,7 @@ Now that we now the encoding of missing values, we replace them with
     [docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.replace.html), 
     especially the *Examples* section for usage guidance.
 
-Again, let's sum up the missing values per column.
+After solving the question, we (again) sum up the missing values per column.
 
 ```python
 print(data.isna().sum())
@@ -235,8 +238,9 @@ Compared to the initial observation where we found `#!python 0`
 missing values across the whole data set, it's a stark contrast.
 
 Looking at the attribute *default*, nearly a fifth of the observations are 
-missing (19.35 %). Other attributes contain less, yet we still need to handle 
-them. Therefore, we explore different strategies to deal with missing values.
+missing (19.35 %). Other attributes contain less missing values, yet we still 
+need to handle them. Therefore, we explore different strategies to deal 
+with missing values.
 
 ???+ info
 
@@ -295,7 +299,7 @@ This operation removed `#!python 6` out of `#!python 21` columns/attributes.
     2. Calculate the number of rows that were removed.
 
 Depending on the data at hand, dropping rows or columns might be a valid 
-option if you're dealing with a small number of missing values. However, in 
+option, if you're dealing with a small number of missing values. However, in 
 other cases these operations might lead to a significant loss of information.
 Since, we are dealing with a substantial amount of missing values, we are 
 looking for more sophisticated ways to handle them.
@@ -345,7 +349,7 @@ Fill a nominal attribute with the mode:
 job_mode = data["job"].mode()
 print(job_mode)
 
-data["job"] = data["job"].fillna(job_mode[0])
+data["job_filled"] = data["job"].fillna(job_mode[0])
 ```
 
 ```title=">>> Output"
@@ -358,7 +362,7 @@ Fill a numerical attribute with the mean:
 age_mean = data["age"].mean()
 print(age_mean)
 
-data["age"] = data["age"].fillna(age_mean)
+data["age_filled"] = data["age"].fillna(age_mean)
 ```
 
 ```title=">>> Output"
