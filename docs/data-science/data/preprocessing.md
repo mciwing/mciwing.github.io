@@ -637,3 +637,76 @@ Imagine the toy example below to illustrate the concept of one-hot encoding.
       Your browser does not support the video tag.
     </video>
 </div>
+
+???+ defi "Definition: One-Hot Encoding"
+
+    One-hot encoding is a technique to convert categorical attributes into 
+    numerical attributes. Each category is represented as a binary vector 
+    where only one bit is set to 1 (hot) and the rest are set to 0 (cold).
+
+The class [`OneHotEncoder`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)
+from `scikit-learn` can be used to encode categorical attributes to a one-hot 
+encoded representation.
+
+???+ question "Apply One-Hot Encoding"
+
+    Use the `OneHotEncoder` to encode the the attribute *job* from the 
+    following toy `DataFrame` (same as in the video).
+
+    ```python
+    toy_data = pd.DataFrame(
+        {"id": [1, 2, 3, 4], "job": ["engineer", "student", "teacher", "student"]}
+    )
+    ```
+    
+    1. Apply an instance of `#!python OneHotEncoder(sparse_output=False)` to 
+    *job*.
+    2. Check if the resulting matrix matches with the one in the video.
+
+### Label Encoding
+
+Lastly, we introduce label encoding. Label encoding is another technique to
+encode categorical attributes. Instead of creating a binary vector for each
+category, label encoding assigns a unique integer to each category.
+
+`scikit-learn`'s [`LabelEncoder`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html)
+is specifically designed to encode the target variable (i.e., the attribute we 
+want to predict). In our case, we apply the `LabelEncoder` to the column named
+`#!python "y"`.
+
+`#!python "y"` :fontawesome-solid-arrow-right: represents if the client 
+subscribed to a term deposit or not.
+
+```python
+from sklearn.preprocessing import LabelEncoder
+
+print(f"Unique values: {data['y'].unique()}")
+
+encoder = LabelEncoder()
+y_encoded = encoder.fit_transform(data["y"])
+print(y_encoded)
+```
+
+```title=">>> Output"
+Unique values: ['no' 'yes']
+[0 0 0 ... 0 0 0]
+```
+
+As `#!python "y"` contains the values `#!python "yes"` and `#!python "no"`, 
+we retrieve a binary representation with `#!python 0` and `#!python 1`.
+
+## Recap
+
+In this chapter, we have extensively covered missing values. The challenges to 
+detect them in the first place and how to properly encode them. We explored 
+different strategies to deal with missing values, from dropping columns/rows 
+to imputation techniques.
+
+Using `scikit-learn` we were able to easily apply transformation to the 
+Portuguese retail bank data set. We discretized (`KBinsDiscretizer`) numerical
+attributes, normalized them (`MinMaxScaler`, `StandardScaler`), and encoded 
+categorical features with one-hot encoding (`OneHotEncoder`). Lastly, we 
+briefly covered the encoding of target variables with the `LabelEncoder`.
+
+With all these preprocessing steps, we are now well-equipped to dive into 
+the machine learning part and are closer to training our first model.
