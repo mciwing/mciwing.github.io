@@ -598,7 +598,7 @@ will not preserve the range [0, 1], i.e. resulting in the normalized values:
 
 #### Z-Score Normalization
 
-Z-score normalization, also known as standardization, scales the data based on
+Z-Score normalization, also known as standardization, scales the data based on
 the mean and standard deviation of an attribute. 
 
 ???+ defi "Definition: Z-Score Normalization"
@@ -612,3 +612,28 @@ the mean and standard deviation of an attribute.
 
 This technique centers the data around zero with a standard deviation of one, 
 which is useful for algorithms that assume the data is normally distributed.
+
+???+ question "Apply Z-Score normalization"
+
+    Use the `StandardScaler` from `scikit-learn` to apply Z-Score normalization 
+    to the attribute *campaign* (number of times a customer was contacted).
+
+    1. Fit the `StandardScaler` on the data.
+    2. Transform the data.
+    3. Print the mean and standard deviation of the transformed data.
+
+### One-Hot Encoding
+
+So far we have focused on numerical attributes. But what about 
+categorical variables? Since, many machine learning algorithms can't handle 
+categorical attributes directly, the need to be encoded. One common technique
+is to one-hot encode these attributes.
+
+Imagine the toy example below to illustrate the concept of one-hot encoding.
+
+<div style="text-align: center;">
+    <video width="100%" height="700" controls>
+      <source src="/assets/data-science/data/one-hot-encoding.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+</div>
