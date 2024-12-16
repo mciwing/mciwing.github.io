@@ -391,7 +391,7 @@ Linear regression, k-nearest neighbors, or decision trees are common choices.
 
 ## Transformation
 
-Step by step, we are getting closer to actually train a machine learning 
+Step by step, we are getting closer to actually training a machine learning 
 model. Beforehand, we introduce data transformations that are commonly applied
 to improve the fit of the model.
 
@@ -454,21 +454,31 @@ As an example, we pick the attribute *age* and visualize it with a boxplot.
     </div>
 
 Since, *age* contains outliers, we discretize the attribute *age* into five 
-bins with the same width. For example five bins with a width of 20 years 
-(0-20, 20-40, 40-60, 60-80, 80-100).
+bins with the same width.
 
 ```python
 from sklearn.preprocessing import KBinsDiscretizer
 
 bins = KBinsDiscretizer(n_bins=5, strategy="uniform", encode="ordinal")
 bins.fit(data[["age"]])
-bins.transform(data[["age"]])  # (1)!
+age_binned = bins.transform(data[["age"]])  # (1)!
 ```
 
 1.  The additional square brackets in `#!python data[["age"]]` are used to 
     select the column *age* as a `DataFrame` (instead of a `Series`). 
     This is necessary for the `#!python transform()` method as a 
     two-dimensional input is required.
+
+The above snippet returns 5 bins with a width of 14 years. Inspect the bin 
+edges with:
+
+```python
+print(bins.bin_edges_)
+```
+
+```title=">>> Output"
+[array([18., 32., 46., 60., 74., 88.])]
+```
 
 Though the actual binning is just two three lines of code, we have a couple of 
 things to dissect.
@@ -504,7 +514,13 @@ quantiles and thus create bins with the same number of observations.
 
 ```python
 bins = KBinsDiscretizer(n_bins=5, strategy="quantile", encode="ordinal")
-bins.fit_transform(data[["age"]])
+age_binned = bins.fit_transform(data[["age"]])
+
+print(bins.bin_edges_)
+```
+
+```title=">>> Output"
+[array([18., 31., 36., 41., 50., 88.])]
 ```
 
 No matter the strategy `#!python "uniform"` or `#!python "quantile"`, a 
@@ -519,7 +535,7 @@ matrix is returned with the
 Normalization is a common preprocessing step to scale the data to a standard
 range, which can improve the performance and training stability of machine
 learning models. Two popular normalization techniques are Min-Max normalization
-and Z-score normalization.
+and Z-Score normalization.
 
 #### Min-Max Normalization
 
@@ -554,6 +570,8 @@ print(f"X_min: {data['euribor3m'].min()}, X_max: {data['euribor3m'].max()}")
 scaler = MinMaxScaler()
 scaler.fit(data[["euribor3m"]])
 scaled = scaler.transform(data[["euribor3m"]])
+
+print(scaled)
 print(f"Min: {scaled.min()}, Max: {scaled.max()}")
 ```
 
@@ -615,25 +633,28 @@ the mean and standard deviation of an attribute.
     deviation.
 
 This technique centers the data around zero with a standard deviation of one, 
-which is useful for algorithms that assume the data is normally distributed.
+which is useful for algorithms assuming normally distributed data.
 
 ???+ question "Apply Z-Score normalization"
 
-    Use the `StandardScaler` from `scikit-learn` to apply Z-Score normalization 
-    to the attribute *campaign* (number of times a customer was contacted).
+    Use the [`StandardScaler`](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
+    from `scikit-learn` to apply Z-Score normalization to the attribute 
+    *campaign* (number of times a customer was contacted).
 
     1. Fit the `StandardScaler` on the data.
     2. Transform the data.
-    3. Print the mean and standard deviation of the transformed data.
+    3. Calculate and print the mean and standard deviation of the transformed 
+    data.
 
 ### One-Hot Encoding
 
 So far we have focused on numerical attributes. But what about 
 categorical variables? Since, many machine learning algorithms can't handle 
-categorical attributes directly, the need to be encoded. One common technique
+categorical attributes directly, they need to be encoded. One common technique
 is to one-hot encode these attributes.
 
-Imagine the toy example below to illustrate the concept of one-hot encoding.
+Imagine the toy example below to illustrate the concept of one-hot encoding 
+on the feature *job*.
 
 <div style="text-align: center;">
     <video width="100%" height="700" controls>
