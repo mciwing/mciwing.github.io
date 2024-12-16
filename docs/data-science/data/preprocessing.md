@@ -659,7 +659,7 @@ on the feature *job*.
 <div style="text-align: center;">
     <video width="100%" height="700" controls>
       <source src="/assets/data-science/data/one-hot-encoding.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      Your browser does not support the video, consider updating your browser.
     </video>
 </div>
 
