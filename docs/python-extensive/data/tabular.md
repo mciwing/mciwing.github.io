@@ -98,10 +98,13 @@ If you are an MCI student, you are part of this data set!
     students = students.rename(
         columns={row["code"]: row["name"] for _, row in header.iterrows()}
     )
-    # replace semester codes with thei descriptions
+    # replace semester codes with their descriptions
     students.Berichtssemester = students.Berichtssemester.replace(
         {row["code"]: row["name"] for _, row in semester.iterrows()}
     )
+    
+    # get term
+    students["Semester"] = students.Berichtssemester.str.split(" ").str[0]
     
     # write Excel
     students.to_excel("fhsstud.xlsx", index=False)
@@ -146,3 +149,9 @@ with the `sheet_name` parameter:
 
 #### Detour: Visualize enrolled students
 
+<div style="text-align: center;">
+    <iframe
+        src="/assets/python-extensive/data/tabular/wintersemester.html" 
+        width="100%" height="450">
+    </iframe>
+</div>
