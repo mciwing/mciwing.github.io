@@ -1,4 +1,5 @@
-# pandas
+<!-- Header start -->
+# `pandas`
 
 ## Introduction
 
@@ -6,6 +7,9 @@
   ![Spotify Top 50 Austria](https://pandas.pydata.org/static/img/pandas_white.svg){ width="250" }
 </figure>
 
+<!-- Header end -->
+
+<!-- Crash Course specific -->
 As the last topic in our `Python` :fontawesome-brands-python: Crash Course,
 we provide a brief introduction to `pandas` in order to handle data 
 sets. The package will be heavily used in the upcoming chapters (e.g.,
@@ -13,6 +17,7 @@ sets. The package will be heavily used in the upcoming chapters (e.g.,
 Therefore, knowledge of the package is needed to properly follow the 
 chapters from now on.
 
+<!-- Body start -->
 ???+ info
 
     At the time of writing, `pandas` version `2.2.3` was used. Keep in mind,
@@ -421,8 +426,9 @@ that help you get started.
 
 We covered `pandas` and some selected functionalities which should provide 
 you with a solid foundation to work with tabular data sets. Moreover, you 
-should be able to follow the code portions in the upcoming chapters (e.g., 
-[Statistics](../statistics/index.md)) course more easily.
+should be able to follow the code portions in the upcoming courses more easily.
+
+<!-- Body end -->
 
 ???+ info "🎉"
     
