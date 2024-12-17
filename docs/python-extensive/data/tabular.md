@@ -96,11 +96,11 @@ If you are an MCI student, you are part of this data set!
     
     # replace column codes with their corresponding names
     students = students.rename(
-        columns={row.code: row.name for _, row in header.iterrows()}
+        columns={row["code"]: row["name"] for _, row in header.iterrows()}
     )
     # replace semester codes with thei descriptions
     students.Berichtssemester = students.Berichtssemester.replace(
-        {row.code: row.name for _, row in semester.iterrows()}
+        {row["code"]: row["name"] for _, row in semester.iterrows()}
     )
     
     # write Excel
@@ -143,3 +143,6 @@ with the `sheet_name` parameter:
     2. Manually create a new sheet and fill it with some data of your choice.
     3. Save the file.
     4. Read the new sheet with `pd.read_excel()`.
+
+#### Detour: Visualize enrolled students
+
