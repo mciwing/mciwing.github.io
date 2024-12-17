@@ -83,6 +83,24 @@ You should end up with a project structure similar to the following:
 └── 📄 pandas-course.ipynb
 ```
 
+## :fontawesome-solid-table: Tabular data 
+
+Before we dive into `pandas`, let's briefly discuss tabular data. At its
+simplest, tabular data consists of rows and columns. Looking at the Spotify 
+table above; each row contains information about a specific track 
+(e.g., `name`, `artists`), while each column represents a specific attribute 
+(e.g., `popularity`, `energy`).
+
+Tabular data has a clear structure which makes it easy to work with. On the
+other hand sources for tabular data can be manifold. However, one of the most 
+common format is the XLSX (:fontawesome-solid-file-excel: - Excel) or CSV 
+(:fontawesome-solid-file-csv: - Comma Separated Values) format which
+is the one we are working with in this chapter. Nevertheless, tabular data is 
+also present in various other text based formats like TXT, TSV or even in 
+databases (e.g. MySQL, PostgreSQL).
+
+No matter the source, `pandas` is the go-to tool to work with tabular data.
+
 ## Getting started
 
 Let's explore some of `pandas` functionalities on the example of the Spotify
