@@ -52,7 +52,9 @@ songs in Austria. You can find the corresponding playlist
 
 Download the whole data set to follow this section:
 
+<div class="center-button" markdown>
 [Spotify Top 50 Austria :fontawesome-solid-download:](../assets/python/pandas/spotify-top50.csv){ .md-button }
+</div>
 
 [^1]:
     The full data set is available on [Kaggle](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/data)
