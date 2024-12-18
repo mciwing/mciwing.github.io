@@ -16,7 +16,8 @@ Our journey will cover a selection of following topics:
 
 1. Excel: Learn how to read spreadsheets
 2. Web Scraping: Extract tables directly from online sources
-3. Various Sources: An incomplete list of data sources
+3. File Writing: Save your data to disk
+4. Various Sources: An incomplete list of data sources
 
 ## Prerequisites
 
@@ -279,6 +280,62 @@ without any further data cleaning.
 
     Respect the website's terms of service and don't overload the 
     server with requests.
+
+## File Writing
+
+So far we have written data solely to Excel files. However, `pandas` supports
+a variety of file formats for writing data. Using the `atx_companies` data 
+set, we explore two more useful file formats.
+
+### :fontawesome-solid-file-csv: CSV
+
+Writing to a CSV (Comma Separated Values) file is as simple as:
+
+```python
+atx_companies.to_csv("atx_companies.csv", index=False)
+```
+
+???+ tip
+
+    If you are dealing with large data sets, you might want to consider 
+    compressing the output file and thus reducing the file size.
+
+    Simply pass a compression algorithm as `#!python str` (e.g.,`#!python "gzip"`),
+    to the `compression` parameter:
+    
+    ```python
+    atx_companies.to_csv("atx_companies.csv.gz", index=False, compression="gzip")
+    ```
+    
+    To read a compressed file:
+        
+    ```python
+    _atx_companies = pd.read_csv("atx_companies.csv.gz", compression="gzip")
+    ```
+    
+    Have a look at the documentation of 
+    [`DataFrame.to_csv()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)
+    for further options.
+
+### LaTeX
+
+Including your data in a LaTeX document can be easily achieved with:
+    
+```python
+atx_companies.to_latex("atx_companies.tex", index=False)
+```
+
+???+ info "Additional dependency"
+
+    To use the LaTeX export functionality, `Jinja2` is required.
+
+    ```bash
+    pip install Jinja2
+    ```
+
+Since CSV and LaTeX formats are just a fraction of the supported file formats,
+navigate to [panda's Input/Output](https://pandas.pydata.org/docs/reference/io.html)
+section for further reference. 
 
 ## Data Sources
 
