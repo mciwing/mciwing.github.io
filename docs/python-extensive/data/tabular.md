@@ -8,21 +8,21 @@ from multiple sources.
 
 ???+ info
     
-    This chapter is an extension to the previous `pandas` chapter. It 
-    should equip you with the necessary skills to acquire data from various 
-    different sources.
+    This chapter is an extension to the previous [`pandas`](../pandas.md) 
+    chapter. It should equip you with the necessary skills to acquire data 
+    from various different sources.
 
 Our journey will cover a selection of following topics:
 
 1. Excel: Learn how to read spreadsheets
 2. Web Scraping: Extract tables directly from online sources
 3. File Writing: Save your data to disk
-4. Various Sources: An incomplete list of data sources
+4. Various Sources: An incomplete list of further data sources
 
 ## Prerequisites
 
-For this chapter we recommend to create a new project. Additionally, create 
-a new virtual environment and **activate** it.
+For this chapter we recommend to initialize a new project. Additionally, 
+create a new virtual environment and **activate** it.
 
 You should end up with a project structure similar to:
 
@@ -40,8 +40,8 @@ Let's start off with arguably the most common data source: Excel spreadsheets.
     <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*FAzumPnvzKUDolMG7SNcHw.png" alt="I Excel in Excel" width="370"/>
 </div>
 
-Reading Excel files can be straightforward, ==if they are properly structured==.
-However, if you see files like these...
+Reading Excel files can be straightforward, ==if they are properly 
+structured!== However, if you see files like these...
 
 ![](../../assets/python-extensive/data/tabular/awesome-excel.PNG)
 
@@ -123,7 +123,7 @@ pip install pandas openpyxl
 ???+ tip
 
     You can install multiple packages with a single command. Simply 
-    separate the pacakge name with a space.
+    separate the package name with a space.
 
 To read the file, it's as simple as:
 
@@ -273,7 +273,7 @@ without any further data cleaning.
 
 ???+ info
 
-    Be nice to the websites you scrape, seriously! Always check the website's
+    Be nice to the websites you scrape! Always check the website's
     `robots.txt` file to see if web scraping is allowed. For example, 
     Wikipedia's `robots.txt` file can be found at 
     [https://en.wikipedia.org/robots.txt](https://en.wikipedia.org/robots.txt).
@@ -319,7 +319,7 @@ atx_companies.to_csv("atx_companies.csv", index=False)
 
 ### LaTeX
 
-Including your data in a LaTeX document can be easily achieved with:
+Exporting your data to a LaTeX table can be easily achieved with:
     
 ```python
 atx_companies.to_latex("atx_companies.tex", index=False)
