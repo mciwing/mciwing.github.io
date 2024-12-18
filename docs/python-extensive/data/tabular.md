@@ -12,11 +12,11 @@ from multiple sources.
     should equip you with the necessary skills to acquire data from various 
     different sources.
 
-Our journey will cover selected data acquisition methods:
+Our journey will cover a selection of following topics:
 
 1. Excel: Learn how to read spreadsheets
 2. Web Scraping: Extract tables directly from online sources
-3. Database: First interaction with a local database
+3. Various Sources: An incomplete list of data sources
 
 ## Prerequisites
 
@@ -279,3 +279,24 @@ without any further data cleaning.
 
     Respect the website's terms of service and don't overload the 
     server with requests.
+
+## Data Sources
+
+Apart from Excel files and web scraping, there are numerous other 
+online sources where you can find structured data. Here are a 
+couple of further links to explore:
+
+- [data.gv.at](https://www.data.gv.at/) - Open government data from Austria 
+  covering various topics like economy, environment, and society.
+- [data.statistik.gv.at](https://data.statistik.gv.at/web/catalog.jsp) - 
+  Statistics Austria portal for open data ranging from population, 
+  environment to economy and tourism.
+- [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) -
+  Popular data repository for machine learning, hosting classic data sets 
+  from various domains.
+- [Kaggle](https://www.kaggle.com/datasets) - A platform owned by Google to 
+  share data sets, models and code. Although kaggle is free to access, you need
+  to create an account to download data sets.
+- [Google Dataset Search](https://datasetsearch.research.google.com/) - 
+  Google's search engine for data sets. It helps you find data sets stored 
+  across the web.
