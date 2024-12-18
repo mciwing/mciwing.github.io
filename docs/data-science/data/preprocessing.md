@@ -287,7 +287,7 @@ columns that were removed.
 ```python
 print(data.shape[1] - data_dropped.shape[1])
 ```
-This operation removed `#!python 6` out of `#!python 21` columns/attributes. 
+This operation removed `#!python 6` out of `#!python 21` columns/attributes.
 
 ???+ question "Remove rows with missing values"
 
@@ -297,6 +297,47 @@ This operation removed `#!python 6` out of `#!python 21` columns/attributes.
     1. Use the [`DataFrame.dropna()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dropna.html)
     method to remove rows with missing values.
     2. Calculate the number of rows that were removed.
+
+#### Set a threshold
+
+Instead of dropping all rows/columns with gaps, we can set a threshold to only 
+drop columns/rows with a certain amount of missing values.
+
+To specify a threshold, make use of the `thresh` parameter, which takes an
+`#!python int` value of ^^non-missing^^ values that a column/row must have, 
+to ^^not^^ be dropped.
+
+As an example, we would like to remove all columns holding more than 10 % 
+missing values.
+
+```python hl_lines="7 10"
+import math
+
+threshold = 0.1  # 10 % threshold
+threshold = (1 - threshold) * len(data)
+print(threshold)
+
+threshold = math.ceil(threshold)  # (1)!
+print(threshold)
+
+data_dropped_threshold = data.dropna(axis=1, thresh=threshold)
+diff = data.shape[1] - data_dropped_threshold.shape[1]
+print(f"Number of columns dropped: {diff}")
+```
+
+1.  The `#!python math.ceil()` function is used to round up the threshold 
+    value to the next integer.
+
+```title=">>> Output"
+3535.2000000000003
+3536
+Number of columns dropped: 1
+```
+
+A single column was dropped and therefore exceeded the 10 % threshold of 
+missing values.
+
+---
 
 Depending on the data at hand, dropping rows or columns might be a valid 
 option, if you're dealing with a small number of missing values. However, in 
