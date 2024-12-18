@@ -149,9 +149,28 @@ with the `sheet_name` parameter:
 
 #### Detour: Visualize enrolled students
 
+To further consolidate your visualization skills, obtained in the 
+[Plotting](../plotting.md) chapter, we create a simple plot to visualize the 
+total of newly enrolled students per winter term in Austria.
+
 <div style="text-align: center;">
     <iframe
-        src="/assets/python-extensive/data/tabular/wintersemester.html" 
+        src="/assets/python-extensive/data/tabular/winter-term.html" 
         width="100%" height="450">
     </iframe>
 </div>
+
+On a side note, it's quite interesting that the numbers are steadily rising, 
+with a dip in the winter term 2022/23.
+
+???+ question "Create a static version of the plot"
+
+    Recreate the above plot with `pandas` and `matplotlib` as backend. 
+    It does ^^not^^ have to be the same colors, background, title etc.
+
+    1. Subset the data by winter term.
+    2. Create a suitable plot (e.g., line plot, area plot).
+
+### Writing Excel files
+
+You can't just easily read Excel files, but also write them.
