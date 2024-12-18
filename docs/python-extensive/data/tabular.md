@@ -357,3 +357,16 @@ couple of further links to explore:
 - [Google Dataset Search](https://datasetsearch.research.google.com/) - 
   Google's search engine for data sets. It helps you find data sets stored 
   across the web.
+
+## Recap
+
+This chapter equipped you with the necessary skills to work with Excel 
+files in `Python` :fontawesome-brands-python:. Furthermore, we have dipped 
+our toes into web scraping and learned how to extract structured data from
+a simple HTML page.
+
+Two brief sections on writing data to different file formats and a list of
+data sources rounded off the chapter.
+
+Next up, we will introduce APIs (Application Programming Interfaces) as another
+possible source of data.
