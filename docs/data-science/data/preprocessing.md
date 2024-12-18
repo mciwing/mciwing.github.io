@@ -417,7 +417,7 @@ From now on, we will heavily use `scikit-learn`'s functionalities.
 When dealing with noisy data, it is often beneficial to discretize 
 numerical (continuous) attributes.
 
-???+ "Noise in data"
+???+ info "Noise in data"
 
     Noise is a random error or variance in a measured variable. It is 
     meaningless information that can distort the data.
