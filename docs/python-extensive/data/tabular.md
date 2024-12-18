@@ -174,3 +174,108 @@ with a dip in the winter term 2022/23.
 ### Writing Excel files
 
 You can't just easily read Excel files, but also write them.
+
+```python
+data.to_excel("fhsstud_copy.xlsx", index=False)  # (1)!
+```
+
+1. The `#!python index=False` parameter omits the index to be written to the 
+   file. Have a look at your `DataFrame`'s index with `#!python data.index`.
+
+Or you can write multiple sheets:
+
+```python hl_lines="1"
+with pd.ExcelWriter("fhsstud_multiple.xlsx") as writer:
+    data.to_excel(writer, sheet_name="Students", index=False)
+    data.to_excel(writer, sheet_name="Students-Copy", index=False)
+```
+
+Although the same data is written to two different named sheets, you should 
+get the idea.
+
+#### `#!python with` statement
+
+The `#!python with` statement is used to wrap the execution of a block of code.
+It is commonly used for resource management, such as opening files or managing
+database connections, ensuring that resources are properly cleaned up after use
+
+In the above example, the `#!python with` statement is used to open an Excel
+file for writing and ensures that the Excel writer is properly closed after
+writing the data.
+
+## Web Scraping
+
+Web scraping is a technique to extract data from websites. It can be used to
+extract structured data from HTML pages, such as tables.
+
+To illustrate web scraping, we pick an example from Wikipedia as our 
+HTML. We use the english article of the 
+[ATX (Austrian Traded Index)](https://en.wikipedia.org/wiki/Austrian_Traded_Index)
+to retrieve a data set with all companies listed in the ATX.
+
+???+ question "Visit the article"
+
+    1. Open a new browser tab and visit the 
+    [ATX Wikipedia article](https://en.wikipedia.org/wiki/Austrian_Traded_Index).
+    2. Open the source code of the page, the HTML code.
+    To do so, right-click on the page and select `View page source`. 
+    Alternatively, use the shortcut ++ctrl+u++.
+    Simply scroll through the HTML code a bit.
+
+You might have noticed that the HTML code is quite complex. Nevertheless, 
+we can easily extract all the tables on the page with `pandas`:
+
+```python
+tables = pd.read_html("https://en.wikipedia.org/wiki/Austrian_Traded_Index")
+print(type(tables))
+```
+
+```title=">>> Output"
+<class 'list'>
+```
+
+Simply by passing the URL to `#!python pd.read_html()`, we get a list
+of `DataFrame` objects. Each `DataFrame` corresponds to a table found on the
+page.
+
+The second table on the page contains the companies listed in the ATX. 
+Let's have a look:
+
+```python
+atx_companies = tables[1]
+print(atx_companies.head())
+```
+
+| Company    | Industry                    | Sector                             |
+|------------|-----------------------------|------------------------------------|
+| Erste Bank | Financials                  | Banking                            |
+| Verbund    | Utilities                   | Electric Utilities                 |
+| OMV        | Basic Industries            | Oil & Gas                          |
+| BAWAG      | Financials                  | Banking                            |
+| Andritz    | Industrial Goods & Services | Industrial Engineering & Machinery |
+
+The resulting `DataFrame` `atx_companies` can be perfectly used as is, 
+without any further data cleaning.
+
+???+ tip
+
+    The `#!python pd.read_html()` function is a powerful tool to extract 
+    tables from HTML pages. However, it might not always work out of the 
+    box by simply passing a URL.
+    Most websites have a complex structure, and the tables might not be
+    directly accessible. In such cases, you might need to use a more
+    sophisticated web scraping packages like
+    
+    - [`BeautifulSoup`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+    - [`Scrapy`](https://docs.scrapy.org/en/latest/)
+    - [`Selenium`](https://selenium-python.readthedocs.io/)
+
+???+ info
+
+    Be nice to the websites you scrape, seriously! Always check the website's
+    `robots.txt` file to see if web scraping is allowed. For example, 
+    Wikipedia's `robots.txt` file can be found at 
+    [https://en.wikipedia.org/robots.txt](https://en.wikipedia.org/robots.txt).
+
+    Respect the website's terms of service and don't overload the 
+    server with requests.
