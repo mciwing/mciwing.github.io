@@ -1,4 +1,5 @@
-# pandas
+<!-- Header start -->
+# `pandas`
 
 ## Introduction
 
@@ -6,6 +7,9 @@
   ![Spotify Top 50 Austria](https://pandas.pydata.org/static/img/pandas_white.svg){ width="250" }
 </figure>
 
+<!-- Header end -->
+
+<!-- Crash Course specific -->
 As the last topic in our `Python` :fontawesome-brands-python: Crash Course,
 we provide a brief introduction to `pandas` in order to handle data 
 sets. The package will be heavily used in the upcoming chapters (e.g.,
@@ -13,6 +17,7 @@ sets. The package will be heavily used in the upcoming chapters (e.g.,
 Therefore, knowledge of the package is needed to properly follow the 
 chapters from now on.
 
+<!-- Body start -->
 ???+ info
 
     At the time of writing, `pandas` version `2.2.3` was used. Keep in mind,
@@ -77,6 +82,24 @@ You should end up with a project structure similar to the following:
 ├── 📄 spotify-top50.csv
 └── 📄 pandas-course.ipynb
 ```
+
+## :fontawesome-solid-table: Tabular data 
+
+Before we dive into `pandas`, let's briefly discuss tabular data. At its
+simplest, tabular data consists of rows and columns. Looking at the Spotify 
+table above; each row contains information about a specific track 
+(e.g., `name`, `artists`), while each column represents a specific attribute 
+(e.g., `popularity`, `energy`).
+
+Tabular data has a clear structure which makes it easy to work with. On the
+other hand sources for tabular data can be manifold. However, one of the most 
+common format is the XLSX (:fontawesome-solid-file-excel: - Excel) or CSV 
+(:fontawesome-solid-file-csv: - Comma Separated Values) format which
+is the one we are working with in this chapter. Nevertheless, tabular data is 
+also present in various other text based formats like TXT, TSV or even in 
+databases (e.g. MySQL, PostgreSQL).
+
+No matter the source, `pandas` is the go-to tool to work with tabular data.
 
 ## Getting started
 
@@ -421,8 +444,9 @@ that help you get started.
 
 We covered `pandas` and some selected functionalities which should provide 
 you with a solid foundation to work with tabular data sets. Moreover, you 
-should be able to follow the code portions in the upcoming chapters (e.g., 
-[Statistics](../statistics/index.md)) course more easily.
+should be able to follow the code portions in the upcoming courses more easily.
+
+<!-- Body end -->
 
 ???+ info "🎉"
     
