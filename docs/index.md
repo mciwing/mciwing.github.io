@@ -32,6 +32,21 @@
         :fontawesome-regular-envelope: - [jakob.klotz@mci.edu](mailto:jakob.klotz@mci.edu)
     </div>
 
+---
+
+![Header open-source](assets/free-open-source.gif)
+
+???+ tip
+    
+    All educational materials on this page can be followed without ^^any^^
+    prior programming knowledge. All you need is a computer, an internet 
+    connection and curiosity. :light_bulb:
+
+    Since our course materials are centered around the `Python` 
+    :fontawesome-brands-python: programming language, all software used is 
+    free and open-source. 
+
+---
 
 ## Topics
 
