@@ -1,15 +1,16 @@
 # Introduction
 
 With extensive data preparation knowledge, we can tackle the next
-big part of data science: algorithms. An algorithm is a
+big part of the course: algorithms. An algorithm is a
 
 > a set of mathematical instructions or rules that, especially if given to a
 > computer, will help to calculate an answer to a problem.
 > 
 > [Cambridge Dictionary](https://dictionary.cambridge.org/de/worterbuch/englisch/algorithm)
 
-In data science, algorithms are used to solve problems such as modelling data 
-to make prediction for unseen data or clustering data to find patterns.
+In data science/machine learning, algorithms are used to solve problems 
+such as modelling data to make prediction for unseen data or clustering data 
+to find patterns.
 
 The following chapters will introduce you to the most common algorithms, like 
 linear and logistic regression, decision trees, and k-means clustering. We will
@@ -68,6 +69,12 @@ For each new observation, we can use the trained model to predict the price.
 
 Supervised learning encapsulates both classification and regression tasks.
 
+``` mermaid
+graph LR
+  A[Supervised Learning] --> B[Regression];
+  A --> C[Classification];
+```
+
 ---
 
 #### Classification
@@ -97,7 +104,6 @@ the relationship between inputs and the target variable.
 ---
 
 #### Examples
-
 
 <div class="grid cards" markdown>
 
@@ -131,3 +137,106 @@ the relationship between inputs and the target variable.
     key to successful supervised learning lies in having high-quality labeled
     data and selecting appropriate features that have predictive power for the 
     target variable.
+
+## Unsupervised Learning
+
+Contrary, unsupervised learning deals with ^^unlabeled^^ data to discover 
+hidden patterns and structures. Unlike supervised learning, there is no 
+"supervisor" providing correct answers - the algorithm must find
+meaningful patterns on its own.
+
+In unsupervised learning, we solely have:
+
+- Input features (\(X\)): The characteristics or attributes of the data
+
+The algorithm's task is to find groupings, reduce complexity, or reveal
+underlying structures in the data.
+
+### Example
+
+Let's say we want to segment customers based on their shopping behavior:
+
+```python hl_lines="13 14"
+from sklearn.cluster import KMeans
+
+# customer data [annual_spending, avg_basket_size]
+X = [
+    [1200, 50],
+    [5000, 150],
+    [800, 30],
+    [4500, 140],
+    [1000, 45]
+]
+
+# use k-means to find customer segments
+model = KMeans(n_clusters=2)
+segments = model.fit_predict(X)
+```
+
+The algorithm will group similar customers together without being told what
+these groups should be - it discovers the patterns naturally from the data.
+
+---
+
+### Clustering & Dimensionality Reduction
+
+Unsupervised learning can be further divided into two main categories:
+
+``` mermaid
+graph LR
+  A[Unsupervised Learning] --> B[Clustering];
+  A --> C[Dimensionality Reduction];
+```
+
+---
+
+#### Clustering
+
+Clustering algorithms group similar data points together based on their
+features. The goal is to find cluster/groups in the data without any 
+prior knowledge of the groups.
+
+---
+
+#### Dimensionality Reduction
+
+Dimensionality reduction techniques aim to reduce the number of input features
+while preserving the most important information. This can help to simplify
+complex data, speed up algorithms, and improve model performance.
+
+---
+
+### Examples
+
+<div class="grid cards" markdown>
+
+-   __Clustering__
+
+    ---
+    Clustering/grouping of similar data points:
+
+    - Customer segmentation in marketing
+    - Anomaly detection
+    - Finding similar products in recommendations
+    - ...
+
+-   __Dimensionality Reduction__
+
+    ---
+    Reducing the complexity of data:
+  
+    - Feature extraction from high-dimensional data
+    - Visualization of complex datasets
+    - Noise reduction in signals
+    - ...
+
+</div>
+
+???+ info
+
+    While unsupervised learning offers powerful ways to explore and understand
+    data, its results can be harder to evaluate since there are no "correct"
+    answers to compare against. The value of the results often depends on how
+    meaningful the discovered patterns are for the specific application.
+
+---
