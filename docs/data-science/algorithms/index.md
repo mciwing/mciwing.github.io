@@ -8,15 +8,14 @@ big part of the course: algorithms. An algorithm is a
 > 
 > [Cambridge Dictionary](https://dictionary.cambridge.org/de/worterbuch/englisch/algorithm)
 
-In data science/machine learning, algorithms are used to solve problems 
-such as modelling data to make prediction for unseen data or clustering data 
+In data science/machine learning, algorithms are used to solve problems, 
+such as modelling data to make predictions for unseen data, or clustering data 
 to find patterns.
 
-The following chapters will introduce you to the most common algorithms, like 
-linear and logistic regression, decision trees, and k-means clustering. We will
-explore the theory as well as practical examples.
-First, we establish two main categories of algorithms: supervised and 
-unsupervised learning.
+The following chapters will introduce you to common algorithms, like linear and
+logistic regression, decision trees, and k-means clustering. We will explore 
+the theory as well as practical examples. In this chapter, we establish two 
+main concepts in machine learning: supervised and unsupervised learning.
 
 ## Supervised Learning
 
@@ -37,9 +36,8 @@ The algorithm learns the relationship between inputs (\(X\)) and outputs
 
 ### Example
 
-Assume we want to predict apartment prices :fontawesome-solid-arrow-right: 
-\(y\) based on their size plus the number of rooms 
-:fontawesome-solid-arrow-right: \(X\):
+Assume we want to predict apartment prices (\(y\)) based on their size plus the
+number of rooms (\(X\)):
 
 ```python hl_lines="16 17"
 from sklearn.linear_model import LinearRegression
@@ -71,8 +69,8 @@ Supervised learning encapsulates both classification and regression tasks.
 
 ``` mermaid
 graph LR
-  A[Supervised Learning] --> B[Regression];
-  A --> C[Classification];
+  A[Supervised Learning] --> B[Classification];
+  A --> C[Regression];
 ```
 
 ---
@@ -225,7 +223,7 @@ complex data, speed up algorithms, and improve model performance.
     ---
     Clustering/grouping of similar data points:
 
-    - Customer segmentation in marketing
+    - Customer segmentation in marketing (like in the toy example above)
     - Anomaly detection
     - Finding similar products in recommendations
     - ...
@@ -292,3 +290,6 @@ graph LR
 
 - K-Means for clustering similar data points
 - Principal Component Analysis (PCA) for dimensionality reduction
+
+We will cover the theory and illustrate each algorithm with a practical 
+example.
