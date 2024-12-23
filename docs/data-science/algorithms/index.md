@@ -240,3 +240,45 @@ complex data, speed up algorithms, and improve model performance.
     meaningful the discovered patterns are for the specific application.
 
 ---
+
+???+ tip "Domain knowledge"
+
+    No matter if you're dealing with supervised or unsupervised learning,
+    domain knowledge is crucial. Understanding the data and the problem you're
+    trying to solve will help you select the right algorithms, features, 
+    and interpret the results.
+
+## Summary
+
+In this chapter, we introduced two fundamental concepts in machine learning:
+supervised and unsupervised learning. While supervised learning works with
+^^labeled^^ data to make predictions, unsupervised learning is used with 
+^^unlabeled^^ data to reduce complexity or find clusters.
+
+The following chapters will explore specific algorithms from both categories:
+
+**Supervised Learning**:
+
+``` mermaid
+graph LR
+ A[Supervised Learning] --> B[Regression: *Linear Regression*];
+ A --> C[Classification: *Logistic Regression*];
+ C --> D[*Decision Tree, Random Forest, Neural Network*];
+ B --> D;
+```
+
+- Logistic Regression for binary classification tasks
+- Linear Regression for predicting continuous values
+- Decision Tree, Random Forest and Neural Network for both regression and 
+  classification tasks
+
+**Unsupervised Learning**:
+
+``` mermaid
+graph LR
+ A[Unsupervised Learning] --> B[Clustering: *K-Means*];
+ A --> C[Dimensionality Reduction: *Principal Component Analysis*];
+```
+
+- K-Means for clustering similar data points
+- Principal Component Analysis (PCA) for dimensionality reduction
