@@ -173,8 +173,18 @@ model = KMeans(n_clusters=2)
 segments = model.fit_predict(X)
 ```
 
+<div style="text-align: center;">
+    <iframe src="/assets/data-science/algorithms/clusters.html" width="600" height="450">
+    </iframe>
+    <figcaption>
+        Similar data points are grouped to a cluster. Cluster 0 in the left 
+        corner represents the first customer segment and cluster 1 in the right
+        corner the second.
+    </figcaption>
+</div>
+
 The algorithm will group similar customers together without being told what
-these groups should be - it discovers the patterns naturally from the data.
+these groups should be - it discovers the patterns from the attributes itself.
 
 ---
 
