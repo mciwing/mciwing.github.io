@@ -12,9 +12,9 @@ In data science/machine learning, algorithms are used to solve problems,
 such as modelling data to make predictions for unseen data, or clustering data 
 to find patterns.
 
-The following chapters will introduce you to common algorithms, like linear and
-logistic regression, decision trees, and k-means clustering. We will explore 
-the theory as well as practical examples. In this chapter, we establish two 
+The consecutive chapters will introduce you to common algorithms, like 
+linear and logistic regression, decision trees, and k-means clustering. We 
+will explore the theory as well as practical examples. First, we establish two 
 main concepts in machine learning: supervised and unsupervised learning.
 
 ## Supervised Learning
@@ -55,17 +55,25 @@ model = LinearRegression()
 model.fit(X, y)
 
 # predict price for a new apartment with 150m² and 5 rooms
-new_house = [[150, 5]]
-predicted_price = model.predict(new_house)
+new_apartment = [[150, 5]]
+predicted_price = model.predict(new_apartment)
 ```
 
 For each new observation, we can use the trained model to predict the price.
+The apartment with 150m² and 5 rooms has a predicted price of `#!python 
+775000`.
+
+???+ info
+
+    Whether this estimate is actually close to reality depends on the
+    quality of the model and its underlying data. Later, we will 
+    discuss how to measure a model's quality.
 
 ---
 
 ### Classification vs. Regression
 
-Supervised learning encapsulates both classification and regression tasks.
+Supervised learning encapsulates ^^both^^ classification and regression tasks.
 
 ``` mermaid
 graph LR
@@ -98,6 +106,9 @@ Instead of categorizing inputs into classes, regression models estimate a
 numerical value along a continuous spectrum. These models work by finding
 patterns in the data to estimate a mathematical function that best describes
 the relationship between inputs and the target variable.
+
+For instance the toy example, predicting the price of an apartment based on 
+its size and the number of rooms is a regression task.
 
 ---
 
@@ -133,8 +144,8 @@ the relationship between inputs and the target variable.
   
     No matter if you're dealing with a classification or regression task, the 
     key to successful supervised learning lies in having high-quality labeled
-    data and selecting appropriate features that have predictive power for the 
-    target variable.
+    data and selecting appropriate features (variables) that have predictive 
+    power for the target variable.
 
 ## Unsupervised Learning
 
@@ -169,7 +180,22 @@ X = [
 # use k-means to find customer segments
 model = KMeans(n_clusters=2)
 segments = model.fit_predict(X)
+
+print(segments)
 ```
+
+```title=">>> Output"
+[1 0 1 0 1]
+```
+
+The variable `segments` contains the cluster assignments for each customer. 
+The cluster assignment is simply an `#!python int` indicating which group the 
+customer belongs to. In this example, we have two clusters with the first 
+customer (`#!python [1200, 50]`) belonging to cluster 1 and the second 
+customer (`#!python [5000, 150]`) to cluster 0 and so on.
+
+The following plot visualizes the input data as scatter plot 
+colored by the cluster assignments:
 
 <div style="text-align: center;">
     <iframe src="/assets/data-science/algorithms/clusters.html" width="600" height="450">
@@ -202,7 +228,8 @@ graph LR
 
 Clustering algorithms group similar data points together based on their
 features. The goal is to find cluster/groups in the data without any 
-prior knowledge of the groups.
+prior knowledge of the groups just like in the previous customer segmentation
+example.
 
 ---
 
@@ -275,7 +302,7 @@ graph LR
  B --> D;
 ```
 
-- Logistic Regression for binary classification tasks
+- Logistic Regression for classification tasks
 - Linear Regression for predicting continuous values
 - Decision Tree, Random Forest and Neural Network for both regression and 
   classification tasks
@@ -284,11 +311,11 @@ graph LR
 
 ``` mermaid
 graph LR
- A[Unsupervised Learning] --> B[Clustering: *K-Means*];
+ A[Unsupervised Learning] --> B[Clustering: *k-means*];
  A --> C[Dimensionality Reduction: *Principal Component Analysis*];
 ```
 
-- K-Means for clustering similar data points
+- k-means for clustering similar data points
 - Principal Component Analysis (PCA) for dimensionality reduction
 
 We will cover the theory and illustrate each algorithm with a practical 
