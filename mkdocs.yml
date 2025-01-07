@@ -146,6 +146,9 @@ nav:
         - data-science/data/preparation.md
         - data-science/data/preprocessing.md
 
+      - Supervised vs. Unsupervised Learning:
+        - data-science/algorithms/index.md
+
   - Computer Vision: 
     - yolo/index.md
     - yolo/approaches.md
