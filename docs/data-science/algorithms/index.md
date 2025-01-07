@@ -39,7 +39,7 @@ The algorithm learns the relationship between inputs (\(X\)) and outputs
 Assume we want to predict apartment prices (\(y\)) based on their size plus the
 number of rooms (\(X\)):
 
-```python hl_lines="16 17"
+```python hl_lines="17 18"
 from sklearn.linear_model import LinearRegression
 
 # apartment data [m², rooms]
@@ -48,7 +48,8 @@ X = [
     [120, 4],
     [50, 2],
 ]
-y = [500_000, 675_000, 425_000]  # apartment prices
+# apartment prices
+y = [500_000, 675_000, 425_000]  # (1)!
 
 # use linear regression to predict apartment prices
 model = LinearRegression()
@@ -58,6 +59,10 @@ model.fit(X, y)
 new_apartment = [[150, 5]]
 predicted_price = model.predict(new_apartment)
 ```
+
+1. Underscores can be used as visual separators in numeric literals
+   to improve readability. They have no effect on the value of the number. For
+   example, `#!python 500_000` is the same as `#!python 500000`.
 
 For each new observation, we can use the trained model to predict the price.
 The apartment with 150m² and 5 rooms has a predicted price of `#!python 
