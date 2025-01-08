@@ -112,7 +112,7 @@ numerical value along a continuous spectrum. These models work by finding
 patterns in the data to estimate a mathematical function that best describes
 the relationship between inputs and the target variable.
 
-For instance the toy example, predicting the price of an apartment based on 
+For instance the example, predicting the price of an apartment based on 
 its size and the number of rooms is a regression task.
 
 ---
@@ -138,7 +138,7 @@ its size and the number of rooms is a regression task.
     ---
     Predicting a ^^continuous^^ target variable:
   
-    - Apartment prices (like in the toy example above)
+    - Apartment prices (like in the example above)
     - Temperature
     - Sales revenue
     - ...
@@ -255,7 +255,7 @@ complex data, speed up algorithms, and improve model performance.
     ---
     Clustering/grouping of similar data points:
 
-    - Customer segmentation in marketing (like in the toy example above)
+    - Customer segmentation in marketing (like in the example above)
     - Anomaly detection
     - Finding similar products in recommendations
     - ...
