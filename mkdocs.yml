@@ -157,7 +157,6 @@ nav:
       - yolo/image/detection.md
       - yolo/image/segmentation.md
       - yolo/image/kp-extraction.md
-      - yolo/image/solutions.md
     - Video Processing:
       - yolo/video/index.md
       - yolo/video/solutions.md

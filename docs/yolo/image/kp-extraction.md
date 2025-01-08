@@ -7,10 +7,12 @@ After learning about object detection and segmentation with YOLO, we can now exp
 
 We'll continue with the project structure from [before](../detection.md#project-setup) and create a new jupyter notebook `yolo_keypoint.ipynb`:
 
-```hl_lines="4"
+```hl_lines="6"
 📁 computer_vision/
     ├── 📁 .venv/
     ├── 📁 pics/
+    ├── 📄 yolo_detect.ipynb
+    ├── 📄 yolo_segment.ipynb
     └── 📄 yolo_keypoints.ipynb
 ```
 
@@ -104,7 +106,7 @@ result.plot(
 
 
 ???+ info "🎉 Congratulations"
-    You've learned how to use YOLO for keypoint detection! Try applying these concepts to your own projects and explore more advanced applications.
+    You've learned how to use YOLO for image processing! Try applying these concepts to your own projects and explore more advanced applications.
 
 Stay tuned for more advanced techniques and use cases in the next chapters!
 
