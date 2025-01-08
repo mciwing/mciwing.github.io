@@ -57,6 +57,8 @@ The output looks similar to detection, but behind the scenes YOLO has created de
 
 ### Visualizing Segmentation Results
 
+<figure markdown="span"> ![Segmentation](../../assets/yolo/output_segment.jpg){width=50% } </figure>
+
 You can customize how the segmentation results are displayed to better suit your analysis or presentation needs, allowing you to highlight specific features like bounding boxes, segmentation masks, confidence scores, or class labels.
 
 ```python
@@ -66,7 +68,7 @@ result.plot(
     show = True,        # Display the plot immediately
 
     save = True,        # Save the plotted image to a file
-    filename = fname    # Specify the filename for the saved image
+    filename = fname,    # Specify the filename for the saved image
 
     boxes = True,       # Include bounding boxes around detected objects
     masks = True,       # Overlay segmentation masks on the image
