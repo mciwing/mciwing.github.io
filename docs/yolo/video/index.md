@@ -1,5 +1,12 @@
 # Analysing Videos
 
+<figure markdown="span">
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*mmkgT1NIiSniaJYmP5iHXw.gif" width="70%" />
+        <figcaption style="text-align: center;">(Source: <a href="https://muhammadrizwanmunawar.medium.com/how-to-monitor-your-workouts-using-ultralytics-yolo11-375d8e8bb250">Medium</a>) </figcaption>
+</figure>
+
+
+
 Moving from static images to videos, YOLO demonstrates its real power. With its high-speed analysis, YOLO can process each video frame individually and provide real-time insights. Whether detecting objects, segmenting images, or estimating poses, the procedure mirrors that used for static images but adds the dimension of handling sequential frames.
 
 ## Project Setup
@@ -14,6 +21,13 @@ To start working with video analysis, we'll extend our previous project structur
     └── 📄 yolo_video.ipynb
 ```
 Ensure your virtual environment (`.venv`) is active and that all necessary packages, including `ultralytics` and `opencv-python`, are installed.
+
+???+ warning "OpenCV Installation"
+    OpenCV is one of the few Python packages that have different names when installed and integrated into our notebook. The installation is carried out using:
+    
+    ```
+    pip install opencv-python
+    ```
 
 ## Capture Video Stream
 
@@ -77,7 +91,7 @@ cv2.destroyAllWindows()     # closes all OpenCV windows
     Releasing resources at the end is crucial to avoid issues. If the resource (e.g., webcam) is not released, it may remain locked, preventing further connections. This issue can occur if an error interrupts your code, skipping the release command. In such cases, manually execute the release method before attempting to use the webcam again. Alternatively, restarting the kernel can also resolve the issue:
 
 ### Complete Program
-Here’s the complete program:
+Here’s the complete program to access your webcam and show the live feed. 
 
 ```python
 import cv2
@@ -114,5 +128,4 @@ YOLO processes each video frame independently, making it suitable for real-time 
         - Segmentation
         - Pose Estimation
         - Tracking [:octicons-link-external-16:](https://docs.ultralytics.com/modes/track/#tracking)
-    3. Compare results across detection, segmentation, and keypoint extraction.
     4. Visualize and save results for further analysis.
