@@ -19,24 +19,58 @@ Ensure your virtual environment (`.venv`) is active and that all necessary packa
 
 To analyze video data, whether from a webcam or a saved file, we leverage the Python package OpenCV (`cv2`).
 
-### Accessing Video Sources
+### Capture Video Stream
 
-YOLO can handle various video sources, such as live webcam feeds or pre-recorded video files. Here's an example of how to set up your video source:
+Let's begin with a program to access your web camera and display its live feed.
+
+#### Step 1: Import the Library
+To use OpenCV, start by importing the library:
 
 ```python
 import cv2
+```
+This statement includes the OpenCV library in our program, giving us access to its methods and properties.
 
-# Define the video source (0 for webcam or provide a file path)
-video_source = 0  # Example: "video.mp4" for a saved video
-cap = cv2.VideoCapture(video_source)
+#### Step 2: Create a VideoCapture Object
+In OpenCV, the `VideoCapture()` method allows us to capture the video stream from our webcam:
 
-# Check if the video source is accessible
-if not cap.isOpened():
-    print("Error: Cannot access the video source.")
-    exit()
+```python
+videoStreamObject = cv2.VideoCapture(0)
+```
+The argument `0` refers to the first camera connected to the device. If additional cameras are connected, you can use `1`, `2`, etc.
 
-# Release the video capture once done
-cap.release()
+#### Step 3: Read Frames
+The `read()` method of the `VideoCapture` object retrieves each frame from the video stream:
+
+```python
+ret, frame = videoStreamObject.read()
+```
+- `ret`: Boolean indicating if the frame was captured successfully.
+- `frame`: The captured frame as a NumPy array.
+
+#### Step 4: Display Frames
+To display the captured frames in a window, use the `imshow()` method:
+
+```python
+cv2.imshow('Capturing Video', frame)
+```
+The first argument is the window title, and the second argument is the frame to display.
+
+#### Step 5: Loop and Exit
+To continuously capture frames, use a `while` loop and break it based on user input. Use `cv2.waitKey()` to listen for key presses:
+
+```python
+if cv2.waitKey(1) & 0xFF == ord('q'):
+    break
+```
+This stops the loop when the `q` key is pressed.
+
+#### Step 6: Release Resources
+Release the video stream and close any OpenCV windows:
+
+```python
+videoStreamObject.release()
+cv2.destroyAllWindows()
 ```
 
 ### Real-Time Video Analysis
