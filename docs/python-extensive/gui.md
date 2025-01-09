@@ -133,7 +133,6 @@ option = st.selectbox(
     1. Accepts temperature input in Celsius via `st.number_input`
     2. Converts this temperature to Fahrenheit using °F = (°C × 9/5) + 32
     3. Displays the result with `st.write`
-    4. Adds proper error handling for invalid inputs
     
     <blockquote class="reddit-embed-bq" style="height:400px" data-embed-height="593"><a href="https://www.reddit.com/r/memes/comments/sqm4wh/the_ultimate_temperature_conversion_guide/">The Ultimate temperature conversion guide....</a><br> by<a href="https://www.reddit.com/user/noobmaster69_is_hela/">u/noobmaster69_is_hela</a> in<a href="https://www.reddit.com/r/memes/">memes</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
 
@@ -142,6 +141,7 @@ option = st.selectbox(
 Streamlit makes it easy to display `pandas` dataframes and other data structures:
 
 ```python
+import streamlit as st
 import pandas as pd
 import numpy as np
 
@@ -156,6 +156,17 @@ data = pd.DataFrame({
 st.dataframe(data)  # Interactive dataframe
 st.table(data)      # Static table
 ```
+
+Furthermore, Streamlit allows us to edit dataframe right in the application: 
+
+```python
+# Display data and allow user to edit it
+edited_table = st.data_editor(data)
+
+oldest_name = edited_table.loc[edited_table["Age"].idxmax()]["Name"]
+st.markdown(f"The oldest Person is **{oldest_name}** 🎈")
+```
+
 
 ### Charts and Plots
 
