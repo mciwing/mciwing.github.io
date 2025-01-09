@@ -1,5 +1,10 @@
 # YOLO Solutions
 
+[Solutions](https://docs.ultralytics.com/solutions/)
+
+[Solutions](https://docs.ultralytics.com/reference/solutions/region_counter/)
+
+
 Ultralytics provides powerful solutions designed to tackle specific computer vision challenges with minimal effort. These solutions integrate YOLO models into ready-to-use applications, making them accessible to developers and businesses without requiring extensive customization. Some examples include:
 
 - Object counting in regions

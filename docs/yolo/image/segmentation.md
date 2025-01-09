@@ -26,7 +26,7 @@ We'll start with the picture `pic2.jpg` that we used for detection:
 
 The code for segmentation is very similar to detection - we just need to use a segmentation model instead:
 
-```python
+```python hl_lines="8"
 # Import required libraries
 from ultralytics import YOLO
 
@@ -34,17 +34,20 @@ from ultralytics import YOLO
 picpath = "pics/pic2.jpg"
 
 # Load a pretrained YOLO11 Segmentation Model (Size: Nano)
-model_seg = YOLO("yolo11n-seg.pt")
+model_seg = YOLO("yolo11n-seg.pt") # (1)!
 
 # Apply the model to our source picture
 results = model_seg(picpath)
 ```
+
+1. As with detection, there are also different models for segmentation: `YOLO11n-seg`, `YOLO11s-seg`, `YOLO11m-seg`, `YOLO11l-seg`, `YOLO11x-seg`
+
 ```title=">>> Output"
 image 1/1 c:\path\to\pics\pic2.jpg: 448x640 4 persons, 1 car, 5 motorcycles, 3 traffic lights, 1 stop sign, 52.7ms
 Speed: 2.0ms preprocess, 52.7ms inference, 4.0ms postprocess per image at shape (1, 3, 448, 640)
 ```
 
-The output looks similar to detection, but behind the scenes YOLO has created detailed segmentation masks for each object!
+The output looks similar to [detection](detection.md#analyzing-the-output), but behind the scenes YOLO has created detailed segmentation masks for each object!
 
 ???+ question "Task: Analyze the Segmentation Results"
     Now it's time to analyze the segmentation results and compare them to the results from our detection. Take a closer look at the `results` and answer the following questions:
@@ -58,9 +61,11 @@ The output looks similar to detection, but behind the scenes YOLO has created de
 
 ### Visualizing Segmentation Results
 
+A graphical representation of the results can also be useful for segmentation. For this, the [same commands](detection.md#visualize-the-results-octicons-image-16) are available as for detection. 
+
 <figure markdown="span"> ![Segmentation](../../assets/yolo/output_segment.jpg){width=50% } </figure>
 
-You can customize how the segmentation results are displayed to better suit your analysis or presentation needs, allowing you to highlight specific features like bounding boxes, segmentation masks, confidence scores, or class labels.
+Another visualization option is the `result.plot` command. With this, you can customize how the segmentation (or detection) results are displayed to better suit your analysis or presentation needs, allowing you to highlight specific features like bounding boxes, segmentation masks, confidence scores, or class labels.
 
 ```python
 fname = "output_segmentation.jpg"
@@ -69,7 +74,7 @@ result.plot(
     show = True,        # Display the plot immediately
 
     save = True,        # Save the plotted image to a file
-    filename = fname,    # Specify the filename for the saved image
+    filename = fname,   # Specify the filename for the saved image
 
     boxes = True,       # Include bounding boxes around detected objects
     masks = True,       # Overlay segmentation masks on the image
@@ -77,9 +82,9 @@ result.plot(
     labels = True,      # Display class labels for each detected object
 )
 ```
+### Inference Arguments
 
-???+ info "Inference Arguments"
-    Many of the same inference arguments from detection also work with segmentation, plus some additional ones specific to masks. Therefore check the [documentation](https://docs.ultralytics.com/modes/predict/#inference-arguments).
+Many of the same inference arguments from detection also work with segmentation, plus some additional ones specific to masks. Therefore check the [documentation](https://docs.ultralytics.com/modes/predict/#inference-arguments).
     
 
 ???+ question "Task: Segmentation Practice"
@@ -93,6 +98,6 @@ result.plot(
     3. Experiment with different confidence thresholds
     4. Try segmenting different types of images
 
---- 
+
 ???+ info "🎉 Congratulations"
     You've learned the basics of image segmentation! Try applying these concepts to your own projects and explore more advanced techniques.
