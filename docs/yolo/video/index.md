@@ -15,13 +15,9 @@ To start working with video analysis, we'll extend our previous project structur
 ```
 Ensure your virtual environment (`.venv`) is active and that all necessary packages, including `ultralytics` and `opencv-python`, are installed.
 
-## Inference :material-run:
+## Capture Video Stream
 
-To analyze video data, whether from a webcam or a saved file, we leverage the Python package OpenCV (`cv2`).
-
-### Capture Video Stream
-
-Let's begin with a program to access your web camera and display its live feed.
+To analyze video data, whether from a webcam or a saved file, we leverage the Python package OpenCV (`cv2`). Let's begin with a program to access your web camera and display its live feed.
 
 #### Step 1: Import the Library
 To use OpenCV, start by importing the library:
@@ -35,16 +31,20 @@ This statement includes the OpenCV library in our program, giving us access to i
 In OpenCV, the `VideoCapture()` method allows us to capture the video stream from our webcam:
 
 ```python
-videoStreamObject = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 ```
 The argument `0` refers to the first camera connected to the device. If additional cameras are connected, you can use `1`, `2`, etc.
+
+???+ info "Saved Video"
+    You can also open videos from your hard drive. Simply enter the path to your video instead of `0`. 
 
 #### Step 3: Read Frames
 The `read()` method of the `VideoCapture` object retrieves each frame from the video stream:
 
 ```python
-ret, frame = videoStreamObject.read()
+ret, frame = cap.read()
 ```
+
 - `ret`: Boolean indicating if the frame was captured successfully.
 - `frame`: The captured frame as a NumPy array.
 
@@ -69,22 +69,18 @@ This stops the loop when the `q` key is pressed.
 Release the video stream and close any OpenCV windows:
 
 ```python
-videoStreamObject.release()
-cv2.destroyAllWindows()
+cap.release() # release the resource
+cv2.destroyAllWindows()     # closes all OpenCV windows
 ```
 
-### Real-Time Video Analysis
+???+ warning "Release Resources"
+    Releasing resources at the end is crucial to avoid issues. If the resource (e.g., webcam) is not released, it may remain locked, preventing further connections. This issue can occur if an error interrupts your code, skipping the release command. In such cases, manually execute the release method before attempting to use the webcam again. Alternatively, restarting the kernel can also resolve the issue:
 
-For video analysis, YOLO processes each frame independently, applying detection, segmentation, or keypoint extraction models. Below is an example demonstrating real-time video detection.
-
-### Example: Video Detection
+### Complete Program
+Here’s the complete program:
 
 ```python
 import cv2
-from ultralytics import YOLO
-
-# Load a pretrained YOLO model
-model = YOLO("yolov8n.pt")
 
 # Define the video source (0 for webcam or path to a video file)
 video_source = 0  # Use "video.mp4" for a saved video
@@ -96,14 +92,8 @@ while cap.isOpened():
     if not ret:
         break
 
-    # Perform inference on the current frame
-    results = model(frame)
-
-    # Annotate the frame with detection results
-    annotated_frame = results[0].plot()
-
-    # Display the annotated frame
-    cv2.imshow("Video Analysis", annotated_frame)
+    # Display the  frame
+    cv2.imshow("Video Analysis", frame)
 
     # Exit when 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -113,9 +103,12 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 ```
+## Inference :material-run:
+
+YOLO processes each video frame independently, making it suitable for real-time applications like detection, segmentation, or keypoint extraction. To use any of these vision algorithms, simply analyze each frame in sequence and display the annotated frame.
 
 ???+ question "Task: Analyze a Video"
-    1. Try to access the webcam and display the live video [:octicons-link-external-16:](https://www.studytonight.com/post/capture-videos-and-images-with-python-part2)
+    1. Try to access the webcam and display the live video
     2. Use the YOLOv8 Nano model to perform a:
         - Detection
         - Segmentation

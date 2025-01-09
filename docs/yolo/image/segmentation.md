@@ -3,7 +3,7 @@
 After learning how to detect objects in images, we can now go one step further: Instead of just detecting where objects are located using bounding boxes, we can identify exactly which pixels belong to each object. This is called segmentation.
 
 ## Project Setup
-We'll continue with the project structure from [before](../detection.md#project-setup) and create a new jupyter notebook `yolo_segment.ipynb`:
+We'll continue with the project structure from [before](detection.md#project-setup) and create a new jupyter notebook `yolo_segment.ipynb`:
 ```hl_lines="5"
 📁 computer_vision/
     ├── 📁 .venv/

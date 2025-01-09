@@ -5,7 +5,7 @@ After learning about object detection and segmentation with YOLO, we can now exp
 
 ## Project Setup
 
-We'll continue with the project structure from [before](../detection.md#project-setup) and create a new jupyter notebook `yolo_keypoint.ipynb`:
+We'll continue with the project structure from [before](detection.md#project-setup) and create a new jupyter notebook `yolo_keypoint.ipynb`:
 
 ```hl_lines="6"
 📁 computer_vision/
