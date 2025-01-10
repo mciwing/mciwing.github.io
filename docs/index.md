@@ -9,7 +9,7 @@
     As we continously try to improve the materials and this page, content
     might be subject to change. If you have any questions or suggestions,
     feel free to open an [issue](https://github.com/mciwing/mciwing.github.io/issues)
-    on GitHub or contact the maintainers:
+    on GitHub or contact the authors:
     
     <div class="grid cards" markdown>
 
@@ -39,12 +39,12 @@
 ???+ tip
     
     All educational materials on this page can be followed without ^^any^^
-    prior programming knowledge. All you need is a computer, an internet 
-    connection and curiosity. :light_bulb:
+    prior knowledge. All you need is a computer, an internet connection and 
+    curiosity. :light_bulb:
 
     Since our course materials are centered around the `Python` 
     :fontawesome-brands-python: programming language, all software used is 
-    free and open-source. 
+    free and open-source.
 
 ---
 
