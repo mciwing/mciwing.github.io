@@ -281,7 +281,7 @@ After we worked on the output side of the Yolo, it's now time to focus more on t
 
 ## Further Adjustments
 
-As we have discussed before, YOLO comes in different [model sizes](#model-size), trading speed for accuracy.
+As we have discussed before, YOLO comes in different [model sizes](#pretrained-models), trading speed for accuracy.
 
 ???+ question "Task: Model Comparison"
     For each model size determine the following characteristics by running a detection on the `pic2.jpg`:

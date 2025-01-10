@@ -61,7 +61,7 @@ The output looks similar to [detection](detection.md#analyzing-the-output), but 
 
 ### Visualizing Segmentation Results
 
-A graphical representation of the results can also be useful for segmentation. For this, the [same commands](detection.md#visualize-the-results-octicons-image-16) are available as for detection. 
+A graphical representation of the results can also be useful for segmentation. For this, the [same commands](detection.md#visualize-the-results) are available as for detection. 
 
 <figure markdown="span"> ![Segmentation](../../assets/yolo/output_segment.jpg){width=50% } </figure>
 
