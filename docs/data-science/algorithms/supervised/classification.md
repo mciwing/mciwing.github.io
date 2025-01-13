@@ -90,3 +90,54 @@ if an email is spam, we have to set a decision boundary.
 For instance, if the probability of an email being spam is 0.7, we predict
 that the email is spam. With a probability of 0.4, we predict that the email
 is *not* spam.
+
+#### The optimization problem
+
+But how do we find the best parameter combination (weights and bias) for our 
+logistic regression model?
+Unlike linear regression, which uses ordinary least squares, logistic
+regression typically uses Maximum Likelihood Estimation (MLE), i.e., the best
+parameters (weights and bias) that maximize the likelihood of the observed
+data.
+
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/3ohs7KViF6rA4aan5u" width="480" height="355" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <figcaption>Lo and behold, even more math...</figcaption>
+</div>
+
+For optimization purposes we use the negative log-likelihood as our loss 
+function:
+
+???+ defi "Negative log-likelihood"
+
+    \[
+    J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i\log(\sigma(z_i)) + (1-y_i)\log(1-\sigma(z_i))]
+    \]
+
+    with:
+    
+    - \(m\) as the number of training examples
+    - \(y_i\) being the the actual class (0 or 1)
+    - \(\sigma(z_i)\) is the predicted probability using the sigmoid function
+    - \(\theta\) represents all parameters (weights and bias)
+
+???+ tip
+
+    Intuitively speaking, the loss function penalizes the model for making 
+    wrong predictions. If the model predicts a probability of 0.9 for a 
+    spam email, and the email is actually spam (\(y=1\)), the loss is small.
+    On the other hand, if the model predicts a probability of 0.1 for a 
+    spam email, and the email is spam (\(y=1\)), the loss will be high. 
+
+    The weights are gradually adjusted to minimize the loss.
+    Think of it like turning knobs slowly until we get better predictions.
+    
+    Gradually adjusting these knobs to minimize the loss is referred to as
+    gradient descent.
+
+Conveniently, `scikit-learn` provides a logistic regression implementation
+that takes care of the optimization for us. Finally, we look at a 
+practical example to see logistic regression in action.
+
+## Example
+
