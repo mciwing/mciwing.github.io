@@ -15,8 +15,6 @@ performance using the coefficient of determination (\( R^2 \) ), and understand
 the mathematics behind finding the "best fit" line - concepts that form the
 foundation for many more sophisticated machine learning algorithms.
 
-## Linear Regression
-
 {%
     include-markdown "statistics/regression/LinearRegression.md"
     start="<!-- Body start -->"
