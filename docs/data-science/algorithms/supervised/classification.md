@@ -22,7 +22,7 @@ regression to predict probabilities between 0 and 1.
         3rd edition. Online manuscript released January 12, 2025.
         [https://web.stanford.edu/~jurafsky/slp3](https://web.stanford.edu/~jurafsky/slp3)
 
-### Deja vu: Linear regression
+#### Deja vu: Linear regression
 
 Just like in linear regression, we have a set of features \(x_1, x_2, ..., x_n\)
 describing an outcome \(y\). But instead of predicting a continuous value, \(y\)
@@ -53,7 +53,7 @@ and in fact ranges from \(-\infty\) to \(+\infty\). Thus, \(z\) needs to be
 transformed to a probability between 0 and 1. This is where the sigmoid
 function comes into play.
 
-### The sigmoid function
+#### The sigmoid function
 
 Unlike linear regression, which outputs unbounded values, logistic regression
 uses the sigmoid (or logistic) function to transform \(z\) into a probability
@@ -66,3 +66,27 @@ uses the sigmoid (or logistic) function to transform \(z\) into a probability
 
     The sigmoid function takes the real number \(z\) and squashes it to the 
     range (0,1).
+
+<div style="text-align: center;">
+    <iframe src="/assets/data-science/algorithms/sigmoid.html" width="600" height="450">
+    </iframe>
+    <figcaption>
+        An illustration of the sigmoid function often referred to as 
+        logistic function.
+    </figcaption>
+</div>
+
+For given input features \(x_1, x_2, ..., x_n\), we can calculate the 
+linear combination \(z\) and then apply the sigmoid function to get the 
+probability of the outcome.
+To compute the probability of the outcome being 1 
+:fontawesome-solid-arrow-right: \(P(y=1|x)\), for example 
+if an email is spam, we have to set a decision boundary.
+
+???+ defi "Decision boundary"
+
+    If \(\sigma(z) \gt 0.5\), we predict \(y=1\), otherwise \(y=0\).
+
+For instance, if the probability of an email being spam is 0.7, we predict
+that the email is spam. With a probability of 0.4, we predict that the email
+is *not* spam.
