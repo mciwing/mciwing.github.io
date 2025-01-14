@@ -188,6 +188,13 @@ target
 In total, the data contains 569 samples with 357 benign and 212 malignant
 tumors.
 
+???+ tip
+
+    You might be wondering why the data was divided into `X`, containing the 
+    attributes and `y` holding the corresponding labels. Having attributes and 
+    labels spearated, makes life a bit easier when training and testing the 
+    model.
+
 ???+ question "Number of features"
 
     Investigate the `DataFrame` `X` to the below quiz question.
@@ -199,7 +206,143 @@ answer: 29
 answer: 32
 content:
 <p>Correct, for example <code>X.shape</code> reveals that we are dealing
-with 30 features
+with 30 features.
 </p>
 <?/quiz?>
 
+### Split the data
+
+Before training our model, we want to split our data into two parts:
+
+- Training set: Used to teach our model (in our example we use 80%)
+- Test set: Used to evaluate how well our model learned (the remaining 20%)
+
+This is like splitting a textbook into two parts: one for studying and one for
+taking a quiz. We learn from one part and test our knowledge with the other.
+
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, shuffle=True
+)
+```
+
+Let's break the code snippet down:
+
+1. The whole data set (`X` and `y`) is given to the `train_test_split()` 
+   function.
+2. We specify that 20% should be used for testing (`#!python test_size=0.2`).
+3. For reproducibility, a seed is set with `#!python random_state=42` 
+   which ensures the same outcome every time the code snippet is executed.
+
+After splitting, we put our test data (`X_test` and `y_test`) aside and only
+use it at the very end to evaluate our model's performance.
+
+### Train the model
+
+Now that we have our training data, we can train the logistic regression model.
+
+```python
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression(random_state=42, max_iter=3_000)  # (1)!
+model.fit(X_train, y_train)
+```
+
+1. The `random_state` parameter ensures reproducibility, while
+    `max_iter` specifies the maximum number of iterations taken for the solver 
+    to converge (i.e., solving the optimization problem to find the best 
+    parameter combination).
+
+`#!python model=LogisticRegression(...)` creates an instance of the logistic
+regression model. Only after calling the `fit()` method, the `model` is 
+actually trained. Since we separated attributes and labels into `X_train` and 
+`y_train` respectively, we can directly call the method without any 
+further data handling.
+
+#### Weights and bias
+
+With a trained model at hand, we can look at the weights \((b_1, b_2, ..., 
+b_n)\) and bias \((a)\).
+
+```python
+print(f"Model weights: {model.coef_}")
+```
+
+```title=">>> Output"
+Model weights: [[ 0.98293997  0.22667548 -0.36956971  0.02637225 ... ]]
+```
+
+The `coef_` attribute contains the weight for each feature. 
+[As discussed](#deja-vu-linear-regression), the weights are real numbers.
+
+Now, it's your turn to look at the bias.
+
+???+ question "Model bias"
+
+    1. Open the `scikit-learn` docs on the
+       [`LogisticRegression`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
+       class.
+    2. Find out how to access the bias term of the model.
+    3. Simply print the bias term of the model.
+
+    :fontawesome-solid-lightbulb: Remember, the bias is often referred to as 
+    intercept.
+
+### Predictions
+
+Since, the main purpose of a machine learning model is to make predictions,
+we will do just that.
+
+Predicting, is as simple as using the `predict()` method. We will use the 
+patient measurements of the test set - `X_test`.
+
+```python
+y_pred = model.predict(X_test)
+
+# first 5 predictions
+print(y_pred[:5])
+```
+
+```title=">>> Output"
+[1 0 0 1 1]
+```
+
+Congratulations, you just build a machine learning model to predict breast 
+cancer. But how good is the model? To conclude the chapter, we will briefly 
+evaluate the model's performance.
+
+### Evaluate the model
+
+Surely, we could just manually compare the predictions (`y_pred`) with the 
+actual labels (`y_test`) and evaluate how often the model was correct. Or 
+instead, we can leverage another method called `score()`.
+
+```python
+score = model.score(X_test, y_test)
+```
+
+First, the `score()` method takes `X_test` and makes the corresponding 
+predictions and programmatically compares the predictions with the actual 
+labels `y_test`. `score()` returns the accuracy 
+:fontawesome-solid-arrow-right: the proportion of correctly
+classified instances. 
+
+```python
+print(f"Model accuracy: {round(score, 4)}")
+```
+
+```title=">>> Output"
+Model accuracy: 0.9561
+```
+
+In our case, the model correctly classified 95.61% of the test set. In 
+other words, in 95.61% of instances, the model was able to correctly predict 
+if a tumor is malignant or benign.
+
+???+ tip
+
+    As the test set (both attributes and labels) were never used to train the
+    model, the accuracy is a good indicator of how well the model generalizes
+    to unseen data.
