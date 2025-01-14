@@ -3,10 +3,11 @@
 ## Logistic Regression
 
 While linear regression helps us predict continuous values, many real-world
-problems require predicting categorical outcomes: Will a customer churn? Is an
-email spam? Is a tumor malignant? Logistic regression addresses these binary
-classification problems by extending the concepts we learned in linear
-regression to predict probabilities between 0 and 1.
+problems require predicting categorical outcomes: Will a customer subscribe to
+a term deposit? Is an email spam? Is a transaction fraudulent? 
+Logistic regression addresses these binary classification problems by extending
+the concepts we learned in linear regression to predict probabilities between 
+0 and 1.
 
 ### Theory
 
@@ -64,7 +65,7 @@ uses the sigmoid (or logistic) function to transform \(z\) into a probability
     \sigma(z) = \frac{1}{1 + e^{-z}}
     \]
 
-    The sigmoid function takes the real number \(z\) and squashes it to the 
+    The sigmoid function takes the real number \(z\) and transforms it to the 
     range (0,1).
 
 <div style="text-align: center;">
@@ -72,7 +73,7 @@ uses the sigmoid (or logistic) function to transform \(z\) into a probability
     </iframe>
     <figcaption>
         An illustration of the sigmoid function often referred to as 
-        logistic function.
+        logistic function. Thus, the name logistic regression.
     </figcaption>
 </div>
 
@@ -88,8 +89,8 @@ if an email is spam, we have to set a decision boundary.
     If \(\sigma(z) \gt 0.5\), we predict \(y=1\), otherwise \(y=0\).
 
 For instance, if the probability of an email being spam is 0.7, we predict
-that the email is spam. With a probability of 0.4, we predict that the email
-is *not* spam.
+that the email is spam \((0.7 \gt 0.5)\). With a probability of 0.4, we 
+predict that the email is *not* spam \((0.4 \le 0.5)\).
 
 #### The optimization problem
 
