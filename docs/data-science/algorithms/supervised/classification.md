@@ -346,3 +346,24 @@ if a tumor is malignant or benign.
     As the test set (both attributes and labels) were never used to train the
     model, the accuracy is a good indicator of how well the model generalizes
     to unseen data.
+
+## Recap
+
+We covered logistic regression, a popular algorithm for binary classification.
+
+Upon discussing the theory, we discovered similarities to linear regression 
+in regard to the linear combination of features. With the help of the 
+sigmoid function, we transformed the linear combination into probabilities
+between 0 and 1.
+
+Subsequently, we trained a logistic regression model on the breast cancer
+data to predict whether a tumor is malignant or benign. To evaluate the 
+model we split the data and finally calculated the accuracy.
+
+???+ info
+
+    In subsequent chapters we will explore more sophisticated ways to split 
+    data and evaluate models.
+
+Next up, we will dive into algorithms, like decision trees and random forest,
+that can handle both regression and classification problems.

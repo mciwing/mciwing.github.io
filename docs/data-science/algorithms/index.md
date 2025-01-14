@@ -288,7 +288,7 @@ complex data, speed up algorithms, and improve model performance.
     trying to solve will help you select the right algorithms, features, 
     and interpret the results.
 
-## Summary
+## Recap
 
 In this chapter, we introduced two fundamental concepts in machine learning:
 supervised and unsupervised learning. While supervised learning works with
