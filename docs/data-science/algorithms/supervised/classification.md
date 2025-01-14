@@ -9,6 +9,9 @@ Logistic regression addresses these binary classification problems by extending
 the concepts we learned in linear regression to predict probabilities between 
 0 and 1.
 
+We will cover the theory and apply logistic regression to the breast cancer
+dataset to predict whether a tumor is malignant or benign.
+
 ### Theory
 
 ???+ info
@@ -141,4 +144,62 @@ that takes care of the optimization for us. Finally, we look at a
 practical example to see logistic regression in action.
 
 ## Example
+
+Let's apply logistic regression to the breast cancer dataset, a classic binary
+classification problem where we need to predict whether a tumor is *malignant 
+or benign* based on various features.
+
+With class labels \(y\) being 0 (malignant) or 1 (benign), we can use logistic
+regression to predict the probability of a tumor being benign. The features 
+were calculated from digitized images of a breast mass.
+
+???+ info
+
+    See the [UCI Machine Learning Repository](https://doi.org/10.24432/C5DW2B)
+    for more information on the data set.[^2]
+
+    [^2]:
+        Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). 
+        Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine 
+        Learning Repository. 
+        [https://doi.org/10.24432/C5DW2B](https://doi.org/10.24432/C5DW2B).
+
+
+### Load the data
+
+Conveniently, `scikit-learn` provides a couple of data sets for both regression
+and classification tasks. One of them is the breast cancer dataset.
+
+```python hl_lines="3"
+from sklearn.datasets import load_breast_cancer
+
+X, y = load_breast_cancer(return_X_y=True, as_frame=True)
+
+# count the number of malignant and benign tumors
+print(y.value_counts())
+```
+
+```title=">>> Output"
+target
+1    357
+0    212
+```
+
+In total, the data contains 569 samples with 357 benign and 212 malignant
+tumors.
+
+???+ question "Number of features"
+
+    Investigate the `DataFrame` `X` to the below quiz question.
+
+<?quiz?>
+question: How many features (attributes) does the breast cancer dataset have?
+answer-correct: 30
+answer: 29
+answer: 32
+content:
+<p>Correct, for example <code>X.shape</code> reveals that we are dealing
+with 30 features
+</p>
+<?/quiz?>
 
