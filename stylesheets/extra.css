@@ -1,0 +1,95 @@
+:root {
+    --md-admonition-icon--code: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>')
+  }
+  .md-typeset .admonition.code,
+  .md-typeset details.code {
+    border-color: rgb(132, 132, 132);
+  }
+  .md-typeset .code > .admonition-title,
+  .md-typeset .code > summary {
+    background-color: rgba(132, 132, 132, 0.1);
+  }
+  .md-typeset .code > .admonition-title::before,
+  .md-typeset .code > summary::before {
+    background-color: rgb(132, 132, 132);
+    -webkit-mask-image: var(--md-admonition-icon--code);
+            mask-image: var(--md-admonition-icon--code);
+  }
+
+:root {
+    --md-admonition-icon--defi: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"/></svg>')
+  }
+  .md-typeset .admonition.defi,
+  .md-typeset details.defi {
+    border-color: rgb(232, 127, 43);
+  }
+  .md-typeset .defi > .admonition-title,
+  .md-typeset .defi > summary {
+    background-color: rgba(232, 127, 43, 0.1);
+  }
+  .md-typeset .defi > .admonition-title::before,
+  .md-typeset .defi > summary::before {
+    background-color: rgb(232, 127, 43);
+    -webkit-mask-image: var(--md-admonition-icon--defi);
+            mask-image: var(--md-admonition-icon--defi);
+  }
+
+
+:root {
+    --md-admonition-icon--process: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M80 32C53.5 32 32 53.5 32 80s21.5 48 48 48l152 0 0 40-48 48-56 0c-48.6 0-88 39.4-88 88l0 48-8 0c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-8 0 0-48c0-22.1 17.9-40 40-40l56 0 48 48 0 40-8 0c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-8 0 0-40 48-48 56 0c22.1 0 40 17.9 40 40l0 48-8 0c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l64 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-8 0 0-48c0-48.6-39.4-88-88-88l-56 0-48-48 0-40 152 0c26.5 0 48-21.5 48-48s-21.5-48-48-48L80 32z"/></svg>')
+  }
+  .md-typeset .admonition.process,
+  .md-typeset details.process {
+    border-color: rgb(132, 132, 132);
+  }
+  .md-typeset .process > .admonition-title,
+  .md-typeset .process > summary {
+    background-color: rgba(132, 132, 132, 0.1);
+  }
+  .md-typeset .process > .admonition-title::before,
+  .md-typeset .process > summary::before {
+    background-color: rgb(132, 132, 132);
+    -webkit-mask-image: var(--md-admonition-icon--process);
+            mask-image: var(--md-admonition-icon--process);
+  }
+
+
+  :root {
+    --md-admonition-icon--adv: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM200 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>')
+  }
+  .md-typeset .admonition.adv,
+  .md-typeset details.adv {
+    border-color: rgb(38, 126, 38);
+  }
+  .md-typeset .adv > .admonition-title,
+  .md-typeset .adv > summary {
+    background-color: rgba(38, 126, 38, 0.1);
+  }
+  .md-typeset .adv > .admonition-title::before,
+  .md-typeset .adv > summary::before {
+    background-color: rgb(38, 126, 38);
+    -webkit-mask-image: var(--md-admonition-icon--adv);
+            mask-image: var(--md-admonition-icon--adv);
+  }
+
+:root {
+    --md-admonition-icon--disadv: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm88 200l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>')
+  }
+  .md-typeset .admonition.disadv,
+  .md-typeset details.disadv {
+    border-color: rgb(255, 0, 0);
+  }
+  .md-typeset .disadv > .admonition-title,
+  .md-typeset .disadv > summary {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+  .md-typeset .disadv > .admonition-title::before,
+  .md-typeset .disadv > summary::before {
+    background-color: rgb(255, 0, 0);
+    -webkit-mask-image: var(--md-admonition-icon--disadv);
+            mask-image: var(--md-admonition-icon--disadv);
+  }
+
+.center-button {
+    text-align: center;
+}
