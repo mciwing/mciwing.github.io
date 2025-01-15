@@ -1,5 +1,8 @@
 # Home
 
+![header](../assets/header/statistics.png)
+
+
 In today's data-driven world, the importance of statistics cannot be overstated. Statistics offers the foundational tools for making sense of the vast amount of information surrounding us, helping us draw meaningful conclusions from data and guiding decision-making across a wide array of fields. Whether it's in business, healthcare, engineering, or social sciences, the ability to analyze data effectively has become a crucial skill in the modern age. This chapter aims to introduce the fundamental concepts of statistics, from basic descriptive techniques to more advanced inferential methods.
 
 The motivation behind studying statistics lies in its dual role: providing tools for summarizing and understanding data (descriptive statistics), and equipping us with methodologies to infer patterns and make predictions about broader populations from samples (inferential statistics). By mastering these concepts, we enhance our ability to interpret data accurately and make informed decisions, thus fostering a more analytical and evidence-based approach to problem-solving.
