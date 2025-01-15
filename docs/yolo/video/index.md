@@ -50,7 +50,7 @@ cap = cv2.VideoCapture(0)
 The argument `0` refers to the first camera connected to the device. If additional cameras are connected, you can use `1`, `2`, etc.
 
 ???+ info "Saved Video"
-    You can also open videos from your hard drive. Simply enter the path to your video instead of `0`. 
+    You can also open videos from your hard drive or from a website like Youtube :simple-youtube:. Simply enter the path to your video instead of `0`. Don't forget to read the [docs](https://docs.ultralytics.com/modes/predict/#inference-sources).
 
 #### Step 3: Read Frames
 The `read()` method of the `VideoCapture` object retrieves each frame from the video stream:

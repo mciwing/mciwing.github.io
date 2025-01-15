@@ -2,7 +2,7 @@
 After learning about computer vision in general and how YOLO works, we can start using YOLO for our purposes. We will see, how much we can do with little code. 
 
 ## Project Setup
-We start with the project structur from [before](../yolo.md#installation-and-setup) and create a new jupyter notebook `yolo_detect.ipynb`
+We start with the project structure from [before](../yolo.md#installation-and-setup) and create a new jupyter notebook `yolo_detect.ipynb`
 ```hl_lines="4"
 📁 computer_vision/
     ├── 📁 .venv/

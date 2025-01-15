@@ -149,7 +149,7 @@ To save your counting results for later analysis you need to add the following l
 
 
 ???+ question "Experiment with Different Settings"
-    Perform an object counting in region with the above code by accessing you webcam. 
+    Perform an object counting in region with the above code by accessing your webcam. 
     Try these modifications to enhance your counter:
 
     1. Change the size of the region.
