@@ -103,8 +103,8 @@ nav:
         - python-extensive/data/api.md
 
     - Graphical User Interface:
-      - python-extensive/oop.md  # TODO: objet oriented programming
-      - python-extensive/gui.md  # TODO: graphical user interfaces
+      - python-extensive/oop.md  # TODO: object oriented programming
+      - python-extensive/gui.md
 
     - python-extensive/git.md  # TODO: Bonus chapter on Git
 
@@ -148,6 +148,19 @@ nav:
 
       - Supervised vs. Unsupervised Learning:
         - data-science/algorithms/index.md
+
+        - Supervised:
+          - data-science/algorithms/supervised/regression.md  # TODO: linear regression
+          - data-science/algorithms/supervised/classification.md  # TODO: logistic regression
+          - data-science/algorithms/supervised/flexible-learners.md  # TODO: decision trees, random forests, neural net
+
+        - Unsupervised:
+          - data-science/algorithms/unsupervised/unsupervised.md  # TODO: clustering, dimensionality reduction
+
+      - Evaluation & Pipelines:
+          - data-science/pipelines/evaluation.md  # TODO: Model evaluation
+          - data-science/pipelines/pipelines.md  # TODO: End-to-end example; pipeline creation
+          - data-science/pipelines/persistence.md  # TODO: Practical tips to save models
 
   - Computer Vision: 
     - yolo/index.md
