@@ -192,7 +192,7 @@ tumors.
 
     You might be wondering why the data was divided into `X`, containing the 
     attributes and `y` holding the corresponding labels. Having attributes and 
-    labels spearated, makes life a bit easier when training and testing the 
+    labels separated, makes life a bit easier when training and testing the 
     model.
 
 ???+ question "Number of features"
