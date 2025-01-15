@@ -104,6 +104,7 @@ nav:
 
     - Graphical User Interface:
       - python-extensive/oop.md  # TODO: objet oriented programming
+      - python-extensive/tkinter.md # TODO: gui with tkinter
       - python-extensive/gui.md  # TODO: graphical user interfaces
 
     - python-extensive/git.md  # TODO: Bonus chapter on Git
