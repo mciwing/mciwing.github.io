@@ -35,7 +35,7 @@ The amount of data needed depends on several factors like **Task Complexity**, *
 
 | Task Complexity | Recommended Images |
 |-----------------:|:-------------------|
-| Simple (e.g., logo detection) | 500 - 2,000 |
+| Simple (e.g., logo detection) | 100 - 2,000 |
 | Moderate (e.g., car types) | 2,000 - 10,000 |
 | Complex (e.g., defect detection) | 5,000 - 20,000+ |
 
@@ -59,19 +59,19 @@ from ImageEngine import searchWeb       # Search all three engines
 
 # Search images from DuckDuckGo
 # "Homer Simpson" is the search string and "homer" is the directory where images will be stored
-searchDDG(term="Homer Simpson", path="data/images/homer", max_images=5)
+searchDDG(term="Homer Simpson", path="data/homer", max_images=5)
 # Search images from Bing
-searchBing(term="Marge Simpson ", path="data/images/marge", max_images=5)
+searchBing(term="Marge Simpson ", path="data/marge", max_images=5)
 # Search images from Google
-searchGoogle(term="Bart Simpson", path="data/images/bart", max_images=5)
+searchGoogle(term="Bart Simpson", path="data/bart", max_images=5)
 # Search images from all three engines
-searchWeb(term="Lisa Simpson", path="data/images/lisa", max_images=5)
+searchWeb(term="Lisa Simpson", path="data/lisa", max_images=5)
 
 ```
 
 ### Data Cleaning Tips
 
-After downloading, it's important to clean your dataset:
+After downloading, it's important to clean your dataset by going through the following steps:
 
 ???+ tip "Dataset Cleaning Checklist"
     - [ ] Check copyright restrictions
@@ -79,7 +79,7 @@ After downloading, it's important to clean your dataset:
     - [ ] Remove duplicates
     - [ ] Verify image quality
     - [ ] Check image relevance
-    - [ ] Ensure consistent format
+    - [ ] Ensure consistent format (not allways needed)
 
 
 Those steps can be done manually by looking through the pictures. Finding duplicates and corrupted images can also be automated by using this custom function
@@ -140,7 +140,10 @@ Those steps can be done manually by looking through the pictures. Finding duplic
     ```
 
 ???+ question "Task: Download Images"
-    Now it's your turn. Try to use the `ImageEngine` package to download 100 suitable images of a 5€ note into the folder `data/five`.
+    Now it's your turn. We want to collect images of different Euro notes. 
+
+    - Try to use the `ImageEngine` package to download 100 suitable images of a 5€ note and save them into the folder `data/five`.
+    - Go through the data cleaning checklist (you can use the function from above)
 
     <figure markdown="span"> ![Euro](https://upload.wikimedia.org/wikipedia/commons/0/0f/EUR_5_obverse_%282002_issue%29.jpg){width=50% } </figure>
 
@@ -173,7 +176,10 @@ cv2.imwrite(f'data/video/frame_{frameNr}.jpg', frame)
     `frameNr` is simply a **frame counter**. It starts at 0 before entering the loop and increments by 1 every time a frame is successfully read from the video. This counter is used to give each extracted frame a unique filename (e.g., `frame_0.jpg`, `frame_1.jpg`, etc.).
 
 ???+ question "Task: Frame Extraction"
-    Now we continue from before and try to record a video of a 10€ note and save 100 seperate frames in the folder `data/ten`. Try to keep the recording guidelines in your mind. 
+    Now we continue from before and try to record a video of a Euro note.
+     
+    - Record a video of a 10€ note and save 100 seperate frames in the folder `data/ten`.
+    - Keep the recording guidelines in your mind.
 
     <figure markdown="span"> ![Euro](https://upload.wikimedia.org/wikipedia/commons/5/5b/EUR_10_obverse_%282002_issue%29.jpg){width=50% } </figure>
 
