@@ -221,7 +221,7 @@ class Camera:
 The structure of data — such as data types and dimensions — can still be freely chosen by the user, which may lead to undesired behavior. For example, the attribute *camera_type* might be assigned a list (**list**) instead of a string (**str**), or *resolution* might be given a string (**str**) instead of an integer (**int**) without any warning about the incorrect input.  
 
 To prevent this, data structures can be validated within the class definition. If the input is incorrect, an error message can be raised using:  
-`raise ValueError("Error message")`  
+`#!python raise ValueError("Error message")`  
 
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/3o7WTDH9gYo71TurPq" width="390" height="220" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/glitch-art-professorlightwav-3o7WTDH9gYo71TurPq"></a></p>
