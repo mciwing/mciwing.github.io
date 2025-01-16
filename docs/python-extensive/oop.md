@@ -246,9 +246,9 @@ class Camera:
         if camera_type not in self.__camera_types:
             raise ValueError(f"Camera type must be one of {self.__camera_types}.")  # Check if camera_type is one attribute from list.
         if not isinstance(lens_type, str):                      
-            raise ValueError("Lens type must be a string.")  # Check if lens_type is a string.
+            raise TypeError("Lens type must be a string.")  # Check if lens_type is a string.
         if not isinstance(resolution, int):                                                         
-            raise ValueError("Resolution must be an integer.")  # Check if resolution is an integer.
+            raise TypeError("Resolution must be an integer.")  # Check if resolution is an integer.
         if orientation not in ["horizontal","vertical"]:
             raise ValueError("Orientation must be either 'horizontal' or 'vertical'.")  # Check if orientation is one attribute from list.
         self.__camera_type = camera_type
