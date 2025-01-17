@@ -1,77 +1,113 @@
-[![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://mciwing.github.io/)
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
 <div align="center">
-    <h1>MCI | WING</h1>
-</div>
+   <img src="docs/assets/logo.png" alt="WING Logo" style="width: 200px; height: auto;">
+   <h1>MCI | WING</h1>
 
-<p align="center">
-  <img src="docs/assets/logo.png" alt="WING Logo" style="width: 200px; height: auto;">
-</p>
+   [![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://mciwing.github.io/)
+   ![Python](https://img.shields.io/badge/Python-3.12-blue)
+   [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-<div align="center">
-<hr>
-
-Visit the site <a href="https://mciwing.github.io/">here</a>
+   <h2>📚 Visit the site <a href="https://mciwing.github.io/">here</a><h2>
 </div>
 
 ---
 
 <details>
-<summary>Local development</summary>
+<summary>🛠️ Local development</summary>
 
-To serve the site locally, you need a couple of prerequisites (`pipx`, `poetry` 
-and `python >= 3.11 < 3.13`)
+The site is built with 
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+
+To serve the site locally, you need a couple of prerequisites 
+(`python >= 3.11 < 3.13`,`pipx` and `poetry`)
+
+> **Note**: This project currently supports Python 3.11 and 3.12 only. While older
+versions may work, they haven't been tested. We plan to add Python 3.13 support
+once `mkdocs` extends compatibility to that version.
+
+---
+
+## 1️⃣ Prerequisites
 
 ### `pipx`
 
-Install `pipx`
+`pipx` lets you install and run Python applications in isolated environments.
+We'll use it to install a package manager (`poetry`) later on.
 
-```bash
-python -m pip install --user pipx
-```
+1. To set it up:
 
-which will throw a warning that `pipx` is not on Path. Navigate to the 
-path mentioned in the warning and execute
+    ```bash
+    python -m pip install --user pipx
+    ```
 
-```bash
-.\pipx.exe ensurepath
-```
+2. After installation, you'll see a warning that `pipx` is not in your system
+   PATH. Copy the path shown in the warning message (this path varies by user).
+
+3. Navigate to the copied path.
+
+    ```bash
+    cd your_path_from_warning
+    ```
+
+4. Set `pipx` to your PATH environment variable.
+
+    ```bash
+    .\pipx.exe ensurepath
+    ```
 
 ### `poetry`
 
-In a new terminal, install `poetry`
+The project uses the package manager `poetry`. In a new terminal window,
+install `poetry` with:
 
 ```bash
 pipx install poetry
 ```
 
-### Project setup
+---
 
-To install all project dependencies, navigate to the project root and execute
+## 2️⃣ Project setup
+
+To install all project dependencies, clone this repository and within the
+project directory, run:
 
 ```bash
 poetry install
 ```
 
-### Serve the site (on Windows)
+## 3️⃣ Serve the site locally (on Windows)
 
-... with
+Lastly, build and serve the site locally with:
 
 ```bash
 .\serve-local.bat
 ```
 
-which will build and serve the site. The script is just a convenience wrapper
-to disable the `git-committers` plugin for local builds which should reduce the
-build time by a couple of seconds.
+> The script disables the `git-committers` plugin for faster local builds.
+> Visit `localhost:8000` in your browser to view the site. 🎉
 
-The site is served at `localhost:8000`
+---
+
+## ✍️ Contributing content
+
+If you properly set up the project, you can now start writing content.
+While the site is served locally, any changes you make to the content will 
+automatically trigger a reload of the site in your browser.
+
+The sites content is housed in the `\docs` directory and is written in Markdown.
+For formatting reference, check out the 
+[Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/reference/).
 
 </details>
 
-## License
+---
 
-This work is licensed under a 
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+<div align="center">
+    <h2>📄 License</h2>
+
+   This work is licensed under a 
+   <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
+   
+   <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="by-nc-sa 4.0">
+</div>
+
+
