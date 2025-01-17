@@ -92,8 +92,7 @@ nav:
 
     - Dev Tools & Data Handling:
       - python-extensive/packages.md
-      - python-extensive/pandas.md # TODO: emphasis on loading files; reading docs;
-      # more in-depth about pandas functionalities
+      - python-extensive/pandas.md
       - python-extensive/plotting.md  # TODO: plotting with pandas
 
     - Data Acquisition & Export:
@@ -103,9 +102,9 @@ nav:
         - python-extensive/data/api.md
 
     - Graphical User Interface:
-      - python-extensive/oop.md  # TODO: objet oriented programming
-      - python-extensive/tkinter.md # TODO: gui with tkinter
-      - python-extensive/gui.md  # TODO: graphical user interfaces
+      - python-extensive/oop.md
+      - python-extensive/tkinter.md
+      - python-extensive/streamlit.md
 
     - python-extensive/git.md  # TODO: Bonus chapter on Git
 
