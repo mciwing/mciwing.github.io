@@ -30,7 +30,8 @@ once `mkdocs` extends compatibility to that version.
 
 ### `pipx`
 
-`pipx` lets you install and run Python applications in isolated environments.
+[`pipx`](https://pipx.pypa.io/stable/) lets you install and run Python 
+applications in isolated environments.
 We'll use it to install a package manager (`poetry`) later on.
 
 1. To set it up:
@@ -56,7 +57,8 @@ We'll use it to install a package manager (`poetry`) later on.
 
 ### `poetry`
 
-The project uses the package manager `poetry`. In a new terminal window,
+The project uses the package manager 
+[`poetry`](https://python-poetry.org/docs/). In a new terminal window,
 install `poetry` with:
 
 ```bash
