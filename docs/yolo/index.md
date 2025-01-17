@@ -1,11 +1,12 @@
 # Introduction
-
-???+ info
+???+ danger "Under Construction"
 
     The `Computer Vision` section is currently under construction. 
     :fontawesome-solid-person-digging:
 
     Please check back later for updates.
+
+![header](../assets/header/cv.png)
 
 ???+ info "Project Setup"
     This chapter serves as an introduction to the topic of computer vision. We'll explore various tasks, demonstrating their use with code snippets. Even though this is just an introductory chapter and you might not grasp all the details yet, we encourage you to run the code on your own computer.

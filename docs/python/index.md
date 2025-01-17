@@ -1,13 +1,10 @@
 # Why Python?
 
-![header](../assets/python/python-header.gif)
+![header](../assets/header/pcc.png)
 
----
 
 This crash course will teach you the basics of the 
 **:fontawesome-brands-python: Python** programming language.
-
----
 
 ## Motivation
 
