@@ -8,7 +8,7 @@ A **Graphical User Interface (GUI)** allows users to interact with a program thr
 </div>
 
 #### How GUIs relate to OOP?
-Each GUI element (widget), like a button or text field, can be thought as an object of the corresponding class. These objects:    
+Each GUI element (widget), like a button or text field, can be thought of as an object of the corresponding class. These objects:    
 
 - have **attributes** (e.g., size, color, labels),
 - have **methods** (e.g., click, enable/disable), and
@@ -23,7 +23,7 @@ Nevertheless, there are many other GUI libraries that you could be interested in
 ## Creating a Basic Tkinter Application
 ### The Tkinter Main Loop
 The **root window** is responsible for running the main event loop (`mainloop()`), which keeps the GUI application running, listens for events (e.g., clicks, keystrokes), and updates the interface. The main event loop ends when the window is closed. Without the main loop, the GUI application would close immediately after being displayed.
-```python
+```python hl_lines="9"
 import tkinter as tk
 
 # Create root window
@@ -62,7 +62,7 @@ The `listbox` widget uses the `bind` method to associate the selection event wit
 ???+ question "Run the Code"
     Interact with the widgets to see their behavior in action (check the console for printed outputs).
 
-```python
+```python hl_lines="4 9 13 20 24 34 41 49 57 58 66"
 import tkinter as tk
 
 # Set window attributes
@@ -89,7 +89,7 @@ my_button.pack()
 text = tk.Text(height=5, width=30)
 text.focus()
 text.insert(tk.END, "My first try on a multi-line text entry.")
-print(text.get("1.0", tk.END))  # Prints the current text
+print(text.get("1.0", tk.END))  # Prints the current text starting from line 1, character 0 ("1.0" == the very beginning of the text widget)
 text.pack()
 
 # Spinbox callback
@@ -129,9 +129,8 @@ def listbox_used(event):
     print(listbox.get(listbox.curselection()))
 # Listbox
 listbox = tk.Listbox(height=4)
-colors = ["Red", "Green", "Blue", "Yellow"]
-for item in colors:
-    listbox.insert(colors.index(item), item)
+for item in ["Red", "Green", "Blue", "Yellow"]:
+    listbox.insert(tk.END, item)
 listbox.bind("<<ListboxSelect>>", listbox_used)
 listbox.pack()
 
@@ -158,7 +157,7 @@ The layout of a graphical user interface is largely determined by the arrangemen
 3. **Column and Row Configuration:**
     - **Tkinter** allows you to configure the weight of rows and columns to define how they should expand when the window is resized. You can do this using `grid_columnconfigure()` and `grid_rowconfigure()`.
 
-```python
+```python hl_lines="8 12 16 20 24"
 import tkinter as tk
 
 root = tk.Tk()
@@ -180,7 +179,7 @@ age_label.grid(row=1, column=0)
 age_entry = tk.Entry()
 age_entry.grid(row=1, column=1)
 
-# Button in the third row and first column
+# Button in the third row, spanning both columns
 submit_button = tk.Button(text="Submit")
 submit_button.grid(row=2, columnspan=2)  # Spanning both columns
 
