@@ -38,15 +38,13 @@ OOP makes it easy to reuse and extend code, simplifying the development of compl
 
 ## Class Definition
 Classes define the structure of objects, specifying their attributes and methods. Use the syntax:  
-`class ClassName:`    
+`#!python class ClassName:`    
 Just like with functions, the code inside the class is indented. Classes can be defined in the same script or in a separate script file, which can then be included using `import`.   
-Changes to the class definition only apply to new objects, meaning that all objects from the old definition must be removed from the workspace. The workspace can be cleared using    
-`%reset -f`.
+Changes to the class definition only apply to new objects, meaning that all objects from the old definition must be removed from the workspace.     
 
 A class for a `Camera` module in a self-driving car could be defined as follows:
-```python
-%reset -f
 
+```python
 class Camera:
     pass
 ```
@@ -54,9 +52,8 @@ class Camera:
     `pass` is a placeholder that indicates that no action is executed. It is used to define an empty code block.
 
 You can create **Camera** objects — instances of the class — by assigning them using  `Camera()`.
-```python
-%reset -f
 
+```python hl_lines="5 6"
 class Camera:
     pass
 
@@ -74,9 +71,8 @@ print(type(rear_camera))
 This demonstrates that `front_camera` and `rear_camera` are instances of the `Camera` class, even though the class currently has no defined attributes or methods.    
 
 Variables or attributes can be defined within a class. As a result, all objects of the class will have this variable with the specified value. The attribute can be accessed using a **dot operator**.
-```python
-%reset -f
 
+```python hl_lines="9"
 class Camera:
     # Defining a class attribute
     lens_type = "wide-angle" 
@@ -88,10 +84,9 @@ front_camera = Camera()
 print(front_camera.lens_type)
 ```
 The `lens_type` attribute is a **class attribute**, meaning it is shared by all instances of the class.    
-Changing the value of the class attribute (`Camera.lens_type`) affects all objects created from the class, as they share the same attribute.  
-```python
-%reset -f
+Changing the value of the class attribute (`Camera.lens_type`) affects all objects created from the class, as they share the same attribute. 
 
+```python hl_lines="14"
 class Camera:
     # Defining a class attribute
     lens_type = "wide-angle"  
@@ -116,12 +111,11 @@ print(f"Rear camera lens type: {rear_camera.lens_type}")
 The `__init__(self, property)` method is called each time a new object is instantiated.   
 
 **Attributes** are characteristics that describe an object (e.g., camera_type, lens_type). Within the `__init__` method, the term **`self`** refers to the object being created, and additional attributes can be added to it. This **initialization method** ensures that the Camera object is set up with specific values (e.g., camera_type and lens_type) right when it is created. An error message occurs if these specific values are missing.
-```python
-%reset -f
 
+```python hl_lines="3"
 class Camera:
     # Setting the attributes camera_type and lens_tpye
-    def __init__(self,camera_type, lens_type):
+    def __init__(self, camera_type, lens_type):
         self.camera_type = camera_type
         self.lens_type = lens_type
 
@@ -137,12 +131,11 @@ rear_camera = Camera()
     Why does this code generate an error message? Identify the cause and modify the code to ensure it runs without errors.
  
 **Initialization parameters** allow optional customization when creating an object. If no values are provided, default values will be used.
-```python
-%reset -f
 
+```python hl_lines="3"
 class Camera:
     # Setting the attributes camera_type, lens_tpye and resolution
-    def __init__(self,camera_type, lens_type, resolution=1080):
+    def __init__(self, camera_type, lens_type, resolution=1080):
         self.camera_type = camera_type
         self.lens_type = lens_type
         self.resolution = resolution
@@ -152,19 +145,18 @@ front_camera = Camera("front","wide-angle")
 print(f"{front_camera.camera_type}, {front_camera.lens_type} and {front_camera.resolution}")
 ```
 ```python
-# Creating an instance of the Camera class        
+# Creating an instance of the Camera class with defining the resolution       
 front_camera = Camera("front","wide-angle",720)
 print(f"{front_camera.camera_type}, {front_camera.lens_type} and {front_camera.resolution}")
 ```
 
 ## Encapsulation
-**Encapsulation** separates what a class shows (**public** properties and methods) from its hidden internal details (**private** implementation). If data is **public**, it can be directly accessed and changed using the **dot operator**.   
-```python
-%reset -f
+**Encapsulation** separates what a class shows (**public** properties and methods) from its hidden internal details (**private** implementation). If data is **public**, it can be directly accessed and changed using the **dot operator**.
 
+```python hl_lines="9"
 class Camera:
     # Setting the attributes camera_type and lens_tpye
-    def __init__(self,camera_type, lens_type):
+    def __init__(self, camera_type, lens_type):
         self.camera_type = camera_type
         self.lens_type = lens_type
 
@@ -172,34 +164,43 @@ class Camera:
 front_camera = Camera("front","wide-angle")
 print(front_camera.camera_type)
 ```
-```python
+```python hl_lines="2"
 # Changing the attribute camera_type
 front_camera.camera_type = "rear"
 print(front_camera.camera_type)
 ```
-If data is **private**, it allows access only through specific **methods**, protecting the object's internal workings. Using double underscores before the attribute name (`__name`), restricts access to the **private** attribute.   
-```python
-%reset -f
-
+If data is **private**, it allows access only through specific **methods**, protecting the object's internal workings. Using double underscores before the attribute name (`__name`), restricts access to the **private** attribute. 
+ 
+```python hl_lines="4 5"
 class Camera:
     # Setting the private attributes camera_type and lens_tpye
-    def __init__(self,camera_type, lens_type):
+    def __init__(self, camera_type, lens_type):
         self.__camera_type = camera_type
         self.__lens_type = lens_type
         
 # Creating an instance of the Camera class 
 front_camera = Camera("front","wide-angle")
-
+```
+```python
 # Incorrect usage: Accessing the attribute camera_type
 print(front_camera.camera_type)
 ```
-By defining appropriate **methods**, interface functions can be provided to allow the user to modify and read **private** attributes (e.g., change_camera_type, display_data). The **dot operator** is used when calling the function.
-```python
-%reset -f
+```title=">>> Output"
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[8], line 2
+      1 # Incorrect usage: Accessing the attribute camera_type
+----> 2 print(front_camera.camera_type)
 
+AttributeError: 'Camera' object has no attribute 'camera_type'
+```
+
+By defining appropriate **methods**, interface functions can be provided to allow the user to modify and read **private** attributes (e.g., change_camera_type, display_data). The **dot operator** is used when calling the function.
+
+```python hl_lines="8 12"
 class Camera:
     # Setting the private attributes camera_type and lens_tpye
-    def __init__(self,camera_type, lens_type):
+    def __init__(self, camera_type, lens_type):
         self.__camera_type = camera_type
         self.__lens_type = lens_type
 
@@ -218,26 +219,40 @@ class Camera:
     Create a new instance of the `Camera` class (e.g., `front_camera`), then update its `camera_type` attribute.
 
 ## Definition of the Data Structure
-The structure of data — such as data types and dimensions — can still be freely chosen by the user, which may lead to undesired behavior. For example, the attribute *camera_type* might be assigned a list (**list**) instead of a string (**str**), or *resolution* might be given a string (**str**) instead of an integer (**int**) without any warning about the incorrect input.  
+The structure of data — such as data types and dimensions — can still be freely chosen by the user, which may lead to undesired behavior. For example, the attribute *camera_type* might be assigned a list (**list**) instead of a string (**str**), or *resolution* might be given a string (**str**) instead of an integer (**int**) without any warning about the incorrect input. Also a method could receive an attribute with the correct type but an invalid value (e.g., a negative number where only positives make sense).  
 
-To prevent this, data structures can be validated within the class definition. If the input is incorrect, an error message can be raised using:  
-`#!python raise ValueError("Error message")`  
+???+ info "Causing errors for others"
+
+    Up until now, you have encountered various different errors.
+    For example, we encountered a `#!python NameError` when misspelling a 
+    variable name, a `#!python TypeError` when using an incorrect data type, 
+    or a `#!python IndentationError` when the code was not properly indented.
+
+    Now it's your time to raise an error (or often called exception) yourself, 
+    which can be a helpful and informative way to guide the user in case of 
+    incorrect use. 
+    [Here](https://docs.python.org/3.12/library/exceptions.html#exception-hierarchy)
+    is a comprehensive list of all built-in exceptions in Python. 
+
+To prevent this, data structures can be validated within the class definition. If the input is incorrect, a general error message can be raised using:  
+`#!python raise ValueError("Error message")`     
+To specifically check if an attribute is of an incorrect type (e.g., passing a string when a number is expected), you can raise a `TypeError` with a descriptive message:    
+`#!python raise TypeError("Error message")`       
 
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/3o7WTDH9gYo71TurPq" width="390" height="220" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/glitch-art-professorlightwav-3o7WTDH9gYo71TurPq"></a></p>
 </div>
 
 You can check the data type with the command:  
-`isinstance(variable, data_type)`    
+`#!python isinstance(variable, data_type)`    
 
 Possible attributes of a category can also be defined in a list, for example:  
 *`__camera_types = ["front", "rear", "left", "right", "top", "not stated"]`*    
-*`orientation = ["horizontal", "vertical"]`*    
+*`orientation = ["horizontal", "vertical", "not stated"]`*    
 
-By validating the data types during object creation, you can ensure the object behaves as expected and avoid unexpected errors later in the program.
-```python
-%reset -f
+By validating the data types during object creation, you can ensure the object behaves as expected and avoid unexpected errors later in the program.   
 
+```python hl_lines="2 7 9 11 13 22 28"
 class Camera:
     __camera_types = ["front","rear","left","right","top","not stated"]
 
@@ -249,8 +264,8 @@ class Camera:
             raise TypeError("Lens type must be a string.")  # Check if lens_type is a string.
         if not isinstance(resolution, int):                                                         
             raise TypeError("Resolution must be an integer.")  # Check if resolution is an integer.
-        if orientation not in ["horizontal","vertical"]:
-            raise ValueError("Orientation must be either 'horizontal' or 'vertical'.")  # Check if orientation is one attribute from list.
+        if orientation not in ["horizontal","vertical","not stated"]:
+            raise ValueError("Orientation must be either 'horizontal', 'vertical' or 'not stated'.")  # Check if orientation is one attribute from list.
         self.__camera_type = camera_type
         self.__lens_type = lens_type
         self.resolution = resolution
@@ -264,8 +279,8 @@ class Camera:
 
     # Creating the method set_orientation with data type restrictions
     def set_orientation(self, orientation):
-        if orientation not in ["horizontal", "vertical"]:
-            raise ValueError("Orientation must be either 'horizontal' or 'vertical'.")
+        if orientation not in ["horizontal","vertical","not stated"]:
+            raise ValueError("Orientation must be either 'horizontal', 'vertical' or 'not stated'.")
         self.orientation = orientation
 
     # Creating the method display
