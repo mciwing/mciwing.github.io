@@ -2,12 +2,12 @@
 After learning about computer vision in general and how YOLO works, we can start using YOLO for our purposes. We will see, how much we can do with little code. 
 
 ## Project Setup
-We start with the project structur from [before](../yolo.md#installation-and-setup) and create a new jupyter notebook `yolo_image_ipynb`
+We start with the project structure from [before](../yolo.md#installation-and-setup) and create a new jupyter notebook `yolo_detect.ipynb`
 ```hl_lines="4"
 📁 computer_vision/
     ├── 📁 .venv/
     ├── 📁 pics/
-    └── 📄 yolo_image.ipynb
+    └── 📄 yolo_detect.ipynb
 ```
 Make sure the virtual environment (here `.venv`) is selected and all needed packages (`ultralytics`) are installed. 
 
@@ -281,7 +281,7 @@ After we worked on the output side of the Yolo, it's now time to focus more on t
 
 ## Further Adjustments
 
-As we have discussed before, YOLO comes in different [model sizes](#model-size), trading speed for accuracy.
+As we have discussed before, YOLO comes in different [model sizes](#pretrained-models), trading speed for accuracy.
 
 ???+ question "Task: Model Comparison"
     For each model size determine the following characteristics by running a detection on the `pic2.jpg`:

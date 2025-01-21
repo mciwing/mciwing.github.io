@@ -13,7 +13,7 @@
     Your project structure should look like this:
 
     ```
-    📁 computer_vision/
+    📁 vision_approaches/
     ├── 📁 .venv/
     ├── 📄 input.jpg
     └── 📄 cv_approaches.ipynb

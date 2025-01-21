@@ -149,30 +149,45 @@ nav:
       - Supervised vs. Unsupervised Learning:
         - data-science/algorithms/index.md
 
+        - Supervised:
+          - data-science/algorithms/supervised/regression.md  # TODO: linear regression
+          - data-science/algorithms/supervised/classification.md  # TODO: logistic regression
+          - data-science/algorithms/supervised/flexible-learners.md  # TODO: decision trees, random forests, neural net
+
+        - Unsupervised:
+          - data-science/algorithms/unsupervised/unsupervised.md  # TODO: clustering, dimensionality reduction
+
+      - Evaluation & Pipelines:
+          - data-science/pipelines/evaluation.md  # TODO: Model evaluation
+          - data-science/pipelines/pipelines.md  # TODO: End-to-end example; pipeline creation
+          - data-science/pipelines/persistence.md  # TODO: Practical tips to save models
+
   - Computer Vision: 
     - yolo/index.md
     - yolo/approaches.md
     - yolo/yolo.md
-    - Image Processing:
+    - Image Processing 📷:
       - yolo/image/detection.md
       - yolo/image/segmentation.md
       - yolo/image/kp-extraction.md
-      - yolo/image/solutions.md
-    - Video Processing:
+    - Video Processing 🎥:
       - yolo/video/index.md
       - yolo/video/solutions.md
     - Train a Model: 
-      - yolo/train/index.md
       - yolo/train/acquisition.md
       - yolo/train/annotation.md
       - yolo/train/training.md
+      - yolo/train/inference.md
 
 
 plugins:
   - search
   - git-revision-date-localized:
-      enable_creation_date: false
+      enable_creation_date: true
       type: timeago
+      exclude:
+        - index.md
+      enabled: !ENV [ENABLE_GIT_REVISION_DATE, true]
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
@@ -212,6 +227,8 @@ markdown_extensions:
   - tables
   - pymdownx.tabbed:  # enable content tabs
         alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 extra_javascript:
   - javascripts/mathjax.js
