@@ -166,18 +166,18 @@ nav:
     - yolo/index.md
     - yolo/approaches.md
     - yolo/yolo.md
-    - Image Processing:
+    - Image Processing 📷:
       - yolo/image/detection.md
       - yolo/image/segmentation.md
       - yolo/image/kp-extraction.md
-    - Video Processing:
+    - Video Processing 🎥:
       - yolo/video/index.md
       - yolo/video/solutions.md
     - Train a Model: 
-      - yolo/train/index.md
       - yolo/train/acquisition.md
       - yolo/train/annotation.md
       - yolo/train/training.md
+      - yolo/train/inference.md
 
 
 plugins:
@@ -227,6 +227,8 @@ markdown_extensions:
   - tables
   - pymdownx.tabbed:  # enable content tabs
         alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 extra_javascript:
   - javascripts/mathjax.js
