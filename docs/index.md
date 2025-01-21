@@ -8,11 +8,6 @@ Here, you’ll find a variety of hands-on resources designed to guide you step-b
 
 **Dive in and discover new skills at your own pace!**
 
-
-
-
-
-
 ???+ info
     
     This page hosts course materials for various Python
@@ -21,7 +16,7 @@ Here, you’ll find a variety of hands-on resources designed to guide you step-b
     As we continously try to improve the materials and this page, content
     might be subject to change. If you have any questions or suggestions,
     feel free to open an [issue](https://github.com/mciwing/mciwing.github.io/issues)
-    on GitHub or contact the authors:
+    on GitHub or contact the maintainers:
     
     <div class="grid cards" markdown>
 
