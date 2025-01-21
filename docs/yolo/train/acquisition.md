@@ -150,7 +150,7 @@ Those steps can be done manually by looking through the pictures. Finding duplic
 
 ## Video Frame Extraction :material-video:
 
-Another effective way to collect a vast amount of images is by extracting and saving each single frames from a video :material-video:. This video can be a live stream from the webcam or a saved video from your hard drive. There are some benefits of using video data:
+Another effective way to collect a vast amount of images is by extracting and saving each single frame from a video :material-video:. This video can be a live stream from the webcam or a saved video from your hard drive. There are some benefits of using video data:
 
 - **Efficiency**: Videos can capture many frames in one recording session, saving time compared to capturing individual photos.
 - **Diverse Scenarios**: Recording videos in various environments ensures that frames capture different conditions and perspectives.
@@ -178,7 +178,7 @@ cv2.imwrite(f'data/video/frame_{frameNr}.jpg', frame)
 ???+ question "Task: Frame Extraction"
     Now we continue from before and try to record a video of a Euro note.
      
-    - Record a video of a 10€ note and save 100 seperate frames in the folder `data/ten`.
+    - Record a video of a 10€ note and save each 10th frames seperately in the folder `data/ten`. In the end it should be at least 100 images.
     - Keep the recording guidelines in your mind.
 
     <figure markdown="span"> ![Euro](https://upload.wikimedia.org/wikipedia/commons/5/5b/EUR_10_obverse_%282002_issue%29.jpg){width=50% } </figure>
