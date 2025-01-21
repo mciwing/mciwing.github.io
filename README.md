@@ -84,12 +84,13 @@ Lastly, build and serve the site locally with:
 .\serve-local.bat
 ```
 
-> The script disables the `git-committers` plugin for faster local builds.
+> The script disables the `git-committers` and `git-revision-date-localized` plugin for faster local builds.
 > Visit `localhost:8000` in your browser to view the site. 🎉
 
 ---
 
 ## ✍️ Contributing content
+
 
 If you properly set up the project, you can now start writing content.
 While the site is served locally, any changes you make to the content will 

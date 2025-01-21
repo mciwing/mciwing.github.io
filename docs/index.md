@@ -1,5 +1,12 @@
 # MCI | Industrial Engineering & Management
 
+![Header open-source](assets/free-open-source.gif)
+
+## Welcome to the world of `Python` :fontawesome-brands-python:! 
+
+Here, you’ll find a variety of hands-on resources designed to guide you step-by-step through the world of programming, data analysis, and beyond. All educational materials on this page can be followed without ^^any^^ prior knowledge -- All you need is a computer, an internet connection, and curiosity :material-lightbulb-on:. Since our course materials are centered around the `Python` :fontawesome-brands-python: programming language, all software used is free and open-source. 
+
+**Dive in and discover new skills at your own pace!**
 
 ???+ info
     
@@ -9,7 +16,7 @@
     As we continously try to improve the materials and this page, content
     might be subject to change. If you have any questions or suggestions,
     feel free to open an [issue](https://github.com/mciwing/mciwing.github.io/issues)
-    on GitHub or contact the authors:
+    on GitHub or contact the maintainers:
     
     <div class="grid cards" markdown>
 
@@ -32,63 +39,60 @@
         :fontawesome-regular-envelope: - [jakob.klotz@mci.edu](mailto:jakob.klotz@mci.edu)
     </div>
 
----
-
-![Header open-source](assets/free-open-source.gif)
-
-???+ tip
-    
-    All educational materials on this page can be followed without ^^any^^
-    prior knowledge. All you need is a computer, an internet connection and 
-    curiosity. :light_bulb:
-
-    Since our course materials are centered around the `Python` 
-    :fontawesome-brands-python: programming language, all software used is 
-    free and open-source.
-
----
-
 ## Topics
 
+### :fontawesome-brands-python: Python Crash Course
 <div class="grid cards" markdown>
 
-- :fontawesome-solid-database: __Data Basics__
+- 
+    [![header](assets/header/pcc.png)](python/index.md)
+    Get started with the basics of Python, including installation, variables, data types, and control structures. You will learn how to work with lists, dictionaries, and tuples, and discover the essentials of writing functions and using packages like pandas. By the end, you will be able to write simple Python programs and understand fundamental programming concepts.
 
-    ---
-    [![header](assets/databasics/basics-header.png)](databasics/Terms.md)
-    How is data structured? What are attribute types like nominal and 
-    ordinal and what even is big data? The chapter **Data Basics** will
-    introduce you to the world of data and answer these questions.
-    
-    [:octicons-arrow-right-24: Get started](databasics/Terms.md)
-
-</div>
-
-<div class="grid cards" markdown>
-
-- :fontawesome-brands-python: __Python__
-
-    ---
-
-    [![header](assets/python/python-header.gif)](python/index.md)
-    Learn the programming language **:fontawesome-brands-python: Python**. 
-    We will cover the basics from types, control structures and functions to 
-    packages.
-    After completion, you will be able to write your own 
-    **:fontawesome-brands-python: Python** scripts to analyse data, create 
-    visualizations and much more.
-    
     [:octicons-arrow-right-24: Get started](python/index.md)
 
 </div>
 
+### :fontawesome-brands-python: Python Extensive Course
 <div class="grid cards" markdown>
 
-- :material-chart-bar: __Statistics__
+- 
 
-    ---
-    [![header](assets/statistics/statistics-header.png)](statistics/index.md)
-    Course on statistics, from hypothesis testing to linear regression.
-    
+    [![header](assets/header/pec.png)](python-extensive/index.md)
+    Delve deeper into Python’s capabilities, covering advanced use of data types, control structures, and functions - plus practical development tools like Git. You will practice data handling with pandas, learn how to build basic graphical interfaces, and get hands-on experience with data acquisition and plotting. By the end, you will be confident in developing more robust Python applications and managing code in collaborative environments.
+
+    [:octicons-arrow-right-24: Get started](python-extensive/index.md)
+
+</div>
+
+### :material-chart-bar: Statistics
+<div class="grid cards" markdown>
+
+- 
+    [![header](assets/header/statistics.png)](statistics/index.md)
+    Explore the foundations of descriptive and inferential statistics with Python. You will learn how to calculate univariate and bivariate measures, work with probability theory, and perform hypothesis testing and regression analysis. By the end, you will be able to apply statistical methods to real-world datasets and interpret the results with confidence.
+
     [:octicons-arrow-right-24: Get started](statistics/index.md)
+
+</div>
+
+### :material-family-tree: Data Science
+<div class="grid cards" markdown>
+
+- 
+    [![header](assets/header/ds.png)](data-science/index.md)
+    Learn how to prepare and preprocess data before diving into machine learning concepts such as supervised and unsupervised learning. You will explore evaluation metrics, build end-to-end pipelines, and discover best practices for model persistence. By the end, you will be ready to implement data science workflows and create data-driven solutions to complex problems.
+
+    [:octicons-arrow-right-24: Get started](data-science/index.md)
+
+</div>
+
+### :material-eye: Computer Vision
+<div class="grid cards" markdown>
+
+- 
+    [![header](assets/header/cv.png)](yolo/index.md)
+    Gain an understanding of object detection and segmentation techniques, while exploring YOLO-based approaches for both images and videos. You will learn how to process visual data, develop detection solutions, and even train your own models. By the end, you will be equipped to tackle fundamental computer vision tasks and build custom vision applications.
+
+    [:octicons-arrow-right-24: Get started](yolo/index.md)
+
 </div>
