@@ -149,10 +149,6 @@
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>
-         <loc>https://mciwing.github.io/python-extensive/gui/</loc>
-         <lastmod>2025-01-21</lastmod>
-    </url>
-    <url>
          <loc>https://mciwing.github.io/python-extensive/ide/</loc>
          <lastmod>2025-01-21</lastmod>
     </url>
@@ -178,6 +174,14 @@
     </url>
     <url>
          <loc>https://mciwing.github.io/python-extensive/python-index/</loc>
+         <lastmod>2025-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://mciwing.github.io/python-extensive/streamlit/</loc>
+         <lastmod>2025-01-21</lastmod>
+    </url>
+    <url>
+         <loc>https://mciwing.github.io/python-extensive/tkinter/</loc>
          <lastmod>2025-01-21</lastmod>
     </url>
     <url>

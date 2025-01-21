@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://mciwing.github.io/python-extensive/DataBasics/">
+        <link rel="canonical" href="https://mciwing.github.io/python-extensive/tkinter/">
       
       
-        <link rel="prev" href="../plotting/">
+        <link rel="prev" href="../oop/">
       
       
-        <link rel="next" href="../data/tabular/">
+        <link rel="next" href="../streamlit/">
       
       
       <link rel="icon" href="../../assets/logo.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Data Basics - MCI | WING</title>
+        <title>Graphical User Interfaces with Tkinter - MCI | WING</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-basics" class="md-skip">
+        <a href="#graphical-user-interfaces-with-tkinter" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Basics
+              Graphical User Interfaces with Tkinter
             
           </span>
         </div>
@@ -1672,8 +1672,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1683,11 +1681,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -1701,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Data Acquisition & Export
@@ -1712,30 +1710,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Data Basics
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../DataBasics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1744,110 +1722,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-objects-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dataset, Objects, Attributes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#qualitative-vs-quantitative" class="md-nav__link">
-    <span class="md-ellipsis">
-      Qualitative vs Quantitative
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#attribute-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Attribute Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attribute Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nominal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Nominal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ordinal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ordinal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#numerical" class="md-nav__link">
-    <span class="md-ellipsis">
-      Numerical
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Numerical">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interval-scaled" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interval-scaled
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ratio-scaled" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ratio-scaled
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1953,6 +1827,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1962,11 +1838,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
         
           
           <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
@@ -1980,7 +1856,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             Graphical User Interface
@@ -2012,10 +1888,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tkinter/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Graphical User Interfaces with Tkinter
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2024,6 +1920,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-guis-relate-to-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      How GUIs relate to OOP?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-basic-tkinter-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Basic Tkinter Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a Basic Tkinter Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-tkinter-main-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Tkinter Main Loop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widgets-and-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Widgets and Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tkinter-layout-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tkinter Layout Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-create-your-own-to-do-list-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Create Your Own To-Do List Application
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3866,74 +3857,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dataset-objects-attributes" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Dataset, Objects, Attributes
+      Introduction
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#qualitative-vs-quantitative" class="md-nav__link">
-    <span class="md-ellipsis">
-      Qualitative vs Quantitative
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#attribute-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Attribute Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attribute Types">
+    <nav class="md-nav" aria-label="Introduction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#nominal" class="md-nav__link">
+  <a href="#how-guis-relate-to-oop" class="md-nav__link">
     <span class="md-ellipsis">
-      Nominal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ordinal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ordinal
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#numerical" class="md-nav__link">
-    <span class="md-ellipsis">
-      Numerical
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Numerical">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interval-scaled" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interval-scaled
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ratio-scaled" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ratio-scaled
+      How GUIs relate to OOP?
     </span>
   </a>
   
@@ -3943,9 +3879,55 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-basic-tkinter-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Basic Tkinter Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating a Basic Tkinter Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-tkinter-main-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Tkinter Main Loop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widgets-and-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Widgets and Controls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tkinter-layout-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tkinter Layout Manager
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-create-your-own-to-do-list-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Create Your Own To-Do List Application
+    </span>
+  </a>
   
 </li>
       
@@ -3967,144 +3949,281 @@
   
 
 
-<!-- Do not edit this file -->
-<h1 id="data-basics">Data Basics</h1>
-<p>Before starting with Data Science, it's essential to <strong>get to know the data</strong> you'll be working with. This means thoroughly examining the attributes and values to understand their characteristics. Real-world data is often messy, large, and diverse, which can make it difficult to handle. For example, data from sensors might include missing or corrupted values, while social media data might be unstructured and include text, images, or even videos. In financial data, outliers or extreme values may skew analysis results.</p>
-<p>Having a deep understanding of the data is crucial for successful data preprocessing, which is the first major step after acquiring the data. For instance, in sensor data, you may need to filter noise, while in social media data, you might need to convert unstructured text into a structured format for analysis. The main objective is to gather useful insights about the data, which will aid in the preprocessing stage, such as identifying patterns, missing values, or outliers. Grasping these aspects early on provides a solid foundation for the rest of your data analysis process.</p>
-<h2 id="dataset-objects-attributes">Dataset, Objects, Attributes</h2>
-<p>In order to do that, we need to distinguish between the terms data set, object and attribute:</p>
+<h1 id="graphical-user-interfaces-with-tkinter">Graphical User Interfaces with Tkinter</h1>
+<h2 id="introduction">Introduction</h2>
+<p>A <strong>Graphical User Interface (GUI)</strong> allows users to interact with a program through visual elements like buttons, text fields, and menus, rather than typing commands in a terminal. GUIs thus make applications more accessible to non-technical users.</p>
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/l2JdSlA1a1zKVAyze" width="410" height="310" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-15-the-simpsons-15x9-l2JdSlA1a1zKVAyze"></a></p>
+</div>
+
+<h4 id="how-guis-relate-to-oop">How GUIs relate to OOP?</h4>
+<p>Each GUI element (widget), like a button or text field, can be thought of as an object of the corresponding class. These objects:    </p>
 <ul>
-<li><strong>Data Set</strong>: A data set is a collection of related data organized in a structured format. It consists of multiple objects, each described by a set of attributes. A data set can be represented as a table, where each row corresponds to a data object and each column corresponds to an attribute. Data sets are commonly used in data analysis, machine learning, and other data-driven tasks, serving as the primary source of input for these processes.</li>
-<li><strong>Object</strong>: An object (or sometimes records, instances, or entries) is an individual unit of data within a data set. It represents a single entity or instance, such as a person, a product, or an event, depending on the context of the data. Each data object is characterized by a set of attributes, which define its specific properties or features. In a tabular data set, a data object corresponds to a row, with each attribute value for that object stored in the respective columns.</li>
-<li><strong>Attributes</strong>: Attributes (or sometimes variable, field, dimension, feature or observations) are the characteristics or properties that describe data objects in a data set. Each attribute represents a specific feature of the data object and is associated with a particular value. For example, in a data set of customer information, attributes might include "Name," "Age," "Gender," and "Purchase History." In a tabular representation, attributes are typically the column headers, with each column containing the attribute values for the corresponding data objects (rows). Attributes can be of different types as described later.</li>
+<li>have <strong>attributes</strong> (e.g., size, color, labels),</li>
+<li>have <strong>methods</strong> (e.g., click, enable/disable), and</li>
+<li>interact with each other through events,</li>
 </ul>
-<details class="example" open="open">
-<summary>Example: Data Set</summary>
-<p><figure markdown="span">
-    <img alt="Data Set" src="../../assets/databasics/Dataset_3.png" width="100%" />
-</figure>
-The displayed data shows a dataset consisting of three objects and seven attributes.</p>
-</details>
-<h2 id="qualitative-vs-quantitative">Qualitative vs Quantitative</h2>
-<p>A variable is called <strong>qualitative</strong> (categorical) when each observation distinctly falls into a specific category. Qualitative variables express different qualitative properties, but do not convey any magnitude. Conversely, a variable is termed <strong>quantitative</strong> (numerical) when it measures the magnitude of a property. Quantitative variables can be either <strong>Discrete</strong> (The variable can only take on a finite number of values) or <strong>Continuous</strong> (The variable can take on any value within a given interval).</p>
-<details class="example" open="open">
-<summary>Example: Qualitative vs Quantitative Attributes</summary>
+<p>following the principles of object-oriented programming (OOP).</p>
+<p><strong>Tkinter</strong> is the standard <code>Python</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3"/></svg></span> library for creating graphical user interfaces. It provides a practical introduction to GUI development and event-driven programming. By using <strong>Tkinter</strong>, interactive applications such as calculators, form-based tools, or simple games, can be build. The <strong>Tkinter</strong> documentation can be found here: <a href="https://docs.python.org/3/library/tkinter.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> <br />
+Nevertheless, there are many other GUI libraries that you could be interested in. The <code>Python</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3"/></svg></span> wiki lists several alternative <a href="https://wiki.python.org/moin/GuiProgramming">GUI frameworks and tools</a>.</p>
+<h2 id="creating-a-basic-tkinter-application">Creating a Basic Tkinter Application</h2>
+<h3 id="the-tkinter-main-loop">The Tkinter Main Loop</h3>
+<p>The <strong>root window</strong> is responsible for running the main event loop (<code>mainloop()</code>), which keeps the GUI application running, listens for events (e.g., clicks, keystrokes), and updates the interface. The main event loop ends when the window is closed. Without the main loop, the GUI application would close immediately after being displayed.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Create root window</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;My First GUI Program&quot;</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">root</span><span class="o">.</span><span class="n">minsize</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Running the main loop event</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="hll"><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</span></span></code></pre></div></p>
+<h3 id="widgets-and-controls">Widgets and Controls</h3>
+<p>Widgets and controls are the building blocks of a <strong>Tkinter</strong> GUI. Widgets are structured in a hierarchy, where some widgets serve as containers (<strong>parent widgets</strong> - e.g., windows or frames) that hold other widgets (<strong>child widgets</strong>). This hierarchical arrangement defines the relationships and organization of widgets, influencing their layout, behavior, and interaction.  <br />
+They are placed using a <strong>layout manager</strong> (place, pack, or grid).  <br />
+Widgets feature attributes like <code>text</code>, <code>font</code>, <code>bg</code> (background color), <code>fg</code> (foreground color), and <code>width</code>, which can be set during creation or updated later. </p>
+<p><strong>Collection of Different Widgets</strong>: <br />
+The following code provides a collection of different widgets: <code>Label</code>, <code>Input</code>, <code>Button</code>, <code>Text</code>, <code>Spinbox</code>, <code>Scale</code>, <code>Checkbutton</code>, <code>Radiobutton</code>, and <code>Listbox</code>. <br />
+Each widget is an object of its class (e.g., button, label) and is part of the same <strong>parent widget</strong> (<code>root</code> window).</p>
+<p><strong>Widget Callbacks</strong>: <br />
+Some widgets support event handling. Each widget's behavior is managed by a specific method:    </p>
 <ul>
-<li><strong>Qualitative</strong>: Race, religious affiliation, gender, children in the household (yes/no)</li>
-<li><strong>Quantitative</strong>: Age, test scores, number of children in a household<ul>
-<li><strong>Discrete</strong>: Number of children in a household  </li>
-<li><strong>Continuous</strong>: Height, weight, length measurements</li>
+<li><strong>Button</strong>: <code>button_clicked()</code></li>
+<li><strong>Spinbox</strong>: <code>spinbox_used()</code></li>
+<li><strong>Scale</strong>: <code>scale_used(value)</code></li>
+<li><strong>Checkbutton</strong>: <code>checkbutton_used()</code></li>
+<li><strong>Radiobutton</strong>: <code>radio_used()</code></li>
+<li><strong>Listbox</strong>: <code>listbox_used(event)</code></li>
+</ul>
+<p><strong>Dynamic Behavior</strong>:  <br />
+Widgets like the spinbox, scale, and listbox dynamically print or process user interactions.</p>
+<p><strong>Event Binding</strong>:  <br />
+The <code>listbox</code> widget uses the <code>bind</code> method to associate the selection event with the <code>listbox_used</code> method.</p>
+<details class="question" open="open">
+<summary>Run the Code</summary>
+<p>Interact with the widgets to see their behavior in action (check the console for printed outputs).</p>
+</details>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Set window attributes</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll"><span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+</span></span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;My First GUI Program and Widgets&quot;</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;1024x768&quot;</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Label</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="hll"><span class="n">my_label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;My First Label&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span><span class="p">))</span>
+</span></span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">my_label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Input</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="hll"><span class="n">my_input</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">my_input</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># Button callback</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">button_clicked</span><span class="p">():</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Do Something Cool&quot;</span><span class="p">)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1"># Button</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="hll"><span class="n">my_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Click Me&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">button_clicked</span><span class="p">)</span>
+</span></span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">my_button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c1"># Text</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="hll"><span class="n">text</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="n">text</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="n">text</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="s2">&quot;My first try on a multi-line text entry.&quot;</span><span class="p">)</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">))</span>  <span class="c1"># Prints the current text starting from line 1, character 0 (&quot;1.0&quot; == the very beginning of the text widget)</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="n">text</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="c1"># Spinbox callback</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="k">def</span><span class="w"> </span><span class="nf">spinbox_used</span><span class="p">():</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">spinbox</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># Spinbox</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="hll"><span class="n">spinbox</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Spinbox</span><span class="p">(</span><span class="n">from_</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">spinbox_used</span><span class="p">)</span>
+</span></span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="n">spinbox</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="c1"># Scale callback</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">scale_used</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="c1"># Scale</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="hll"><span class="n">scale</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">from_</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">scale_used</span><span class="p">)</span>
+</span></span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="n">scale</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="c1"># Checkbutton callback</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="k">def</span><span class="w"> </span><span class="nf">checkbutton_used</span><span class="p">():</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">checked_state</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="c1"># Checkbutton</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="n">checked_state</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">IntVar</span><span class="p">()</span>  <span class="c1"># Variable to hold the checked state</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="hll"><span class="n">checkbutton</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Checkbutton</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Is This On?&quot;</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">checked_state</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">checkbutton_used</span><span class="p">)</span>
+</span></span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="n">checkbutton</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="c1"># Radiobutton callback</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="k">def</span><span class="w"> </span><span class="nf">radio_used</span><span class="p">():</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">radio_state</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="c1"># Radiobutton</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="n">radio_state</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">IntVar</span><span class="p">()</span>  <span class="c1"># Variable to hold the radio button selection</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="hll"><span class="n">radiobutton1</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Radiobutton</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Answer1&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">radio_state</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">radio_used</span><span class="p">)</span>
+</span></span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="hll"><span class="n">radiobutton2</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Radiobutton</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Answer2&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="n">radio_state</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">radio_used</span><span class="p">)</span>
+</span></span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="n">radiobutton1</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="n">radiobutton2</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="c1"># Listbox callback</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="k">def</span><span class="w"> </span><span class="nf">listbox_used</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">listbox</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">listbox</span><span class="o">.</span><span class="n">curselection</span><span class="p">()))</span>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="c1"># Listbox</span>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="hll"><span class="n">listbox</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">]:</span>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>    <span class="n">listbox</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="n">listbox</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;&lt;ListboxSelect&gt;&gt;&quot;</span><span class="p">,</span> <span class="n">listbox_used</span><span class="p">)</span>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="n">listbox</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="tkinter-layout-manager">Tkinter Layout Manager</h3>
+<p>The layout of a graphical user interface is largely determined by the arrangement and design of the GUI components. Tkinter provides three different layout managers that automatically generate the layout based on the settings defined in the program. Without using a layout manager, the GUI element will not appear on the screen.</p>
+<ol>
+<li><strong>Place Manager</strong>: Positions components based on specific coordinates (x, y), offering precise control over placement.</li>
+<li><strong>Pack Manager</strong>: Automatically arranges components in a container, either vertically or horizontally, based on the order they are added.</li>
+<li><strong>Grid Manager</strong>: Organizes components in a grid with rows and columns, allowing more complex layouts with alignment options.</li>
+</ol>
+<p><strong>Key Concepts of the Grid Layout Manager</strong>:   </p>
+<ol>
+<li>
+<p><strong>Rows and Columns:</strong></p>
+<ul>
+<li>The grid is organized into rows and columns. You can place widgets in a specific row and column using the <code>grid(row, column)</code> method.</li>
+<li>You can also span multiple rows or columns using <code>rowspan</code> and <code>columnspan</code> attributes.</li>
 </ul>
 </li>
-</ul>
-</details>
-<h2 id="attribute-types">Attribute Types</h2>
-<p>We now know, that attributes define the properties of data objects and are crucial in determining the methods and algorithms that can be applied during analysis. Different types of attributes - such as nominal, ordinal, interval, and ratio - each have unique characteristics that influence how they should be handled and interpreted. Recognizing and appropriately categorizing these attribute types is a key step in ensuring accurate data analysis and meaningful results.</p>
-<h3 id="nominal">Nominal</h3>
-<p>Nominal attributes refer to those that are associated with <strong>names or labels</strong>. </p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BMW&#39;</span><span class="p">,</span> <span class="s1">&#39;Audi&#39;</span><span class="p">,</span> <span class="s1">&#39;VW&#39;</span><span class="p">,</span> <span class="s1">&#39;Skoda&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla&#39;</span><span class="p">,</span> <span class="s1">&#39;Audi&#39;</span><span class="p">]</span>
-</span></code></pre></div>
-<p>The values of nominal attributes are typically symbols or names representing different categories, codes, or states. These values are used to classify data into distinct groups, often referred to as categorical attributes. Importantly, the values of nominal attributes do not have any inherent or meaningful order; they simply indicate membership within a particular category without implying any rank or sequence. </p>
-<details class="example" open="open">
-<summary>Example: Nominal Attributes</summary>
+<li>
+<p><strong>Control Placement:</strong></p>
 <ul>
-<li>Occupation: teacher, dentist, programmer, farmer,...</li>
-<li>Hair color: black, brown, blond, red, gray, white,...</li>
+<li>You can specify the <strong>row</strong>, <strong>column</strong>, and <strong>sticky</strong> options to control widget alignment (e.g., top, bottom, left, right).</li>
 </ul>
-<p>You can only determine whether two people have the same hair color or not. It is not possible to establish a greater-than or less-than relationship, and the differences between hair colors cannot be meaningfully interpreted.</p>
-</details>
-<p>The symbols or names associated with nominal attributes can also be <strong>represented by numbers</strong>.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">cars_num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="c1">#&#39;BMW&#39;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            <span class="mi">2</span><span class="p">,</span> <span class="c1">#&#39;Audi&#39;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>            <span class="mi">3</span><span class="p">,</span> <span class="c1">#&#39;VW&#39;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>            <span class="mi">4</span><span class="p">,</span> <span class="c1">#&#39;Skoda&#39;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            <span class="mi">5</span><span class="p">,</span> <span class="c1">#&#39;Tesla&#39;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>            <span class="mi">2</span><span class="p">]</span> <span class="c1">#&#39;Audi&#39;  </span>
-</span></code></pre></div>
-<p>However, in such cases, these numbers are not meant to be used quantitatively, meaning that mathematical operations on them are not meaningful. For instance, calculating the mean or median of these numbers would not make sense. </p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span> 
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cars_num</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>2.8333333333333335
-</span></code></pre></div>
-<p>But what does that mean? Is it half <code class="language-python highlight"><span class="s1">&#39;Audi&#39;</span></code>, half <code class="language-python highlight"><span class="s1">&#39;VW&#39;</span></code>? And we also could have used the numer <code class="language-python highlight"><span class="mi">32</span></code> for <code class="language-python highlight"><span class="s1">&#39;Audi&#39;</span></code> and <code class="language-python highlight"><span class="mi">0</span></code> for <code class="language-python highlight"><span class="s1">&#39;VW&#39;</span></code>. So its meaningless! </p>
-<p>Instead, the mode, which identifies the most frequently occurring value, can be used and is particularly useful in this context.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Audi
-</span></code></pre></div>
-<details class="example" open="open">
-<summary>Example: Nominal Attributes Represented by Numbers</summary>
+</li>
+<li>
+<p><strong>Column and Row Configuration:</strong></p>
 <ul>
-<li>Customer ID: 0001, 0002, 0003, 0004, 0005,...</li>
-<li>Hair color: black=001, brown=010, blond=011,...</li>
+<li><strong>Tkinter</strong> allows you to configure the weight of rows and columns to define how they should expand when the window is resized. You can do this using <code>grid_columnconfigure()</code> and <code>grid_rowconfigure()</code>.</li>
 </ul>
-</details>
-<p><strong>Binary attributes</strong> are a specific type of nominal attribute that consist of only two categories. These categories are often represented by the numbers 0 and 1, where 0 indicates the absence of the attribute and 1 indicates its presence. This binary classification is commonly used in data analysis to represent simple variables</p>
-<details class="example" open="open">
-<summary>Example: Binary Attributes</summary>
-<ul>
-<li>Smoker: Yes=1, No=0</li>
-<li>Medical Test: Positive=1, Negative=0</li>
-</ul>
-</details>
-<h3 id="ordinal">Ordinal</h3>
-<p>For certain types of attributes, the possible values have a <strong>meaningful order</strong> or ranking among them, indicating that one value can be considered greater or less than another. However, while this order is significant, the exact magnitude or distance between successive values is not known. This means that while the sequence of values is meaningful, we cannot quantify the difference between them with precise measurements. Therefore it is possible and meaningful to calculate the median and mode. Mean on the other hand is not meaningful.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">drinks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;small&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;medium&#39;</span><span class="p">,</span> <span class="s1">&#39;large&#39;</span><span class="p">]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median: &#39;</span> <span class="o">+</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">drinks</span><span class="p">))</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mode: &#39;</span> <span class="o">+</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">drinks</span><span class="p">))</span>
+</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Grid Layout Example&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Label in the first row and first column</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">name_label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Name:&quot;</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="hll"><span class="n">name_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Entry in the first row and second column</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">name_entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">()</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="hll"><span class="n">name_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># Label in the second row and first column</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">age_label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Age:&quot;</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="hll"><span class="n">age_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># Entry in the second row and second column</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">age_entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">()</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="hll"><span class="n">age_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1"># Button in the third row, spanning both columns</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">submit_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Submit&quot;</span><span class="p">)</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="hll"><span class="n">submit_button</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Spanning both columns</span>
+</span></span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Median: medium
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Mode: small
-</span></code></pre></div>
-<details class="example" open="open">
-<summary>Example: Ordinal Attributes</summary>
+<details class="info" open="open">
+<summary>Tkinter Hints and Suggestions</summary>
+<ol>
+<li>
+<p><strong>Modularize Code</strong></p>
 <ul>
-<li>Professional Rank: private, specialist, corporal, sergeant</li>
-<li>Drink size: small, medium, large</li>
+<li>Break the GUI into smaller classes or methods, particularly for large application.</li>
+<li>Use reusable components: e.g., set an <code>InputForm</code> class for repeated input forms.</li>
 </ul>
-<p>As with the nominal scale, you can determine whether two drinks are the same size or not. Additionally, you can say whether one drink is larger than another. However, it is still not possible to meaningfully interpret the differences between sizes. You cannot specify by how much one drink is larger than another.</p>
-</details>
-<h3 id="numerical">Numerical</h3>
-<p>Numeric attributes are quantitative in nature, meaning they represent <strong>measurable quantities</strong>. These attributes can be expressed as either integer or real values. One of the key characteristics of numeric attributes is their ability to quantify the difference between values, allowing for meaningful comparisons. Statistical measures such as the mean, median, and mode can be calculated from numeric attributes, and these measures are both possible and useful for analyzing the data.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">income</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1005</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">5100</span><span class="p">,</span> <span class="mi">6011</span><span class="p">,</span> <span class="mi">10500</span><span class="p">]</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">income</span><span class="p">)))</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Median: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">income</span><span class="p">)))</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mode: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">income</span><span class="p">)))</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Mean: 4602.67
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Median: 3800.0
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Mode: 2500
-</span></code></pre></div>
-<h4 id="interval-scaled">Interval-scaled</h4>
-<p>Interval-scaled attributes can be measured on a scale with equal-sized units, allowing for consistent and comparable intervals between values. These attributes have an inherent order and they can take on positive, zero, or negative values. This means that the ranking of values is possible and meaningful, providing a clear sense of progression or regression along the scale.</p>
-<details class="example" open="open">
-<summary>Example: Interval-scaled Attributes</summary>
+</li>
+<li>
+<p><strong>Use Meaningful Variable and Method Names</strong></p>
 <ul>
-<li>Calendar dates: For instance, the years 2002 and 2010 are eight years apart</li>
-<li>Celsius temperature: <span class="arithmatex">\(20^\circ C\)</span> is five degrees higher than a temperature of <span class="arithmatex">\(15^\circ C\)</span></li>
+<li>Name widgets and methods clearly to reflect their purpose. Avoid generic names like <code>button1</code> or <code>label1</code>, use for example <code>submit_button</code> instead.</li>
 </ul>
-<p>As with the ordinal scale, you can determine whether two temperatures are the same and whether one temperature is higher than another. Additionally, the difference between temperatures can be meaningfully interpreted. However, because the zero point is arbitrary, ratios cannot be meaningfully interpreted.</p>
-</details>
-<h4 id="ratio-scaled">Ratio-scaled</h4>
-<p>Ratio-scaled attributes possess an inherent zero-point, which indicates the complete absence of the attribute. This characteristic allows us to meaningfully discuss one value as being a multiple of another. Because of this, ratio-scaled data supports a wide range of mathematical operations, including meaningful comparisons of both differences and ratios between values.</p>
-<details class="example" open="open">
-<summary>Example: Ratio-scaled Attributes</summary>
+</li>
+<li>
+<p><strong>Avoid Hardcoding Layouts</strong></p>
 <ul>
-<li>Kelvin temperature: has true zero-point</li>
-<li>Count attributes: years of experience, number of words, Income in Euros</li>
+<li>Use layout managers (<code>pack</code> or <code>grid</code>) instead of coding absolute positions (<code>place(x, y)</code>).</li>
+<li>Avoid mixing layout manager in the same container.</li>
 </ul>
-<p>As with the interval scale, you can determine whether two people have the same income and whether one person earns more than another. Additionally, the differences between incomes can be meaningfully interpreted. Furthermore, the ratio between two incomes can now also be interpreted, such as determining how many times one income is compared to another.</p>
+</li>
+<li>
+<p><strong>Error Handling</strong></p>
+<ul>
+<li>Add errror handling for user input or unexpected behavior.</li>
+<li>Provide clear instructions and feedback.</li>
+</ul>
+</li>
+</ol>
 </details>
+<h2 id="example-create-your-own-to-do-list-application">Example: Create Your Own To-Do List Application</h2>
+<p>The following code provides the basis for a simple To-Do List application with the following key features:</p>
+<ul>
+<li><strong>Add Task</strong>: Enter tasks using the <code>Entry</code> widget and add them to the <code>Listbox</code>.</li>
+<li><strong>Cross Out Task</strong>: Mark the selected task with a "✔" symbol to indicate completion.</li>
+</ul>
 <details class="question" open="open">
-<summary>Task: Attribute Types</summary>
-<p>Name the types of attributes in the following data set and justify
-<figure markdown="span">
-    <img alt="Data Set" src="../../assets/databasics/Attribute_Quiz.png" width="60%" />
-</figure></p>
-</details><style type="text/css">.quiz {
+<summary>To-Do List Enhancements</summary>
+<p>Customize and enhance the To-Do List app with the following features:  <br />
+    1. Change the color scheme of the app.   <br />
+    2. Add a <code>Button</code> to entirely delete tasks from the <code>Listbox</code>.   <br />
+    3. Position the <code>delete_button</code> next to the <code>cross_out_button</code> and use a red color.      </p>
+<p><strong>Bonus</strong>: Highlight important tasks by adding features like colored text or checkboxes to mark tasks as important.</p>
+</details>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Create the main window</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;To-Do List&quot;</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">root</span><span class="o">.</span><span class="n">minsize</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">root</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#d0ebff&quot;</span><span class="p">)</span>  <span class="c1"># Light blue background</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Function to add a new task</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">add_task</span><span class="p">():</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">task</span> <span class="o">=</span> <span class="n">task_entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="n">task_listbox</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="n">task_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tk</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># Function to cross out a selected task</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">cross_task</span><span class="p">():</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">selected</span> <span class="o">=</span> <span class="n">task_listbox</span><span class="o">.</span><span class="n">curselection</span><span class="p">()</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="k">if</span> <span class="n">selected</span><span class="p">:</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">current_task</span> <span class="o">=</span> <span class="n">task_listbox</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="n">task_listbox</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="n">task_listbox</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;✔ </span><span class="si">{</span><span class="n">current_task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="c1"># Entry box for adding tasks</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="n">task_entry</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="n">task_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="c1"># Add Task button</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">add_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Add Task&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#b0e0e6&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">add_task</span><span class="p">)</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="n">add_button</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1"># Listbox to display tasks</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">task_listbox</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Listbox</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">selectbackground</span><span class="o">=</span><span class="s2">&quot;#b3e5fc&quot;</span><span class="p">,</span> <span class="n">selectforeground</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">task_listbox</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="c1"># Cross Out Task button (centered)</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="n">cross_out_button</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Cross Out Task&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#00264d&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">cross_task</span><span class="p">)</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="n">cross_out_button</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="c1"># Start the main loop</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</span></code></pre></div>
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/ITXgZuGi17YwCQIofC" width="380" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/gracetea-ITXgZuGi17YwCQIofC"></a></p>
+</div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -4237,7 +4356,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-29T12:19:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-01-20T09:53:25+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-01-20</span>
   </span>
 
     
@@ -4247,34 +4366,11 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-29T12:19:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-01-15T12:16:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-01-15</span>
   </span>
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/JakobKlotz" class="md-author" title="@JakobKlotz">
-          
-          <img src="https://avatars.githubusercontent.com/u/177755923?v=4&size=72" alt="JakobKlotz">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -4305,7 +4401,7 @@ function resetFieldset(fieldset) {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../plotting/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plotting">
+          <a href="../oop/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Object-Oriented Programming">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4315,20 +4411,20 @@ function resetFieldset(fieldset) {
                 Previous
               </span>
               <div class="md-ellipsis">
-                Plotting
+                Object-Oriented Programming
               </div>
             </div>
           </a>
         
         
           
-          <a href="../data/tabular/" class="md-footer__link md-footer__link--next" aria-label="Next: Tabular data">
+          <a href="../streamlit/" class="md-footer__link md-footer__link--next" aria-label="Next: Building Web Applications with Streamlit">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Tabular data
+                Building Web Applications with Streamlit
               </div>
             </div>
             <div class="md-footer__button md-icon">
