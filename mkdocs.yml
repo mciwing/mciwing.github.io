@@ -185,6 +185,9 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
+      exclude:
+        - index.md
+      enabled: !ENV [ENABLE_GIT_REVISION_DATE, true]
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main

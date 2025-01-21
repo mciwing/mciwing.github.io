@@ -64,8 +64,9 @@ poetry install
 ```
 
 which will build and serve the site. The script is just a convenience wrapper
-to disable the `git-committers` plugin for local builds which should reduce the
-build time by a couple of seconds.
+to disable the `git-committers` and `git-revision-date-localized`
+plugin for local builds which should reduce the build time by a couple of 
+seconds.
 
 The site is served at `localhost:8000`
 
