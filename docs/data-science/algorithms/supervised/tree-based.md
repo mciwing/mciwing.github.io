@@ -109,9 +109,9 @@ When building a decision tree a couple of questions arise:
 
     ---
 
-    1. How do we decide which feature to split on?
-    2. How large do we grow the tree?
-    3. What's the decision criteria at each node?
+    1. How do we pick the right feature for a split?
+    2. What's the decision criteria at each node?
+    3. How large do we grow the tree?
     4. When do we stop growing the tree?
 
 
@@ -121,10 +121,10 @@ When building a decision tree a couple of questions arise:
 
     1. Which questions do we ask? Why did we ask "Can I 
        get to a skiing resort?" and "Is there any snow?"?
-    2. How many questions do we ask? Why only 2 and not more?
-    3. It does not have to be a simple yes/no question. It can be a
-       threshold for continuous values as well. E.g. "Is there more than 
-       10cm of fresh snow? But how do we choose the threshold?
+    2. It does not have to be a simple yes/no question. It can be a
+       threshold for continuous values as well. E.g., "Is there more than 
+       10cm of fresh snow?" But how do we choose the threshold?
+    3. How many questions do we ask? Why only 2 and not more?
     4. When are there no more meaningful questions to ask?
 
 </div>
@@ -134,5 +134,50 @@ to tackle them.
 
 ---
 
+#### Greedy optimization
+
 As a decision tree is a supervised learning algorithm, the goal is to predict
 the target variable \(y\) with a set of features \(x_1, x_2, ..., x_n\).
+
+With the data at hand, the CART algorithm finds the optimal tree 
+structure that minimizes the prediction error. In turn, the 
+optimal tree structure depends on the chosen feature for each split and the 
+corresponding threshold. However, given large data sets, there are too many 
+splitting possibilities to consider at once. Hence, the tree is grown in a 
+greedy fashion.
+
+The greedy optimization starts with a single root node splitting the data 
+into two partitions and adds additional nodes one at a time. At each step, the
+algorithm chooses a feature threshold combination using exhaustive search. The 
+best split (feature threshold combination) is determined by a criterion. 
+Remember, that decision trees can deal with regression and classification 
+problems. Hence, the criterion differs for the two tasks.
+
+##### Regression
+
+For regression trees, the best split (feature threshold combination) at each 
+node is determined by minimizing the *residual sum-of-squares error (RSS)*, 
+defined as:
+
+???+ defi "Residual sum-of-squares (RSS)"
+
+    \[ 
+        RSS = \sum_{i \in t_L} (y_i - \bar{y}_L)^2 + \sum_{i \in t_R} (y_i -
+        \bar{y}_R)^2 
+    \]
+
+where \(t_L\) and \(t_R\) are the left and right child nodes after the split,
+and \(\bar{y}_L\) and \(\bar{y}_R\) are the mean target values in the
+respective nodes.
+
+The algorithm searches through all possible splits to find the one that 
+minimizes this RSS criterion.
+
+???+ tip
+
+    Since each split separates the input data into two partitions, the
+    prediction is the mean of the target variable \(y\) in the respective 
+    partition.
+    
+    Hence, intuitively speaking, we do not optimize the entire tree at once 
+    but rather optimize each split locally.
