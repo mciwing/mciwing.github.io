@@ -73,7 +73,7 @@ and "No skiing" which is a classic binary classification task.
 <div style="text-align: center">
 <h3>Excited for some theory?</h3>
 <iframe 
-    src="https://giphy.com/embed/3o6wO7aUZoHAqoGC40" width="480" height="360" 
+    src="https://giphy.com/embed/zZC2AqB84z7zFnlkbF" width="480" height="360" 
     style="" frameBorder="0" class="giphy-embed" allowFullScreen>
 </iframe>
 </div>
@@ -153,6 +153,8 @@ best split (feature threshold combination) is determined by a criterion.
 Remember, that decision trees can deal with regression and classification 
 problems. Hence, the criterion differs for the two tasks.
 
+---
+
 ##### Regression
 
 For regression trees, the best split (feature threshold combination) at each 
@@ -173,7 +175,7 @@ respective nodes.
 The algorithm searches through all possible splits to find the one that 
 minimizes this RSS criterion.
 
-???+ tip
+???+ info
 
     Since each split separates the input data into two partitions, the
     prediction is the mean of the target variable \(y\) in the respective 
@@ -181,3 +183,40 @@ minimizes this RSS criterion.
     
     Hence, intuitively speaking, we do not optimize the entire tree at once 
     but rather optimize each split locally.
+
+##### Classification
+
+For classification tasks, the best split at each node is determined by minimizing 
+the *Gini impurity*. 
+
+???+ defi "Gini impurity"
+
+    For a node \(t\) with \(K\) classes, the Gini impurity is defined as:
+
+    \[
+       Gini(t) = \sum_{k=1}^K p_{k}(1-p_{k}) = 1 - \sum_{k=1}^K p_{k}^2
+    \]
+    
+    where \(p_k\) is the proportion of class \(k\) observations.
+
+The Gini impurity (sometimes referred to as Gini index) encourages leaf nodes
+where the majority of observations belong to a single class.
+
+???+ info
+
+    The prediction at each leaf node is the majority class among the training 
+    observations in that node.
+
+---
+
+#### TLDR
+
+No matter the task (regression or classification), with a greedy optimization 
+strategy, the CART algorithm searches for the best split using an exhaustive 
+search at each node to ultimately minimize the prediction error. Thus answering
+the first two questions, *a* (How do we pick the right feature for a split?) 
+and *b* (What's the decision criteria at each node?).
+
+A CART can be seen as a piecewise-constant model, as it partitions the feature 
+space into regions and assigns a constant prediction (either the mean of a 
+continuous value or a label) to each region.
