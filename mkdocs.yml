@@ -150,9 +150,9 @@ nav:
         - data-science/algorithms/index.md
 
         - Supervised:
-          - data-science/algorithms/supervised/regression.md  # TODO: linear regression
-          - data-science/algorithms/supervised/classification.md  # TODO: logistic regression
-          - data-science/algorithms/supervised/flexible-learners.md  # TODO: decision trees, random forests, neural net
+          - data-science/algorithms/supervised/regression.md
+          - data-science/algorithms/supervised/classification.md
+          - Tree based: data-science/algorithms/supervised/tree-based.md  # TODO: decision trees, random forests, neural net
 
         - Unsupervised:
           - data-science/algorithms/unsupervised/unsupervised.md  # TODO: clustering, dimensionality reduction
