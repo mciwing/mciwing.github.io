@@ -11,10 +11,8 @@ Moreover, decision trees can be used for both regression ^^*and*^^
 classification.
 
 In this chapter, we will explore the theory behind decision trees followed by
-a practical example. We will then extend our understanding to Random Forests,
-an ensemble method that combines multiple decision trees for improved 
-predictions. Another example concludes the chapter. As always we will use
-`scikit-learn` for hands-on experience.
+practical examples. As always we will use `scikit-learn` for hands-on 
+experience.
 
 ### Basic intuition
 
@@ -112,7 +110,6 @@ When building a decision tree a couple of questions arise:
     1. How do we pick the right feature for a split?
     2. What's the decision criteria at each node?
     3. How large do we grow the tree?
-    4. When do we stop growing the tree?
 
 
 -   :fontawesome-solid-lightbulb:{ .lg .middle } __Intuition__
@@ -125,7 +122,6 @@ When building a decision tree a couple of questions arise:
        threshold for continuous values as well. E.g., "Is there more than 
        10cm of fresh snow?" But how do we choose the threshold?
     3. How many questions do we ask? Why only 2 and not more?
-    4. When are there no more meaningful questions to ask?
 
 </div>
 
@@ -209,7 +205,7 @@ where the majority of observations belong to a single class.
 
 ---
 
-#### TLDR
+##### TLDR
 
 No matter the task (regression or classification), with a greedy optimization 
 strategy, the CART algorithm searches for the best split using an exhaustive 
@@ -220,3 +216,55 @@ and *b* (What's the decision criteria at each node?).
 A CART can be seen as a piecewise-constant model, as it partitions the feature 
 space into regions and assigns a constant prediction (either the mean of a 
 continuous value or a label) to each region.
+
+#### Tree size
+
+Lastly, we answer question, *c* (How large do we grow the tree?).
+Put differently, when should we stop adding nodes? 
+
+First, the tree is grown as large as possible until a stopping criterion is 
+met. This criterion can be the maximum tree depth or a minimum number of 
+samples per leaf. Second, the tree is pruned back. Pruning is the process of 
+removing nodes that do not improve the model's performance. It balances the 
+RSS or Gini impurity against model complexity.
+
+???+ info
+
+    If you want to dive deeper into tree pruning, we recommend reading page 665
+    of Bishop's book *Pattern Recognition and Machine Learning*[^1]
+
+---
+
+### Advantages and Limitations
+
+Decision trees offer several significant advantages, but they also have some 
+limitations:
+
+<div class="grid cards" markdown>
+
+-   :fontawesome-regular-thumbs-up:{ .lg .middle } __Advantages__
+
+    ---
+
+    - Easy to interpret and visualize
+    - Can capture non-linear relationships
+
+
+-   :fontawesome-regular-thumbs-down:{ .lg .middle } __Limitations__
+
+    ---
+
+    - Prone to overfitting, i.e., building a model that perfectly fits the 
+      training data but fails to generalize on new (unseen) data.
+    - Sensitive to data, i.e., small changes in the data can lead to 
+      significantly different trees.
+
+</div>
+
+## Examples
+
+As mentioned earlier, we will use `scikit-learn` for hands-on experience.
+`scikit-learn` contains an implementation of the CART algorithm discussed.[^3]
+
+[^3]:
+    `scikit-learn` documentation: [Decision Trees](https://scikit-learn.org/stable/modules/tree.html#tree-algorithms-id3-c4-5-c5-0-and-cart)
