@@ -70,6 +70,14 @@ and "No skiing" which is a classic binary classification task.
 </p>
 <?/quiz?>
 
+<div style="text-align: center">
+<h3>Excited for some theory?</h3>
+<iframe 
+    src="https://giphy.com/embed/3o6wO7aUZoHAqoGC40" width="480" height="360" 
+    style="" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+</div>
+
 ### Theory
 
 ???+ info
@@ -93,3 +101,38 @@ and "No skiing" which is a classic binary classification task.
 
 ---
 
+When building a decision tree a couple of questions arise:
+
+<div class="grid cards" markdown>
+
+-   :fontawesome-solid-question:{ .lg .middle } __Question__
+
+    ---
+
+    1. How do we decide which feature to split on?
+    2. How large do we grow the tree?
+    3. What's the decision criteria at each node?
+    4. When do we stop growing the tree?
+
+
+-   :fontawesome-solid-lightbulb:{ .lg .middle } __Intuition__
+
+    ---
+
+    1. Which questions do we ask? Why did we ask "Can I 
+       get to a skiing resort?" and "Is there any snow?"?
+    2. How many questions do we ask? Why only 2 and not more?
+    3. It does not have to be a simple yes/no question. It can be a
+       threshold for continuous values as well. E.g. "Is there more than 
+       10cm of fresh snow? But how do we choose the threshold?
+    4. When are there no more meaningful questions to ask?
+
+</div>
+
+With these questions in mind, let's dive into the theory of decision trees 
+to tackle them.
+
+---
+
+As a decision tree is a supervised learning algorithm, the goal is to predict
+the target variable \(y\) with a set of features \(x_1, x_2, ..., x_n\).
