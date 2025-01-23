@@ -423,8 +423,6 @@ plt.show()
     </figcaption>
 </figure>
 
-
-
 ???+ tip
 
     The nodes are quite easy to read:
@@ -523,3 +521,17 @@ content:
     from the logistic regression.
 </p>
 <?/quiz?>
+
+## Recap
+
+We comprehensively explored decision trees, focusing on the CART algorithm. 
+The theory section illuminated its core mechanisms, while practical 
+examples demonstrated building and evaluating decision trees for regression and
+classification tasks. Key takeaways include:
+
+- Algorithm insights into tree construction
+- Practical implementation skills 
+- Understanding of decision trees' interpretability and overfitting risks
+
+Next, we'll extend our knowledge to Random Forests, an ensemble method 
+combining multiple decision trees to enhance predictive performance.
