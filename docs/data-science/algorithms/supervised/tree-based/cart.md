@@ -1,6 +1,4 @@
-# Tree-based algorithms
-
-## Decision Trees
+# Decision Tree
 
 While linear regression and logistic regression are simple and interpretable,
 they are limited to linear relationships. Decision trees are non-linear models
@@ -14,7 +12,7 @@ In this chapter, we will explore the theory behind decision trees followed by
 practical examples. As always we will use `scikit-learn` for hands-on 
 experience.
 
-### Basic intuition
+## Basic intuition
 
 Although you might not know it, you're already familiar with decision trees.
 Imagine, you're planning a skiing trip and need to decide whether to go skiing
@@ -46,7 +44,7 @@ To get a better understanding of the terms node, branch and leaf, consider
 the illustration of a (rotated) tree.
 
 <figure markdown="span">
-    ![Decision tree illustration](../../../assets/data-science/algorithms/tree.png)
+    ![Decision tree illustration](../../../../assets/data-science/algorithms/tree.png)
     <figcaption>The same decision tree with literal illustrations of 
         node, branch and leaf.
     </figcaption>
@@ -76,7 +74,7 @@ and "No skiing" which is a classic binary classification task.
 </iframe>
 </div>
 
-### Theory
+## Theory
 
 ???+ info
 
@@ -130,7 +128,7 @@ to tackle them.
 
 ---
 
-#### Greedy optimization
+### Greedy optimization
 
 As a decision tree is a supervised learning algorithm, the goal is to predict
 the target variable \(y\) with a set of features \(x_1, x_2, ..., x_n\).
@@ -161,7 +159,7 @@ classification problems. Hence, the criterion differs for the two tasks.
 
 ---
 
-##### Regression
+#### Regression
 
 For regression trees, the best split (feature threshold combination) at each 
 node is determined by minimizing the *residual sum-of-squares error (RSS)*, 
@@ -190,7 +188,7 @@ minimizes this RSS criterion.
     Hence, intuitively speaking, we do not optimize the entire tree at once 
     but rather optimize each split locally.
 
-##### Classification
+#### Classification
 
 For classification tasks, the best split at each node is determined by minimizing 
 the *Gini impurity*. 
@@ -215,7 +213,7 @@ where the majority of observations belong to a single class.
 
 ---
 
-##### TLDR
+#### TLDR
 
 No matter the task (regression or classification), with a greedy optimization 
 strategy, the CART algorithm searches for the best split using an exhaustive 
@@ -227,7 +225,7 @@ A CART can be seen as a piecewise-constant model, as it partitions the feature
 space into regions and assigns a constant prediction (either the mean of a 
 continuous value or a label) to each region.
 
-#### Tree size
+### Tree size
 
 Lastly, we answer question, *c* (How large do we grow the tree?).
 Put differently, when should we stop adding nodes? 
@@ -245,7 +243,7 @@ RSS error or Gini impurity against model complexity.
 
 ---
 
-### Advantages and Limitations
+## Advantages and Limitations
 
 Decision trees offer several significant advantages, but they also have their 
 limitations:
@@ -292,7 +290,7 @@ data to predict house prices using a decision tree regressor.
 
 Load the data and split it into training and test sets. If you need a refresh
 on training and test splits, visit the
-[Split the data](classification.md#split-the-data) section of the previous
+[Split the data](../classification.md#split-the-data) section of the previous
 chapter.
 
 ```python
@@ -335,7 +333,7 @@ Model performance (R²): 0.61
 
 The `score` method returns the coefficient of determination \(R^2\). 
 The \(R^2\) is already familiar, as it was first introduced 
-in the [Regression chapter](regression.md#coefficient-of-determination) to 
+in the [Regression chapter](../regression.md#coefficient-of-determination) to 
 evaluate the fit of a linear regression.
 
 The decision tree model achieved an \(R^2\) of 0.61 on the test set, which 
@@ -367,7 +365,7 @@ plt.show()  # use matplotlib to show the plot
 ```
 
 <figure markdown="span">
-    ![A huge tree](../../../assets/data-science/algorithms/monstrous-tree.png)
+    ![A huge tree](../../../../assets/data-science/algorithms/monstrous-tree.png)
     <figcaption>Yes, that's the actual tree. :sweat_smile: 
     </figcaption>
 </figure>
@@ -416,7 +414,7 @@ plt.show()
 ```
 
 <figure markdown="span">
-    ![A huge tree](../../../assets/data-science/algorithms/small-tree.png)
+    ![A small tree](../../../../assets/data-science/algorithms/small-tree.png)
     </figcaption>
         The tree is in a stark contrast to the one we had before; it is way 
         smaller.

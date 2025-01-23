@@ -152,7 +152,9 @@ nav:
         - Supervised:
           - data-science/algorithms/supervised/regression.md
           - data-science/algorithms/supervised/classification.md
-          - Tree based: data-science/algorithms/supervised/tree-based.md  # TODO: decision trees, random forests, neural net
+          - Tree based:
+            - Decision Tree: data-science/algorithms/supervised/tree-based/cart.md
+            - Random Forest: data-science/algorithms/supervised/tree-based/forest.md
 
         - Unsupervised:
           - data-science/algorithms/unsupervised/unsupervised.md  # TODO: clustering, dimensionality reduction
