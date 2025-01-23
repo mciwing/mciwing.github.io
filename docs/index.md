@@ -46,7 +46,11 @@ Here, you’ll find a variety of hands-on resources designed to guide you step-b
 
 - 
     [![header](assets/header/pcc.png)](python/index.md)
-    Get started with the basics of Python, including installation, variables, data types, and control structures. You will learn how to work with lists, dictionaries, and tuples, and discover the essentials of writing functions and using packages like pandas. By the end, you will be able to write simple Python programs and understand fundamental programming concepts.
+    Get started with the basics of the Python programming language. We will
+    start from zero - setting up Python on your computer, learning to store and
+    work with different types of information, and building up to writing your
+    own code. Step by step you will understand fundamental programming concepts
+    and by the end, you will be able to write your own simple Python programs.
 
     [:octicons-arrow-right-24: Get started](python/index.md)
 
