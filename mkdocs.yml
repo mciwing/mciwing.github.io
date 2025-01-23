@@ -93,7 +93,7 @@ nav:
     - Dev Tools & Data Handling:
       - python-extensive/packages.md
       - python-extensive/pandas.md
-      - python-extensive/plotting.md  # TODO: plotting with pandas
+      - python-extensive/plotting.md
 
     - Data Acquisition & Export:
       - "Data Basics": python-extensive/DataBasics.md
