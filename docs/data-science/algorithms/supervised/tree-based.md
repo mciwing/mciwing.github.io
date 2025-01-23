@@ -1,6 +1,6 @@
 # Tree-based algorithms
 
-## Decision Tree
+## Decision Trees
 
 While linear regression and logistic regression are simple and interpretable,
 they are limited to linear relationships. Decision trees are non-linear models
@@ -339,9 +339,131 @@ in the [Regression chapter](regression.md#coefficient-of-determination) to
 evaluate the fit of a linear regression.
 
 The decision tree model achieved an \(R^2\) of 0.61 on the test set, which 
-should be definitely improved.
+leaves room for improvement.
 
 ???+ info
 
     On a side note: Although we fitted a decision tree on `#!python 16512` 
     observations, the process of actually training the model is quite fast!
+
+#### Plot the tree
+
+##### It's a mess...
+
+As discussed, one main advantage of decision trees is their interpretability.
+We can easily visualize the tree using the `plot_tree` function.
+
+???+ tip
+
+    This is the first time that we discourage you from running the code 
+    snippet below. Soon you know why.
+
+```python
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
+
+plot_tree(model)
+plt.show()  # use matplotlib to show the plot
+```
+
+<figure markdown="span">
+    ![A huge tree](../../../assets/data-science/algorithms/monstrous-tree.png)
+    <figcaption>Yes, that's the actual tree. :sweat_smile: 
+    </figcaption>
+</figure>
+
+Though we can't read any of the information present, the plot hints at a huge 
+tree. Due to its complexity, the model does not add much value to the
+understanding of the data (it's simply not interpretable).
+
+Actually visualizing this particular tree takes some time, hence we 
+discouraged you from executing the code.
+
+But why do we get such a huge tree? By default, the CART implementation in 
+`scikit-learn` grows the tree as large as possible and does *not* prune it.
+
+##### ... to fix
+
+To prevent the tree from growing too large, we can set two parameters.
+
+```python hl_lines="5"
+from sklearn.tree import DecisionTreeRegressor
+
+# set max_depth and min_samples_leaf
+model = DecisionTreeRegressor(
+    random_state=784, max_depth=2, min_samples_leaf=15
+)
+
+# fit the model again
+model.fit(X_train, y_train)
+```
+
+The `max_depth` parameter limits the depth of the tree, while `min_samples_leaf`
+sets the minimum number of samples (observations) required to be in a leaf 
+node. Both prevent the tree from growing too large.
+
+???+ info
+
+    Remember, we want to prevent overfitting. By setting these parameters, we
+    control the complexity of the tree and thus reduce the risk of overfitting.
+    Additionally, it results in a smaller tree which is easier to interpret.
+
+Let's plot the pruned tree.
+
+```python
+plot_tree(model, filled=True, feature_names=X.columns, proportion=True)
+plt.show()
+```
+
+<figure markdown="span">
+    ![A huge tree](../../../assets/data-science/algorithms/small-tree.png)
+    </figcaption>
+        The tree is in a stark contrast to the one we had before; it is way 
+        smaller.
+    </figcaption>
+</figure>
+
+
+
+???+ tip
+
+    The nodes are quite easy to read:
+    
+    Starting with the root node, the feature `MedInc` performs 
+    the first split. If the median income is less than 5.086, we follow the 
+    left branch else the right branch. The resulting `squared_error` of the 
+    split is shown as well.
+    The root node splits the data into two subsets, the left branch results 
+    in a subest containing 79.3% of the training data and the right branch 
+    20.7%. After two more splits, we reach the leaf nodes. Each leaf node 
+    contains a value, the prediction.
+
+Now we have a pruned tree, which reduced the risk of overfitting. However, at 
+the cost of model performance. The \(R^2\) decreased from 0.61 to 0.42 which 
+might indicate that such a simple tree might not capture the complexity of the 
+data well.
+
+<div style="text-align: center">
+<h3>Now get to the point!</h3>
+<iframe 
+    src="https://giphy.com/embed/l1AsRdc4mnfIB6OhW" width="480" height="360" 
+    style="" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+</div>
+
+In practice, you have to find the right parameters to balance model complexity
+and performance. Unfortunately, there is no one-size-fits-all solution. You 
+have to tune the parameters based on the data and the task at hand.
+
+???+ question "Parameter tuning"
+
+    Try some different combinations of `max_depth` and `min_samples_leaf`.
+    Use the same train test split, we defined earlier.
+    
+    1. Manually change the values.
+    2. Fit the model.
+    3. Evaluate the model.
+    4. Plot the model.
+    5. Repeat! :repeat:
+
+    Can you get an \(R^2\) higher than `#!python 0.7`?
