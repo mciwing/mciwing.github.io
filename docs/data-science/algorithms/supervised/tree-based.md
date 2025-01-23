@@ -278,3 +278,70 @@ As mentioned earlier, we will use `scikit-learn` for hands-on experience.
 
 [^3]:
     `scikit-learn` documentation: [Decision Trees](https://scikit-learn.org/stable/modules/tree.html#tree-algorithms-id3-c4-5-c5-0-and-cart)
+
+Functionalities around decision trees are all part of the 
+[`tree` module](https://scikit-learn.org/stable/api/sklearn.tree.html) in
+`scikit-learn`.
+
+### Regression
+
+First, we start with a regression task. We will use the California housing
+data to predict house prices using a decision tree regressor.
+
+#### Load data
+
+Load the data and split it into training and test sets. If you need a refresh
+on training and test splits, visit the
+[Split the data](classification.md#split-the-data) section of the previous
+chapter.
+
+```python
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import train_test_split
+
+X, y = fetch_california_housing(return_X_y=True, as_frame=True)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, shuffle=True
+)
+```
+
+As always, a seed is set for reproducibility (`#!python random_state=42`). It 
+can be any integer, you can simply pick any random number.
+
+#### Fit and evaluate the model
+
+Next, we load the class `DecisionTreeRegressor` from the `tree` module.
+
+```python
+from sklearn.tree import DecisionTreeRegressor
+
+model = DecisionTreeRegressor(random_state=784)
+```
+
+Again, we set a seed. More on the stochastic nature of decision trees later.
+
+To fit and evaluate the model:
+
+```python
+model.fit(X_train, y_train)
+score = model.score(X_test, y_test)
+print(f"Model performance (R²): {round(score, 2)}")
+```
+
+```title=">>> Output"
+Model performance (R²): 0.61
+```
+
+The `score` method returns the coefficient of determination \(R^2\). 
+The \(R^2\) is already familiar, as it was first introduced 
+in the [Regression chapter](regression.md#coefficient-of-determination) to 
+evaluate the fit of a linear regression.
+
+The decision tree model achieved an \(R^2\) of 0.61 on the test set, which 
+should be definitely improved.
+
+???+ info
+
+    On a side note: Although we fitted a decision tree on `#!python 16512` 
+    observations, the process of actually training the model is quite fast!
