@@ -467,3 +467,59 @@ have to tune the parameters based on the data and the task at hand.
     5. Repeat! :repeat:
 
     Can you get an \(R^2\) higher than `#!python 0.7`?
+
+### Classification
+
+Next, we switch to a classification task. We will re-use the breast cancer 
+data set introduced in the previous Classification chapter.
+
+#### Load data
+
+```python hl_lines="3"
+from sklearn.datasets import load_breast_cancer
+
+X, y = load_breast_cancer(return_X_y=True, as_frame=True)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, shuffle=True
+)
+```
+
+#### Fit and evaluate the model
+
+For classification trees, `scikit-learn` provides the class 
+`DecisionTreeClassifier`.
+
+```python hl_lines="1"
+from sklearn.tree import DecisionTreeClassifier
+
+model = DecisionTreeClassifier(
+    # again, set max_depth and min_samples_leaf to prevent growing a huge tree
+    random_state=784, max_depth=7, min_samples_leaf=5
+)
+```
+
+???+ question "Fit and evaluate the model"
+
+    Now it is your time to fit and evaluate the model. Although, you have never
+    used an instance of `DecisionClassifier` before, you can use the same 
+    methods as with other models in `scikit-learn`. Simply refer to the 
+    previous regression example.
+    
+    1. Fit the model on `X_train` and `y_train`.
+    2. Evaluate the model on `X_test` and `y_test`.
+    3. Print the model's performance.
+    4. Plot the tree.
+
+    Lastly answer following quiz question to evaluate your result.
+
+<?quiz?>
+question: What is the model's accuracy (rounded to 2 decimal places)?
+answer: 92.98%
+answer-correct: 94.74%
+answer: 90.35%
+content:
+<p>
+    Correct! The mean accuracy is 94.74% which is a bit lower than the 95.61%
+    from the logistic regression.
+</p>
+<?/quiz?>
