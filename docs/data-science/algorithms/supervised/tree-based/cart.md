@@ -1,12 +1,12 @@
 # Decision Tree
 
-While linear regression and logistic regression are simple and interpretable,
-they are limited to linear relationships. Decision trees are non-linear models
-able to capture complex relationships in the data. They are easy to interpret
-and visualize, making them a popular choice for many applications.
+So far we have covered linear regression and logistic regression which are 
+limited to linear relationships. In contrast, decision trees are non-linear 
+models able to capture complex relationships in the data. They are easy to 
+interpret and visualize, making them a popular choice for many applications.
 
 Moreover, decision trees can be used for both regression ^^*and*^^
-classification.
+classification!
 
 In this chapter, we will explore the theory behind decision trees followed by
 practical examples. As always we will use `scikit-learn` for hands-on 
@@ -124,7 +124,7 @@ When building a decision tree a couple of questions arise:
 </div>
 
 With these questions in mind, let's dive into the theory of decision trees 
-to tackle them.
+in order to tackle them.
 
 ---
 
@@ -148,8 +148,8 @@ optimal tree structure depends on the chosen splits.
     observations don't. With *amount of fresh snow* being the feature and *10cm* 
     the threshold.
 
-However, given large data sets, there are too many splitting possibilities to 
-consider at once. Hence, the tree is grown in a greedy fashion.
+However, given large data sets, there are simply too many splitting 
+possibilities to consider at once. Hence, the tree is grown in a greedy fashion.
 
 The greedy optimization starts with a single root node splitting the data 
 into two partitions and adds additional nodes one at a time. At each step, the
@@ -305,7 +305,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 ```
 
 As always, a seed is set for reproducibility (`#!python random_state=42`). It 
-can be any integer, you can simply pick any random number.
+can be any integer, you can simply pick any number.
 
 #### Fit and evaluate the model
 
@@ -317,7 +317,7 @@ from sklearn.tree import DecisionTreeRegressor
 model = DecisionTreeRegressor(random_state=784)
 ```
 
-Again, we set a seed. More on the stochastic nature of decision trees later.
+Again, we set a seed, as the tree's construction involves randomness.
 
 To fit and evaluate the model:
 
@@ -331,8 +331,8 @@ print(f"Model performance (R²): {round(score, 2)}")
 Model performance (R²): 0.61
 ```
 
-The `score` method returns the coefficient of determination \(R^2\). 
-The \(R^2\) is already familiar, as it was first introduced 
+The `score()` method returns the coefficient of determination \(R^2\). 
+You should be already familiar with \(R^2\), as it was first introduced 
 in the [Regression chapter](../regression.md#coefficient-of-determination) to 
 evaluate the fit of a linear regression.
 
@@ -354,7 +354,7 @@ We can easily visualize the tree using the `plot_tree` function.
 ???+ tip
 
     This is the first time that we discourage you from running the code 
-    snippet below. Soon you know why.
+    snippet below. Soon you will know why.
 
 ```python
 import matplotlib.pyplot as plt
@@ -408,7 +408,10 @@ node. Both prevent the tree from growing too large.
 
 Let's plot the pruned tree.
 
-```python
+```python hl_lines="4"
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
+
 plot_tree(model, filled=True, feature_names=X.columns, proportion=True)
 plt.show()
 ```
