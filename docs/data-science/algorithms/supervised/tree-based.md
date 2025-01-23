@@ -53,8 +53,8 @@ the illustration of a (rotated) tree.
 </figure>
 
 In the skiing example, the nodes are the questions you ask yourself. With 
-branches being a simple (binary) yes or no answer. The leaf nodes are the final
-predictions, in our case whether to go skiing.
+branches being a simple binary split (the answers to the question).
+The leaf nodes are the final predictions, in our case whether to go skiing.
 
 <?quiz?>
 question: Given the skiing decision tree, what kind of supervised learning task is this?
@@ -83,7 +83,7 @@ and "No skiing" which is a classic binary classification task.
     This theoretical section on decision trees follows: ^^Christopher M. 
     Bishop. 2006. *Pattern Recognition and Machine Learning*[^1]^^
     
-    We focus on a particular tree based algorithm called CART 
+    We focus on a particular algorithm called CART 
     (=**C**lassification **A**nd **R**egression **T**rees).
     The theoretical foundations of CART were developed by:
     ^^Leo Breiman, Jerome Friedman, Richard Olshen, and Charles Stone. 1984.
@@ -137,17 +137,27 @@ the target variable \(y\) with a set of features \(x_1, x_2, ..., x_n\).
 
 With the data at hand, the CART algorithm finds the optimal tree 
 structure that minimizes the prediction error. In turn, the 
-optimal tree structure depends on the chosen feature for each split and the 
-corresponding threshold. However, given large data sets, there are too many 
-splitting possibilities to consider at once. Hence, the tree is grown in a 
-greedy fashion.
+optimal tree structure depends on the chosen splits. 
+
+???+ info
+    
+    A split in CART is a binary decision rule that divides the dataset into two
+    subsets based on a specific feature and threshold.
+
+    Imagine if we extend our skiing example with the split "Is there more than 
+    10cm of fresh snow?". The split divides the data into two subsets: one 
+    where observations have more than 10cm of fresh snow and another where
+    observations don't. With *amount of fresh snow* being the feature and *10cm* 
+    the threshold.
+
+However, given large data sets, there are too many splitting possibilities to 
+consider at once. Hence, the tree is grown in a greedy fashion.
 
 The greedy optimization starts with a single root node splitting the data 
 into two partitions and adds additional nodes one at a time. At each step, the
-algorithm chooses a feature threshold combination using exhaustive search. The 
-best split (feature threshold combination) is determined by a criterion. 
-Remember, that decision trees can deal with regression and classification 
-problems. Hence, the criterion differs for the two tasks.
+algorithm chooses a split using exhaustive search. The best split is determined
+by a criterion. Remember, that decision trees can deal with regression and 
+classification problems. Hence, the criterion differs for the two tasks.
 
 ---
 
@@ -224,9 +234,9 @@ Put differently, when should we stop adding nodes?
 
 First, the tree is grown as large as possible until a stopping criterion is 
 met. This criterion can be the maximum tree depth or a minimum number of 
-samples per leaf. Second, the tree is pruned back. Pruning is the process of 
-removing nodes that do not improve the model's performance. It balances the 
-RSS or Gini impurity against model complexity.
+observations per leaf. Second, the tree is pruned back. Pruning is the process 
+of removing nodes that do not improve the model's performance. It balances the 
+RSS error or Gini impurity against model complexity.
 
 ???+ info
 
@@ -237,7 +247,7 @@ RSS or Gini impurity against model complexity.
 
 ### Advantages and Limitations
 
-Decision trees offer several significant advantages, but they also have some 
+Decision trees offer several significant advantages, but they also have their 
 limitations:
 
 <div class="grid cards" markdown>
