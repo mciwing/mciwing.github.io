@@ -42,7 +42,9 @@ can explore.
 
 ## Getting started
 
-First, we need to import the package. If you want to make certain changes in your graphs, it might be useful to install the `matplotlib` package as well.
+First, install `matplotlib` as it is required for `pandas`' plotting 
+functionalities. Additionally, you can use `matplotlib` to customize your 
+figures, but more on that later. Import both packages to start plotting.
 
 ```py
 import pandas as pd
@@ -52,7 +54,9 @@ import matplotlib.pyplot as plt
 
 ## 2-D plots
 
-Figures can be generated directly using the `plot()` function with `pandas`. The ``x`` and ``y`` attributes refer to the values of the x and y axis. 
+Figures can be generated directly using a `DataFrame`. Simply call its `plot()`
+method. The ``x`` and ``y`` attributes refer to the values of the x and 
+y-axis. 
 
 ```py
 data.plot(x='daily_rank', y='popularity')
@@ -62,7 +66,10 @@ data.plot(x='daily_rank', y='popularity')
   ![Single line](../assets/python-extensive/data/plotting/plotting_plot_line.png){ width="500" }
 </figure>
 
-If you visualize a DataFrame, you plot all columns as multiple lines. If the ``x`` values are not explicitly stated, the x-value starts with zero and ends with the number of rows minus one (``range(0, number of rows)``). 
+If you visualize a DataFrame, you plot all columns as multiple lines. If the 
+``x`` values are not explicitly stated, the index of the `DataFrame` is 
+utilized. In our case, the index and hence the x-values start with zero and 
+end with the number of rows minus one (`#!python range(0, number of rows)`). 
 
 ```py
 # Mathematical operations (see pandas)
