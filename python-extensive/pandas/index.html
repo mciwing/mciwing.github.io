@@ -1743,6 +1743,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Data structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detour-series-and-dataframe-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detour: Series and DataFrame from scratch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3990,6 +4005,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Data structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detour-series-and-dataframe-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detour: Series and DataFrame from scratch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -4331,30 +4361,57 @@ name.</p>
 </span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>&lt;class &#39;pandas.core.series.Series&#39;&gt;
 </span></code></pre></div>
 <p>A <code>DataFrame</code> is composed of at least one <code>Series</code>.</p>
+<hr />
+<h5 id="detour-series-and-dataframe-from-scratch">Detour: <code>Series</code> and <code>DataFrame</code> from scratch</h5>
+<p>It's not always the case that you have a data set (in form of a file) at hand.
+Sometimes you have to create a <code>Series</code> or <code>DataFrame</code> yourself.</p>
+<p>A <code>Series</code> can be easily created from a list.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">austrian_artists</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bibiza&quot;</span><span class="p">,</span> <span class="s2">&quot;Wanda&quot;</span><span class="p">,</span> <span class="s2">&quot;Bilderbuch&quot;</span><span class="p">]</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">austrian_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">austrian_artists</span><span class="p">)</span>
+</span></code></pre></div>
+<p>To initiate a <code>DataFrame</code>, you can use a dictionary (among others).</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">austrian_artists</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Bibiza&quot;</span><span class="p">,</span> <span class="s2">&quot;Wanda&quot;</span><span class="p">,</span> <span class="s2">&quot;Bilderbuch&quot;</span><span class="p">],</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="s2">&quot;album&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bis einer weint&quot;</span><span class="p">,</span> <span class="s2">&quot;Amore&quot;</span><span class="p">,</span> <span class="s2">&quot;mea culpa&quot;</span><span class="p">],</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="s2">&quot;release_year&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2019</span><span class="p">]</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">}</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">austrian_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">austrian_artists</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Dictionary keys are used as column names and the corresponding values as
+the column values.</p>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>Apart from a <code class="language-python highlight"><span class="nb">dict</span></code>, a <code>DataFrame</code> can be created from multiple
+other data structures like a <code class="language-python highlight"><span class="nb">list</span></code> or <code class="language-python highlight"><span class="nb">tuple</span></code>. For an 
+extensive guide, visit the <code>pandas</code> documentation on Intro to data 
+structures (specifically the 
+<a href="https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe">section DataFrame</a>). </p>
+</details>
+<hr />
 <h3 id="selecting-data">Selecting data</h3>
 <p>Let's dive deeper into selecting data. To access specific rows, you can use 
 a slice (just like with lists).</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># rows 5 and 6</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># rows 5 and 6</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>               spotify_id        name  ...    tempo  time_signature
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>5  0io16MKpbeDIdYzmGpQaES  Embrace It  ...  114.933               4
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>6  3aJT51ya8amzpT3TKDVipL         FTW  ...   91.937               4
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>               spotify_id        name  ...    tempo  time_signature
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>5  0io16MKpbeDIdYzmGpQaES  Embrace It  ...  114.933               4
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>6  3aJT51ya8amzpT3TKDVipL         FTW  ...   91.937               4
 </span></code></pre></div>
 <p>Select multiple columns by passing a list of column names.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;artists&quot;</span><span class="p">]])</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;artists&quot;</span><span class="p">]])</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>                                  name    artists
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>0                The Emptiness Machine    Linkin Park
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>1                         Rote Flaggen    Berq
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>2                       Bauch Beine Po    Shirin David
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>...
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>                                  name    artists
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>0                The Emptiness Machine    Linkin Park
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>1                         Rote Flaggen    Berq
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>2                       Bauch Beine Po    Shirin David
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>...
 </span></code></pre></div>
 <h4 id="boolean-indexing">Boolean indexing</h4>
 <p>Most of the time, we want to filter the data based on criterias. 
 For example, we can select the tracks with a tempo higher than <code class="language-python highlight"><span class="mi">120</span></code>
 beats per minute (BPM).</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">high_tempo</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;tempo&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">]</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">high_tempo</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;tempo&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">]</span>
 </span></code></pre></div>
 <p>Let's break the example down:</p>
 <ul>
@@ -4391,15 +4448,15 @@ For instance, we weigh the popularity of a track by its energy level.</p>
 intensity and activity. </p>
 <p>-- <cite><a href="https://developer.spotify.com/documentation/web-api/reference/get-audio-features">Spotify for Developers</a></cite></p>
 </blockquote>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">weighted_popularity</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;popularity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">weighted_popularity</span><span class="p">))</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># assign the Series to the DataFrame</span>
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="n">data</span><span class="p">[</span><span class="s2">&quot;weighted_popularity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weighted_popularity</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">weighted_popularity</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;popularity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;energy&quot;</span><span class="p">])</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">weighted_popularity</span><span class="p">))</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># assign the Series to the DataFrame</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="n">data</span><span class="p">[</span><span class="s2">&quot;weighted_popularity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weighted_popularity</span>
 </span></code></pre></div>
 <p>The <code>mul()</code> method is used to multiply the <code>popularity</code> and <code>energy</code> columns.
 The resulting <code>Series</code> is assigned to <code>data</code> as a new column.</p>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>&lt;class &#39;pandas.core.series.Series&#39;&gt;
 </span></code></pre></div>
 <details class="question" open="open">
 <summary>Track length</summary>
@@ -4425,13 +4482,13 @@ To do so, calculate the length in <strong>minutes</strong>.</p>
 <p><code>pandas</code> provides a variety of methods to calculate basic statistics. For 
 instance, <code>min()</code>, <code>max()</code>, <code>mean()</code> can be easily retrieved for a numeric 
 <code>Series</code> in the data set.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;tempo&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;tempo&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>80.969
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>80.969
 </span></code></pre></div>
 <p>Conveniently, statistics can be calculated for each column at once using 
 the <code>DataFrame</code>. In this example, we calculate the standard deviation.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </span></code></pre></div>
 <p>If you execute the above snippet, a <code class="language-python highlight"><span class="ne">TypeError</span></code> is raised.</p>
 <details class="question" open="open">
@@ -4443,18 +4500,18 @@ parameters.</p>
 </details>
 <p>If you want to calculate multiple statistics, you can call the <code>describe()</code> 
 method.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">stats</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">stats</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>       daily_rank  daily_movement  ...       tempo  time_signature
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>count    50.00000        50.00000  ...   50.000000       50.000000
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>mean     25.50000         1.04000  ...  125.087260        3.920000
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>std      14.57738         8.14902  ...   26.751323        0.340468
-</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>min       1.00000       -22.00000  ...   80.969000        3.000000
-</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>25%      13.25000        -3.00000  ...  104.990750        4.000000
-</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>50%      25.50000         1.00000  ...  123.981500        4.000000
-</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>75%      37.75000         3.00000  ...  137.487250        4.000000
-</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>max      50.00000        29.00000  ...  184.115000        5.000000
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>       daily_rank  daily_movement  ...       tempo  time_signature
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>count    50.00000        50.00000  ...   50.000000       50.000000
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>mean     25.50000         1.04000  ...  125.087260        3.920000
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>std      14.57738         8.14902  ...   26.751323        0.340468
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>min       1.00000       -22.00000  ...   80.969000        3.000000
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>25%      13.25000        -3.00000  ...  104.990750        4.000000
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>50%      25.50000         1.00000  ...  123.981500        4.000000
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>75%      37.75000         3.00000  ...  137.487250        4.000000
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>max      50.00000        29.00000  ...  184.115000        5.000000
 </span></code></pre></div>
 <p><code>describe()</code> provides descriptive statistics for each column. The result of 
 <code>describe()</code> is a <code>DataFrame</code> itself.</p>
