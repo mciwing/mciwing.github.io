@@ -76,7 +76,7 @@ data_plot.plot()
 </figure>
    
 
-Note: The `plt.show()` function in a `py` script opens one or more interactive wondows to show the graphs. For jupyter notebooks the command is not necessary because the graph is enbedded in the document.
+Note: The `plt.show()` function in a `py` script opens one or more interactive windows to show the graphs. For jupyter notebooks the command is not necessary because the graph is enbedded in the document.
 
 
 ### Formatting
