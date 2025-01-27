@@ -249,6 +249,44 @@ print(type(data["artists"]))
 
 A `DataFrame` is composed of at least one `Series`.
 
+---
+
+##### Detour: `Series` and `DataFrame` from scratch
+
+It's not always the case that you have a data set (in form of a file) at hand.
+Sometimes you have to create a `Series` or `DataFrame` yourself.
+
+A `Series` can be easily created from a list.
+
+```py
+austrian_artists = ["Bibiza", "Wanda", "Bilderbuch"]
+austrian_artists = pd.Series(austrian_artists)
+```
+
+To initiate a `DataFrame`, you can use a dictionary (among others).
+
+```py
+austrian_artists = {
+    "name": ["Bibiza", "Wanda", "Bilderbuch"],
+    "album": ["bis einer weint", "Amore", "mea culpa"],
+    "release_year": [2024, 2014, 2019]
+}
+austrian_artists = pd.DataFrame(austrian_artists)
+```
+
+Dictionary keys are used as column names and the corresponding values as
+the column values.
+
+???+ info
+
+    Apart from a `#!python dict`, a `DataFrame` can be created from multiple
+    other data structures like a `#!python list` or `#!python tuple`. For an 
+    extensive guide, visit the `pandas` documentation on Intro to data 
+    structures (specifically the 
+    [section DataFrame](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe)). 
+
+---
+
 ### Selecting data
 
 Let's dive deeper into selecting data. To access specific rows, you can use 
