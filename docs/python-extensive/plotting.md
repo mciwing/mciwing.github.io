@@ -108,7 +108,7 @@ The following table shows additional arguments for different colors, line styles
 | `w`      | white       |          |             | `d     `           | diamant     | 
 | `k`      | black       |          |             | `>`, `<`, `^`, `v` | triangle    | 
 
-
+#### MCI | WING: Formatting standards
 ???+ info
     
     For laboratory reports and final papers formatting standards exist (see ``Academic Walkthrough - Formakriterien für schrifliche Abgaben - Abbildungen und Diagramme``). 
