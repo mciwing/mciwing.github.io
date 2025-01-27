@@ -206,7 +206,7 @@ data.plot.scatter(x='loudness', y='energy', color='k')
 
 `Categorical` data in `pandas` correspond to categorical variables in statistics. This data type has a limited number of possible values, which are called `categories`. 
 
-For example, some artists have more than one song in this list. The calculation of the maximum number of tracks one artist have, can be generated as follows.
+For example, some artists have more than one song in this list. The calculation of the maximum number of tracks one artist has, can be generated as follows.
 
 ```py
 number_artists = pd.Categorical(data['artists']).value_counts()
