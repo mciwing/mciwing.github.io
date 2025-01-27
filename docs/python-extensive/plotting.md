@@ -32,8 +32,8 @@ can explore.
     
     We will give a brief introduction on plotting data with `pandas`, which is built on the standard package `matplotlib`(the corresponding documentation is available [here](https://matplotlib.org/stable/gallery/pyplots/index.html#module-pyplot)).
 
-    This chapter is an extension to the previous [`pandas`]("docs/python-extensive/pandas.md") 
-    chapter. Therefore, we will use the Spotify data set and we assume that you have imported the data already (to download the data set and reading the file see [`pandas`]("docs/python-extensive/pandas.md")). 
+    This chapter is an extension to the previous [`pandas`](pandas.md) 
+    chapter. Therefore, we will use the Spotify data set and we assume that you have imported the data already (to download the data set and reading the file see [`pandas`](pandas.md)). 
     
     This chapter should equip you with the necessary skills to generate various visualizations for your data analysis.  
 
