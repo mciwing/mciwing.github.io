@@ -131,3 +131,79 @@ Model performance (R²): 0.81
 Compared to a single tree with an \(R^2\) of 0.61, the random forest performs
 considerably better with an \(R^2\) of 0.81. You can re-visit the according 
 section [here](cart.md#fit-and-evaluate-the-model).
+
+???+ question "How many trees are in the forest?"
+    
+    Consult the `scikit-learn` docs to find out how many trees are in the 
+    forest by default. Use following question for self-assessment.
+
+<?quiz?>
+question: How many trees form a forest by default?
+answer: None, you have to pass it as argument.
+answer: 1000
+answer: 1, the forest defaults to a single decision tree.
+answer-correct: 100
+content:
+<p>Correct, the parameter <code>n_estimators</code> defaults to 100 trees.</p>
+<?/quiz?>
+
+???+ info
+
+    If you want to get closer to the original definition of a random forest 
+    regressor by Breiman, you have to set the `max_features` parameter. 
+    Specifically, with \(m\) features, the number of features considered at 
+    each split should be \(\frac{m}{3}\) for regression.
+
+    ```python hl_lines="2"
+    RandomForestRegressor(
+        max_features=len(X_train.columns) // 3,
+        random_state=784
+    )
+    ```
+
+    By default, `scikit-learn` considers \(m\) features for each split.
+
+???+ tip
+
+    If you're unsure how to set parameters of a model (such as `max_features`),
+    stick to the defaults. `scikit-learn` provides sensible defaults 
+    that work well. Later on, we will explore methods to automatically tune 
+    these hyperparameters.
+
+### Classification
+
+Next, we switch to a classification task.
+
+???+ question
+
+    Load the breast cancer data, fit and evaluate a random forest.
+    
+    1. Load the data and split it into a training and test set.
+    2. Load the appropriate random forest class.
+    3. Fit the model.
+    4. Evaluate the model on the test set.
+
+    Hint: This and the previous chapter should provide all necessary
+    information, to solve the tasks.
+
+#### Inspecting the forest
+
+We can even inspect all individual trees of our ensemble forest. Simply access
+the attribute `estimators_` of your fitted model.
+
+```python
+print(model.estimators_)  # (1)!
+```
+
+1. Assuming, you named the forest from the above task `model`.
+
+```title=">>> Output"
+[
+    DecisionTreeClassifier(max_features=1.0, random_state=1877362837), 
+    DecisionTreeClassifier(max_features=1.0, random_state=1395144809)
+    ...
+]
+```
+
+`estimators_` is a list of individual tree instances. If you're dealing with a
+`RandomForestRegressor`, `estimators_` is a list of `DecisionTreeRegressor`.
