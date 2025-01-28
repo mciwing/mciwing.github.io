@@ -3,7 +3,7 @@
 While decision trees are easy to interpret, they have several drawbacks: they
 are prone to overfitting and are sensitive to slight changes in the data.
 
-Random Forest is an ensemble method that addresses these drawbacks at the cost
+Random forest is an ensemble method that addresses these drawbacks at the cost
 of slightly reduced interpretability. At its core, a random forest is simply a
 collection of decision trees. Since we have already extensively discussed the
 CART (Classification and Regression Trees) algorithm, we can dive right in.
@@ -354,3 +354,16 @@ A possible solution is provided below.
         height="650px">
     </iframe>
 </div>
+
+## Recap
+
+Random forests improve upon single decision trees by combining multiple trees
+into an ensemble model. Through bootstrap sampling and random feature
+selection, they address the main drawbacks of decision trees - overfitting and
+sensitivity to data changes. While slightly less interpretable than single
+trees, random forests provide better generalization, more robust predictions,
+and useful insights through feature importance measures.
+
+With `scikit-learn`, you are now able to build a random forest for regression 
+and classification tasks. You have also learned how to inspect individual trees
+and assess feature importance.
