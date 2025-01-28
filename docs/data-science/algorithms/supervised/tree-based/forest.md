@@ -214,7 +214,7 @@ forests.
 
 ---
 
-### Visualize all trees
+### Stronger together
 
 We fit a random forest classifier on a synthetic data set to 
 ==literally== illustrate the different trees. First, we generate the data.
@@ -240,7 +240,7 @@ classifier.fit(X, y)
 Note, that we set the number of trees to `#!python 4`. We keep the number 
 small as we visualize them later on. The `max_depth` parameter limits the 
 depth of each tree to `#!python 3`. This is done to perform pruning and thus 
-keep the trees simple and easy to interpret.
+keep the trees simple and easier to plot.
 
 Finally, we visualize all trees. We access the trees via the `estimators_`
 attribute and plot them using the familiar `plot_tree()` function. Everything 
@@ -268,7 +268,89 @@ plt.show()
 
 <figure markdown="span">
     ![Individual trees visualized](../../../../assets/data-science/algorithms/individual-trees.png)
-    <figcaption>All four individual trees of the random forest. For a 
+    <figcaption>All four individual trees of the forest. For a 
          closer look, open the picture in a new tab.
     </figcaption>
 </figure>
+
+Although there is a lot of information cramped inside one figure, at first 
+glance it is obvious that all four trees are different. Each of them differs
+in splits (feature and threshold), number of nodes and predictions.
+
+Each one of these trees on their own might not generalize well, hence they are
+often referred to as weak learners. However, when combined, they form a 
+"strong" model. That's the essence of an ensemble method!
+
+### Feature importance
+
+One of the most powerful attribute of random forests is their ability to 
+assess feature importance: measuring how much each input variable contributes 
+to predicting the target variable.
+
+Remember that trees are fitted on a [bootstrap](forest.md#bootstrap-sampling) 
+training set. Since some samples are left out during this process, we can use 
+these to measure the importance of each feature. These unused observations are 
+called "out-of-bag" (OOB) samples. For each feature, the OOB samples are 
+randomly permuted (shuffled) and the increase in prediction error is measured. 
+Features that lead to larger increases in error when permuted are considered 
+more important.
+
+Let's examine feature importance using the breast cancer dataset:
+
+```python hl_lines="6"
+X, y = load_breast_cancer(return_X_y=True, as_frame=True)
+
+rf = RandomForestClassifier(random_state=42)
+rf.fit(X, y)
+
+print(rf.feature_importances_)
+```
+
+```title=">>> Output"
+[0.03484323 0.01522515 0.06799034 0.06046164 0.00795845 0.01159704
+ ...]
+```
+
+???+ info
+
+    To keep the example concise, we did not perform a train test split.
+
+Feature importance values are a `#!python list` of `#!python float`s. 
+Each value corresponds to a feature in the order they were passed to the
+model. The values are normalized and sum to `#!python 1.0`. 
+A higher value indicates that the feature contributes more to making correct 
+predictions.
+
+Feature importance can help with:
+
+1. Feature selection: Identifying which features are most relevant for
+   predictions
+2. Model interpretation: Understanding which features drive the model's
+   decisions
+3. Data collection: Guiding future data collection efforts by highlighting
+   important measurements
+
+???+ question "Visualize the feature importance"
+
+    Generate a bar plot to visualize the feature importance.
+    Use any package of your choice. For convenience, you can use the 
+    following code snippet to get started.
+    
+    ```python
+    import pandas as pd
+
+    feature_importance = pd.DataFrame(
+        {"feature": X.columns, "importance": rf.feature_importances_}
+    )
+    ```
+
+    Don't worry about styling the plot!
+
+A possible solution is provided below.
+
+<div style="text-align: center;">
+    <iframe src="/assets/data-science/algorithms/feature-importance.html" 
+        width="100%" 
+        height="650px">
+    </iframe>
+</div>
