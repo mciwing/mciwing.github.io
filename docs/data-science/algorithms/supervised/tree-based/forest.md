@@ -207,3 +207,68 @@ print(model.estimators_)  # (1)!
 
 `estimators_` is a list of individual tree instances. If you're dealing with a
 `RandomForestRegressor`, `estimators_` is a list of `DecisionTreeRegressor`.
+
+In most cases, you won't need to inspect the individual trees. Nevertheless,
+we can utilize this information to solidify our understanding of random 
+forests.
+
+---
+
+### Visualize all trees
+
+We fit a random forest classifier on a synthetic data set to 
+==literally== illustrate the different trees. First, we generate the data.
+
+```python
+from sklearn.datasets import make_classification
+
+X, y = make_classification(
+    random_state=42,
+    n_clusters_per_class=1
+)
+```
+
+Next, we initialize and fit a random forest classifier.
+
+```python
+classifier = RandomForestClassifier(
+    random_state=42, n_estimators=4, max_depth=3
+)
+classifier.fit(X, y)
+```
+
+Note, that we set the number of trees to `#!python 4`. We keep the number 
+small as we visualize them later on. The `max_depth` parameter limits the 
+depth of each tree to `#!python 3`. This is done to perform pruning and thus 
+keep the trees simple and easy to interpret.
+
+Finally, we visualize all trees. We access the trees via the `estimators_`
+attribute and plot them using the familiar `plot_tree()` function. Everything 
+else is just plot customization.
+
+```python hl_lines="5 7"
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
+
+fig = plt.figure(figsize=(20, 12))
+for index, tree in enumerate(classifier.estimators_, 1):
+    plt.subplot(2, 2, index)
+    plot_tree(
+        tree,
+        label="root",
+        class_names=True,
+        filled=True,
+        fontsize=14,
+    )
+    plt.title(f"Decision Tree {index}", fontsize=25)
+
+plt.tight_layout()
+plt.show()
+```
+
+<figure markdown="span">
+    ![Individual trees visualized](../../../../assets/data-science/algorithms/individual-trees.png)
+    <figcaption>All four individual trees of the random forest. For a 
+         closer look, open the picture in a new tab.
+    </figcaption>
+</figure>
