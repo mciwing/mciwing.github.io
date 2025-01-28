@@ -66,8 +66,8 @@ improves the model performance.
 ## Examples
 
 With a basic understanding of random forests we take a look at some 
-examples. As always, we'll use our favorite machine learning package (at 
-least that of the author :wink:) `scikit-learn`.
+examples. As always, we'll use our favorite machine learning package 
+`scikit-learn` (at least that of the author :wink:).
 
 In order to focus on the random forest implementation and its parameters, we'll
 reuse the California housing data (for regression) and the breast cancer data
@@ -126,7 +126,7 @@ Model performance (R²): 0.81
 
     Remember, that the `score()` method of a decision tree regressor 
     (`DecisionTreeRegressor`) returned the coefficient of determination 
-    \(R^2\). The same applies to random forests.
+    \(R^2\). The same applies to random forests regressors.
 
 Compared to a single tree with an \(R^2\) of 0.61, the random forest performs
 considerably better with an \(R^2\) of 0.81. You can re-visit the according 
@@ -167,8 +167,8 @@ content:
 
     If you're unsure how to set parameters of a model (such as `max_features`),
     stick to the defaults. `scikit-learn` provides sensible defaults 
-    that work well. Later on, we will explore methods to automatically tune 
-    these hyperparameters.
+    that work well. In later chapters, we will explore methods to 
+    automatically tune these hyperparameters.
 
 ### Classification
 
@@ -268,8 +268,7 @@ plt.show()
 
 <figure markdown="span">
     ![Individual trees visualized](../../../../assets/data-science/algorithms/individual-trees.png)
-    <figcaption>All four individual trees of the forest. For a 
-         closer look, open the picture in a new tab.
+    <figcaption>All four individual trees of this particular forest.
     </figcaption>
 </figure>
 
