@@ -1,0 +1,15 @@
+# Primary colors; used for the site's theme
+# File is for reference only; not used in the project
+colors:
+  grey:
+    name: Grey
+    hex: "#1e2129"
+    rgb: [30, 33, 41]
+  pink:
+    name: Pink
+    hex: "#e92063"
+    rgb: [233, 32, 99]
+  teal:
+    name: Teal
+    hex: "#009485"
+    rgb: [0, 148, 133]
