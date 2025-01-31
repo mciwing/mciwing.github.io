@@ -5,7 +5,8 @@ description = "MCI | WING page to host lecture materials."
 authors = [
     "JakobKlotz <jakob.klotz@mci.edu>",
     "manuf3006 <manuel.ferdik@mci.edu>",
-    "verenitas <verena.schallhart@mci.edu>"
+    "verenitas <verena.schallhart@mci.edu>",
+    "christinastampfer <christina.stampfer@mci.edu"
 ]
 readme = "README.md"
 packages = [{include = "mciwing"}]
