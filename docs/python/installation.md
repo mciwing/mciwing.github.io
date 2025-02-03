@@ -95,12 +95,14 @@ or the GUI.
     Determine the path to the **:fontawesome-brands-python: Python** executable 
     using the Python launcher `py` (which is part of the Python installation and 
     is on PATH by default).
+
     
     ```commandline
     py -3.12 -c "import sys; print(sys.executable)"
     ```
     
     In my case, the output is:
+
     
     ```title="CMD Output"
     C:\Users\ztklotz\AppData\Local\Programs\Python\Python312\python.exe
@@ -111,12 +113,14 @@ or the GUI.
     **Step 2**:
     
     Set the PATH variable using the command prompt.
+
     
     ```commandline
     setx PATH "%PATH%;<copied-path>"
     ```
     
     For instance (using my path):
+
     
     ```commandline
     setx PATH "%PATH%;C:\Users\ztklotz\AppData\Local\Programs\Python\Python312"
