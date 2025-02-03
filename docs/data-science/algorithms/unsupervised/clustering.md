@@ -118,3 +118,29 @@ global minimum. The final solution depends on the initial cluster centers.
     The web app illustrates the iterative algorithm. You can watch the 
     data points being assigned to clusters and the update of cluster centers 
     which are denoted in the app as \(C_1, C_2, ... , C_N\).
+
+#### Elbow method :flexed_biceps:
+
+So far we have not discussed the number of clusters \(K\) in depth. Since the
+algorithm requires the number of clusters as an input, it is crucial to choose 
+\(K\) wisely.
+
+One common approach to determine the optimal number of clusters is the
+**elbow method**. The idea is to plot the distortion measure \(J\) (inertia)
+for different values of \(K\). The plot will show a sharp decrease in \(J\) 
+as \(K\) increases. The optimal number of clusters is the point where the 
+decrease flattens out, resembling an elbow.
+
+<figure markdown="span">
+    ![Elbow method](../../../assets/data-science/algorithms/elbow-method.png)
+    <figcaption>
+        Illustration of the elbow method.
+    </figcaption>
+</figure>
+
+We will apply both k-means and the elbow method in the following examples.
+
+## Examples
+
+With the theory out of the way, we can now apply k-means to real-world data.
+
