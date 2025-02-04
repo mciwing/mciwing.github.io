@@ -132,7 +132,7 @@ as \(K\) increases. The optimal number of clusters is the point where the
 decrease flattens out, resembling an elbow.
 
 <figure markdown="span">
-    ![Elbow method](../../../assets/data-science/algorithms/elbow-method.png)
+    ![Elbow method](../../../assets/data-science/algorithms/clustering/elbow-method.png)
     <figcaption>
         Illustration of the elbow method.
     </figcaption>
@@ -143,4 +143,108 @@ We will apply both k-means and the elbow method in the following examples.
 ## Examples
 
 With the theory out of the way, we can now apply k-means to real-world data.
+First, we build a recommendation system for Spotify tracks and then move on to
+clustering semiconductor data.
 
+### Recommendation system
+
+To build a recommendation system, we will use a modified Spotify dataset. 
+The goal is to cluster songs based on their audio features and recommend
+similar songs to the user.
+
+???+ info
+
+    The original data can be found on 
+    [Kaggle](https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated?resource=download).
+
+    The modified data we are using, contains songs from 2024 up until now 
+    (time of writing: January 31, 2025).
+    
+---
+
+???+ question "Download and read data"
+
+    1. Download the data set.
+    2. Read it with `pandas` and for convenience assign it to a variable called
+       `data`. Then you will be able to use the following code snippets more
+       easily.
+    3. Print the first rows of `data`.
+
+<div class="center-button" markdown>
+[Download Spotify tracks :fontawesome-solid-download:](../../../assets/data-science/algorithms/clustering/spotify.csv){ .md-button }
+</div>
+
+---
+
+With the data set loaded, we pick the following audio features for clustering:
+
+```python hl_lines="14"
+features = [
+    "danceability",
+    "energy",
+    "loudness",
+    "speechiness",
+    "acousticness",
+    "instrumentalness",
+    "liveness",
+    "valence",
+    "tempo",
+]
+
+# subset data
+X = data[features]
+```
+
+???+ question "Have a look at the data"
+
+    1. Look at the first couple of rows of the `DataFrame` `X`.
+    2. Check for potential missing values.
+
+    Hint: If you need a refresh on missing values, visit the 
+    [Data preprocessing](../../data/preprocessing.md#missing-values) chapter.
+
+You might have noticed that all features are numerical. In fact, k-means
+==requires numerical data==.
+
+???+ danger
+
+    Since k-means is based on (Euclidian) distances, do ==not== apply 
+    k-means to categorical data, even if your data is encoded as labels. 
+    Distances for categorical labels are meaningless!
+
+    Instead you can look at algorithms like k-modes.
+
+Let's have another look at the data:
+
+```python
+X.describe()
+```
+
+```title=">>> Output"
+       danceability        energy  ...       valence         tempo
+count  11320.000000  11320.000000  ...  11320.000000  11320.000000
+mean       0.683081      0.660006  ...      0.525337    122.571478
+std        0.134193      0.162655  ...      0.222797     27.628201
+min        0.093900      0.001740  ...      0.000010     46.999000
+25%        0.597000      0.560000  ...      0.355000     99.987000
+50%        0.701000      0.675000  ...      0.526000    121.974000
+75%        0.780000      0.777000  ...      0.696000    140.056000
+max        0.988000      0.998000  ...      0.989000    236.089000
+```
+
+These basic statistics reveal that the features have different scales.
+For example, compare `tempo` and `danceability`. Tempo ranges from 
+`#!python 46` to `#!python 236`, while danceability ranges from 
+`#!python 0.0939` to `#!python 0.988`.
+
+Thus, we apply a Z-Score normalization to all features (to have a mean of `0` 
+and a standard deviation of `1`). This prevents k-means to disproportionately
+weigh features like `tempo` and ensures each feature contributes equally to
+the distance calculations.
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()  # Z-Score normalization
+X = scaler.fit_transform(X)
+```
