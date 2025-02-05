@@ -248,3 +248,90 @@ from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()  # Z-Score normalization
 X = scaler.fit_transform(X)
 ```
+
+#### Apply k-means
+
+The application of k-means is straightforward:
+
+```python hl_lines="4"
+from sklearn.cluster import KMeans
+
+kmeans = KMeans(n_clusters=5, random_state=42)
+cluster_indices = kmeans.fit_predict(X)
+print(cluster_indices)
+```
+
+```title=">>> Output"
+array([4, 0, 3, ..., 1, 1, 2], dtype=int32)
+```
+
+The `n_clusters` parameter specifies the number of clusters. We set it to 
+`#!python 5` for now. The `random_state` parameter ensures reproducibility.
+Using the `fit_predict()` method, we obtain the cluster indices for each data
+point. These indices range from `#!python 0` to `#!python 4` in this case.
+I.e., the first track belongs to cluster `#!python 4`, the second to cluster
+`#!python 0`, and so on.
+
+... but wait, how do we know if `#!python 5` is the right number of clusters?
+This is where the elbow method comes into play. :flexed_biceps:
+
+#### Elbow method
+
+With the attribute `inertia_`, we can access the distortion measure \(J\).
+From the k-means docs:
+
+> `inertia_`:
+> 
+> Sum of squared distances of samples to their closest cluster center,...
+> 
+> -- <cite>[KMeans docs](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)</cite>
+
+In a loop we fit the k-means algorithm for different numbers of clusters \(K\)
+and store the corresponding distortion measure (`inertia_`). Then we plot the 
+results.
+
+We define a function to apply the elbow method:
+
+```python hl_lines="3 8"
+def elbow_method(X, max_clusters=15):
+    inertia = []
+    K = range(1, max_clusters + 1)
+
+    for k in K:
+        model = KMeans(n_clusters=k, random_state=42)
+        model.fit(X)
+        inertia.append(model.inertia_)
+
+    # for convenience store in a DataFrame
+    distortions = pd.DataFrame(
+        {"k (number of cluster)": K, "inertia (J)": inertia}
+    )
+
+    return distortions
+```
+
+By default, the function `elbow_method()` tries values for \(K\) from 
+`#!python 1` to `#!python 15` and stores the corresponding distortion measure 
+in a `DataFrame`. 
+
+---
+
+???+ question "Apply the elbow method"
+
+    1. Apply the `elbow_method()` on our scaled data `X`.
+    2. Create a line plot with the number of clusters (K) on the x-axis and 
+        the distortion measure on the y-axis.
+
+        Hint: Use the [`plot()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
+        method of the resulting `DataFrame`.
+
+Expand the below section to see a plot as possible solution.
+
+??? note "Expand to see the plot"
+
+    <figure markdown="span">
+        ![Spotify elbow method](../../../assets/data-science/algorithms/clustering/spotify-elbow-method.svg)
+        <figcaption>
+            Elbow method applied to the Spotify data set.
+        </figcaption>
+    </figure>
