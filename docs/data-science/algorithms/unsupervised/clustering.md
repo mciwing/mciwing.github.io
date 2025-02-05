@@ -482,3 +482,81 @@ successful.
     
     In practice, you have to rely on domain knowledge to interpret the 
     results and assess the quality of the model.
+
+---
+
+### Semiconductor data
+
+K-means is not only useful for recommendation systems, but also for
+anomaly detection. The idea is to form clusters which in turn can be used to
+detect the outliers/anomalies.
+
+???+ info
+
+    The data is adapted from the UCI Machine Learning Repository.
+
+    McCann, M. & Johnston, A. (2008). SECOM [Dataset]. 
+    UCI Machine Learning Repository. 
+    [https://doi.org/10.24432/C54305](https://doi.org/10.24432/C54305)
+
+In this example, you will apply k-means to semiconductor data.
+
+???+ question "Download and read data"
+
+    1. Download the below data set.
+    2. Read it with `pandas`.
+    3. Have a look at the data.
+
+<div class="center-button" markdown>
+[Download semiconductor data :fontawesome-solid-download:](../../../assets/data-science/algorithms/clustering/semiconductor.csv){ .md-button }
+</div>
+
+Each row in the data set
+
+> represents a single production entity with associated measured features [...]
+> 
+> -- <cite>UCI Machine Learning Repository</cite>
+
+???+ question "Apply k-means"
+
+    Solve the following tasks to apply k-means to the semiconductor data:
+
+    1. Are there any missing values in the data?
+    2. Deal with potential missing values; choose any suitable strategy. For a 
+       refresher on missing values, visit the 
+       [Data preprocessing](../../data/preprocessing.md#missing-values) chapter.
+    3. Do you need to scale the features? If so, apply a `StandardScaler`.
+    4. Use the elbow method to determine the number of clusters.
+    5. Fit the k-means algorithm with the optimal number of clusters.
+
+    Hint: You can reuse the functions and code snippets from the Spotify
+    example.
+
+??? info
+
+    If you have solved the above tasks, you might wonder how to interpret 
+    your clustering results. Moreover, how can you detect potential anomalies?
+
+    Again, it all depends on domain knowledge. If you're a expert in the 
+    semiconductor industry you might be able to tell if the clusters 
+    make sense and if there are any anomalies in the data. Otherwise, 
+    interpretation can be quite challenging.
+
+## Recap
+
+In this chapter, we introduced k-means clustering. We covered the theory 
+followed by two practical examples: building a recommendation system for
+Spotify tracks and clustering semiconductor data.
+
+We employed the elbow method to determine the optimal number of clusters and
+discussed the challenges of evaluating clustering results.
+
+In the upcoming chapter, we introduce another unsupervised method, 
+namely Principal Component Analysis (PCA) to reduce the dimensionality of data.
+PCA can be useful in various ways:
+
+- reducing the computational complexity of algorithms
+- visualizing high-dimensional data in a 2D or 3D space
+
+Especially the latter can aid in interpreting the results of clustering
+algorithms.
