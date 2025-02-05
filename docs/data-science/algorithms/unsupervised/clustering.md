@@ -148,7 +148,13 @@ clustering semiconductor data.
 
 ### Recommendation system
 
-To build a recommendation system, we will use a modified Spotify dataset. 
+If you're using a music streaming service, you're familiar with listening to 
+playlist. At the end, the service recommends you similar songs based on your
+listening history.
+
+We will build such a recommendation system (a rudimentary one) with 
+k-means. To build our own recommendation system, we will use a modified 
+Spotify dataset. 
 The goal is to cluster songs based on their audio features and recommend
 similar songs to the user.
 
@@ -335,3 +341,144 @@ Expand the below section to see a plot as possible solution.
             Elbow method applied to the Spotify data set.
         </figcaption>
     </figure>
+
+#### Choice paralysis
+
+Like in our example, it is not always obvious how many clusters to pick,
+because the "elbow" can sometimes be subtle or ambiguous. Ideally, 
+you choose the point where the distortion/inertia sharply decreases and then 
+levels off, forming an elbow-like bend in the plot.
+
+In this example, possible candidates for the number of clusters \(K\) are 
+`#!python 5`, `#!python 6` or `#!python 7`. As we have to make a choice, we
+choose `#!python 6` clusters.
+Now, we have to simply fit the k-means algorithm with `#!python n_clusters=6`.
+
+```python
+kmeans = KMeans(n_clusters=6, random_state=42)
+cluster_indices = kmeans.fit_predict(X)
+```
+
+#### :headphone: Make recommendations
+
+<div style="text-align: center;">
+    <h4>Now to the fun part!</h4>
+    <iframe 
+        src="https://giphy.com/embed/LpXU1smaWaVwR2v6Gu" width="380" height="260"
+        style="" frameBorder="0" class="giphy-embed" allowFullScreen>
+    </iframe>
+</div>
+
+As the end goal of this exercise is to recommend a song based on a previous
+track, we can use the `cluster_indices` to recommend similar songs.
+
+Since the `cluster_indices` are in the same order as our initial `data`, we 
+can simply assign them as a new column.
+
+```python
+data["cluster"] = cluster_indices
+print(data.head())
+```
+
+```title=">>> Output"
+               spotify_id                name                artists  ... valence    tempo  cluster
+0  2plbrEY59IikOBgBGLjaoe    Die With A Smile  Lady Gaga, Bruno Mars  ...   0.535  157.969        4
+1  3sK8wGT43QFpWrvNQsrQya                DtMF              Bad Bunny  ...   0.032  136.020        0
+2  4wJ5Qq0jBN4ajy7ouZIV1c                APT.       ROSÉ, Bruno Mars  ...   0.939  149.027        2
+3  2lTm559tuIvatlT1u0JYG2   BAILE INoLVIDABLE              Bad Bunny  ...   0.219  119.387        0
+4  6dOtVTDdiauQNBQEDOtlAB  BIRDS OF A FEATHER          Billie Eilish  ...   0.438  104.978        4
+```
+
+Now, that we assigned a cluster to all `#!python 11320` tracks, we can easily 
+recommend a song based on a given `spotify_id` (the unique identifier of a 
+song on the platform).
+
+Use the below functions to see your recommender system in action. Don't 
+worry about the details of these functions.
+
+```python
+def print_track_info(track):
+    name, artists, cluster = track["name"], track["artists"], track["cluster"]
+    print(
+        f"Track name: {name}\nArtist: {artists}\nCluster index: {cluster}\n{'-' * 20}"
+    )
+
+
+def recommend_track(spotify_id, data):
+    """Get a recommendation for a given spotify_id."""
+
+    # info about previous track
+    previous_track = data[data["spotify_id"] == spotify_id].squeeze()
+    # get the cluster index of the previous track
+    cluster_index = previous_track["cluster"]
+
+    print("Your previous track:\n")
+    print_track_info(previous_track)
+
+    # pull all tracks from the cluster
+    recommendation = data[data["cluster"] == cluster_index]
+    # exclude the previous track
+    # (we do not want to recommend the same track again)
+    recommendation = recommendation[recommendation["spotify_id"] != spotify_id]
+
+    # pull a random sample from the cluster
+    recommendation = recommendation.sample(1).squeeze()
+
+    print("Your recommendation:\n")
+    print_track_info(recommendation)
+```
+
+Pick any `spotify_id` from the data set (`data`) to start recommending songs.
+`recommend_track()` will pick a song that is in the same cluster.
+
+```python
+recommend_track("5ehXToeJ8Tgc4wMhY42Oul", data)
+```
+
+```title=">>> Output"
+Your previous track:
+
+Track name: Wake Me Up (feat. Justice)
+Artist: The Weeknd, Justice
+Cluster index: 4
+--------------------
+Your recommendation:
+
+Track name: Aarre
+Artist: Ultra Bra
+Cluster index: 4
+--------------------
+```
+
+???+ question "Recommend more songs"
+
+    Every time you run the `recommend_track()` function, you will get a new
+    recommendation. Try it out!
+
+    1. Pick another `spotify_id` and recommend a song.
+    2. Repeat the process a couple of times.
+
+
+#### Are the recommendations good?
+
+As you've tried the recommender system a couple of times, you might have
+wondered if the recommendations are actually good?! 
+:thinking_face:
+
+Simply put, you have to be the judge if we were actually able to cluster 
+similar songs together and build a good recommendation system.
+
+In this application, it's quite intuitive: If you as a user like the 
+recommendations and keep listening to the recommended songs, the system is 
+successful.
+
+
+???+ info
+    
+    When talking about supervised tasks, we were able to measure the 
+    performance of our models. However, in unsupervised learning, like 
+    clustering, we do not have labels to compare our results to. Thus, 
+    evaluating the performance of unsupervised learning methods is challenging.
+    
+    In practice, you have to rely on domain knowledge to interpret the 
+    results and assess the quality of the model.
