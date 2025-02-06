@@ -149,14 +149,15 @@ clustering semiconductor data.
 ### Recommendation system
 
 If you're using a music streaming service, you're familiar with listening to 
-playlist. At the end, the service recommends you similar songs based on your
-listening history.
+playlist. At the end of a playlist, the service recommends you similar songs 
+based on the previous songs.
 
 We will build such a recommendation system (a rudimentary one) with 
-k-means. To build our own recommendation system, we will use a modified 
-Spotify dataset. 
-The goal is to cluster songs based on their audio features and recommend
-similar songs to the user.
+k-means. The goal is to cluster songs based on their audio features and 
+recommend similar songs to the user.
+
+To build our own recommendation system, we will use a modified 
+Spotify dataset.
 
 ???+ info
 
@@ -218,12 +219,12 @@ You might have noticed that all features are numerical. In fact, k-means
     k-means to categorical data, even if your data is encoded as labels. 
     Distances for categorical labels are meaningless!
 
-    Instead you can look at algorithms like k-modes.
+    For categorical data apply algorithms like k-modes.
 
 Let's have another look at the data:
 
 ```python
-X.describe()
+print(X.describe())
 ```
 
 ```title=">>> Output"
@@ -243,10 +244,10 @@ For example, compare `tempo` and `danceability`. Tempo ranges from
 `#!python 46` to `#!python 236`, while danceability ranges from 
 `#!python 0.0939` to `#!python 0.988`.
 
-Thus, we apply a Z-Score normalization to all features (to have a mean of `0` 
-and a standard deviation of `1`). This prevents k-means to disproportionately
-weigh features like `tempo` and ensures each feature contributes equally to
-the distance calculations.
+Thus, we apply a [Z-Score normalization](../../data/preprocessing.md#z-score-normalization)
+to all features (to have a mean of `0` and a standard deviation of `1`). 
+This prevents k-means to disproportionately weigh features like `tempo` and 
+ensures each feature contributes equally to the distance calculations.
 
 ```python
 from sklearn.preprocessing import StandardScaler
@@ -274,7 +275,7 @@ array([4, 0, 3, ..., 1, 1, 2], dtype=int32)
 The `n_clusters` parameter specifies the number of clusters. We set it to 
 `#!python 5` for now. The `random_state` parameter ensures reproducibility.
 Using the `fit_predict()` method, we obtain the cluster indices for each data
-point. These indices range from `#!python 0` to `#!python 4` in this case.
+point. In this case, these indices range from `#!python 0` to `#!python 4`.
 I.e., the first track belongs to cluster `#!python 4`, the second to cluster
 `#!python 0`, and so on.
 
@@ -369,8 +370,10 @@ cluster_indices = kmeans.fit_predict(X)
     </iframe>
 </div>
 
-As the end goal of this exercise is to recommend a song based on a previous
-track, we can use the `cluster_indices` to recommend similar songs.
+The goal of this exercise is to recommend a song based on a previous
+track. The idea is to pick a song as recommendation that is in the same 
+cluster as the previous one. To do so, we can use the `cluster_indices` to 
+recommend similar songs.
 
 Since the `cluster_indices` are in the same order as our initial `data`, we 
 can simply assign them as a new column.
@@ -493,11 +496,12 @@ detect the outliers/anomalies.
 
 ???+ info
 
-    The data is adapted from the UCI Machine Learning Repository.
-
-    McCann, M. & Johnston, A. (2008). SECOM [Dataset]. 
-    UCI Machine Learning Repository. 
-    [https://doi.org/10.24432/C54305](https://doi.org/10.24432/C54305)
+    The data is adapted from the UCI Machine Learning Repository.[^2]
+    
+    [^2]:
+        McCann, M. & Johnston, A. (2008). SECOM [Dataset]. 
+        UCI Machine Learning Repository. 
+        [https://doi.org/10.24432/C54305](https://doi.org/10.24432/C54305)
 
 In this example, you will apply k-means to semiconductor data.
 
