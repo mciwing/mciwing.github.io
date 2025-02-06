@@ -431,11 +431,17 @@ plt.show()
     Starting with the root node, the feature `MedInc` performs 
     the first split. If the median income is less than 5.086, we follow the 
     left branch else the right branch. The resulting `squared_error` of the 
-    split is shown as well.
+    split is shown as well. At the root node, the `squared_error` (sum of the 
+    squared differences between the actual values and the predicted value)
+    is 1.337. The lower the `squared_error`, the better the split. A "perfect
+    split" would result in a `squared_error` of 0.
+
     The root node splits the data into two subsets, the left branch results 
     in a subest containing 79.3% of the training data and the right branch 
-    20.7%. After two more splits, we reach the leaf nodes. Each leaf node 
-    contains a value, the prediction.
+    20.7%. Compared to the root node, both additional splits lead to a 
+    decrease of the `squared_error` and thus increase the predictive power. 
+    After two more splits, we reach the leaf nodes. Each leaf node contains 
+    a value, the final prediction.
 
 Now we have a pruned tree, which reduced the risk of overfitting. However, at 
 the cost of model performance. The \(R^2\) decreased from 0.61 to 0.42 which 
