@@ -32,3 +32,60 @@ variety of applications, such as:
   essential patterns in data.
 - **Feature engineering**: Summarizing high-dimensional data into a smaller set
   of meaningful features.
+
+### How does it work?
+
+PCA follows these essential steps:
+
+1. **Compute the covariance matrix**: PCA captures relationships between
+   features by calculating the covariance between them.
+
+    ???+ info
+    
+        Think of the covariance matrix as the "spread" of the data. PCA looks 
+        at the interaction :fontawesome-solid-arrow-right: the correlation of 
+        features with each other.
+
+2. **Eigen decomposition**: Identify the eigenvalues and eigenvectors of the
+   covariance matrix. The eigenvectors represent the directions of the
+   principal components, while the eigenvalues represent the amount of variance
+   captured by each component.
+
+    ???+ info
+    
+        If you want to know more about eigenvalues and eigenvectors, check out
+        this [site](https://www.mathsisfun.com/algebra/eigenvalue.html).
+
+3. **Rank components**: Components are ranked by their eigenvalues. The first
+   principal component captures the most variance, the second captures the
+   next-most, and so on.
+4. **Transform the data**: Project the original data onto the top principal
+   components to reduce its dimensionality.
+
+### The mathematical objective
+
+Let’s assume we have a data set \(X\) with \(p\) features (dimensions). We
+aim to transform \(X\) into a new matrix \(Z\) with \(k\) features such
+that \(k < p\), while retaining as much variance as possible.
+
+The transformation (described previously under point 4) is defined as:
+
+???+ defi "PCA transformation"
+
+    \[
+    Z = X W
+    \]
+
+    Where:
+    
+    - \(Z\) is the transformed data set in the lower-dimensional space,
+    - \(W\) is a matrix whose columns are the top \(k\) eigenvectors of the
+        covariance matrix of \(X\).
+
+???+ tip
+
+    Dimensionality reduction helps in combating the *curse of dimensionality*, 
+    a phenomenon where the performance of algorithms deteriorates with an 
+    increase in the number of features. Algorithms like clustering 
+    often struggle to find meaningful patterns when working with a 
+    high-dimensional data set.
