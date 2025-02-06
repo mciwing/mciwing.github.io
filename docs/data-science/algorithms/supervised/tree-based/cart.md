@@ -412,9 +412,29 @@ Let's plot the pruned tree.
 import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 
-plot_tree(model, filled=True, feature_names=X.columns, proportion=True)
+plot_tree(
+    model, 
+    filled=True,   # (1)!
+    feature_names=X.columns,  # (2)!
+    proportion=True  # (3)!
+)
 plt.show()
 ```
+
+1. `#!python filled=True` colors nodes according to prediction values. 
+   A stronger color indicating a higher value.
+2. The parameter `feature_names` is used to label the features in the tree.
+3. `proportion=True` displays the proportion of samples in each node.
+
+???+ info
+    
+    Generally, it is always good practice to consult the documentation, if 
+    you are unsure about the usage of a function/class.
+
+    Regarding `plot_tree()`, you might find some useful information in the 
+    [docs](https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html)
+    that can help you customize the plot to your liking.
+    So don't shy away from reading the documentation!
 
 <figure markdown="span">
     ![A small tree](../../../../assets/data-science/algorithms/small-tree.png)
