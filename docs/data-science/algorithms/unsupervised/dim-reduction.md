@@ -117,7 +117,9 @@ missing values.
 data = data.fillna(data.mean())
 ```
 
-Next, scale the features to standardize the data set:
+Next, scale the features to standardize the data set to ensure that all
+features contribute equally to the analysis, preventing features with larger
+numerical ranges from dominating the principal components.
 
 ```python
 from sklearn.preprocessing import StandardScaler
@@ -134,7 +136,7 @@ the `scaled_data`:
 ```python
 from sklearn.decomposition import PCA
 
-pca = PCA(random_state=42)  # (1)!
+pca = PCA(n_components=2, random_state=42)  # (1)!
 components = pca.fit_transform(scaled_data)
 ```
 
@@ -143,3 +145,76 @@ components = pca.fit_transform(scaled_data)
    `svd_solver` is set to `#!python "auto"` by default, the results can 
    vary slightly. Long story short, setting `random_state` ensures 
    reproducibility in all cases.
+
+`n_components=2` specifies that we want to reduce the data set to 2 dimensions.
+
+???+ question "Check the shape"
+
+    1. What is the shape of the `components` array?
+
+### Visualize
+
+We can easily visualize the low-dimensional data set using a scatter plot:
+
+```python
+import matplotlib.pyplot as plt
+
+components = pd.DataFrame(components, columns=["PC1", "PC2"])
+components.plot(type="scatter", x="PC1", y="PC2", alpha=0.5)  # (1)!
+```
+
+1. The `alpha` parameter controls the transparency of the points. A value of
+   `#!python 0.5` makes the points semi-transparent.
+
+<figure markdown="span">
+    ![PCA visualized](../../../assets/data-science/algorithms/dim-reduction/pca.svg)
+    <figcaption>
+        PCA visualized: The semiconductor data set reduced to 2 dimensions.
+        With principal component 1 on the x-axis and principal component 2 on
+        the y-axis.
+    </figcaption>
+</figure>
+
+To quickly recap so far:
+We were able to reduce the semiconductor data set from `#!python 590` 
+features to just `#!python 2`. 
+
+### Interpretation
+
+The scatter plot shows the data set in a 2D space which separates our 
+different observations, thus we can observe clusters. Since, principal 
+components are ranked by the amount of variance they capture, the first
+component (PC1) is "more important" than the second component (PC2).
+
+Therefore, differences along the x-axis (PC1) are more significant than
+differences along the y-axis (PC2). As we are interested in potential 
+anomalies in semiconductor products, we can detect some observations that might
+be well worth some further investigation.
+
+<figure markdown="span">
+    ![Potential anomalies](../../../assets/data-science/algorithms/dim-reduction/potential-anomalies.png)
+    <figcaption>
+        Potential anomalies in the semiconductor data set.
+    </figcaption>
+</figure>
+
+A majority of the data points are clustered in the upper left corner. 
+Contrary, these single observations with a high difference on the x-axis 
+(PC1) might be anomalies. Furthermore, samples within the encircled area 
+can be investigated further.
+
+???+ question "Re-apply PCA on unscaled data"
+
+    What would happen if you apply PCA to the unscaled data?
+    
+    1. Intialize a new PCA object with `n_components=2`.
+    2. Fit the PCA model on the `data` (unscaled) and transform it.
+    3. Visualize the new components in a 2D scatter plot.
+    4. Compare the results with the previous PCA visualization.
+
+??? tip
+
+    PCA is sensitive to the scale of the data. Thus, the scaled data nicely
+    separates the clusters, while the unscaled data does not. So be sure to 
+    pick the right preprocessing steps for your data.
+
