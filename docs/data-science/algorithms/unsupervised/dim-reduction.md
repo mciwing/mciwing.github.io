@@ -179,7 +179,7 @@ To quickly recap so far:
 We were able to reduce the semiconductor data set from `#!python 590` 
 features to just `#!python 2`. 
 
-### Interpretation
+### Plot interpretation
 
 The scatter plot shows the data set in a 2D space which separates our 
 different observations, thus we can observe clusters. Since, principal 
@@ -217,4 +217,63 @@ can be investigated further.
     PCA is sensitive to the scale of the data. Thus, the scaled data nicely
     separates the clusters, while the unscaled data does not. So be sure to 
     pick the right preprocessing steps for your data.
+
+### Explained variance
+
+When evaluating a PCA model, it is crucial to understand how much variance is
+captured by each principal component. Simply access the 
+`explained_variance_ratio_` attribute:
+
+```python
+print(pca.explained_variance_ratio_)
+```
+
+Regarding, the `pca` fitted on the *scaled* data, the output is:
+
+```title=">>> Output"
+[0.06319909 0.03672407]
+```
+
+The first principal component captures approximately `6.32%` of the variance,
+while the second component captures `3.67%`. Together, the two components
+capture roughly `10%` of the variance.
+
+???+ tip
+
+    Put simply, our two principal components capture `10%` of the variance
+    of the original `#!python 590` features which is not that great. :sad:
+
+Unfortunately, when dealing with real world data, results may not be as
+promising as expected. In this case, we might need to consider more
+components to capture a higher percentage of the variance.
+
+???+ info "Choosing the number of components"
+    
+    It is essential to choose the right number of components. For example, you
+    could use the components as features for another machine learning model,
+    hence you want to retain as much information as possible.
+    
+    However, the choice of how many components to keep is subjective. 
+    A common approach is to retain enough components to explain 90-95% of 
+    the variance.
+
+???+ question "Number of components to exceed 95% variance" 
+
+    Use the scaled semiconductor data set to fit a new PCA model.
+    How many components are necessary to explain at least 95% of the variance?
+
+    Hint: If you google and read the documentation carefully, you can solve 
+    the question in 3 lines of code maximum, without accessing the 
+    `explained_variance_ratio_` attribute.
+
+    Use the following quiz question to evaluate your answer.
+
+<?quiz?>
+question: How many components are necessary to explain at least 95% of the variance?
+answer-correct: 146
+answer: 590
+answer: 589
+content:
+Correct! To explain at least 95% of the variance, you need 146 components.
+<?/quiz?>
 
