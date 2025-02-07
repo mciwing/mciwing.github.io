@@ -89,3 +89,57 @@ The transformation (described previously under point 4) is defined as:
     increase in the number of features. Algorithms like clustering 
     often struggle to find meaningful patterns when working with a 
     high-dimensional data set.
+
+## Example
+
+It’s time to apply PCA to real-world data. We'll revisit the semiconductor
+data set that we used in the previous clustering chapter. The first goal 
+is to use PCA to reduce the data set's dimensions and visualize them.
+
+### Prepare the data
+
+First, we load the data set. If you haven’t already downloaded it, you can grab
+it below:
+
+<div class="center-button" markdown>
+[Download semiconductor data :fontawesome-solid-download:](../../../assets/data-science/algorithms/clustering/semiconductor.csv){ .md-button }
+</div>
+
+???+ question "Load the data"
+
+    1. Load the `csv` file and assign it to a variable called `data`.
+
+Before applying PCA, let’s make sure we deal with potential problems such as
+missing values.
+
+```python
+# fill missing values with the mean
+data = data.fillna(data.mean())
+```
+
+Next, scale the features to standardize the data set:
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()  # Z-Score
+scaled_data = scaler.fit_transform(data)
+```
+
+### Apply PCA
+
+We now apply PCA to reduce the dimensions. First, we fit the PCA model on
+the `scaled_data`:
+
+```python
+from sklearn.decomposition import PCA
+
+pca = PCA(random_state=42)  # (1)!
+components = pca.fit_transform(scaled_data)
+```
+
+1. Although the above definition of PCA is deterministic, the actual 
+   implementation can be stochastic (depending on the solver used). Since
+   `svd_solver` is set to `#!python "auto"` by default, the results can 
+   vary slightly. Long story short, setting `random_state` ensures 
+   reproducibility in all cases.
