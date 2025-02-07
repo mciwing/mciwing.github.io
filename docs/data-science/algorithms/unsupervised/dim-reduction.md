@@ -277,3 +277,127 @@ content:
 Correct! To explain at least 95% of the variance, you need 146 components.
 <?/quiz?>
 
+### Bonus: PCA & k-means combined
+
+In the previous chapter, we applied k-means clustering to the semiconductor
+data set. Now, we can combine PCA and k-means to cluster the data set in a
+lower-dimensional space. This approach can help us plot the clusters in a 2D
+space.
+
+With the `elbow_method()` from the previous chapter we provide an end-to-end
+solution.
+
+??? code "`elbow_method()`"
+
+    ```python
+    def elbow_method(X, max_clusters=15):
+        inertia = []
+        K = range(1, max_clusters + 1)
+    
+        for k in K:
+            model = KMeans(n_clusters=k, random_state=42)
+            model.fit(X)
+            inertia.append(model.inertia_)
+    
+        # for convenience store in a DataFrame
+        distortions = pd.DataFrame(
+            {"k (number of cluster)": K, "inertia (J)": inertia}
+        )
+    
+        return distortions
+    ```
+
+```python linenums="1" title="PCA & k-means combined"
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+data = pd.read_csv("semiconductor.csv")
+
+# data preprocessing
+data = data.fillna(data.mean())
+scaler = StandardScaler()  # Z-Score
+scaled_data = scaler.fit_transform(data)
+
+# apply PCA
+pca = PCA(n_components=2, random_state=42)
+components = pca.fit_transform(scaled_data)
+
+# apply k-means on the components
+distortions = elbow_method(components)
+distortions.plot(
+    x="k (number of cluster)",
+    y="inertia (J)",
+    marker="o",
+    title="Elbow method on 2 principal components",
+)
+plt.show()
+
+# optimal number of clusters=5
+model = KMeans(n_clusters=5, random_state=42)
+cluster_indices = model.fit_predict(components)
+
+# plot the clusters in 2D
+components = pd.DataFrame(components, columns=["PC1", "PC2"])
+components["cluster"] = cluster_indices
+# convert to categorical for plotting
+components["cluster"] = components["cluster"].astype("category")
+
+components.plot(
+    kind="scatter",
+    x="PC1",
+    y="PC2",
+    c="cluster",  # color by cluster
+    cmap="tab10",  # color map
+    alpha=0.85,
+    title="PCA & k-means:\nClustered semiconductor data",
+)
+plt.show()
+```
+
+To summarize, we applied the same preprocessing steps, reduced the data to
+2 dimensions using PCA. Afterward, we called the elbow method on the 2 
+components to determine the optimal number of clusters. Then we applied
+k-means `#!python n_clusters=5`. Finally, we plot the 2 components and color 
+the observations according to their corresponding clusters. Have a look at the 
+resulting plots.
+
+=== "Elbow method"
+    
+    <figure markdown="span">
+        ![Elbow method on 2 principal components](../../../assets/data-science/algorithms/dim-reduction/elbow-pca-kmeans.svg)
+        <figcaption>
+            Elbow method applied on 2 principal components.
+        </figcaption>
+    </figure>
+
+    The plot shows the distortion (inertia) for different numbers of 
+    clusters. This time around, we can distinctly see an elbow at `k=5` 
+    clusters.
+
+=== "Clustered components"
+
+    <figure markdown="span">
+        ![Clustered semiconductor data](../../../assets/data-science/algorithms/dim-reduction/clusters-pca-kmeans.svg)
+        <figcaption>
+            Clustered semiconductor data in a 2D space using PCA and k-means.
+        </figcaption>
+    </figure>
+
+    The plot shows the semiconductor data set clustered into 5 groups. 
+    Each color represents a different cluster. The clusters are well 
+    separated in the 2D space.
+
+## Recap
+
+In this chapter, we introduced **Principal Component Analysis (PCA)**, a linear
+technique for dimensionality reduction.
+
+We discussed the inner workings of PCA and applied it to the semiconductor 
+data set, where we could identify potential anomalies in the data. We also
+visualized the data set in a 2D space, making it easier to interpret and
+analyze.
+Lastly, a combination of PCA and k-means revealed distinct clusters in the 
+semiconductor data set.
