@@ -37,7 +37,7 @@ Now run the Python installer.
     <div style="text-align: center;">
         <iframe 
             width="840" height="473" 
-            src="https://www.youtube.com/embed/-rhnxDQH27A?si=f65xvyQKnia4Lwe8" 
+            src="https://www.youtube.com/embed/fpxdo5QYvmM?si=vjsmF84v80GsgeK6"
             title="YouTube video player" frameborder="5" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
             gyroscope; picture-in-picture;" 
