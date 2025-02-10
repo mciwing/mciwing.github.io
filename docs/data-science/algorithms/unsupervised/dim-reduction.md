@@ -27,7 +27,7 @@ PCA is a **linear transformation technique** that identifies the directions
 These principal components capture as much variance as possible. PCA has a 
 variety of applications, such as:
 
-- **Data visualization**: Plot a dimensionality reduced data set on 2D.
+- **Data visualization**: Plot a dimensionality reduced data set in 2D.
 - **Preprocessing**: Removing noise or redundant features while retaining the
   essential patterns in data.
 - **Feature engineering**: Summarizing high-dimensional data into a smaller set
@@ -160,7 +160,8 @@ We can easily visualize the low-dimensional data set using a scatter plot:
 import matplotlib.pyplot as plt
 
 components = pd.DataFrame(components, columns=["PC1", "PC2"])
-components.plot(type="scatter", x="PC1", y="PC2", alpha=0.5)  # (1)!
+components.plot(kind="scatter", x="PC1", y="PC2", alpha=0.5)  # (1)!
+plt.show()
 ```
 
 1. The `alpha` parameter controls the transparency of the points. A value of
@@ -177,19 +178,19 @@ components.plot(type="scatter", x="PC1", y="PC2", alpha=0.5)  # (1)!
 
 To quickly recap so far:
 We were able to reduce the semiconductor data set from `#!python 590` 
-features to just `#!python 2`. 
+features to just `#!python 2`.
 
-### Plot interpretation
+#### Plot interpretation
 
-The scatter plot shows the data set in a 2D space which separates our 
-different observations, thus we can observe clusters. Since, principal 
+The scatter plot shows the data set in a 2D space with each observation as
+a point. Additionally, we can observe clusters. Since, principal 
 components are ranked by the amount of variance they capture, the first
 component (PC1) is "more important" than the second component (PC2).
 
 Therefore, differences along the x-axis (PC1) are more significant than
 differences along the y-axis (PC2). As we are interested in potential 
 anomalies in semiconductor products, we can detect some observations that might
-be well worth some further investigation.
+be well worth some further investigation:
 
 <figure markdown="span">
     ![Potential anomalies](../../../assets/data-science/algorithms/dim-reduction/potential-anomalies.png)
@@ -200,14 +201,15 @@ be well worth some further investigation.
 
 A majority of the data points are clustered in the upper left corner. 
 Contrary, these single observations with a high difference on the x-axis 
-(PC1) might be anomalies. Furthermore, samples within the encircled area 
-can be investigated further.
+(PC1) might be anomalies (annotated by these arrows). Although, samples 
+within the encircled area have their differences on the y-axis (PC2),
+they are still worth investigating.
 
 ???+ question "Re-apply PCA on unscaled data"
 
     What would happen if you apply PCA to the unscaled data?
     
-    1. Intialize a new PCA object with `n_components=2`.
+    1. Create a new PCA instance with `n_components=2`.
     2. Fit the PCA model on the `data` (unscaled) and transform it.
     3. Visualize the new components in a 2D scatter plot.
     4. Compare the results with the previous PCA visualization.
@@ -241,7 +243,8 @@ capture roughly `10%` of the variance.
 ???+ tip
 
     Put simply, our two principal components capture `10%` of the variance
-    of the original `#!python 590` features which is not that great. :sad:
+    of the original `#!python 590` features which is not that great. 
+    :slightly_frowning_face:
 
 Unfortunately, when dealing with real world data, results may not be as
 promising as expected. In this case, we might need to consider more
@@ -259,13 +262,18 @@ components to capture a higher percentage of the variance.
 
 ???+ question "Number of components to exceed 95% variance" 
 
-    Use the scaled semiconductor data set to fit a new PCA model.
-    How many components are necessary to explain at least 95% of the variance?
+    Using the *scaled* semiconductor dataset:
+    
+    1. Create a PCA model to analyze the variance in the data
+    2. Determine the minimum number of principal components needed to explain 
+       at least 95% of the total variance
+    
+    Solution approaches:
 
-    Hint: If you google and read the documentation carefully, you can solve 
-    the question in 3 lines of code maximum, without accessing the 
-    `explained_variance_ratio_` attribute.
-
+    - You can use the `explained_variance_ratio_` attribute, OR
+    - There is an alternative approach that requires only 3 lines of code 
+      maximum (hint: google and check the PCA documentation)
+    
     Use the following quiz question to evaluate your answer.
 
 <?quiz?>
@@ -280,7 +288,7 @@ Correct! To explain at least 95% of the variance, you need 146 components.
 ### Bonus: PCA & k-means combined
 
 In the previous chapter, we applied k-means clustering to the semiconductor
-data set. Now, we can combine PCA and k-means to cluster the data set in a
+data set. Now, we can ==combine PCA and k-means== to cluster the data set in a
 lower-dimensional space. This approach can help us plot the clusters in a 2D
 space.
 
@@ -306,6 +314,10 @@ solution.
     
         return distortions
     ```
+
+???+ question "Read and run the code"
+
+    Be sure to read, run and comprehend the code below.
 
 ```python linenums="1" title="PCA & k-means combined"
 import matplotlib.pyplot as plt
@@ -360,22 +372,9 @@ plt.show()
 To summarize, we applied the same preprocessing steps, reduced the data to
 2 dimensions using PCA. Afterward, we called the elbow method on the 2 
 components to determine the optimal number of clusters. Then we applied
-k-means `#!python n_clusters=5`. Finally, we plot the 2 components and color 
-the observations according to their corresponding clusters. Have a look at the 
-resulting plots.
-
-=== "Elbow method"
-    
-    <figure markdown="span">
-        ![Elbow method on 2 principal components](../../../assets/data-science/algorithms/dim-reduction/elbow-pca-kmeans.svg)
-        <figcaption>
-            Elbow method applied on 2 principal components.
-        </figcaption>
-    </figure>
-
-    The plot shows the distortion (inertia) for different numbers of 
-    clusters. This time around, we can distinctly see an elbow at `k=5` 
-    clusters.
+k-means with `#!python n_clusters=5`. Finally, we plot the 2 components and 
+color the observations according to their corresponding clusters. Have a look 
+at the resulting plots.
 
 === "Clustered components"
 
@@ -390,10 +389,26 @@ resulting plots.
     Each color represents a different cluster. The clusters are well 
     separated in the 2D space.
 
+=== "Elbow method"
+    
+    <figure markdown="span">
+        ![Elbow method on 2 principal components](../../../assets/data-science/algorithms/dim-reduction/elbow-pca-kmeans.svg)
+        <figcaption>
+            Elbow method applied on 2 principal components.
+        </figcaption>
+    </figure>
+
+    The plot shows the distortion (inertia) for different numbers of 
+    clusters. This time around, we can distinctly see an elbow at `k=5` 
+    clusters. :flexed_biceps:
+
+---
+
 ## Recap
 
-In this chapter, we introduced **Principal Component Analysis (PCA)**, a linear
-technique for dimensionality reduction.
+In this chapter, we concluded the Supervised vs. Unsupervised Learning 
+portion of this course and introduced **Principal Component Analysis 
+(PCA)**, a linear technique for dimensionality reduction.
 
 We discussed the inner workings of PCA and applied it to the semiconductor 
 data set, where we could identify potential anomalies in the data. We also
