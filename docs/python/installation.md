@@ -101,6 +101,14 @@ If everything went smoothly, you have successfully installed
 **:fontawesome-brands-python: Python**! You can now skip the 
 troubleshooting part and proceed with the next chapter. :party_popper:
 
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" 
+    width="336" height="252" style="" frameBorder="0" class="giphy-embed" 
+    allowFullScreen
+    >
+    </iframe>
+</div>
+
 ---
 
 ## Optional: Troubleshooting
