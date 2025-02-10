@@ -29,7 +29,8 @@ the below video first! It will save you time! :ok_hand:
 ## Step 2: :fontawesome-solid-arrow-pointer: Run installer
 
 No matter which operating system you're on, When installing Python, make sure 
-that you check the box `Add python.exe to PATH`!
+that you check the box `Add python to PATH`!
+
 Now run the Python installer.
 
 === ":fontawesome-brands-windows: Windows"
@@ -54,7 +55,7 @@ Now run the Python installer.
     python --version
     ```
 
-    Which should result in:
+    which should result in
     
     ```title="CMD Output"
     Python 3.12.9
@@ -119,7 +120,7 @@ installation, or you encounter an error message along the lines of
 'python' is not recognized as an internal or external command
 ```
 
-you need to add Python to your PATH (which means that
+you need to add Python to your PATH (the error means that
 **:fontawesome-brands-python: Python** is simply not found).
 
 We cover two options to fix the PATH issue, either use the command prompt 
