@@ -69,7 +69,7 @@ Now run the Python installer.
         If you're having any trouble, please reach out to us!
 
     Nevertheless, the installation process is straightforward. Double click the
-    downloaded `python-3.12.9-macos11.pkg.pkg` file and follow the installation
+    downloaded `python-3.12.9-macos11.pkg` file and follow the installation
     instructions.
 
     Make sure to `Add python to PATH` during the installation process!
