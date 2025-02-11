@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://mciwing.github.io/python/comparisons_and_logic/">
+        <link rel="canonical" href="https://mciwing.github.io/data-science/algorithms/unsupervised/clustering/">
       
       
-        <link rel="prev" href="../types/bool_and_none/">
+        <link rel="prev" href="../../supervised/tree-based/forest/">
       
       
-        <link rel="next" href="../containers/list/">
+        <link rel="next" href="../dim-reduction/">
       
       
-      <link rel="icon" href="../../assets/logo.png">
+      <link rel="icon" href="../../../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
     
     
       
-        <title>Comparisons & Logical operators - MCI | WING</title>
+        <title>Clustering - MCI | WING</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,11 +48,11 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#comparisons-logical-operators" class="md-skip">
+        <a href="#clustering" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="MCI | WING" class="md-header__button md-logo" aria-label="MCI | WING" data-md-component="logo">
+    <a href="../../../.." title="MCI | WING" class="md-header__button md-logo" aria-label="MCI | WING" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Comparisons &amp; Logical operators
+              Clustering
             
           </span>
         </div>
@@ -186,7 +186,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
     
@@ -201,13 +201,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../python/" class="md-tabs__link">
           
   
   Python Crash Course
@@ -225,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../python-extensive/" class="md-tabs__link">
+        <a href="../../../../python-extensive/" class="md-tabs__link">
           
   
   Python Extensive Course
@@ -243,7 +241,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../statistics/" class="md-tabs__link">
+        <a href="../../../../statistics/" class="md-tabs__link">
           
   
   Statistics
@@ -257,11 +255,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../data-science/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
           
   
   Data Science
@@ -279,7 +279,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../yolo/" class="md-tabs__link">
+        <a href="../../../../yolo/" class="md-tabs__link">
           
   
   Computer Vision
@@ -318,9 +318,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="MCI | WING" class="md-nav__button md-logo" aria-label="MCI | WING" data-md-component="logo">
+    <a href="../../../.." title="MCI | WING" class="md-nav__button md-logo" aria-label="MCI | WING" data-md-component="logo">
       
-  <img src="../../assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     MCI | WING
@@ -347,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -365,28 +365,23 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -398,7 +393,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Python Crash Course
@@ -412,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../../python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -434,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../../../python/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ide/" class="md-nav__link">
+      <a href="../../../../python/ide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -478,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../variables/" class="md-nav__link">
+      <a href="../../../../python/variables/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -539,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/strings/" class="md-nav__link">
+      <a href="../../../../python/types/strings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/numbers/" class="md-nav__link">
+      <a href="../../../../python/types/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/bool_and_none/" class="md-nav__link">
+      <a href="../../../../python/types/bool_and_none/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -610,31 +605,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Comparisons &amp; Logical operators
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../python/comparisons_and_logic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -644,119 +618,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comparisons" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comparisons
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Comparisons">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#equality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Equality
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inequality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inequality
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#numerical-comparisons" class="md-nav__link">
-    <span class="md-ellipsis">
-      Numerical comparisons
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#logical-operators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Logical Operators
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Logical Operators">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#and" class="md-nav__link">
-    <span class="md-ellipsis">
-      and
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#or" class="md-nav__link">
-    <span class="md-ellipsis">
-      or
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#not" class="md-nav__link">
-    <span class="md-ellipsis">
-      not
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recap" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recap
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -808,7 +669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/list/" class="md-nav__link">
+      <a href="../../../../python/containers/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -830,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/dict/" class="md-nav__link">
+      <a href="../../../../python/containers/dict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -852,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/tuple/" class="md-nav__link">
+      <a href="../../../../python/containers/tuple/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -921,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control-structures/for/" class="md-nav__link">
+      <a href="../../../../python/control-structures/for/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -943,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control-structures/if/" class="md-nav__link">
+      <a href="../../../../python/control-structures/if/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -973,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../../../python/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../packages/" class="md-nav__link">
+      <a href="../../../../python/packages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1017,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pandas/" class="md-nav__link">
+      <a href="../../../../python/pandas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1085,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/" class="md-nav__link">
+      <a href="../../../../python-extensive/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1146,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/python-index/" class="md-nav__link">
+      <a href="../../../../python-extensive/python-index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1207,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/installation/" class="md-nav__link">
+      <a href="../../../../python-extensive/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1229,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/ide/" class="md-nav__link">
+      <a href="../../../../python-extensive/ide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/variables/" class="md-nav__link">
+      <a href="../../../../python-extensive/variables/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1320,7 +1181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/types/strings/" class="md-nav__link">
+      <a href="../../../../python-extensive/types/strings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1342,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/types/numbers/" class="md-nav__link">
+      <a href="../../../../python-extensive/types/numbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/types/bool_and_none/" class="md-nav__link">
+      <a href="../../../../python-extensive/types/bool_and_none/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1441,7 +1302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/comparisons_and_logic/" class="md-nav__link">
+      <a href="../../../../python-extensive/comparisons_and_logic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1502,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/containers/list/" class="md-nav__link">
+      <a href="../../../../python-extensive/containers/list/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1524,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/containers/dict/" class="md-nav__link">
+      <a href="../../../../python-extensive/containers/dict/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1546,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/containers/tuple/" class="md-nav__link">
+      <a href="../../../../python-extensive/containers/tuple/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1662,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/control-structures/for/" class="md-nav__link">
+      <a href="../../../../python-extensive/control-structures/for/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1684,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/control-structures/if/" class="md-nav__link">
+      <a href="../../../../python-extensive/control-structures/if/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1714,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/functions/" class="md-nav__link">
+      <a href="../../../../python-extensive/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1783,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/packages/" class="md-nav__link">
+      <a href="../../../../python-extensive/packages/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1805,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/pandas/" class="md-nav__link">
+      <a href="../../../../python-extensive/pandas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1827,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/plotting/" class="md-nav__link">
+      <a href="../../../../python-extensive/plotting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1896,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/DataBasics/" class="md-nav__link">
+      <a href="../../../../python-extensive/DataBasics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1957,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/data/tabular/" class="md-nav__link">
+      <a href="../../../../python-extensive/data/tabular/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1979,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/data/api/" class="md-nav__link">
+      <a href="../../../../python-extensive/data/api/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2056,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/oop/" class="md-nav__link">
+      <a href="../../../../python-extensive/oop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2078,7 +1939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/tkinter/" class="md-nav__link">
+      <a href="../../../../python-extensive/tkinter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2100,7 +1961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/streamlit/" class="md-nav__link">
+      <a href="../../../../python-extensive/streamlit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2130,7 +1991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python-extensive/git/" class="md-nav__link">
+      <a href="../../../../python-extensive/git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2198,7 +2059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/" class="md-nav__link">
+      <a href="../../../../statistics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2259,7 +2120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databasics/Terms/" class="md-nav__link">
+      <a href="../../../../databasics/Terms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2281,7 +2142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databasics/Data/" class="md-nav__link">
+      <a href="../../../../databasics/Data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2303,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databasics/DataBasics/" class="md-nav__link">
+      <a href="../../../../databasics/DataBasics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2411,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/univariate/Frequency/" class="md-nav__link">
+      <a href="../../../../statistics/univariate/Frequency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2433,7 +2294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/univariate/CentralTend/" class="md-nav__link">
+      <a href="../../../../statistics/univariate/CentralTend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2455,7 +2316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/univariate/Dispersion/" class="md-nav__link">
+      <a href="../../../../statistics/univariate/Dispersion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2524,7 +2385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/bivariate/Frequency/" class="md-nav__link">
+      <a href="../../../../statistics/bivariate/Frequency/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2546,7 +2407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/bivariate/Correlation/" class="md-nav__link">
+      <a href="../../../../statistics/bivariate/Correlation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2662,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/General/" class="md-nav__link">
+      <a href="../../../../statistics/probability/General/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2684,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/Sampling/" class="md-nav__link">
+      <a href="../../../../statistics/probability/Sampling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2706,7 +2567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/LawOfLargeNumbers/" class="md-nav__link">
+      <a href="../../../../statistics/probability/LawOfLargeNumbers/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2728,7 +2589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/CentralLimitTheorem/" class="md-nav__link">
+      <a href="../../../../statistics/probability/CentralLimitTheorem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2797,7 +2658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/General/" class="md-nav__link">
+      <a href="../../../../statistics/hypothesis/General/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2819,7 +2680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/Testing/" class="md-nav__link">
+      <a href="../../../../statistics/hypothesis/Testing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2841,7 +2702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/Metrics/" class="md-nav__link">
+      <a href="../../../../statistics/hypothesis/Metrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2863,7 +2724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/Ttest/" class="md-nav__link">
+      <a href="../../../../statistics/hypothesis/Ttest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2885,7 +2746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/ANOVA/" class="md-nav__link">
+      <a href="../../../../statistics/hypothesis/ANOVA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2954,7 +2815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/regression/LinearRegression/" class="md-nav__link">
+      <a href="../../../../statistics/regression/LinearRegression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2996,23 +2857,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -3024,7 +2890,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Data Science
@@ -3038,7 +2904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3099,7 +2965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data/preparation/" class="md-nav__link">
+      <a href="../../../data/preparation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3121,7 +2987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data/preprocessing/" class="md-nav__link">
+      <a href="../../../data/preprocessing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3148,6 +3014,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3157,11 +3025,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -3176,7 +3044,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Supervised vs. Unsupervised Learning
@@ -3190,7 +3058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3251,7 +3119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/regression/" class="md-nav__link">
+      <a href="../../supervised/regression/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3273,7 +3141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/classification/" class="md-nav__link">
+      <a href="../../supervised/classification/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3334,7 +3202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/tree-based/cart/" class="md-nav__link">
+      <a href="../../supervised/tree-based/cart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3356,7 +3224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/tree-based/forest/" class="md-nav__link">
+      <a href="../../supervised/tree-based/forest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3391,6 +3259,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3400,11 +3270,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
@@ -3419,7 +3289,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3_3">
             <span class="md-nav__icon md-icon"></span>
             Unsupervised
@@ -3430,10 +3300,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../data-science/algorithms/unsupervised/clustering/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Clustering
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -3443,6 +3334,167 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-means
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      The objective
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elbow-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elbow method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommendation-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendation system
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendation system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply-k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply k-means
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elbow-method_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elbow method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice-paralysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choice paralysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make recommendations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-the-recommendations-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are the recommendations good?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semiconductor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semiconductor data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recap
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3455,7 +3507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/unsupervised/dim-reduction/" class="md-nav__link">
+      <a href="../dim-reduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3532,7 +3584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/pipelines/evaluation/" class="md-nav__link">
+      <a href="../../../pipelines/evaluation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3554,7 +3606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/pipelines/pipelines/" class="md-nav__link">
+      <a href="../../../pipelines/pipelines/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3576,7 +3628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/pipelines/persistence/" class="md-nav__link">
+      <a href="../../../pipelines/persistence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3652,7 +3704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/" class="md-nav__link">
+      <a href="../../../../yolo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3674,7 +3726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/approaches/" class="md-nav__link">
+      <a href="../../../../yolo/approaches/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3696,7 +3748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/yolo/" class="md-nav__link">
+      <a href="../../../../yolo/yolo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3757,7 +3809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/image/detection/" class="md-nav__link">
+      <a href="../../../../yolo/image/detection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3779,7 +3831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/image/segmentation/" class="md-nav__link">
+      <a href="../../../../yolo/image/segmentation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3801,7 +3853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/image/kp-extraction/" class="md-nav__link">
+      <a href="../../../../yolo/image/kp-extraction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3870,7 +3922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/video/" class="md-nav__link">
+      <a href="../../../../yolo/video/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3892,7 +3944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/video/solutions/" class="md-nav__link">
+      <a href="../../../../yolo/video/solutions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3961,7 +4013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/acquisition/" class="md-nav__link">
+      <a href="../../../../yolo/train/acquisition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3983,7 +4035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/annotation/" class="md-nav__link">
+      <a href="../../../../yolo/train/annotation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4005,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/training/" class="md-nav__link">
+      <a href="../../../../yolo/train/training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4027,7 +4079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/inference/" class="md-nav__link">
+      <a href="../../../../yolo/train/inference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4084,37 +4136,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comparisons" class="md-nav__link">
+  <a href="#k-means" class="md-nav__link">
     <span class="md-ellipsis">
-      Comparisons
+      K-means
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comparisons">
+    <nav class="md-nav" aria-label="K-means">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#equality" class="md-nav__link">
+  <a href="#theory" class="md-nav__link">
     <span class="md-ellipsis">
-      Equality
+      Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      The objective
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#inequality" class="md-nav__link">
+  <a href="#elbow-method" class="md-nav__link">
     <span class="md-ellipsis">
-      Inequality
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#numerical-comparisons" class="md-nav__link">
-    <span class="md-ellipsis">
-      Numerical comparisons
+      Elbow method
     </span>
   </a>
   
@@ -4124,39 +4177,86 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#logical-operators" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Logical Operators
+      Examples
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Logical Operators">
+    <nav class="md-nav" aria-label="Examples">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#and" class="md-nav__link">
+  <a href="#recommendation-system" class="md-nav__link">
     <span class="md-ellipsis">
-      and
+      Recommendation system
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendation system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply-k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply k-means
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#or" class="md-nav__link">
+  <a href="#elbow-method_1" class="md-nav__link">
     <span class="md-ellipsis">
-      or
+      Elbow method
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#not" class="md-nav__link">
+  <a href="#choice-paralysis" class="md-nav__link">
     <span class="md-ellipsis">
-      not
+      Choice paralysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make recommendations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-the-recommendations-good" class="md-nav__link">
+    <span class="md-ellipsis">
+      Are the recommendations good?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semiconductor-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semiconductor data
     </span>
   </a>
   
@@ -4195,200 +4295,491 @@
   
 
 
-<h1 id="comparisons-logical-operators">Comparisons &amp; Logical operators</h1>
-<h2 id="comparisons">Comparisons</h2>
-<p>Now, that we have covered all basic <code>Python</code> types, we can start comparing them.
-As the name suggests, comparisons are used to compare two values. The result 
-of a comparison is a boolean value.</p>
-<h3 id="equality">Equality</h3>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Abc&quot;</span> <span class="o">==</span> <span class="s2">&quot;abc&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>False
-</span></code></pre></div>
-<p>We can compare any type with each other. In the above case, the comparison 
-checks if both strings are equal, using the <code>==</code> operator. The result is 
-<code>False</code>, because the case of the strings do not match.</p>
-<p>Let's check if two integers are equal:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>True
-</span></code></pre></div>
-<h3 id="inequality">Inequality</h3>
-<p>We can also check if two values are <strong>not</strong> equal with the <code>!=</code> operator:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">user_name</span> <span class="o">=</span> <span class="s2">&quot;Eric&quot;</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">user_name</span> <span class="o">!=</span> <span class="s2">&quot;admin&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>True
-</span></code></pre></div>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">!=</span> <span class="mf">2.1</span><span class="p">)</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>True
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>False
-</span></code></pre></div>
-<h3 id="numerical-comparisons">Numerical comparisons</h3>
-<p>... are done with:</p>
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&lt;</code></td>
-<td>less than</td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>greater than</td>
-</tr>
-<tr>
-<td><code>&lt;=</code></td>
-<td>less than or equal</td>
-</tr>
-<tr>
-<td><code>&gt;=</code></td>
-<td>greater than or equal</td>
-</tr>
-</tbody>
-</table>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>True
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>False
-</span></code></pre></div>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">print</span><span class="p">(</span><span class="mf">10.2</span> <span class="o">&lt;=</span> <span class="mf">10.2</span><span class="p">)</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="mf">9.99</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>True
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>False
-</span></code></pre></div>
-<h2 id="logical-operators">Logical Operators</h2>
-<p>You may want to check multiple conditions at the same time. For example,
-sometimes you might need two conditions to evaluate to <code>True</code> in 
-order to perform an action. Hence, <strong>logical operators</strong> are introduced. 
-There are three logical operators:</p>
-<table>
-<thead>
-<tr>
-<th>Operator</th>
-<th>Meaning</th>
-<th>Example</th>
-<th>Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>and</code></td>
-<td>Returns <code>True</code> if both statements are <code>True</code></td>
-<td><code>True and True</code></td>
-<td><code>True</code></td>
-</tr>
-<tr>
-<td><code>or</code></td>
-<td>Returns <code>True</code> if one of the statements is <code>True</code></td>
-<td><code>True or False</code></td>
-<td><code>True</code></td>
-</tr>
-<tr>
-<td><code>not</code></td>
-<td>Reverses a result</td>
-<td><code>not True</code></td>
-<td><code>False</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="and"><code>and</code></h3>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span> <span class="c1"># True and True -&gt; True</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>True
-</span></code></pre></div>
-<h3 id="or"><code>or</code></h3>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">50</span> <span class="ow">or</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span> <span class="c1"># False or True -&gt; True</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>True
-</span></code></pre></div>
-<h3 id="not"><code>not</code></h3>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">print</span><span class="p">(</span><span class="ow">not</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">))</span> <span class="c1"># not(True) -&gt; False</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>False
-</span></code></pre></div>
+<h1 id="clustering">Clustering</h1>
+<p>In this section, we will start to explore unsupervised learning, where we work 
+with data that isn't accompanied by labels. One of the primary techniques 
+within this realm is clustering, which aims to uncover patterns or structures 
+in the data by grouping similar data points together. A popular method for 
+achieving this is k-means clustering, which aims to identify clusters of 
+similar observations.</p>
+<h2 id="k-means">K-means</h2>
+<p>K-means was briefly introduced in the <a href="../../#example_1">Introduction</a> to 
+Supervised vs. Unsupervised Learning and used to segment customers based on 
+their annual spending and average basket size.</p>
+<div style="text-align: center;">
+    <iframe src="/assets/data-science/algorithms/clusters.html" width="600" height="450">
+    </iframe>
+    <figcaption>
+        An exemplary application of k-means clustering to segment customers.
+    </figcaption>
+</div>
+
+<p>The algorithm groups similar data points together based on their attributes
+without being told what these groups should be. </p>
+<p>To get a better understanding of k-means, we will explore the theory behind it
+and employ the algorithm to cluster data from Spotify and a semiconductor 
+manufacturer.</p>
+<h3 id="theory">Theory</h3>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>The theoretical part is adapted from:
+<ins>Christopher M. Bishop. 2006. <em>Pattern Recognition and Machine 
+Learning</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
+</details>
+<p>Assume a set of features <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span>. K-means partitions the data
+into <span class="arithmatex">\(K\)</span> number of clusters. Each cluster is represented by <span class="arithmatex">\(\mu_k\)</span>, 
+which can be seen as the center of a cluster <span class="arithmatex">\(k\)</span>.</p>
+<p>Intuitively speaking, the goal is to assign each data point <span class="arithmatex">\(x_n\)</span> to the 
+cluster with the closest center <span class="arithmatex">\(\mu_k\)</span>. </p>
+<h4 id="the-objective">The objective</h4>
+<p>Since, the optimal assignment of data points to specific clusters is not known,
+the objective is to minimize the sum of squared distances between data 
+points and their assigned cluster centers.
+This is known as the <strong>distortion measure</strong>:</p>
+<details class="defi" open="open">
+<summary>Distortion measure</summary>
+<div class="arithmatex">\[
+J = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \lVert x_n - \mu_k \rVert^2
+\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(N\)</span> is the number of data points,</li>
+<li><span class="arithmatex">\(K\)</span> being the number of clusters,</li>
+<li><span class="arithmatex">\(r_{nk}\)</span> is a binary indicator of whether data point <span class="arithmatex">\(x_n\)</span> is 
+  assigned to cluster <span class="arithmatex">\(k\)</span>,</li>
+<li><span class="arithmatex">\(\mu_k\)</span> representing the cluster center.</li>
+</ul>
+</details>
+<p>In short, we want to find the optimal <span class="arithmatex">\(r_{nk}\)</span> and <span class="arithmatex">\(\mu_k\)</span> that minimize 
+the distortion measure <span class="arithmatex">\(J\)</span>.</p>
+<p><span class="arithmatex">\(J\)</span> is minimized in an iterative process. First, we initialize <span class="arithmatex">\(\mu_k\)</span> 
+with some random values. Then we alternate between two steps:</p>
+<ol>
+<li><strong>Assignment step</strong>: Keep <span class="arithmatex">\(\mu_k\)</span> fixed. Minimize <span class="arithmatex">\(J\)</span> with respect 
+    to <span class="arithmatex">\(r_{nk}\)</span>. This is done by assigning each data point to the closest 
+    cluster center.</li>
+<li><strong>Update step</strong>: Keep <span class="arithmatex">\(r_{nk}\)</span> fixed. Minimize <span class="arithmatex">\(J\)</span> with respect to 
+    <span class="arithmatex">\(\mu_k\)</span>. This is done by updating the cluster centers to the mean of 
+    the data points assigned to the cluster.</li>
+</ol>
+<p>Step 1 can be seen as re-assigning the data points to clusters, while step 2
+re-computes the cluster centers.</p>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>Since <span class="arithmatex">\(\mu_k\)</span> is the mean of the data points assigned to cluster <span class="arithmatex">\(k\)</span>,
+we speak of the k-means algorithm.</p>
+</details>
+<p>The optimization of <span class="arithmatex">\(J\)</span> is guaranteed to converge, but it might not find the
+global minimum. The final solution depends on the initial cluster centers.</p>
+<details class="question" open="open">
+<summary>Get a better understanding</summary>
+<p>To improve your understanding of the k-means algorithm, either watch the
+following video or visit the interactive visualization.
+Both variants illustrate the iterative process of k-means.</p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Option 1: <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg></span> Video</label><label for="__tabbed_1_2">Option 2: <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.4c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.3c2.2 20.4 3.3 41.8 3.3 64m28.8-64h123.1c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64m112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7m-209 0H18.6c30-74.1 93.6-130.9 172-151.6-25.5 34.2-45.3 87.7-55.3 151.6M8.1 192h123.1c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64m186.6 254.6c-11.6-26-20.9-58.2-27-94.6h176.6c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5-11.2 10.7-20.5 13.9-27.8 13.9s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6-78.4-20.7-142-77.5-172-151.6zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.2-87.7 55.3-151.6h116.7z"/></svg></span> Website</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><div style="text-align: center;">
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/R2e3Ls9H_fc?si=Lz4jq8Fbxjr1BmeL" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; 
+        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+        web-share" referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+    </iframe>
+</div></p>
+</div>
+<div class="tabbed-block">
+<p>Visit the site <a href="https://clustering-visualizer.web.app/kmeans">clustering-visualizer.web.app/kmeans</a>.
+Use mouse clicks to draw data points. Click on "START".</p>
+<p>The web app illustrates the iterative algorithm. You can watch the 
+data points being assigned to clusters and the update of cluster centers 
+which are denoted in the app as <span class="arithmatex">\(C_1, C_2, ... , C_N\)</span>.</p>
+</div>
+</div>
+</div>
+<h4 id="elbow-method">Elbow method <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></h4>
+<p>So far we have not discussed the number of clusters <span class="arithmatex">\(K\)</span> in depth. Since the
+algorithm requires the number of clusters as an input, it is crucial to choose 
+<span class="arithmatex">\(K\)</span> wisely.</p>
+<p>One common approach to determine the optimal number of clusters is the
+<strong>elbow method</strong>. The idea is to plot the distortion measure <span class="arithmatex">\(J\)</span> (inertia)
+for different values of <span class="arithmatex">\(K\)</span>. The plot will show a sharp decrease in <span class="arithmatex">\(J\)</span> 
+as <span class="arithmatex">\(K\)</span> increases. The optimal number of clusters is the point where the 
+decrease flattens out, resembling an elbow.</p>
+<figure>
+    <img alt="Elbow method" src="../../../../assets/data-science/algorithms/clustering/elbow-method.png" />
+    <figcaption>
+        Illustration of the elbow method.
+    </figcaption>
+</figure>
+<p>We will apply both k-means and the elbow method in the following examples.</p>
+<h2 id="examples">Examples</h2>
+<p>With the theory out of the way, we can now apply k-means to real-world data.
+First, we build a recommendation system for Spotify tracks and then move on to
+clustering semiconductor data.</p>
+<h3 id="recommendation-system">Recommendation system</h3>
+<p>If you're using a music streaming service, you're familiar with listening to 
+playlist. At the end of a playlist, the service recommends you similar songs 
+based on the previous songs.</p>
+<p>We will build such a recommendation system (a rudimentary one) with 
+k-means. The goal is to cluster songs based on their audio features and 
+recommend similar songs to the user.</p>
+<p>To build our own recommendation system, we will use a modified 
+Spotify dataset.</p>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>The original data can be found on 
+<a href="https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated?resource=download">Kaggle</a>.</p>
+<p>The modified data we are using, contains songs from 2024 up until now 
+(time of writing: January 31, 2025).</p>
+</details>
 <hr />
 <details class="question" open="open">
-<summary>Evaluate password security requirements: Part 1</summary>
-<p><figure markdown="span">
-  <img alt="Secure lock" src="https://preview.redd.it/j7i00nnpx6211.jpg?width=640&amp;crop=smart&amp;auto=webp&amp;s=d4b58226076d45f0c637fd3789d3ccb547a4a54a" width="50%" />
-</figure></p>
-<p>You are given two variables that describe properties of a password:</p>
-<ul>
-<li><code>password_length</code> - represents how many characters are in the password
-    (<code class="language-python highlight"><span class="nb">int</span></code>)</li>
-<li><code>has_special_characters</code> - represents whether the password contains 
-    special characters (<code class="language-python highlight"><span class="kc">True</span></code>/<code class="language-python highlight"><span class="kc">False</span></code>)</li>
-</ul>
-<p>Variables to use:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">password_length</span> <span class="o">=</span> <span class="mi">18</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">has_special_characters</span> <span class="o">=</span> <span class="kc">False</span>
-</span></code></pre></div>
-<p>Task:</p>
-<p>Write code that checks if this password is secure based on these
-requirements:</p>
+<summary>Download and read data</summary>
 <ol>
-<li>The password must be longer than 10 characters</li>
-<li>The password must contain special characters</li>
+<li>Download the data set.</li>
+<li>Read it with <code>pandas</code> and for convenience assign it to a variable called
+   <code>data</code>. Then you will be able to use the following code snippets more
+   easily.</li>
+<li>Print the first rows of <code>data</code>.</li>
 </ol>
-<p>Use comparisons and logical operators to create a single expression 
-that evaluates whether <strong>BOTH</strong> requirements are met.</p>
 </details>
+<div class="center-button">
+<p><a class="md-button" href="../../../../assets/data-science/algorithms/clustering/spotify.csv">Download Spotify tracks <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v242.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg></span></a></p>
+</div>
+<hr />
+<p>With the data set loaded, we pick the following audio features for clustering:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">features</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">&quot;danceability&quot;</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">&quot;energy&quot;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">&quot;loudness&quot;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">&quot;speechiness&quot;</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">&quot;acousticness&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">&quot;instrumentalness&quot;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="s2">&quot;liveness&quot;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="s2">&quot;valence&quot;</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="s2">&quot;tempo&quot;</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">]</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># subset data</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="hll"><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+</span></span></code></pre></div>
 <details class="question" open="open">
-<summary>Evaluate password security requirements: Part 2</summary>
-<p>To increase security, a third variable is introduced alongside the 
-previous password properties:</p>
-<p><code>already_used</code> - represents whether this password has been used before
-    (<code class="language-python highlight"><span class="kc">True</span></code>/<code class="language-python highlight"><span class="kc">False</span></code>)</p>
-<p>Variables to use:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">password_length</span> <span class="o">=</span> <span class="mi">18</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">has_special_characters</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">already_used</span> <span class="o">=</span> <span class="kc">False</span>
-</span></code></pre></div>
-<p>Task:</p>
-<p>Write code that checks if this password is secure based on these three
-requirements:</p>
+<summary>Have a look at the data</summary>
 <ol>
-<li>The password must be longer than 10 characters</li>
-<li>The password must contain special characters</li>
-<li>The password must not have been used before</li>
+<li>Look at the first couple of rows of the <code>DataFrame</code> <code>X</code>.</li>
+<li>Check for potential missing values.</li>
 </ol>
-<p>Build on your previous solution and evaluate whether all <strong>THREE</strong> 
-requirements are met.</p>
+<p>Hint: If you need a refresh on missing values, visit the 
+<a href="../../../data/preprocessing/#missing-values">Data preprocessing</a> chapter.</p>
+</details>
+<p>You might have noticed that all features are numerical. In fact, k-means
+<mark>requires numerical data</mark>.</p>
+<details class="danger" open="open">
+<summary>Danger</summary>
+<p>K-means clustering relies on Euclidean distances, which <mark>only make 
+sense for numerical data</mark>.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:" /> Never use k-means for categorical data, even if you encode the 
+categories as numbers or labels. Distances between categorical values 
+are not meaningful!</p>
+<p>For clustering categorical data, use specialized algorithms like k-modes or
+other appropriate methods.</p>
+</details>
+<p>Let's have another look at the data:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>       danceability        energy  ...       valence         tempo
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>count  11320.000000  11320.000000  ...  11320.000000  11320.000000
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>mean       0.683081      0.660006  ...      0.525337    122.571478
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>std        0.134193      0.162655  ...      0.222797     27.628201
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>min        0.093900      0.001740  ...      0.000010     46.999000
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>25%        0.597000      0.560000  ...      0.355000     99.987000
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>50%        0.701000      0.675000  ...      0.526000    121.974000
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>75%        0.780000      0.777000  ...      0.696000    140.056000
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>max        0.988000      0.998000  ...      0.989000    236.089000
+</span></code></pre></div>
+<p>These basic statistics reveal that the features have different scales.
+For example, compare <code>tempo</code> and <code>danceability</code>. Tempo ranges from 
+<code class="language-python highlight"><span class="mi">46</span></code> to <code class="language-python highlight"><span class="mi">236</span></code>, while danceability ranges from 
+<code class="language-python highlight"><span class="mf">0.0939</span></code> to <code class="language-python highlight"><span class="mf">0.988</span></code>.</p>
+<p>Thus, we apply a <a href="../../../data/preprocessing/#z-score-normalization">Z-Score normalization</a>
+to all features (to have a mean of <code>0</code> and a standard deviation of <code>1</code>). 
+This prevents k-means to disproportionately weigh features like <code>tempo</code> and 
+ensures each feature contributes equally to the distance calculations.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>  <span class="c1"># Z-Score normalization</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="apply-k-means">Apply k-means</h4>
+<p>The application of k-means is straightforward:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="hll"><span class="n">cluster_indices</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">cluster_indices</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>array([4, 0, 3, ..., 1, 1, 2], dtype=int32)
+</span></code></pre></div>
+<p>The <code>n_clusters</code> parameter specifies the number of clusters. We set it to 
+<code class="language-python highlight"><span class="mi">5</span></code> for now. The <code>random_state</code> parameter ensures reproducibility.
+Using the <code>fit_predict()</code> method, we obtain the cluster indices for each data
+point. In this case, these indices range from <code class="language-python highlight"><span class="mi">0</span></code> to <code class="language-python highlight"><span class="mi">4</span></code>.
+I.e., the first track belongs to cluster <code class="language-python highlight"><span class="mi">4</span></code>, the second to cluster
+<code class="language-python highlight"><span class="mi">0</span></code>, and so on.</p>
+<p>... but wait, how do we know if <code class="language-python highlight"><span class="mi">5</span></code> is the right number of clusters?
+This is where the elbow method comes into play. <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></p>
+<h4 id="elbow-method_1">Elbow method</h4>
+<p>With the attribute <code>inertia_</code>, we can access the distortion measure <span class="arithmatex">\(J\)</span>.
+From the k-means docs:</p>
+<blockquote>
+<p><code>inertia_</code>:</p>
+<p>Sum of squared distances of samples to their closest cluster center,...</p>
+<p>-- <cite><a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">KMeans docs</a></cite></p>
+</blockquote>
+<p>In a loop we fit the k-means algorithm for different numbers of clusters <span class="arithmatex">\(K\)</span>
+and store the corresponding distortion measure (<code>inertia_</code>). Then we plot the 
+results.</p>
+<p>We define a function to apply the elbow method:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">elbow_method</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">max_clusters</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">inertia</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="hll">    <span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_clusters</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="hll">        <span class="n">inertia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+</span></span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="c1"># for convenience store in a DataFrame</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">distortions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="p">{</span><span class="s2">&quot;k (number of cluster)&quot;</span><span class="p">:</span> <span class="n">K</span><span class="p">,</span> <span class="s2">&quot;inertia (J)&quot;</span><span class="p">:</span> <span class="n">inertia</span><span class="p">}</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="p">)</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="k">return</span> <span class="n">distortions</span>
+</span></code></pre></div>
+<p>By default, the function <code>elbow_method()</code> tries values for <span class="arithmatex">\(K\)</span> from 
+<code class="language-python highlight"><span class="mi">1</span></code> to <code class="language-python highlight"><span class="mi">15</span></code> and stores the corresponding distortion measure 
+in a <code>DataFrame</code>. </p>
+<hr />
+<details class="question" open="open">
+<summary>Apply the elbow method</summary>
+<ol>
+<li>Apply the <code>elbow_method()</code> on our scaled data <code>X</code>.</li>
+<li>
+<p>Create a line plot with the number of clusters (K) on the x-axis and 
+    the distortion measure on the y-axis.</p>
+<p>Hint: Use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html"><code>plot()</code></a>
+method of the resulting <code>DataFrame</code>.</p>
+</li>
+</ol>
+</details>
+<p>Expand the below section to see a plot as possible solution.</p>
+<details class="note">
+<summary>Expand to see the plot</summary>
+<p><figure markdown="span">
+    <img alt="Spotify elbow method" src="../../../../assets/data-science/algorithms/clustering/spotify-elbow-method.svg" />
+    <figcaption>
+        Elbow method applied to the Spotify data set.
+    </figcaption>
+</figure></p>
+</details>
+<h4 id="choice-paralysis">Choice paralysis</h4>
+<p>Like in our example, it is not always obvious how many clusters to pick,
+because the "elbow" can sometimes be subtle or ambiguous. Ideally, 
+you choose the point where the distortion/inertia sharply decreases and then 
+levels off, forming an elbow-like bend in the plot.</p>
+<p>In this example, possible candidates for the number of clusters <span class="arithmatex">\(K\)</span> are 
+<code class="language-python highlight"><span class="mi">5</span></code>, <code class="language-python highlight"><span class="mi">6</span></code> or <code class="language-python highlight"><span class="mi">7</span></code>. As we have to make a choice, we
+choose <code class="language-python highlight"><span class="mi">6</span></code> clusters.
+Now, we have to simply fit the k-means algorithm with <code class="language-python highlight"><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span></code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">cluster_indices</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="make-recommendations"><img alt="🎧" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3a7.svg" title=":headphone:" /> Make recommendations</h4>
+<div style="text-align: center;">
+    <h4>Now to the fun part!</h4>
+    <iframe 
+        src="https://giphy.com/embed/LpXU1smaWaVwR2v6Gu" width="380" height="260"
+        style="" frameBorder="0" class="giphy-embed" allowFullScreen>
+    </iframe>
+</div>
+
+<p>The goal of this exercise is to recommend a song based on a previous
+track. The idea is to pick a song as recommendation that is in the same 
+cluster as the previous one. To do so, we can use the <code>cluster_indices</code> to 
+recommend similar songs.</p>
+<p>Since the <code>cluster_indices</code> are in the same order as our initial <code>data</code>, we 
+can simply assign them as a new column.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_indices</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>               spotify_id                name                artists  ... valence    tempo  cluster
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>0  2plbrEY59IikOBgBGLjaoe    Die With A Smile  Lady Gaga, Bruno Mars  ...   0.535  157.969        4
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>1  3sK8wGT43QFpWrvNQsrQya                DtMF              Bad Bunny  ...   0.032  136.020        0
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>2  4wJ5Qq0jBN4ajy7ouZIV1c                APT.       ROSÉ, Bruno Mars  ...   0.939  149.027        2
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>3  2lTm559tuIvatlT1u0JYG2   BAILE INoLVIDABLE              Bad Bunny  ...   0.219  119.387        0
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>4  6dOtVTDdiauQNBQEDOtlAB  BIRDS OF A FEATHER          Billie Eilish  ...   0.438  104.978        4
+</span></code></pre></div>
+<p>Now, that we assigned a cluster to all <code class="language-python highlight"><span class="mi">11320</span></code> tracks, we can easily 
+recommend a song based on a given <code>spotify_id</code> (the unique identifier of a 
+song on the platform).</p>
+<p>Use the below functions to see your recommender system in action. Don't 
+worry about the details of these functions.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">print_track_info</span><span class="p">(</span><span class="n">track</span><span class="p">):</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">name</span><span class="p">,</span> <span class="n">artists</span><span class="p">,</span> <span class="n">cluster</span> <span class="o">=</span> <span class="n">track</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">track</span><span class="p">[</span><span class="s2">&quot;artists&quot;</span><span class="p">],</span> <span class="n">track</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="sa">f</span><span class="s2">&quot;Track name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">Artist: </span><span class="si">{</span><span class="n">artists</span><span class="si">}</span><span class="se">\n</span><span class="s2">Cluster index: </span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">20</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="p">)</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">recommend_track</span><span class="p">(</span><span class="n">spotify_id</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a recommendation for a given spotify_id.&quot;&quot;&quot;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="c1"># info about previous track</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">previous_track</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;spotify_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">spotify_id</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="c1"># get the cluster index of the previous track</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="n">cluster_index</span> <span class="o">=</span> <span class="n">previous_track</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your previous track:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    <span class="n">print_track_info</span><span class="p">(</span><span class="n">previous_track</span><span class="p">)</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="c1"># pull all tracks from the cluster</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="n">recommendation</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster_index</span><span class="p">]</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    <span class="c1"># exclude the previous track</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="c1"># (we do not want to recommend the same track again)</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>    <span class="n">recommendation</span> <span class="o">=</span> <span class="n">recommendation</span><span class="p">[</span><span class="n">recommendation</span><span class="p">[</span><span class="s2">&quot;spotify_id&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">spotify_id</span><span class="p">]</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>    <span class="c1"># pull a random sample from the cluster</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    <span class="n">recommendation</span> <span class="o">=</span> <span class="n">recommendation</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your recommendation:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>    <span class="n">print_track_info</span><span class="p">(</span><span class="n">recommendation</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Pick any <code>spotify_id</code> from the data set (<code>data</code>) to start recommending songs.
+<code>recommend_track()</code> will pick a song that is in the same cluster.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">recommend_track</span><span class="p">(</span><span class="s2">&quot;5ehXToeJ8Tgc4wMhY42Oul&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Your previous track:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Track name: Wake Me Up (feat. Justice)
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Artist: The Weeknd, Justice
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Cluster index: 4
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>--------------------
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>Your recommendation:
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Track name: Aarre
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Artist: Ultra Bra
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>Cluster index: 4
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>--------------------
+</span></code></pre></div>
+<details class="question" open="open">
+<summary>Recommend more songs</summary>
+<p>Every time you run the <code>recommend_track()</code> function, you will get a new
+recommendation. Try it out!</p>
+<ol>
+<li>Pick another <code>spotify_id</code> and recommend a song.</li>
+<li>Repeat the process a couple of times.</li>
+</ol>
+</details>
+<h4 id="are-the-recommendations-good">Are the recommendations good?</h4>
+<p>As you've tried the recommender system a couple of times, you might have
+wondered if the recommendations are actually good?! 
+<img alt="🤔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" title=":thinking_face:" /></p>
+<p>Simply put, you have to be the judge if we were actually able to cluster 
+similar songs together and build a good recommendation system.</p>
+<p>In this application, it's quite intuitive: If you as a user like the 
+recommendations and keep listening to the recommended songs, the system is 
+successful.</p>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>When talking about supervised tasks, we were able to measure the 
+performance of our models. However, in unsupervised learning, like 
+clustering, we do not have labels to compare our results to. Thus, 
+evaluating the performance of unsupervised learning methods is challenging.</p>
+<p>In practice, you have to rely on domain knowledge to interpret the 
+results and assess the quality of the model.</p>
+</details>
+<hr />
+<h3 id="semiconductor-data">Semiconductor data</h3>
+<p>K-means is not only useful for recommendation systems, but also for
+anomaly detection. The idea is to form clusters which in turn can be used to
+detect the outliers/anomalies.</p>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>The data is adapted from the UCI Machine Learning Repository.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+</details>
+<p>In this example, you will apply k-means to semiconductor data.</p>
+<details class="question" open="open">
+<summary>Download and read data</summary>
+<ol>
+<li>Download the below data set.</li>
+<li>Read it with <code>pandas</code>.</li>
+<li>Have a look at the data.</li>
+</ol>
+</details>
+<div class="center-button">
+<p><a class="md-button" href="../../../../assets/data-science/algorithms/clustering/semiconductor.csv">Download semiconductor data <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v242.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg></span></a></p>
+</div>
+<p>Each row in the data set</p>
+<blockquote>
+<p>represents a single production entity with associated measured features [...]</p>
+<p>-- <cite>UCI Machine Learning Repository</cite></p>
+</blockquote>
+<details class="question" open="open">
+<summary>Apply k-means</summary>
+<p>Solve the following tasks to apply k-means to the semiconductor data:</p>
+<ol>
+<li>Are there any missing values in the data?</li>
+<li>Deal with potential missing values; choose any suitable strategy. For a 
+   refresher on missing values, visit the 
+   <a href="../../../data/preprocessing/#missing-values">Data preprocessing</a> chapter.</li>
+<li>Do you need to scale the features? If so, apply a <code>StandardScaler</code>.</li>
+<li>Use the elbow method to determine the number of clusters.</li>
+<li>Fit the k-means algorithm with the optimal number of clusters.</li>
+</ol>
+<p>Hint: You can reuse the functions and code snippets from the Spotify
+example.</p>
+</details>
+<details class="info">
+<summary>Info</summary>
+<p>If you have solved the above tasks, you might wonder how to interpret 
+your clustering results. Moreover, how can you detect potential anomalies?</p>
+<p>Again, it all depends on domain knowledge. If you're a expert in the 
+semiconductor industry you might be able to tell if the clusters 
+make sense and if there are any anomalies in the data. Otherwise, 
+interpretation can be quite challenging.</p>
 </details>
 <h2 id="recap">Recap</h2>
-<p>We have covered the basic comparison and logical operators in <code>Python</code> 
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3"/></svg></span>.</p>
+<p>In this chapter, we introduced k-means clustering. We covered the theory 
+followed by two practical examples: building a recommendation system for
+Spotify tracks and clustering semiconductor data.</p>
+<p>We employed the elbow method to determine the optimal number of clusters and
+discussed the challenges of evaluating clustering results.</p>
+<p>In the upcoming chapter, we introduce another unsupervised method, 
+namely Principal Component Analysis (PCA) to reduce the dimensionality of data.
+PCA can be useful in various ways:</p>
 <ul>
-<li>
-<p>Comparisons</p>
-<ul>
-<li><code>==</code> for equality</li>
-<li><code>!=</code> for inequality</li>
-<li><code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> for numerical comparisons</li>
+<li>reducing the computational complexity of algorithms</li>
+<li>visualizing high-dimensional data in a 2D or 3D space</li>
 </ul>
+<p>Especially the latter can aid in interpreting the results of clustering
+algorithms.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Christopher M. Bishop. Pattern Recognition and Machine Learning. 
+Springer, 2006. <a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">Link</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li>
-<p>Logical operators</p>
-<ul>
-<li><code>and</code></li>
-<li><code>or</code></li>
-<li><code>not</code></li>
-</ul>
+<li id="fn:2">
+<p>McCann, M. &amp; Johnston, A. (2008). SECOM [Dataset]. 
+UCI Machine Learning Repository. 
+<a href="https://doi.org/10.24432/C54305">https://doi.org/10.24432/C54305</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-</ul><style type="text/css">.quiz {
+</ol>
+</div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -4521,7 +4912,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-11-05T08:45:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-11T07:56:54+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-11</span>
   </span>
 
     
@@ -4531,7 +4922,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-09-18T15:11:11+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-09-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-03T10:24:29+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-03</span>
   </span>
 
     
@@ -4589,7 +4980,7 @@ function resetFieldset(fieldset) {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../types/bool_and_none/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Boolean &amp;amp; None">
+          <a href="../../supervised/tree-based/forest/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Random Forest">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4599,20 +4990,20 @@ function resetFieldset(fieldset) {
                 Previous
               </span>
               <div class="md-ellipsis">
-                Boolean &amp; None
+                Random Forest
               </div>
             </div>
           </a>
         
         
           
-          <a href="../containers/list/" class="md-footer__link md-footer__link--next" aria-label="Next: Lists">
+          <a href="../dim-reduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Dimensionality Reduction">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Lists
+                Dimensionality Reduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4665,16 +5056,16 @@ function resetFieldset(fieldset) {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate", "navigation.footer", "navigation.top", "header.autohide", "search.highlight"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate", "navigation.footer", "navigation.top", "header.autohide", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5090c770.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
