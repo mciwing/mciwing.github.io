@@ -215,11 +215,15 @@ You might have noticed that all features are numerical. In fact, k-means
 
 ???+ danger
 
-    Since k-means is based on (Euclidian) distances, do ==not== apply 
-    k-means to categorical data, even if your data is encoded as labels. 
-    Distances for categorical labels are meaningless!
+    K-means clustering relies on Euclidean distances, which ==only make 
+    sense for numerical data==.
 
-    For categorical data apply algorithms like k-modes.
+    :warning: Never use k-means for categorical data, even if you encode the 
+    categories as numbers or labels. Distances between categorical values 
+    are not meaningful!
+
+    For clustering categorical data, use specialized algorithms like k-modes or
+    other appropriate methods.
 
 Let's have another look at the data:
 
