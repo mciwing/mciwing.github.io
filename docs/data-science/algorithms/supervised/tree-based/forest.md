@@ -53,10 +53,13 @@ random forest, we only consider a random subset of features at each split.
 Each tree in a random forest is fit on a bootstrap sample and uses a random
 subset of features at each split.
 In case of regression, the predictions of all trees are simply averaged. In 
-case of classification, the majority vote is taken. 
+case of classification, the majority vote is taken. The majority vote in a 
+random forest classification means that the class predicted most frequently by
+the individual trees is selected as the final prediction.
 
-It was observed that introducing randomness in the tree-growing process
-improves the model performance.
+No matter the task, classification or regression: it was observed that 
+introducing randomness in the tree-growing process improves the model 
+performance.
 
 ???+ info
 
