@@ -78,12 +78,6 @@ Now run the Python installer.
     with the keyword `terminal`) and verify the installation by typing 
 
     ```bash
-    python --version
-    ```
-    
-    Alternatively, if that does not work, try 
-
-    ```bash
     python3 --version
     ```
 
