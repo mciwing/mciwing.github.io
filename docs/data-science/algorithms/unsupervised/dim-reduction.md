@@ -44,7 +44,9 @@ PCA follows these essential steps:
     
         Think of the covariance matrix as the "spread" of the data. PCA looks 
         at the interaction :fontawesome-solid-arrow-right: the correlation of 
-        features with each other.
+        features with each other. Visit the 
+        [correlation chapter](../../../statistics/bivariate/Correlation.md#covariance)
+        in the statistics course to learn more about covariance.
 
 2. **Eigen decomposition**: Identify the eigenvalues and eigenvectors of the
    covariance matrix. The eigenvectors represent the directions of the
@@ -214,7 +216,7 @@ they are still worth investigating.
     3. Visualize the new components in a 2D scatter plot.
     4. Compare the results with the previous PCA visualization.
 
-??? tip
+???+ tip
 
     PCA is sensitive to the scale of the data. Thus, the scaled data nicely
     separates the clusters, while the unscaled data does not. So be sure to 
