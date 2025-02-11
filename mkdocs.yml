@@ -158,7 +158,7 @@ nav:
 
         - Unsupervised:
           - data-science/algorithms/unsupervised/clustering.md
-          - data-science/algorithms/unsupervised/dim-reduction.md  # TODO: dimensionality reduction
+          - data-science/algorithms/unsupervised/dim-reduction.md
 
       - Evaluation & Pipelines:
           - data-science/pipelines/evaluation.md  # TODO: Model evaluation
