@@ -62,7 +62,7 @@ nav:
     - python-extensive/index.md  # TODO: remove if all materials are finished
 
     - Basics & Data Types:
-      - "Motivation": python-extensive/python-index.md  # TODO: rework specific mentions on the Crash Course
+      - "Motivation": python-extensive/python-index.md
 
       - Setup:
         - python-extensive/installation.md
@@ -105,8 +105,6 @@ nav:
       - python-extensive/oop.md
       - python-extensive/tkinter.md
       - python-extensive/streamlit.md
-
-    - python-extensive/git.md  # TODO: Bonus chapter on Git
 
   - Statistics:
     - statistics/index.md
