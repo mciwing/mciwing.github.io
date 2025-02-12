@@ -300,32 +300,32 @@ in your command prompt/terminal.
     code cell running. 
  
     ```py
-    # Taken from https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html#train-tree-classifier
-
-    # pyplot is a submodule of matplotlib and can be directly imported with the `from` statement
-    from matplotlib import pyplot 
+    from matplotlib import pyplot  # (1)!
     
-    # or you can import functions (like load_iris()) directly from its submodule (datasets)
-    from sklearn.datasets import load_iris
-    from sklearn.model_selection import train_test_split
-    from sklearn.tree import DecisionTreeClassifier, plot_tree
+    from sklearn.datasets import fetch_california_housing  #(2)!
+    from sklearn.tree import DecisionTreeRegressor, plot_tree
     
-    iris = load_iris()
-    X = iris.data
-    y = iris.target
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+    # load data
+    X, y = fetch_california_housing(return_X_y=True, as_frame=True)
     
-    clf = DecisionTreeClassifier(max_leaf_nodes=3, random_state=0)
-    clf.fit(X_train, y_train)
+    # fit a decision tree
+    tree = DecisionTreeRegressor(
+        random_state=784, max_depth=2, min_samples_leaf=15
+    )
+    tree.fit(X, y)
     
-    plot_tree(clf)
+    # visualize the tree
+    plot_tree(tree, filled=True, feature_names=X.columns, proportion=True)
     pyplot.show()
     ```
 
+    1. `pyplot` is a submodule of `matplotlib` and can be directly imported 
+        with the `from` statement.
+    2. Or you can import functions (like `fetch_california_housing()`) directly 
+       from its submodule `datasets`.
+  
     Install the packages `matplotlib` and `scikit-learn` with `pip`.
-    Then try to execute the code cell 
-    (the code was taken from [here](https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html#train-tree-classifier)).
-   
+    Then try to execute the code cell.
 
 Congratulations 🎉, you've just fitted a machine learning model (simple decision
 tree) on a data set and visualized the model. That's the power of `Python` -
@@ -333,8 +333,7 @@ easily accessible packages with a lot of functionality ready to use. 🦾
 
 Don't worry too much about the actual code lines above. Again, the
 important thing is to get the code running. With the above exercise, you've 
-reproduced the result from the motivational section 
-[Why Python?](index.md/#machine-learningai).
+reproduced the result from the [motivational section](index.md/#machine-learning).
 
 ### `requirements.txt`
 
