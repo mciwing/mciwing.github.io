@@ -15,13 +15,22 @@ graph LR
 After learning about different computer vision tasks with YOLO, you might want to train your own model for specific use cases. The first step in training a custom YOLO model is acquiring a suitable dataset. A well-curated and diverse dataset is key to achieving high performance and generalization in computer vision tasks.This chapter will guide you through various methods of collecting training data.
 
 ## Project Setup
-We'll start a new project for training our custom YOLO model:
+For this chapter, we'll start a new project for training our custom YOLO model: 
 ```
 📁 yolo_training/
     ├── 📁 .venv/
     ├── 📁 data/
+    ├── 📁 annotations/
     └── 📄 data_acquisition.ipynb
 ```
+???+ warning "Installation"
+
+    We will use different tools in the following sections which can be installed by running the following command in your terminal. This time, the sequence of installation is important to due some dependencies.
+
+    ```commandline
+    pip install label-studio ImageEngine opencv-python ultralytics
+    ```
+
 
 ## The Need for Data :material-database:
 
@@ -39,11 +48,30 @@ The amount of data needed depends on several factors like **Task Complexity**, *
 | Moderate (e.g., car types) | 2,000 - 10,000 |
 | Complex (e.g., defect detection) | 5,000 - 20,000+ |
 
-Building a large dataset can be a challenging task, but there are several strategies to gather the required data efficiently.
+Building a large dataset can be a challenging task, but there are several strategies to gather the required data efficiently. 
+When collecting your dataset think about the following best practices:
+
+???+ tip "Best Practices for Data Collection"
+
+    1. **Diversity**
+        - Include negative samples (no object)
+        - Vary lighting conditions
+        - Include different backgrounds
+        - Capture different angles
+
+    2. **Quality Control**
+        - Check image resolution
+        - Remove blurry images
+        - Ensure correct labeling
+        - Verify class balance
+
+    3. **Organization**
+        - Use clear folder structure
+        - Maintain consistent naming
 
 ## Automatic Image Collection :material-image:
 
-Web scraping can be used to download large amounts of images for training datasets. Python libraries like `requests` and `BeautifulSoup` are common tools for this purpose. An even more comfortable way is to use an API of a search engine like **Bing :material-microsoft-bing:**, **Google :material-google:** or **DuckDuckGo :simple-duckduckgo:**. The [`ImageEngine`](https://pypi.org/project/ImageEngine/) package can be used to search all three search engines at ones. 
+With this knowledge in mind, we can start to collect images for our training dataset. Web scraping can be used to download large amounts of images for training datasets. Python libraries like `requests` and `BeautifulSoup` are common tools for this purpose. An even more comfortable way is to use an API of a search engine like **Bing :material-microsoft-bing:**, **Google :material-google:** or **DuckDuckGo :simple-duckduckgo:**. The [`ImageEngine`](https://pypi.org/project/ImageEngine/) package can be used to search all three search engines at ones. 
 
 ```commandline
 pip install ImageEngine
@@ -142,10 +170,10 @@ Those steps can be done manually by looking through the pictures. Finding duplic
 ???+ question "Task: Download Images"
     Now it's your turn. We want to collect images of different Euro notes. 
 
-    - Try to use the `ImageEngine` package to download 100 suitable images of a 5€ note and save them into the folder `data/five`.
+    - Try to use the `ImageEngine` package to download 100 suitable images of a `5€` and a `10€` note and save them into the folder `data/five` and `data/ten` (in total 200 images).
     - Go through the data cleaning checklist (you can use the function from above)
 
-    <figure markdown="span"> ![Euro](https://upload.wikimedia.org/wikipedia/commons/0/0f/EUR_5_obverse_%282002_issue%29.jpg){width=50% } </figure>
+    <figure markdown="span"> ![Euro](../../assets/yolo/euro_notes.jpg){width=60% }</figure>
 
 
 ## Video Frame Extraction :material-video:
@@ -155,19 +183,9 @@ Another effective way to collect a vast amount of images is by extracting and sa
 - **Efficiency**: Videos can capture many frames in one recording session, saving time compared to capturing individual photos.
 - **Diverse Scenarios**: Recording videos in various environments ensures that frames capture different conditions and perspectives.
 
-???+ tip "Recording Guidelines"
-
-    When recording video for training data:
-
-    - Capture different angles
-    - Vary lighting conditions
-    - Include different backgrounds
-    - Move around the object
-    - Vary object positions
-
 ### Frame Extraction
 
-We already introduced OpenCV in the [previous chapter](../video/index.md#complete-program). We can use this package to access the video (saved or webacm) and instead of showing the image, we can save it as an image in a folder
+We already introduced OpenCV in the [previous chapter](../video/index.md#complete-program). We can use this package to access the video (saved or webcam) and instead of showing the image, we can save it as an image in a folder
 
 ```python
 cv2.imwrite(f'data/video/frame_{frameNr}.jpg', frame)
@@ -176,32 +194,17 @@ cv2.imwrite(f'data/video/frame_{frameNr}.jpg', frame)
     `frameNr` is simply a **frame counter**. It starts at 0 before entering the loop and increments by 1 every time a frame is successfully read from the video. This counter is used to give each extracted frame a unique filename (e.g., `frame_0.jpg`, `frame_1.jpg`, etc.).
 
 ???+ question "Task: Frame Extraction"
-    Now we continue from before and try to record a video of a Euro note.
+    Now we continue from before and try to collect data by recording a video of Euro notes.
      
-    - Record a video of a 10€ note and save each 10th frames seperately in the folder `data/ten`. In the end it should be at least 100 images.
+    - Record a video of a `5€` and a `10€` note. The video should be at least 25 seconds long and including the following parts:
+        - `5€` note in different angles
+        - `10€` note in different angles
+        - `5€` and `10€` note together in different angles
+        - negative samples (no note in the frame)
+    - You can use the `VideoCapture` function of OpenCV from the previous chapter and add `imwrite` to save (and not only show) the frames. Save each 4th frame seperately in the folder `data/mixed`.
     - Keep the recording guidelines in your mind.
 
-    <figure markdown="span"> ![Euro](https://upload.wikimedia.org/wikipedia/commons/5/5b/EUR_10_obverse_%282002_issue%29.jpg){width=50% } </figure>
-
-## Best Practices
-
-When collecting your dataset:
-
-1. **Diversity**
-    - Vary lighting conditions
-    - Include different backgrounds
-    - Capture different angles
-
-2. **Quality Control**
-    - Check image resolution
-    - Remove blurry images
-    - Ensure correct labeling
-    - Verify class balance
-
-3. **Organization**
-    - Use clear folder structure
-    - Maintain consistent naming
-
+    <figure markdown="span"> ![Euro](../../assets/yolo/acc_video.jpg){width=60% }</figure>
 
 ## What's Next?
 
