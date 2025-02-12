@@ -57,17 +57,23 @@ trashy but if you can imagine something you probably can build it in
     course you'll have a better understanding and will be able to run 
     and modify code yourself. For now, the following snippets illustrate the
     capabilities of the language and what complex things you can achieve with
-    little code.
+    little code. Just take a look!
 
 ---
 
 ## Examples
 
+???+ info "Just the beginning..."
+
+    All of the following examples are from one of the courses featured on our
+    website. If you stick around and explore subsequent `Python` courses you 
+    will be able to easily implement all examples yourself! :rocket:
+
 ### :fontawesome-solid-robot: Machine Learning
 
-You can easily train your own machine learning models. In this 
-example, with just a few lines of code, a decision tree is fit and 
-visualized[^1].
+With `Python` you can easily train your own machine learning models. In this 
+example, with just a few lines of code, one such model (a decision tree) is 
+fit and visualized[^1].
 [^1]:
     [Scikit-learn](https://scikit-learn.org/stable/) is a Python package 
     for machine learning.
@@ -127,9 +133,9 @@ results[0].show()
 
 ### :fontawesome-solid-wand-sparkles: Automation
 
-But it's not just machine learning and AI, you can facilitate mundane tasks 
-and automate them. This code snippet fetches some data (from an online service)
-and writes it to an Excel file[^3].
+But it's not just machine learning and AI, you can also automate mundane tasks.
+This code snippet fetches some data (from an online service) and writes an 
+Excel file[^3].
 [^3]:
     [requests](https://requests.readthedocs.io/en/latest/) is a Python package
     to interact with APIs.
@@ -181,6 +187,12 @@ You can create websites, **just like this one**. In fact, all the
 heavy lifting of this site is done by `Python` and tools developed by its 
 community.
 
+The most important package used to build this site was 
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/),
+a widely used and customizable static site generator. :heart:
+
+---
+
 ## Getting Started...
 
 In the next sections, we will install `Python` including the code editor 
@@ -190,4 +202,4 @@ In the next sections, we will install `Python` including the code editor
 
     Both Python and Visual Studio Code are already pre-installed on PCs in
     the MCI computer rooms. If you are working with your own computer, 
-    please proceed to the installation page.
+    please proceed to the next page.
