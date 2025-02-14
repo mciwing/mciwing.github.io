@@ -36,6 +36,30 @@ couple of chapters? Well, it's time to bring it back!
 
 ## Prerequisites
 
+### 0. :trophy: What's our goal?
+
+First, let's define the end goal: 
+
+<div style="text-align: center; margin-top: 1em;">
+    <p>
+        <i>Build a machine learning model that can predict whether a bank 
+        customer will subscribe to a term deposit.</i>
+    </p>
+</div>
+
+???+ tip
+
+    Put simply, a term deposit is a type of bank account where you agree to
+    lock away your money for a fixed period of time (the "term") in exchange 
+    for a guaranteed interest rate that's typically higher than a regular 
+    savings account.
+
+Using information such as clients' demographic details, economic 
+indicators, and marketing campaign data, we aim to solve this binary 
+classification task.
+
+---
+
 Before we dive in, you have to set up the project which will be used throughout
 the remainder of this course.
 
