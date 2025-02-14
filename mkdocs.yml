@@ -160,10 +160,9 @@ nav:
           - data-science/algorithms/unsupervised/clustering.md
           - data-science/algorithms/unsupervised/dim-reduction.md
 
-      - Evaluation & Pipelines:
-          - data-science/pipelines/evaluation.md  # TODO: Model evaluation
-          - data-science/pipelines/pipelines.md  # TODO: End-to-end example; pipeline creation
-          - data-science/pipelines/persistence.md  # TODO: Practical tips to save models
+      - Data Science in Practice:
+          - Introduction: data-science/practice/index.md
+          - 1. Data preparation: data-science/practice/data-preparation.md
 
   - Computer Vision: 
     - yolo/index.md
