@@ -293,3 +293,159 @@ plt.show()
 
     - `DataFrame.plot()` docs [:octicons-link-external-16:](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
     - Chart visualization [:octicons-link-external-16:](https://pandas.pydata.org/docs/user_guide/visualization.html)
+
+???+ info
+
+    It's crucial to visualize your data before diving into further analysis. 
+    Visualizations can help you understand the distribution, identify patterns,
+    and detect anomalies or outliers in your data. This step ensures that you
+    have a clear understanding of your data, which is essential for making 
+    informed decisions in your analysis process.
+
+## Preprocessing
+
+Now that we have a better understanding of the data, we can proceed to the
+preprocessing steps. Depending on the attribute type, we will apply different
+techniques.
+
+Since we are dealing with a mixed data set, we will keep things relatively 
+simple and plan our approach accordingly:
+
+- For `nominal` attributes, we apply one-hot encoding.
+- For `ordinal` attributes, we use one-hot encoding as well.
+- For `numerical` attributes, we follow two strategies:
+    - Create bins for `age`, `campaign`, `pdays`, and `previous`.
+    - Z-Score normalization for the remaining features: `emp.var.rate`, 
+      `cons.price.idx`, `cons.conf.idx`, `euribor3m`, and `nr.employed`.
+
+???+ info
+
+    We are creating bins for `age`, `campaign`, `pdays`, and `previous`, since
+    these features have a large number of outliers. By binning these features,
+    we can try to reduce the impact of outliers and noise in the data.
+
+To apply these preprocessing steps, we have to look for the corresponding
+`scikit-learn` classes.
+
+<div class="grid cards" markdown>
+
+-   :toolbox: __Preprocessing technique__
+
+    ---
+
+    - One hot encoding
+    - Binning
+    - Z-Score normalization (standardization)
+
+-   :package: __Corresponding `scikit-learn` class__
+
+    ---
+    
+    - `OneHotEncoder`
+    - `KBinsDiscretizer`
+    - `StandardScaler`
+
+</div>
+
+???+ tip
+
+    All these techniques and classes were previously introduced in the 
+    [Data preprocessing chapter](../data/preprocessing.md).
+
+Just like in the Data preprocessing chapter we could apply each technique
+one at a time, e.g.:
+
+```python
+from sklearn.preprocessing import OneHotEncoder, KBinsDiscretizer
+
+nominal_encoder = OneHotEncoder()
+nominal_encoder.fit_transform(data[nominal])
+
+ordinal_encoder = OneHotEncoder()
+ordinal_encoder.fit_transform(data[ordinal])
+
+binning = KBinsDiscretizer(n_bins=5)
+binning.fit_transform(data[["age", "campaign", "pdays", "previous"]])
+
+# and so on...
+```
+
+... the approach itself is perfectly fine, but it can lead to a common 
+pitfall - information leakage. 
+
+### Information leakage
+
+Let's look at an example first, to explain the term information leakage.
+
+???+ danger "Information leakage"
+
+    Assume, we want to predict the target `#!python "y"` based on the features 
+    `#!python "emp.var.rate"` and `#!python "euribor3m"`. First, we apply 
+    Z-Score normalization to these features. 
+
+    ```python
+    from sklearn.preprocessing import StandardScaler
+
+    scaler = StandardScaler()
+    features = scaler.fit_transform(
+        data[["emp.var.rate", "euribor3m"]]
+    )
+    ```
+    
+    As always, we are splitting the data into training and test set to 
+    later evaluate the model.
+
+    ```python
+    from sklearn.model_selection import train_test_split
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        features, data["y"], test_size=0.2, random_state=42
+    )
+    ```
+    
+    Now, we are already dealing with information leakage. Put simply - the
+    train set `X_train` already "knows" something about the test set `X_test`. 
+    
+    Why?
+    
+    ---
+
+    Remember the definition of Z-Score normalization - it calculates the mean
+    and standard deviation of the data set. If we calculate these values on the
+    whole data set; in our case `data` - just like we did above, `X_train` 
+    contains information about `X_test`. Thus, the test set is no longer a 
+    good representation of unseen data, hence any scores calculated with the 
+    test set are no longer a good indicator of the model's performance.
+
+    This is a common pitfall in machine learning! To prevent information 
+    leakage, we ==have to split the data before applying any preprocessing 
+    steps==.
+
+In turn this means, we have to apply all preprocessing twice - once for the
+training set and once for the test set, which means a lot of code duplication.
+
+So we streamline things and introduce a new functionality to group all 
+preprocessing steps together which we then can easily apply on train and 
+test set.
+
+### `ColumnTransformer`
+
+<div style="text-align: center;">
+    <h4>
+        Not the kind of transformer you are expecting, but cool nonetheless!
+        🤖
+    </h4> 
+    <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/12/split-images-of-transformers-anime.jpg" 
+    alt="Transformers">
+</div>
+
+The [`ColumnTransformer`](https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html) 
+is a class in `scikit-learn` that allows us to bundle our preprocessing steps
+together. This way, we can apply all transformations in one go.
+
+First, we import all necessary classes:
+
+```python hl_lines="1"
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import KBinsDiscretizer, OneHotEncoder, StandardScaler
+```
