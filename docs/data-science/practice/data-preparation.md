@@ -9,6 +9,16 @@ attribute types, and then proceed to apply preprocessing techniques.
     To build a proper machine learning model for the bank marketing data set, 
     we need to channel all our knowledge obtained so far!
 
+Create a new notebook or script.
+
+```plaintext hl_lines="5"
+📁 bank_model/
+├── 📁 .venv/
+├── 📁 data/
+├───── 📄 bank-merged.csv
+├── 📄 preparation.ipynb
+```
+
 ## Data
 
 We start by loading the data.
