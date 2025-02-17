@@ -449,3 +449,130 @@ First, we import all necessary classes:
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import KBinsDiscretizer, OneHotEncoder, StandardScaler
 ```
+
+Next, we can already initiate our transformer. We define the exact same steps 
+as we did in written form at the beginning of this section. Note that the 
+`ColumnTransformer` takes a `#!python list` of `#!python tuple`.
+
+```python linenums="1"
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("nominal", OneHotEncoder(), 
+         ["default", "housing", "loan", "contact", "poutcome", "job", "marital"]),
+        
+        ("ordinal", OneHotEncoder(), 
+         ["month", "day_of_week", "education"]),
+        
+        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),  # (1)!
+         ["age", "campaign", "pdays", "previous"]),
+        
+        ("zscore", StandardScaler(), 
+         ["emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed"]),
+    ]
+)
+```
+
+1. Conveniently, we can create categories (bins) with the `KBinsDiscretizer` 
+   and directly apply one-hot encoding with `#!python encode="oneheot"`.
+
+Let's break it down:
+
+- Our instance `preprocessor` has 4 steps, named `nominal`, `ordinal`, 
+  `binning`, and `zscore`.
+- Each step is defined as a `#!python tuple`, with the first element being 
+  the name of the step, the second element the preprocessing technique, and 
+  the third element being a list of columns to apply the technique to.
+- By default, all columns which are not specified in the `ColumnTransformer` 
+  will be dropped! See the [`remainder`](https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html)
+  parameter in the docs.
+
+### Detour: Didn't we forget something?
+
+We completely neglected the missing values in the data set. Thus, we still 
+need to handle them with imputation techniques.
+
+???+ tip
+
+    During the development process of a data science project, you will often 
+    find yourself jumping back and forth between different steps. This is 
+    perfectly normal and part of the process. Seldom will you follow a 
+    linear path from start to finish.
+
+```python
+print(data.isna().sum())
+```
+
+If you execute the above line, you will see that we still have many missing 
+values in a couple of columns. No worries, we can easily handle them with:
+
+```python
+from sklearn.impute import SimpleImputer
+
+impute = SimpleImputer(strategy="most_frequent")
+```
+
+The `SimpleImputer` lets us fill in missing values with the most frequent
+value in the respective column. But why did we choose this specific strategy?
+
+<?quiz?>
+question: Why do we plan to fill missing values with the most frequent value (the mode) and not the mean or median?
+answer: The mode is the most common imputation strategy.
+answer-correct: The columns with any missing values are either nominal or ordinal. Thus, the most frequent value (mode) is a valid choice for imputation. Mean and median are not suitable for nominal and ordinal data.
+answer: It is just an initial choice, we could have used any other strategy.
+answer: The mode is the most robust imputation strategy.
+content:
+<p>Correct! 👍🏽</p>
+<?/quiz?>
+
+???+ info
+
+    You might wonder why we didn't include the imputation step in the
+    `ColumnTransformer`. The reason is that passing the same column to more 
+    than one step leads to issues. As the `ColumnTransformer` runs in 
+    parallel and does not apply the steps sequentially.
+
+## Recap
+
+In this chapter, we started our practical data science project by exploring 
+the bank marketing data set further. We handled missing values and identified 
+attribute types. We then visualized the data to get a better understanding of 
+the features. During our discussion of appropriate preprocessing methods, 
+we discovered the term information leakage and how to prevent it.
+Finally, we introduced the `ColumnTransformer` to bundle preprocessing
+steps together.
+
+### Code recap
+
+This time around, we also do a code recap. The essential findings in this 
+chapter can be distilled to:
+
+```python linenums="1"
+import pandas as pd
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import KBinsDiscretizer, OneHotEncoder, StandardScaler
+from sklearn.impute import SimpleImputer
+
+data = pd.read_csv("data/bank-merged.csv")
+data = data.replace("unknown", None)
+
+impute = SimpleImputer(strategy="most_frequent")
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ("nominal", OneHotEncoder(), 
+         ["default", "housing", "loan", "contact", "poutcome", "job", "marital"]),
+        
+        ("ordinal", OneHotEncoder(), 
+         ["month", "day_of_week", "education"]),
+        
+        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),  # (1)!
+         ["age", "campaign", "pdays", "previous"]),
+        
+        ("zscore", StandardScaler(), 
+         ["emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed"]),
+    ]
+)
+```
+
+In the next chapter we will apply the preprocessing steps to a train and 
+test split. Subsequently, we fit the first model.
