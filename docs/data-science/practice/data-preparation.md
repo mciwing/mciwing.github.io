@@ -73,6 +73,8 @@ types (nominal, ordinal and numerical) are present. For example:
 </ul>
 <?/quiz?>
 
+#### Feature description
+
 With a broad overview, let's explore the different features/attributes more 
 in-depth. Since we are dealing with a couple of features, categories were 
 built. 
@@ -150,6 +152,8 @@ With a better understanding of the features at hand, we can proceed to the
 next step, assigning attribute types to the columns. Doing so, will help us 
 later to pick the appropriate preprocessing steps.
 
+#### Assigning attribute types
+
 ???+ question "Assigning attributes"
 
     Assign an attribute type to each column. Look at the data and go 
@@ -185,3 +189,107 @@ later to pick the appropriate preprocessing steps.
     ```
 
     Now, go ahead and assign all of the remaining attributes.
+
+???+ danger
+
+    Since the attribute assignment is crucial, we strongly urge you to solve 
+    the task. It will help your understanding of the data set and the next 
+    steps.
+
+    Check your solution with the answer below and correct any mistakes you've
+    made.
+
+??? info
+
+    The solution is as follows (column names are ordered according to 
+    `data`):
+
+    ```python
+    nominal = [
+        "default",
+        "housing",
+        "loan",
+        "contact",
+        "poutcome",
+        "job",
+        "marital",
+    ]
+    
+    ordinal = [
+        "month",
+        "day_of_week",
+        "education",
+    ]
+    
+    numerical = [
+        "age",
+        "campaign",
+        "pdays",
+        "previous",
+        "emp.var.rate",
+        "cons.price.idx",
+        "cons.conf.idx",
+        "euribor3m",
+        "nr.employed",
+    ]
+    ```
+
+### Visualizing the data
+
+To get an even better understanding of the data, we can visualize it. For 
+convenience, we will use `pandas` built-in plotting 
+[capabilities](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html). 
+
+???+ tip
+    
+    <!-- TODO: update link; once available in the data science course -->
+    As a refresher on how to visualize different attribute types, you can visit 
+    the [Frequency Distribution](../../statistics/univariate/Frequency.md) 
+    chapter.
+
+For example, we can plot numerical attributes like `#!python "campaign"` as a
+box plot.
+
+```python
+import matplotlib.pyplot as plt
+
+data.plot(
+    kind="box", y="campaign", title="Number of contacts in current campaign"
+)
+plt.show()
+```
+
+<div style="text-align: center;">
+    <img src="/assets/data-science/practical/boxplot-campaign.svg" alt="Campaign boxplot">
+</div>
+
+???+ info
+
+    As you might have noticed, you need to install `matplotlib`.
+
+Or how about a pie chart for nominal attributes like `#!python "marital"`?
+
+```python
+# first, count the occurrence of each category
+marital_count = data["marital"].value_counts()
+marital_count.plot(kind="pie", autopct="%1.0f%%", title="Marital status")  # (1)!
+plt.show()
+```
+
+1. The `autopct` parameter is used to display the percentage on the pie chart.
+
+<div style="text-align: center;">
+    <img src="/assets/data-science/practical/pie-marital.svg" alt="Pie chart marital">
+</div>
+
+???+ question "Visualize"
+
+    Pick two more attributes of your choice and plot them.
+
+    1. Choose a numerical attribute and plot it as a histogram.
+    2. Select a nominal or ordinal attribute and plot it as a bar chart.
+
+    Use the `pandas` resources, if you're having trouble:
+
+    - `DataFrame.plot()` docs [:octicons-link-external-16:](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
+    - Chart visualization [:octicons-link-external-16:](https://pandas.pydata.org/docs/user_guide/visualization.html)
