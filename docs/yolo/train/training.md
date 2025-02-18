@@ -19,27 +19,72 @@ Now that we have collected and annotated our dataset, it's time to train our ver
 
 ## Preparation
 
-Before we can start the training of the model, we need to create a **configuration file** that tells YOLO where to find the dataset and how to train the model. 
+Before we can start the training of the model, we need to get a few things done. 
 
-### What is the `config.yaml` file?  
 
-The `config.yaml` file contains:  
+### 📂 Dataset Structure
+
+In machine learning, datasets are divided into:
+
+- **Training Set** (Train) → Used to teach the model by adjusting its parameters.
+- **Validation Set** (Val) → Used to evaluate how well the model is learning.
+- **Test Set** (Test) → Used to test the model after training.
+
+Both the training and the validation set are passed to the training algorithm in advance. The model is then trained using the training set and then validated using the validation set. 
+The results of the validation are then used to optimize the hyperparameters of the model. Furthermore, the results are saved and can be used for further analysis. We will look at this topic in more detail a little later.
+The test dataset is then used to test the performance of the model in real-world use. In our case, we will not use this data set and instead record new images via webcam to test the performance of our model in the [inference chapter](./inference.md).
+
+<figure markdown="span">
+  ![Dataset Structure](https://cdn.shortpixel.ai/spai/q_lossy+w_730+to_webp+ret_img/algotrading101.com/learn/wp-content/uploads/2020/06/training-validation-test-data-set.png){width=70% }
+  <figcaption>(Source: <a href="https://algotrading101.com/learn/train-test-split/">AlgoTrading101</a>) </figcaption>
+</figure>
+
+
+A typical split ratio which is used in the machine learning community is **80% for training** and **20% for validation**. Therefore we need to split our annotated data into a training and a validation set.
+
+``` hl_lines="4 5 7 8"
+📁 yolo_training/
+└── 📁 annotations/
+    ├── 📁 images/
+    |   ├── 📁 train/
+    |   └── 📁 val/
+    └── 📁 labels/
+        ├── 📁 train/
+        └── 📁 val/
+```
+
+???+ warning "Splitting Images and Labels"
+    It is important to note, that the images and labels need to be split in the same way. For example, if you want to use the image `image_1.jpg` for training, you need to copy the label `image_1.txt` in the trainging folder as well.
+
+
+### 📝 Configuration File
+
+Now that we have the data in the correct structure, we need to create a **configuration file** that tells YOLO where to find the dataset and how to train the model. This file contains the following information:  
+
 - **Dataset paths** – Where the images and annotations are stored.  
-- **Number of object classes** – In our case, `5€` and `10€` notes.  
 - **Class labels** – The names of the object categories.  
 
-### Creating the `config.yaml` File  
+The prefered way to create the configuration file is to use a `config.yaml` file.
+
 
 Create a new file named `config.yaml` in your dataset folder and add the following content:  
 
 ```yaml
-train: data/train/images  # Path to training images
-val: data/val/images      # Path to validation images
+# Data
+path: C:/path/to/your/project_folder/annotated # path to your project folder
+train: images/train # training images (relative to 'path')
+val: images/val # validation images (relative to 'path')
 
-nc: 2  # Number of object classes
-
-names: ["five_euro", "ten_euro"]  # Class names
+# Classes
+names:
+  0: 10euro # Name of the Object # (1)!
+  1: 5euro
 ```
+
+1. The class numbers are defined in the `notes.json` file from the annotation chapter.
+
+
+
 
 ✅ **Make sure the dataset structure looks like this:**  
 
