@@ -272,7 +272,7 @@ train a tree and calculate the balanced accuracy score. We repeat this process
 ```python linenums="1" hl_lines="7 12 15"
 from sklearn.datasets import make_classification
 
-X, y = make_classification(
+X_synthetic, y_synthetic = make_classification(
     n_samples=1000,
     n_features=20,
     n_classes=2,
@@ -280,15 +280,20 @@ X, y = make_classification(
 )
 
 for i in range(10):
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=None
+    (
+        X_train_synthetic,
+        X_test_synthetic,
+        y_train_synthetic,
+        y_test_synthetic,
+    ) = train_test_split(
+        X_synthetic, y_synthetic, test_size=0.2, random_state=None
     )
     tree = DecisionTreeClassifier(
         random_state=None, max_depth=15, min_samples_leaf=10
     )
-    tree.fit(X_train, y_train)
-    y_pred = tree.predict(X_test)
-    score = balanced_accuracy_score(y_test, y_pred)
+    tree.fit(X_train_synthetic, y_train_synthetic)
+    y_pred = tree.predict(X_test_synthetic)
+    score = balanced_accuracy_score(y_test_synthetic, y_pred)
     print(f"Iteration {i + 1}: {round(score, 4)}")
 ```
 
@@ -318,3 +323,76 @@ As you can see the model's performance varies greatly!
     Specifically, in a science setting and real-world applications, 
     reproducibility is crucial to validate findings and conclusions. So 
     ensure reproducibility!
+
+## More modelling
+
+Let's get back on track and try out more models. We will compare their 
+performance with the balanced accuracy score.
+
+### Random forest
+
+Naturally, since we started with a CART (decision tree), we try a random 
+forest.
+
+```python
+forest = RandomForestClassifier(
+    n_estimators=100, max_depth=15, min_samples_leaf=10, random_state=42  # (1)!
+)
+forest.fit(X_train, y_train)
+
+y_pred = forest.predict(X_test)
+balanced_forest = balanced_accuracy_score(y_test, y_pred)
+
+print(f"Forest balanced accuracy: {round(balanced_forest, 4)}")
+```
+
+1. We adopt the values for `max_depth` and `min_samples_leaf` from the decision
+   tree.
+
+```title=">>> Output"
+Forest balanced accuracy: 0.5869
+```
+
+Compared to the decision tree (balanced accuracy of 60.35%), the random forest
+has a balanced accuracy of 58.69%. Somehow, the performance got even worse!
+
+#### `class_weight` parameter
+
+We can try to improve the performance by setting the `class_weight` parameter 
+to `#!python balanced`. This takes the class imbalance into consideration.
+
+```python hl_lines="6"
+forest = RandomForestClassifier(
+    n_estimators=100,
+    max_depth=15,
+    min_samples_leaf=10,
+    random_state=42,  # (1)!
+    class_weight="balanced",
+)
+forest.fit(X_train, y_train)
+
+y_pred = forest.predict(X_test)
+balanced_forest = balanced_accuracy_score(y_test, y_pred)
+
+print(f"Forest balanced accuracy: {round(balanced_forest, 4)}")
+```
+
+```title=">>> Output"
+Forest balanced accuracy: 0.7308
+```
+
+Now we were able to improve the performance significantly, namely to 73.08%.
+
+### Logistic regression
+
+???+ question "Logistic regression"
+
+    What about a logistic regression model? How does it perform?
+
+    1. Initialize and fit a `LogisticRegression` model with `#!python 
+        class_weight="balanced"`. Don't forget to set the `random_state`.
+    2. Calculate the balanced accuracy score for the test set.
+    3. Compare the results to the decision tree and random forest.
+
+As you can see, with a preprocessed data set, we can now easily compare 
+different models.
