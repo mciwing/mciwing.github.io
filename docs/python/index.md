@@ -57,7 +57,7 @@ trashy but if you can imagine something you probably can build it in
     course you'll have a better understanding and will be able to run 
     and modify code yourself. For now, the following snippets illustrate the
     capabilities of the language and what complex things you can achieve with
-    little code. Just take a look!
+    little code. There is no need to execute it - Just take a look!
 
 ---
 
