@@ -204,6 +204,15 @@ For our example the class ID is `0` for `five_euro` and `1` for `ten_euro`. This
 ???+ warning "Labels / Images"
     It is important to note, that the for each image there needs to be a corresponding label file with the same name. For example, if you have an image `images/image_1.jpg`, there needs to be a label file `labels/image_1.txt`.
 
+???+ question "Task: Annotation"
+    We can now use the collected images of the Euro notes from the previous chapter to annotate the data.
+
+    - Annotate the data with Label Studio following the guidelines from before.
+    - Make sure to label the data with bounding boxes.
+    - Save the annotations in the YOLO format.
+    - Copy the `images` and `labels` folder from the zip file into your `yolo_training/annotations` folder.
+    
+
 ## Next Steps
 
 Now that you have **annotated data**, you're ready to [train](training.md) your YOLO model! In the next chapter, we'll explore how to **train YOLO with your labeled dataset**.
