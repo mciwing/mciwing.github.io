@@ -178,7 +178,8 @@ Congratulation 🎉, you have just annotated your first dataset!
 
 ## Annotation Format
 Once you have downloaded the exported dataset, you can use it to train your YOLO model. But first, let's take a look at the annotation format.
-After the export, Label Studio will hand over a zip file with two folders: `images` and `labels`. These folders contain the annotated images (`images/`) and the corresponding annotations in YOLO format (`labels/`). 
+
+After the export, Label Studio will hand over a zip file with two folders: `images` and `labels` as well as a `notes.json` and a `classes.txt` file. The folders contain the annotated images (`images/`) and the corresponding annotations in YOLO format (`labels/`). 
 We will copy those folders into our project folder. 
 
 ```
@@ -188,30 +189,21 @@ We will copy those folders into our project folder.
             └── 📁 labels/
 ```
 
-We will then navigate to the `annotations` folder and open the `labels` folder. Inside this folder, you will find a text file for each image. Each text file contains the annotation in [YOLO format](https://docs.ultralytics.com/datasets/detect/#ultralytics-yolo-format) like:
+We will then navigate to `annotations` and open the `labels` folder. Inside this folder, you will find a text file for each image. Each text file contains the annotation in the [YOLO format](https://docs.ultralytics.com/datasets/detect/#ultralytics-yolo-format) like:
 ```
 0 0.5029612756264237 0.5018223234624145 0.9858769931662869 0.980410022779043
 ```
 
-
+The structure of the annotation can be described as follows:
 ```
 <CLASS_ID> <X_CENTER> <Y_CENTER> <WIDTH> <HEIGHT>
 ```
 
-Example annotation for a 5€ note:
+For our example the class ID is `0` for `five_euro` and `1` for `ten_euro`. This information can be looked up in `notes.json` in the zip file. The coordinates are the normalized center of the bounding box and the width and height of the bounding box relative to the image size (xywh format).
 
-
-
-Where:
-
-- `0` is the class ID (`five_euro`).
-- `0.45, 0.60` is the bounding box center.
-- `0.30, 0.25` is the width and height (normalized between `0` and `1`).
-
----
+???+ warning "Labels / Images"
+    It is important to note, that the for each image there needs to be a corresponding label file with the same name. For example, if you have an image `images/image_1.jpg`, there needs to be a label file `labels/image_1.txt`.
 
 ## Next Steps
 
-Now that you have **annotated data**, you're ready to train your YOLO model!
-
-In the next chapter, we'll explore how to **train YOLO with your labeled dataset**.
+Now that you have **annotated data**, you're ready to [train](training.md) your YOLO model! In the next chapter, we'll explore how to **train YOLO with your labeled dataset**.
