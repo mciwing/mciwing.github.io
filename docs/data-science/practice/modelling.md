@@ -394,5 +394,122 @@ Now we were able to improve the performance significantly, namely to 73.37%.
     2. Calculate the balanced accuracy score for the test set.
     3. Compare the results to the decision tree and random forest.
 
+??? info
+
+    Depending on the parameter settings, the logistic regression model 
+    achieves similar performance to the random forest. 
+
 As you can see, with a preprocessed data set, we can now easily compare 
-different models.
+different models. These are our results so far:
+
+- Decision tree: 60.35%
+- Random forest: 73.37%
+- Logistic regression: ? (your result)
+
+## Hyperparameter tuning
+
+So far, we've used pre-defined values for our model parameters. However, these
+might not be optimal for our specific problem. Therefore, we apply 
+hyperparameter tuning. Hyperparameter tuning is the process of finding the 
+best combination of model parameters to maximize performance.
+
+For starters, we will performa a manual hyperparameter tuning for the 
+maximum depth (`max_depth`) parameter. We will test the values
+`#!python [5, 10, 15, 20, 25]`.
+
+```python hl_lines="1 6"
+max_depth = [5, 10, 15, 20, 25]
+
+for n in max_depth:
+    forest = RandomForestClassifier(
+        n_estimators=100,
+        max_depth=n,
+        min_samples_leaf=10,
+        random_state=42,
+        class_weight="balanced"
+    )
+    forest.fit(X_train, y_train)
+    y_pred = forest.predict(X_test)
+    score = balanced_accuracy_score(y_test, y_pred)
+    print(f"max_depth={n}: {round(score, 4)}")
+```
+
+```title=">>> Output"
+max_depth=5: 0.7352
+max_depth=10: 0.7445
+max_depth=15: 0.7337
+max_depth=20: 0.733
+max_depth=25: 0.733
+```
+
+The best performance is achieved with a `max_depth` of `#!python 10`. So the 
+initial value of `#!python 15` was not optimal. Next, we could try to 
+optimize the number of trees (`n_estimators`), the minimum number of samples
+required to be at a leaf node (`min_samples_leaf`), etc. You get the point ...
+
+???+ tip
+
+    However, this manual tuning is time-consuming and not always feasible.
+    In the last (advanced) chapter of this course, we will introduce you to 
+    automated hyperparameter tuning.
+
+???+ info
+
+    You can spend hours tuning hyperparameters. So, don't get lost in the
+    hyperparameter tuning process.
+
+    :warning: *Spoiler alert* :warning:: With this specific data set and 
+    hyperparameter tuning, you won't significantly surpass the results we 
+    have achieved so far.
+
+## The result
+
+We conclude that a 
+
+---
+
+```python
+RandomForestClassifier(
+    n_estimators=100, 
+    max_depth=10,
+    min_samples_leaf=10, 
+    random_state=42, 
+    class_weight="balanced"
+)
+```
+is the best model we have found for our task. It achieves a balanced 
+accuracy of 74.45%.
+
+---
+
+<div style="text-align: center;">
+    <h4>Here is the main takeaway:</h4>
+</div>
+
+???+ tip
+
+    Unfortunately, with real world data sets you won't always achieve 
+    astounding results. But that's okay! :blush:
+
+    If the performance does not meet your expectations, you can try 
+    following things:
+
+    - Feature engineering: Create new features or modify existing ones.
+    - Preprocessing: Try different preprocessing steps.
+    - Model selection: Try different models.
+    
+    But sometimes, it is also a possibility that the features can't describe
+    the target variable well enough or you simply need more data.
+
+## Recap
+
+We tried different models and evaluated their performance using the balanced
+accuracy score. Ultimately, we concluded that a random forest model 
+performed best. 
+
+Along the way, we introduced class imbalance, confusion matrix, balanced 
+accuracy and hyperparameter tuning. Another example illustrated the 
+importance of reproducibility.
+
+Next, we distill our findings in an end-to-end example and save the 
+final model to disk.
