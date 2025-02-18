@@ -64,7 +64,7 @@ preprocessor = ColumnTransformer(
         ("ordinal", OneHotEncoder(),
          ["month", "day_of_week", "education"]),
 
-        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),  # (1)!
+        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
          ["age", "campaign", "pdays", "previous"]),
 
         ("zscore", StandardScaler(),
@@ -125,3 +125,38 @@ Balanced accuracy: 0.7445
     If everything went smoothly, you should see the balanced accuracy score 
     printed.
 
+## Re-fit on whole data set
+
+Previously, we split our data into train and test sets. Using the test set 
+we were able to estimate the performance of our model. That's the whole 
+purpose of the test set.
+
+Now, our goal is to save the model for future use. Therefore, in practice, we 
+want to leverage the power of the whole data set. Thus, we re-fit the model on 
+the whole data set to make use of all available data.
+
+```python
+# preprocess the whole data set
+X = impute.transform(X)
+X = pd.DataFrame(X, columns=data.columns)
+X = preprocessor.transform(X)
+
+# encode target
+y = encoder.transform(y)
+```
+
+To preprocess the whole data set, we can reuse the `impute` and `preprocessor`
+objects. We only need to transform the data and encode the target. Lastly,
+we fit the model on the whole data set. It's as simple as:
+
+```python
+forest.fit(X, y)
+```
+
+???+ info
+
+    Note, we can simply call `fit()` again, this will "overwrite" the previous 
+    model and use the whole data set to fit the model.
+
+`forest` is now fitted on the whole data set. That's it! We have our final 
+model which we will save to disk. :party_popper:
