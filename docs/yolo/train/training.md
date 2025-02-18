@@ -276,10 +276,12 @@ While the training is running, you can see the progress in the terminal or right
          5euro         39         44      0.853       0.92      0.962       0.73
         ```
 
-        - **Final Precision (P):** **0.915** → The model is **very accurate** in detecting objects.
-        - **Final Recall (R):** **0.856** → The model detects **most** of the actual objects.
-        - **Final mAP50:** **0.943** → Very good object detection accuracy.
-        - **Final mAP50-95:** **0.718** → High accuracy even with stricter evaluation.
+        So, how can we read this? In the following, we will focus on the results of `all` classes and look at the metrics one by one and interpret them.
+
+        - **Precision (P = 0.915)** → 91.5% of detected objects were correct.
+        - **Recall (R = 0.856)** → 85.6% of actual objects were detected.
+        - **mAP@50 (0.943)** → 94.3% accuracy at a basic IoU level (good performance).
+        - **mAP@50-95 (0.718)** → 71.8% accuracy with stricter evaluation.
 
         **Class-Specific Performance:**
 
@@ -349,61 +351,132 @@ The metrics and the combination of them are crucial to understand the performanc
 ---
 
 
-
-
-
-
-
-
-
 ### Interpreting the Results
 
-Once training is complete, YOLO provides **metrics and plots** to help analyze performance.
-
-Run the following command to display the results:
-
-```python
-import matplotlib.pyplot as plt
-
-# Load training results
-results = model.load("runs/detect/train")
-
-# Show training curves
-results.plot()
-plt.show()
-```
-
-🔎 **What to look for?**
-- **Loss decreasing** → The model is learning properly.  
-- **High mAP (~0.5 or higher)** → Good object detection performance.  
-- **Balanced precision and recall** → Model detects objects correctly without too many false positives or negatives.
+Now that we have a good understanding of YOLO metrics, let’s dive deeper into how to interpret the training results. After each training run, YOLO creates a folder inside `runs\detect` (e.g., `train`). This folder contains multiple files and visualizations that help us analyze the performance of our model.
 
 ---
 
-#### How to interpret YOLO metrics?
+#### Model Weights
 
-Now that we have a basic understanding of the various metrics, we can interpret the results from our previous training. The validation results of our best model are shown in the following table:
+The `weights` folder contains the **saved model weights** from training. 
+
+- `best.pt`: The **best model** based on validation performance. (Model with highest accuracy)
+- `last.pt`: The **final model** at the end of training. (most recently trained model = last epoch)
+
+---
+
+#### Confusion Matrix
+
+<figure markdown="span">
+![Confusion Matrix](../../assets/yolo/confusion_matrix_normalized.png){width=80% }
+</figure>
+
+🔎 **What does it show?**  
+
+- The **confusion matrix** (`confusion_matrix_normalized.png` or `confusion_matrix.png`) helps us **understand misclassifications** by showing the relationship between actual and predicted classes.  
+- Each column represents the **true class**, and each row represents the **predicted class**.  
+- A perfect model would have **all values on the diagonal** (everything correctly classified).  
+- If there are **many off-diagonal values**, the model is making **classification errors** (e.g., mistaking `5€` for `10€`).  
+
+**What to look for?**  
+✅ **High values on the diagonal** = Good model performance.  
+❌ **Many off-diagonal values** = The model is confusing some classes. Consider **improving data quality or fine-tuning.**  
+
+---
+
+#### Label Distribution
+
+<figure markdown="span">
+![Labels](../../assets/yolo/train_labels.jpg){width=80% }
+</figure>
+
+🔎 **What does it show?**  
+The image `labels.jpg` shows:
+
+- The **distribution of object labels** in the dataset.  
+- If some classes are **underrepresented**, the model might perform poorly on them.  
+
+**What to look for?**  
+✅ **Balanced dataset** = The model can learn all classes equally well.  
+❌ **Some classes appear much less frequently** = Model may struggle with those objects.  
+
+---
+
+#### Training Batch
+
+<figure markdown="span">
+![Train Batch 0](../../assets/yolo/train_batch0.jpg){width=80% }
+</figure>
+
+🔎 **What does it show?**  
+The image `train_batch0.jpg` shows:
+
+- Sample images from the **training dataset**, including applied **augmentations** like rotation, scaling, and flipping.  
+- This helps the model **generalize better** and avoid overfitting.  
+
+**What to look for?**  
+✅ If **bounding boxes are correct**, the annotations are likely fine.  
+❌ If bounding boxes look **incorrect or missing**, check your annotations.  
+
+---
+
+#### Validation Predictions
+
+| **Ground Truth (Labels)** | **Model Predictions** |
+|:----:|:----:|
+| ![Validation Batch 0](../../assets/yolo/val_batch0_labels.jpg)| ![Validation Batch 0](../../assets/yolo/val_batch0_pred.jpg) |
+
+🔎 **What do they show?**  
+
+- **Left** (`val_batch0_labels.jpg`): The correct bounding boxes (**ground truth labels**).  
+- **Right** (`val_batch0_pred.jpg`): The model’s predictions after training.  
+
+**What to look for?**  
+✅ **Bounding boxes match well** = Model is learning correctly.  
+❌ **Bounding boxes are missing or wrong** = Model might need more training or data improvements.  
+
+---
+
+#### Training Results
+
+<figure markdown="span">
+![Results](../../assets/yolo/results.png){width=80% }
+</figure>
+
+🔎 **What does it show?**  
+The graphs in the `results.png` file tracks key metrics across **epochs** (training cycles).  
+
+- **Box Loss**: Measures how accurately the model predicts bounding boxes. It should **decrease** over time.  
+- **Class Loss**: Measures classification errors. It should **decrease** as training progresses.  
+- **mAP (Mean Average Precision)**: Measures how well the model detects objects. It should **increase**.  
+
+**What to look for?**  
+✅ **Loss decreases steadily** = The model is learning well.  
+❌ **Loss stays high or fluctuates a lot** = Model might be struggling (check learning rate or dataset quality).  
 
 
-```
- Class     Images  Instances      Box(P          R      mAP50  mAP50-95)
-   all         74         98      0.915      0.856      0.943      0.718
-10euro         48         54      0.977      0.792      0.923      0.706
- 5euro         39         44      0.853      0.920      0.962       0.73
-```
 
-So, how can we read this? In the following, we will focus on the results of `all` classes and look at the metrics one by one and interpret them.
+xxxxxxxxxxxxxxxxx
+xxxxxxxxx
+ersten 3 sind train, dann 3 val und 4 metrics
+xxxxxxxxxxxx
+xxxxxxxxxxxxxxx
 
-- **Precision (P = 0.915)** → 91.5% of detected objects were correct.
-- **Recall (R = 0.856)** → 85.6% of actual objects were detected.
-- **mAP@50 (0.943)** → 94.3% accuracy at a basic IoU level (good performance).
-- **mAP@50-95 (0.718)** → 71.8% accuracy with stricter evaluation.
 
-And what does this mean for us? 
+---
 
-- **Model detects objects accurately but may miss some (recall could improve).**  
-- **Fine-tuning can help balance precision and recall.**  
+#### 🛠️ Common Issues and How to Fix Them
 
+| **Issue** | **Possible Cause** | **Solution** |
+|-----------|--------------------|--------------|
+| Loss values are not decreasing | Learning rate too high or too low | Adjust `lr0` in training settings |
+| Model predicts objects incorrectly | Not enough training data or incorrect labels | Collect more data & check annotations |
+| Model detects too many false positives | Low confidence threshold | Increase `conf` parameter during inference |
+| Precision is high, but recall is low | Model is too strict in detection | Adjust IoU threshold (`iou=0.5` → `iou=0.4`) |
+| Small objects are not detected well | Model struggles with small objects | Train with a larger image size (`imgsz=640 → 1024`) |
+
+---
 
 ### Fine-Tuning the Model
 
@@ -434,6 +507,14 @@ If your model isn't performing well, you can **fine-tune** it by adjusting key p
    - Try adding **more angles, backgrounds, and lighting conditions**.
 
 ---
+
+### Saving the Model
+
+After training, you can save the model using the following command:
+
+```python
+model.save("runs/detect/train/weights/best.pt")
+```
 
 ## Next Steps  
 
