@@ -256,3 +256,65 @@ improve our model.
 
     
     [`scikit-learn`: Metrics and scoring: quantifying the quality of predictions](https://scikit-learn.org/stable/modules/model_evaluation.html)
+
+## Detour: Reproducibility
+
+Since, we are already on detours, let's take another one. Up until now, we 
+have always set the `random_state` parameter (if available). As we have covered
+multiple times this ensures the reproducibility of our results. We set it 
+when splitting the data, when initializing a model, etc.
+
+But what happens if you forget to set the `random_state` parameter? To 
+demonstrate the outcome, we generate a data set. In a loop we split the data,
+train a tree and calculate the balanced accuracy score. We repeat this process
+10 times:
+
+```python linenums="1" hl_lines="7 12 15"
+from sklearn.datasets import make_classification
+
+X, y = make_classification(
+    n_samples=1000,
+    n_features=20,
+    n_classes=2,
+    random_state=None,
+)
+
+for i in range(10):
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=None
+    )
+    tree = DecisionTreeClassifier(
+        random_state=None, max_depth=15, min_samples_leaf=10
+    )
+    tree.fit(X_train, y_train)
+    y_pred = tree.predict(X_test)
+    score = balanced_accuracy_score(y_test, y_pred)
+    print(f"Iteration {i + 1}: {round(score, 4)}")
+```
+
+Here are my results, yours look drastically different:
+
+```title=">>> Output"
+Iteration 1: 0.8853
+Iteration 2: 0.9457
+Iteration 3: 0.8997
+Iteration 4: 0.8947
+Iteration 5: 0.9407
+Iteration 6: 0.9097
+Iteration 7: 0.9004
+Iteration 8: 0.9451
+Iteration 9: 0.919
+Iteration 10: 0.8886
+```
+
+As you can see the model's performance varies greatly!
+
+???+ danger
+
+    The code block illustrates the importance of the `random_state` parameter.
+    Without it, you won't be able to reproduce your own results and others 
+    won't be able to reproduce your results either.
+
+    Specifically, in a science setting and real-world applications, 
+    reproducibility is crucial to validate findings and conclusions. So 
+    ensure reproducibility!
