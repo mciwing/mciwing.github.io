@@ -164,6 +164,7 @@ nav:
           - Introduction: data-science/practice/index.md
           - 1. Data preparation: data-science/practice/data-preparation.md
           - 2. Modelling: data-science/practice/modelling.md
+          - 3. End-to-End: data-science/practice/end-to-end.md
 
   - Computer Vision: 
     - yolo/index.md
