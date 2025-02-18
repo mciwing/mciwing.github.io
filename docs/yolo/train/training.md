@@ -40,7 +40,7 @@ The test dataset is then used to test the performance of the model in real-world
 </figure>
 
 
-A typical split ratio which is used in the machine learning community is **80% for training** and **20% for validation**. Therefore we need to split our annotated data into a training and a validation set.
+A typical split ratio which is used in the machine learning community is **80% for training** and **20% for validation**. We split our dataset by moving the images and the corresponding labels into a `train` and `val` folders.
 
 ``` hl_lines="4 5 7 8"
 📁 yolo_training/
@@ -59,26 +59,24 @@ A typical split ratio which is used in the machine learning community is **80% f
 
 ### 📝 Configuration File
 
-Now that we have the data in the correct structure, we need to create a **configuration file** that tells YOLO where to find the dataset and how to train the model. This file contains the following information:  
+Now that we have the data in the correct structure, we can create a **configuration file** that tells YOLO where to find the dataset and how to train the model. This file contains the following information:  
 
 - **Dataset paths** – Where the images and annotations are stored.  
 - **Class labels** – The names of the object categories.  
 
-The prefered way to create the configuration file is to use a `config.yaml` file.
-
-
-Create a new file named `config.yaml` in your dataset folder and add the following content:  
+The easiest way to create the configuration file is to use the `config.yaml` file and save it in the `yolo_training` folder.
 
 ```yaml
 # Data
 path: C:/path/to/your/project_folder/annotated # path to your project folder
 train: images/train # training images (relative to 'path')
 val: images/val # validation images (relative to 'path')
+#test: # test images (optional) (relative to 'path')
 
 # Classes
 names:
-  0: 10euro # Name of the Object # (1)!
-  1: 5euro
+  0: Class1 # Name of the Object # (1)!
+  1: Class2
 ```
 
 1. The class numbers are defined in the `notes.json` file from the annotation chapter.
@@ -86,24 +84,10 @@ names:
 
 
 
-✅ **Make sure the dataset structure looks like this:**  
-
-```
-📁 data/
-│── 📁 train/
-│   ├── 📁 images/
-│   ├── 📁 labels/
-│── 📁 val/
-│   ├── 📁 images/
-│   ├── 📁 labels/
-│── config.yaml
-```
-
-This structure ensures that YOLO knows **where to find images and labels** for training and validation.
 
 ---
 
-## 2️⃣ Starting the Training Process  
+## Starting the Training Process  
 
 Once we have our dataset and configuration ready, we can start training the YOLO model.  
 
