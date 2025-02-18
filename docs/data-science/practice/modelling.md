@@ -202,3 +202,57 @@ incorrectly predicted:
 Regarding our first model, we can simply conclude that there is still a lot of
 room for improvement. With an understanding of the confusion matrix, we can
 extend our knowledge to the balanced accuracy score.
+
+#### Balanced accuracy
+
+The balanced accuracy score is defined as:
+
+???+ defi "Balanced accuracy score"
+
+    \[
+    \text{Balanced accuracy} = \frac{1}{2} \left( \frac{TP}{TP + FN} + \frac{TN}{TN + FP} \right)
+    \]
+
+> In the binary case, balanced accuracy is equal to the arithmetic mean of 
+> sensitivity (true positive rate) and specificity (true negative rate)
+> 
+> [`scikit-learn`: Balanced accuracy score](https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score)
+
+The balanced accuracy score ranges from 0 to 1. A score of 1 indicates a
+perfect model.
+
+???+ question "Manual calculation"
+
+    Calculate the balanced accuracy score for the decision tree model.
+
+    Use the results from the above confusion matrix and the formula for the
+    balanced accuracy score. You can perform the calculation on a piece of 
+    paper or use simple arithmetic in Python.
+
+Let's compare your result with the one calculated by `scikit-learn`.
+
+```python
+from sklearn.metrics import balanced_accuracy_score
+
+balanced_accuracy = balanced_accuracy_score(y_test, y_pred)
+print(f"Balanced accuracy: {round(balanced_accuracy, 4)}")
+```
+
+```title=">>> Output"
+Balanced accuracy: 0.6035
+```
+
+Hopefully, your result matches the one calculated by `scikit-learn`.
+
+Compared to the accuracy of 89%, the balanced accuracy score of 60% gives a
+more realistic view of the model's performance. In turn, this means we have to
+improve our model. 
+
+???+ tip
+
+    If you want to know more about different metrics and scoring, check out 
+    this excellent guide. It not only covers classification metrics, but also 
+    multiple ways to score regression models (apart from the \(R^2\)).
+
+    
+    [`scikit-learn`: Metrics and scoring: quantifying the quality of predictions](https://scikit-learn.org/stable/modules/model_evaluation.html)
