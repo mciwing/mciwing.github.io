@@ -350,11 +350,11 @@ print(f"Forest balanced accuracy: {round(balanced_forest, 4)}")
    tree.
 
 ```title=">>> Output"
-Forest balanced accuracy: 0.5869
+Forest balanced accuracy: 0.5927
 ```
 
 Compared to the decision tree (balanced accuracy of 60.35%), the random forest
-has a balanced accuracy of 58.69%. Somehow, the performance got even worse!
+has a balanced accuracy of 59.27%. Somehow, the performance got even worse!
 
 #### `class_weight` parameter
 
@@ -366,7 +366,7 @@ forest = RandomForestClassifier(
     n_estimators=100,
     max_depth=15,
     min_samples_leaf=10,
-    random_state=42,  # (1)!
+    random_state=42,
     class_weight="balanced",
 )
 forest.fit(X_train, y_train)
@@ -378,10 +378,10 @@ print(f"Forest balanced accuracy: {round(balanced_forest, 4)}")
 ```
 
 ```title=">>> Output"
-Forest balanced accuracy: 0.7308
+Forest balanced accuracy: 0.7337
 ```
 
-Now we were able to improve the performance significantly, namely to 73.08%.
+Now we were able to improve the performance significantly, namely to 73.37%.
 
 ### Logistic regression
 

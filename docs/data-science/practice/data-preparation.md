@@ -518,7 +518,7 @@ values in a couple of columns. No worries, we can easily handle them with:
 ```python
 from sklearn.impute import SimpleImputer
 
-impute = SimpleImputer(strategy="most_frequent")
+impute = SimpleImputer(strategy="most_frequent", missing_values=None)
 ```
 
 The `SimpleImputer` lets us fill in missing values with the most frequent
@@ -565,7 +565,7 @@ from sklearn.impute import SimpleImputer
 data = pd.read_csv("data/bank-merged.csv")
 data = data.replace("unknown", None)
 
-impute = SimpleImputer(strategy="most_frequent")
+impute = SimpleImputer(strategy="most_frequent", missing_values=None)
 
 preprocessor = ColumnTransformer(
     transformers=[
