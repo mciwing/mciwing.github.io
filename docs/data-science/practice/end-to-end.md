@@ -160,3 +160,170 @@ forest.fit(X, y)
 
 `forest` is now fitted on the whole data set. That's it! We have our final 
 model which we will save to disk. :party_popper:
+
+## Model persistence
+
+To save the model to disk, we can use `pickle`. It's a part of base 
+:fontawesome-brands-python: Python. With `pickle`, you can save any Python 
+object and load it back later.
+
+<div style="text-align: center; border-radius: 15px;">
+    <img src="/assets/data-science/practical/pickle.png" alt="Pickle"
+        width="400px" style="border-radius: 10px;"
+    >
+    <figcaption>
+        <code>pickle</code> presumably comes from the concept of 
+        "pickling" in food preservation. Similarly, <code>pickle</code> is 
+        used to "preserve" Python objects.
+    </figcaption>
+</div>
+
+### Simple example
+
+For example, we can save any object such as a simple `#!python list`:
+
+```python
+import pickle
+
+simple_list = [1, 2, 3, 4, 5]
+
+with open("list.pkl", "wb") as file:
+    pickle.dump(simple_list, file)
+```
+
+Let's break down the code block:
+
+1. We open a new file named `list.pkl`; `.pkl` is just a common extension 
+   for `pickle` files.
+2. The file is opened in write-binary mode (`"wb"`) - as pickle files are 
+   binary files.
+3. We use `pickle.dump()` to save the object `simple_list` to the file.
+
+???+ info
+
+    You can delete `list.pkl`, it was just an example.
+
+### Save the model
+
+Let's extend this knowledge to save our model. To make new predictions, we 
+start with the client data and have the following steps involved:
+
+<div style="text-align: center;">
+<h4><i>The prediction process</i></h4>
+```mermaid
+graph
+  A[New client data] --> B[Impute potential missing values: <code>impute.transform</code>];
+  B --> C[Preprocess data: <code>preprocessor.transform</code>];
+  C --> D[Make predictions: <code>forest.predict</code>];
+  D --> E[Transform prediction to yes or no: <code>encoder.inverse_transform</code><br>];
+```
+</div>
+
+To get our prediction process working, we need to save all objects involved:
+
+- `impute`
+- `preprocessor`
+- `encoder`
+- `forest`
+
+We can save all these objects in one file using a simple `#!python dict`:
+
+```python
+model = {
+    "imputer": impute,
+    "preprocessor": preprocessor,
+    "encoder": encoder,
+    "forest": forest
+}
+
+with open("bank-model.pkl", "wb") as file:
+    pickle.dump(model, file)
+```
+
+???+ question "Load the model"
+
+    Create a new notebook which we will use to test the saved model.
+    
+    Use the following code block to load the `model` `#!python dict`.
+
+    ```python
+    import pickle
+
+    with open("bank-model.pkl", "rb") as file:  # (1)!
+        model = pickle.load(file)
+    ```
+
+    1. `#!python "rb"` stands for read-binary mode.
+
+???+ danger
+
+    Do not download and load `pickle` files from the internet, unless you 
+    trust the source. Since, `pickle` can execute arbitrary code, it can be 
+    a security risk.
+
+## Predictions
+
+Let's run the prediction process. Assume the bank contacted another client 
+with following attributes:
+
+```python
+import pandas as pd
+
+client = pd.DataFrame(
+    {
+        "id": 155611,
+        "age": 54,
+        "default": None,
+        "housing": "no",
+        "loan": "no",
+        "contact": "cellular",
+        "month": "aug",
+        "day_of_week": "tue",
+        "campaign": 3,
+        "pdays": 999,
+        "previous": 0,
+        "poutcome": "nonexistent",
+        "emp.var.rate": -2.9,
+        "cons.price.idx": 92.201,
+        "cons.conf.idx": -31.4,
+        "euribor3m": 0.878,
+        "nr.employed": 5087.2,
+        "job": "retired",
+        "marital": "divorced",
+        "education": "professional.course",
+    }, index=[0]
+)
+```
+
+Does the client subscribe to a term deposit? :thinking:
+
+???+ question "Make a new prediction"
+
+    Predict if the client will subscribe to a term deposit.
+
+    1. Use the above code snippet, to create a new observation `client`.
+    2. Use the dictionary `model` to make a prediction.
+    
+    Hint: To make a prediction, simply implement the above prediction process.
+
+Try to solve the task on your own. For completeness, we provide one possible 
+solution.
+
+??? info
+
+    Here is a minimal example solution:
+    
+    ```python
+    def predict(model, client):
+        # preprocess the client data
+        X = model["imputer"].transform(client)
+        X = pd.DataFrame(X, columns=client.columns)
+        X = model["preprocessor"].transform(X)
+    
+        # make a prediction
+        prediction = model["model"].predict(X)
+        # inverse transform (0, 1) to ("no", "yes")
+        prediction = model["target_encoder"].inverse_transform(prediction)
+    
+        return prediction
+    ```
