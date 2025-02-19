@@ -351,7 +351,7 @@ The metrics and the combination of them are crucial to understand the performanc
 ---
 
 
-### Interpreting the Results
+### Training Results
 
 Now that we have a good understanding of YOLO metrics, let’s dive deeper into how to interpret the training results. After each training run, YOLO creates a folder inside `runs\detect` (e.g., `train`). This folder contains multiple files and visualizations that help us analyze the performance of our model.
 
@@ -377,11 +377,18 @@ The `weights` folder contains the **saved model weights** from training.
 - The **confusion matrix** (`confusion_matrix_normalized.png` or `confusion_matrix.png`) helps us **understand misclassifications** by showing the relationship between actual and predicted classes.  
 - Each column represents the **true class**, and each row represents the **predicted class**.  
 - A perfect model would have **all values on the diagonal** (everything correctly classified).  
-- If there are **many off-diagonal values**, the model is making **classification errors** (e.g., mistaking `5€` for `10€`).  
+- If there are **many off-diagonal values**, the model is making **classification errors** (e.g., mistaking `5€` for `10€`).
 
-**What to look for?**  
-✅ **High values on the diagonal** = Good model performance.  
-❌ **Many off-diagonal values** = The model is confusing some classes. Consider **improving data quality or fine-tuning.**  
+
+<div class="grid cards" markdown>
+
+-   
+    ???+ success "We want:"
+        - **High values on the diagonal** = Good model performance.
+-   
+    ???+ failure "We don't want:"
+        - **Many off-diagonal values** = The model is confusing some classes. Consider **improving data quality or fine-tuning.**
+</div>
 
 ---
 
@@ -394,12 +401,20 @@ The `weights` folder contains the **saved model weights** from training.
 🔎 **What does it show?**  
 The image `labels.jpg` shows:
 
-- The **distribution of object labels** in the dataset.  
-- If some classes are **underrepresented**, the model might perform poorly on them.  
+- Upper left: The **distribution of object labels** in the dataset. How often each class appears.
+- Upper right: Overlay of all bounding boxes on the image.
+- Lower left: 3D Histogram of bounding box center coordinates.
+- Lower right: 3D Histogram of bounding box width and height.
 
-**What to look for?**  
-✅ **Balanced dataset** = The model can learn all classes equally well.  
-❌ **Some classes appear much less frequently** = Model may struggle with those objects.  
+<div class="grid cards" markdown>
+
+-   
+    ???+ success "We want:"
+        - **Balanced dataset** = The model can learn all classes equally well.  
+-   
+    ???+ failure "We don't want:"
+        - **Some classes appear much less frequently** = Model may struggle with those objects.
+</div>
 
 ---
 
@@ -410,14 +425,20 @@ The image `labels.jpg` shows:
 </figure>
 
 🔎 **What does it show?**  
-The image `train_batch0.jpg` shows:
+The image `train_batch0.jpg` represents an input example and shows:
 
 - Sample images from the **training dataset**, including applied **augmentations** like rotation, scaling, and flipping.  
 - This helps the model **generalize better** and avoid overfitting.  
 
-**What to look for?**  
-✅ If **bounding boxes are correct**, the annotations are likely fine.  
-❌ If bounding boxes look **incorrect or missing**, check your annotations.  
+<div class="grid cards" markdown>
+
+-   
+    ???+ success "We want:"
+        - If **bounding boxes are correct**, the annotations are likely fine.    
+-   
+    ???+ failure "We don't want:"
+        - If bounding boxes look **incorrect or missing**, check your annotations.  
+</div>
 
 ---
 
@@ -432,9 +453,16 @@ The image `train_batch0.jpg` shows:
 - **Left** (`val_batch0_labels.jpg`): The correct bounding boxes (**ground truth labels**).  
 - **Right** (`val_batch0_pred.jpg`): The model’s predictions after training.  
 
-**What to look for?**  
-✅ **Bounding boxes match well** = Model is learning correctly.  
-❌ **Bounding boxes are missing or wrong** = Model might need more training or data improvements.  
+<div class="grid cards" markdown>
+
+-   
+    ???+ success "We want:"
+        - **Bounding boxes match well** = Model is learning correctly.  
+-   
+    ???+ failure "We don't want:"
+        - **Bounding boxes are missing or wrong** = Model might need more training or data improvements.  
+</div>
+
 
 ---
 
@@ -444,43 +472,109 @@ The image `train_batch0.jpg` shows:
 ![Results](../../assets/yolo/results.png){width=80% }
 </figure>
 
+The `results.png` file tracks key metrics across all **epochs** (training cycles). This image is very useful to understand the performance of the model over time and can be used to define the further training process.   
+
 🔎 **What does it show?**  
-The graphs in the `results.png` file tracks key metrics across **epochs** (training cycles).  
 
-- **Box Loss**: Measures how accurately the model predicts bounding boxes. It should **decrease** over time.  
-- **Class Loss**: Measures classification errors. It should **decrease** as training progresses.  
-- **mAP (Mean Average Precision)**: Measures how well the model detects objects. It should **increase**.  
+???+ info "Training & Validation Losses"
 
-**What to look for?**  
-✅ **Loss decreases steadily** = The model is learning well.  
-❌ **Loss stays high or fluctuates a lot** = Model might be struggling (check learning rate or dataset quality).  
+    - `train/box_loss` & `val/box_loss`: Measures how accurately the model predicts object bounding boxes. A decreasing trend indicates improved localization.  
+    - `train/cls_loss` & `val/cls_loss`: Represents the classification loss, showing how well the model differentiates between object classes. A lower value suggests better class predictions.  
+    - `train/dfl_loss` & `val/dfl_loss`: The distribution focal loss helps refine bounding box predictions. A decreasing loss means improved precision in object localization. 
 
 
+???+ info "Metrics"
 
-xxxxxxxxxxxxxxxxx
-xxxxxxxxx
-ersten 3 sind train, dann 3 val und 4 metrics
-xxxxxxxxxxxx
-xxxxxxxxxxxxxxx
+    - `metrics/precision(B)`: Precision measures the proportion of correctly predicted objects among all detections. A higher value means fewer false positives.  
+    - `metrics/recall(B)`: Recall indicates how many actual objects were detected. A higher recall means fewer false negatives.  
+    - `metrics/mAP50(B)`: The mean Average Precision at IoU 0.5 evaluates overall detection performance. A higher value reflects better accuracy.  
+    - `metrics/mAP50-95(B)`: The mAP averaged over multiple IoU thresholds (0.50 to 0.95) provides a more comprehensive evaluation of the model’s performance.
 
 
----
+<div class="grid cards" markdown>
 
-#### 🛠️ Common Issues and How to Fix Them
+-   
+    ???+ success "We want:"
+        - **Loss decreases steadily** = The model is learning well.
+        - **Metrics increase** = The model is detecting more objects correctly.
+-   
+    ???+ failure "We don't want:"
+        - **Loss stays high or fluctuates a lot** = Model might be struggling (check learning rate or dataset quality).
+        - **Metrics stay low** = The model is not learning well.
+</div>
 
-| **Issue** | **Possible Cause** | **Solution** |
-|-----------|--------------------|--------------|
-| Loss values are not decreasing | Learning rate too high or too low | Adjust `lr0` in training settings |
-| Model predicts objects incorrectly | Not enough training data or incorrect labels | Collect more data & check annotations |
-| Model detects too many false positives | Low confidence threshold | Increase `conf` parameter during inference |
-| Precision is high, but recall is low | Model is too strict in detection | Adjust IoU threshold (`iou=0.5` → `iou=0.4`) |
-| Small objects are not detected well | Model struggles with small objects | Train with a larger image size (`imgsz=640 → 1024`) |
+
+### Interpreting the Results
+
+So let's get back to our Euro note :euro: example and interpret the results. In the `results.png` file, we can analyze the before described metrics and derive the following observations:
+
+1. **Training Losses (Box, Class, DFL) are Decreasing** 
+
+   - The **box loss**, **classification loss**, and **DFL loss** are consistently decreasing, indicating that the model is learning effectively and improving its predictions.  
+   - ✅ **This is a good sign** - it means the model is adjusting weights correctly and optimizing performance.  
+
+2. **Validation Losses (Box, Class, DFL) are Fluctuating**  
+
+   - The validation losses increase in epoch 2 but then decrease in epoch 3.  
+   - ⚠️ **This could indicate some instability in training**, possibly due to a small dataset or high variance in validation samples.  
+   - Further monitoring is required to ensure stability in later epochs.  
+
+3. **Precision and Recall are Inconsistent**  
+
+   - The **precision and recall values drop in epoch 2 but recover in epoch 3**.  
+   - This fluctuation suggests that the model might still be adjusting to the data distribution.  
+   - ⚠️ If these values remain unstable in later epochs, **you may need to fine-tune hyperparameters or use more training data**.  
+
+4. **mAP50 and mAP50-95 Initially Drop but Recover** 
+
+   - The mAP metrics (mean Average Precision) drop in epoch 2 and then increase significantly in epoch 3.  
+   - ✅ This suggests that while there were performance fluctuations, the model eventually improved its object detection accuracy.  
+
+
+**So what should we do now?** 
+
+Since the model is still fluctuating, we should continue training for more epochs (10+), monitor validation loss closely, and adjust the learning rate if needed. Keep an eye on precision/recall stability!
+
+
+**Top Row (Training Metrics)**
+1. **train/box_loss**: The bounding box regression loss decreases over epochs, indicating that the model is learning to predict object locations more accurately.
+2. **train/cls_loss**: The classification loss also decreases, meaning the model is improving in distinguishing between object classes.
+3. **train/dfl_loss**: The distribution focal loss (DFL), which helps refine bounding box predictions, is reducing, showing better box localization over training.
+4. **metrics/precision(B)**: Precision fluctuates but improves significantly in the last epoch, meaning fewer false positives in object detection.
+5. **metrics/recall(B)**: Recall initially drops but then increases, showing the model is detecting more objects over time.
+
+**Bottom Row (Validation Metrics)**
+6. **val/box_loss**: The validation bounding box loss increases at epoch 2 before improving, possibly indicating overfitting that corrects itself.
+7. **val/cls_loss**: The validation classification loss follows a similar pattern, increasing before dropping, suggesting model adaptation.
+8. **val/dfl_loss**: The validation DFL loss also rises before decreasing, meaning bounding box refinement fluctuates before stabilizing.
+9. **metrics/mAP50(B)**: The mean Average Precision at IoU 0.5 first drops but then improves, indicating better detection performance in the final epoch.
+10. **metrics/mAP50-95(B)**: The overall mean Average Precision across multiple IoU thresholds follows a similar pattern, confirming an overall improvement in model performance.
+
+🔎 **Summary:**  
+While some metrics initially fluctuate, the general trend shows improvement in both training and validation, with losses decreasing and precision/recall increasing in the final epoch. This suggests the model is learning effectively but might benefit from additional training epochs for further stabilization.
+
 
 ---
 
 ### Fine-Tuning the Model
 
-If your model isn't performing well, you can **fine-tune** it by adjusting key parameters.
+Since the model is still fluctuating, we should continue training for more epochs, monitor validation loss closely, and adjust the learning rate if needed. Keep an eye on precision/recall stability!
+
+
+
+```py
+# Load the already trained model
+model = YOLO('./runs/detect/train17/weights/last.pt')  # load the last model
+
+# Resume training
+model.train(data = 'config.yaml', epochs = 10) #!(1)
+```
+
+1. We now continue training the model for 10 more epochs.
+
+
+
+
 
 🔧 Things to Try:
 
