@@ -1,7 +1,7 @@
 ## Introduction
 
 We distill all relevant code blocks from the previous two chapters into
-one cohesive notebook. This notebook will be an end-to-end example on fitting
+one cohesive notebook. This notebook will be an end-to-end example to fit
 a machine learning model on the bank marketing data set. Lastly, we will
 save the model to disk.
 
@@ -29,8 +29,8 @@ In the previous chapters, we:
 1. Loaded the data
 2. Defined techniques to impute (`SimpleImputer`) and preprocess the data
    (`ColumnTransformer`)
-3. Fit and transformed the data
-4. Split the data into train and test sets
+3. Split the data into train and test sets
+4. Applied imputation and preprocessing techniques to the data
 5. Evaluated different model types and concluded that a 
    `RandomForestClassifier` is the best model (we found) for this task
 6. Fit and evaluated the random forest
@@ -131,9 +131,9 @@ Previously, we split our data into train and test sets. Using the test set
 we were able to estimate the performance of our model. That's the whole 
 purpose of the test set.
 
-Now, our goal is to save the model for future use. Therefore, in practice, we 
-want to leverage the power of the whole data set. Thus, we re-fit the model on 
-the whole data set to make use of all available data.
+Now, our goal is to save the trained model for future use. Therefore, in 
+practice, we want to leverage the power of the whole data set. Thus, we re-fit
+the model on the whole data set to make use of all available data.
 
 ```python
 # preprocess the whole data set
@@ -156,15 +156,16 @@ forest.fit(X, y)
 ???+ info
 
     Note, we can simply call `fit()` again, this will "overwrite" the previous 
-    model and use the whole data set to fit the model.
+    model and uses the whole data set to fit the model once-again.
 
-`forest` is now fitted on the whole data set. That's it! We have our final 
+The `forest` is now fitted on the whole data set. That's it! We have our final 
 model which we will save to disk. :party_popper:
 
 ## Model persistence
 
-To save the model to disk, we can use `pickle`. It's a part of base 
-:fontawesome-brands-python: Python. With `pickle`, you can save any Python 
+To save the model to disk, we can use 
+[`pickle`](https://docs.python.org/3.12/library/pickle.html). It's a part of 
+base :fontawesome-brands-python: Python. With `pickle`, you can save any Python 
 object and load it back later.
 
 <div style="text-align: center; border-radius: 15px;">
@@ -172,7 +173,7 @@ object and load it back later.
         width="400px" style="border-radius: 10px;"
     >
     <figcaption>
-        <code>pickle</code> presumably comes from the concept of 
+        <code>pickle</code> comes from the concept of 
         "pickling" in food preservation. Similarly, <code>pickle</code> is 
         used to "preserve" Python objects.
     </figcaption>
@@ -205,8 +206,9 @@ Let's break down the code block:
 
 ### Save the model
 
-Let's extend this knowledge to save our model. To make new predictions, we 
-start with the client data and have the following steps involved:
+Let's extend this knowledge to save our model. Unfortunately, it's not just a
+matter of saving the `forest` object. First, we look at the steps we need to 
+take to make a prediction for a new client:
 
 <div style="text-align: center;">
 <h4><i>The prediction process</i></h4>
@@ -232,8 +234,8 @@ We can save all these objects in one file using a simple `#!python dict`:
 model = {
     "imputer": impute,
     "preprocessor": preprocessor,
-    "encoder": encoder,
-    "forest": forest
+    "forest": forest,
+    "target-encoder": encoder,
 }
 
 with open("bank-model.pkl", "wb") as file:
@@ -301,17 +303,16 @@ Does the client subscribe to a term deposit? :thinking:
 
     Predict if the client will subscribe to a term deposit.
 
-    1. Use the above code snippet, to create a new observation `client`.
-    2. Use the dictionary `model` to make a prediction.
+    1. Use the above code snippet to create a new observation `client`.
+    2. Use all objects in the dictionary `model` to make a prediction.
     
-    Hint: To make a prediction, simply implement the above prediction process.
+    Hint: To make a prediction, simply implement the above prediction process 
+    illustrated as a graph.
 
 Try to solve the task on your own. For completeness, we provide one possible 
 solution.
 
 ??? info
-
-    Here is a minimal example solution:
     
     ```python
     def predict(model, client):
@@ -321,9 +322,9 @@ solution.
         X = model["preprocessor"].transform(X)
     
         # make a prediction
-        prediction = model["model"].predict(X)
+        prediction = model["forest"].predict(X)
         # inverse transform (0, 1) to ("no", "yes")
-        prediction = model["target_encoder"].inverse_transform(prediction)
+        prediction = model["target-encoder"].inverse_transform(prediction)
     
         return prediction
     ```
