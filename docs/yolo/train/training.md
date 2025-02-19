@@ -466,7 +466,7 @@ The image `train_batch0.jpg` represents an input example and shows:
 
 ---
 
-#### Training Results
+#### Resulting Metrics
 
 <figure markdown="span">
 ![Results](../../assets/yolo/results.png){width=80% }
@@ -506,53 +506,34 @@ The `results.png` file tracks key metrics across all **epochs** (training cycles
 
 ### Interpreting the Results
 
-So let's get back to our Euro note :euro: example and interpret the results. In the `results.png` file, we can analyze the before described metrics and derive the following observations:
+So let's get back to our Euro note :euro: example and interpret the results. In the [`results.png`](#resulting-metrics) file, we can analyze the before described metrics and derive the following observations:
 
 1. **Training Losses (Box, Class, DFL) are Decreasing** 
 
-   - The **box loss**, **classification loss**, and **DFL loss** are consistently decreasing, indicating that the model is learning effectively and improving its predictions.  
-   - ✅ **This is a good sign** - it means the model is adjusting weights correctly and optimizing performance.  
+    - The **box loss**, **classification loss**, and **DFL loss** are consistently decreasing, indicating that the model is learning effectively and improving its predictions.  
+    - ✅ **This is a good sign** - it means the model is adjusting weights correctly and optimizing performance.  
 
 2. **Validation Losses (Box, Class, DFL) are Fluctuating**  
 
-   - The validation losses increase in epoch 2 but then decrease in epoch 3.  
-   - ⚠️ **This could indicate some instability in training**, possibly due to a small dataset or high variance in validation samples.  
-   - Further monitoring is required to ensure stability in later epochs.  
+    - The validation losses increase in epoch 2 but then decrease in epoch 3.  
+    - ⚠️ **This could indicate some instability in training**, possibly due to a small dataset or high variance in validation samples.  
+    - Further monitoring is required to ensure stability in later epochs.  
 
 3. **Precision and Recall are Inconsistent**  
 
-   - The **precision and recall values drop in epoch 2 but recover in epoch 3**.  
-   - This fluctuation suggests that the model might still be adjusting to the data distribution.  
-   - ⚠️ If these values remain unstable in later epochs, **you may need to fine-tune hyperparameters or use more training data**.  
+    - The **precision and recall values drop in epoch 2 but recover in epoch 3**.  
+    - This fluctuation suggests that the model might still be adjusting to the data distribution.  
+    - ⚠️ If these values remain unstable in later epochs, **you may need to fine-tune hyperparameters or use more training data**.  
 
 4. **mAP50 and mAP50-95 Initially Drop but Recover** 
 
-   - The mAP metrics (mean Average Precision) drop in epoch 2 and then increase significantly in epoch 3.  
-   - ✅ This suggests that while there were performance fluctuations, the model eventually improved its object detection accuracy.  
+    - The mAP metrics (mean Average Precision) drop in epoch 2 and then increase significantly in epoch 3.  
+    - ✅ This suggests that while there were performance fluctuations, the model eventually improved its object detection accuracy.  
 
 
 **So what should we do now?** 
 
 Since the model is still fluctuating, we should continue training for more epochs (10+), monitor validation loss closely, and adjust the learning rate if needed. Keep an eye on precision/recall stability!
-
-
-**Top Row (Training Metrics)**
-1. **train/box_loss**: The bounding box regression loss decreases over epochs, indicating that the model is learning to predict object locations more accurately.
-2. **train/cls_loss**: The classification loss also decreases, meaning the model is improving in distinguishing between object classes.
-3. **train/dfl_loss**: The distribution focal loss (DFL), which helps refine bounding box predictions, is reducing, showing better box localization over training.
-4. **metrics/precision(B)**: Precision fluctuates but improves significantly in the last epoch, meaning fewer false positives in object detection.
-5. **metrics/recall(B)**: Recall initially drops but then increases, showing the model is detecting more objects over time.
-
-**Bottom Row (Validation Metrics)**
-6. **val/box_loss**: The validation bounding box loss increases at epoch 2 before improving, possibly indicating overfitting that corrects itself.
-7. **val/cls_loss**: The validation classification loss follows a similar pattern, increasing before dropping, suggesting model adaptation.
-8. **val/dfl_loss**: The validation DFL loss also rises before decreasing, meaning bounding box refinement fluctuates before stabilizing.
-9. **metrics/mAP50(B)**: The mean Average Precision at IoU 0.5 first drops but then improves, indicating better detection performance in the final epoch.
-10. **metrics/mAP50-95(B)**: The overall mean Average Precision across multiple IoU thresholds follows a similar pattern, confirming an overall improvement in model performance.
-
-🔎 **Summary:**  
-While some metrics initially fluctuate, the general trend shows improvement in both training and validation, with losses decreasing and precision/recall increasing in the final epoch. This suggests the model is learning effectively but might benefit from additional training epochs for further stabilization.
-
 
 ---
 
@@ -560,59 +541,59 @@ While some metrics initially fluctuate, the general trend shows improvement in b
 
 Since the model is still fluctuating, we should continue training for more epochs, monitor validation loss closely, and adjust the learning rate if needed. Keep an eye on precision/recall stability!
 
-
+To do so, we do not need to train the model from scratch again. We can continue training the model from the last checkpoint.
 
 ```py
 # Load the already trained model
-model = YOLO('./runs/detect/train17/weights/last.pt')  # load the last model
+model = YOLO('./runs/detect/train17/weights/last.pt')  # (2)!
 
 # Resume training
-model.train(data = 'config.yaml', epochs = 10) #!(1)
+model.train(data = 'config.yaml', epochs = 50) #(1)!
 ```
 
-1. We now continue training the model for 10 more epochs.
+1. We now continue training the model for 50 more epochs.
+2. In this case, we load the last model from the `train17` folder.
+
+In the end, our results should look like this: 
+
+<figure markdown="span">
+![Results](../../assets/yolo/results50.png){width=80% }
+</figure>
+
+This training run is significantly better than the previous one because:  
+
+- Losses are decreasing smoothly with no major fluctuations.
+- Validation loss is following training loss, meaning the model is generalizing well.
+- Precision, recall, and mAP are increasing steadily and stabilizing near 1.0, showing strong detection capabilities.
 
 
+???+ warning "Monitor for overfitting"
+    If validation loss starts increasing while training loss keeps decreasing, it might be overfitting. Consider adding data augmentation or early stopping if needed.
 
+???+ tip "Things to Try"
 
+    - **Increase the number of epochs**:
+        - Try training for `100+` epochs instead of `50`. 
+          ```python
+          model.train(data="config.yaml", epochs=100)
+          ```
 
-🔧 Things to Try:
+    - **Use a larger YOLO model**:
+        - Instead of `yolo11s.pt` (small model), try `yolo11m.pt` or `yolo11l.pt` (medium/large models).
+          ```python
+          model = YOLO("yolo11m.pt")  # Medium model
+          ```
 
-1️⃣ **Increase the number of epochs**:
-   - Try training for `100+` epochs instead of `50`.
-   - Example:  
-     ```python
-     model.train(data="config.yaml", epochs=100)
-     ```
-
-2️⃣ **Use a larger YOLO model**:
-   - Instead of `yolov8n.pt` (small model), try `yolov8m.pt` or `yolov8l.pt` (medium/large models).
-   - Example:  
-     ```python
-     model = YOLO("yolov8m.pt")  # Medium model
-     ```
-
-3️⃣ **Improve data augmentation**:
-   - Apply **random flips, rotations, or brightness adjustments** to your dataset.
-   - This helps the model **generalize** better.
-
-4️⃣ **Train on a larger dataset**:
-   - More labeled images can significantly boost performance.
-   - Try adding **more angles, backgrounds, and lighting conditions**.
+    - **Train on a larger dataset**:
+        - More labeled images can significantly boost performance.
+        - Try adding **more angles, backgrounds, and lighting conditions**.
 
 ---
 
-### Saving the Model
+## Next Steps 
 
-After training, you can save the model using the following command:
-
-```python
-model.save("runs/detect/train/weights/best.pt")
-```
-
-## Next Steps  
-
-After fine-tuning, you can **test your trained YOLO model** on new images or videos!  
+As already mentioned in the [training results section](#model-weights), the best and the final model are saved in the `best.pt` and `last.pt` files.
+We will use those models now for the inference and a real-world evaluation.
 
 
 🔜 **Up Next: Model Deployment & Real-World Testing** 🎯
