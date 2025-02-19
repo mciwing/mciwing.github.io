@@ -327,3 +327,75 @@ solution.
     
         return prediction
     ```
+
+## Conclusion
+
+Across three chapters, we successfully reached our end goal: To build a 
+machine learning model on the bank marketing data set. We ended up with a 
+random forest model with a balanced accuracy of 74.45%.
+
+The saved model can be deployed in a production environment. The prediction
+process is straightforward and can be easily applied on new clients.
+
+---
+
+<div style="text-align: center;">
+    <h3>
+        Congratulations, you have reached the end of this practical guide! 🎉
+        You are now well-equipped to tackle your own data science projects.
+    </h3>
+</div>
+
+---
+
+## Outlook
+
+There are many more avenues to explore in the data science/machine learning 
+landscape:
+
+
+### :rocket: Model deployment
+
+Learn how to deploy a model in a production environment. This can be done
+with a REST API, a web application or a mobile application (among others).
+
+Start with:
+
+- `fastapi` for building APIs [:octicons-link-external-16:](https://fastapi.tiangolo.com/)
+
+which is a great way to serve your model.
+
+### :woman_technologist: Model persistence with `onnx`
+
+The Open Neural Network Exchange (ONNX) format provides an interesting
+alternative to `pickle`. ONNX allows you to convert your trained models into a
+standardized format that can be run efficiently across different platforms and
+programming languages. 
+
+For example, `onnx` allows you to build the model in 
+:fontawesome-brands-python: Python and deploy it with :fontawesome-brands-js: 
+JavaScript.
+
+Start with:
+
+- `onnx` documentation for Python [:octicons-link-external-16:](https://onnx.ai/onnx/intro/python.html)
+- `onnx` with `scikit-learn` [:octicons-link-external-16:](https://scikit-learn.org/stable/model_persistence.html#onnx)
+
+### :toolbox: Expand your model toolkit
+
+We covered a selection of different model types, yet there are many more to 
+explore. `scikit-learn` offers many more models for classification, regression, 
+clustering or dimensionality reduction.
+
+Since you're already familiar with `scikit-learn`, applying these models is
+straightforward. 
+
+Start with:
+
+- `scikit-learn` documentation. [:octicons-link-external-16:](https://scikit-learn.org/stable/index.html)
+
+### :wrench: Advanced pipeline techniques
+
+`scikit-learn` offers more sophisticated ways for modelling through pipelines.
+In a bonus chapter we explore advanced techniques for hyperparameter tuning,
+custom transformers and more.
