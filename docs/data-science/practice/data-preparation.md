@@ -2,7 +2,7 @@
 
 To achieve our end goal we have to carefully analyze and preprocess the data.
 We will start by exploring the data set, handling missing values, identifying 
-attribute types, and then proceed to apply preprocessing techniques.
+attribute types, and then proceed to preprocessing techniques.
 
 ???+ info
 
@@ -98,13 +98,13 @@ built.
     Demographic information about each client such as the education level
     (high school, university, etc.).
 
-    | Variable  | Description                                          |
-    |-----------|------------------------------------------------------|
-    | id        | Client identifier (we will disregard the identifier) |
-    | age       | Client's age                                         |
-    | job       | Type of occupation                                   |
-    | marital   | Marital status                                       |
-    | education | Education level                                      |
+    | Variable  | Description                                       |
+    |-----------|---------------------------------------------------|
+    | id        | Client identifier (we will ignore the identifier) |
+    | age       | Age                                               |
+    | job       | Type of occupation                                |
+    | marital   | Marital status                                    |
+    | education | Education level                                   |
 
 -   :money_mouth_face: __Financial Status__
 
@@ -133,7 +133,7 @@ built.
     | campaign    | Number of contacts in current campaign         |
     | pdays       | Days since last contact from previous campaign |
     | previous    | Number of contacts before this campaign        |
-    | poutcome    | Previous campaign outcome                      |
+    | poutcome    | Outcome of previous campaign                   |
 
 -   :factory: __Economic Indicators__
 
@@ -156,7 +156,7 @@ built.
 
     Lastly, one column remains - `#!python "y"`. This column is the target, 
     whether a customer subscribed to a term deposit (`#!python 1`) or not
-    `#!python 0`.
+    (`#!python 0`).
 
 With a better understanding of the features at hand, we can proceed to the 
 next step, assigning attribute types to the columns. Doing so, will help us 
@@ -183,8 +183,8 @@ later to pick the appropriate preprocessing steps.
 
     For example (part of the solution): 
 
-    - `#!python "age"` is a measurable quantity and expressed as number, thus
-        is a numerical attribute.
+    - `#!python "age"` is a "measurable" quantity and expressed as a number, 
+        thus is a numerical attribute.
 
     - The next attribute `#!python "default"` is clearly categorical with 
         its unique values `#!python ["no", None, "yes]`. But since the 
@@ -299,7 +299,7 @@ plt.show()
     1. Choose a numerical attribute and plot it as a histogram.
     2. Select a nominal or ordinal attribute and plot it as a bar chart.
 
-    Use the `pandas` resources, if you're having trouble:
+    Use these `pandas` resources, if you're having trouble:
 
     - `DataFrame.plot()` docs [:octicons-link-external-16:](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
     - Chart visualization [:octicons-link-external-16:](https://pandas.pydata.org/docs/user_guide/visualization.html)
@@ -329,10 +329,17 @@ simple and plan our approach accordingly:
       `cons.price.idx`, `cons.conf.idx`, `euribor3m`, and `nr.employed`.
 
 ???+ info
+    
+    `nominal` and `ordinal` attributes are categorical and require one-hot
+    encoding to be suitable for machine learning algorithms.
 
     We are creating bins for `age`, `campaign`, `pdays`, and `previous`, since
     these features have a large number of outliers. By binning these features,
     we can try to reduce the impact of outliers and noise in the data.
+
+    Z-Score normalization is applied to the remaining numerical features to
+    ensures that features don't have a larger impact on the model just 
+    because of their larger magnitude.
 
 To apply these preprocessing steps, we have to look for the corresponding
 `scikit-learn` classes.
@@ -374,18 +381,19 @@ nominal_encoder.fit_transform(data[nominal])
 ordinal_encoder = OneHotEncoder()
 ordinal_encoder.fit_transform(data[ordinal])
 
-binning = KBinsDiscretizer(n_bins=5)
+binning = KBinsDiscretizer(n_bins=5, strategy="uniform")
 binning.fit_transform(data[["age", "campaign", "pdays", "previous"]])
 
 # and so on...
 ```
 
-... the approach itself is perfectly fine, but it can lead to a common 
-pitfall - information leakage. 
+... the above approach itself is perfectly fine, but we can do better!
+But first, we need to get the term information leakage out of the way, a 
+common pitfall in machine learning/data science projects.
 
 ### Information leakage
 
-Let's look at an example first, to explain the term information leakage.
+To explain the term information leakage, let's look at an example.
 
 ???+ danger "Information leakage"
 
@@ -431,12 +439,8 @@ Let's look at an example first, to explain the term information leakage.
     leakage, we ==have to split the data before applying any preprocessing 
     steps==.
 
-In turn this means, we have to apply all preprocessing twice - once for the
-training set and once for the test set, which means a lot of code duplication.
-
-So we streamline things and introduce a new functionality to group all 
-preprocessing steps together which we then can easily apply on train and 
-test set.
+With information leakage in mind, we introduce a more elegant way to apply 
+multiple preprocessing steps.
 
 ### `ColumnTransformer`
 
@@ -448,6 +452,9 @@ test set.
     <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/12/split-images-of-transformers-anime.jpg" 
     alt="Transformers">
 </div>
+
+Since we do not want to apply each preprocessing step one at a time, we 
+simply bundle them.
 
 The [`ColumnTransformer`](https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html) 
 is a class in `scikit-learn` that allows us to bundle our preprocessing steps
@@ -496,10 +503,13 @@ Let's break it down:
   will be dropped! See the [`remainder`](https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html)
   parameter in the docs.
 
+So far we only defined the necessary preprocessing steps, but didn't apply 
+them just yet (that's part of the next chapter).
+
 ### Detour: Didn't we forget something?
 
 We completely neglected the missing values in the data set. Thus, we still 
-need to handle them with imputation techniques.
+need to handle them with an imputation technique.
 
 ???+ tip
 
@@ -575,7 +585,7 @@ preprocessor = ColumnTransformer(
         ("ordinal", OneHotEncoder(), 
          ["month", "day_of_week", "education"]),
         
-        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),  # (1)!
+        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
          ["age", "campaign", "pdays", "previous"]),
         
         ("zscore", StandardScaler(), 
