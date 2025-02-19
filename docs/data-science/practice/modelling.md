@@ -35,7 +35,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 ???+ tip
 
-    By default `train_test_split` shuffles the data before splitting which
+    By default `train_test_split()` shuffles the data before splitting which
     is a good practice. It helps to avoid any bias that might be present in the
     order of the data.
 
@@ -79,8 +79,8 @@ X_test = preprocessor.transform(X_test)
     calculated from `X_train` to fill in missing values in `X_test`. So we 
     never use the test set to calculate the mode.
     
-    The same applies to the `preprocessor` and thus we can prevent information
-    leakage.
+    The same principles apply to the `preprocessor` and thus we can prevent 
+    information leakage.
 
 ## Train a model
 
@@ -93,12 +93,14 @@ the [`LabelEncoder`](../data/preprocessing.md#label-encoding).
 from sklearn.preprocessing import LabelEncoder
 
 encoder = LabelEncoder()
-y_train = encoder.fit_transform(y_train)
+encoder.fit(y_train)
+y_train = encoder.transform(y_train)
 y_test = encoder.transform(y_test)
 ```
 
 Now, we fit the first model. We set the parameters `max_depth` and 
-`min_samples_leaf` to prune the tree.
+`min_samples_leaf` to [prune](../algorithms/supervised/tree-based/cart.md#to-fix)
+the tree.
 
 ```python
 from sklearn.tree import DecisionTreeClassifier
@@ -120,8 +122,8 @@ overlooked a small yet crucial detail.
 
 ### Detour: Class imbalance
 
-The accuracy is a good metric to evaluate the performance of a model. However,
-in classification it is not always the best metric. Here's why:
+In classification, the accuracy is a good metric to evaluate the performance 
+of a model. However, it is not always the most appropriate one. Here's why:
 
 ```python
 print(y.value_counts(normalize=True))
@@ -134,13 +136,13 @@ yes    0.10998
 ```
 
 The target variable `#!python "y"` is imbalanced. The class `#!python "no"`
-occurs in nearly 90% of the cases. This means that a model that constantly 
-predicts `#!python "no"` for every observation would achieve an accuracy of 
-90%.
+occurs in 89% of the cases, while `!#python "yes"` accounts for roughly 11%.
+This means that a model that constantly predicts `#!python "no"` for every 
+observation would achieve an accuracy of 89%.
 
-Thus, our model is not as good as it seems, and we need to consider other 
-metrics to evaluate its performance. For our task, we pick the balanced 
-accuracy score.
+Thus, our decision tree is not as good as it seems, and we need to 
+consider other metrics to evaluate its performance. For our task, we pick the 
+balanced accuracy score.
 
 #### Confusion matrix
 
@@ -170,7 +172,8 @@ plt.show()
 ???+ info
 
     The labels in red were added by the author and their creation is not 
-    part of the code block. They are simply used to facilitate the explanation.
+    part of the code block. They are simply used to facilitate the 
+    following explanation.
 
 Put simply, the confusion matrix compares the actual values with the predicted
 values (of our test set). The matrix is divided into four quadrants:
@@ -261,7 +264,7 @@ improve our model.
 
 Since, we are already on detours, let's take another one. Up until now, we 
 have always set the `random_state` parameter (if available). As we have covered
-multiple times this ensures the reproducibility of our results. We set it 
+multiple times, this ensures the reproducibility of our results. We set it 
 when splitting the data, when initializing a model, etc.
 
 But what happens if you forget to set the `random_state` parameter? To 
@@ -269,7 +272,7 @@ demonstrate the outcome, we generate a data set. In a loop we split the data,
 train a tree and calculate the balanced accuracy score. We repeat this process
 10 times:
 
-```python linenums="1" hl_lines="7 12 15"
+```python linenums="1" hl_lines="7 17 20"
 from sklearn.datasets import make_classification
 
 X_synthetic, y_synthetic = make_classification(
@@ -335,15 +338,17 @@ Naturally, since we started with a CART (decision tree), we try a random
 forest.
 
 ```python
+from sklearn.ensemble import RandomForestClassifier
+
 forest = RandomForestClassifier(
     n_estimators=100, max_depth=15, min_samples_leaf=10, random_state=42  # (1)!
 )
 forest.fit(X_train, y_train)
 
 y_pred = forest.predict(X_test)
-balanced_forest = balanced_accuracy_score(y_test, y_pred)
+score_forest = balanced_accuracy_score(y_test, y_pred)
 
-print(f"Forest balanced accuracy: {round(balanced_forest, 4)}")
+print(f"Forest balanced accuracy: {round(score_forest, 4)}")
 ```
 
 1. We adopt the values for `max_depth` and `min_samples_leaf` from the decision
@@ -400,7 +405,9 @@ Now we were able to improve the performance significantly, namely to 73.37%.
     achieves similar performance to the random forest. 
 
 As you can see, with a preprocessed data set, we can now easily compare 
-different models. These are our results so far:
+different models. 
+
+These are our results so far:
 
 - Decision tree: 60.35%
 - Random forest: 73.37%
@@ -408,7 +415,8 @@ different models. These are our results so far:
 
 ## Hyperparameter tuning
 
-So far, we've used pre-defined values for our model parameters. However, these
+So far, we've used arbitrary values for our model parameters 
+(`#!python max_depth=15, min_samples_leaf=10`, etc.). However, these
 might not be optimal for our specific problem. Therefore, we apply 
 hyperparameter tuning. Hyperparameter tuning is the process of finding the 
 best combination of model parameters to maximize performance.
