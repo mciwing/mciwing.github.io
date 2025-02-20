@@ -594,6 +594,3 @@ This training run is significantly better than the previous one because:
 
 As already mentioned in the [training results section](#model-weights), the best and the final model are saved in the `best.pt` and `last.pt` files.
 We will use those models now for the inference and a real-world evaluation.
-
-
-🔜 **Up Next: Model Deployment & Real-World Testing** 🎯

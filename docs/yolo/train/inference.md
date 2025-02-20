@@ -11,3 +11,8 @@ graph LR
   click D "../inference" _self
   classDef active fill:#950f42
 ```
+
+<img 
+        src="/assets/yolo/cv_inference.gif" alt="inference trained model" 
+        style="height: 300px; border-radius:10px;"
+    >
