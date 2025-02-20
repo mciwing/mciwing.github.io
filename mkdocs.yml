@@ -165,6 +165,7 @@ nav:
           - 1. Data preparation: data-science/practice/data-preparation.md  # TODO update links to Markdown files
           - 2. Modelling: data-science/practice/modelling.md
           - 3. End-to-End: data-science/practice/end-to-end.md
+          - Bonus: data-science/practice/bonus.md
 
   - Computer Vision: 
     - yolo/index.md
