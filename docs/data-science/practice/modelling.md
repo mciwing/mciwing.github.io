@@ -53,7 +53,7 @@ X_train = impute.transform(X_train)
 X_test = impute.transform(X_test)
 
 # convert back to DataFrame
-X_train = pd.DataFrame(X_train, columns=X.columns)  # (1)!
+X_train = pd.DataFrame(X_train, columns=X.columns)
 X_test = pd.DataFrame(X_test, columns=X.columns)
 
 # apply preprocessing (OneHotEncoder, KBinsDiscretizer & StandardScaler)
@@ -62,14 +62,18 @@ X_train = preprocessor.transform(X_train)
 X_test = preprocessor.transform(X_test)
 ```
 
-1. Since, `preprocessor` requires the column names of our data, we need to 
-   convert the array back to a `DataFrame`. Else the `preprocessor` will not
-   work!
+???+ info
+
+    The `impute.transform()` method returns an array.
+    Since the `preprocessor` requires the column names of our data, we need to 
+    convert the array back to a `DataFrame`. Else the `preprocessor` will not
+    work!
+
+---
 
 > The general rule is to never call `fit` on the test data.
 > 
 > [`scikit-learn`: Common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls.html#data-leakage)
-
 
 ???+ info
 
@@ -81,6 +85,8 @@ X_test = preprocessor.transform(X_test)
     
     The same principles apply to the `preprocessor` and thus we can prevent 
     information leakage.
+
+---
 
 ## Train a model
 
@@ -136,7 +142,7 @@ yes    0.10998
 ```
 
 The target variable `#!python "y"` is imbalanced. The class `#!python "no"`
-occurs in 89% of the cases, while `!#python "yes"` accounts for roughly 11%.
+occurs in 89% of the cases, while `#!python "yes"` accounts for roughly 11%.
 This means that a model that constantly predicts `#!python "no"` for every 
 observation would achieve an accuracy of 89%.
 
@@ -421,7 +427,7 @@ might not be optimal for our specific problem. Therefore, we apply
 hyperparameter tuning. Hyperparameter tuning is the process of finding the 
 best combination of model parameters to maximize performance.
 
-For starters, we will performa a manual hyperparameter tuning for the 
+For starters, we will perform a manual hyperparameter tuning for the 
 maximum depth (`max_depth`) parameter. We will test the values
 `#!python [5, 10, 15, 20, 25]`.
 
