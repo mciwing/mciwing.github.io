@@ -59,11 +59,9 @@ nav:
     - python/pandas.md
 
   - Python Extensive Course:
-    - python-extensive/index.md  # TODO: remove if all materials are finished
+    - Home: python-extensive/index.md
 
     - Basics & Data Types:
-      - "Motivation": python-extensive/python-index.md
-
       - Setup:
         - python-extensive/installation.md
         - "IDE": python-extensive/ide.md
