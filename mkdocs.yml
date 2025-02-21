@@ -138,6 +138,11 @@ nav:
   - Data Science:
       - data-science/index.md
 
+      - Data Basics:
+        - data-science/data-basics/terms.md
+        - data-science/data-basics/data.md
+        - "Data Basics": data-science/data-basics/basics.md
+
       - Data Preparation & Preprocessing:
         - data-science/data/preparation.md
         - data-science/data/preprocessing.md
