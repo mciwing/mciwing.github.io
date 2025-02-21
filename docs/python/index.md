@@ -5,6 +5,8 @@
 This course will teach you the basics of the 
 **:fontawesome-brands-python: Python** programming language.
 
+<!-- Body start -->
+
 ---
 
 <div style="text-align: center;">
@@ -203,3 +205,5 @@ In the next sections, we will install `Python` including the code editor
     Both Python and Visual Studio Code are already pre-installed on PCs in
     the MCI computer rooms. If you are working with your own computer, 
     please proceed to the next page.
+
+<!-- Body end -->
