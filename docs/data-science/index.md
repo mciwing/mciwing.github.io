@@ -28,6 +28,31 @@ examples!
 
 ## Tools
 
+As always, we use Python and these great packages :heart:
+
+---
+
+<div class="row" style="display: flex; justify-content: space-around;">
+    <div class="col">
+        <img src="https://www.python.org/static/img/python-logo.png" 
+        alt="Python Logo" style="width: 200px;">
+    </div>
+    <div class="col">
+        <img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" 
+        alt="Scikit-learn Logo" style="width: 170px;">
+    </div>
+    <div class="col">
+        <img src="https://pandas.pydata.org/static/img/pandas_white.svg" 
+        alt="Pandas Logo" style="width: 170px;">
+    </div>
+    <div class="col">
+        <img src="https://matplotlib.org/stable/_static/logo_dark.svg" 
+        alt="Matplotlib Logo" style="width: 200px;">
+    </div>
+</div>
+
+---
+
 ## Sneak peek
 
 Here is a sneak peek of selected topics we cover in this course:
