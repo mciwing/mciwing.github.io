@@ -60,9 +60,8 @@ Start by checking the attribute types.
     Again, look at the data set. The task is to identify which attribute types 
     are generally present in the dataset. Answer, the following quiz question.
 
-    <!--- TODO: add a link to the data types page. --->
-    If you need a refresher on attribute types, check the
-    [data types](../../databasics/DataBasics.md#attribute-types).
+    If you need a refresher on attribute types, check out the appropriate
+    [section](../data-basics/basics.md#attribute-types).
 
 <?quiz?>
 question: Which attribute types are present in the data set?
@@ -251,11 +250,10 @@ convenience, we will use `pandas` built-in plotting
 [capabilities](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html). 
 
 ???+ tip
-    
-    <!-- TODO: update link; once available in the data science course -->
-    As a refresher on how to visualize different attribute types, you can visit 
+
+    If you want to know more on visualizing different attribute types, visit 
     the [Frequency Distribution](../../statistics/univariate/Frequency.md) 
-    chapter.
+    chapter of the Statistics course.
 
 For example, we can plot numerical attributes like `#!python "campaign"` as a
 box plot.

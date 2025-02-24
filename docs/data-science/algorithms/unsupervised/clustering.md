@@ -369,7 +369,7 @@ cluster_indices = kmeans.fit_predict(X)
 <div style="text-align: center;">
     <h4>Now to the fun part!</h4>
     <iframe 
-        src="https://giphy.com/embed/LpXU1smaWaVwR2v6Gu" width="380" height="260"
+        src="https://giphy.com/embed/LpXU1smaWaVwR2v6Gu" width="348" height="260"
         style="" frameBorder="0" class="giphy-embed" allowFullScreen>
     </iframe>
 </div>

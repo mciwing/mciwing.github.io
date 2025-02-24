@@ -69,7 +69,7 @@ and "No skiing" which is a classic binary classification task.
 <div style="text-align: center">
 <h3>Excited for some theory?</h3>
 <iframe 
-    src="https://giphy.com/embed/zZC2AqB84z7zFnlkbF" width="480" height="360" 
+    src="https://giphy.com/embed/zZC2AqB84z7zFnlkbF" width="360" height="360" 
     style="" frameBorder="0" class="giphy-embed" allowFullScreen>
 </iframe>
 </div>

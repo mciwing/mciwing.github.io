@@ -163,7 +163,7 @@ nav:
 
       - Data Science in Practice:
           - Introduction: data-science/practice/index.md
-          - 1. Data preparation: data-science/practice/data-preparation.md  # TODO update links to Markdown files
+          - 1. Data preparation: data-science/practice/data-preparation.md
           - 2. Modelling: data-science/practice/modelling.md
           - 3. End-to-End: data-science/practice/end-to-end.md
           - Bonus: data-science/practice/bonus.md
