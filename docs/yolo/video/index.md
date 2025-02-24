@@ -121,6 +121,11 @@ cv2.destroyAllWindows()
 
 YOLO processes each video frame independently, making it suitable for real-time applications like detection, segmentation, or keypoint extraction. To use any of these vision algorithms, simply analyze each frame in sequence and display the annotated frame.
 
+```python
+results = model(frame)
+annotated_frame = results[0].plot()
+```
+
 ???+ question "Task: Analyze a Video"
     1. Try to access the webcam and display the live video
     2. Use the YOLOv8 Nano model to perform a:

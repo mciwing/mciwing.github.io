@@ -358,9 +358,9 @@ Faster R-CNN, also from 2015, introduced the Region Proposal Network (RPN), maki
 
 
 ???+ question "Task: Faster R-CNN"
-    Again it's your turn! Try running the code from above. Perform following tasks: 
+    Again it's your turn! Try running the Faster R-CNN code from above. Perform following tasks: 
         
-    - Can you detect faces and eyes in a different image? Replace `data.astronaut()` with your own image and see how it works!
+    - Can you detect objects in a different image? Try your own image and see how it works!
     - What is the `COCO_INSTANCE_CATEGORY_NAMES` variable? Do some research.
 
 
