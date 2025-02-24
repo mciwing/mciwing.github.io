@@ -106,7 +106,7 @@ Now we need to upload the images we've collected before. Label Studio supports m
 To upload the data by drag and drop:
 
 1. Click **Data Import** in your 'Create Project' module.
-2. Select your **collected euro note images** (from `data/five`, `data/ten`, and `data/mixed`) and drag and drop them into the upload area.
+2. Select your **collected euro note images** (from `rawdata/five`, `rawdata/ten`, and `rawdata/video`) and drag and drop them into the upload area.
 
 ???+ info "Uploading Data"
     Label Studio only allows to drag and drop 100 images at a time. If you have more than 100 images, you need to drag and drop them in batches. 
@@ -143,12 +143,12 @@ The last step in the project setup ist to configure the labeling interface (defi
 Now we are all set and we can start labeling:
 
 1. In your project landing page click on the **Label All Tasks** button.
-2. Select the **bounding box tool** ('5 euro' or '10 euro') from below the image.
+2. Select the **bounding box tool** (`5 euro` or `10 euro`) from below the image.
 3. Draw a box around each note in the image.
 5. Click **Submit** and move to the next image (even if no note is in the image, click on **submit** and NOT **skip**).
 
 ???+ tip "Labeling Tips"
-    - Use the shortcuts for the bounding box tool. E.g. '1' for '5 euro' and '2' for '10 euro'. The corresponding shortcut is shown besids the label name.
+    - Use the shortcuts for the bounding box tool. E.g. `1` for `5 euro` and `2` for `10 euro`. The corresponding shortcut is shown besids the label name.
     - Be consistent in your labeling to ensure high-quality training data.
     - You can always undo your last action by clicking on the **Undo** button.
 
@@ -182,11 +182,14 @@ Once you have downloaded the exported dataset, you can use it to train your YOLO
 After the export, Label Studio will hand over a zip file with two folders: `images` and `labels` as well as a `notes.json` and a `classes.txt` file. The folders contain the annotated images (`images/`) and the corresponding annotations in YOLO format (`labels/`). 
 We will copy those folders into our project folder. 
 
-```
+```plaintext hl_lines="4 5 6"
 📁 yolo_training/
-    └── 📁 annotations/
-            ├── 📁 images/
-            └── 📁 labels/
+├── 📁 .venv/
+├── 📁 rawdata/
+├── 📁 annotations/
+|   ├── 📁 images/
+|   └── 📁 labels/
+└── 📄 data_acquisition.ipynb
 ```
 
 We will then navigate to `annotations` and open the `labels` folder. Inside this folder, you will find a text file for each image. Each text file contains the annotation in the [YOLO format](https://docs.ultralytics.com/datasets/detect/#ultralytics-yolo-format) like:

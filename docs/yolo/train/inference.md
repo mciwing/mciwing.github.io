@@ -14,6 +14,25 @@ graph LR
 
 Now that our model is trained and optimized, it’s time to use it for **inference**, meaning we will test the model by running it on new images and evaluating its real-world performance.
 
+Therefore we start by adding a last notebook to our project folder:
+
+```plaintext hl_lines="13"
+📁 yolo_training/
+├── 📁 .venv/
+├── 📁 rawdata/
+├── 📁 annotations/
+|   ├── 📁 images/
+|   |   ├── 📁 train/
+|   |   └── 📁 val/
+|   └── 📁 labels/
+|       ├── 📁 train/
+|       └── 📁 val/
+├── 📄 config.yaml
+├── 📄 data_acquisition.ipynb
+├── 📄 inference.ipynb
+└── 📄 training.ipynb
+```
+
 
 ## Loading the Trained Model
 Before making predictions, we need to load the trained YOLO model. The weights for the best-performing model are stored in the `runs/detect/trainX/weights/best.pt` file.

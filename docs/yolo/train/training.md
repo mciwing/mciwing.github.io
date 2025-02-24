@@ -19,7 +19,23 @@ Now that we have collected and annotated our dataset, it's time to train our ver
 
 ## Preparation
 
-Before we can start the training of the model, we need to get a few things done. 
+Before we can start the training of the model, we need to get a few things done. Add the following files and folders to your project folder:
+
+```plaintext hl_lines="6 7 9 10 11 13"
+📁 yolo_training/
+├── 📁 .venv/
+├── 📁 rawdata/
+├── 📁 annotations/
+|   ├── 📁 images/
+|   |   ├── 📁 train/
+|   |   └── 📁 val/
+|   └── 📁 labels/
+|       ├── 📁 train/
+|       └── 📁 val/
+├── 📄 config.yaml
+├── 📄 data_acquisition.ipynb
+└── 📄 training.ipynb
+```
 
 
 ### Dataset Structure
@@ -40,18 +56,7 @@ The test dataset is then used to test the performance of the model in real-world
 </figure>
 
 
-A typical split ratio which is used in the machine learning community is **80% for training** and **20% for validation**. We split our dataset by moving the images and the corresponding labels into a `train` and `val` folders.
-
-``` hl_lines="4 5 7 8"
-📁 yolo_training/
-└── 📁 annotations/
-    ├── 📁 images/
-    |   ├── 📁 train/
-    |   └── 📁 val/
-    └── 📁 labels/
-        ├── 📁 train/
-        └── 📁 val/
-```
+A typical split ratio which is used in the machine learning community is **80% for training** and **20% for validation**. We split our dataset by moving the images and the corresponding labels into the newly created `train` and `val` folders.
 
 ???+ warning "Splitting Images and Labels"
     It is important to note, that the images and labels need to be split in the same way. For example, if you want to use the image `image_1.jpg` for training, you need to copy the label `image_1.txt` in the trainging folder as well.
@@ -64,11 +69,11 @@ Now that we have the data in the correct structure, we can create a **configurat
 - **Dataset paths** – Where the images and annotations are stored.  
 - **Class labels** – The names of the object categories.  
 
-The easiest way to create the configuration file is to use the `config.yaml` file and save it in the `yolo_training` folder.
+The easiest way to create the configuration file is to use the before created `config.yaml` file.
 
 ```yaml
 # Data
-path: C:/path/to/your/project_folder/annotated # path to your project folder
+path: C:/path/to/your/yolo_training/annotations # path to your project folder
 train: images/train # training images (relative to 'path')
 val: images/val # validation images (relative to 'path')
 #test: # test images (optional) (relative to 'path')
@@ -88,7 +93,7 @@ names:
 
 ## Training Process
 
-Once we have our dataset and configuration ready, we can start training our own YOLO model.
+Once we have our dataset and configuration ready, we can start training our own YOLO model. Therefore we will use the `training.ipynb` notebook.
 
 ### Running YOLO Training  
 
@@ -188,7 +193,7 @@ While the training is running, you can see the progress in the terminal or right
         - **No corrupt images** were found (which is good!). ✅  
 
         ```
-        Plotting labels to runs\detect\train16\labels.jpg...
+        Plotting labels to runs\detect\trainX\labels.jpg...
         ```
 
         - The **label distribution** is being visualized in a plot (`labels.jpg`).
@@ -247,8 +252,8 @@ While the training is running, you can see the progress in the terminal or right
 
         ```
         3 epochs completed in 0.088 hours.
-        Optimizer stripped from runs\detect\train16\weights\last.pt, 19.2MB
-        Optimizer stripped from runs\detect\train16\weights\best.pt, 19.2MB
+        Optimizer stripped from runs\detect\trainX\weights\last.pt, 19.2MB
+        Optimizer stripped from runs\detect\trainX\weights\best.pt, 19.2MB
         ```
 
         - Training took **0.088 hours (~5 minutes)**.
@@ -265,7 +270,7 @@ While the training is running, you can see the progress in the terminal or right
             Again, we will talk about the metrics in more detail in the [corresponding section](#detour-metrics).
 
         ```
-        Validating runs\detect\train16\weights\best.pt...
+        Validating runs\detect\trainX\weights\best.pt...
         ```
        
 
@@ -545,14 +550,14 @@ To do so, we do not need to train the model from scratch again. We can continue 
 
 ```py
 # Load the already trained model
-model = YOLO('./runs/detect/train17/weights/last.pt')  # (2)!
+model = YOLO('./runs/detect/trainX/weights/last.pt')  # (2)!
 
 # Resume training
 model.train(data = 'config.yaml', epochs = 50) #(1)!
 ```
 
 1. We now continue training the model for 50 more epochs.
-2. In this case, we load the last model from the `train17` folder.
+2. In this case, we load the last model from the `trainX` folder.
 
 In the end, our results should look like this: 
 
