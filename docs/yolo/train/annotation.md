@@ -52,7 +52,7 @@ For example, if we're training a model to recognize euro notes, we need to **man
 
 ### Step 1: Install Label Studio
 
-Label Studio runs as a web application on your computer. We already installed it in the [acquisition](./acquisition.md) chapter. To start Label Studio, simply run the following command in your terminal:
+Label Studio runs as a web application on your computer. We already installed it in the [introduction](../index.md) chapter. To start Label Studio, simply run the following command in your terminal:
 
 ```bash
 label-studio
@@ -165,6 +165,7 @@ Once all images are labeled, export your annotations in a format compatible with
 2. Select **YOLO** (`.txt` files).
 3. Download the exported dataset.
 
+
 ---
 
 Congratulation 🎉, you have just annotated your first dataset!
@@ -207,14 +208,10 @@ For our example the class ID is `0` for `five_euro` and `1` for `ten_euro`. This
 ???+ warning "Labels / Images"
     It is important to note, that the for each image there needs to be a corresponding label file with the same name. For example, if you have an image `images/image_1.jpg`, there needs to be a label file `labels/image_1.txt`.
 
-???+ question "Task: Annotation"
-    We can now use the collected images of the Euro notes from the previous chapter to annotate the data.
-
-    - Annotate the data with Label Studio following the guidelines from before.
-    - Make sure to label the data with bounding boxes.
-    - Save the annotations in the YOLO format.
-    - Copy the `images` and `labels` folder from the zip file into your `yolo_training/annotations` folder.
+???+ question "Task: YOLO Format"
+    Take a closer look at the label file for an image where both - a `5€` and a `10€` note - are present. What do you observe? How is the label file structured?
     
+
 
 ## Next Steps
 

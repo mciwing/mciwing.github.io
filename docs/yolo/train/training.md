@@ -88,6 +88,10 @@ names:
 
 1. The class numbers are defined in the `notes.json` file from the annotation chapter. The Names (here `Class1` and `Class2`) are arbitrary and can be chosen freely.
 
+???+ question "Task: Preperation"
+    Adjust the configuration file for our specific project (Euro Note Detection) and your specific path structure
+
+
 
 ---
 
@@ -403,7 +407,8 @@ The `weights` folder contains the **saved model weights** from training.
 ![Labels](../../assets/yolo/train_labels.jpg){width=80% }
 </figure>
 
-🔎 **What does it show?**  
+🔎 **What does it show?**
+
 The image `labels.jpg` shows:
 
 - Upper left: The **distribution of object labels** in the dataset. How often each class appears.
@@ -430,6 +435,7 @@ The image `labels.jpg` shows:
 </figure>
 
 🔎 **What does it show?**  
+
 The image `train_batch0.jpg` represents an input example and shows:
 
 - Sample images from the **training dataset**, including applied **augmentations** like rotation, scaling, and flipping.  
@@ -513,27 +519,29 @@ The `results.png` file tracks key metrics across all **epochs** (training cycles
 
 So let's get back to our Euro note :euro: example and interpret the results. In the [`results.png`](#resulting-metrics) file, we can analyze the before described metrics and derive the following observations:
 
-1. **Training Losses (Box, Class, DFL) are Decreasing** 
+???+ info "Observations"
 
-    - The **box loss**, **classification loss**, and **DFL loss** are consistently decreasing, indicating that the model is learning effectively and improving its predictions.  
-    - ✅ **This is a good sign** - it means the model is adjusting weights correctly and optimizing performance.  
+    1. **Training Losses (Box, Class, DFL) are Decreasing** 
 
-2. **Validation Losses (Box, Class, DFL) are Fluctuating**  
+        - The **box loss**, **classification loss**, and **DFL loss** are consistently decreasing, indicating that the model is learning effectively and improving its predictions.  
+        - ✅ **This is a good sign** - it means the model is adjusting weights correctly and optimizing performance.  
 
-    - The validation losses increase in epoch 2 but then decrease in epoch 3.  
-    - ⚠️ **This could indicate some instability in training**, possibly due to a small dataset or high variance in validation samples.  
-    - Further monitoring is required to ensure stability in later epochs.  
+    2. **Validation Losses (Box, Class, DFL) are Fluctuating**  
 
-3. **Precision and Recall are Inconsistent**  
+        - The validation losses increase in epoch 2 but then decrease in epoch 3.  
+        - ⚠️ **This could indicate some instability in training**, possibly due to a small dataset or high variance in validation samples.  
+        - Further monitoring is required to ensure stability in later epochs.  
 
-    - The **precision and recall values drop in epoch 2 but recover in epoch 3**.  
-    - This fluctuation suggests that the model might still be adjusting to the data distribution.  
-    - ⚠️ If these values remain unstable in later epochs, **you may need to fine-tune hyperparameters or use more training data**.  
+    3. **Precision and Recall are Inconsistent**  
 
-4. **mAP50 and mAP50-95 Initially Drop but Recover** 
+        - The **precision and recall values drop in epoch 2 but recover in epoch 3**.  
+        - This fluctuation suggests that the model might still be adjusting to the data distribution.  
+        - ⚠️ If these values remain unstable in later epochs, **you may need to fine-tune hyperparameters or use more training data**.  
 
-    - The mAP metrics (mean Average Precision) drop in epoch 2 and then increase significantly in epoch 3.  
-    - ✅ This suggests that while there were performance fluctuations, the model eventually improved its object detection accuracy.  
+    4. **mAP50 and mAP50-95 Initially Drop but Recover** 
+
+        - The mAP metrics (mean Average Precision) drop in epoch 2 and then increase significantly in epoch 3.  
+        - ✅ This suggests that while there were performance fluctuations, the model eventually improved its object detection accuracy.  
 
 
 **So what should we do now?** 
@@ -543,8 +551,6 @@ Since the model is still fluctuating, we should continue training for more epoch
 ---
 
 ### Fine-Tuning the Model
-
-Since the model is still fluctuating, we should continue training for more epochs, monitor validation loss closely, and adjust the learning rate if needed. Keep an eye on precision/recall stability!
 
 To do so, we do not need to train the model from scratch again. We can continue training the model from the last checkpoint.
 
@@ -559,7 +565,7 @@ model.train(data = 'config.yaml', epochs = 50) #(1)!
 1. We now continue training the model for 50 more epochs.
 2. In this case, we load the last model from the `trainX` folder.
 
-In the end, our results should look like this: 
+After some time (or a lot of time depending on your hardware 🙈) our results should look like this: 
 
 <figure markdown="span">
 ![Results](../../assets/yolo/results50.png){width=80% }

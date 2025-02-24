@@ -93,7 +93,7 @@ searchWeb(term="Lisa Simpson", path="rawdata/lisa", max_images=5)
 After downloading, it's important to clean your dataset by going through the following steps:
 
 ???+ tip "Dataset Cleaning Checklist"
-    - [ ] Check copyright restrictions
+    - [ ] Check copyright restrictions (if you plan to use the model for commercial purposes)
     - [ ] Remove corrupted images
     - [ ] Remove duplicates
     - [ ] Verify image quality
