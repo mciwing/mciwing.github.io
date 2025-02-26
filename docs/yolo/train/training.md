@@ -181,7 +181,7 @@ While the training is running, you can see the progress in the terminal or right
         Freezing layer 'model.23.dfl.conv.weight'
         ```
 
-        - **Pretrained Weights:** The model is using a **pretrained YOLO11s model** and transferring **493 out of 499 layers**.  
+        - **Pretrained Weights:** The model is using a **pretrained YOLO11s model** and transferring **493 out of 499 weights** (If the number of classes in your dataset is different from the number of classes in the pretrained model, not all parameter groups may be transferred).  
         - **Layer Freezing:** Some layers are **frozen** (not updated during training), possibly to **retain knowledge from the pre-trained model**.
 
 
@@ -579,7 +579,7 @@ This training run is significantly better than the previous one because:
 
 
 ???+ warning "Monitor for overfitting"
-    If validation loss starts increasing while training loss keeps decreasing, it might be overfitting. Consider adding data augmentation or early stopping if needed.
+    If validation loss starts increasing while training loss keeps decreasing, it might be overfitting. Consider adding data augmentation or early stopping if needed. Additionally, YOLO offers the training paramter `patience` to stop the training if the validation loss does not improve after a certain number of epochs (default is 100).
 
 ???+ tip "Things to Try"
 

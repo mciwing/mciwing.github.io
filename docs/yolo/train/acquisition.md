@@ -12,7 +12,7 @@ graph LR
   classDef active fill:#950f42
 ```
 ???+ info "Used Task"
-    In the following sections we will train a YOLO model for the task of [object detection](../index.md#detection). If you want to train a YOLO model for a different task (Segmentation, Keypoint Extraction, etc.), the process is quit similar. At some point you will need to make some changes to the annotation and the configuration file.
+    In the following sections we will train a YOLO model for the task of [object detection](../index.md#detection). If you want to train a YOLO model for a different task (Segmentation, Keypoint Extraction, etc.), the process is quite similar. At some point you will need to make some changes to the annotation and the configuration file.
 
 
 After learning about different computer vision tasks with YOLO, you might want to train your own model for specific use cases. The first step in training a custom YOLO model is acquiring a suitable dataset. A well-curated and diverse dataset is key to achieving high performance and generalization in computer vision tasks. This chapter will guide you through various methods of collecting training data.
