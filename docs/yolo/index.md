@@ -1,10 +1,4 @@
 # Introduction
-???+ danger "Under Construction"
-
-    The `Computer Vision` section is currently under construction. 
-    :fontawesome-solid-person-digging:
-
-    Please check back later for updates.
 
 ![header](../assets/header/cv.png)
 
