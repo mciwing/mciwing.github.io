@@ -3920,7 +3920,7 @@
             
   
   <span class="md-ellipsis">
-    Train a Model
+    Train a Model 🏋️
     
   </span>
   
@@ -3931,9 +3931,31 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_6">
             <span class="md-nav__icon md-icon"></span>
-            Train a Model
+            Train a Model 🏋️
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -4475,7 +4497,7 @@
 <hr />
 <h2 id="annotation-with-label-studio">Annotation with Label Studio</h2>
 <h3 id="step-1-install-label-studio">Step 1: Install Label Studio</h3>
-<p>Label Studio runs as a web application on your computer. We already installed it in the <a href="../acquisition/">acquisition</a> chapter. To start Label Studio, simply run the following command in your terminal:</p>
+<p>Label Studio runs as a web application on your computer. We already installed it in the <a href="../../">introduction</a> chapter. To start Label Studio, simply run the following command in your terminal:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>label-studio
 </span></code></pre></div>
 <p>This will open <strong>Label Studio in your browser</strong> at <code>http://localhost:8080/</code> </p>
@@ -4514,7 +4536,7 @@ After signing up, you can login with your new credentials.</p>
 <p>To upload the data by drag and drop:</p>
 <ol>
 <li>Click <strong>Data Import</strong> in your 'Create Project' module.</li>
-<li>Select your <strong>collected euro note images</strong> (from <code>data/five</code>, <code>data/ten</code>, and <code>data/mixed</code>) and drag and drop them into the upload area.</li>
+<li>Select your <strong>collected euro note images</strong> (from <code>rawdata/five</code>, <code>rawdata/ten</code>, and <code>rawdata/video</code>) and drag and drop them into the upload area.</li>
 </ol>
 <details class="info" open="open">
 <summary>Uploading Data</summary>
@@ -4547,14 +4569,14 @@ After signing up, you can login with your new credentials.</p>
 <p>Now we are all set and we can start labeling:</p>
 <ol>
 <li>In your project landing page click on the <strong>Label All Tasks</strong> button.</li>
-<li>Select the <strong>bounding box tool</strong> ('5 euro' or '10 euro') from below the image.</li>
+<li>Select the <strong>bounding box tool</strong> (<code>5 euro</code> or <code>10 euro</code>) from below the image.</li>
 <li>Draw a box around each note in the image.</li>
 <li>Click <strong>Submit</strong> and move to the next image (even if no note is in the image, click on <strong>submit</strong> and NOT <strong>skip</strong>).</li>
 </ol>
 <details class="tip" open="open">
 <summary>Labeling Tips</summary>
 <ul>
-<li>Use the shortcuts for the bounding box tool. E.g. '1' for '5 euro' and '2' for '10 euro'. The corresponding shortcut is shown besids the label name.</li>
+<li>Use the shortcuts for the bounding box tool. E.g. <code>1</code> for <code>5 euro</code> and <code>2</code> for <code>10 euro</code>. The corresponding shortcut is shown besids the label name.</li>
 <li>Be consistent in your labeling to ensure high-quality training data.</li>
 <li>You can always undo your last action by clicking on the <strong>Undo</strong> button.</li>
 </ul>
@@ -4580,9 +4602,12 @@ After signing up, you can login with your new credentials.</p>
 <p>After the export, Label Studio will hand over a zip file with two folders: <code>images</code> and <code>labels</code> as well as a <code>notes.json</code> and a <code>classes.txt</code> file. The folders contain the annotated images (<code>images/</code>) and the corresponding annotations in YOLO format (<code>labels/</code>). 
 We will copy those folders into our project folder. </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📁 yolo_training/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    └── 📁 annotations/
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>            ├── 📁 images/
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            └── 📁 labels/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── 📁 .venv/
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── 📁 rawdata/
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="hll">├── 📁 annotations/
+</span></span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="hll">|   ├── 📁 images/
+</span></span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="hll">|   └── 📁 labels/
+</span></span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>└── 📄 data_acquisition.ipynb
 </span></code></pre></div>
 <p>We will then navigate to <code>annotations</code> and open the <code>labels</code> folder. Inside this folder, you will find a text file for each image. Each text file contains the annotation in the <a href="https://docs.ultralytics.com/datasets/detect/#ultralytics-yolo-format">YOLO format</a> like:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>0 0.5029612756264237 0.5018223234624145 0.9858769931662869 0.980410022779043
@@ -4594,6 +4619,10 @@ We will copy those folders into our project folder. </p>
 <details class="warning" open="open">
 <summary>Labels / Images</summary>
 <p>It is important to note, that the for each image there needs to be a corresponding label file with the same name. For example, if you have an image <code>images/image_1.jpg</code>, there needs to be a label file <code>labels/image_1.txt</code>.</p>
+</details>
+<details class="question" open="open">
+<summary>Task: YOLO Format</summary>
+<p>Take a closer look at the label file for an image where both - a <code>5€</code> and a <code>10€</code> note - are present. What do you observe? How is the label file structured?</p>
 </details>
 <h2 id="next-steps">Next Steps</h2>
 <p>Now that you have <strong>annotated data</strong>, you're ready to <a href="../training/">train</a> your YOLO model! In the next chapter, we'll explore how to <strong>train YOLO with your labeled dataset</strong>.</p><style type="text/css">.quiz {
@@ -4729,7 +4758,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-18T07:15:39+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-18</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-02-24T09:56:53+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-02-24</span>
   </span>
 
     
