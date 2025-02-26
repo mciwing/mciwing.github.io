@@ -11,26 +11,20 @@ graph LR
   click D "../inference" _self
   classDef active fill:#950f42
 ```
+???+ info "Used Task"
+    In the following sections we will train a YOLO model for the task of [object detection](../index.md#detection). If you want to train a YOLO model for a different task (Segmentation, Keypoint Extraction, etc.), the process is quite similar. At some point you will need to make some changes to the annotation and the configuration file.
 
-After learning about different computer vision tasks with YOLO, you might want to train your own model for specific use cases. The first step in training a custom YOLO model is acquiring a suitable dataset. A well-curated and diverse dataset is key to achieving high performance and generalization in computer vision tasks.This chapter will guide you through various methods of collecting training data.
 
-## Project Setup
-For this chapter, we'll start a new project for training our custom YOLO model: 
-```
+After learning about different computer vision tasks with YOLO, you might want to train your own model for specific use cases. The first step in training a custom YOLO model is acquiring a suitable dataset. A well-curated and diverse dataset is key to achieving high performance and generalization in computer vision tasks. This chapter will guide you through various methods of collecting training data.
+
+We'll start by adding a new folder for our dataset and a new Jupyter notebook for data acquisition:
+
+```plaintext hl_lines="3 4"
 📁 yolo_training/
-    ├── 📁 .venv/
-    ├── 📁 data/
-    ├── 📁 annotations/
-    └── 📄 data_acquisition.ipynb
+├── 📁 .venv/
+├── 📁 rawdata/
+└── 📄 data_acquisition.ipynb
 ```
-???+ warning "Installation"
-
-    We will use different tools in the following sections which can be installed by running the following command in your terminal. This time, the sequence of installation is important to due some dependencies.
-
-    ```commandline
-    pip install label-studio ImageEngine opencv-python ultralytics
-    ```
-
 
 ## The Need for Data :material-database:
 
@@ -71,12 +65,9 @@ When collecting your dataset think about the following best practices:
 
 ## Automatic Image Collection :material-image:
 
-With this knowledge in mind, we can start to collect images for our training dataset. Web scraping can be used to download large amounts of images for training datasets. Python libraries like `requests` and `BeautifulSoup` are common tools for this purpose. An even more comfortable way is to use an API of a search engine like **Bing :material-microsoft-bing:**, **Google :material-google:** or **DuckDuckGo :simple-duckduckgo:**. The [`ImageEngine`](https://pypi.org/project/ImageEngine/) package can be used to search all three search engines at ones. 
+With this knowledge in mind, we can start to collect images for our training dataset. Web scraping can be used to download large amounts of images for training datasets. Python libraries like `requests` and `BeautifulSoup` are common tools for this purpose. An even more comfortable way is to use an API of a search engine like **Bing :material-microsoft-bing:**, **Google :material-google:** or **DuckDuckGo :simple-duckduckgo:**. 
 
-```commandline
-pip install ImageEngine
-```
-
+The [`ImageEngine`](https://pypi.org/project/ImageEngine/) package can be used to search all three search engines at ones. 
 You can run a search :simple-searxng: with just a couple of lines: 
 
 ```python
@@ -87,13 +78,13 @@ from ImageEngine import searchWeb       # Search all three engines
 
 # Search images from DuckDuckGo
 # "Homer Simpson" is the search string and "homer" is the directory where images will be stored
-searchDDG(term="Homer Simpson", path="data/homer", max_images=5)
+searchDDG(term="Homer Simpson", path="rawdata/homer", max_images=5)
 # Search images from Bing
-searchBing(term="Marge Simpson ", path="data/marge", max_images=5)
+searchBing(term="Marge Simpson ", path="rawdata/marge", max_images=5)
 # Search images from Google
-searchGoogle(term="Bart Simpson", path="data/bart", max_images=5)
+searchGoogle(term="Bart Simpson", path="rawdata/bart", max_images=5)
 # Search images from all three engines
-searchWeb(term="Lisa Simpson", path="data/lisa", max_images=5)
+searchWeb(term="Lisa Simpson", path="rawdata/lisa", max_images=5)
 
 ```
 
@@ -102,7 +93,7 @@ searchWeb(term="Lisa Simpson", path="data/lisa", max_images=5)
 After downloading, it's important to clean your dataset by going through the following steps:
 
 ???+ tip "Dataset Cleaning Checklist"
-    - [ ] Check copyright restrictions
+    - [ ] Check copyright restrictions (if you plan to use the model for commercial purposes)
     - [ ] Remove corrupted images
     - [ ] Remove duplicates
     - [ ] Verify image quality
@@ -170,7 +161,7 @@ Those steps can be done manually by looking through the pictures. Finding duplic
 ???+ question "Task: Download Images"
     Now it's your turn. We want to collect images of different Euro notes. 
 
-    - Try to use the `ImageEngine` package to download 100 suitable images of a `5€` and a `10€` note and save them into the folder `data/five` and `data/ten` (in total 200 images).
+    - Try to use the `ImageEngine` package to download 100 suitable images of a `5€` and a `10€` note and save them into the folder `rawdata/five` and `rawdata/ten` (in total 200 images).
     - Go through the data cleaning checklist (you can use the function from above)
 
     <figure markdown="span"> ![Euro](../../assets/yolo/euro_notes.jpg){width=60% }</figure>
@@ -188,7 +179,7 @@ Another effective way to collect a vast amount of images is by extracting and sa
 We already introduced OpenCV in the [previous chapter](../video/index.md#complete-program). We can use this package to access the video (saved or webcam) and instead of showing the image, we can save it as an image in a folder
 
 ```python
-cv2.imwrite(f'data/video/frame_{frameNr}.jpg', frame)
+cv2.imwrite(f'rawdata/video/frame_{frameNr}.jpg', frame)
 ```
 ???+ info "Unique File Name"
     `frameNr` is simply a **frame counter**. It starts at 0 before entering the loop and increments by 1 every time a frame is successfully read from the video. This counter is used to give each extracted frame a unique filename (e.g., `frame_0.jpg`, `frame_1.jpg`, etc.).
@@ -201,7 +192,7 @@ cv2.imwrite(f'data/video/frame_{frameNr}.jpg', frame)
         - `10€` note in different angles
         - `5€` and `10€` note together in different angles
         - negative samples (no note in the frame)
-    - You can use the `VideoCapture` function of OpenCV from the previous chapter and add `imwrite` to save (and not only show) the frames. Save each 4th frame seperately in the folder `data/mixed`.
+    - You can use the `VideoCapture` function of OpenCV from the previous chapter and add `imwrite` to save (and not only show) the frames. Save each 4th frame seperately in the folder `rawdata/video`.
     - Keep the recording guidelines in your mind.
 
     <figure markdown="span"> ![Euro](../../assets/yolo/acc_video.jpg){width=60% }</figure>

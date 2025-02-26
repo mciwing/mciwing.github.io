@@ -179,7 +179,8 @@ nav:
     - Video Processing 🎥:
       - yolo/video/index.md
       - yolo/video/solutions.md
-    - Train a Model: 
+    - Train a Model 🏋️: 
+      - yolo/train/index.md
       - yolo/train/acquisition.md
       - yolo/train/annotation.md
       - yolo/train/training.md
