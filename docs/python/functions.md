@@ -113,6 +113,7 @@ def greet(first_name, last_name):
     
     Remember the task to calculate the break-even point? Now, you'll wrap 
     following formula within a function:
+    
     $$
     \text{BEP (units)} = \frac{\text{Fixed Costs}}{\text{Price per Unit} - \text{Variable Cost per Unit}}
     $$
