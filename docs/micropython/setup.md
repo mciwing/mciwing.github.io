@@ -46,7 +46,7 @@ The ESP32 microcontroller is an ideal choice for IoT projects. It comes in vario
     
 
 ## Setting up our Project
-Before we can start programming our ESP32, we need to install some necessary software first. 
+Before we can start programming our ESP32, we need to prepare some tools and the hardware. 
 
 ### Firmware Upload
 
@@ -62,7 +62,7 @@ Below are the step-by-step instructions:
 2. **Connect the ESP32:** 
 
     - Plug your ESP32 into your computer using a USB cable.
-    - Note that the ESP32 will be detected as a **COM** port on Windows. To check, if the ESP32 is detected correctly, we look in the **Device Manager** under **Ports**. You should see something like this:
+    - Note that the ESP32 will be detected as a **COM** port on Windows. To check, if the ESP32 is detected correctly, we look in the **Device Manager** under **Ports**. You should see something like this: 
     ![Device](../assets/micropython/cp210x.png)
 
     ???+ warning "CP210X Driver"
@@ -109,17 +109,39 @@ Happy coding and welcome to the world of MicroPython :material-file-code:!
 
 ---
 
-Thonny for firmware upload  
+### Prepare Visual Studio Code
 
-### Code Editing and Debugging
-PyMakr for code editing and debugging
-Node.js is needed therefore
-
-Troubleshooting Port Probleme: Install CP2102 USB Driver
+Although you can program directly in Thonny, we've already explored Visual Studio Code - which offers advantages such as enhanced code completion and seamless GitHub integration. These features make VS Code a powerful option, especially for larger projects or collaborative work. If you need a refresher on how to set up VS Code, you can check out the [IDE Setup](../python-extensive/ide.md) section.
 
 
-## Try it out!
+???+ warning "Install Node.js"
+    Before continuing, ensure you have **`Node.js`** installed on your computer. `Node.js` is a cross-platform, open-source JavaScript runtime that lets you execute JavaScript code outside of a web browser.
 
+    If you don't have it installed yet, please [download](https://nodejs.org/en/download) and install `Node.js`. During installation, it's highly recommended to tick the option to install any required additional programs. Once you proceed, a terminal window may open where you might need to confirm a few prompts. The installation process might take a few minutes; the terminal will close automatically when the installation is complete. Afterward, you should see `Node.js` listed among your installed programs.
+
+    Once `Node.js` is successfully installed, you can move on to the next steps.
+    <figure markdown="span">
+        ![Node.js](../assets/micropython/notejs.png)
+    </figure>
+    
+
+To run our code on the ESP32, we'll use the **`PyMakr` extension** in Visual Studio Code. This extension allows you to easily upload and execute your MicroPython scripts directly on the ESP32. We already covered how to install [extensions](../python-extensive/ide.md#extensions).
+
+<figure markdown="span">
+    ![Node.js](../assets/micropython/pymakr.png)
+</figure>
+
+After adding the extension, you should see `PyMakr` as a new button on the left-hand side of the VS Code window.
+
+Now we are all set up and can start programming! :rocket:
+
+---
+
+## Blink :material-lightbulb-multiple-outline: | The Hello World of Embedded Systems
+
+<figure markdown="span">
+    ![blink](https://media.licdn.com/dms/image/v2/C5112AQGKuOV9YxRaFw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1569298696507?e=2147483647&v=beta&t=Oi3Tk_iC7r4PA61xjhWRJvblYeMUcYs03Ta4elCS9eg)
+</figure>
 
 make led blink
 
