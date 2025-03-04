@@ -62,35 +62,52 @@ Below are the step-by-step instructions:
 2. **Connect the ESP32:** 
 
     - Plug your ESP32 into your computer using a USB cable.
+    - Note that the ESP32 will be detected as a **COM** port on Windows. To check, if the ESP32 is detected correctly, we look in the **Device Manager** under **Ports**. You should see something like this:
+    ![Device](../assets/micropython/cp210x.png)
 
-4. **Configure Thonny IDE:**  
+    ???+ warning "CP210X Driver"
+        If you cannot find the correct port, it might be because your PC or laptop does not have the necessary USB-to-UART driver installed. The chip responsible for the USB-to-UART conversion is usually a large, black, square component located next to the connector. If you shine a light on it, you should be able to read **CP2102** on the second line, indicating that the chip is manufactured by Silicon Labs. Since the driver is specific to the chip’s architecture, you can download the appropriate driver from [Silicon Labs USB-to-UART Bridge VCP Drivers](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads). 
 
-    - Open Thonny IDE and go to **Tools > Options > Interpreter**.  
-    - Select **MicroPython (ESP32)** from the interpreter options and ensure the correct port is selected.  
-        - *Tip for Windows:* Check **Device Manager > Ports** to verify which port is occupied (look for entries like “USB to UART”).  
-        - *Tip for macOS:* Navigate to **About This Mac > System Report** and look under USB to find your device.
+        For Windows users, select the **CP210x VCP Windows** file, unzip the downloaded .zip file, and run the installer for your system architecture (x64 or x86). Once the driver is installed, the correct port should appear in your device manager.
 
-5. **Install or Update the Firmware:**  
-   - Click the **Install or update firmware** button.  
-   - Select the correct port (if not already set) and browse to the downloaded `.bin` file.  
-   - Click **Install** to flash the firmware onto the ESP32.
+3. **Install or Update the Firmware in Thonny:**  
 
-   *Note:* With newer versions of Thonny, you can also click the orange **Install or update MicroPython** button after selecting the interpreter and port. In this case, choose:
-   - **Target port:** USB to UART  
-   - **MicroPython family:** ESP32  
-   - **Variant:** Espressif ESP32 / WROOM  
-   - It is recommended to use **version 1.22.1** since the latest version may cause issues.
+    - Open Thonny IDE and go to **Tools > Options > Interpreter**. 
+    - Select **MicroPython (ESP32)** from the interpreter options 
+    - Select the correct **port** (see step before).
+    - Click the **Install or update MicroPython (esptool)** button. 
 
-6. **Verify the Installation:**  
-   - In Thonny, ensure that under **Tools > Options** the interpreter is correctly set.  
-   - You should see a connection established in the shell at the bottom.  
-   - Type `help()` and press Enter to check that the controller is responding correctly.
+    <div style="display: flex; justify-content: center;">
+        <img src="/assets/micropython/thonny1.png" alt="Thonny" style="width: 45%">
+    </div>
 
-If any problems occur, you can also use alternative tools such as **esptool.py** from Espressif or **uPyCraft IDE**. For further details, check out this guide: [Flashing MicroPython with esptool.py](https://randomnerdtutorials.com/flashing-micropython-firmware-esptool-py-esp32-esp8266/).
+    A new window will open. Make the following selections:
 
-Happy coding and welcome to the world of MicroPython!
+    - **Target port:** USB to UART  
+    - **MicroPython family:** ESP32  
+    - **Variant:** Espressif ESP32 / WROOM  
+    - **Version:** 1.24.1 (this is the latest version at the time of writing)
+
+    <div style="display: flex; justify-content: center;">
+        <img src="/assets/micropython/thonny2.png" alt="Thonny 2" style="width: 45%;">
+    </div>
+
+    After clicking on **Install** the firmware will be flashed onto the ESP32. :white_check_mark:
+
+    ???+ info "Verify the Installation"
+
+        - In Thonny, you can select the **Micropython (ESP32)** from the bottom right corner.
+        - You should see a connection established in the shell at the bottom.  
+        - Type `help()` and press Enter to check that the controller is responding correctly.
+        <div style="display: flex; justify-content: center;">
+            <img src="/assets/micropython/thonny3.png" alt="Thonny" style="width: 80%">
+        </div>
 
 
+
+Happy coding and welcome to the world of MicroPython :material-file-code:! 
+
+---
 
 Thonny for firmware upload  
 
