@@ -254,11 +254,32 @@ Below is a quick guide on how to create a new PyMakr project, connect your ESP32
 
 This indicates that your ESP32 is successfully connected and ready to receive MicroPython commands. :partying_face:
 
-You can now upload scripts and run code directly on the device. 
+You can now upload scripts and run code directly on the device.
+
+#### 5. Default File Structure
+
+When you create a new project, VS Code will automatically create a default file structure. In the file explorer, you should see the following files:
+
+- `main.py` - This is the main file that will contain our code.
+- `boot.py` - This file is automatically executed when the ESP32 starts (executed once before the main.py file is executed).
+- `pymakr.conf` - This file contains the configuration for the PyMakr extension.
+
+??? info "Configuration File"
+    The `pymakr.conf` file typically contains only one entry, such as `"name": "Empty Project"`. If you haven’t created an *empty project*, it may have additional entries, but these are not crucial. This file is a **configuration file**, historically used for setting up Pymakr. While it was more significant in older versions, modern VSCode automatically generates **JSON-based configuration files** in the background, where these settings are stored.
+
+    However, knowing where to find these settings can still be useful. You can access them in VSCode by navigating to:  
+    **File** → **Preferences** → **Settings** (or press ++ctrl+comma++) → **Extensions** → **Pymakr**.  
+
+    Under **Devices**, you'll find the option **Edit in settings.json**, where various connection settings are defined. At the top, you’ll see the path to your Python interpreter, followed by default connection settings and their properties.  
+
+    If you want your laptop to **automatically connect** to the microcontroller, you could add an entry specifying the port and set options like `"autoConnect": "always"`. Further down, there are **notification settings** that inform you if something goes wrong. The file may also list **device manufacturers**, such as *Silicon Labs*, but modifying these entries is usually unnecessary.  
+
+    Understanding these settings can be helpful if you encounter issues and seek troubleshooting advice from ChatGPT or other sources. While the `pymakr.conf` file is rarely used today, **settings.json** and the built-in VSCode configurations have taken over its role.
 
 ### Start Coding
 
-We’ll write a few lines of code to control the LED. We will start by importing the necessary modules.
+Now that we have our project setup, we can start coding. For our first project, we will only need to work in the `main.py` file.
+We will start by importing the necessary modules.
 
 ```python
 from machine import Pin
@@ -272,57 +293,101 @@ The second line of code imports the `sleep` function from the MicroPython (or st
 
 ---
 
+Next, we need to define the interface to the real world. In our case, we want to control the LED. Therefore, we need an output pin on the ESP32 which can be set to high (led on) or low (led off). Each pin on the ESP32 breakout board is assigned a number. To find out which pin is which, you can look at the [pinout](https://cdn.shopify.com/s/files/1/1509/1638/files/ESP-32_NodeMCU_Developmentboard_Pinout.pdf?v=1609851295) chart:
+
+![Pinout](../assets/micropython/pinout.png)
+
+
+
+For this project, we will use the `GPIO2` pin as an output pin (`Pin.OUT`) and assign it to the variable `led`.
+
 ```python
-# Set GPIO2 as output (this is the onboard LED pin on most ESP32 boards)
+# Set GPIO2 as output
 led = Pin(2, Pin.OUT)
 ```
 
-- We create an object called `led` representing GPIO2. The second argument, `Pin.OUT`, sets it as an output pin.  
+---
 
-    ```python
-    # Blink the LED
-    while True:
-        led.value(1) 
-        print('LED on')  # Turn on the LED
-        sleep(1)         # Delay for 1 second
-        led.value(0)
-        print('LED off') # Turn off the LED
-        sleep(1)         # Delay for 1 second
-    ```
-
-- We use an infinite loop (`while True:`) to continuously blink the LED.  
-- `led.value(1)` switches the LED on by sending a HIGH signal to GPIO2.  
-- `print('LED on')` is optional but helps confirm in the console that the LED is on.  
-- `sleep(1)` pauses the program for one second, keeping the LED lit.  
-- `led.value(0)` then switches the LED off (LOW signal).  
-- Another `sleep(1)` keeps the LED off for one second before the loop repeats.
-
-Below is the complete code in one piece. Simply copy it into your MicroPython file and run it on the ESP32:
+Now we can start coding the logic to blink the LED. We can set the `led` to high or low by calling the `value()` method of the `led` object.
 
 ```python
+led.value(1) # set the led to high
+```
+
+Afterwards, we need to pause the program for a second to see the LED light up
+
+```python
+sleep(1)
+```
+
+and then set the `led` to low again.
+
+```python
+led.value(0) # set the led to low
+sleep(1)
+```
+
+In order to make the LED blink, we need to repeat this process in an infinite loop (`while True:`).
+
+---
+
+The complete code can be distilled to: 
+
+
+```python linenums="1" title="main.py"
 from machine import Pin
 from time import sleep
 
-# Set GPIO2 as output (this is the onboard LED pin on most ESP32 boards)
+# Set GPIO2 as Output Pin
 led = Pin(2, Pin.OUT)
 
 # Blink the LED
 while True:
-    led.value(1) 
-    print('LED on')  # Turn on the LED
+    led.value(1)     # Turn on the LED
+    print('LED on')  # Print to Terminal
     sleep(1)         # Delay for 1 second
-    led.value(0)
-    print('LED off') # Turn off the LED
+    led.value(0)     # Turn off the LED
+    print('LED off') # Print to Terminal
     sleep(1)         # Delay for 1 second
 ```
 
-When you run this code, the LED should blink on and off at one-second intervals. Check your console (REPL or terminal) for the print statements “LED on” and “LED off” to verify that everything is working.
+We added some print statements to the terminal to make it easier to see what is happening. In the next section, we will use the terminal to debug our code.
 
-> **Tip:** If you have issues with the LED not blinking, make sure you have the correct GPIO pin referenced, and verify that your wiring and resistor are connected properly.
+## Upload and Run the Code
 
-Congratulations—you’ve completed your first hardware test with MicroPython!
+Now we are ready to upload and run the code on our microcontroller. Once the `main.py` file is saved, we can upload the code to the microcontroller by clicking on the **Sync project to device** :material-cloud-upload-outline: button by hovering over the device in our PyMakr project. The files will be uploaded to the ESP32. 
+
+After the upload, the program will not start automatically. We will need to reset the microcontroller by pressing the **RST** button on the ESP32 breakout.
 
 
+???+ warning "Control Commands"
+
+    In the terminal, you can use the following control commands to interact with the microcontroller:
+
+    - ++ctrl+c++: **interrupt the running program**. This can be helpfull, if something is not working as expected. Additionally, it is also necessary to stop the program before you can upload new code.
+    - ++ctrl+d++: **soft reset**. It wipes the program in the memory and reruns the `boot.py` and `main.py` file.
+
+
+
+Now you should see, the LED blink on and off at one-second intervals. 
+Open the terminal (click **Create Terminal** at the device in your PyMakr project) and check for the right output. You should see the print statements `LED on` and `LED off` to verify that everything is working.
+
+<figure markdown="span">
+    ![Blink](../assets/micropython/blink_setup10.png)
+</figure>
+
+<figure markdown="span">
+    <img 
+            src="/assets/micropython/real_blink.gif" alt="blink" 
+            style="height: 300px; border-radius:10px;"
+        >
+</figure>
+
+???+ tip "Troubleshooting"
+    If you have issues with the LED not blinking while the terminal output is correct, make sure you have the correct GPIO pin referenced, and verify that your wiring and resistor are connected properly.
+
+
+Congratulations - you've completed your first hardware test with MicroPython!
 
 <img 
         src="/assets/micropython/linkedinBlink.gif" alt="blink" 
@@ -330,12 +395,16 @@ Congratulations—you’ve completed your first hardware test with MicroPython!
     >
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+???+ question "Task: SOS blinking"
+    Now it's your turn to code!
 
+    Create a program that makes the LED blink in the `SOS` morse code sequence. Therefore use the official [Morse Code Timing](https://morsecode.world/international/timing.html). As base unit use 0.2 seconds.
 
-Task SOS blinking
+    - Basic: Use a simple loop to blink the LED in the SOS sequence.
+    - Pro (optional): Use loops and functions to make the code more readable and modular.
 
+    <figure markdown="span">
+    ![Morse](https://i.imgflip.com/6b9hfv.jpg){width=70% }
+    <figcaption>(Source: <a href="https://imgflip.com/memegenerator">Imgflip Meme Generator</a>) </figcaption>
+    </figure>
 
-Take a look at the pinout chart of our `ESP32-WROOM-32` and make yourself familiar with the pins.
-
-![Pinout](../assets/micropython/pinout.png)
