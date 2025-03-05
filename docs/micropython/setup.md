@@ -152,7 +152,9 @@ In this first mini-project, we'll make an external LED blink using the ESP32. Bl
 
 ### Hardware Setup
 
-Before we start coding, we need to setup the hardware. The core element of our project is - as already mentioned - the ESP32 microcontroller. We need to connect it to an LED via a resistor. The resistor is necessary to limit the current flowing through the LED, which can damage the LED if too much current flows through it. In the below image you can see the wiring scheme. Connect all components as shown.
+Before we start coding, we need to setup the hardware. The core element of our project is - as already mentioned - the ESP32 microcontroller. The ESP32 it self is the large black component on the breakout board shown below. The breakout board helps us to connect the ESP32 to the real world and also deals with other topics like power supply and programming the microcontroller. From now on, whenever we refer to the **ESP32**, we specifically mean the **ESP32 Breakout Board**.
+
+For the Blink project, we need to connect the ESP32 to an LED via a resistor. The resistor is necessary to limit the current flowing through the LED, which can damage the LED if too much current flows through it. In the below image you can see the wiring scheme. Connect all components as shown. As output pin, we use `GPIO2` on the ESP32.
 
 <figure markdown="span">
     ![Blink](../assets/micropython/fritz_blink.png)
@@ -160,6 +162,11 @@ Before we start coding, we need to setup the hardware. The core element of our p
 
 ???+ tip "LED Pinout"
     The LED has two legs: the **cathode** (shorter leg) and the **anode** (longer leg). The cathode is connected to `GND`, and the anode to the supply voltage (here to a `1 kΩ` resistor, and from the resistor to `GPIO2` on the ESP32 which will be controlled by the code.)
+
+???+ info "GPIO Insights"
+    A **GPIO (General Purpose Input/Output)** is a digital pin on a microcontroller or processor that can be freely configured as an **input** or **output** through programming. By default, GPIOs are unassigned and can be controlled in a binary manner (`HIGH` or `LOW`).  
+
+    GPIOs typically operate at **3.3V** and can supply **2-16 mA** of current, making them suitable for driving components like LEDs. For example, if a GPIO pin is set to **HIGH**, the LED turns **on**; when set to **LOW**, the LED turns **off**. GPIOs are fundamental for interfacing with sensors, actuators, and other peripherals in embedded systems.
 
 ### PyMakr Project Setup
 
@@ -258,11 +265,17 @@ You can now upload scripts and run code directly on the device.
 
 #### 5. Default File Structure
 
-When you create a new project, VS Code will automatically create a default file structure. In the file explorer, you should see the following files:
+When you create a new project, VS Code will automatically create a folder with a default file structure. In the file explorer, you should see the following files:
 
 - `main.py` - This is the main file that will contain our code.
 - `boot.py` - This file is automatically executed when the ESP32 starts (executed once before the main.py file is executed).
 - `pymakr.conf` - This file contains the configuration for the PyMakr extension.
+
+All programmes and libraries that we need are edited and loaded in this folder. If you click on **Sync project to device** in the PyMakr tab, the entire project folder will be loaded onto the microcontroller. 
+
+???+ warning "Important Files"
+    Please do not rename `boot.py` and `main.py`. If you do not need `boot.py`, you can delete it or leave it empty until you use it again, but `main.py` should always be there!
+
 
 ??? info "Configuration File"
     The `pymakr.conf` file typically contains only one entry, such as `"name": "Empty Project"`. If you haven’t created an *empty project*, it may have additional entries, but these are not crucial. This file is a **configuration file**, historically used for setting up Pymakr. While it was more significant in older versions, modern VSCode automatically generates **JSON-based configuration files** in the background, where these settings are stored.
@@ -299,7 +312,7 @@ Next, we need to define the interface to the real world. In our case, we want to
 
 
 
-For this project, we will use the `GPIO2` pin as an output pin (`Pin.OUT`) and assign it to the variable `led`.
+As we have connected it [before](#hardware-setup), for this project, we will use the `GPIO2` pin as an output pin (`Pin.OUT`) and assign it to the variable `led`.
 
 ```python
 # Set GPIO2 as output
@@ -357,7 +370,7 @@ We added some print statements to the terminal to make it easier to see what is 
 
 Now we are ready to upload and run the code on our microcontroller. Once the `main.py` file is saved, we can upload the code to the microcontroller by clicking on the **Sync project to device** :material-cloud-upload-outline: button by hovering over the device in our PyMakr project. The files will be uploaded to the ESP32. 
 
-After the upload, the program will not start automatically. We will need to reset the microcontroller by pressing the **RST** button on the ESP32 breakout.
+After the upload, the program will {==not==} start automatically. We will need to reset the microcontroller by pressing the **RST** button on the ESP32 breakout or performing a **soft reset**.
 
 
 ???+ warning "Control Commands"
@@ -367,10 +380,12 @@ After the upload, the program will not start automatically. We will need to rese
     - ++ctrl+c++: **interrupt the running program**. This can be helpfull, if something is not working as expected. Additionally, it is also necessary to stop the program before you can upload new code.
     - ++ctrl+d++: **soft reset**. It wipes the program in the memory and reruns the `boot.py` and `main.py` file.
 
+???+ tip "Auto-Start"
+    If you unplug the microcontroller and plug it back in, it will automatically restart and run the `boot.py` and `main.py` file. So, once the coding is done, you can unplug it from the computer and use a power source to power it.
 
 
 Now you should see, the LED blink on and off at one-second intervals. 
-Open the terminal (click **Create Terminal** at the device in your PyMakr project) and check for the right output. You should see the print statements `LED on` and `LED off` to verify that everything is working.
+Open the terminal (click **Create Terminal** at the device in your PyMakr project) and check for the correct output. You should see the print statements `LED on` and `LED off` to verify that everything is working.
 
 <figure markdown="span">
     ![Blink](../assets/micropython/blink_setup10.png)
