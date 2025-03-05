@@ -128,7 +128,7 @@ Although you can program directly in Thonny, we've already explored Visual Studi
 To run our code on the ESP32, we'll use the **`PyMakr` extension** in Visual Studio Code. This extension allows you to easily upload and execute your MicroPython scripts directly on the ESP32. We already covered how to install [extensions](../python-extensive/ide.md#extensions).
 
 <figure markdown="span">
-    ![Node.js](../assets/micropython/pymakr.png)
+    ![Node.js](../assets/micropython/pymakr2.png)
 </figure>
 
 After adding the extension, you should see `PyMakr` as a new button on the left-hand side of the VS Code window.
@@ -139,24 +139,201 @@ Now we are all set up and can start programming! :rocket:
 
 ## Blink :material-lightbulb-multiple-outline: | The Hello World of Embedded Systems
 
+Now it's time to start our first project :material-lightbulb-multiple-outline: and get familiar with PyMakr, hardware setup and the basics of MicroPython.
+
+In this first mini-project, we'll make an external LED blink using the ESP32. Blinking an LED is a classic "Hello World" exercise in microcontroller programming - it demonstrates how to set up an output pin and control it with code. 
+
 <figure markdown="span">
-    ![blink](https://media.licdn.com/dms/image/v2/C5112AQGKuOV9YxRaFw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1569298696507?e=2147483647&v=beta&t=Oi3Tk_iC7r4PA61xjhWRJvblYeMUcYs03Ta4elCS9eg)
+    <img 
+            src="/assets/micropython/real_blink.gif" alt="blink" 
+            style="height: 300px; border-radius:10px;"
+        >
 </figure>
 
-make led blink
+### Hardware Setup
+
+Before we start coding, we need to setup the hardware. The core element of our project is - as already mentioned - the ESP32 microcontroller. We need to connect it to an LED via a resistor. The resistor is necessary to limit the current flowing through the LED, which can damage the LED if too much current flows through it. In the below image you can see the wiring scheme. Connect all components as shown.
+
+<figure markdown="span">
+    ![Blink](../assets/micropython/fritz_blink.png)
+</figure>
+
+???+ tip "LED Pinout"
+    The LED has two legs: the **cathode** (shorter leg) and the **anode** (longer leg). The cathode is connected to `GND`, and the anode to the supply voltage (here to a `1 kΩ` resistor, and from the resistor to `GPIO2` on the ESP32 which will be controlled by the code.)
+
+### PyMakr Project Setup
 
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Below is a quick guide on how to create a new PyMakr project, connect your ESP32, and get started with MicroPython in Visual Studio Code.
+
+#### 1. Create a New Project
+
+- **Open Visual Studio Code (VS Code).**
+- **Select "PyMakr"** from the left sidebar.
+
+    <figure markdown="span">
+        ![Blink](../assets/micropython/blink_setup1_small.png)
+    </figure>
+
+    If you don’t see 'PyMakr' in the sidebar, make sure the [PyMakr extension is installed](#prepare-visual-studio-code).
+
+- **Click on "Create Project"**
+- **Select the folder** where you want to store your project (e.g., `Blink_Project`).
+- A **popup** will appear asking you to name your project. 
+
+    <figure markdown="span">
+        ![Blink](../assets/micropython/blink_setup2_small.png)
+    </figure>
+
+    The default name is often the folder name. For example, `Blink_Project`. Press ++enter++ to confirm.
+
+- A **second popup** appears: "Please select a template for your project". Leave this blank and press ++enter++.
+- If VS Code asks, "Do you trust the authors of the files in this folder?", confirm with **yes**.
+
+    <figure markdown="span">
+        ![Blink](../assets/micropython/blink_setup3.png)
+    </figure>
 
 
-Was ist Micropython
+- A new project is now created! 
 
-Welche Tools verwenden wir?
-Installation
+    <div style="display: flex; justify-content: center;">
+        <img src="/assets/micropython/blink_setup4_small.png" alt="Blink" style="width: 45%; margin-right: 20px;">
+        <img src="/assets/micropython/blink_setup5_small.png" alt="Blink" style="width: 45%">
+    </div>
 
-Welche Hardware verwenden wir? 
+    <figcaption style="text-align: center;">
+        Your project will be shown in the PyMakr sidebar (left) and the files in the VS Code Explorer (right).
+    </figcaption>
 
-Projekt setup
+#### 2. Connect the ESP32
+
+- **Plug the ESP32** into your computer via USB.  
+- In the PyMakr sidebar, you should see a **"Devices"** section showing your ESP32.
+
+    <figure markdown="span">
+        ![Blink](../assets/micropython/blink_setup6_small.png)
+    </figure>
+
+#### 3. Add the Device
+
+- Under **"PyMakr Projects"**, select your project (e.g., "empty project") and click **"ADD DEVICE"**  
+- Choose the device (your ESP32) from the list.
+
+    <figure markdown="span">
+        ![Blink](../assets/micropython/blink_setup7_small.png)
+    </figure>
+    
+    Confirm by clicking **"OK."**
+
+- The device should now appear under your project.  
+
+#### 4. Connect to Device
+
+- Hover your mouse over your device in the **"PyMakr Projects"** section to see various icons:
+
+    <figure markdown="span">
+        ![Blink](../assets/micropython/blink_setup8_small.png)
+    </figure>
+
+    - **Create terminal** :octicons-terminal-16: : Opens a new terminal window for executing commands and interacting with the system or device.  
+    - **Sync project to device** :material-cloud-upload-outline: : Uploads the current project files from the local system to the connected device.  
+    - **Download project from device** :material-cloud-download-outline: : Retrieves project files from the device and saves them to the local system.  
+    - **Open device in file explorer** :material-folder-outline: : Opens the file explorer to browse and manage files stored on the connected device.  
+    - **Connect device** :material-flash-outline: / **Disconnect device**: Establishes or terminates the connection between the computer and the external device.
+
+- **Click on "Connect"** :material-flash-outline: 
+- **Click on "Create Terminal"**  :octicons-terminal-16:
+- In the newly opened terminal, you should see the output of the ESP32:
+
+    ```bash
+    MicroPython v1.24.1 on 2024-11-29; Generic ESP32 module with ESP32
+    Type "help()" for more information.
+    >>>
+    ```
+
+This indicates that your ESP32 is successfully connected and ready to receive MicroPython commands. :partying_face:
+
+You can now upload scripts and run code directly on the device. 
+
+### Start Coding
+
+We’ll write a few lines of code to control the LED. We will start by importing the necessary modules.
+
+```python
+from machine import Pin
+from time import sleep
+```
+
+The [`machine`](https://docs.micropython.org/en/latest/library/machine.html) library in MicroPython provides low-level access to hardware components, such as GPIO pins (General-Purpose Input/Output), ADCs, I2C, SPI, and other peripherals, allowing direct interaction with microcontrollers.
+The [`Pin`](https://docs.micropython.org/en/latest/library/machine.Pin.html) class from the `machine` module is used to control the GPIO pins on the microcontroller.
+
+The second line of code imports the `sleep` function from the MicroPython (or standard Python) `time` module, which is used to pause the execution of a program for a specified number of seconds.
+
+---
+
+```python
+# Set GPIO2 as output (this is the onboard LED pin on most ESP32 boards)
+led = Pin(2, Pin.OUT)
+```
+
+- We create an object called `led` representing GPIO2. The second argument, `Pin.OUT`, sets it as an output pin.  
+
+    ```python
+    # Blink the LED
+    while True:
+        led.value(1) 
+        print('LED on')  # Turn on the LED
+        sleep(1)         # Delay for 1 second
+        led.value(0)
+        print('LED off') # Turn off the LED
+        sleep(1)         # Delay for 1 second
+    ```
+
+- We use an infinite loop (`while True:`) to continuously blink the LED.  
+- `led.value(1)` switches the LED on by sending a HIGH signal to GPIO2.  
+- `print('LED on')` is optional but helps confirm in the console that the LED is on.  
+- `sleep(1)` pauses the program for one second, keeping the LED lit.  
+- `led.value(0)` then switches the LED off (LOW signal).  
+- Another `sleep(1)` keeps the LED off for one second before the loop repeats.
+
+Below is the complete code in one piece. Simply copy it into your MicroPython file and run it on the ESP32:
+
+```python
+from machine import Pin
+from time import sleep
+
+# Set GPIO2 as output (this is the onboard LED pin on most ESP32 boards)
+led = Pin(2, Pin.OUT)
+
+# Blink the LED
+while True:
+    led.value(1) 
+    print('LED on')  # Turn on the LED
+    sleep(1)         # Delay for 1 second
+    led.value(0)
+    print('LED off') # Turn off the LED
+    sleep(1)         # Delay for 1 second
+```
+
+When you run this code, the LED should blink on and off at one-second intervals. Check your console (REPL or terminal) for the print statements “LED on” and “LED off” to verify that everything is working.
+
+> **Tip:** If you have issues with the LED not blinking, make sure you have the correct GPIO pin referenced, and verify that your wiring and resistor are connected properly.
+
+Congratulations—you’ve completed your first hardware test with MicroPython!
+
+
+
+<img 
+        src="/assets/micropython/linkedinBlink.gif" alt="blink" 
+        style="height: 300px; border-radius:10px;"
+    >
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+Task SOS blinking
 
 
 Take a look at the pinout chart of our `ESP32-WROOM-32` and make yourself familiar with the pins.
