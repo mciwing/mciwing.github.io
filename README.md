@@ -38,8 +38,7 @@ The site is built with
 To serve the site locally, you need a couple of prerequisites 
 (`python >= 3.11 < 3.13`,`pipx` and `poetry`)
 
-> [!NOTE]
-> This project currently supports Python 3.11 and 3.12 only. While older
+> Note: This project currently supports Python 3.11 and 3.12 only. While older
 versions may work, they haven't been tested. We plan to add Python 3.13 support
 once `mkdocs` extends compatibility to that version.
 
@@ -103,7 +102,6 @@ Lastly, build and serve the site locally with:
 .\serve-local.bat
 ```
 
-> [!INFO]
 > The script disables the `git-committers` and `git-revision-date-localized` plugin for faster local builds.
 > Visit `localhost:8000` in your browser to view the site. 🎉
 
