@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+.github/
+
+# Python
+__pycache__/
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.venv/
+venv/
+ENV/
+env/
+.env
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+sdist/
+develop-eggs/
+
+# IDE/Editor configs
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Docker
+Dockerfile
+.docker/
+docker-compose*.yml
+
+# Project specific
+README.md
+LICENSE
