@@ -398,7 +398,7 @@ The resulting `Series` is assigned to `data` as a new column.
 ???+ question "Track length"
     
     <figure markdown="span">
-      ![Spotify App](https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/640x427/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/11596505/akrales_180620_1777_0169.jpg){ width="350" }
+      ![Spotify App](../assets/python/pandas/spotify-playlist.png){ width="450" }
     </figure>
     
     Since songs are [getting shorter](https://www.theverge.com/2019/5/28/18642978/music-streaming-spotify-song-length-distribution-production-switched-on-pop-vergecast-interview)
