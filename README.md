@@ -3,11 +3,29 @@
    <h1>MCI | WING</h1>
 
    [![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://mciwing.github.io/)
+   ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
    ![Python](https://img.shields.io/badge/Python-3.12-blue)
    [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+   
+   <hr>
 
    <h2>📚 Visit the site <a href="https://mciwing.github.io/">here</a><h2>
+   
+   [![Screenshot of the site](docs/assets/screenshot.png)](https://mciwing.github.io)
+
 </div>
+
+## Docker
+
+---
+
+To build and serve the site with `docker`:
+
+```bash
+docker compose up -d --build
+```
+
+The site will be available at `localhost:8001`. 🚀
 
 ---
 
@@ -20,7 +38,8 @@ The site is built with
 To serve the site locally, you need a couple of prerequisites 
 (`python >= 3.11 < 3.13`,`pipx` and `poetry`)
 
-> **Note**: This project currently supports Python 3.11 and 3.12 only. While older
+> [!NOTE]
+> This project currently supports Python 3.11 and 3.12 only. While older
 versions may work, they haven't been tested. We plan to add Python 3.13 support
 once `mkdocs` extends compatibility to that version.
 
@@ -84,6 +103,7 @@ Lastly, build and serve the site locally with:
 .\serve-local.bat
 ```
 
+> [!INFO]
 > The script disables the `git-committers` and `git-revision-date-localized` plugin for faster local builds.
 > Visit `localhost:8000` in your browser to view the site. 🎉
 
@@ -112,5 +132,3 @@ For formatting reference, check out the
    
    <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="by-nc-sa 4.0">
 </div>
-
-
