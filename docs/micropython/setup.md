@@ -43,6 +43,9 @@ The ESP32 microcontroller is an ideal choice for IoT projects. It comes in vario
     - How much flash memory does the ESP32 have?
     - What kind of Bluetooth does the ESP32 support?
     - What are the electrical characteristics of the ESP32 (voltage, current, etc.)?
+
+We will explore the functionalities of the ESP32 step by step in the following sections. :rocket:
+
     
 
 ## Setting up our Project
@@ -152,21 +155,21 @@ In this first mini-project, we'll make an external LED blink using the ESP32. Bl
 
 ### Hardware Setup
 
-Before we start coding, we need to setup the hardware. The core element of our project is - as already mentioned - the ESP32 microcontroller. The ESP32 it self is the large black component on the breakout board shown below. The breakout board helps us to connect the ESP32 to the real world and also deals with other topics like power supply and programming the microcontroller. From now on, whenever we refer to the **ESP32**, we specifically mean the **ESP32 Breakout Board**.
+Before we start coding, we need to setup the hardware. The core element of our project is - as already mentioned - the ESP32 microcontroller. The ESP32 it self is the large silver component on the breakout board shown below. The breakout board helps us to connect the ESP32 to the real world and also deals with other topics like power supply and programming the microcontroller. From now on, whenever we refer to the **ESP32**, we specifically mean the **ESP32 Breakout Board**.
 
-For the Blink project, we need to connect the ESP32 to an LED via a resistor. The resistor is necessary to limit the current flowing through the LED, which can damage the LED if too much current flows through it. In the below image you can see the wiring scheme. Connect all components as shown. As output pin, we use `GPIO2` on the ESP32.
+For the Blink project, we need to connect the ESP32 to an LED via a resistor. The resistor is necessary to limit the current flowing through the LED, which can damage the LED if too much current flows through it. In the below image you can see the wiring scheme. Connect all components as shown. 
 
 <figure markdown="span">
     ![Blink](../assets/micropython/fritz_blink.png)
 </figure>
 
 ???+ tip "LED Pinout"
-    The LED has two legs: the **cathode** (shorter leg) and the **anode** (longer leg). The cathode is connected to `GND`, and the anode to the supply voltage (here to a `1 kΩ` resistor, and from the resistor to `GPIO2` on the ESP32 which will be controlled by the code.)
+    The LED has two legs: the **cathode** (shorter leg) and the **anode** (longer leg). The cathode is connected to `GND`, and the anode to the supply voltage (here to a `1 kΩ` resistor, and from the resistor to `G2` on the ESP32 which will be controlled by the code.)
 
-???+ info "GPIO Insights"
-    A **GPIO (General Purpose Input/Output)** is a digital pin on a microcontroller or processor that can be freely configured as an **input** or **output** through programming. By default, GPIOs are unassigned and can be controlled in a binary manner (`HIGH` or `LOW`).  
+???+ info "ESP32 Pinout"
+    Until now, we have not talked about the different Pins on the ESP32. The ESP32 has many Pins, which can be used to control the microcontroller. What they do and what different kinds of Pins exist, will be covered in the next sections. 
 
-    GPIOs typically operate at **3.3V** and can supply **2-16 mA** of current, making them suitable for driving components like LEDs. For example, if a GPIO pin is set to **HIGH**, the LED turns **on**; when set to **LOW**, the LED turns **off**. GPIOs are fundamental for interfacing with sensors, actuators, and other peripherals in embedded systems.
+    For now, just remember that we can use the Pin `G2` as an output pin to control the LED.
 
 ### PyMakr Project Setup
 
@@ -306,16 +309,11 @@ The second line of code imports the `sleep` function from the MicroPython (or st
 
 ---
 
-Next, we need to define the interface to the real world. In our case, we want to control the LED. Therefore, we need an output pin on the ESP32 which can be set to high (led on) or low (led off). Each pin on the ESP32 breakout board is assigned a number. To find out which pin is which, you can look at the [pinout](https://cdn.shopify.com/s/files/1/1509/1638/files/ESP-32_NodeMCU_Developmentboard_Pinout.pdf?v=1609851295) chart:
-
-![Pinout](../assets/micropython/pinout.png)
-
-
-
-As we have connected it [before](#hardware-setup), for this project, we will use the `GPIO2` pin as an output pin (`Pin.OUT`) and assign it to the variable `led`.
+Next, we need to define the interface to the real world. In our case, we want to control the LED. Therefore, we need an output pin on the ESP32 which can be set to high (led on) or low (led off). Each pin on the ESP32 breakout board is assigned a number. 
+As we have connected it [before](#hardware-setup), for this project, we will use the `G2` pin as an output pin (`Pin.OUT`) and assign it to the variable `led`.
 
 ```python
-# Set GPIO2 as output
+# Set G2 as output
 led = Pin(2, Pin.OUT)
 ```
 
@@ -351,7 +349,7 @@ The complete code can be distilled to:
 from machine import Pin
 from time import sleep
 
-# Set GPIO2 as Output Pin
+# Set G2 as Output Pin
 led = Pin(2, Pin.OUT)
 
 # Blink the LED
