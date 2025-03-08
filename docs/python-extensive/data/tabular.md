@@ -1,4 +1,4 @@
-# Tabular data
+# Tabular Data
 
 With a couple of practical examples, we will discover tips on how to work with
 tabular data, where to find it, and the various sources and formats you

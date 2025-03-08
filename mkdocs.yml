@@ -34,75 +34,75 @@ nav:
 
   - Python Crash Course:
     - python/index.md
-    - python/installation.md
-    - python/ide.md
-    - python/variables.md
+    - Installation: python/installation.md
+    - IDE: python/ide.md
+    - Variables: python/variables.md
 
     - Types:
-      - python/types/strings.md
-      - python/types/numbers.md
-      - python/types/bool_and_none.md
+      - Strings: python/types/strings.md
+      - Integers & Floats: python/types/numbers.md
+      - Boolean & None: python/types/bool_and_none.md
 
-    - python/comparisons_and_logic.md
+    - Comparisons & Logical Operators: python/comparisons_and_logic.md
 
     - Containers:
-      - python/containers/list.md
-      - python/containers/dict.md
-      - python/containers/tuple.md
+      - Lists: python/containers/list.md
+      - Dictionaries: python/containers/dict.md
+      - Tuples: python/containers/tuple.md
 
     - Control Structures:
-      - python/control-structures/for.md
-      - python/control-structures/if.md
+      - Loops: python/control-structures/for.md
+      - More Control Structures: python/control-structures/if.md
 
-    - python/functions.md
-    - python/packages.md
-    - python/pandas.md
+    - Functions: python/functions.md
+    - Package Management: python/packages.md
+    - Pandas: python/pandas.md
 
   - Python Extensive Course:
     - Home: python-extensive/index.md
 
     - Basics & Data Types:
       - Setup:
-        - python-extensive/installation.md
-        - "IDE": python-extensive/ide.md
+        - Installation: python-extensive/installation.md
+        - IDE: python-extensive/ide.md
 
-      - python-extensive/variables.md
+      - Variables: python-extensive/variables.md
 
       - Types:
-        - python-extensive/types/strings.md
-        - python-extensive/types/numbers.md
-        - python-extensive/types/bool_and_none.md
+        - Strings: python-extensive/types/strings.md
+        - Integers & Floats: python-extensive/types/numbers.md
+        - Boolean & None: python-extensive/types/bool_and_none.md
 
     - Logic & Containers:
-      - python-extensive/comparisons_and_logic.md
+      - Comparisons & Logical Operators: python-extensive/comparisons_and_logic.md
 
       - Containers:
-        - python-extensive/containers/list.md
-        - python-extensive/containers/dict.md
-        - python-extensive/containers/tuple.md
+        - Lists: python-extensive/containers/list.md
+        - Dictionaries: python-extensive/containers/dict.md
+        - Tuples: python-extensive/containers/tuple.md
 
     - Control Structures & Functions:
       - Control Structures:
-        - python-extensive/control-structures/for.md
-        - python-extensive/control-structures/if.md
+        - Loops: python-extensive/control-structures/for.md
+        - More Control Structures: python-extensive/control-structures/if.md
 
-      - python-extensive/functions.md  # TODO: methods vs. functions; variable scope
+      - Functions: python-extensive/functions.md  # TODO: methods vs. functions; variable scope
 
     - Dev Tools & Data Handling:
-      - python-extensive/packages.md
-      - python-extensive/pandas.md
-      - python-extensive/plotting.md
+      - Package Management: python-extensive/packages.md
+      - Pandas: python-extensive/pandas.md
+      - Plotting: python-extensive/plotting.md
 
     - Data Acquisition & Export:
-      - "Data Basics": python-extensive/DataBasics.md
-      - "Data Acquisition":
-        - python-extensive/data/tabular.md
-        - python-extensive/data/api.md
+      - Data Basics: python-extensive/DataBasics.md
+      - Data Acquisition:
+        - Tabular Data: python-extensive/data/tabular.md
+        - API: python-extensive/data/api.md
 
     - Graphical User Interface:
-      - python-extensive/oop.md
-      - python-extensive/tkinter.md
-      - python-extensive/streamlit.md
+      - Object-Oriented Programming: python-extensive/oop.md
+      - Graphical User Interfaces with Tkinter: python-extensive/tkinter.md
+      - Building Web Applications with Streamlit: python-extensive/streamlit.md
 
   - Statistics:
     - statistics/index.md
