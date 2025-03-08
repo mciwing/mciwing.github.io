@@ -136,34 +136,34 @@ nav:
         - statistics/regression/LinearRegression.md
 
   - Data Science:
-      - data-science/index.md
+      - Home: data-science/index.md
 
       - Data Basics:
-        - data-science/data-basics/terms.md
-        - data-science/data-basics/data.md
-        - "Data Basics": data-science/data-basics/basics.md
+        - Definition of Key Terms: data-science/data-basics/terms.md
+        - Data vs. Big Data: data-science/data-basics/data.md
+        - Data Basics: data-science/data-basics/basics.md
 
       - Data Preparation & Preprocessing:
-        - data-science/data/preparation.md
-        - data-science/data/preprocessing.md
+        - Data Preparation: data-science/data/preparation.md
+        - Data Preprocessing: data-science/data/preprocessing.md
 
       - Supervised vs. Unsupervised Learning:
-        - data-science/algorithms/index.md
+        - Introduction: data-science/algorithms/index.md
 
         - Supervised:
-          - data-science/algorithms/supervised/regression.md
-          - data-science/algorithms/supervised/classification.md
-          - Tree based:
+          - Regression: data-science/algorithms/supervised/regression.md
+          - Classification: data-science/algorithms/supervised/classification.md
+          - Tree Based:
             - Decision Tree: data-science/algorithms/supervised/tree-based/cart.md
             - Random Forest: data-science/algorithms/supervised/tree-based/forest.md
 
         - Unsupervised:
-          - data-science/algorithms/unsupervised/clustering.md
-          - data-science/algorithms/unsupervised/dim-reduction.md
+          - Clustering: data-science/algorithms/unsupervised/clustering.md
+          - Dimensionality Reduction: data-science/algorithms/unsupervised/dim-reduction.md
 
       - Data Science in Practice:
           - Introduction: data-science/practice/index.md
-          - 1. Data preparation: data-science/practice/data-preparation.md
+          - 1. Data Preparation: data-science/practice/data-preparation.md
           - 2. Modelling: data-science/practice/modelling.md
           - 3. End-to-End: data-science/practice/end-to-end.md
           - Bonus: data-science/practice/bonus.md
