@@ -1,4 +1,4 @@
-# Data Science in practice
+# Data Science in Practice
 
 ## Introduction
 
