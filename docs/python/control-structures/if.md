@@ -1,4 +1,4 @@
-# More control structures
+# More Control Structures
 
 ## Introduction
 

@@ -1,4 +1,4 @@
-# Motivation
+# Home
 
 ![header](../assets/header/pcc.png)
 

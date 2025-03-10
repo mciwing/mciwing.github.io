@@ -1,4 +1,4 @@
-# Data preparation
+# Data Preparation
 
 ## Preface
 

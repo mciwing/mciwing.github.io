@@ -1,4 +1,4 @@
-# Comparisons & Logical operators
+# Comparisons & Logical Operators
 
 ## Comparisons
 
