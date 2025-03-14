@@ -142,12 +142,18 @@ class Camera:
         
 # Creating an instance of the Camera class w/o defining the resolution      
 front_camera = Camera("front","wide-angle")
-print(f"{front_camera.camera_type}, {front_camera.lens_type} and {front_camera.resolution}")
+print(
+    f"{front_camera.camera_type}, {front_camera.lens_type} "
+    f"and {front_camera.resolution}"
+)
 ```
 ```python
 # Creating an instance of the Camera class with defining the resolution       
 front_camera = Camera("front","wide-angle",720)
-print(f"{front_camera.camera_type}, {front_camera.lens_type} and {front_camera.resolution}")
+print(
+    f"{front_camera.camera_type}, {front_camera.lens_type} "
+    f"and {front_camera.resolution}"
+)
 ```
 
 ## Encapsulation
@@ -252,20 +258,31 @@ Possible attributes of a category can also be defined in a list, for example:
 
 By validating the data types during object creation, you can ensure the object behaves as expected and avoid unexpected errors later in the program.   
 
-```python hl_lines="2 7 9 11 13 22 28"
+```python hl_lines="2 10-12 15 18 21-24 33-35 41-44"
 class Camera:
     __camera_types = ["front","rear","left","right","top","not stated"]
 
-    # Setting the attributes camera_type, lens_type, resolution and orientation with restrictions
-    def __init__(self, camera_type, lens_type, resolution, orientation="not stated"):
+    # Setting the attributes with restrictions
+    def __init__(
+        self, camera_type, lens_type, resolution, orientation="not stated"
+    ):
         if camera_type not in self.__camera_types:
-            raise ValueError(f"Camera type must be one of {self.__camera_types}.")  # Check if camera_type is one attribute from list.
-        if not isinstance(lens_type, str):                      
-            raise TypeError("Lens type must be a string.")  # Check if lens_type is a string.
-        if not isinstance(resolution, int):                                                         
-            raise TypeError("Resolution must be an integer.")  # Check if resolution is an integer.
+            # Check if camera_type is one attribute from list.
+            raise ValueError(
+                f"Camera type must be one of {self.__camera_types}."
+            )  
+        if not isinstance(lens_type, str): 
+            # Check if lens_type is a string.                     
+            raise TypeError("Lens type must be a string.")  
+        if not isinstance(resolution, int):   
+            # Check if resolution is an integer.                                                      
+            raise TypeError("Resolution must be an integer.")  
         if orientation not in ["horizontal","vertical","not stated"]:
-            raise ValueError("Orientation must be either 'horizontal', 'vertical' or 'not stated'.")  # Check if orientation is one attribute from list.
+            # Check if orientation is one attribute from list.
+            raise ValueError(
+                "Orientation must be either 'horizontal', "
+                "'vertical' or 'not stated'."
+            )  
         self.__camera_type = camera_type
         self.__lens_type = lens_type
         self.resolution = resolution
@@ -274,13 +291,18 @@ class Camera:
     # Creating the method change_camera_type with data type restrictions
     def change_camera_type(self, camera_type_new):
         if camera_type_new not in self.__camera_types:
-            raise ValueError(f"Camera type must be one of {self.__camera_types}.")
+            raise ValueError(
+                f"Camera type must be one of {self.__camera_types}."
+            )
         self.__camera_type = camera_type_new
 
     # Creating the method set_orientation with data type restrictions
     def set_orientation(self, orientation):
         if orientation not in ["horizontal","vertical","not stated"]:
-            raise ValueError("Orientation must be either 'horizontal', 'vertical' or 'not stated'.")
+            raise ValueError(
+                "Orientation must be either 'horizontal', "
+                "'vertical' or 'not stated'."
+            )
         self.orientation = orientation
 
     # Creating the method display
