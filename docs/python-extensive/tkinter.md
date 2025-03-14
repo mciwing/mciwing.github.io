@@ -16,8 +16,8 @@ Each GUI element (widget), like a button or text field, can be thought of as an 
 
 following the principles of object-oriented programming (OOP).
 
-**Tkinter** is the standard `Python` :fontawesome-brands-python: library for creating graphical user interfaces. It provides a practical introduction to GUI development and event-driven programming. By using **Tkinter**, interactive applications such as calculators, form-based tools, or simple games, can be build. The **Tkinter** documentation can be found here: [:octicons-link-external-16:](https://docs.python.org/3/library/tkinter.html)   
-Nevertheless, there are many other GUI libraries that you could be interested in. The `Python` :fontawesome-brands-python: wiki lists several alternative [GUI frameworks and tools](https://wiki.python.org/moin/GuiProgramming).
+**Tkinter** is the standard `Python` :fontawesome-brands-python: library for creating graphical user interfaces (GUIs) for desktop applications. It serves as an excellent starting point for those new to GUI development and event-driven programming. By using **Tkinter**, interactive applications such as calculators, form-based tools, or simple games, can be build. The **Tkinter** documentation can be found here: [Tkinter documentation](https://docs.python.org/3/library/tkinter.html).   
+Nevertheless, **Tkinter** is not the only option for developing desktop applications.While it's lightweight and simple, there are many other GUI libraries and frameworks that offer more advanced features, modern aesthetics, and flexibility, depending on your needs. The `Python` :fontawesome-brands-python: wiki lists several alternative [GUI frameworks and tools](https://wiki.python.org/moin/GuiProgramming).
 
 
 ## Creating a Basic Tkinter Application
@@ -59,10 +59,11 @@ Widgets like the spinbox, scale, and listbox dynamically print or process user i
 **Event Binding**:    
 The `listbox` widget uses the `bind` method to associate the selection event with the `listbox_used` method.
 
-???+ question "Run the Code"
-    Interact with the widgets to see their behavior in action (check the console for printed outputs).
+???+ question "Task: Run the Code"
+    Interact with the widgets to see their behavior in action (check the console for printed outputs). Don't worry if you don't understand every single line of code right away, just focus on 
+    getting familiar with the structure.
 
-```python hl_lines="4 9 13 20 24 34 41 49 57 58 66"
+```python 
 import tkinter as tk
 
 # Set window attributes
@@ -71,7 +72,9 @@ root.title("My First GUI Program and Widgets")
 root.geometry("1024x768")
         
 # Label
-my_label = tk.Label(text="My First Label", font=("Arial", 24, "bold"))
+my_label = tk.Label(
+    text="My First Label", font=("Arial", 24, "bold")
+)
 my_label.pack()
 
 # Input
@@ -82,14 +85,17 @@ my_input.pack()
 def button_clicked():
     print("Do Something Cool")
 # Button
-my_button = tk.Button(text="Click Me", command=button_clicked)
+my_button = tk.Button(
+    text="Click Me", command=button_clicked
+)
 my_button.pack()
 
 # Text
 text = tk.Text(height=5, width=30)
 text.focus()
 text.insert(tk.END, "My first try on a multi-line text entry.")
-print(text.get("1.0", tk.END))  # Prints the current text starting from line 1, character 0 ("1.0" == the very beginning of the text widget)
+# Prints the current text starting from line 1, character 0
+print(text.get("1.0", tk.END)) 
 text.pack()
 
 # Spinbox callback
@@ -111,7 +117,9 @@ def checkbutton_used():
     print(checked_state.get())
 # Checkbutton
 checked_state = tk.IntVar()  # Variable to hold the checked state
-checkbutton = tk.Checkbutton(text="Is This On?", variable=checked_state, command=checkbutton_used)
+checkbutton = tk.Checkbutton(
+    text="Is This On?", variable=checked_state, command=checkbutton_used
+)
 checkbutton.pack()
 
 # Radiobutton callback
@@ -119,8 +127,12 @@ def radio_used():
     print(radio_state.get())
 # Radiobutton
 radio_state = tk.IntVar()  # Variable to hold the radio button selection
-radiobutton1 = tk.Radiobutton(text="Answer1", value=1, variable=radio_state, command=radio_used)
-radiobutton2 = tk.Radiobutton(text="Answer2", value=2, variable=radio_state, command=radio_used)
+radiobutton1 = tk.Radiobutton(
+    text="Answer1", value=1, variable=radio_state, command=radio_used
+)
+radiobutton2 = tk.Radiobutton(
+    text="Answer2", value=2, variable=radio_state, command=radio_used
+)
 radiobutton1.pack()
 radiobutton2.pack()
 
@@ -209,11 +221,15 @@ The following code provides the basis for a simple To-Do List application with t
 - **Add Task**: Enter tasks using the `Entry` widget and add them to the `Listbox`.
 - **Cross Out Task**: Mark the selected task with a "✔" symbol to indicate completion.
 
-???+ question "To-Do List Enhancements"
+Think of this task as a **practical summary** of building an app—a **great starting point** if you want to dive 
+deeper into GUI development. The key is to experiment, explore, and have fun with it. You don’t need to grasp every detail at first glance—just focus on getting familiar with the 
+structure and making small improvements step by step. Keep going, and you'll see progress before you know it! 🚀        
+
+???+ question "Task: To-Do List Enhancements"
     Customize and enhance the To-Do List app with the following features:    
-        1. Change the color scheme of the app.     
-        2. Add a `Button` to entirely delete tasks from the `Listbox`.     
-        3. Position the `delete_button` next to the `cross_out_button` and use a red color.      
+        1. Update the Color Scheme: Use hexadecimal color codes to personalize the app’s appearance (you can find color codes online).     
+        2. Add a `Delete Button`: Create a button that removes a task from the `Listbox`. Refer to the existing "Cross Task" method and button for guidance.     
+        3. Position the `Delete Button` next to the `Cross Out Button` and use a red color. If needed, review the grid layout example for positioning help.      
 
     **Bonus**: Highlight important tasks by adding features like colored text or checkboxes to mark tasks as important.
 
@@ -223,43 +239,194 @@ import tkinter as tk
 # Create the main window
 root = tk.Tk()
 root.title("To-Do List")
-root.minsize(height=400, width=400)
+root.minsize(height=400, width=400) # Set minimum window size
 root.configure(bg="#d0ebff")  # Light blue background
 
-# Function to add a new task
+# Method to add a new task
 def add_task():
-    task = task_entry.get()
-    if task.strip():
-        task_listbox.insert(tk.END, task)
-        task_entry.delete(0, tk.END)
-
-# Function to cross out a selected task
+    task = task_entry.get() # Get task input from entry box
+    if task.strip(): # Check if input is not empty or just spaces
+        task_listbox.insert(tk.END, task) # Add task to the listbox at the end
+        task_entry.delete(0, tk.END) # Clear entry box after adding task
+       
+# Method to cross out a selected task
 def cross_task():
-    selected = task_listbox.curselection()
+    selected = task_listbox.curselection() # Get selected task from listbox
     if selected:
-        current_task = task_listbox.get(selected)
-        task_listbox.delete(selected)
-        task_listbox.insert(selected, f"✔ {current_task}")
+        current_task = task_listbox.get(selected) # Get selected text to modify
+        task_listbox.delete(selected) # Remove the selected task from the list
+        task_listbox.insert(selected, f"✔ {current_task}") # Mark as complete
 
 # Entry box for adding tasks
-task_entry = tk.Entry(width=30, font=("Helvetica", 14))
-task_entry.grid(row=0, column=1, padx=10, pady=10)
+task_entry = tk.Entry(
+    width=30, font=("Helvetica", 14)
+)
+task_entry.grid(row=0, column=1, columnspan=2, padx=10, pady=10)
 
 # Add Task button
-add_button = tk.Button(text="Add Task", font=("Helvetica", 12), bg="#b0e0e6", fg="black", command=add_task)
+add_button = tk.Button(
+    text="Add Task", font=("Helvetica", 12), 
+    bg="#b0e0e6", fg="black", command=add_task # Trigger add_task method
+)
 add_button.grid(row=0, column=0, padx=10, pady=10)
 
 # Listbox to display tasks
-task_listbox = tk.Listbox(width=40, height=15, font=("Helvetica", 12), selectbackground="#b3e5fc", selectforeground="black")
-task_listbox.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
+task_listbox = tk.Listbox(
+    width=40, height=15, font=("Helvetica", 12), 
+    selectbackground="#b3e5fc", selectforeground="black"
+)
+task_listbox.grid(row=1, column=0, columnspan=3, padx=10, pady=10)
 
-# Cross Out Task button (centered)
-cross_out_button = tk.Button(text="Cross Out Task", font=("Helvetica", 12), bg="#00264d", fg="white", command=cross_task)
-cross_out_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+# Cross Out Task button
+cross_out_button = tk.Button(
+    text="Cross Out Task", font=("Helvetica", 12), 
+    bg="#00264d", fg="white", command=cross_task # Trigger cross_task method
+)
+cross_out_button.grid(row=2, column=0, padx=10, pady=10)
 
-# Start the main loop
+# Start the main loop to display GUI
 root.mainloop()
 ```
+## Optional: Storing Data and Running Your App on the Desktop
+
+### Storing App Data
+To keep your data (e.g., from your To-Do List) available when reopening the app, use **JSON** for saving and loading—just like we explored in the previous chapter, **"Data Acquisition and Export"**.
+
+Steps to store and retrieve data from the To-Do List using **JSON**:  
+
+- **save_tasks()**: This function saves the current tasks from the listbox to the `tasks.json` file whenever a task is added or deleted.        
+- **load_tasks()**: This function attempts to read a file called `tasks.json` and load the tasks from it. If the file doesn't exist, it returns an empty list.      
+- **Loading and Saving**: The app will load the tasks when it starts and save them whenever a task is added or removed.
+
+If you'd like to store tasks from your To-Do List, the updated code is provided below.
+
+??? code "Save To-Do List Data"
+    ```python hl_lines="2 5-10 13-16 30 39 69-71"
+        import tkinter as tk
+        import json
+
+        # Load tasks from the file
+        def load_tasks():
+            try:
+                with open('tasks.json', 'r') as file:
+                    return json.load(file) # Load task from the JSON file
+            except FileNotFoundError:
+                return []  # If the file doesn't exist, return an empty list
+        
+        # Save tasks to the file
+        def save_tasks():
+            tasks = task_listbox.get(0, tk.END)  # Get all tasks from the Listbox
+            with open('tasks.json', 'w') as file:
+                json.dump(tasks, file) # Save tasks as JSON in the file
+
+        # Create the main window
+        root = tk.Tk()
+        root.title("To-Do List")
+        root.minsize(height=400, width=400) # Set minimum window size
+        root.configure(bg="#d0ebff")  # Light blue background
+
+        # Method to add a new task
+        def add_task():
+            task = task_entry.get() # Get task input from entry box
+            if task.strip(): # Check if input is not empty or just spaces
+                task_listbox.insert(tk.END, task) # Add task to the listbox at the end
+                task_entry.delete(0, tk.END) # Clear entry box after adding task
+                save_tasks() # Save the updated task list to the JSON file
+
+        # Method to cross out a selected task
+        def cross_task():
+            selected = task_listbox.curselection() # Get selected task from listbox
+            if selected:
+                current_task = task_listbox.get(selected) # Get selected text to modify
+                task_listbox.delete(selected) # Remove the selected task from the list
+                task_listbox.insert(selected, f"✔ {current_task}") # Mark as complete
+                save_tasks() # Save the updated task list to the JSON file
+
+        # Entry box for adding tasks
+        task_entry = tk.Entry(
+            width=30, font=("Helvetica", 14)
+        )
+        task_entry.grid(row=0, column=1, columnspan=2, padx=10, pady=10)
+
+        # Add Task button
+        add_button = tk.Button(
+            text="Add Task", font=("Helvetica", 12), 
+            bg="#b0e0e6", fg="black", command=add_task # Trigger add_task method
+        )
+        add_button.grid(row=0, column=0, padx=10, pady=10)
+
+        # Listbox to display tasks
+        task_listbox = tk.Listbox(
+            width=40, height=15, font=("Helvetica", 12), 
+            selectbackground="#b3e5fc", selectforeground="black"
+        )
+        task_listbox.grid(row=1, column=0, columnspan=3, padx=10, pady=10)
+
+        # Cross Out Task button
+        cross_out_button = tk.Button(
+            text="Cross Out Task", font=("Helvetica", 12), 
+            bg="#00264d", fg="white", command=cross_task # Trigger cross_task method
+        )
+        cross_out_button.grid(row=2, column=0, padx=10, pady=10)
+
+        # Load tasks at the start of the app
+        tasks = load_tasks() # Load saved tasks when app starts
+        for task in tasks:
+            task_listbox.insert(tk.END, task) # Insert each task into the Listbox
+
+        # Start the main loop to display GUI
+        root.mainloop()
+    ```
+
+### Converting Your Script into a Desktop App
+Once you've built your **Tkinter** app (e.g., the To-Do List), you can convert it into a standalone desktop application by turning your `.py` script into an executable (`.exe`). While we mostly used Jupyter notebooks for convenience in this course, it's recommended to use a `.py` script for creating desktop applications.
+To make your To-Do List app runnable without opening Python, you can use a tool like **PyInstaller** to convert your script into an executable.
+
+
+
+Steps to Convert to `.exe`:
+
+1. **Install PyInstaller**:
+   ```python
+   pip install pyinstaller
+   ```
+
+2. **Navigate to your script’s folder** in VS Code and run the following command in your terminal:
+   ```python
+   pyinstaller --onefile --windowed your_script.py
+   ```
+   - `--onefile`: Bundles everything into a single `.exe` file.
+   - `--windowed`: Prevents the terminal from appearing (useful for GUI applications).
+
+3. Locate your `.exe` in the `dist/` folder inside your project directory and execute it.
+
+📌 **Tip**: Place `tasks.json` (if not done automatically) in the same folder as the `.exe` file to ensure data is stored persistently.
+
+???+ info "PyInstaller and macOS"
+    **PyInstaller** can also be used to convert your Python script into a standalone application on macOS. However, instead of generating a `.exe` file (for Windows), **PyInstaller** will create a `.app` file for macOS. The process is the same. 🙂
+
+## Tkinter vs Streamlit - **Warning: Spoiler Alert!**
+In this subchapter, you explored **Tkinter** to create your first desktop application. While it may not have the most modern design, **Tkinter** offers a solid foundation for learning to program GUI applications. Many other, more visually appealing libraries follow similar principles. In the next subchapter, you'll discover **Streamlit**—a user-friendly and visually engaging framework for creating web applications.
+
+**Tkinter**     
+
+  - **GUI Framework** for building desktop applications.
+  - **Event-driven programming**, with more code required for UI interactivity.
+  - **Highly customizable** but can be complex for advanced UIs.
+  - **Deployment** is desktop-only, requiring a Python environment.
+  - **Class-based approach** requires defining classes for window structure, widgets, and event handling (manual setup).
+
+**Streamlit**     
+
+  - **Web-based framework**, perfect for rapid prototyping of data-driven apps.
+  - **Real-time interactivity** with minimal setup and coding.
+  - **Simplified interface** with less focus on deep customization, but ideal for quick data science apps.
+  - **Easy web deployment** with no environment setup.
+  - **Class-based approach** Streamlit is more function-based but can support class-based structures for reusable components.
+
+**Conclusion**     
+- **Use Tkinter** if your focus is on building desktop applications with a traditional GUI.    
+- **Use Streamlit** if your goal is to rapidly prototype web apps, particularly in data science or machine learning, where real-time updates and interactivity are crucial.
 
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/ITXgZuGi17YwCQIofC" width="380" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/gracetea-ITXgZuGi17YwCQIofC"></a></p>
