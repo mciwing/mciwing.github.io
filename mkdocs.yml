@@ -105,6 +105,7 @@ nav:
       - python-extensive/oop.md
       - python-extensive/tkinter.md
       - python-extensive/streamlit.md
+      - python-extensive/tkinter_streamlit.md
 
     - python-extensive/git.md  # TODO: Bonus chapter on Git
 

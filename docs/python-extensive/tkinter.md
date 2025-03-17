@@ -386,47 +386,29 @@ To make your To-Do List app runnable without opening Python, you can use a tool 
 
 Steps to Convert to `.exe`:
 
-1. **Install PyInstaller**:
+1. **Create a Python Script**:
+    Create a new file with `.py`extension (e.g., `your_script.py`) and write or paste your code into this file - save it.
+
+2. **Install PyInstaller**:
    ```python
    pip install pyinstaller
    ```
 
-2. **Navigate to your script’s folder** in VS Code and run the following command in your terminal:
-   ```python
-   pyinstaller --onefile --windowed your_script.py
-   ```
-   - `--onefile`: Bundles everything into a single `.exe` file.
-   - `--windowed`: Prevents the terminal from appearing (useful for GUI applications).
+3. **Navigate to your script’s folder** in VS Code and run the following command in your terminal:
+    ```python
+    pyinstaller --onefile --windowed your_script.py
+    ```
 
-3. Locate your `.exe` in the `dist/` folder inside your project directory and execute it.
+    - `--onefile`: Bundles everything into a single `.exe` file.
+    - `--windowed`: Prevents the terminal from appearing (useful for GUI applications).
+
+4. Locate your `.exe` in the `dist/` folder inside your project directory and execute it.
 
 📌 **Tip**: Place `tasks.json` (if not done automatically) in the same folder as the `.exe` file to ensure data is stored persistently.
 
 ???+ info "PyInstaller and macOS"
     **PyInstaller** can also be used to convert your Python script into a standalone application on macOS. However, instead of generating a `.exe` file (for Windows), **PyInstaller** will create a `.app` file for macOS. The process is the same. 🙂
 
-## Tkinter vs Streamlit - **Warning: Spoiler Alert!**
-In this subchapter, you explored **Tkinter** to create your first desktop application. While it may not have the most modern design, **Tkinter** offers a solid foundation for learning to program GUI applications. Many other, more visually appealing libraries follow similar principles. In the next subchapter, you'll discover **Streamlit**—a user-friendly and visually engaging framework for creating web applications.
-
-**Tkinter**     
-
-  - **GUI Framework** for building desktop applications.
-  - **Event-driven programming**, with more code required for UI interactivity.
-  - **Highly customizable** but can be complex for advanced UIs.
-  - **Deployment** is desktop-only, requiring a Python environment.
-  - **Class-based approach** requires defining classes for window structure, widgets, and event handling (manual setup).
-
-**Streamlit**     
-
-  - **Web-based framework**, perfect for rapid prototyping of data-driven apps.
-  - **Real-time interactivity** with minimal setup and coding.
-  - **Simplified interface** with less focus on deep customization, but ideal for quick data science apps.
-  - **Easy web deployment** with no environment setup.
-  - **Class-based approach** Streamlit is more function-based but can support class-based structures for reusable components.
-
-**Conclusion**     
-- **Use Tkinter** if your focus is on building desktop applications with a traditional GUI.    
-- **Use Streamlit** if your goal is to rapidly prototype web apps, particularly in data science or machine learning, where real-time updates and interactivity are crucial.
 
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/ITXgZuGi17YwCQIofC" width="380" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/gracetea-ITXgZuGi17YwCQIofC"></a></p>
