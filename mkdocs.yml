@@ -103,6 +103,8 @@ nav:
       - Object-Oriented Programming: python-extensive/oop.md
       - Graphical User Interfaces with Tkinter: python-extensive/tkinter.md
       - Building Web Applications with Streamlit: python-extensive/streamlit.md
+      - Tkinter vs Streamlit: python-extensive/tkinter_streamlit.md
+
 
   - Statistics:
     - statistics/index.md
