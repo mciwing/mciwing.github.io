@@ -257,7 +257,7 @@ complex data, speed up algorithms, and improve model performance.
 
     - Customer segmentation in marketing (like in the example above)
     - Anomaly detection
-    - Finding similar products in recommendations
+    - Product recommendations
     - ...
 
 -   __Dimensionality Reduction__
@@ -288,7 +288,7 @@ complex data, speed up algorithms, and improve model performance.
     trying to solve will help you select the right algorithms, features, 
     and interpret the results.
 
-## Summary
+## Recap
 
 In this chapter, we introduced two fundamental concepts in machine learning:
 supervised and unsupervised learning. While supervised learning works with
@@ -303,14 +303,13 @@ The following chapters will explore specific algorithms from both categories:
 graph LR
  A[Supervised Learning] --> B[Regression: *Linear Regression*];
  A --> C[Classification: *Logistic Regression*];
- C --> D[*Decision Tree, Random Forest, Neural Network*];
+ C --> D[*Decision Tree, Random Forest*];
  B --> D;
 ```
 
 - Logistic Regression for classification tasks
 - Linear Regression for predicting continuous values
-- Decision Tree, Random Forest and Neural Network for both regression and 
-  classification tasks
+- Decision Tree and Random Forest for both regression and classification tasks
 
 **Unsupervised Learning**:
 

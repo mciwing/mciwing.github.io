@@ -1,13 +1,8 @@
 # Introduction
 
-???+ info
+![header](../assets/header/cv.png)
 
-    The `Computer Vision` section is currently under construction. 
-    :fontawesome-solid-person-digging:
-
-    Please check back later for updates.
-
-???+ info "Running the Code"
+???+ info "Project Setup"
     This chapter serves as an introduction to the topic of computer vision. We'll explore various tasks, demonstrating their use with code snippets. Even though this is just an introductory chapter and you might not grasp all the details yet, we encourage you to run the code on your own computer.
 
     To follow along, we recommend setting up a new project folder with a Jupyter notebook. Additionally, create a new [virtual environment ](../python/packages.md#virtual-environments) and **activate** it. [Install the required packages](../python/packages.md#installing-packages):
@@ -19,7 +14,7 @@
     Your project structure should look like this:
 
     ```
-    📁 computer_vision/
+    📁 vision_intro/
     ├── 📁 .venv/
     ├── 📄 input.jpg
     └── 📄 cv_intro.ipynb

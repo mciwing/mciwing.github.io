@@ -53,7 +53,15 @@ songs in Austria. You can find the corresponding playlist
         --8<-- "docs/assets/python/pandas/spotify.py"
         ```
 
-{{ read_raw("assets/python/pandas/spotify-top50.md") }}
+Excerpt of the data set (snapshot date: **2024-09-25**):
+
+|   daily_rank | name                  | artists               |   popularity | is_explicit   |   energy |
+|-------------:|:----------------------|:----------------------|-------------:|:--------------|---------:|
+|            1 | The Emptiness Machine | Linkin Park           |           93 | True          |    0.872 |
+|            2 | Rote Flaggen          | Berq                  |           76 | True          |    0.336 |
+|            3 | Bauch Beine Po        | Shirin David          |           80 | True          |    0.746 |
+|            4 | Die With A Smile      | Lady Gaga, Bruno Mars |          100 | False         |    0.592 |
+|            5 | BIRDS OF A FEATHER    | Billie Eilish         |           99 | False         |    0.507 |
 
 Download the whole data set to follow this section:
 
@@ -249,6 +257,44 @@ print(type(data["artists"]))
 
 A `DataFrame` is composed of at least one `Series`.
 
+---
+
+##### Detour: `Series` and `DataFrame` from scratch
+
+It's not always the case that you have a data set (in form of a file) at hand.
+Sometimes you have to create a `Series` or `DataFrame` yourself.
+
+A `Series` can be easily created from a list.
+
+```py
+austrian_artists = ["Bibiza", "Wanda", "Bilderbuch"]
+austrian_artists = pd.Series(austrian_artists)
+```
+
+To initiate a `DataFrame`, you can use a dictionary (among others).
+
+```py
+austrian_artists = {
+    "name": ["Bibiza", "Wanda", "Bilderbuch"],
+    "album": ["bis einer weint", "Amore", "mea culpa"],
+    "release_year": [2024, 2014, 2019]
+}
+austrian_artists = pd.DataFrame(austrian_artists)
+```
+
+Dictionary keys are used as column names and the corresponding values as
+the column values.
+
+???+ info
+
+    Apart from a `#!python dict`, a `DataFrame` can be created from multiple
+    other data structures like a `#!python list` or `#!python tuple`. For an 
+    extensive guide, visit the `pandas` documentation on Intro to data 
+    structures (specifically the 
+    [section DataFrame](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe)). 
+
+---
+
 ### Selecting data
 
 Let's dive deeper into selecting data. To access specific rows, you can use 
@@ -352,7 +398,7 @@ The resulting `Series` is assigned to `data` as a new column.
 ???+ question "Track length"
     
     <figure markdown="span">
-      ![Spotify App](https://duet-cdn.vox-cdn.com/thumbor/0x0:2040x1360/640x427/filters:focal(1020x680:1021x681):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/11596505/akrales_180620_1777_0169.jpg){ width="350" }
+      ![Spotify App](../assets/python/pandas/spotify-playlist.png){ width="450" }
     </figure>
     
     Since songs are [getting shorter](https://www.theverge.com/2019/5/28/18642978/music-streaming-spotify-song-length-distribution-production-switched-on-pop-vergecast-interview)

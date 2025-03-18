@@ -3,6 +3,8 @@
 
 In many cases, simply characterizing the data is not sufficient. Beyond explaining the data, the goal is often to enable predictions. This chapter introduces the basic approach of **linear regression**, which allows for approximating **bivariate** data. The topics covered include linear regression and the coefficient of determination. Regression aims to model the relationships between a dependent variable and one or more independent variables.
 
+
+<!-- Body start -->
 ## Motivation
 
 To understand the motivation behind linear regression we will start this chapter with an example. Consider a mobile plan that costs €26, including unlimited SMS, calls, and data within the country. Data roaming costs €0.84 per MB. The bills for the last year show monthly expenses based on roaming usage.
@@ -420,3 +422,4 @@ The coefficient of determination indicates the proportion of variance explained 
         - Acceleration vs. Weight
     2. For all performed regressions calculate the coefficient of determination
     3. Write down the formula for all performed regressions 
+<!-- Body end -->

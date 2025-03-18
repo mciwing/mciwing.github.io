@@ -10,7 +10,7 @@ theme:
     primary: teal
     accent: pink
   icon:
-    repo: fontawesome/brands/git-alt
+    repo: fontawesome/brands/github
 
   features:
     - navigation.tabs
@@ -33,81 +33,78 @@ nav:
   - Home: index.md
 
   - Python Crash Course:
-    - python/index.md
-    - python/installation.md
-    - python/ide.md
-    - python/variables.md
+    - Home: python/index.md
+    - Installation: python/installation.md
+    - IDE: python/ide.md
+    - Variables: python/variables.md
 
     - Types:
-      - python/types/strings.md
-      - python/types/numbers.md
-      - python/types/bool_and_none.md
+      - Strings: python/types/strings.md
+      - Integers & Floats: python/types/numbers.md
+      - Boolean & None: python/types/bool_and_none.md
 
-    - python/comparisons_and_logic.md
+    - Comparisons & Logical Operators: python/comparisons_and_logic.md
 
     - Containers:
-      - python/containers/list.md
-      - python/containers/dict.md
-      - python/containers/tuple.md
+      - Lists: python/containers/list.md
+      - Dictionaries: python/containers/dict.md
+      - Tuples: python/containers/tuple.md
 
     - Control Structures:
-      - python/control-structures/for.md
-      - python/control-structures/if.md
+      - Loops: python/control-structures/for.md
+      - More Control Structures: python/control-structures/if.md
 
-    - python/functions.md
-    - python/packages.md
-    - python/pandas.md
+    - Functions: python/functions.md
+    - Package Management: python/packages.md
+    - Pandas: python/pandas.md
 
   - Python Extensive Course:
-    - python-extensive/index.md  # TODO: remove if all materials are finished
+    - Home: python-extensive/index.md
 
     - Basics & Data Types:
-      - "Motivation": python-extensive/python-index.md  # TODO: rework specific mentions on the Crash Course
-
       - Setup:
-        - python-extensive/installation.md
-        - "IDE": python-extensive/ide.md
+        - Installation: python-extensive/installation.md
+        - IDE: python-extensive/ide.md
 
-      - python-extensive/variables.md
+      - Variables: python-extensive/variables.md
 
       - Types:
-        - python-extensive/types/strings.md
-        - python-extensive/types/numbers.md
-        - python-extensive/types/bool_and_none.md
+        - Strings: python-extensive/types/strings.md
+        - Integers & Floats: python-extensive/types/numbers.md
+        - Boolean & None: python-extensive/types/bool_and_none.md
 
     - Logic & Containers:
-      - python-extensive/comparisons_and_logic.md
+      - Comparisons & Logical Operators: python-extensive/comparisons_and_logic.md
 
       - Containers:
-        - python-extensive/containers/list.md
-        - python-extensive/containers/dict.md
-        - python-extensive/containers/tuple.md
+        - Lists: python-extensive/containers/list.md
+        - Dictionaries: python-extensive/containers/dict.md
+        - Tuples: python-extensive/containers/tuple.md
 
     - Control Structures & Functions:
       - Control Structures:
-        - python-extensive/control-structures/for.md
-        - python-extensive/control-structures/if.md
+        - Loops: python-extensive/control-structures/for.md
+        - More Control Structures: python-extensive/control-structures/if.md
 
-      - python-extensive/functions.md  # TODO: methods vs. functions; variable scope
+      - Functions: python-extensive/functions.md  # TODO: methods vs. functions; variable scope
 
     - Dev Tools & Data Handling:
-      - python-extensive/packages.md
-      - python-extensive/pandas.md
-      - python-extensive/plotting.md  # TODO: plotting with pandas
+      - Package Management: python-extensive/packages.md
+      - Pandas: python-extensive/pandas.md
+      - Plotting: python-extensive/plotting.md
 
     - Data Acquisition & Export:
-      - "Data Basics": python-extensive/DataBasics.md
-      - "Data Acquisition":
-        - python-extensive/data/tabular.md
-        - python-extensive/data/api.md
+      - Data Basics: python-extensive/DataBasics.md
+      - Data Acquisition:
+        - Tabular Data: python-extensive/data/tabular.md
+        - API: python-extensive/data/api.md
 
     - Graphical User Interface:
-      - python-extensive/oop.md
-      - python-extensive/tkinter.md
-      - python-extensive/streamlit.md
-      - python-extensive/tkinter_streamlit.md
+      - Object-Oriented Programming: python-extensive/oop.md
+      - Graphical User Interfaces with Tkinter: python-extensive/tkinter.md
+      - Building Web Applications with Streamlit: python-extensive/streamlit.md
+      - Tkinter vs Streamlit: python-extensive/tkinter_streamlit.md
 
-    - python-extensive/git.md  # TODO: Bonus chapter on Git
 
   - Statistics:
     - statistics/index.md
@@ -141,39 +138,65 @@ nav:
         - statistics/regression/LinearRegression.md
 
   - Data Science:
-      - data-science/index.md
+      - Home: data-science/index.md
+
+      - Data Basics:
+        - Definition of Key Terms: data-science/data-basics/terms.md
+        - Data vs. Big Data: data-science/data-basics/data.md
+        - Data Basics: data-science/data-basics/basics.md
 
       - Data Preparation & Preprocessing:
-        - data-science/data/preparation.md
-        - data-science/data/preprocessing.md
+        - Data Preparation: data-science/data/preparation.md
+        - Data Preprocessing: data-science/data/preprocessing.md
 
       - Supervised vs. Unsupervised Learning:
-        - data-science/algorithms/index.md
+        - Introduction: data-science/algorithms/index.md
+
+        - Supervised:
+          - Regression: data-science/algorithms/supervised/regression.md
+          - Classification: data-science/algorithms/supervised/classification.md
+          - Tree Based:
+            - Decision Tree: data-science/algorithms/supervised/tree-based/cart.md
+            - Random Forest: data-science/algorithms/supervised/tree-based/forest.md
+
+        - Unsupervised:
+          - Clustering: data-science/algorithms/unsupervised/clustering.md
+          - Dimensionality Reduction: data-science/algorithms/unsupervised/dim-reduction.md
+
+      - Data Science in Practice:
+          - Introduction: data-science/practice/index.md
+          - 1. Data Preparation: data-science/practice/data-preparation.md
+          - 2. Modelling: data-science/practice/modelling.md
+          - 3. End-to-End: data-science/practice/end-to-end.md
+          - Bonus: data-science/practice/bonus.md
 
   - Computer Vision: 
     - yolo/index.md
     - yolo/approaches.md
     - yolo/yolo.md
-    - Image Processing:
+    - Image Processing 📷:
       - yolo/image/detection.md
       - yolo/image/segmentation.md
       - yolo/image/kp-extraction.md
-      - yolo/image/solutions.md
-    - Video Processing:
+    - Video Processing 🎥:
       - yolo/video/index.md
       - yolo/video/solutions.md
-    - Train a Model: 
+    - Train a Model 🏋️: 
       - yolo/train/index.md
       - yolo/train/acquisition.md
       - yolo/train/annotation.md
       - yolo/train/training.md
+      - yolo/train/inference.md
 
 
 plugins:
   - search
   - git-revision-date-localized:
-      enable_creation_date: false
+      enable_creation_date: true
       type: timeago
+      exclude:
+        - index.md
+      enabled: !ENV [ENABLE_GIT_REVISION_DATE, true]
   - git-committers:
       repository: mciwing/mciwing.github.io
       branch: main
@@ -213,6 +236,8 @@ markdown_extensions:
   - tables
   - pymdownx.tabbed:  # enable content tabs
         alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 extra_javascript:
   - javascripts/mathjax.js

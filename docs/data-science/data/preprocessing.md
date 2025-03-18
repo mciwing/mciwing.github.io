@@ -1,4 +1,4 @@
-# Data preprocessing
+# Data Preprocessing
 
 ![Continue your quest!](../../assets/data-science/data/continue-quest.png)
 <figcaption style="text-align: center;">
