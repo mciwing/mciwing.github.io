@@ -6,9 +6,11 @@ on:
       - main
     paths-ignore:
       - README.md
-      - poetry.lock
-      - poetry.toml
-      - pyproject.toml
+      - CONTRIBUTING.md
+      - .gitignore
+      - .dockerignore
+      - docker-compose.yaml
+      - Dockerfile
 permissions:
   contents: write
 jobs:
