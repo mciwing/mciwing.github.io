@@ -183,11 +183,15 @@ X = [
 ]
 
 # use k-means to find customer segments
-model = KMeans(n_clusters=2)
+model = KMeans(n_clusters=2, random_state=42)  # (1)!
 segments = model.fit_predict(X)
 
 print(segments)
 ```
+
+1. Setting the `random_state` parameter ensures that you get the same results 
+    when executing the code. Reproducibility is discussed more in-depth in 
+    upcoming chapters.
 
 ```title=">>> Output"
 [1 0 1 0 1]
