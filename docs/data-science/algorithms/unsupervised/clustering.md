@@ -530,9 +530,10 @@ Each row in the data set
     Solve the following tasks to apply k-means to the semiconductor data:
 
     1. Are there any missing values in the data?
-    2. Deal with potential missing values; choose any suitable strategy. For a 
-       refresher on missing values, visit the 
-       [Data preprocessing](../../data/preprocessing.md#missing-values) chapter.
+    2. Deal with potential missing values; choose any suitable strategy. We 
+        recommend to utilize the [`SimpleImputer`](https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html) with your chosen strategy. The application 
+        of the `SimpleImputer` should be straightforward as it implements the
+        methods you already know, e.g., `fit_transform()`.
     3. Do you need to scale the features? If so, apply a `StandardScaler`.
     4. Use the elbow method to determine the number of clusters.
     5. Fit the k-means algorithm with the optimal number of clusters.
