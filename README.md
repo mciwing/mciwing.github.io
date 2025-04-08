@@ -114,11 +114,16 @@ If you properly set up the project, you can now start writing content.
 While the site is served locally, any changes you make to the content will 
 automatically trigger a reload of the site in your browser.
 
-The sites content is housed in the `\docs` directory and is written in Markdown.
+The sites content is housed in the `docs/` directory and is written in Markdown.
 For formatting reference, check out the 
 [Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/reference/).
 
 </details>
+
+## Contributions
+
+Any contributions are welcome! 👋🏽
+Check out the [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ---
 
