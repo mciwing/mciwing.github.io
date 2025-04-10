@@ -1,38 +1,90 @@
 # API
 
-<div style="text-align: center;">
-    <img src="/assets/python-extensive/data/api/api-thumbnail.png" alt="API">
-</div>
-
-An application programming interface (API) is a set of rules and protocols
-that allows one software application to interact with another.
+Another source of data is an application programming interface (API). An API 
+consists of a set of rules and protocols that allows one software application 
+to interact with another.
 In other words, it is a way to communicate with a server. Some of these
 servers are openly available and host data that can be accessed by anyone.
 Others require authentication and are therefore paid services.
 
 To illustrate the practical interaction with APIs, we will retrieve
-cryptocurrency data from the [CoinCap API](https://docs.coincap.io/).
+data from multiple different APIs.
+<!-- TODO describe which APIs -->
 
-We will pull a list of available cryptocurrencies, the latest price history 
-of a specific coin, plot a line chart to visualize the data and 
-lastly perform a conversion from USD to EUR.
+## First example
 
-???+ info "<span style='color:red;'>Disclaimer</span>"
+???+ question "Open a website :wink:"
     
-    This section merely demonstrates APIs on the example of cryptocurrency 
-    market data.
+    Open the {JSON} Placeholder website 
+    [here](https://jsonplaceholder.typicode.com/).
 
-    Cryptocurrencies involve significant financial risk. 
-    Investors should conduct thorough research and consult financial professionals 
-    before making investment decisions. The code examples presented herein are 
-    for illustrative purposes only and do not constitute financial advice 
-    nor do we endorse any companies mentioned.
+As the site says {JSON} Placeholder is a public API which serves some fake 
+data. It is the perfect starting place, to try and retrieve some data.
+Without any prior knowledge you can start to send your first request using your
+browser.
 
+???+ question "Send your first request"
 
-???+ question "Reading the documentation"
+    Open following link within your browser to send your first request:
+    https://jsonplaceholder.typicode.com/comments
+
+    Observe the response. The structure of the resulting data should already
+    look familiar.
+
+<?quiz?>
+question: Which Python type does the output of your request most closely resemble?
+answer: A pandas DataFrame
+answer: A simple list
+answer-correct: A simple dictionary
+content:
+<p>Correct! The server response you got was actually in the form of a 
+<code>JSON</code> file. 
+This is a common format for APIs to return data. Later, we can easily read the 
+<code>JSON</code> with <code>Python</code> and convert it to a dictionary.
+</p>
+<?/quiz?>
+
+In this case, you have sent a request to the `/comments` **endpoint** to 
+retrieve some fake data containing comments. 
+
+## Endpoints
+
+An endpoint is a specific URL that the API uses to perform a specific action.
+To send a request to the server, we need to specify the endpoint in the URL.
+The server will then respond with the requested data (if everything went 
+smoothly).
+
+In our example, `https://jsonplaceholder.typicode.com/` is simply the URL of 
+the API and `/comments` is the endpoint of our interest. 
+
+???+ question "Explore different endpoints"
+
+    Again, visit {JSON} Placeholder website and scroll down to the Resources
+    section. This specific API has 6 different endpoints. Try other endpoints
+    of your choice and observe the response. Specifically look at the URL!
+
+## APIs & Python
+
+Since we don't want to manually use the browser anytime we want to retrieve 
+data, we now replicate a request in `Python` :fontawesome-brands-python:. 
+To send requests we can make use of the appropriately named
+[`requests`](https://requests.readthedocs.io/en/latest/) package.
+
+???+ question "Setup"
     
-    Open the CoinCap API documentation ([here](https://docs.coincap.io/)) and 
-    browse through the site for a minute or two.
+    Within a ==virtual environment== install the `requests` package.
+    
+    === ":fontawesome-brands-windows: Windows"
+
+        ```bash
+        pip install requests
+        ```
+
+    === ":fontawesome-brands-apple: MacOS"
+
+        ```bash
+        pip3 install requests
+        ```
 
 ## Rate limits
 
@@ -44,57 +96,6 @@ In this specific case, we can make up to 200 requests per minute which is more
 than enough for our use case. These rate limits are set by the provider and 
 can vary from one API to another. Some APIs may not have any rate limits at 
 all.
-
-But how can we even request data from the server to retrieve a list of 
-cryptocurrencies? To answer this question, the concept of endpoints is 
-introduced.
-
-## Endpoints
-
-An endpoint is a specific URL that the API uses to perform a specific action.
-For example, the endpoint `/assets` returns a list of all cryptocurrencies.
-To send a request to the server, we need to specify the endpoint in the URL.
-The server will then respond with the requested data (if everything went 
-smoothly).
-
-To request all cryptocurrencies, we can use the following URL:
-```
-https://api.coincap.io/v2/assets
-```
-
-`https://api.coincap.io/v2` is simply the URL of the API and `/assets` is 
-the endpoint of our interest.
-
-???+ question "Send your first request"
-
-    Open the URL `https://api.coincap.io/v2/assets` in your browser and 
-    observe the response.
-
-<?quiz?>
-question: Which Python type does the output of your request most closely resemble?
-answer: A pandas DataFrame
-answer: A simple list
-answer-correct: A simple dictionary
-content:
-<p>Correct! The server response you got was actually in the form of a 
-<code>JSON</code> file. 
-This is a common format for APIs to return data. We can easily read the 
-<code>JSON</code> with <code>Python</code> and convert it to a dictionary.
-</p>
-<?/quiz?>
-
-Since we don't want to manually use the browser anytime we want to retrieve 
-data, we now replicate the request in `Python` :fontawesome-brands-python:. 
-To send requests we can make use of the appropriately named
-[`requests`](https://requests.readthedocs.io/en/latest/) package.
-
-???+ question "Setup"
-    
-    Create a new virtual environment and install the `requests` package.
-    
-    ```bash
-    pip install requests
-    ```
 
 The below snippet sends a request to the `/assets` endpoint and stores the
 response in a variable.
