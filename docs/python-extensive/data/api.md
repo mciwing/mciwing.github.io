@@ -8,8 +8,7 @@ servers are openly available and host data that can be accessed by anyone.
 Others require authentication and are therefore paid services.
 
 To illustrate the practical interaction with APIs, we will retrieve
-data from multiple different APIs.
-<!-- TODO describe which APIs -->
+data from multiple different APIs, namely {JSON} Placeholder, GitHub and NASA.
 
 ## First example
 
@@ -54,14 +53,15 @@ To send a request to the server, we need to specify the endpoint in the URL.
 The server will then respond with the requested data (if everything went 
 smoothly).
 
-In our example, `https://jsonplaceholder.typicode.com/` is simply the URL of 
+In our example, `https://jsonplaceholder.typicode.com` is simply the URL of 
 the API and `/comments` is the endpoint of our interest. 
 
 ???+ question "Explore different endpoints"
 
-    Again, visit {JSON} Placeholder website and scroll down to the Resources
-    section. This specific API has 6 different endpoints. Try other endpoints
-    of your choice and observe the response. Specifically look at the URL!
+    Again, visit the {JSON} Placeholder website and scroll down to the 
+    Resources section. This specific API has 6 different endpoints. Try other 
+    endpoints of your choice and observe the response. Specifically look at 
+    the URL!
 
 ## APIs & Python
 
@@ -104,7 +104,7 @@ data = response.json()
 ???+ question "Validate the above quiz question"
     
     What type is returned by the `#!python response.json()` method? 
-    Check the `#!python type()` of the `data` variable.
+    Check the `#!python type` of the `data` variable.
 
 We can easily convert the data into a tabular format with `pandas`.
 
@@ -116,7 +116,7 @@ data = pd.DataFrame(data)
 
 ???+ info
 
-    Looking at `data.shape` you'll notice that we retrieved 500 rows of data
+    Looking at `data.shape`, you'll notice that we retrieved 500 rows of data
     with a single request. With a `pandas.DataFrame` you can utilize all your
     knowledge you gained so far to further handle and plot the data.
 
@@ -176,25 +176,25 @@ the GitHub API.
     Think of GitHub as a social network for programmers - like a combination of 
     Google Drive, LinkedIn, and Instagram, but for code. Developers can:
     
-    - Store their code in "repositories" (like folders)
-    - Track changes to their code over time
-    - Collaborate with others on projects
-    - Share their work with the global developer community
+    - [x] Store their code in "repositories" (like folders)
+    - [x] Track changes to their code over time
+    - [x] Collaborate with others on projects
+    - [x] Share their work with the global developer community
 
 Besides browsing GitHub on the web, we can also access information 
 programmatically using their API. You can find more information 
-[here](https://docs.github.com/de/rest/about-the-rest-api/about-the-rest-api?apiVersion=2022-11-28).
+[here](https://docs.github.com/rest/about-the-rest-api/about-the-rest-api?apiVersion=2022-11-28).
 
 ---
 
 The base URL of the Github API is
 
 ```plaintext
-https://api.github.com/
+https://api.github.com
 ```
 
 For example, we can retrieve the information of a specific user with the 
-`/users` endpoint (official [documentation](https://docs.github.com/de/rest/users/users?apiVersion=2022-11-28#get-a-user)).
+`/users` endpoint (official [documentation](https://docs.github.com/rest/users/users?apiVersion=2022-11-28#get-a-user)).
 
 ```plaintext
 https://api.github.com/users/{username}
@@ -243,9 +243,13 @@ indicating how the request was handled. Common status codes include:
 | 429  | Too Many Requests     | You've exceeded the rate limit             |
 | 500  | Internal Server Error | Something went wrong on the server         |
 
+???+ tip "Status codes"
+
+    You can find a complete list of status codes at the 
+    [MDN Web Docs](https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status).
+
 You can access the status code of any response using the `status_code` 
-attribute.
-Let's look at another example. With the
+attribute. Let's look at another example. With the
 
 ```plaintext
 https://api.github.com/repos/{owner}/{repo}/contributors
@@ -321,18 +325,79 @@ Depending on the API, you may experience rate limits or have to authenticate
 your requests or simply have to pay for the service. Either way, the specific
 API documentation will guide you through the process.
 
-<!-- NASA example to conclude -->
+## NASA API
+
+To conclude the chapter you will look at another real world example and 
+get the current astronomy picture of the day (APOD) from NASA. :milky_way:
+Here is the one from the 10th of April 2025:
+
+<div style="text-align: center;">
+    <img src="https://apod.nasa.gov/apod/image/2504/38h_M81-group_1024.jpeg" 
+    alt="NASA APOD" width="500" style="border-radius: 15px;"/>
+</div>
+
+Now it's your turn to read the documentation and retrieve the picture of the 
+day.
+
+???+ question "Figure out the URL path"
+
+    Open the [NASA API](https://api.nasa.gov/), scroll down to the Browse APIs 
+    section and expand the APOD container. Figure out the URL path. Send a 
+    request in Python.
+
+???+ info
+
+    Although most NASA APIs require an API key, the APOD API is free to use and
+    tasks can be performed without an API key.
+
+Obviously we would like to visualize the picture. To do so, use following 
+helper function:
+
+```python
+from io import BytesIO
+from PIL import Image
+import matplotlib.pyplot as plt
+
+def plot_image_from_url(url):
+    """Plot an image from a URL."""
+    # Retrieve the image from the URL with requests
+    img_response = requests.get(url)
+    img = Image.open(BytesIO(img_response.content))
+
+    # Display the image
+    plt.imshow(img)
+    plt.axis("off")  # Hide the axes
+    plt.tight_layout()
+    plt.show()
+```
+
+???+ info
+
+    The above code uses requests to retrieve the image from the URL and then
+    utilizes the `Pillow` and `maptlotlib` packages to plot it.
+
+???+ question "Plot the image"
+
+    Use the above function to plot the image you retrieved from the NASA API.
+
+    1. Install any missing packages.
+    2. Access the appropriate key from the response data to get the URL of 
+        the image.
+    3. Pass the URL to the `plot_image_from_url` function.
+
+???+ question "More information"
+
+    The APOD API provides more information than just the image. 
+    Since we want to have further information on the picture, look at the 
+    response data and print a description of your picture.
 
 ## Conclusion
 
-In this end-to-end example, we have seen how to retrieve data from an API, 
-store it in a `DataFrame` and visualize it. With consecutive requests, we 
-have pulled a list of cryptocurrencies, the price history of a specific 
-coin and even converted the prices to EUR. 
+In our examples, we have seen how to retrieve data from an different APIs, 
+work with the data and visualize it. 
 
-Despite this specific use case, concepts like rate limits, endpoints, request
-methods and query parameters were introduced along the way which are 
-universal to APIs.
+Despite our specific use case, concepts like rate limits, endpoints and request
+methods were introduced along the way which are universal to APIs.
 
 ???+ info "Apply your knowledge"
     
@@ -342,8 +407,7 @@ universal to APIs.
         Some of these APIs require authentication or are paid services.
     
     - [OpenWeatherMap](https://openweathermap.org/api) for weather data
-    - [NASA](https://api.nasa.gov/) from astronomy pictures to earth 
-        observation data
+    - [NASA](https://api.nasa.gov/) has a couple APIs for various use cases
     - [Google Search](https://developers.google.com/custom-search/v1/overview?hl=de) 
         access search results programmatically
     - [Spotify](https://developer.spotify.com/documentation/web-api) access 
