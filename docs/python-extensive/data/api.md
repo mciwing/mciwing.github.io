@@ -1,74 +1,34 @@
 # API
 
-<div style="text-align: center;">
-    <img src="/assets/python-extensive/data/api/api-thumbnail.png" alt="API">
-</div>
-
-An application programming interface (API) is a set of rules and protocols
-that allows one software application to interact with another.
+Another source of data is an application programming interface (API). An API 
+consists of a set of rules and protocols that allows one software application 
+to interact with another.
 In other words, it is a way to communicate with a server. Some of these
 servers are openly available and host data that can be accessed by anyone.
 Others require authentication and are therefore paid services.
 
 To illustrate the practical interaction with APIs, we will retrieve
-cryptocurrency data from the [CoinCap API](https://docs.coincap.io/).
+data from multiple different APIs, namely {JSON} Placeholder, GitHub and NASA.
 
-We will pull a list of available cryptocurrencies, the latest price history 
-of a specific coin, plot a line chart to visualize the data and 
-lastly perform a conversion from USD to EUR.
+## First example
 
-???+ info "<span style='color:red;'>Disclaimer</span>"
+???+ question "Open a website :open_mouth:"
     
-    This section merely demonstrates APIs on the example of cryptocurrency 
-    market data.
+    Open the {JSON} Placeholder website 
+    [here](https://jsonplaceholder.typicode.com/).
 
-    Cryptocurrencies involve significant financial risk. 
-    Investors should conduct thorough research and consult financial professionals 
-    before making investment decisions. The code examples presented herein are 
-    for illustrative purposes only and do not constitute financial advice 
-    nor do we endorse any companies mentioned.
-
-
-???+ question "Reading the documentation"
-    
-    Open the CoinCap API documentation ([here](https://docs.coincap.io/)) and 
-    browse through the site for a minute or two.
-
-## Rate limits
-
-During the task, you should have noticed that the API provides information 
-on rate limits. Rate limits are the number of requests that can be made to
-the server in a given time frame. If you as the user exceed the rate limit, 
-the server will respond with an error message.
-In this specific case, we can make up to 200 requests per minute which is more
-than enough for our use case. These rate limits are set by the provider and 
-can vary from one API to another. Some APIs may not have any rate limits at 
-all.
-
-But how can we even request data from the server to retrieve a list of 
-cryptocurrencies? To answer this question, the concept of endpoints is 
-introduced.
-
-## Endpoints
-
-An endpoint is a specific URL that the API uses to perform a specific action.
-For example, the endpoint `/assets` returns a list of all cryptocurrencies.
-To send a request to the server, we need to specify the endpoint in the URL.
-The server will then respond with the requested data (if everything went 
-smoothly).
-
-To request all cryptocurrencies, we can use the following URL:
-```
-https://api.coincap.io/v2/assets
-```
-
-`https://api.coincap.io/v2` is simply the URL of the API and `/assets` is 
-the endpoint of our interest.
+As the site says {JSON} Placeholder is a public API which serves some fake 
+data. It is the perfect starting place, to try and retrieve some data.
+Without any prior knowledge you can start to send your first request using your
+browser.
 
 ???+ question "Send your first request"
 
-    Open the URL `https://api.coincap.io/v2/assets` in your browser and 
-    observe the response.
+    Open following link within your browser to send your first request:
+    https://jsonplaceholder.typicode.com/comments
+
+    Observe the response. The structure of the resulting data should already
+    look familiar.
 
 <?quiz?>
 question: Which Python type does the output of your request most closely resemble?
@@ -78,46 +38,101 @@ answer-correct: A simple dictionary
 content:
 <p>Correct! The server response you got was actually in the form of a 
 <code>JSON</code> file. 
-This is a common format for APIs to return data. We can easily read the 
+This is a common format for APIs to return data. Later, we can easily read the 
 <code>JSON</code> with <code>Python</code> and convert it to a dictionary.
 </p>
 <?/quiz?>
 
+In this case, you have sent a request to the `/comments` **endpoint** to 
+retrieve some fake data containing comments. 
+
+## Endpoints
+
+An endpoint is a specific URL that the API uses to perform a specific action.
+To send a request to the server, we need to specify the endpoint in the URL.
+The server will then respond with the requested data (if everything went 
+smoothly).
+
+In our example, `https://jsonplaceholder.typicode.com` is simply the URL of 
+the API and `/comments` is the endpoint of our interest. 
+
+???+ question "Explore different endpoints"
+
+    Again, visit the {JSON} Placeholder website and scroll down to the 
+    Resources section. This specific API has 6 different endpoints. Try other 
+    endpoints of your choice and observe the response. Specifically look at 
+    the URL!
+
+## APIs & Python
+
 Since we don't want to manually use the browser anytime we want to retrieve 
-data, we now replicate the request in `Python` :fontawesome-brands-python:. 
+data, we now replicate a request in `Python` :fontawesome-brands-python:. 
 To send requests we can make use of the appropriately named
 [`requests`](https://requests.readthedocs.io/en/latest/) package.
 
 ???+ question "Setup"
     
-    Create a new virtual environment and install the `requests` package.
+    Within a ==virtual environment== install the `requests` package.
     
-    ```bash
-    pip install requests
-    ```
+    === ":fontawesome-brands-windows: Windows"
 
-The below snippet sends a request to the `/assets` endpoint and stores the
-response in a variable.
+        ```bash
+        pip install requests
+        ```
+
+    === ":fontawesome-brands-apple: MacOS"
+
+        ```bash
+        pip3 install requests
+        ```
+
+To send the same request to the `/comments` endpoint we can use following code
+snippet.
 
 ```python
 import requests
 
-response = requests.get(url="https://api.coincap.io/v2/assets")
-data = response.json()  # assign the response to a variable
+response = requests.get("https://jsonplaceholder.typicode.com/comments")
+```
+
+Since `response` does not explicitly return the data we have to access it with
+
+```python
+data = response.json()
 ```
 
 ???+ question "Validate the above quiz question"
     
     What type is returned by the `#!python response.json()` method? 
-    Check the `#!python type()` of the `data` variable.
+    Check the `#!python type` of the `data` variable.
+
+We can easily convert the data into a tabular format with `pandas`.
+
+```python
+import pandas as pd
+
+data = pd.DataFrame(data)
+```
+
+???+ info
+
+    Looking at `data.shape`, you'll notice that we retrieved 500 rows of data
+    with a single request. With a `pandas.DataFrame` you can utilize all your
+    knowledge you gained so far to further handle and plot the data.
+
+???+ question "Send a request with Python"
+
+    Pick one of the 6 available endpoints. Write code to
+
+    1. Send a request
+    2. Access the data
 
 ### Methods
 
 In the above code snippet, we applied `requests` `get()` method.
 The `get` method solely retrieves data from the server, that is no data is 
-changed on the server-side. If you have another look at the CoinCap API docs
-you will discover that all endpoints like `/assets`, `/rates`, or `/markets` 
-are prefaced by the `GET` method.
+sent to or modified on the server. In fact, all endpoints of {JSON} Placeholder 
+can be accessed using the `GET` method.
 
 Nevertheless, `GET` is not the only method, there are also `POST`, `PUT`,
 `DELETE`, and `PATCH`. Following table provides a brief overview:
@@ -130,11 +145,10 @@ Nevertheless, `GET` is not the only method, there are also `POST`, `PUT`,
 | DELETE | Delete data on the server           | `requests.delete()` |
 | PATCH  | Partially update data on the server | `requests.patch()`  |
 
-Don't worry about these methods too much for now as we will continue solely
-with `GET` methods.
+We will continue solely with `GET` methods.
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" width="350" height="280" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/retro-thumbs-up-XreQmk7ETCak0"></a></p>
+    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" width="373" height="280" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/retro-thumbs-up-XreQmk7ETCak0"></a></p>
 </div>
 
 ???+ info
@@ -142,307 +156,249 @@ with `GET` methods.
     If you need to revisit the topic of HTTP methods or simply want to dive 
     deeper, [here's](https://restfulapi.net/http-methods/) a great article.
 
-## Endpoints continued...
+## GitHub API
 
-Let's revisit the code snippet from above and extend it. After requesting the 
-`/assets` endpoint we convert the response (the `#!python dict`) into a tabular 
-format in order to process the data more easily.
+Since APIs serve different purposes, we switch to another real world example,
+the GitHub API.
 
-```python hl_lines="6 7"
-import requests
+???+ info
 
-response = requests.get(url="https://api.coincap.io/v2/assets")
-data = response.json()
-
-print(data.keys())  # print all dictionary keys
-print(data["data"]) # closer look at the value of the "data" key
-```
-
-```title=">>> Output"
-dict_keys(['data', 'timestamp'])
-[{'id': 'bitcoin', 'rank': '1', 'symbol': 'BTC', 'name': 'Bitcoin', ....] 
-```
-
-A closer look at the response reveals that the `#!python dict` is nested. 
-The `data` key is of particular interest, since it contains a list of 
-dictionaries containing information on cryptocurrencies. 
-We can convert this list to a `pandas` `DataFrame`.
-
-```python
-import pandas as pd
-
-data = pd.DataFrame(data["data"])
-print(data.head())
-```
-
-| id       | rank | symbol | name     | ... |
-|----------|------|--------|----------|-----|
-| bitcoin  | 1    | BTC    | Bitcoin  | ... |
-| ethereum | 2    | ETH    | Ethereum | ... |
-| tether   | 3    | USDT   | Tether   | ... |
-| solana   | 4    | SOL    | Solana   | ... |
-| xrp      | 5    | XRP    | XRP      | ... |
-
-???+ info 
-
-    The content of your `DataFrame` can differ slightly as responses 
-    contain the latest data from the server. Since we are dealing with 
-    cryptocurrency market data, changes occur rapidly.
-
-    Nevertheless, that's the power of APIs as they allow you to 
-    programmatically access up to date information. 🦾
-
-## Query parameters
-
-To continue on our quest to visualize the latest price history of a
-cryptocurrency, we need to settle on a single cryptocurrency. The concept 
-of query parameters is introduced with another practical example.
-
-For the following examples, we will use an emerging (at the time of writing) 
-cryptocurrency called `Pepe-Cash` (more of a meme-coin).
-
-<p align="center">
-  <img src="https://tokenscan.io/img/cards/PEPECASH.jpg" alt="Pepe">
-</p>
-
-To get access to the price history of `Pepe-Cash`, we need to consult the API 
-documentation and find the appropriate endpoint.
-
-<?quiz?>
-question: Which endpoint provides the historic market data of a specific cryptocurrency?
-answer: /markets
-answer-correct: /assets/{{id}}/history
-answer: /rates
-answer: /assets - The endpoint we used before already contains the information we need.
-content:
-<p>Exactly, by providing a asset <code>id</code>, we can retrieve 
-the price history from the <code>/assets/{{id}}/history</code> endpoint.
-</p>
-<?/quiz?>
-
-With the endpoint name at hand, we can send another request to the server. 
-But first, we need to construct the URL. Expand the code snippet below, if you 
-solved the quiz question.
-
-??? info "URL construction"
-
-    ```python
-    api_url = "https://api.coincap.io/v2"
-    coin_id = "pepe-cash"
-    endpoint = f"/assets/{coin_id}/history"
-    query_params = "?interval=d1"  # daily interval (if available)
-    
-    url = f"{api_url}{endpoint}{query_params}"
-    ```
-    
-    Let's walk through the URL construction step by step:
-    
-    1. `api_url` is the base URL of the API (nothing new here).
-    2. `coin_id` :fontawesome-solid-arrow-right: `pepe-cash` is the 
-        identifier of the cryptocurrency we want to retrieve data 
-        for. We have already requested all cryptocurrency identifiers like 
-        `bitcoin` or `ethereum` with the `/assets` endpoint. Have another look 
-        at the table [here](#endpoints-continued).
-    3. `endpoint` contains the endpoint name we want to access, in this 
-        particular case :fontawesome-solid-arrow-right: 
-        `/assets/pepe-cash/history`.
-    4. `query_params` stands for ==query parameters== which are additional 
-        parameters that are passed to the server. Think of a `Python` 
-        function with the endpoint being the function name and the query 
-        parameters being the function parameters used for fine-grained control.
-
-        Query parameters are separated from the URL by a `?`.
-        In this case, we specified `?interval=d1`. `interval` is the 
-        parameter name followed by the value `d1` which stands for daily 
-        price history intervals. Again, with a `Python` function you can think 
-        of `interval=d1` as a named argument.
-    
-        More detailed explanations on both parameters and values are 
-        specified in the API documentation.
-    
-    Finally, we end up with the URL 
-    `#!python "https://api.coincap.io/v2/assets/pepe-cash/history?interval=d1"`
-    
-    <div style="text-align: center;">
-        <iframe src="https://giphy.com/embed/l1Etfpt5pdYl34BuU" width="480" height="360" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-l1Etfpt5pdYl34BuU"></a></p>
-        <figcaption>Quite a complicated URL.</figcaption>
+    <div style="text-align: center">
+        <img src="/assets/python-extensive/data/api/github-mark-white.png" 
+        alt="GitHub Logo" width="75"/>
     </div>
 
-### Request
+    GitHub (github.com) is a popular web-based platform that serves as:
+    
+    - A hosting service for software development and version control
+    - A place where developers store, share, and collaborate on code projects
+    
+    Think of GitHub as a social network for programmers - like a combination of 
+    Google Drive, LinkedIn, and Instagram, but for code. Developers can:
+    
+    - [x] Store their code in "repositories" (like folders)
+    - [x] Track changes to their code over time
+    - [x] Collaborate with others on projects
+    - [x] Share their work with the global developer community
 
-If you've followed the construction of the URL closely, we can easily send 
-another request to retrieve market data. This time around it is another `GET`
-request, however with a query parameter.
+Besides browsing GitHub on the web, we can also access information 
+programmatically using their API. You can find more information 
+[here](https://docs.github.com/rest/about-the-rest-api/about-the-rest-api?apiVersion=2022-11-28).
 
-```python
-# construct the URL (same as above)
-api_url = "https://api.coincap.io/v2"
-coin_id = "pepe-cash"
-endpoint = f"/assets/{coin_id}/history"
-query_params = "?interval=d1"  # daily interval (if available)
+---
 
-url = f"{api_url}{endpoint}{query_params}"
+The base URL of the Github API is
 
-# send the request
-response = requests.get(url=url)
+```plaintext
+https://api.github.com
 ```
 
-Again, convert the response to a `DataFrame` and print the first few rows.
+For example, we can retrieve the information of a specific user with the 
+`/users` endpoint (official [documentation](https://docs.github.com/rest/users/users?apiVersion=2022-11-28#get-a-user)).
 
-```python
-pepe_history = response.json()
-pepe_history = pd.DataFrame(pepe_history["data"])
-
-print(pepe_history.tail())
+```plaintext
+https://api.github.com/users/{username}
 ```
 
-| priceUsd           | time           | date                      |
-|--------------------|----------------|---------------------------|
-| 0.0176438251661799 | 1726963200000  | 2024-09-22T00:00:00.000Z  |
-| 0.0127411915131318 | 1727827200000  | 2024-10-02T00:00:00.000Z  |
-| 0.0127704751708670 | 1727913600000  | 2024-10-03T00:00:00.000Z  |
-| 0.0131082066240718 | 1728345600000  | 2024-10-08T00:00:00.000Z  |
-| 0.0130405021808657 | 1728432000000  | 2024-10-09T00:00:00.000Z  |
+Using the above URL as is won't work, as we need to specify the specific 
+user we are looking for. Thus, we have to replace `{username}` with the actual
+user. This concept is known as a path parameter.
 
-We are now looking at the daily (if available) price history of `Pepe-Cash` in 
-USD.
+```python
+username = "mciwing"
+url = f"https://api.github.com/users/{username}"
 
-### Detour: Visualizations
+response = requests.get(url)
+data = response.json()
+```
 
-As a bonus we can plot the price history and try to recreate the price 
-charts seen on various market platforms. This Visualizations section is 
-optional and should provide a glimpse into the possibilities of working with
-APIs.
+???+ tip
 
-<div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/BQUITFiYVtNte" width="480" height="293" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/imagination-BQUITFiYVtNte"></a></p>
+    With an f-string you can easily set the path parameter using a variable.
+
+You accessed some public information on the `mciwing` user who manages the code
+for this website and content you're currently reading.
+
+???+ question "Not found"
+
+    Use the same endpoint, this time around you intentionally have to look for 
+    a non-existent username. Use this nonsensical one:
+
+    ```python
+    username = "iwo2jöiojfnvjlkhsnkjdvn"
+    ```
+
+    What's the response?
+
+### HTTP Status Codes
+
+When making requests to an API, the server responds with a status code 
+indicating how the request was handled. Common status codes include:
+
+| Code | Meaning               | Description                                |
+|------|-----------------------|--------------------------------------------|
+| 200  | OK                    | Request succeeded                          |
+| 404  | Not Found             | Requested resource doesn't exist           |
+| 403  | Forbidden             | Server understood but refuses to authorize |
+| 429  | Too Many Requests     | You've exceeded the rate limit             |
+| 500  | Internal Server Error | Something went wrong on the server         |
+
+???+ tip "Status codes"
+
+    You can find a complete list of status codes at the 
+    [MDN Web Docs](https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status).
+
+You can access the status code of any response using the `status_code` 
+attribute. Let's look at another example. With the
+
+```plaintext
+https://api.github.com/repos/{owner}/{repo}/contributors
+```
+
+endpoint, we can retrieve all contributors of a specific project. We access
+information of this site's project (repository):
+
+```python hl_lines="7"
+owner = "mciwing"
+repo = "mciwing.github.io"
+
+url = f"https://api.github.com/repos/{owner}/{repo}/contributors"
+
+response = requests.get(url)
+print(response.status_code)  # (1)!
+```
+
+1. If everything went smoothly the status code is `#!python 200`
+
+We can now easily sum up the contributions of all authors.
+
+```python
+n_contributions = 0
+for contributor in response.json():
+    n_contributions = n_contributions + contributor["contributions"]  # (1)!
+print(n_contributions)
+```
+
+1. Remember, we are dealing with a `#!python dict` hence, we can easily access the number of contributions using the corresponding key `#!python "contributions"`.
+
+At the time of writing `#!python 605` contributions were made by all authors 
+to build this site. If you execute the code, the number has changed 
+as we are continually working on the site. 
+
+???+ tip
+
+    That's the power of APIs, you're able to access the up-to date information.
+    :mechanical_arm:
+    If you want to have the latest data, all you have to do is execute your 
+    code again.
+
+## Limits
+
+Although we have not encountered any limitations so far, most APIs come with 
+various limitations to ensure fair usage:
+
+<div class="grid cards" markdown>
+
+-   :fontawesome-solid-clock: __Rate Limits__
+
+    Rate limits restrict the number of requests you can make within a specific time
+    frame. For example:
+
+    - 200 requests per minute
+    - 1000 requests per day
+    - 5 requests per second
+
+    If you exceed these limits, the server typically responds with a 
+    `429 Too Many Requests` status code.
+
+-   :fontawesome-solid-key: __Authentication__
+
+    Many APIs require authentication for:
+
+    - Tracking usage
+    - Controlling access
+    - Billing purposes
+
 </div>
 
-Regardless of whether you plot the price chart 
-dynamically or statically, two preprocessing steps are necessary.
+Depending on the API, you may experience rate limits or have to authenticate
+your requests or simply have to pay for the service. Either way, the specific
+API documentation will guide you through the process.
+
+## NASA API
+
+To conclude the chapter you will look at another real world example and 
+get the current astronomy picture of the day (APOD) from NASA. :milky_way:
+Here is the one from the 10th of April 2025:
+
+<div style="text-align: center;">
+    <img src="https://apod.nasa.gov/apod/image/2504/38h_M81-group_1024.jpeg" 
+    alt="NASA APOD" width="500" style="border-radius: 15px;"/>
+</div>
+
+Now it's your turn to read the documentation and retrieve the picture of the 
+day.
+
+???+ question "Figure out the URL path"
+
+    Open the [NASA API](https://api.nasa.gov/), scroll down to the Browse APIs 
+    section and expand the APOD container. Figure out the URL path. Send a 
+    request in Python.
+
+???+ info
+
+    Although most NASA APIs require an API key, the APOD API is free to use and
+    tasks can be performed without an API key.
+
+Obviously we would like to visualize the picture. To do so, use following 
+helper function:
 
 ```python
-# convert date and price to their appropriate types
-pepe_history["date"] = pd.to_datetime(pepe_history["date"])
-pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
+from io import BytesIO
+from PIL import Image
+import matplotlib.pyplot as plt
+
+def plot_image_from_url(url):
+    """Plot an image from a URL."""
+    # Retrieve the image from the URL with requests
+    img_response = requests.get(url)
+    img = Image.open(BytesIO(img_response.content))
+
+    # Display the image
+    plt.imshow(img)
+    plt.axis("off")  # Hide the axes
+    plt.tight_layout()
+    plt.show()
 ```
 
-=== "Option 1: Dynamic plot :fontawesome-solid-arrow-right: `plotly`"
+???+ info
 
-    ```python
-    import plotly.express as px
-    
-    fig = px.area(
-        data_frame=pepe_history,
-        x="date",
-        y="priceUsd",
-        title="Pepe Cash - Price History in USD",
-        color_discrete_sequence=["#009485"],
-    )
-    fig.show()
-    ```
-    
-    <div style="text-align: center;">
-        <iframe src="/assets/python-extensive/data/api/pepe-plotly.html" width="100%" height="450px">
-        </iframe>
-    </div>
+    The above code uses requests to retrieve the image from the URL and then
+    utilizes the `Pillow` and `maptlotlib` packages to plot it.
 
+???+ question "Plot the image"
 
-=== "Option 2: Static plot :fontawesome-solid-arrow-right: `matplotlib`"
+    Use the above function to plot the image you retrieved from the NASA API.
 
-    ```python
-    import matplotlib.pyplot as plt
-    
-    # pandas plot method:
-    # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html
-    pepe_history.plot(
-        x="date",
-        y="priceUsd",
-        kind="area",
-        title="Pepe Cash - Price History in USD",
-        color="#009485",
-    )
-    plt.show()
-    ```
+    1. Install any missing packages.
+    2. Access the appropriate key from the response data to get the URL of 
+        the image.
+    3. Pass the URL to the `plot_image_from_url` function.
 
-    <div style="text-align: center;">
-        <img src="/assets/python-extensive/data/api/pepe-matplotlib.svg" alt="Pepe Cash - Price History in USD">
-    </div>
+???+ question "More information"
 
-??? tip "Bonus: Styling the plot"
-
-    If you want to style the dynamic plot further (to more closely resemble the
-    price charts seen on market platforms) adjust colors, labels and add a 
-    logo.
-
-    ```python
-    fig = px.area(
-        data_frame=pepe_history,
-        x="date",
-        y="priceUsd",
-        title="Pepe Cash - Price History in USD",
-        color_discrete_sequence=["#009485"],
-        template="plotly_dark"  # dark theme
-    )
-    # add the logo
-    fig.add_layout_image(
-        dict(
-            source="https://cryptologos.cc/logos/pepe-pepe-logo.png?v=035",
-            xref="paper",
-            yref="paper",
-            x=1,
-            y=1.15,
-            sizex=0.2,
-            sizey=0.2,
-            xanchor="right",
-            yanchor="top",
-        )
-    )
-    fig.show()
-    ```
-
-    <div style="text-align: center;">
-        <iframe src="/assets/python-extensive/data/api/pepe-stylish.html" width="100%" height="450px">
-        </iframe>
-    </div>
-
-???+ question "Rate conversion to :fontawesome-solid-euro-sign:"
-
-    Since the price history is in USD, convert the prices to EUR. Conveniently,
-    the API provides an endpoint for current exchange rates. 
-
-    1. Use the appropriate `/rates/{{id}}` endpoint.
-    2. Use the identifier (`id`) :fontawesome-solid-arrow-right: `euro` for the 
-       endpoint.
-    3. Construct the URL and send a `GET` request.
-    4. Extract the exchange rate from the response. ==Hint:== 
-        This time it is easier to deal with the `#!python dict` and not 
-        perform a conversion to a `DataFrame`.
-    5. Convert `#!python pepe_history["priceUsd"]` to EUR.
-    
-    Start with the given code snippet below:
-
-    ```python
-    import requests
-
-    # get current Pepe price history in USD
-    response = requests.get(url="https://api.coincap.io/v2/assets/pepe-cash/history?interval=d1")
-    pepe_history = pd.DataFrame(response.json()["data"])
-    pepe_history["priceUsd"] = pepe_history["priceUsd"].astype(float)
-
-    # get exchange rate; your solution ...
-    ```
+    The APOD API provides more information than just the image. 
+    Since we want to have further information on the picture, look at the 
+    response data and print a description of your picture.
 
 ## Conclusion
 
-In this end-to-end example, we have seen how to retrieve data from an API, 
-store it in a `DataFrame` and visualize it. With consecutive requests, we 
-have pulled a list of cryptocurrencies, the price history of a specific 
-coin and even converted the prices to EUR. 
+In our examples, we have seen how to retrieve information from an different 
+APIs, work with the data and visualize it. 
 
-Despite this specific use case, concepts like rate limits, endpoints, request
-methods and query parameters were introduced along the way which are 
-universal to APIs.
+Despite our specific use case, concepts like rate limits, endpoints, request
+methods and status codes were introduced along the way which are universal to 
+APIs.
 
 ???+ info "Apply your knowledge"
     
@@ -452,8 +408,7 @@ universal to APIs.
         Some of these APIs require authentication or are paid services.
     
     - [OpenWeatherMap](https://openweathermap.org/api) for weather data
-    - [NASA](https://api.nasa.gov/) from astronomy pictures to earth 
-        observation data
+    - [NASA](https://api.nasa.gov/) has a couple APIs for various use cases
     - [Google Search](https://developers.google.com/custom-search/v1/overview?hl=de) 
         access search results programmatically
     - [Spotify](https://developer.spotify.com/documentation/web-api) access 
