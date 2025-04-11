@@ -393,11 +393,12 @@ def plot_image_from_url(url):
 
 ## Conclusion
 
-In our examples, we have seen how to retrieve data from an different APIs, 
-work with the data and visualize it. 
+In our examples, we have seen how to retrieve information from an different 
+APIs, work with the data and visualize it. 
 
-Despite our specific use case, concepts like rate limits, endpoints and request
-methods were introduced along the way which are universal to APIs.
+Despite our specific use case, concepts like rate limits, endpoints, request
+methods and status codes were introduced along the way which are universal to 
+APIs.
 
 ???+ info "Apply your knowledge"
     
