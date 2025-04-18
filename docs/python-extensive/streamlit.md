@@ -46,7 +46,7 @@ To verify the installation, run:
 streamlit hello
 ```
 
-This command launches Streamlit's built-in demo app in your default web browser.
+This command launches Streamlit's built-in demo app in your default web browser. To stop the app, go back to the terminal window and press: ++ctrl+c++.
 
 ???+ info "Switch from Jupyter to standalone Python?"
     Up until now, we’ve primarily used Jupyter Notebooks (`.ipynb`) for experimentation and data analysis. However, to build shareable, user-friendly applications, standalone Python scripts (`.py`) are typically more suitable. Streamlit enables you to create interactive web apps directly from Python files, adding a professional edge and new level of interactivity to your projects.
