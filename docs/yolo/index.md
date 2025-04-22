@@ -477,9 +477,9 @@ Computer vision has a wide range of applications across various industries.
 When we look at the world, our eyes receive light reflected from objects. Similarly, cameras capture light to create images. 
 
 <figure markdown="span">
-    <img src="https://www.neg.co.jp/en/assets/img/rd/topics/cover-glass_03.png" style="width: 100%;">
+    <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*ZjzTZ5UpYMCu3qAejEi55g.png" style="width: 100%;">
     <figcaption style="text-align: center;">
-        Camera sensor prinicpal (Source: <a href="https://www.neg.co.jp/en/rd/topics/product-cover-glass/">Neg</a>) 
+        Camera sensor prinicpal (Source: <a href="https://medium.com/@kekreaditya/most-important-9-factors-while-choosing-fpv-camera-10a5e2dc2382">Neg</a>) 
     </figcaption>
 </figure>
 
