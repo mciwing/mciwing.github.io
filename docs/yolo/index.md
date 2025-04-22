@@ -8,7 +8,7 @@
     To follow along, we recommend setting up a new project folder with a Jupyter notebook. Additionally, create a new [virtual environment ](../python/packages.md#virtual-environments) and **activate** it. [Install the required packages](../python/packages.md#installing-packages):
 
     ```bash
-    pip install ultralytics opencv-python pytesseract face-recognition
+    pip install ultralytics opencv-python pytesseract deepface tf-keras
     ```
 
     Your project structure should look like this:
@@ -306,7 +306,8 @@ Recognizing and extracting printed or handwritten text from images, enabling mac
     </div>
 
     ??? code "Code"
-    
+        ???+ warning "Warning"
+            To run the code, you need to install tesseract on your PC. This can be a tricky process, especially on MacOS. Therefore it is okay to skip this example if you want.    
         ``` py
         # Need to install tesseract on your PC https://www.nutrient.io/blog/how-to-use-tesseract-ocr-in-python/
         from PIL import Image
@@ -315,7 +316,7 @@ Recognizing and extracting printed or handwritten text from images, enabling mac
         print(pytesseract.image_to_string(Image.open('scan.png')))
         ```
 
-#### Facial Recognition
+#### Facial Recognition and Analysis
 Identifying individuals based on their facial features and recognizing various facial expressions.
 
 ???+ example "Example: Facial Recognition"
@@ -326,92 +327,54 @@ Identifying individuals based on their facial features and recognizing various f
 
         ---
 
-        <figure markdown="span"> ![Input](../assets/yolo/trump2.jpg){width=100% } </figure>
+        <figure markdown="span"> ![Input](../assets/yolo/obama.jpg){width=100% } </figure>
 
     -   __Output__
 
         ---
 
-        <figure markdown="span"> ![Input](../assets/yolo/trump_out.jpg){width=100% } </figure>
+        <figure markdown="span"> ![Input](../assets/yolo/obama_out.jpg){width=100% } </figure>
 
     </div>
-    (Source: <a href="https://unsplash.com/de/@libraryofcongress?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Library of Congress</a> on <a href="https://unsplash.com/de/fotos/prasident-donald-trump-jPN_oglAjOU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>)
+    (Source: <a>Wikipedia</a>)
 
     ??? code "Code"
     
         ``` py
-        # You need to install cmake on your PC first
-        # https://github.com/ageitgey/face_recognition?tab=readme-ov-file
-
-        import face_recognition
+        # Load Packages
         import cv2
-        import numpy as np
+        import matplotlib.pyplot as plt
+        from deepface.modules  import streaming  # Corrected import path
+        from deepface import DeepFace
 
-        # Load a sample picture and learn how to recognize it.
-        obama_image = face_recognition.load_image_file("obama.jpg")
-        obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+        # Load Image
+        img_path = "pic_cv_approaches/obama.jpg"
+        img = cv2.imread(img_path)
+        raw_img = img.copy()
 
-        # Load a sample picture and learn how to recognize it.
-        trump_image = face_recognition.load_image_file("trump.jpg")
-        trump_face_encoding = face_recognition.face_encodings(trump_image)[0]
+        # Analyze Image
+        demographies = DeepFace.analyze(img_path=img_path, actions=("age", "gender", "emotion"))
+        demography = demographies[0]
 
-        # Load a second sample picture and learn how to recognize it.
-        biden_image = face_recognition.load_image_file("biden.jpg")
-        biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
+        # Get Region of Interest
+        x = demography["region"]["x"]
+        y = demography["region"]["y"]
+        w = demography["region"]["w"]
+        h = demography["region"]["h"]
 
-        # Create arrays of known face encodings and their names
-        known_face_encodings = [
-            obama_face_encoding,
-            trump_face_encoding,
-            biden_face_encoding
-        ]
-        known_face_names = [
-            "Barack Obama",
-            "Donald Trump",
-            "Joe Biden"
-        ]
+        # Overlay Emotion
+        img = streaming.overlay_emotion(img=img, emotion_probas=demography["emotion"], x=x, y=y, w=w, h=h)
 
-        # Initialize some variables
-        face_locations = []
-        face_encodings = []
-        face_names = []
-        process_this_frame = True
+        # Overlay Age and Gender
+        img = streaming.overlay_age_gender(img=img, apparent_age=demography["age"], gender=demography["dominant_gender"][0:1], x=x, y=y, w=w, h=h)
 
-        rgb_small_frame = face_recognition.load_image_file("trump2.jpg")
+        # Display Image
+        plt.imshow(img[:, :, ::-1])
+        plt.axis('off')
+        plt.show()
 
-        face_locations = face_recognition.face_locations(rgb_small_frame)
-        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
-
-        face_names = []
-        for face_encoding in face_encodings:
-            # See if the face is a match for the known face(s)
-            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
-            name = "Unknown"
-
-            # Or instead, use the known face with the smallest distance to the new face
-            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-            best_match_index = np.argmin(face_distances)
-            if matches[best_match_index]:
-                name = known_face_names[best_match_index]
-
-            face_names.append(name)
-
-        # Display the results
-        for (top, right, bottom, left), name in zip(face_locations, face_names):
-
-            # Draw a box around the face
-            cv2.rectangle(rgb_small_frame, (left, top), (right, bottom), (0, 0, 255), 2)
-
-            # Draw a label with a name below the face
-            cv2.rectangle(rgb_small_frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
-            font = cv2.FONT_HERSHEY_DUPLEX
-            cv2.putText(rgb_small_frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
-
-        # Display the resulting image
-        cv2.imshow('Video', cv2.cvtColor(rgb_small_frame, cv2.COLOR_BGR2RGB))
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
-        cv2.imwrite('trump_out.jpg', cv2.cvtColor(rgb_small_frame, cv2.COLOR_BGR2RGB))
+        # Save the image with overlays
+        cv2.imwrite("obama_out.jpg", img)
         ```
 
 ####  Pose Estimation
@@ -514,9 +477,9 @@ Computer vision has a wide range of applications across various industries.
 When we look at the world, our eyes receive light reflected from objects. Similarly, cameras capture light to create images. 
 
 <figure markdown="span">
-    <img src="https://www.neg.co.jp/en/assets/img/rd/topics/cover-glass_03.png" style="width: 100%;">
+    <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*ZjzTZ5UpYMCu3qAejEi55g.png" style="width: 100%;">
     <figcaption style="text-align: center;">
-        Camera sensor prinicpal (Source: <a href="https://www.neg.co.jp/en/rd/topics/product-cover-glass/">Neg</a>) 
+        Camera sensor prinicpal (Source: <a href="https://medium.com/@kekreaditya/most-important-9-factors-while-choosing-fpv-camera-10a5e2dc2382">Neg</a>) 
     </figcaption>
 </figure>
 
