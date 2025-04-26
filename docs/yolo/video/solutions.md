@@ -107,8 +107,8 @@ while cap.isOpened():
         break
     
     # Process frame and count objects
-    annotated_frame = counter.count(frame)
-    
+    countresult = counter.process(frame)
+    annotated_frame = countresult.plot_im
     # Display results
     cv2.imshow("Object Counting", annotated_frame)
     
