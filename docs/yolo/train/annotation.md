@@ -162,7 +162,7 @@ Now we are all set and we can start labeling:
 Once all images are labeled, export your annotations in a format compatible with YOLO:
 
 1. Click **Export** in your project landing page.
-2. Select **YOLO** (`.txt` files).
+2. Select **YOLO with Images** (`.txt` files).
 3. Download the exported dataset.
 
 
