@@ -189,6 +189,7 @@ nav:
   - MicroPython:
     - micropython/index.md
     - micropython/setup.md
+    - micropython/sensors.md
 
 
 plugins:

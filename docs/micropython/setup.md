@@ -295,7 +295,7 @@ All programmes and libraries that we need are edited and loaded in this folder. 
 ### Start Coding
 
 Now that we have our project setup, we can start coding. For our first project, we will only need to work in the `main.py` file.
-We will start by importing the necessary modules.
+We will start by importing the necessary modules (we do not need to install them with pip or something else. There are already preinstalled).
 
 ```python
 from machine import Pin
@@ -379,7 +379,7 @@ After the upload, the program will {==not==} start automatically. We will need t
     - ++ctrl+d++: **soft reset**. It wipes the program in the memory and reruns the `boot.py` and `main.py` file.
 
 ???+ tip "Auto-Start"
-    If you unplug the microcontroller and plug it back in, it will automatically restart and run the `boot.py` and `main.py` file. So, once the coding is done, you can unplug it from the computer and use a power source to power it.
+    If you unplug the microcontroller and plug it back in, it will automatically restart and run the `boot.py` and `main.py` file. So, once the coding is done, you can unplug it from the computer and use a power source to power it. In this case you are completely independend from your computer and the ESP is just using your code. 
 
 
 Now you should see, the LED blink on and off at one-second intervals. 
