@@ -305,6 +305,13 @@ from time import sleep
 The [`machine`](https://docs.micropython.org/en/latest/library/machine.html) library in MicroPython provides low-level access to hardware components, such as GPIO pins (General-Purpose Input/Output), ADCs, I2C, SPI, and other peripherals, allowing direct interaction with microcontrollers.
 The [`Pin`](https://docs.micropython.org/en/latest/library/machine.Pin.html) class from the `machine` module is used to control the GPIO pins on the microcontroller.
 
+???+ info "GPIO Insights"
+    A **GPIO (General Purpose Input/Output)** is a digital pin on a microcontroller or processor that can be freely configured as an **input** or **output** through programming. By default, GPIOs are unassigned and can be controlled in a binary manner (`HIGH` or `LOW`).  
+
+    GPIOs typically operate at **3.3V** and can supply **2-16 mA** of current, making them suitable for driving components like LEDs. For example, if a GPIO pin is set to **HIGH**, the LED turns **on**; when set to **LOW**, the LED turns **off**. GPIOs are fundamental for interfacing with sensors, actuators, and other peripherals in embedded systems. 
+
+    We will cover the different types of Pins in the [sensors](../micropython/sensors.md#detour-pin-types) chapter.
+
 The second line of code imports the `sleep` function from the MicroPython (or standard Python) `time` module, which is used to pause the execution of a program for a specified number of seconds.
 
 ---
