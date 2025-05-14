@@ -302,6 +302,19 @@ from machine import Pin
 from time import sleep
 ```
 
+???+ warning "MicroPython Libraries"
+    Unlike standard Python, where you can use virtually any library available on your computer, MicroPython relies on a limited set of libraries specifically designed for microcontrollers.
+
+    When working in VSCode, you may notice that some libraries used in your program are underlined or marked as missing. This is because they don’t exist on your computer—they are only available on the microcontroller. Do not attempt to install these libraries manually! They are built into the MicroPython firmware and are intended to run only on the device.
+
+    This limitation can make debugging more challenging, as errors often don’t appear until the code is actually running on the microcontroller. Make sure to check the console output, which can provide helpful hints. Some common issues are already discussed in this guide.
+
+    This is one of the key differences between MicroPython and languages like C:
+    In C, code must be compiled before being uploaded to the microcontroller, and most errors are caught during compilation. In contrast, Python and MicroPython upload the raw script, which is only interpreted and executed after it's on the device—so runtime errors may only appear during execution.
+
+    Keep this in mind when troubleshooting your code.
+
+
 The [`machine`](https://docs.micropython.org/en/latest/library/machine.html) library in MicroPython provides low-level access to hardware components, such as GPIO pins (General-Purpose Input/Output), ADCs, I2C, SPI, and other peripherals, allowing direct interaction with microcontrollers.
 The [`Pin`](https://docs.micropython.org/en/latest/library/machine.Pin.html) class from the `machine` module is used to control the GPIO pins on the microcontroller.
 

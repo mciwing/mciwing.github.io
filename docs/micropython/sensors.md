@@ -76,11 +76,11 @@ Now it's time to move forward with our project to keep our plant alive. The firs
 
 There are two common types of sensors used to measure soil moisture: **resistive** and **capacitive** sensors. Both are generally referred to as **hygrometers**.
 
-**Resistive moisture sensors** work by placing a hygroscopic (water-attracting) material between two conductive electrodes. This material is typically a non-conductive polymer that becomes increasingly conductive as it absorbs water. The change in conductivity alters the voltage between the electrodes, which can then be measured.
+- **Resistive moisture sensors** work by placing a hygroscopic (water-attracting) material between two conductive electrodes. This material is typically a non-conductive polymer that becomes increasingly conductive as it absorbs water. The change in conductivity alters the voltage between the electrodes, which can then be measured.
 These sensors offer a large surface area, making them effective for detecting small moisture variations—even in already damp environments. However, their performance drops at very low moisture levels.
 A major drawback for our use case is **durability**. Since resistive sensors require direct contact with moisture in the soil, they are prone to corrosion. In particular, cheap resistive sensors can suffer from **electrolysis**, where the sensor material begins to degrade and potentially release **toxic substances** into the soil — harmful for plants and unsuitable for long-term use.
 
-**Capacitive moisture sensors**, on the other hand, rely on a capacitor-like structure whose electrical field is affected by the moisture content of the surrounding soil. As soil moisture increases, so does the soil's dielectric constant, which alters the sensor’s capacitance.
+- **Capacitive moisture sensors**, on the other hand, rely on a capacitor-like structure whose electrical field is affected by the moisture content of the surrounding soil. As soil moisture increases, so does the soil's dielectric constant, which alters the sensor’s capacitance.
 These sensors do not require direct water contact — hence the black protective coating — and are much more **durable** and **maintenance-free**, as corrosion is not an issue. Capacitive sensors are typically more **accurate**, **reliable**, and **resistant to wear and temperature fluctuations**. For these reasons, they are often used in professional applications like agriculture, despite being slightly more expensive.
 
 #### Hardware
@@ -99,7 +99,16 @@ The HW-390 sensor has three pins:
 - GND – Connect to GND
 - AOUT – Connect to any analog-capable GPIO
 
-For our project we will use GPIO27 as input pin for the sensor value. The wiring diagram is shown below. Connect all components as shown. 
+To find an analog-capable GPIO, we can take a closer look at the pinout diagram shown above. The ESP32 has many GPIO pins, but only some of them are capable of analog input.
+Look for pins labeled ADC - these are connected to an Analog-to-Digital Converter (ADC). Since the sensor outputs an analog signal and microcontrollers operate digitally, we need an ADC to convert the analog voltage into a digital value the ESP32 can process.
+In short, the ADC acts as a bridge between the analog world of sensors and the digital world of microcontrollers.
+
+
+<figure markdown="span">
+    ![ADC](https://www.arrow.de/-/media/arrow/images/miscellaneous/0/0418_adc_signal_2.jpg)
+</figure>
+
+For our project we will use GPIO32 as input pin for the sensor value. The wiring diagram is shown below. Connect all components as shown. 
 
 <figure markdown="span">
     ![Blink](../assets/micropython/sensor_Steckplatine.png)
@@ -122,10 +131,15 @@ This time, instead of importing only the `Pin` class, we're also using the `ADC`
 Next, we initialize the `ADC` class:
 
 ```python
-adc_pin = Pin(27)
-adc = ADC(adc_pin)
+# Set GPIO 32 as ADC pin
+adc_pin = Pin(32)
+adc = ADC(adc_pin, atten=ADC.ATTN_11DB)
 ```
-We can now read values from the sensor using the `read_u16()` method. The `u16` refers to an unsigned 16-bit integer, meaning the returned value will be in the range 0–65535.
+First, we choose pin 32 as the ADC pin and then initialize it with the ADC class. 
+
+We can now read values from the sensor using the `read_u16()` method. The term `u16` stands for unsigned 16-bit integer, which means the returned value ranges from `0` to `65,535` (2<sup>16</sup> distinct levels).
+
+In the context of an ADC (Analog-to-Digital Converter), this value represents the voltage level read on the pin, scaled across the ADC's resolution. A 16-bit ADC can distinguish between `65,536` different voltage steps - the higher the resolution (number of bits), the more precisely it can measure small changes in voltage.
 
 
 ```python
@@ -139,150 +153,60 @@ If you run this code while the sensor is on your desk, you’ll get a value roug
 ADC Value:  48139
 ```
 
+???+ question "Task: Calibrate the Sensor"
+    Now it's your turn to code!
 
+    Create a program that reads the sensor value and prints it to the console.
 
+    - **Continuous Reading**: Use a simple inifinity loop to read the sensor value and print it to the console. Include a delay of 1 second between readings.
+    - **Min/Max Values**: Read the minimum and maximum value of the sensor. Therefore measure and note the value when the sensor is dry (leave it on the desk) and when it is wet (put it in a glass of water).
 
+        ???+ danger "Sensor Damage"
+            The sensor consists of a capacitive plate and some electronics. Do not immerse the electronics in the water! There is a line indicating the maximum water level on the sensor.
+            <figure markdown="span">
+                ![Danger](../assets/micropython/Sensor_Danger.png)
+            </figure>
 
-
-
-
-
-
-
-
-
-
-
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-
-This pin must be initialised, here as a 12-bit ADC. This means that the values we get from the sensor will be between 0-4095. We then set the input voltage range of the ADC between 0-3.6V, which should be sufficient for the sensor. Now we have to be careful here! With a capacitive humidity sensor, a low value (=low voltage) means more humidity. This means 0V -> value = 0 -> 100% humidity and conversely the value 4095 = 0% humidity. Therefore, when calculating the percentage, it must me computed by 1 minus the value. **IMPORTANT: Always consider what the value of an ADC means and what appears to make sense. You often have to read out the ADC values of sensors indirectly!**
+    - **Mapping to Percentage**: Map the sensor value to a percentage of soil moisture (0% = dry, 100% = wet). A Min-Max-Normalization can be used therefore. If you need a refresher on the calculation, take a look [here](../data-science/data/preprocessing.md#min-max-normalization). Careful: As you may have noticed, with a capacitive sensor, a low value means more moisture! Furthermore, ensure that the percentage is always between 0 and 100.
+    - **Function**: Write a function that returns the moisture percentage and the raw sensor value. This function should be called in the loop.
+    - **Moisture Warning System**: Now combine your knowledge from before and implement a warning system that turns on a LED if the moisture is below 30%. Test your system with a glass of water. 
 
 ---
 
+## Conclusion
 
+Now we have a basic understanding of how to use the ADC Pins, read a sensor value and how to process it. In the next section we will use this knowledge to control a water pump.
 
+---
 
+```mermaid
+graph LR
+    subgraph TOP[ ]
+        direction TB
+        Cloud
+    end
 
+    subgraph MID[ ]
+        direction LR
+        Sensors --> ESP32[ESP32 Basics] --> Actuators
+    end
 
-
-
-```python linenums="1" title="main.py"
-from machine import ADC
-from time import sleep
-
-# Set GPIO 27 as ADC pin
-adc_pin = Pin(27)
-adc = ADC(adc_pin)
-
-# Function to read moisture level
-def read_moisture():
-
-    # Read the analog value from the sensor
-    # The ADC value is 16-bit, the range is 0-65535
-    val16 = adc.read_u16()
-    
-    # Map it to a percentage value (0-100%)
-    moisture_percentage = 100 - ((val16 / 65535) * 100)
-    
-    # Return both the percentage and the raw value
-    return moisture_percentage, val16
-
-while True:
-
-    # Read the moisture level
-    percentage, val16 = read_moisture()
-
-    # Print the results to the console
-    print("************** READING MOISTURE LEVEL ************** ")
-    print("Percentage: \t \t{:.2f}%".format(percentage))
-    print("Value in 16-bit: \t{}".format(val16))    
-
-    # Delay for 1 second before reading again
-    sleep(1)
+    Cloud <--> ESP32
 ```
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```mermaid
+grid
+    rows 2
+    columns 3
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-https://docs.micropython.org/en/latest/esp32/quickref.html#adc-analog-to-digital-conversion
-
-
-
-sensor lesen einmal
-
-kalibrieren mit min max
-
-
-
-
-
-
-Some libraries used in the programmes are underlined when you load them into VSCode. This happens if the libraries cannot be found on your computer. Please do NOT download these libraries! These libraries are specially made for microcontrollers and will not run on your computer. Unfortunately, this makes working a little more difficult as you cannot always recognise where errors occur as the code is interpreted on the controller. Use the console, you might find hints there, some possible problems are already covered here. This is a disadvantage when working with Python or Micropython. In C, the code must be compiled beforehand. In most cases, you will receive error messages and can correct the code before it ends up on the controller. With Python, the code is uploaded as it is and than only interpreted and executed on the device. Keep this in mind in case of complications.
-
-
-
-https://www.berrybase.at/analoger-kapazitiver-bodenfeuchtesensor
-
-
-Aufgabe: Wenn Feuchtigkeit unter 30% --> LED an
-
-
-
-
-
-
-
-
-
-
-This is code to read the moisture sensor:
-
-from machine import ADC, Pin
-import time
-
-# Set up ADC (Analog to Digital Converter)
-# Connect the sensor to GPIO 34 (ADC1 channel 6)
-sensor_pin = 27
-adc = ADC(Pin(sensor_pin))
-
-# Configure the ADC resolution (12-bit)
-adc.width(ADC.WIDTH_12BIT)  # ADC width (0-4095)
-
-# Set ADC attenuation (optional depending on voltage range)
-# Use ADC.ATTN_11DB for input voltage range 0 to 3.6V
-adc.atten(ADC.ATTN_11DB)
-
-def read_moisture():
-    # Read the analog value from the sensor
-    moisture_value = adc.read()
+    Cloud[Cloud] --> ESP32["ESP32 Basics"]
+    Sensors[Sensors] --> ESP32
+    ESP32 --> Actuators[Actuators]
     
-    # Optionally, map it to a percentage value (0-100%)
-    moisture_percentage = 100 - ((moisture_value / 4095.0) * 100)
-    
-    return moisture_value, moisture_percentage
-
-while True:
-    value, percentage = read_moisture()
-    print("Moisture Value: ", value)
-    print("Moisture Percentage: {:.2f}%".format(percentage))
-    
-    # Delay for 1 second before reading again
-    time.sleep(1)
-
-The sensor has 3 pins: GND, VCC and AUOT. These are Ground, Voltage Input and Analogue Output. Ground should be connected to Ground on the controller, VCC to 5V and for the output you can use any ADC, I used pin G27. This pin must be initialised, here as a 12-bit ADC. This means that the values we get from the sensor will be between 0-4095. We then set the input voltage range of the ADC between 0-3.6V, which should be sufficient for the sensor. Now we have to be careful here! With a capacitive humidity sensor, a low value (=low voltage) means more humidity. This means 0V -> value = 0 -> 100% humidity and conversely the value 4095 = 0% humidity. Therefore, when calculating the percentage, it must me computed by 1 minus the value. **IMPORTANT: Always consider what the value of an ADC means and what appears to make sense. You often have to read out the ADC values of sensors indirectly!**
-
-Weiterer Sensor
-
-To get a feel for the different sensors, you can also plug them in and try them out. There is also a BME280, a sensor for temperature, air pressure and humidity and a rain sensor module that can be used to measure the amount of precipitation, including snow. The code for the rain sensor looks relatively similar to that of the humidity sensor. This is because most sensors are based on similar principles. Either an ADC is read out or, as with the BME, communication takes place via I2C. I2C is a serial data bus, i.e. a data connection that allows the controller to interact with the sensor. This means that several data can be sent and read out at the same time without having to be interpreted. The data is therefore only assigned variables in the code and does not have to be calculated depending on the bit resolution, as is the case with the ADC.
-
-As explained above, the BME280 works with I2C, which requires a library that must be loaded onto the controller with the actual programme:
-(For all libraries that you need, the name that is used in the other programmes is stored in the first line of the programme. This is the name with which you should save the programme. You can also use other names. However, you must then also change these in the other parts of the code in which the libraries are called).
-
-
-The Code for reading out the sensor is quite compact and looks lilke this:
-
-
-The rain sensor has an analogue and a digital output. Depending on which signal you want, the respective pin must be connected. This also changes the code slightly. The AO (analogue output) outputs an analogue signal between 0V and 5V, similar to the humidity sensor. The code would be almost identical. With DO (Digital Output), the signal is converted by the hardware and output directly, similar to the BME280, but without using I2C.
+    %% Positioning
+    place Cloud at (1,2)
+    place Sensors at (2,1)
+    place ESP32 at (2,2)
+    place Actuators at (2,3)
+```
 

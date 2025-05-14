@@ -190,6 +190,10 @@ nav:
     - micropython/index.md
     - micropython/setup.md
     - micropython/sensors.md
+    - micropython/actuator.md
+    - micropython/mqtt.md
+    - micropython/lora.md
+
 
 
 plugins:
@@ -208,6 +212,7 @@ plugins:
   - table-reader
   - include-markdown
   - mkdocs_quiz
+  - mermaid2
 
 markdown_extensions:
   - attr_list

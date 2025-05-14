@@ -110,6 +110,19 @@ Here is a sneak peek of selected topics we cover in this course:
 
 </div>
 
+## Needed Hardware
+
+The following hardware is needed for this course:
+
+- 1x [ESP32-Wroom-32 Breakout Board](https://www.az-delivery.de/products/esp32-developmentboard)
+- 1x [Adafruit Submersible 3V DC Water Pump](https://www.adafruit.com/product/4547)
+- 1x [MOSFET Modul](https://www.keyestudio.com/products/1pcs-mos-fet-tube-drive-module-irf520-driver-module-for-arduino-driver-module)
+- 1x [HW-390 Moisture Sensor](https://www.vipitec.de/produkt/kapazitiver-bodenfeuchtesensor-v2-0-mit-anleitung-hw-390-3-3-5-v_06-0002-00001A)
+- 1x Micro USB Cable
+- 1x Jumper Wires (F-M & F-F)
+- 1x 1k Ohm Resistor
+
+
 ## Expected outcome
 
 By the end of this course, you will have built a complete smart plant watering system. You will know how to:
