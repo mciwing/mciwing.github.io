@@ -182,31 +182,33 @@ Now we have a basic understanding of how to use the ADC Pins, read a sensor valu
 ```mermaid
 graph LR
     subgraph TOP[ ]
-        direction TB
-        Cloud
+        direction BT
+            Cloud[Cloud Dashboard]
     end
 
     subgraph MID[ ]
         direction LR
-        Sensors --> ESP32[ESP32 Basics] --> Actuators
+            Sensors:::active
+            ESP32[ESP32 Basics]:::active
+            Actuators
     end
 
-    Cloud <--> ESP32
+    Cloud <--MQTT--> ESP32
+    Sensors --> ESP32
+    ESP32 --> Actuators
+
+    click ESP32 "../setup" _self
+    click Sensors "../sensors" _self
+    click Actuators "../actuator" _self
+    click Cloud "../mqtt" _self
+
+
+    %% Styling
+    classDef active fill:#950f42,stroke:#333,stroke-width:1px;
+    class MID subgraphBox;
+    class TOP subgraphBox2;
+
+    %% Subgraph styling workaround (pseudo-class)
+    classDef subgraphBox fill:#ff000000,stroke:#950f42,stroke-width:2px,color:#fff;
+    classDef subgraphBox2 fill:#ff000000,stroke:#950f42,stroke-width:0px,color:#fff;
 ```
-
-```mermaid
-grid
-    rows 2
-    columns 3
-
-    Cloud[Cloud] --> ESP32["ESP32 Basics"]
-    Sensors[Sensors] --> ESP32
-    ESP32 --> Actuators[Actuators]
-    
-    %% Positioning
-    place Cloud at (1,2)
-    place Sensors at (2,1)
-    place ESP32 at (2,2)
-    place Actuators at (2,3)
-```
-

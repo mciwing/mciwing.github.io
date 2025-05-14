@@ -212,7 +212,6 @@ plugins:
   - table-reader
   - include-markdown
   - mkdocs_quiz
-  - mermaid2
 
 markdown_extensions:
   - attr_list

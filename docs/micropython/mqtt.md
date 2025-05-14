@@ -61,3 +61,36 @@ The ESP32 has 2 types of ADC pins, ADC1 and ADC2. You will notice the difference
 
 xxxxx py file
 
+```mermaid
+graph LR
+    subgraph TOP[ ]
+        direction BT
+            Cloud[Cloud Dashboard]:::active
+    end
+
+    subgraph MID[ ]
+        direction LR
+            Sensors:::active
+            ESP32[ESP32 Basics]:::active
+            Actuators:::active
+    end
+
+    Cloud <--MQTT--> ESP32
+    Sensors --> ESP32
+    ESP32 --> Actuators
+
+    click ESP32 "../setup" _self
+    click Sensors "../sensors" _self
+    click Actuators "../actuator" _self
+    click Cloud "../mqtt" _self
+
+
+    %% Styling
+    classDef active fill:#950f42,stroke:#333,stroke-width:1px;
+    class MID subgraphBox;
+    class TOP subgraphBox2;
+
+    %% Subgraph styling workaround (pseudo-class)
+    classDef subgraphBox fill:#ff000000,stroke:#950f42,stroke-width:2px,color:#fff;
+    classDef subgraphBox2 fill:#ff000000,stroke:#950f42,stroke-width:0px,color:#fff;
+```
