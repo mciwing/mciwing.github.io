@@ -1,3 +1,111 @@
+# Controlling a Water Pump
+
+Now that we can successfully read the soil moisture, it’s time to take action: if the soil is too dry, our system should water the plant. To do this, we’ll use a small water pump and control it with our ESP32.
+
+<figure markdown="span">
+    <img src="https://cdn.shopify.com/s/files/1/1509/1638/files/waterpump.gif" alt="Water pump example" style="width: 60%; border-radius: 15px;">
+</figure>
+
+## The Hardware
+
+Microcontrollers like the ESP32 cannot directly power larger components such as motors or pumps — they simply can’t provide enough current. That’s why we need an **interface** to switch the pump on and off. The most common solutions are **relay modules** or **MOSFET drivers**.
+
+In this project, we use a **MOSFET driver module** to control the pump. It allows us to switch higher currents (from an external power source) with the small GPIO output of the ESP32.
+
+### Required Components
+
+* 1x Submersible 3V Water Pump
+* 1x MOSFET driver module (e.g., IRF520)
+* Jumper wires
+* External 3V or 5V power source (e.g., battery or power supply)
+
+<figure markdown="span">
+    <img src="https://www.keyestudio.com/cdn/shop/products/keyestudio_IRF520_MOSFET_driver_module_2_800x.jpg" alt="MOSFET Module" style="width: 40%; border-radius: 10px;">
+</figure>
+
+## Wiring the Pump
+
+The wiring is simple but must be done carefully. Here's how to connect the components:
+
+* **Pump + (red)** → VCC of the external power supply
+* **Pump – (black)** → `V+` of the MOSFET module
+* **MOSFET GND (–)** → GND of power supply and GND of ESP32
+* **MOSFET `SIG`** → GPIO output pin of ESP32 (we will use **GPIO25**)
+* **MOSFET `V+`** → Pump –
+* **MOSFET `V–`** → GND
+
+⚠️ **Important:** Never power the pump directly from the ESP32! Always use an external power source and connect the grounds.
+
+<figure markdown="span">
+    ![Pump Wiring](../assets/micropython/pump_steckplatine.png)
+</figure>
+
+## Coding the Pump Control
+
+Let’s now write a simple MicroPython script to switch the pump on and off via a GPIO pin.
+
+### Step 1: Import libraries and configure GPIO
+
+```python
+from machine import Pin
+from time import sleep
+
+pump = Pin(25, Pin.OUT)  # GPIO25 controls the MOSFET
+```
+
+### Step 2: Turn the pump on and off
+
+```python
+# Turn on the pump
+pump.value(1)
+print("Pump ON")
+sleep(2)
+
+# Turn off the pump
+pump.value(0)
+print("Pump OFF")
+```
+
+### Step 3: Automate with a threshold
+
+Now, let’s integrate the sensor logic. If the moisture drops below 30%, we water the plant:
+
+```python
+def control_pump(moisture_percent):
+    if moisture_percent < 30:
+        pump.value(1)
+        print("Pump ON (Moisture too low!)")
+    else:
+        pump.value(0)
+        print("Pump OFF (Moisture OK)")
+```
+
+You can call this function in your main loop after reading the sensor values.
+
+---
+
+???+ task "Task: Watering System Automation"
+\- Combine the sensor and pump code into a single script.
+\- Create a loop that reads the sensor every 10 seconds.
+\- If moisture is below 30%, turn on the pump for 5 seconds.
+\- Print appropriate messages in the terminal.
+\- Test the behavior with wet and dry sensor conditions.
+
+```
+⚠️ **Tip:** Add a `sleep(10)` delay at the end of each loop iteration.
+```
+
+---
+
+## Conclusion
+
+You now know how to switch a water pump using a MOSFET driver. In the next chapter, we’ll learn how to send the sensor values to the cloud and receive commands using **MQTT**!
+
+---
+
+
+
+
 The pump cannot simply be connected to a GPIO pin. A water pump is basically just an electric motor. The pump you are using needs 3V voltage and 100mA current. There are several ways to connect the pump. The most common is to use an external voltage source and some safety components, such as a diode and resistors, to regulate the current and ensure that the current only flows where we want it to.
 
 Another possibility is a MOSFET (metal-oxide-semiconductor field-effect transistor). You can think of a MOSFET as an electronic valve or switch. It can either be built directly into the circuit or a MOSFET driver module can be used. A MOSFET has 3 pins: gate, drain and source. Drain and source specify a potential difference that we can switch with the gate. If we connect drain to ground and source to 3.3V, we have the 3.3V potential difference and can switch it through by controlling the gate pin with a GPIO. If we set the GPIO to high (i.e. 1), the MOSFET is switched through and we receive the 3.3V on the pump. If the GPIO is set to low again (i.e. 0), the mosfet is closed and no more current can flow as there is no potential difference. You can also visualise it like this: You connect 2 buckets full of water to a hose and there is a valve in the centre of the hose. In order for water to flow, the valve must be open and one of the two buckets must be higher than the other. The potential difference here is the difference in height and we are talking about potential energy, not electrical energy. But you can see the parallels. The GPIO does nothing other than control the valve.
