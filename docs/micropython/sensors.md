@@ -1,6 +1,10 @@
 # Reading a Sensor
 
-![World](https://media.licdn.com/dms/image/v2/C5612AQHKLg3fNkWLJQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1520091098663?e=2147483647&v=beta&t=2dvFrck3PWzXl1GB9j3borIeDNdTm9eVCmhXFmWOG2U)
+<figure markdown="span">
+    <img src="https://media.licdn.com/dms/image/v2/C5612AQHKLg3fNkWLJQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1520091098663?e=2147483647&v=beta&t=2dvFrck3PWzXl1GB9j3borIeDNdTm9eVCmhXFmWOG2U" alt="World" style="width: 80%; border-radius: 15px;">
+</figure>
+
+
 
 Now that we’ve successfully written and run our first blink program, it’s time to dive into the real heart of our project: reading data from a sensor. In this section, you’ll learn how to wire a sensor to your ESP32, read its output with MicroPython, and process the results in code.
 
@@ -177,6 +181,9 @@ ADC Value:  48139
             src="/assets/micropython/sensor_led.gif" alt="blink" 
             style="height: 300px; border-radius:10px;"
         >
+    <figcaption>
+        The system is working! Once the moisture is below 30%, the LED turns on.
+    </figcaption>
 </figure>
 ---
 

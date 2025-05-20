@@ -1,3 +1,5 @@
+# Cloud Dashboard
+
 ### MQTT
 
 MQTT is an open network protocol for machine-to-machine communication that enables the transmission of messages between devices. MQTT works according to the publisher / subscriber principle, via a central broker. This can either be a local host or a cloud server. You can think of it like Instagram. The data sources report their data via a so-called ‘topic’ and everyone who is a subscriber to this ‘topic’ receives the data. The whole thing is not ‘real-time capable’, but is specialised for low bandwidth and high latency. The message itself is called ‘payload’ in MQTT and is not bound to a specific structure; JSON is often used (or converted into JSON). JSON (JavaScript Object Notation) is a compact data format in an easily readable text form for data exchange between applications and independent of programming languages. Don't worry, JSON is so widely used that there are online tools to properly convert all kinds of data and libraries to manage and convert JSON files.  
@@ -58,6 +60,72 @@ Now you just have to change the variable *topic_sub* in your *boot.py* to the to
 If we now want to combine different programms and code parts, we have to keep certain things in mind, that could complicate out life or cause problems: 
 
 The ESP32 has 2 types of ADC pins, ADC1 and ADC2. You will notice the difference as soon as you try to connect to the WiFi. This is because ADC2 pins are connected internally in the chip to the WiFi driver. This means that when using WiFi, the ADC2 pins will be overwritten and will not work. If this happens, you should receive an error message stating that you are initialising the pin incorrectly or that something went wrong with the ‘attenuation’, for example. Please take another look at the overview of pins at the very beginning and check that you are using one of the ADC1 pins. Also, please do not delete the *adc.atten* line from the code. The sensor needs 5V input voltage, which means the output signal will be between 0-5V. An ADC can only manage 0-3.6V and if you don't write anything, the default value is 1.1V, so it can happen that the values are read out incorrectly or not at all. With *adc.atten* you can throttle the voltage, otherwise you would have to use additional resistors to reduce the voltage manually. *ADC.ATTN_11DB* allows the ADC to use the entire range from 0-3.6V. You could use other value ranges with other specifications (0DB, 2_5DB or 6DB), depending on the sensor and the application. 
+
+
+## Watering Strategy: How Much and When?
+
+Now that your system is able to water plants, the key question becomes: **how much water is needed**, and **what are good threshold values for different types of plants and environments**?
+
+### 🌿 Recommended Moisture Thresholds by Plant Type
+
+| **Plant Type**      | **Moisture Threshold (%)** | **Notes**                                                               |
+| ------------------- | -------------------------- | ----------------------------------------------------------------------- |
+| Succulents & Cacti  | 10–30%                     | Let soil dry completely between waterings                               |
+| Medium-water Plants | 30–50%                     | e.g. pothos, spider plants; let top soil dry                            |
+| Tropical Plants     | 50–70%                     | e.g. ferns, peace lilies; maintain consistent moisture, avoid sogginess |
+| Herbs & Edibles     | 40–60%                     | Prefer moist, well-drained soil                                         |
+| Flowering Plants    | 40–70%                     | e.g. violets, begonias; avoid extreme wet/dry cycles                    |
+
+
+### 📈 Adjusting Thresholds Based on Environment
+
+* **Light:** In bright, sunny spots, increase moisture thresholds by **5–10%** to compensate for faster drying.
+* **Humidity:** In high-humidity rooms, decrease thresholds by **5–10%** to avoid overwatering.
+* **Soil Type:**
+
+  * **Sandy soil:** drains quickly → use **lower thresholds**
+  * **Clay soil:** retains water → use **higher thresholds**
+
+
+### 💧 How Much Water to Dispense?
+
+| **Plant Size**         | **Recommended Water Volume** |
+| ---------------------- | ---------------------------- |
+| Small pots (<15 cm)    | 100–200 ml                   |
+| Medium pots (15–30 cm) | 250–500 ml                   |
+| Large pots (>30 cm)    | 500–1000 ml                  |
+
+???+ tip "Tip"
+    **Note:** Our pump delivers approximately **30–50 ml per second**.
+    To determine how long to run the pump, adjust the `pump_on_time` based on your desired volume.
+
+
+### 🧪 Tip: Calibrate Water vs. Moisture
+
+To make your system smart and reliable, you can empirically measure the **effect of water on soil moisture**.
+
+#### Example Calibration:
+
+* **Pot size:** 1.5 liters of soil
+* **Initial moisture:** 30%
+* **Add:** 100 ml water
+* **New moisture reading:** 40%
+* → Change:
+
+  $$
+  \frac{\Delta \text{Moisture}}{\text{Water Volume}} = \frac{40\% - 30\%}{100\ \text{ml}} = 0.1\% \text{ per ml}
+  $$
+
+Create a table or spreadsheet for your plant type, pot size, and soil. Observe how much moisture rises for a given volume. You’ll also find a point where additional water doesn’t significantly raise the value — this is your **saturation point**.
+
+Use this data to define precise thresholds and optimize your watering cycle.
+
+---
+
+Let me know if you’d like this part integrated into your actuator chapter or as a separate calibration guide.
+
+
+
 
 xxxxx py file
 

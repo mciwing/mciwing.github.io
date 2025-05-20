@@ -1,154 +1,82 @@
 # Controlling a Water Pump
 
-Now that we can successfully read the soil moisture, it’s time to take action: if the soil is too dry, our system should water the plant. To do this, we’ll use a small water pump and control it with our ESP32.
+Now that we can successfully read the soil moisture, it’s time to take action: if the soil is too dry, our system should water the plant instead of turning on the LED. To do this, we’ll use a small water pump and control it with our ESP32.
 
 <figure markdown="span">
-    <img src="https://cdn.shopify.com/s/files/1/1509/1638/files/waterpump.gif" alt="Water pump example" style="width: 60%; border-radius: 15px;">
+    <img src="https://i.pinimg.com/736x/81/f1/fd/81f1fdf885daeb49a8b193039618a3e2.jpg" alt="Water pump example" style="width: 80%; border-radius: 15px;">
 </figure>
 
 ## The Hardware
 
-Microcontrollers like the ESP32 cannot directly power larger components such as motors or pumps — they simply can’t provide enough current. That’s why we need an **interface** to switch the pump on and off. The most common solutions are **relay modules** or **MOSFET drivers**.
+### Submersible Pump
 
-In this project, we use a **MOSFET driver module** to control the pump. It allows us to switch higher currents (from an external power source) with the small GPIO output of the ESP32.
+A submersible pump is a compact electric pump designed to operate underwater, typically used to move liquids from one place to another. In our project, it draws water from a reservoir to irrigate a plant.
 
-### Required Components
-
-* 1x Submersible 3V Water Pump
-* 1x MOSFET driver module (e.g., IRF520)
-* Jumper wires
-* External 3V or 5V power source (e.g., battery or power supply)
+Submersible pumps work by pushing water to the surface using an impeller, which creates fluid pressure. They are quiet, efficient, and ideal for applications where space and simplicity are important - like automatic plant watering systems.
 
 <figure markdown="span">
-    <img src="https://www.keyestudio.com/cdn/shop/products/keyestudio_IRF520_MOSFET_driver_module_2_800x.jpg" alt="MOSFET Module" style="width: 40%; border-radius: 10px;">
+    <img src="https://cdn-shop.adafruit.com/970x728/4547-08.jpg" alt="Water pump " style="width: 50%; border-radius: 15px;">
 </figure>
+
+The wiring of the pump is quite simple. It has 2 wires: **Red** for ~3V and **Black** for GND.
+
+### Pump Power Supply
+
+Microcontrollers like the ESP32 cannot directly power components such as motors or pumps - they simply don't provide enough current. For example, our water pump operates at 3 V and requires 100–200 mA, while a single GPIO pin of the ESP32 can only supply around 15 mA. Therefore, we need an **interface** that allows us to switch higher currents using the ESP32’s low-power control signals. The most common solutions are **relay modules** and **MOSFET drivers**.
+
+In this project, we use a **MOSFET driver module** like this one:
+
+<figure markdown="span">
+    <img src="https://www.roboter-bausatz.de/media/image/0b/f4/f0/RBS10306_1_600x600.jpg" alt="MOSFET driver module" style="width: 50%; border-radius: 15px;">
+</figure>
+
+It acts like an electronically controlled switch: the small signal from a GPIO pin controls whether a larger current flows through the pump. A MOSFET has three terminals:
+
+- **Gate**: the control input (connected to the ESP32 GPIO)
+- **Drain**: where current flows out (connected to the pump's negative side)
+- **Source**: the return path to ground
+
+When the gate is set `HIGH`, the MOSFET allows current to flow from source to drain, completing the circuit and powering the pump. When the gate is set `LOW`, the switch is off and no current flows.
+
+Although pumps are often powered by external sources (e.g. AAA batteries), in this case the ESP32's onboard 3.3 V output is sufficient. While the pump is rated for 3 V, running it at 3.3 V is acceptable - small voltage differences are typically tolerated, especially with minor losses through wires and switching components.
+
+???+ warning "Power Supply Limitations"
+
+    However, this simplified setup works only under certain conditions. If you plan to use larger motors or additional components, or if your code requires heavy processing, the ESP32 may no longer be able to provide enough power.
 
 ## Wiring the Pump
 
-The wiring is simple but must be done carefully. Here's how to connect the components:
-
-* **Pump + (red)** → VCC of the external power supply
-* **Pump – (black)** → `V+` of the MOSFET module
-* **MOSFET GND (–)** → GND of power supply and GND of ESP32
-* **MOSFET `SIG`** → GPIO output pin of ESP32 (we will use **GPIO25**)
-* **MOSFET `V+`** → Pump –
-* **MOSFET `V–`** → GND
-
-⚠️ **Important:** Never power the pump directly from the ESP32! Always use an external power source and connect the grounds.
+For this chapter, we want to go further in our project and combine all the components we have learned so far with a simple connection of a pump.
+Therefore, we need to connect all the components as shown in the following diagram:
 
 <figure markdown="span">
-    ![Pump Wiring](../assets/micropython/pump_steckplatine.png)
+    ![Pump Wiring](../assets/micropython/sensor_pump.png)
 </figure>
 
-## Coding the Pump Control
 
-Let’s now write a simple MicroPython script to switch the pump on and off via a GPIO pin.
+## Coding
 
-### Step 1: Import libraries and configure GPIO
+To control the pump, we simply need to control one single GPIO pin connected to the MOSFET driver module. By switching the GPIO pin from `HIGH` to `LOW`, we directly control the pump.
 
-```python
-from machine import Pin
-from time import sleep
+???+ question "Task: Watering System Automation"
+    Now it's time to build a first version of our watering system. Perform the following steps:
 
-pump = Pin(25, Pin.OUT)  # GPIO25 controls the MOSFET
-```
+    - Use the code from the previous chapters to read the sensor and turn on the pump instead of the LED.
+    - Adjust the code to:
+        - Read the sensor every 10 seconds.
+        - If moisture is below 30%, turn on the pump for 5 seconds.
+        - Print appropriate messages in the terminal.
+        - Test the behavior with wet and dry sensor conditions.
 
-### Step 2: Turn the pump on and off
-
-```python
-# Turn on the pump
-pump.value(1)
-print("Pump ON")
-sleep(2)
-
-# Turn off the pump
-pump.value(0)
-print("Pump OFF")
-```
-
-### Step 3: Automate with a threshold
-
-Now, let’s integrate the sensor logic. If the moisture drops below 30%, we water the plant:
-
-```python
-def control_pump(moisture_percent):
-    if moisture_percent < 30:
-        pump.value(1)
-        print("Pump ON (Moisture too low!)")
-    else:
-        pump.value(0)
-        print("Pump OFF (Moisture OK)")
-```
-
-You can call this function in your main loop after reading the sensor values.
-
----
-
-???+ task "Task: Watering System Automation"
-\- Combine the sensor and pump code into a single script.
-\- Create a loop that reads the sensor every 10 seconds.
-\- If moisture is below 30%, turn on the pump for 5 seconds.
-\- Print appropriate messages in the terminal.
-\- Test the behavior with wet and dry sensor conditions.
-
-```
-⚠️ **Tip:** Add a `sleep(10)` delay at the end of each loop iteration.
-```
+    <figure markdown="span">
+        <img src="https://wallpapers.com/images/high/funny-kermit-pictures-huca7cmirdyctbdw.webp" alt="Watering System" style="width: 70%; border-radius: 15px;">
+    </figure>
 
 ---
 
 ## Conclusion
 
 You now know how to switch a water pump using a MOSFET driver. In the next chapter, we’ll learn how to send the sensor values to the cloud and receive commands using **MQTT**!
-
----
-
-
-
-
-The pump cannot simply be connected to a GPIO pin. A water pump is basically just an electric motor. The pump you are using needs 3V voltage and 100mA current. There are several ways to connect the pump. The most common is to use an external voltage source and some safety components, such as a diode and resistors, to regulate the current and ensure that the current only flows where we want it to.
-
-Another possibility is a MOSFET (metal-oxide-semiconductor field-effect transistor). You can think of a MOSFET as an electronic valve or switch. It can either be built directly into the circuit or a MOSFET driver module can be used. A MOSFET has 3 pins: gate, drain and source. Drain and source specify a potential difference that we can switch with the gate. If we connect drain to ground and source to 3.3V, we have the 3.3V potential difference and can switch it through by controlling the gate pin with a GPIO. If we set the GPIO to high (i.e. 1), the MOSFET is switched through and we receive the 3.3V on the pump. If the GPIO is set to low again (i.e. 0), the mosfet is closed and no more current can flow as there is no potential difference. You can also visualise it like this: You connect 2 buckets full of water to a hose and there is a valve in the centre of the hose. In order for water to flow, the valve must be open and one of the two buckets must be higher than the other. The potential difference here is the difference in height and we are talking about potential energy, not electrical energy. But you can see the parallels. The GPIO does nothing other than control the valve.
-
-If you use the driver, the whole thing is actually constructed in the same way. The MOSFET driver module is a small board with a MOSFET soldered in and slightly more comprehensible output labelling. Both are equivalent for the project. Normally an external source is used for such projects, for example AAA batteries. However, the microcontroller manages the low current required by the pump and also has the necessary voltage. The pump actually needs 3V, but gets 3.3V. That's not too bad. We usually have some losses through the cables, MOSFET etc.  In addition, it may well be that the pin does not output exactly 3.3V and the pump simply draws the current it needs; if a little more voltage is applied, it may also draw a little more current. This should not be relevant for this water pump. However, if you connect a different motor, this may well be a problem. It is best to carefully read the motor's data sheet. There should be an upper limit for current and voltage somewhere in there. Then you would need to use additional resistors to limit current or use an external source such as batteries to ensure a constant voltage. It should also be noted that the setup here works because we only use one sensor and the pump. The ESP32 chip can produce enough current to power the pump. However, if a large number of additional pins are used and very computationally intensive programmes are executed on the chip, the microcontroller may need so much of the current itself that it can no longer supply enough current to the pump. In this case, the pump could not be used. However, as we take a certain sequence of operations into account in the project and don`t use a lot of additional hardware, this should not be a problem.
-
-
-xxxx pump.py
-
-Now you have the tools to water your plants. But how much water do they need and what are good threshold humidity values for different plants and environments?
-
-
-| **Plant Type** | **Moisture Threshold (%)** | **Notes** |
-| --- | --- | --- |
-| Succulent & Cacti | 10-30% | Soil should be very dry between waterings |
-| Medium-water plants | 30-50% | Examples: pothos, spider plants. Allow the top centimeters to dry |
-| Tropical plants | 50-70% | Examples: peace lilies, ferns. Maintain consistent moisture without waterlogging |
-| Edible plants, herbs | 40-60% | Most herbs like moist but well-draining soil |
-| Flowering plants | 40-70% | Example: Violets, begonias. Avoid extreme watering for blooms | 
-
-1. **Adjusting thresholds based on environment**
-    - **Light:** Increase threshiolds by 5-10% for broght, sunny locations to compensate for faster drying.
-    - **Humidity:** Decrease thresholds by 5-10% in high-humidity environments to avoid overwatering.
-    - **Soil Type:** For sandy soil, keep thresholds lower (water drains quickly). For clay soil, keep thresholds higher (retains water longer).
-
-2. **How much water to provide per watering**
-    - **Small plants (<15cm pots):** Use about 100-200 ml of water per watering.
-    - **Medium plants (<15-30cm pots):** Use about 250-500 ml.
-    - **Large plants (>30cm pots):** Use about 500-1000 ml. 
-
-
-Our water pump should dispense approximatley 30-50 ml of water per second. Adjust the *pump_on_time* depending on how much water you need for the plant. For average soil for potted plants, 100 ml of water corresponds to about 10-20% moisture. You can easily test this at home. It is best to first check how much water is dispensed in one second. If you let the soil dry out completely and then add a certain amount of water, you can see how much the moisture value increases. This can be used to create a spreadsheet. Soil also has a saturation level. Add water to the soil until the moisture level barely changes. This is the point at which the soil is saturated. These are then the start and end points of your spreadsheet. 
-
-
-Example:
-
-* **Suppose you have a medium pot with 1.5 liters of soil:**
-    * Inital soil moisture: 30%
-    * Add 100 ml water
-    * New soil moisture: 40%
-    * Ratio: 
-$$ \frac{ΔMoisture}{Water\: Volume} ​= \frac{40\%−30\%}{100 ml} ​= 0.1\% \:per \: ml $$
-
 
 
 ```mermaid
