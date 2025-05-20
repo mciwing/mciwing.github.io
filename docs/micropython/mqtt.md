@@ -1,5 +1,301 @@
 # Cloud Dashboard
 
+<figure markdown="span">
+    <img 
+            src="https://www.boredpanda.com/blog/wp-content/uploads/2018/06/funny-worst-input-fields-35-5b235c71c6c84__700.gif" alt="blink" 
+            style="width: 80%; border-radius:10px;"
+        >
+</figure>
+
+Let's take a deep breath and think about what we've done so far. We've learned how to work with an ESP32 microcontroller, how to read a sensor and how to control an actuator. 
+But so far, we are only able to interact with our system locally over the USB connection. So, to update the threshold or to manually turn the pump on and off, we need to be physically present at the system.
+Now, we want to change this! 
+
+The goal of this chapter is to make our system more interactive. We want to be able to see the sensor values and control the actuator from everywhere (at least where you have an internet connection).
+We will build a browser-based dashboard using **MQTT Tiles** from [flespi.io](https://mqtttiles.flespi.io/#/). The dashboard will allow you to monitor sensor values (like soil moisture) and send control commands (like humidity thresholds) directly to your ESP32 device via MQTT.
+
+---
+
+## What is MQTT?
+
+**MQTT** (Message Queuing Telemetry Transport) is a lightweight, publish-subscribe network protocol designed for reliable communication between devices over low-bandwidth or high-latency networks.
+
+The key concepts of MQTT are:
+
+* **Broker**: The central server that manages communication between clients.
+* **Topic**: The channel to which devices can **publish** or **subscribe**.
+* **Payload**: The message content.
+
+MQTT follows a publisher/subscriber model, which makes it scalable and well-suited for IoT systems.
+
+???+ tip "Publish-Subscribe Model"
+    Think of it like Instagram: users post messages to a channel (topic), and followers (subscribers) get updates in real time.
+
+---
+
+## Setting up a MQTT Broker
+Before we can start programming our ESP32, we need to create a MQTT broker. In this example we will use [HiveMQ](https://www.hivemq.com/) as a free cloud-based broker.
+Follow these steps to create and configure your own MQTT broker:
+
+1. Visit [HiveMQ](https://www.hivemq.com/)
+2. Sign in using Google, GitHub, or LinkedIn — or create a free account
+3. Select the Free Plan and create a serverless cluster
+
+    ![hive1](../assets/micropython/hive_1.png)
+
+4. Click on 'Manage Cluster'
+
+    ![hive2](../assets/micropython/hive_2.png)
+
+5. Switch to the 'Getting Started' tab
+
+    ![hive2](../assets/micropython/hive_3.png)
+
+    - Left side: you'll find all the details needed to connect (Cluster/Broker URL, TLS Port (8883), WebSocket URL)
+    - Right side:In order to connect to the broker, you need to create a connection credential. Therefore, enter a username and password and click on 'Add'. After creation, credentials can be reviewed and managedunder the 'Access Management' tab
+
+6. To test your connection. Go to the 'Web Client' tab, enter your MQTT credentials and click 'Connect'. You should see a green 'connected' message. +
+
+    ![hive2](../assets/micropython/hive_4.png)
+
+## ESP32 Setup
+### Hardware
+
+To send and receive data from the ESP32, no additional hardware is required. However, since we will continue building on our irrigation system later, we will keep using the same circuit setup as before. So, **no changes to the wiring are needed at this point**.
+
+
+### 🌐 Wi-Fi Connection
+
+The standard MicroPython installation on the ESP32 includes a built-in **Wi-Fi library**, making it easy to connect to a wireless network with just a few lines of code. For detailed documentation, see the [MicroPython Wi-Fi guide](https://docs.micropython.org/en/latest/esp32/quickref.html#wlan).
+
+To establish an internet connection, the following code can be placed in the `boot.py` file, as the connection only needs to be initialized once at startup:
+
+???+ tip "Security Tip"
+    Never store Wi-Fi credentials directly in your main code. Instead, create a separate `config.py` file:
+
+    ```python linenums="1" title="config.py"
+    ssid = "your_ssid"
+    password = "your_password"
+    ```
+
+```python linenums="1" title="boot.py"
+import machine, network
+import config # own config.py file
+
+def do_connect():
+    wlan = network.WLAN()
+    wlan.active(True)
+    if not wlan.isconnected():
+        print('connecting to network...')
+        wlan.connect(config.ssid, config.password)
+        while not wlan.isconnected():
+            machine.idle()
+    print('connection successful!')
+    print('network config:', wlan.ipconfig('addr4'))
+    return wlan
+
+wlan = do_connect()
+```
+
+???+ warning "WPA2 Enterprise (Eduroam)"
+    Unfortunately, the ESP32 does not support WPA2 Enterprise networks like Eduroam.
+    To work around this, use a different Wi-Fi router or create a personal mobile hotspot.
+
+???+ question "Task: Connect and Disconnect from Wi-Fi"
+    - Connect to your Wi-Fi network using the `do_connect()` function.
+    - After a successful connection, disconnect from the Wi-Fi network. Take a look in the [documentation](https://docs.micropython.org/en/latest/esp32/quickref.html#wlan) for the `wlan` object to find the function.
+
+    Your console log should look something like this: 
+
+    ```
+    connecting to network...
+    connection successful!
+    network config: ('172.20.10.2', '255.255.255.240')
+    disconnecting from network...
+    disconnected!
+    ```
+
+### 📡 MQTT Connection
+
+- download libraries
+
+
+- credentials in config.py
+
+- remove disconnect from boot
+
+- in boot.py
+    add mqtt topics and id
+    add variables
+    add library umqttsimple
+
+in main.py
+
+    add code + time library
+
+
+
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+xxxxxxxxxxxxxxx
+
+xxxxxxxxxxxxxxxx
+
+
+
+## Create a Dashboard
+    send and receive messages
+
+
+#
+
+## 🔌 Setting up MQTT Communication on the ESP32
+
+To connect your ESP32 to an MQTT broker, you’ll need to:
+
+1. Connect to Wi-Fi
+2. Configure MQTT credentials and topics
+3. Establish encrypted communication (TLS via port `8883`)
+4. Publish sensor data and receive control data
+
+This setup involves four key scripts:
+
+### 1. `boot.py`
+
+Connects to Wi-Fi and initializes MQTT client.
+
+### 2. `main.py`
+
+Reads sensor values, publishes to MQTT, and listens for control messages.
+
+### 3. `robust.py`
+
+Handles MQTT connection resilience.
+
+### 4. `simple.py`
+
+The core MicroPython MQTT library for TLS/SSL connections.
+
+> ⚠️ `boot.py` runs automatically on boot. Always **hard-reboot** (unplug + replug or press reset button) after editing this file.
+
+> ❗ If you receive SSL-related errors like `AttributeError: 'bool' object has no attribute 'wrap_socket'`, try replacing `import ussl` with `import ssl`.
+
+---
+
+## 🧰 Tools for Debugging
+
+To monitor MQTT activity, you can use:
+
+* [MQTT Explorer](https://mqtt-explorer.com/) — to see messages in real time
+* The VSCode terminal — to view logs printed from your ESP32
+
+Once you see your sensor publishing a message (e.g., `hello = Hello #3`), your connection works!
+
+---
+
+## 🖥️ Building a Dashboard with MQTT Tiles
+
+[MQTT Tiles](https://mqtttiles.flespi.io/#/) lets you create an interactive UI to visualize MQTT data and send control commands.
+
+### Step-by-step Setup
+
+1. **Connect to Broker**:
+
+   * Click **Connect** → **+**
+   * Set a **name**
+   * Use `wss://...` (WebSocket Secure URL) — this is different from the normal `mqtt://` TLS URL
+   * Use the WebSocket port (typically `8884`) and end it with `/mqtt`
+   * Enter your **username** and **password**
+
+2. **Verify Connection**
+
+   * If the client name appears in **green** and says `online`, you're connected!
+
+3. **Create a Board**:
+
+   * Click **New Board**
+   * Set a name like `Plant Monitor`
+   * Use meaningful names for topics in **Init Messages** (e.g., `plant/control/threshold`)
+
+4. **Add Widgets**:
+
+   * Start with a **Slider**
+   * Assign the same topic as your ESP32 is subscribed to
+   * Set range (e.g., 0–100 for humidity %)
+   * Optionally, add **display widgets** to visualize sensor data
+
+> ✅ You can verify slider interaction via MQTT Explorer: the topic value should change when the slider moves.
+
+---
+
+## ⚠️ Important Notes for Integration
+
+* Use **ADC1** pins for the moisture sensor (ADC2 is occupied by Wi-Fi)
+* Keep `adc.atten(ADC.ATTN_11DB)` in your code to enable 0–3.6 V range
+* Ensure your MQTT topic structure is consistent across code and dashboard
+
+---
+
+## Example Setup Summary
+
+* ESP32 publishes soil moisture to: `plant/data/moisture`
+* ESP32 subscribes to threshold control: `plant/control/threshold`
+* MQTT Tiles displays moisture as a gauge and slider to adjust threshold
+* ESP32 turns pump on/off based on received threshold vs. sensor data
+
+---
+
+## Visual Overview
+
+```mermaid
+graph LR
+    subgraph TOP[ ]
+        direction BT
+        Cloud[Cloud Dashboard]:::active
+    end
+
+    subgraph MID[ ]
+        direction LR
+        Sensors:::active
+        ESP32[ESP32 Basics]:::active
+        Actuators:::active
+    end
+
+    Cloud <--MQTT--> ESP32
+    Sensors --> ESP32
+    ESP32 --> Actuators
+
+    click ESP32 "../setup" _self
+    click Sensors "../sensors" _self
+    click Actuators "../actuator" _self
+    click Cloud "../mqtt" _self
+
+    classDef active fill:#950f42,stroke:#333,stroke-width:1px;
+    class MID subgraphBox;
+    class TOP subgraphBox2;
+
+    classDef subgraphBox fill:#ff000000,stroke:#950f42,stroke-width:2px,color:#fff;
+    classDef subgraphBox2 fill:#ff000000,stroke:#950f42,stroke-width:0px,color:#fff;
+```
+
+---
+
+Now you're ready to build a full feedback loop: measure humidity, adjust thresholds remotely, and trigger the pump — all via MQTT Tiles in the browser.
+
+Let me know if you’d like an example `main.py` that integrates this logic!
+
+
+
+
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ### MQTT
 
 MQTT is an open network protocol for machine-to-machine communication that enables the transmission of messages between devices. MQTT works according to the publisher / subscriber principle, via a central broker. This can either be a local host or a cloud server. You can think of it like Instagram. The data sources report their data via a so-called ‘topic’ and everyone who is a subscriber to this ‘topic’ receives the data. The whole thing is not ‘real-time capable’, but is specialised for low bandwidth and high latency. The message itself is called ‘payload’ in MQTT and is not bound to a specific structure; JSON is often used (or converted into JSON). JSON (JavaScript Object Notation) is a compact data format in an easily readable text form for data exchange between applications and independent of programming languages. Don't worry, JSON is so widely used that there are online tools to properly convert all kinds of data and libraries to manage and convert JSON files.  
