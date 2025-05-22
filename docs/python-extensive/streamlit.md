@@ -275,11 +275,15 @@ if uploaded_file is not None:
    accept text files, use `#!python type="txt"`. For multiple file types, use a
    list: `#!python type=["txt", "csv"]`.
 
+???+ info
+
+    For the above snippet to work, you need to install an additional package to read the Excel file. Look at the error message to determine which one.
+
 ???+ question "Data Analyzer"
     
     Create a Streamlit application that:
     
-    1. Lets users upload the 'Student Data' XLSX file from [before](data/tabular.md#reading-excel-files)
+    1. Lets users upload the 'Student Data' XLSX file from [before](data/tabular.md#reading-excel-files).
     2. Displays basic statistics using `df.describe()`
     3. Creates a line chart based on the 'Student Data' dataset using ploty and visualize it in the streamlit application
     
