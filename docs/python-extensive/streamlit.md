@@ -256,25 +256,30 @@ Streamlit makes it easy to handle file uploads and downloads:
 
 ```python
 # File upload
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+uploaded_file = st.file_uploader("Choose a Excel file", type="xlsx")  # (1)!
+
 if uploaded_file is not None:
-    data = pd.read_csv(uploaded_file)
+    data = pd.read_excel(uploaded_file)
     st.write(data)
 
-# File download
-st.download_button(
-    label="Download data as CSV",
-    data=data.to_csv(index=False),
-    file_name='sample_data.csv',
-    mime='text/csv',
-)
+    # File download (display only if a file is uploaded)
+    st.download_button(
+        label="Download data as CSV",
+        data=data.to_csv(index=False),
+        file_name='sample_data.csv',
+        mime='text/csv',
+    )
 ```
 
-???+ question "CSV Data Analyzer"
+1. The `type` parameter restricts the file types that can be uploaded. To only
+   accept text files, use `#!python type="txt"`. For multiple file types, use a
+   list: `#!python type=["txt", "csv"]`.
+
+???+ question "Data Analyzer"
     
     Create a Streamlit application that:
     
-    1. Lets users upload the 'Student Data' CSV file from [before](data/tabular.md#reading-excel-files)
+    1. Lets users upload the 'Student Data' XLSX file from [before](data/tabular.md#reading-excel-files)
     2. Displays basic statistics using `df.describe()`
     3. Creates a line chart based on the 'Student Data' dataset using ploty and visualize it in the streamlit application
     
