@@ -192,6 +192,7 @@ nav:
     - micropython/sensors.md
     - micropython/actuator.md
     - micropython/mqtt.md
+    - micropython/system.md
 
 
 
