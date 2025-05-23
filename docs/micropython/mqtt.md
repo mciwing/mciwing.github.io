@@ -64,14 +64,14 @@ Follow these steps to create and configure your own MQTT broker:
 To send and receive data from the ESP32, no additional hardware is required. However, since we will continue building on our irrigation system later, we will keep using the same circuit setup as before. So, **no changes to the wiring are needed at this point**.
 
 
-### 🌐 Wi-Fi Connection
+### Wi-Fi Connection 🌐
 
 The standard MicroPython installation on the ESP32 includes a built-in **Wi-Fi library**, making it easy to connect to a wireless network with just a few lines of code. For detailed documentation, see the [MicroPython Wi-Fi guide](https://docs.micropython.org/en/latest/esp32/quickref.html#wlan).
 
 To establish an internet connection, the following code can be placed in the `boot.py` file, as the connection only needs to be initialized once at startup:
 
 ???+ tip "Security Tip"
-    Never store Wi-Fi credentials directly in your main code. Instead, create a separate `config.py` file:
+    Never store credentials directly in your main code. Instead, create a separate `config.py` file:
 
     ```python linenums="1" title="config.py"
     ssid = "your_ssid"
@@ -79,10 +79,12 @@ To establish an internet connection, the following code can be placed in the `bo
     ```
 
 ```python linenums="1" title="boot.py"
+# WIFI CONFIGURATION
 import machine, network
 import config # own config.py file
 
 def do_connect():
+
     wlan = network.WLAN()
     wlan.active(True)
     if not wlan.isconnected():
@@ -115,24 +117,133 @@ wlan = do_connect()
     disconnected!
     ```
 
-### 📡 MQTT Connection
+### MQTT Communication 📡
 
-- download libraries
+Nachdem wir uns nicht nur mit der großen weiten Welt verbinden wollen, sondern auch Interagieren (senden und empfangen), müssen wir uns nun ein geeignetes Protokoll aussuchen. Wie bereits beschrieben, ist MQTT im Bereich IoT sehr beliebt und wird von vielen Anbietern unterstützt. Wir sollen nun unseren EPS32 so programmieren, dass er sich mit dem Internet und mit dem MQTT-Broker verbindet und anschließend Daten sendet und empfängt.
+
+#### Initial Setup
+
+Wir setzen nun unseren Code (Wifi Connection) fort und erweitern ihn um die MQTT-Funktionalität.
+Bevor wir Daten senden und empfangen können, müssen wir uns zunächst mit dem MQTT-Broker verbinden. Dazu benötigen wir die folgenden Informationen welche wir in der Datei `config.py` ergänzen (Durch eigene Informationen von HiveMQ ersetzen):
+
+```python linenums="1" title="config.py"
+mqtt_server = 'your_mqtt_server'    # MQTT URL (e.g. 'xy.s1.eu.hivemq.cloud')
+mqtt_user = 'your_mqtt_user'        # MQTT-Broker Username 
+mqtt_pass = 'your_mqtt_password'    # MQTT-Broker Password
+mqtt_port = 8883                    # MQTT-Broker Port
+```
+
+Nachdem wir die `config.py` bereits in unserer `boot.py` Datei eingefügt haben, können wir nun mit der Verbindung zum MQTT-Broker beginnen.
+
+Um nicht sämtlichen Code des Kommunikationsprotokolls selbst zu schreiben, verwenden wir einen bereits fertigen Code. Diese Library ist nicht in der Standard Library (wie z.b. `network` oder `machine`) enthalten, sondern muss selbst heruntergeladen werden. Dieser kann hier heruntergeladen werden:
+
+<div class="center-button" markdown>
+
+[upymqtt.py](../../assets/micropython/upymqtt.py){ .md-button }
+
+</div>
+
+Wir speichern nun diese Datei in unseren Projektordner auf der selben Ebene wie die `boot.py` Datei. Anschließend ergänzen wir unsere `boot.py` Datei um die folgenden Zeilen:
+
+```python linenums="20" title="boot.py"
+...
+
+# MQTT CONFIGURATION
+from upymqtt import MQTTClient
+import ubinascii  #(1)!
+
+# Generate Unique Client ID
+client_id = ubinascii.hexlify(machine.unique_id())
+
+# Topics to subscribe and publish
+topic_sub = b'settings'
+topic_pub = b'kpi'
+
+# MQTT Server Credentials
+mqtt_server = config.mqtt_server
+mqtt_user = config.mqtt_user
+mqtt_pass = config.mqtt_pass
+mqtt_port = config.mqtt_port
+
+```
+
+1. This library is part of the standard library.
 
 
-- credentials in config.py
+Schauen wir uns den Code nun genauer an. Die ersten Zeilen dienen dem Importieren der benötigten Bibliotheken.
+Anschließend wird eine eindeutige Client ID erstellt, welche wir für die Verbindung zum MQTT-Broker benötigen.
+Danach können wir festlegen, welche Topics wir empfangen wollen (z.B. `topic_sub`) und zu welchen Topics wir Daten senden wollen (z.B. `topic_pub`).
+Abschließend werden die MQTT-Credentials aus der `config.py` Datei geladen. 
 
-- remove disconnect from boot
 
-- in boot.py
-    add mqtt topics and id
-    add variables
-    add library umqttsimple
+#### Connection
 
-in main.py
+Nun können wir endlich eine Verbindung zum MQTT-Broker herstellen. Dazu verwenden wir die `MQTTClient` Klasse aus der `upymqtt` Library. Wir erstellen eine Instanz der Klasse und übergeben die Client ID, die MQTT-Server-Credentials und die Portnummer.
 
-    add code + time library
+```python
+# Create a client instance; enable SSL for encrypted transport (TLS).
+client = MQTTClient(
+    client_id,
+    mqtt_server,
+    user=mqtt_user,
+    password=mqtt_pass,
+    port=mqtt_port,
+    ssl=True
+)
+```
 
+Befor wir eine Verbindung herstellen können, müssen wir noch festlegen, was passiert, wenn eine Nachricht in einem unserer subscribed Topics empfangen wird.
+
+```python
+
+# Register the callback so incoming packets trigger `sub_cb`.
+def sub_cb(topic, msg):
+    print(f"New Message: {topic}, {msg}")
+
+client.set_callback(sub_cb)
+```
+
+In unserem einfachen Beispiel, wird jede Nachricht einfach in der Konsole ausgegeben.
+
+Anschließend stellen wir eine Verbindung zum MQTT-Broker her und subscribe unsere Topics.
+
+```python
+# Open a network connection to the MQTT broker.
+client.connect()
+print(f"Connected to {mqtt_server} MQTT broker")
+
+
+# Tell the broker which topic we want to listen to.
+client.subscribe(topic_sub)
+print(f"Subscribed to {topic_sub} topic")
+```
+
+Nun ist alles bereitgestellt um Daten zu senden und zu empfangen.
+
+#### Send and Receive Data
+
+Nun können wir in die `main.py` Datei wechseln und die Daten senden und empfangen.
+Dafür können folgende zwei Funktionen verwendet werden:
+
+```python
+# Sending the word 'hello'”' on topic_pub.
+client.publish(topic_pub, b'hello')
+
+# Receiving messages on topic_sub.
+client.check_msg()
+```
+
+`check_msg()` ist eine Funktion, die überprüft, ob neue Nachrichten am Brocker zur Verfügung stehen. Dabei wird immer eine Nachricht ausgelesen. Sollten mehrere Nachrichten vorhanden sein, wird die älteste Nachricht ausgelesen. Daher macht es Sinn, diese Funktion in einer Schleife zu verwenden.
+
+```python
+while True:
+    # Receive messages from the broker and process them.
+    # the callback (`sub_cb`) will be invoked automatically.
+    client.check_msg()
+```
+
+???+ question "Task: Receive and send messages"
+    asdf
 
 
 
