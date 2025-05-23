@@ -243,10 +243,22 @@ while True:
 ```
 
 ???+ question "Task: Receive and send messages"
-    asdf
+    Now it's your turn to send and receive messages. Try the code above and see if you can receive and send messages. Therefore:
+
+    - Follow the steps above to connect to the broker (`boot.py` and `credentials.py`)
+    - Check for new messages in the subscribed topic (`settings`) in a loop and publish a message to the `kpi` topic once before the loop starts. 
+    - Got to [HiveMQ](https://console.hivemq.cloud/) and click on 'Manage Cluster'. Switch to the 'Web Client' tab and connect with your credentials. On the right side click on 'Subscribe to all messages'. Now you should see the message you published with your ESP32. (Hint: since the publish function is called once before the loop starts, it is a good idea to soft-reset you ESP32 in order to send the message again) 
+    - On the left side in the 'Web Client' tab click on 'Send Message'. Enter the `kpi` topic and publish a message with a payload of your choice. You should see the message in the console of your ESP32. 
+    ```
+    Connected to b815a22f81dd4de69c84545b88062abf.s1.eu.hivemq.cloud MQTT broker
+    Subscribed to b'settings' topic
+    New Message: b'settings', b'test'
+    ```
+
+If everything works, there is only one thing left to do: We want to visualize the data in a dashboard. 
 
 
-
+## Create a Dashboard
 
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -256,56 +268,7 @@ xxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxx
 
 
-
-## Create a Dashboard
-    send and receive messages
-
-
 #
-
-## 🔌 Setting up MQTT Communication on the ESP32
-
-To connect your ESP32 to an MQTT broker, you’ll need to:
-
-1. Connect to Wi-Fi
-2. Configure MQTT credentials and topics
-3. Establish encrypted communication (TLS via port `8883`)
-4. Publish sensor data and receive control data
-
-This setup involves four key scripts:
-
-### 1. `boot.py`
-
-Connects to Wi-Fi and initializes MQTT client.
-
-### 2. `main.py`
-
-Reads sensor values, publishes to MQTT, and listens for control messages.
-
-### 3. `robust.py`
-
-Handles MQTT connection resilience.
-
-### 4. `simple.py`
-
-The core MicroPython MQTT library for TLS/SSL connections.
-
-> ⚠️ `boot.py` runs automatically on boot. Always **hard-reboot** (unplug + replug or press reset button) after editing this file.
-
-> ❗ If you receive SSL-related errors like `AttributeError: 'bool' object has no attribute 'wrap_socket'`, try replacing `import ussl` with `import ssl`.
-
----
-
-## 🧰 Tools for Debugging
-
-To monitor MQTT activity, you can use:
-
-* [MQTT Explorer](https://mqtt-explorer.com/) — to see messages in real time
-* The VSCode terminal — to view logs printed from your ESP32
-
-Once you see your sensor publishing a message (e.g., `hello = Hello #3`), your connection works!
-
----
 
 ## 🖥️ Building a Dashboard with MQTT Tiles
 
