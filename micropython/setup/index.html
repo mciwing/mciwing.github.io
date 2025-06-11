@@ -5189,7 +5189,7 @@ The <a href="https://docs.micropython.org/en/latest/library/machine.Pin.html"><c
 <summary>GPIO Insights</summary>
 <p>A <strong>GPIO (General Purpose Input/Output)</strong> is a digital pin on a microcontroller or processor that can be freely configured as an <strong>input</strong> or <strong>output</strong> through programming. By default, GPIOs are unassigned and can be controlled in a binary manner (<code>HIGH</code> or <code>LOW</code>).  </p>
 <p>GPIOs typically operate at <strong>3.3V</strong> and can supply <strong>2-16 mA</strong> of current, making them suitable for driving components like LEDs. For example, if a GPIO pin is set to <strong>HIGH</strong>, the LED turns <strong>on</strong>; when set to <strong>LOW</strong>, the LED turns <strong>off</strong>. GPIOs are fundamental for interfacing with sensors, actuators, and other peripherals in embedded systems. </p>
-<p>We will cover the different types of Pins in the <a href="../sensors/#detour-pin-types">sensors</a> chapter.</p>
+<p>We will cover the different types of Pins in the <a href="../sensors/#pin-types">sensors</a> chapter.</p>
 </details>
 <p>The second line of code imports the <code>sleep</code> function from the MicroPython (or standard Python) <code>time</code> module, which is used to pause the execution of a program for a specified number of seconds.</p>
 <hr />
@@ -5261,21 +5261,25 @@ Open the terminal (click <strong>Create Terminal</strong> at the device in your 
 <figure>
     <img alt="Blink" src="../../assets/micropython/blink_setup10.png" />
 </figure>
-<figure>
+<div style="text-align: center;">
     <img 
             src="/assets/micropython/real_blink.gif" alt="blink" 
             style="height: 300px; border-radius:10px;"
         >
-</figure>
+</div>
+
 <details class="tip" open="open">
 <summary>Troubleshooting</summary>
 <p>If you have issues with the LED not blinking while the terminal output is correct, make sure you have the correct GPIO pin referenced, and verify that your wiring and resistor are connected properly.</p>
 </details>
 <p>Congratulations - you've completed your first hardware test with MicroPython!</p>
-<p><img 
-        src="/assets/micropython/linkedinBlink.gif" alt="blink" 
-        style="height: 300px; border-radius:10px;"
-    ></p>
+<div style="text-align: center;">
+    <img 
+            src="/assets/micropython/linkedinBlink.gif" alt="blink" 
+            style="height: 300px; border-radius:10px;"
+        >
+</div>
+
 <details class="question" open="open">
 <summary>Task: SOS blinking</summary>
 <p>Now it's your turn to code!</p>
@@ -5452,7 +5456,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-05-14T10:01:04+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-05-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2025-06-11T09:17:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2025-06-11</span>
   </span>
 
     
