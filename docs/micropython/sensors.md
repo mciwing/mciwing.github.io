@@ -175,8 +175,7 @@ ADC Value:  48139
     - **Function**: Write a function that returns the moisture percentage and the raw sensor value. This function should be called in the loop.
     - **Moisture Warning System**: Now combine your knowledge from before and implement a warning system that turns on a LED if the moisture is below 30%. Test your system with a glass of water. 
 
-
-<figure markdown="span">
+<div style="text-align: center;">
     <img 
             src="/assets/micropython/sensor_led.gif" alt="blink" 
             style="height: 300px; border-radius:10px;"
@@ -184,7 +183,7 @@ ADC Value:  48139
     <figcaption>
         The system is working! Once the moisture is below 30%, the LED turns on.
     </figcaption>
-</figure>
+</div>
 ---
 
 ## Conclusion

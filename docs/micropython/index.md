@@ -33,10 +33,10 @@ graph LR
     Sensors --> ESP32
     ESP32 --> Actuators
 
-    click ESP32 "../setup" _self
-    click Sensors "../sensors" _self
-    click Actuators "../actuator" _self
-    click Cloud "../mqtt" _self
+    click ESP32 "./setup" _self
+    click Sensors "./sensors" _self
+    click Actuators "./actuator" _self
+    click Cloud "./mqtt" _self
 
 
     %% Styling
