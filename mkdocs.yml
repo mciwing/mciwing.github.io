@@ -187,6 +187,15 @@ nav:
       - yolo/train/annotation.md
       - yolo/train/training.md
       - yolo/train/inference.md
+  
+  - MicroPython:
+    - micropython/index.md
+    - micropython/setup.md
+    - micropython/sensors.md
+    - micropython/actuator.md
+    - micropython/mqtt.md
+    - micropython/system.md
+
 
 
 plugins:
