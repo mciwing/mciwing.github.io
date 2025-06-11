@@ -100,3 +100,15 @@ Here, you’ll find a variety of hands-on resources designed to guide you step-b
     [:octicons-arrow-right-24: Get started](yolo/index.md)
 
 </div>
+
+
+### :simple-micropython: MicroPython
+<div class="grid cards" markdown>
+
+- 
+    [![header](assets/header/mpy.png)](micropython/index.md)
+    This course is designed to provide you with a comprehensive introduction to building an IoT project with MicroPython on the ESP32. You will learn how to read sensor data, control a water pump, communicate via MQTT, and create a dashboard for remote monitoring - all through hands-on code examples!
+
+    [:octicons-arrow-right-24: Get started](micropython/index.md)
+
+</div>
