@@ -323,7 +323,7 @@ The [`Pin`](https://docs.micropython.org/en/latest/library/machine.Pin.html) cla
 
     GPIOs typically operate at **3.3V** and can supply **2-16 mA** of current, making them suitable for driving components like LEDs. For example, if a GPIO pin is set to **HIGH**, the LED turns **on**; when set to **LOW**, the LED turns **off**. GPIOs are fundamental for interfacing with sensors, actuators, and other peripherals in embedded systems. 
 
-    We will cover the different types of Pins in the [sensors](../micropython/sensors.md#detour-pin-types) chapter.
+    We will cover the different types of Pins in the [sensors](../micropython/sensors.md#pin-types) chapter.
 
 The second line of code imports the `sleep` function from the MicroPython (or standard Python) `time` module, which is used to pause the execution of a program for a specified number of seconds.
 
@@ -409,24 +409,25 @@ Open the terminal (click **Create Terminal** at the device in your PyMakr projec
     ![Blink](../assets/micropython/blink_setup10.png)
 </figure>
 
-<figure markdown="span">
+
+<div style="text-align: center;">
     <img 
             src="/assets/micropython/real_blink.gif" alt="blink" 
             style="height: 300px; border-radius:10px;"
         >
-</figure>
+</div>
 
 ???+ tip "Troubleshooting"
     If you have issues with the LED not blinking while the terminal output is correct, make sure you have the correct GPIO pin referenced, and verify that your wiring and resistor are connected properly.
 
 
 Congratulations - you've completed your first hardware test with MicroPython!
-
-<img 
-        src="/assets/micropython/linkedinBlink.gif" alt="blink" 
-        style="height: 300px; border-radius:10px;"
-    >
-
+<div style="text-align: center;">
+    <img 
+            src="/assets/micropython/linkedinBlink.gif" alt="blink" 
+            style="height: 300px; border-radius:10px;"
+        >
+</div>
 
 ???+ question "Task: SOS blinking"
     Now it's your turn to code!

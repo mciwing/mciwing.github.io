@@ -145,7 +145,7 @@ This file is not included in the MicroPython standard library and must be downlo
 
 <div class="center-button" markdown>
 
-[upymqtt.py](../../assets/micropython/upymqtt.py){ .md-button }
+[upymqtt.py](../assets/micropython/upymqtt.py){ .md-button }
 
 </div>
 
