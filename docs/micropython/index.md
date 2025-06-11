@@ -1,13 +1,5 @@
 # Home
 
-???+ danger "Under Construction"
-
-    The `MicroPython` section is currently under construction. 
-    :fontawesome-solid-person-digging:
-
-    Please check back later for updates.
-
-
 ![header](../assets/header/mpy.png)
 
 
@@ -96,13 +88,17 @@ Here is a sneak peek of selected topics we cover in this course:
     Learn how to flash your ESP32 with MicroPython and start by blinking the onboard LED.
 
 -   <figure markdown="span">
-        <img src="/assets/micropython/led-example.png" 
-             alt="LED Control" style="border-radius: 15px;">
+        <img 
+                src="/assets/micropython/real_blink.gif" alt="blink" 
+                style="border-radius:10px;"
+            >
     </figure>
 
 -   <figure markdown="span">
-        <img src="/assets/micropython/led-example.png" 
-             alt="LED Control" style="border-radius: 15px;">
+        <img 
+                src="/assets/micropython/sensor_led.gif" alt="blink" 
+                style="border-radius:10px;"
+            >
     </figure>
 
 -   __:seedling: Sensor Integration__ 
@@ -116,12 +112,12 @@ Here is a sneak peek of selected topics we cover in this course:
     Control a water pump (via a relay) to automate the irrigation process.
 
 -   <figure markdown="span">
-        <img src="/assets/micropython/led-example.png" 
-             alt="LED Control" style="border-radius: 15px;">
+        <img src="https://cdn-shop.adafruit.com/970x728/4547-08.jpg" alt="Water pump " style="border-radius: 10px;">
     </figure>
 
+
 -   <figure markdown="span">
-        <img src="/assets/micropython/led-example.png" 
+        <img src="/assets/micropython/hive_4.png" 
              alt="LED Control" style="border-radius: 15px;">
     </figure>
 
@@ -137,7 +133,7 @@ Here is a sneak peek of selected topics we cover in this course:
     Build a user-friendly dashboard to monitor sensor readings and control the pump.
 
 -   <figure markdown="span">
-        <img src="/assets/micropython/led-example.png" 
+        <img src="/assets/micropython/dashboard1.png" 
              alt="LED Control" style="border-radius: 15px;">
     </figure>
 
