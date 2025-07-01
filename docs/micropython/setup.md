@@ -95,7 +95,7 @@ Below are the step-by-step instructions:
         <img src="/assets/micropython/thonny2.png" alt="Thonny 2" style="width: 45%;">
     </div>
 
-    After clicking on **Install** the firmware will be flashed onto the ESP32. :white_check_mark:
+    After clicking on **Install** the firmware will be flashed onto the ESP32. Sometimes the flashing process can lead to an error. Try holding the **boot** button on the ESP32 while clicking on **Install**. :white_check_mark:
 
     ???+ info "Verify the Installation"
 

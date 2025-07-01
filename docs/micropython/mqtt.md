@@ -119,8 +119,6 @@ wlan = do_connect()
 
 ### MQTT Communication 📡
 
-Nachdem wir uns nicht nur mit der großen weiten Welt verbinden wollen, sondern auch Interagieren (senden und empfangen), müssen wir uns nun ein geeignetes Protokoll aussuchen. Wie bereits beschrieben, ist MQTT im Bereich IoT sehr beliebt und wird von vielen Anbietern unterstützt. Wir sollen nun unseren EPS32 so programmieren, dass er sich mit dem Internet und mit dem MQTT-Broker verbindet und anschließend Daten sendet und empfängt.
-
 Now that we don't just want to connect our ESP32 to the outside world, but also interact with it (send and receive data), we need to choose an appropriate communication protocol. As discussed earlier, MQTT is widely used in IoT applications and supported by many providers. In this section, we will program the ESP32 to connect to Wi-Fi and the MQTT broker. After that we will send and receive messages over defined MQTT topics.
 
 #### Initial Setup
@@ -249,7 +247,7 @@ while True:
 ???+ question "Task: Receive and send messages"
     Now it's your turn to send and receive messages. Try the code above and see if you can receive and send messages. Therefore:
 
-    - Follow the steps above to connect to the broker (`boot.py` and `credentials.py`)
+    - Follow the steps above to connect to the broker (`boot.py` and `config.py`)
     - Check for new messages in the subscribed topic (`settings`) in a loop and publish a message to the `kpi` topic once before the loop starts. 
     - Got to [HiveMQ](https://console.hivemq.cloud/) and click on 'Manage Cluster'. Switch to the 'Web Client' tab and connect with your credentials. On the right side click on 'Subscribe to all messages'. Now you should see the message you published with your ESP32. (Hint: since the publish function is called once before the loop starts, it is a good idea to soft-reset you ESP32 in order to send the message again) 
     - On the left side in the 'Web Client' tab click on 'Send Message'. Enter the `kpi` topic and publish a message with a payload of your choice. You should see the message in the console of your ESP32. 

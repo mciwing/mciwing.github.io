@@ -125,7 +125,7 @@ Now we are all set up and we can start coding!
 As with our first program, we only need to edit the `main.py` file. We begin by importing the required libraries:
 
 ```python
-from machine import ADC
+from machine import ADC, Pin
 from time import sleep
 ```
 
