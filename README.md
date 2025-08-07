@@ -34,9 +34,9 @@ Eager to contribute or develop locally? Here's how to get started!
 
 ### 1️⃣ Install `uv`
 
-This site is built using the [`uv`](https://astral.sh/uv/) package manager. 
-If you haven't installed it yet, navigate to their 
-[installation guide](https://astral.sh/uv/docs/installation).
+This site is built using the `uv` package manager. If you haven't installed it
+yet, navigate to their [installation guide](https://docs.astral.sh/uv/getting-started/installation/)
+and follow the instructions.
 
 ### 2️⃣ Project setup
 
