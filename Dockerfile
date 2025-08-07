@@ -1,15 +1,15 @@
-FROM python:3.12-slim AS builder
+FROM python:3.12-alpine3.20 AS builder
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /site
 
 # install git
-RUN apt-get update && apt-get install -y git && apt-get clean
+RUN apk add --no-cache git
 
-# install dependencies
-COPY pyproject.toml poetry.lock ./
-RUN python -m pip install poetry
-RUN poetry config virtualenvs.create false
-RUN poetry install
+# Set-up the environment
+COPY pyproject.toml uv.lock /site/ 
+# Sync without updating the uv.lock file
+RUN uv sync --frozen
 
 # copy the project
 COPY . .
@@ -20,7 +20,7 @@ ENV ENABLE_GIT_COMMITTERS=false
 ENV ENABLE_GIT_REVISION_DATE=false
 
 # build the site
-RUN mkdocs build
+RUN uv run mkdocs build
 
 # use a lightweight server for production
 FROM nginx:alpine
