@@ -1,29 +1,22 @@
-[tool.poetry]
+[project]
 name = "mciwing-github-io"
-version = "0.1.0"
-description = "MCI | WING page to host lecture materials."
-authors = [
-    "JakobKlotz <jakob.klotz@mci.edu>",
-    "manuf3006 <manuel.ferdik@mci.edu>",
-    "verenitas <verena.schallhart@mci.edu>",
-    "christinastampfer <christina.stampfer@mci.edu"
-]
+version = "0.2.0"
+description = "MCI | WING programming lecture materials."
 readme = "README.md"
-packages = [{include = "mciwing"}]
-package-mode = false
+authors = [
+    {name = "Jakob Klotz", email = "jakob.klotz@mci.edu"},
+    {name = "manuf3006", email = "manuel.ferdik@mci.edu"},
+    {name = "verenitas", email = "verena.schallhart@mci.edu"},
+    {name = "christinastampfer", email = "christina.stampfer@mci.edu"},
+]
+license = {text = "CC BY-NC-SA 4.0", file = "LICENSE"}
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "mkdocs-material>=9.6.15",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.7",
+    "mkdocs-git-committers-plugin-2>=2.5.0",
+    "mkdocs-table-reader-plugin>=3.1.0",
+    "mkdocs-quiz>=0.0.41",
+    "mkdocs-include-markdown-plugin>=7.1.6"
+]
 
-[tool.poetry.dependencies]
-python = ">=3.11,<3.13"
-mkdocs-material = "^9.6.15"
-
-
-[tool.poetry.group.plugins.dependencies]
-mkdocs-git-revision-date-localized-plugin = "^1.4.7"
-mkdocs-git-committers-plugin-2 = "^2.5.0"
-mkdocs-table-reader-plugin = "^3.1.0"
-mkdocs-quiz = "^0.0.41"
-mkdocs-include-markdown-plugin = "^7.1.6"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
