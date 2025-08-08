@@ -14,7 +14,7 @@ slug: uv
 
 TLDR: [`uv`](https://docs.astral.sh/uv/) simplifies the whole development 
 experience. I use it daily to manage my Python projects and it has become an 
-essential part of my workflow. A brief overview to get you started...
+essential part of my workflow. A brief overview why `uv` is great...
 
 <!-- more -->
 
@@ -40,7 +40,7 @@ uv python list
 uv python install 3.13
 ```
 
-... I can install the latest Python version. 
+... I can install the latest Python version.
 So with just 2 commands, I have a working Python development environment on my 
 machine. There's no need to install Python manually anymore. 🚀
 
@@ -63,7 +63,8 @@ machine. There's no need to install Python manually anymore. 🚀
 
 Most of the time, programming is a team sport. Working with others on the same
 codebase can be challenging, especially when it comes to managing dependencies.
-Installing an existing project that was built with `uv`, is as simple as:
+If you set up your project with `uv`, another developer can easily install
+your project, it's as simple as:
 
 ```bash
 uv sync
@@ -72,9 +73,8 @@ uv sync
 ???+ info
 
     `uv sync` reads the `pyproject.toml` and `uv.lock` files to install the 
-    required dependencies and sets up the virtual environment. If you don't 
-    have the required Python version installed, `uv` will automatically install
-    it for you.
+    required dependencies and sets up the virtual environment. If the required
+    Python version is not installed, `uv` will automatically install it.
 
 
 ## Wrap up
