@@ -5,6 +5,11 @@ readtime: 3
 pin: true
 authors:
   - jakob
+slug: md-snakeoil
+tags:
+  - Project Showcase
+  - Python Packaging
+  - PyPI
 ---
 
 # A exercise in Python packaging: `md-snakeoil`

@@ -6,6 +6,9 @@ pin: true
 authors:
   - jakob
 slug: uv
+tags:
+  - Package Management
+  - Python Development
 ---
 
 # `uv`: My favourite Python package manager
