@@ -11,7 +11,11 @@ authors:
 
 <img src="https://github.com/JakobKlotz/md-snakeoil/blob/main/.assets/md-snakeoil.png?raw=true" alt="md-snakeoil-logo" width="280"/>
 
-TLDR: Have you ever tried to read code in a document, only to find it messy and hard to follow? I often write guides and lecture materials in Markdown, keeping all the code examples tidy can be a real challenge. That’s why I created **md-snakeoil**, a tool that automatically cleans up Python code, making everything look neat. 🌟
+TLDR: Have you ever tried to read code in a document, only to find it messy and
+hard to follow? I often write guides and lecture materials in Markdown, keeping
+all the code examples tidy can be a real challenge. That’s why I created 
+**md-snakeoil**, a tool that automatically cleans up Python code, making 
+everything look neat. 🌟
 
 <p align="center">
   <a href="https://github.com/JakobKlotz/md-snakeoil" target="_blank">
@@ -24,13 +28,23 @@ TLDR: Have you ever tried to read code in a document, only to find it messy and 
 
 <!-- more -->
 
+---
+
 ## About the project
 
 **md-snakeoil** helps you keep your code examples looking their best. If you 
 write notes, tutorials, or documentation that includes Python code, this tool 
 will make sure all your code blocks are consistently styled and easy to read—no
-more messy formatting! The tool was written purely in Python 
-:fontawesome-brands-python:. 
+more messy formatting! It was written purely in Python 
+:fontawesome-brands-python: and can be easily installed, with your favorite
+package manager.
+
+| Package Manager   | Command                       |
+|-------------------|-------------------------------|
+| `pip`             | `pip install md-snakeoil`     |
+| `pipx` (as tool)  | `pipx install md-snakeoil`    |
+| `uv` (as package) | `uv add md-snakeoil`          |
+| `uv` (as tool)    | `uv tool install md-snakeoil` |
 
 ### Before and After
 
@@ -49,7 +63,7 @@ removed. Although this might be an exaggerated example, it illustrates the kind
 of improvements md-snakeoil can make.
 
 Whole directories can be processed in one go (a single command), making it easy
-to maintain consistency across large projects.
+to maintain consistency across large projects. 
 
 ??? info
 
@@ -86,8 +100,10 @@ All that left me with a blueprint for
 
 ---
 
-Feel free to skim through the codebase and copy bits and pieces useful for 
-your own projects.
+???+ tip
+
+    Feel free to skim through the codebase and copy bits and pieces useful for 
+    your own projects.
 
 ## Try it out!
 
