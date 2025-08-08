@@ -9,7 +9,7 @@ authors:
 
 # A exercise in Python packaging: `md-snakeoil`
 
-<img src="https://github.com/JakobKlotz/md-snakeoil/blob/main/.assets/md-snakeoil.png?raw=true" alt="md-snakeoil-logo" width="280"/>
+![md-snakeoil-post-thumbnail](../../assets/blog/md-snakeoil/md-snakeoil-thumbnail.png)
 
 TLDR: Have you ever tried to read code in a document, only to find it messy and
 hard to follow? I often write guides and lecture materials in Markdown, keeping
@@ -50,8 +50,8 @@ package manager.
 
 Here’s a quick visual example of what md-snakeoil can do:
 <p align="center">
-  <img src="/assets/blog/md-snakeoil-before.png" alt="Before md-snakeoil" width="45%" style="display:inline-block; margin-right:2%;">
-  <img src="/assets/blog/md-snakeoil-after.png" alt="After md-snakeoil" width="45%" style="display:inline-block;">
+  <img src="/assets/blog/md-snakeoil/before.png" alt="Before md-snakeoil" width="45%" style="display:inline-block; margin-right:2%;">
+  <img src="/assets/blog/md-snakeoil/after.png" alt="After md-snakeoil" width="45%" style="display:inline-block;">
 </p>
 
 <p align="center">
