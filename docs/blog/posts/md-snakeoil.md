@@ -17,7 +17,7 @@ tags:
 ![md-snakeoil-post-thumbnail](../../assets/blog/md-snakeoil/md-snakeoil-thumbnail.png)
 
 TLDR: Have you ever tried to read code in a document, only to find it messy and
-hard to follow? I often write guides and lecture materials in Markdown, keeping
+hard to follow? I often write guides and lecture materials in Markdown, but keeping
 all the code examples tidy can be a real challenge. That’s why I created 
 **md-snakeoil**, a tool that automatically cleans up Python code, making 
 everything look neat. 🌟
@@ -38,10 +38,10 @@ everything look neat. 🌟
 ## About the project
 
 **md-snakeoil** helps you keep your code examples looking their best. If you 
-write notes, tutorials, or documentation that includes Python code, this tool 
+write notes, tutorials or documentation that includes Python code, this tool 
 will make sure all your code blocks are consistently styled and easy to read—no
 more messy formatting! It was written purely in Python 
-:fontawesome-brands-python: and can be easily installed, with your favorite
+:fontawesome-brands-python: and can be easily installed with your favorite
 package manager.
 
 | Package Manager   | Command                       |
@@ -86,8 +86,8 @@ to maintain consistency across large projects.
 I write a lot of technical documentation in Markdown which includes a lot of 
 code examples. Keeping a consistent style across these code blocks can be a
 challenge, especially when working with multiple files or collaborating with
-others. I wanted a tool that could take care of this for me. Since there was
-no existing tool that met my needs, I simply wrote one myself.
+others. I wanted a tool that could take care of that. Since there was no 
+existing solution that met my needs, I simply wrote one myself.
 
 ## What did I learn?
 
