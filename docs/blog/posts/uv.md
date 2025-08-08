@@ -6,11 +6,14 @@ pin: true
 authors:
   - jakob
 slug: uv
+tags:
+  - Package Management
+  - Python Development
 ---
 
 # `uv`: My favourite Python package manager
 
-![uv-post-thumbnail](../../assets/blog/uv-thumbnail.png)
+![uv-post-thumbnail](../../assets/blog/uv/uv-thumbnail.png)
 
 TLDR: [`uv`](https://docs.astral.sh/uv/) simplifies the whole development 
 experience. I use it daily to manage my Python projects and it has become an 
