@@ -1,0 +1,40 @@
+name: Check if the site can be built.
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - CONTRIBUTING.md
+      - .gitignore
+      - .dockerignore
+      - docker-compose.yaml
+      - Dockerfile
+      - dev.py
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch the whole git history (for the docs/ dir)
+          # (needed for git-revision-date-localized & 
+          # mkdocs-git-authors-plugin plugin)
+          sparse-checkout: |
+            docs
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      
+      # respects pinned Python version
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install the project
+        run: uv sync --locked
+
+      - name: Build the site
+        run: uv run mkdocs build --strict
