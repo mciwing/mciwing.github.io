@@ -36,5 +36,5 @@ jobs:
       - name: Install the project
         run: uv sync --locked
 
-      - name: Build the site and deploy
+      - name: Build the site
         run: uv run mkdocs build --strict
