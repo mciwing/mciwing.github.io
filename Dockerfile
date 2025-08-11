@@ -15,8 +15,8 @@ RUN uv sync --frozen
 COPY . .
 
 # disable mkdocs-git-revision-date-localized-plugin &
-# mkdocs-git-committers-plugin-2
-ENV ENABLE_GIT_COMMITTERS=false
+# mkdocs-git-authors-plugin
+ENV ENABLE_GIT_AUTHORS=false
 ENV ENABLE_GIT_REVISION_DATE=false
 
 # build the site

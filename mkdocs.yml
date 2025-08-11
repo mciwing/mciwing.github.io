@@ -216,7 +216,8 @@ plugins:
   - git-authors:
       show_email_address: false
       sort_authors_by: "contribution"
-      enabled_on_serve: !ENV [ENABLE_GIT_COMMITTERS, true]
+      enabled: !ENV [ENABLE_GIT_AUTHORS, true]
+      enabled_on_serve: !ENV [ENABLE_GIT_AUTHORS_SERVE, true]
       fallback_to_empty: false
       exclude:
         - blog/*
