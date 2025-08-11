@@ -12,7 +12,7 @@ authors = [
 license = {text = "CC BY-NC-SA 4.0", file = "LICENSE"}
 requires-python = ">=3.11,<3.13"
 dependencies = [
-    "mkdocs-material>=9.6.15",
+    "mkdocs-material>=9.6.16",
     "mkdocs-git-revision-date-localized-plugin>=1.4.7",
     "mkdocs-quiz>=0.0.41",
     "mkdocs-include-markdown-plugin>=7.1.6",
