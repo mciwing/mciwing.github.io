@@ -20,7 +20,7 @@ ENV ENABLE_GIT_AUTHORS=false
 ENV ENABLE_GIT_REVISION_DATE=false
 
 # build the site
-RUN uv run mkdocs build
+RUN uv run mkdocs build --strict
 
 # use a lightweight server for production
 FROM nginx:alpine
