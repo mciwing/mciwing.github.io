@@ -207,10 +207,14 @@ plugins:
   - blog
   - tags
   - git-revision-date-localized:
-      enable_creation_date: true
+      # has an impact on build time
+      enable_creation_date: false
       type: timeago
       exclude:
         - index.md
+        # has an issue with git --follow
+        # see https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options/#enable_git_follow
+        - python-extensive/data/api.md
       enabled: !ENV [ENABLE_GIT_REVISION_DATE, true]
 
   - git-authors:
