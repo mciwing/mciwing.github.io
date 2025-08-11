@@ -20,8 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch the whole git history
-          # (needed for git-revision-date-localized-plugin)
+          fetch-depth: 0  # Fetch the whole git history (for the docs/ dir)
+          # (needed for git-revision-date-localized & 
+          # mkdocs-git-authors-plugin plugin)
+          sparse-checkout: |
+            docs
+
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]

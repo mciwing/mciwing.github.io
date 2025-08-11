@@ -207,17 +207,30 @@ plugins:
   - blog
   - tags
   - git-revision-date-localized:
-      enable_creation_date: true
+      # has an impact on build time
+      enable_creation_date: false
       type: timeago
       exclude:
         - index.md
+        # has an issue with git --follow
+        # see https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options/#enable_git_follow
+        - python-extensive/data/api.md
       enabled: !ENV [ENABLE_GIT_REVISION_DATE, true]
-  - git-committers:
-      repository: mciwing/mciwing.github.io
-      branch: main
-      enabled: !ENV [ENABLE_GIT_COMMITTERS, true]
-      token: !ENV MKDOCS_GIT_COMMITTERS_APIKEY
-  - table-reader
+
+  - git-authors:
+      show_email_address: false
+      sort_authors_by: "contribution"
+      enabled: !ENV [ENABLE_GIT_AUTHORS, true]
+      enabled_on_serve: !ENV [ENABLE_GIT_AUTHORS_SERVE, true]
+      fallback_to_empty: false
+      exclude:
+        - blog/*
+        # Content added with include-markdown plugin that would display the
+        # wrong author
+        - python-extensive/DataBasics.md
+        - data-science/data-basics/*
+        - data-science/algorithms/supervised/regression.md
+
   - include-markdown
   - mkdocs_quiz
 

@@ -3,7 +3,7 @@ import subprocess
 import sys
 
 env = os.environ.copy()
-env["ENABLE_GIT_COMMITTERS"] = "false"
+env["ENABLE_GIT_AUTHORS_SERVE"] = "false"
 env["ENABLE_GIT_REVISION_DATE"] = "false"
 
 result = subprocess.run(["uv", "run", "mkdocs", "serve"], env=env)
