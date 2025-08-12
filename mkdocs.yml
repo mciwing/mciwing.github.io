@@ -7,9 +7,19 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
   palette:
-    scheme: slate
-    primary: teal
-    accent: pink
+    - scheme: slate
+      primary: teal
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - scheme: default
+      primary: teal
+      accent: pink
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   icon:
     repo: fontawesome/brands/github
 
@@ -28,9 +38,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/mciwing
 copyright:
-  MCI | Industrial Engineering & Management<br>
-  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 
-    - Manuel Ferdik, Jakob Klotz
+  © 2024 - 2025 | Manuel Ferdik & Jakob Klotz
 nav:
   - Home: index.md
 
