@@ -28,78 +28,102 @@
 
     <!-- Courses -->
     <section class="courses">
-      <h1 class="section-title">All Courses</h1>
+      <h1 class="section-title">ALL COURSES</h1>
       <div class="courses-grid">
 
         <!-- Python Crash Course -->
-        <article class="course-card">
+        <article class="course-card" data-accent="python">
           <header class="course-card__header">
-            <img class="course-card__icon" src="{{ 'assets/header/pcc.png' | url }}" alt="" aria-hidden="true">
+            <span class="course-card__icon">{% include ".icons/fontawesome/brands/python.svg" %}</span>
             <h3>Python Crash Course</h3>
           </header>
+          <div class="course-card__meta">
+            <span class="badge">Beginner</span>
+            <span class="badge">~4h</span>
+          </div>
           <p>Get started with Python basics and fundamental programming concepts.</p>
-          <a href="{{ 'python' | url }}" class="md-button md-button--primary course-card__cta">
-            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          <a href="{{ 'python' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
           </a>
         </article>
 
         <!-- Python Extensive -->
-        <article class="course-card">
+        <article class="course-card" data-accent="extensive">
           <header class="course-card__header">
-            <img class="course-card__icon" src="{{ 'assets/header/pec.png' | url }}" alt="" aria-hidden="true">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/code.svg" %}</span>
             <h3>Python Extensive Course</h3>
           </header>
-          <p>Advanced Python, pandas, and collaborative development with Git.</p>
-          <a href="{{ 'python-extensive' | url }}" class="md-button md-button--primary course-card__cta">
-            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">~12h</span>
+          </div>
+          <p>Introduction to Python with additional content, such as data acquisition and user interfaces.</p>
+          <a href="{{ 'python-extensive' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
           </a>
         </article>
 
         <!-- Statistics -->
-        <article class="course-card">
+        <article class="course-card" data-accent="statistics">
           <header class="course-card__header">
-            <img class="course-card__icon" src="{{ 'assets/header/statistics.png' | url }}" alt="" aria-hidden="true">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/chart-line.svg" %}</span>
             <h3>Statistics</h3>
           </header>
-          <p>Descriptive and inferential statistics, hypothesis testing, and regression.</p>
-          <a href="{{ 'statistics' | url }}" class="md-button md-button--primary course-card__cta">
-            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">~10h</span>
+          </div>
+          <p>Descriptive and inferential statistics, hypothesis testing and regression.</p>
+          <a href="{{ 'statistics' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
           </a>
         </article>
 
         <!-- Data Science -->
-        <article class="course-card">
+        <article class="course-card" data-accent="datascience">
           <header class="course-card__header">
-            <img class="course-card__icon" src="{{ 'assets/header/ds.png' | url }}" alt="" aria-hidden="true">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/brain.svg" %}</span>
             <h3>Data Science</h3>
           </header>
-          <p>Machine learning, data preprocessing, and end-to-end pipelines.</p>
-          <a href="{{ 'data-science' | url }}" class="md-button md-button--primary course-card__cta">
-            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">~16h</span>
+          </div>
+          <p>Data preprocessing, machine learning and end-to-end pipelines.</p>
+          <a href="{{ 'data-science' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
           </a>
         </article>
 
         <!-- Computer Vision -->
-        <article class="course-card">
+        <article class="course-card" data-accent="vision">
           <header class="course-card__header">
-            <img class="course-card__icon" src="{{ 'assets/header/cv.png' | url }}" alt="" aria-hidden="true">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/camera.svg" %}</span>
             <h3>Computer Vision</h3>
           </header>
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">~8h</span>
+          </div>
           <p>Object detection and segmentation with YOLO for custom vision apps.</p>
-          <a href="{{ 'yolo' | url }}" class="md-button md-button--primary course-card__cta">
-            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          <a href="{{ 'yolo' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
           </a>
         </article>
 
         <!-- MicroPython -->
-        <article class="course-card">
+        <article class="course-card" data-accent="micropython">
           <header class="course-card__header">
-            <img class="course-card__icon" src="{{ 'assets/header/mpy.png' | url }}" alt="" aria-hidden="true">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/microchip.svg" %}</span>
             <h3>MicroPython</h3>
           </header>
-          <p>IoT projects with ESP32, sensor data, and MQTT communication.</p>
-          <a href="{{ 'micropython' | url }}" class="md-button md-button--primary course-card__cta">
-            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">~6h</span>
+          </div>
+          <p>IoT projects with ESP32, sensor data and MQTT communication.</p>
+          <a href="{{ 'micropython' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
           </a>
         </article>
 
@@ -108,22 +132,43 @@
 
     <!-- Contact -->
     <section class="contact">
-      <h2>Contact Us</h2>
-      <p>We'd love to hear from you!</p>
-
-      <div class="contacts">
-        <div class="contact-card">
-          <img src="https://avatars.githubusercontent.com/u/124151705?v=4" alt="Manuel">
-          <div class="contact-card__name">Manuel</div>
-          <div class="contact-card__mail">
-            <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
+      <h2>Get involved</h2>
+      <div class="contact-split">
+        <div class="contact-left about-box">
+          <h3>
+            <span class="twemoji terminal">{% include ".icons/fontawesome/solid/terminal.svg" %}</span>
+            About this site
+          </h3>
+          <p>
+            All content here is free &amp; open source. Bring a PC and curiosity, we'll guide the rest.
+          </p>
+          <div class="about-media">
+            <img src="{{ 'assets/free-open-source.gif' | url }}" alt="Free and open source">
           </div>
         </div>
-        <div class="contact-card">
-          <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob">
-          <div class="contact-card__name">Jakob</div>
-          <div class="contact-card__mail">
-            <a href="mailto:jakob.klotz@mci.edu">jakob.klotz@mci.edu</a>
+
+        <div class="contact-right">
+          <h3>
+            <span class="twemoji comments">{% include ".icons/fontawesome/solid/comments.svg" %}</span>
+            Contact us
+          </h3>
+          <p>Questions, feedback or ideas? We're happy to help.</p>
+
+          <div class="contacts">
+            <div class="contact-card">
+              <img src="https://avatars.githubusercontent.com/u/124151705?v=4" alt="Manuel">
+              <div class="contact-card__name">Manuel</div>
+              <div class="contact-card__mail">
+                <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob">
+              <div class="contact-card__name">Jakob</div>
+              <div class="contact-card__mail">
+                <a href="mailto:jakob.klotz@mci.edu">jakob.klotz@mci.edu</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -242,41 +287,112 @@
   background: color-mix(in oklab, var(--md-default-bg-color) 92%, transparent);
   padding: 1.1rem;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  position: relative;
+  overflow: clip;
+  /* Accent-aware visuals */
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 7%, transparent),
+    transparent 45%
+  );
+  border: 1px solid color-mix(
+    in oklab,
+    var(--course-accent, var(--md-primary-fg-color)) 24%,
+    var(--md-default-fg-color--lighter)
+  );
+}
+.course-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--course-accent, var(--md-primary-fg-color));
+  opacity: .6;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 .course-card:hover {
   transform: translateY(-3px);
-  border-color: color-mix(in oklab, var(--md-primary-fg-color) 25%, var(--md-default-fg-color--lighter));
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+  border-color: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 60%, white);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.20),
+    0 0 0 2px color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 16%, transparent);
 }
-.course-card__header {
-  display: flex;
-  font-family: 'IBM Plex Mono', 'IBM Plex Sans', 'Fira Mono', 'Consolas', monospace;
-  align-items: center;
-  gap: .6rem;
-  margin-bottom: .4rem;
+.course-card:focus-within {
+  outline: none;
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 30%, transparent),
+    0 8px 22px rgba(0,0,0,.18);
 }
+
+/* Per-card accent mapping */
+.course-card[data-accent="python"] { --course-accent: #3572A5; }
+.course-card[data-accent="extensive"] { --course-accent: #1f7a8c; }
+.course-card[data-accent="statistics"] { --course-accent: #2a9d8f; }
+.course-card[data-accent="datascience"] { --course-accent: #6f42c1; }
+.course-card[data-accent="vision"] { --course-accent: #e76f51; }
+.course-card[data-accent="micropython"] { --course-accent: #00a7b5; }
+
+/* Icon uses accent */
 .course-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 22px;
   height: 22px;
   border-radius: 4px;
-  object-fit: cover;
   background: transparent;
+  color: var(--course-accent, var(--md-primary-fg-color));
 }
-.course-card h3 {
-  margin: 0;
-  font-size: 1.05rem;
+.course-card__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.04));
 }
-.course-card p {
-  margin: .5rem 0 1rem 0;
-  font-size: .95rem;
-  line-height: 1.45;
+
+/* Meta badges */
+.course-card__meta {
+  display: flex;
+  gap: .35rem;
+  margin: .25rem 0 .35rem 0;
+  flex-wrap: wrap;
 }
+.course-card__meta .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .1rem .45rem;
+  font-size: .72rem;
+  border-radius: 999px;
+  color: var(--course-accent, var(--md-primary-fg-color));
+  background: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 18%, transparent);
+  border: 1px solid color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 35%, transparent);
+}
+
+/* CTA: compact outline that follows accent */
 .course-card__cta {
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  width: auto;
+  padding: .2rem .5rem;
   text-align: center;
   margin: 0;
-  font-size: .92rem;
-  border-radius: 10px !important;
+  font-size: .82rem;
+  line-height: 1.1;
+  border-radius: 8px !important;
+  background: transparent;
+  border: 1px solid var(--course-accent, var(--md-primary-fg-color));
+  color: var(--course-accent, var(--md-primary-fg-color));
+  box-shadow: none;
+}
+.course-card__cta:hover {
+  background: var(--course-accent, var(--md-primary-fg-color));
+  color: var(--md-primary-bg-color);
+  border-color: var(--course-accent, var(--md-primary-fg-color));
+}
+.course-card__cta .twemoji.play svg {
+  width: .9rem;
+  height: .9rem;
 }
 
 /* Contact */
@@ -286,6 +402,46 @@
   border-radius: 10px;
   margin-top: 2rem;
   border: 1px solid var(--md-default-fg-color--lighter);
+}
+.contact-split {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-top: .75rem;
+}
+.about-box {
+  /* removed background and border */
+  background: transparent;
+  border: 0;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.about-media {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: center;
+}
+.about-media img {
+  max-width: 280px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: transparent;
+  padding: .25rem;
+}
+
+/* Right column tweaks */
+.contact-right {
+  border-left: 1px solid var(--md-default-fg-color--lighter);
+  padding-left: 1rem;
+}
+.contact-right .contacts {
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  align-items: center;
 }
 .contacts {
   display: flex;
@@ -304,13 +460,33 @@
   background: color-mix(in oklab, var(--md-primary-fg-color) 10%, transparent);
 }
 .contact-card img {
-  width: 56px; height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   margin-bottom: .4rem;
   box-shadow: 0 2px 10px rgba(0,0,0,.12);
 }
 .contact-card__name { font-weight: 700; }
-.contact-card__mail a { font-size: .92rem; }
+.contact-card__mail a { font-size: .57rem; }
+
+/* Responsive layout for contact split */
+@media (max-width: 900px) {
+  .contact-split { grid-template-columns: 1fr; }
+  .about-media img { max-width: 360px; }
+  .contact-right {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .contact-right .contacts {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .course-card, .course-card__cta { transition: none; }
+}
 </style>
 
 {% endblock %}
