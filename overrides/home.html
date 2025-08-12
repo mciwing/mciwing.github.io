@@ -157,6 +157,14 @@
               <div class="contact-card__mail">
                 <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
               </div>
+              <div class="contact-card__links">
+                <a class="contact-card__social github"
+                   href="https://github.com/manuf3006" target="_blank" rel="noopener"
+                   aria-label="Manuel on GitHub">
+                  <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
             <div class="contact-card">
               <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob">
@@ -164,12 +172,19 @@
               <div class="contact-card__mail">
                 <a href="mailto:jakob.klotz@mci.edu">jakob.klotz@mci.edu</a>
               </div>
+              <div class="contact-card__links">
+                <a class="contact-card__social github"
+                   href="https://github.com/JakobKlotz" target="_blank" rel="noopener"
+                   aria-label="Jakob on GitHub">
+                  <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </div>
 </div>
 
@@ -581,6 +596,24 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 }
 .contact-card__name { font-weight: 700; }
 .contact-card__mail a { font-size: .57rem; }
+
+/* Contact card: social links row */
+.contact-card__links { margin-top: .25rem; }
+.contact-card__social {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .7rem;
+  color: inherit;
+  text-decoration: none;
+}
+.contact-card__social .twemoji.github svg {
+  width: .95rem;
+  height: .95rem;
+}
+.contact-card__social.github:hover {
+  color: var(--md-primary-fg-color);
+}
 
 /* Responsive layout for contact split */
 @media (max-width: 900px) {
