@@ -7,28 +7,22 @@
 
     <!-- Hero -->
     <div class="hero-section">
+      <h1 class="hero-title">
+        MCI <span class="brand">|</span> Industrial Engineering &amp; Management
+      </h1>
       <div class="hero-text">
-        <h1>
-          <span class="brand">MCI</span> | Industrial Engineering &amp; Management
-        </h1>
         <h2>
-          Welcome to the world of Python <span class="twemoji python">{% include ".icons/fontawesome/brands/python.svg" %}</span>
+          Hands-on Python Courses
+          <span class="twemoji python">{% include ".icons/fontawesome/brands/python.svg" %}</span>
+          for everyone!
         </h2>
-        <p>
-          Hands-on resources designed to guide you step-by-step through programming, data analysis, and beyond.
-        </p>
-        <p class="accent">
-          Dive in and discover new skills at your own pace!
-        </p>
-      </div>
-      <div class="hero-media">
-        <img src="{{ 'assets/free-open-source.gif' | url }}" alt="Open-source header">
       </div>
     </div>
+    <hr>
 
     <!-- Courses -->
     <section class="courses">
-      <h1 class="section-title">ALL COURSES</h1>
+      <h1 class="section-title">OUR COURSES</h1>
       <div class="courses-grid">
 
         <!-- Python Crash Course -->
@@ -132,7 +126,7 @@
 
     <!-- Contact -->
     <section class="contact">
-      <h2>Get involved</h2>
+      <h2 class="section-title">GET INVOLVED</h2>
       <div class="contact-split">
         <div class="contact-left about-box">
           <h3>
@@ -140,7 +134,8 @@
             About this site
           </h3>
           <p>
-            All content here is free &amp; open source. Bring a PC and curiosity, we'll guide the rest.
+              All content here is <span style="color: var(--md-primary-fg-color);"><b>free</b></span>, just bring a PC and curiosity.
+            <span class="twemoji lightbulb">{% include ".icons/fontawesome/regular/lightbulb.svg" %}</span>
           </p>
           <div class="about-media">
             <img src="{{ 'assets/free-open-source.gif' | url }}" alt="Free and open source">
@@ -180,67 +175,66 @@
 <style>
 /* Layout */
 .page-max-width {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   padding-inline: 1rem;
   box-sizing: border-box;
 }
 
+/* Typography: unify across the page */
+:root {
+  --font-sans: Inter, "IBM Plex Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.md-typeset,
+.md-typeset p,
+.md-typeset li { font-family: var(--font-sans); }
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+code, pre, kbd, samp { font-family: var(--font-mono); }
+
 /* Hero */
 .hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  display: block;        /* was grid */
   padding: 2.25rem 1rem;
-  border-radius: 12px;
-  background: linear-gradient(180deg, var(--md-default-bg-color), color-mix(in oklab, var(--md-primary-fg-color) 8%, transparent));
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+}
+.hero-title {
+  margin: 0 0 .25rem 0;
+  text-align: center;
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 .hero-text {
-  flex: 1 1 360px;
-  min-width: 280px;
-  max-width: 560px;
-  text-align: left;
-}
-.hero-text h1 {
-  font-size: 2.1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin: 0 0 .25rem 0;
+  max-width: 820px;
+  margin: .25rem auto 0 auto;
+  text-align: center;
 }
 .hero-text h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: .25rem 0 .75rem 0;
-  color: var(--md-default-fg-color);
-}
-.hero-text p { margin: .25rem 0; line-height: 1.6; }
-.hero-text .accent {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--md-primary-fg-color);
+  /* inherit primary color from container */
+  color: inherit;
 }
 
-.brand { color: #2b7a78; }
-
-.hero-media {
-  flex: 0 0 240px;
-  min-width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-media img {
-  max-width: 240px;
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  background: transparent;
-  padding: 0.5rem;
+/* Section title: use unified sans, adjust weight/tracking */
+.section-title {
+  font-family: var(--font-sans);
+  font-size: .95rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  opacity: .9;
 }
 
 /* Courses */
@@ -265,12 +259,9 @@
 }
 @media (max-width: 900px) {
   .hero-section {
-    flex-direction: column-reverse;
-    align-items: flex-start;
     padding: 1.5rem .75rem;
-    gap: 1.5rem;
   }
-  .hero-media { align-self: center; }
+  .hero-media img { max-width: 320px; }
   .courses-grid { grid-template-columns: repeat(6, 1fr); }
 }
 @media (max-width: 700px) {
@@ -405,7 +396,7 @@
 }
 .contact-split {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   align-items: start;
   margin-top: .75rem;
