@@ -1,0 +1,317 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+{{ super() }}
+<div class="page-max-width">
+  <div class="md-content__inner md-typeset">
+
+    <!-- Hero -->
+    <div class="hero-section">
+      <div class="hero-text">
+        <h1>
+          <span class="brand">MCI</span> | Industrial Engineering &amp; Management
+        </h1>
+        <h2>
+          Welcome to the world of Python <span class="twemoji python">{% include ".icons/fontawesome/brands/python.svg" %}</span>
+        </h2>
+        <p>
+          Hands-on resources designed to guide you step-by-step through programming, data analysis, and beyond.
+        </p>
+        <p class="accent">
+          Dive in and discover new skills at your own pace!
+        </p>
+      </div>
+      <div class="hero-media">
+        <img src="{{ 'assets/free-open-source.gif' | url }}" alt="Open-source header">
+      </div>
+    </div>
+
+    <!-- Courses -->
+    <section class="courses">
+      <h1 class="section-title">All Courses</h1>
+      <div class="courses-grid">
+
+        <!-- Python Crash Course -->
+        <article class="course-card">
+          <header class="course-card__header">
+            <img class="course-card__icon" src="{{ 'assets/header/pcc.png' | url }}" alt="" aria-hidden="true">
+            <h3>Python Crash Course</h3>
+          </header>
+          <p>Get started with Python basics and fundamental programming concepts.</p>
+          <a href="{{ 'python' | url }}" class="md-button md-button--primary course-card__cta">
+            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          </a>
+        </article>
+
+        <!-- Python Extensive -->
+        <article class="course-card">
+          <header class="course-card__header">
+            <img class="course-card__icon" src="{{ 'assets/header/pec.png' | url }}" alt="" aria-hidden="true">
+            <h3>Python Extensive Course</h3>
+          </header>
+          <p>Advanced Python, pandas, and collaborative development with Git.</p>
+          <a href="{{ 'python-extensive' | url }}" class="md-button md-button--primary course-card__cta">
+            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          </a>
+        </article>
+
+        <!-- Statistics -->
+        <article class="course-card">
+          <header class="course-card__header">
+            <img class="course-card__icon" src="{{ 'assets/header/statistics.png' | url }}" alt="" aria-hidden="true">
+            <h3>Statistics</h3>
+          </header>
+          <p>Descriptive and inferential statistics, hypothesis testing, and regression.</p>
+          <a href="{{ 'statistics' | url }}" class="md-button md-button--primary course-card__cta">
+            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          </a>
+        </article>
+
+        <!-- Data Science -->
+        <article class="course-card">
+          <header class="course-card__header">
+            <img class="course-card__icon" src="{{ 'assets/header/ds.png' | url }}" alt="" aria-hidden="true">
+            <h3>Data Science</h3>
+          </header>
+          <p>Machine learning, data preprocessing, and end-to-end pipelines.</p>
+          <a href="{{ 'data-science' | url }}" class="md-button md-button--primary course-card__cta">
+            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          </a>
+        </article>
+
+        <!-- Computer Vision -->
+        <article class="course-card">
+          <header class="course-card__header">
+            <img class="course-card__icon" src="{{ 'assets/header/cv.png' | url }}" alt="" aria-hidden="true">
+            <h3>Computer Vision</h3>
+          </header>
+          <p>Object detection and segmentation with YOLO for custom vision apps.</p>
+          <a href="{{ 'yolo' | url }}" class="md-button md-button--primary course-card__cta">
+            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          </a>
+        </article>
+
+        <!-- MicroPython -->
+        <article class="course-card">
+          <header class="course-card__header">
+            <img class="course-card__icon" src="{{ 'assets/header/mpy.png' | url }}" alt="" aria-hidden="true">
+            <h3>MicroPython</h3>
+          </header>
+          <p>IoT projects with ESP32, sensor data, and MQTT communication.</p>
+          <a href="{{ 'micropython' | url }}" class="md-button md-button--primary course-card__cta">
+            <img src="{{ 'assets/play.svg' | url }}" alt="Start">
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you!</p>
+
+      <div class="contacts">
+        <div class="contact-card">
+          <img src="https://avatars.githubusercontent.com/u/124151705?v=4" alt="Manuel">
+          <div class="contact-card__name">Manuel</div>
+          <div class="contact-card__mail">
+            <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob">
+          <div class="contact-card__name">Jakob</div>
+          <div class="contact-card__mail">
+            <a href="mailto:jakob.klotz@mci.edu">jakob.klotz@mci.edu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<style>
+/* Layout */
+.page-max-width {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.25rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--md-default-bg-color), color-mix(in oklab, var(--md-primary-fg-color) 8%, transparent));
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1 1 360px;
+  min-width: 280px;
+  max-width: 560px;
+  text-align: left;
+}
+.hero-text h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 .25rem 0;
+}
+.hero-text h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: .25rem 0 .75rem 0;
+  color: var(--md-default-fg-color);
+}
+.hero-text p { margin: .25rem 0; line-height: 1.6; }
+.hero-text .accent {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+}
+
+.brand { color: #2b7a78; }
+
+.hero-media {
+  flex: 0 0 240px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-media img {
+  max-width: 240px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  background: transparent;
+  padding: 0.5rem;
+}
+
+/* Courses */
+.section-title {
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+  font-family: 'IBM Plex Mono', 'IBM Plex Sans', 'Fira Mono', 'Consolas', monospace;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-shadow: 0 0 8px var(--md-primary-fg-color), 0 0 2px #fff;
+}
+.courses { padding: .5rem 0 0.75rem 0; }
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1200px) {
+  .courses-grid { grid-template-columns: repeat(8, 1fr); }
+}
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 1.5rem .75rem;
+    gap: 1.5rem;
+  }
+  .hero-media { align-self: center; }
+  .courses-grid { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 700px) {
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .courses-grid { grid-template-columns: 1fr; }
+}
+
+.course-card {
+  grid-column: span 4;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--md-default-bg-color) 92%, transparent);
+  padding: 1.1rem;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.course-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in oklab, var(--md-primary-fg-color) 25%, var(--md-default-fg-color--lighter));
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.20);
+}
+.course-card__header {
+  display: flex;
+  font-family: 'IBM Plex Mono', 'IBM Plex Sans', 'Fira Mono', 'Consolas', monospace;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: .4rem;
+}
+.course-card__icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: transparent;
+}
+.course-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+.course-card p {
+  margin: .5rem 0 1rem 0;
+  font-size: .95rem;
+  line-height: 1.45;
+}
+.course-card__cta {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-size: .92rem;
+  border-radius: 10px !important;
+}
+
+/* Contact */
+.contact {
+  background: color-mix(in oklab, var(--md-default-bg-color) 90%, transparent);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+}
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: .75rem;
+}
+.contact-card {
+  text-align: center;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  transition: background .18s ease;
+}
+.contact-card:hover {
+  background: color-mix(in oklab, var(--md-primary-fg-color) 10%, transparent);
+}
+.contact-card img {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  margin-bottom: .4rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.contact-card__name { font-weight: 700; }
+.contact-card__mail a { font-size: .92rem; }
+</style>
+
+{% endblock %}
+{% block content %}{% endblock %}
