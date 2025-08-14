@@ -406,7 +406,7 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
     var(--md-default-fg-color--lighter)
   );
   will-change: transform, box-shadow, border-color;
-  transform: translateZ(0); /* promote for smoother anim */
+  transform: none;
 }
 .course-card::before {
   content: "";
@@ -417,24 +417,41 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
   opacity: .6;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform .35s ease-out, opacity .25s ease-out;
+}
+.course-card:hover::before,
+.course-card:focus-within::before {
+  transform: scaleX(1);
+  opacity: .85;
 }
 .course-card::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background:
-    linear-gradient(120deg,
-      transparent 30%,
-      color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 45%, white) 50%,
-      transparent 70%);
-  transform: translateX(-120%);
-  opacity: 0;
-  transition: transform .7s ease, opacity .25s ease;
-  pointer-events: none;
-  mix-blend-mode: screen;
+  content: none !important;
 }
+.course-card:hover::after {
+  content: none !important;
+}
+
+/* Subtle icon nudge on hover/focus */
+.course-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--course-accent, var(--md-primary-fg-color));
+  transition: transform .2s ease;
+}
+.course-card:hover .course-card__icon,
+.course-card:focus-within .course-card__icon {
+  transform: translateY(-2px);
+}
+
 .course-card:hover {
-  transform: translateY(-5px) scale(1.015);
+  transform: translateY(-4px) scale(1.005);
   border-color: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 60%, white);
   box-shadow:
     0 14px 28px rgba(0,0,0,0.22),
@@ -642,6 +659,8 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
   .course-card, .course-card__cta { transition: none; }
   .hero-section::before { animation: none; }
   .course-card::after { transition: none; }
+  .course-card::before { transition: none; transform: none; }
+  .course-card__icon { transition: none; transform: none; }
 }
 </style>
 
