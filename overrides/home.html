@@ -39,6 +39,7 @@
           <p>Get started with Python basics and fundamental programming concepts.</p>
           <a href="{{ 'python/' | url }}" class="md-button course-card__cta">
             <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
           </a>
         </article>
 
@@ -55,6 +56,7 @@
           <p>Introduction to Python with additional content, such as app development.</p>
           <a href="{{ 'python-extensive/' | url }}" class="md-button course-card__cta">
             <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
           </a>
         </article>
 
@@ -71,6 +73,7 @@
           <p>Descriptive and inferential statistics, hypothesis testing, plus regression.</p>
           <a href="{{ 'statistics/' | url }}" class="md-button course-card__cta">
             <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
           </a>
         </article>
 
@@ -87,6 +90,7 @@
           <p>Data preprocessing, machine learning and end-to-end pipelines.</p>
           <a href="{{ 'data-science/' | url }}" class="md-button course-card__cta">
             <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
           </a>
         </article>
 
@@ -103,6 +107,7 @@
           <p>Object detection and segmentation with YOLO for custom vision apps.</p>
           <a href="{{ 'yolo/' | url }}" class="md-button course-card__cta">
             <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
           </a>
         </article>
 
@@ -119,6 +124,7 @@
           <p>IoT projects with ESP32, sensor data and MQTT communication.</p>
           <a href="{{ 'micropython/' | url }}" class="md-button course-card__cta">
             <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
           </a>
         </article>
       </div>
@@ -490,7 +496,7 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 
 /* CTA: compact outline that follows accent */
 .course-card__cta {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   gap: .25rem;
   width: auto;
@@ -509,6 +515,9 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
   background: var(--course-accent, var(--md-primary-fg-color));
   color: var(--md-primary-bg-color);
   border-color: var(--course-accent, var(--md-primary-fg-color));
+}
+.course-card__cta .twemoji.play {
+  display: block;
 }
 .course-card__cta .twemoji.play svg {
   width: .9rem;
