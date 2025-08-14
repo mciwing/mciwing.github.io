@@ -1,7 +1,7 @@
 [project]
 name = "mciwing-github-io"
-version = "0.2.0"
-description = "MCI | WING programming lecture materials."
+version = "0.2.1"
+description = "Hands-on Python Courses for everyone!"
 readme = "README.md"
 authors = [
     {name = "Jakob Klotz", email = "jakob.klotz@mci.edu"},

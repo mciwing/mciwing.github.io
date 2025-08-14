@@ -1,0 +1,668 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+{{ super() }}
+<div class="page-max-width">
+  <div class="md-content__inner md-typeset">
+
+    <!-- Hero -->
+    <div class="hero-section">
+      <h1 class="hero-title">
+        MCI <span class="brand">|</span> Industrial Engineering &amp; Management
+      </h1>
+      <div class="hero-text">
+        <h2 style="text-align: center;">
+          <span class="twemoji terminal">{% include ".icons/fontawesome/solid/terminal.svg" %}</span>
+          Hands-on Python Courses
+          <span class="twemoji python">{% include ".icons/fontawesome/brands/python.svg" %}</span>
+          for everyone!
+        </h2>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Courses -->
+    <section class="courses">
+      <h1 class="section-title">OUR COURSES</h1>
+      <div class="courses-grid">
+
+        <!-- Python Crash Course -->
+        <article class="course-card" data-accent="python">
+          <header class="course-card__header">
+            <span class="course-card__icon">{% include ".icons/fontawesome/brands/python.svg" %}</span>
+            <h3>Python Crash Course</h3>
+          </header>
+          <div class="course-card__meta">
+            <span class="badge">Beginner</span>
+            <span class="badge">No previous knowledge</span>
+          </div>
+          <p>Get started with Python basics and fundamental programming concepts.</p>
+          <a href="{{ 'python/' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
+          </a>
+        </article>
+
+        <!-- Python Extensive -->
+        <article class="course-card" data-accent="extensive">
+          <header class="course-card__header">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/code.svg" %}</span>
+            <h3>Python Extensive Course</h3>
+          </header>
+          <div class="course-card__meta">
+            <span class="badge">Beginner</span>
+            <span class="badge">No previous knowledge</span>
+          </div>
+          <p>Introduction to Python with additional content, such as app development.</p>
+          <a href="{{ 'python-extensive/' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
+          </a>
+        </article>
+
+        <!-- Statistics -->
+        <article class="course-card" data-accent="statistics">
+          <header class="course-card__header">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/chart-line.svg" %}</span>
+            <h3>Statistics</h3>
+          </header>
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">Requires Python knowledge</span>
+          </div>
+          <p>Descriptive and inferential statistics, hypothesis testing, plus regression.</p>
+          <a href="{{ 'statistics/' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
+          </a>
+        </article>
+
+        <!-- Data Science -->
+        <article class="course-card" data-accent="datascience">
+          <header class="course-card__header">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/brain.svg" %}</span>
+            <h3>Data Science</h3>
+          </header>
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">Requires Python knowledge</span>
+          </div>
+          <p>Data preprocessing, machine learning and end-to-end pipelines.</p>
+          <a href="{{ 'data-science/' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
+          </a>
+        </article>
+
+        <!-- Computer Vision -->
+        <article class="course-card" data-accent="vision">
+          <header class="course-card__header">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/camera.svg" %}</span>
+            <h3>Computer Vision</h3>
+          </header>
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">Requires Python knowledge</span>
+          </div>
+          <p>Object detection and segmentation with YOLO for custom vision apps.</p>
+          <a href="{{ 'yolo/' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
+          </a>
+        </article>
+
+        <!-- MicroPython -->
+        <article class="course-card" data-accent="micropython">
+          <header class="course-card__header">
+            <span class="course-card__icon">{% include ".icons/fontawesome/solid/microchip.svg" %}</span>
+            <h3>MicroPython</h3>
+          </header>
+          <div class="course-card__meta">
+            <span class="badge">Intermediate</span>
+            <span class="badge">Requires Python knowledge</span>
+          </div>
+          <p>IoT projects with ESP32, sensor data and MQTT communication.</p>
+          <a href="{{ 'micropython/' | url }}" class="md-button course-card__cta">
+            <span class="twemoji play">{% include ".icons/fontawesome/solid/play.svg" %}</span>
+            <span>Start</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2 class="section-title">GET INVOLVED</h2>
+      <div class="contact-split">
+        <div class="contact-left about-box">
+          <h3>
+            <span class="twemoji terminal">{% include ".icons/fontawesome/solid/terminal.svg" %}</span>
+            About
+          </h3>
+          <p>
+              All content here is <span style="color: var(--md-primary-fg-color);"><b>free</b></span>, just bring a PC and curiosity.
+            <span class="twemoji lightbulb">{% include ".icons/fontawesome/regular/lightbulb.svg" %}</span>
+          </p>
+          <div class="about-media">
+            <img src="{{ 'assets/free-open-source.gif' | url }}" alt="Free and open source">
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <h3>
+            <span class="twemoji comments">{% include ".icons/fontawesome/solid/comments.svg" %}</span>
+            Contact Us
+          </h3>
+          <p>Questions, feedback or ideas? We're happy to help.</p>
+
+          <div class="contacts">
+            <div class="contact-card">
+              <img src="https://avatars.githubusercontent.com/u/124151705?v=4" alt="Manuel">
+              <div class="contact-card__name">Manuel Ferdik</div>
+              <div class="contact-card__mail">
+                <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
+              </div>
+              <div class="contact-card__links">
+                <a class="contact-card__social github"
+                   href="https://github.com/manuf3006" target="_blank" rel="noopener"
+                   aria-label="Manuel on GitHub">
+                  <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob">
+              <div class="contact-card__name">Jakob Klotz</div>
+              <div class="contact-card__mail">
+                <a href="mailto:jakob.klotz@mci.edu">jakob.klotz@mci.edu</a>
+              </div>
+              <div class="contact-card__links">
+                <a class="contact-card__social github"
+                   href="https://github.com/JakobKlotz" target="_blank" rel="noopener"
+                   aria-label="Jakob on GitHub">
+                  <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+/* Layout */
+.page-max-width {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding-inline: 1rem;
+  box-sizing: border-box;
+}
+
+/* Typography: unify across the page */
+:root {
+  --font-sans: Inter, "IBM Plex Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.md-typeset,
+.md-typeset p,
+.md-typeset li { font-family: var(--font-sans); }
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+code, pre, kbd, samp { font-family: var(--font-mono); }
+
+/* Hero: upgraded visuals */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.75rem, 1rem + 3vw, 3.25rem) 1rem;
+  border-radius: 16px;
+  background:
+    radial-gradient(75% 120% at 0% 0%,
+      color-mix(in oklab, var(--md-primary-fg-color) 12%, transparent),
+      transparent 60%),
+    radial-gradient(65% 100% at 100% 10%,
+      color-mix(in oklab, var(--md-accent-fg-color, var(--md-primary-fg-color)) 12%, transparent),
+      transparent 60%),
+    linear-gradient(180deg,
+      color-mix(in oklab, var(--md-default-fg-color) 3%, transparent),
+      transparent 55%);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.12),
+    inset 0 0 0 1px color-mix(in oklab, var(--md-primary-fg-color) 6%, transparent);
+  isolation: isolate;
+}
+
+/* Hero background layers */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  left: -25vmax;
+  top: -35vmax;
+  background:
+    radial-gradient(closest-side,
+      color-mix(in oklab, var(--md-primary-fg-color) 35%, transparent) 0%,
+      transparent 70%);
+  filter: blur(60px);
+  opacity: .35;
+  transform: translate3d(0,0,0);
+  animation: heroFloat 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right,
+      color-mix(in oklab, var(--md-default-fg-color) 10%, transparent) 1px,
+      transparent 1px) 0 0/24px 24px,
+    linear-gradient(to bottom,
+      color-mix(in oklab, var(--md-default-fg-color) 8%, transparent) 1px,
+      transparent 1px) 0 0/24px 24px;
+  mask: linear-gradient(to bottom, rgba(0,0,0,.25), 70%, transparent);
+  opacity: .22;
+  pointer-events: none;
+}
+@keyframes heroFloat {
+  from { transform: translate3d(0%, 0%, 0) rotate(0deg); }
+  to   { transform: translate3d(12%, 6%, 0) rotate(12deg); }
+}
+
+/* Hero title: improved typography + gradient text (with fallback) */
+.hero-title {
+  /* fallback color if gradient-clip is unsupported */
+  color: var(--md-primary-fg-color);
+  margin: 0 0 .35rem 0;
+  text-align: center;
+  font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.8rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+@supports (-webkit-background-clip: text) {
+  .hero-title {
+    background: linear-gradient(90deg,
+      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 0%,
+      color-mix(in oklab, var(--md-primary-fg-color) 60%, #87e0ff) 50%,
+      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+@supports (background-clip: text) {
+  .hero-title {
+    background: linear-gradient(90deg,
+      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 0%,
+      color-mix(in oklab, var(--md-primary-fg-color) 60%, #87e0ff) 50%,
+      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 100%);
+    background-clip: text;
+    color: transparent;
+  }
+}
+.hero-title .brand {
+  display: inline-block;
+  margin-inline: .35rem;
+  color: color-mix(in oklab, var(--md-primary-fg-color) 75%, var(--md-default-fg-color));
+  text-shadow: 0 1px 0 rgba(0,0,0,.04);
+  opacity: .9;
+}
+
+/* Subtitle tweaks */
+.hero-text h2 {
+  /* inherit primary color from container */
+  color: inherit;
+  font-weight: 700;
+  font-size: clamp(1rem, .95rem + .6vw, 1.25rem);
+  opacity: .92;
+}
+.hero-text .twemoji.python svg {
+  height: 1.2em;
+  width: 1.2em;
+  transform: translateY(.12em);
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.05));
+}
+
+/* Section title: use unified sans, adjust weight/tracking */
+.section-title {
+  font-family: var(--font-sans);
+  font-size: .95rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: none;
+  opacity: .9;
+}
+
+/* Courses */
+.section-title {
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+  font-family: 'IBM Plex Mono', 'IBM Plex Sans', 'Fira Mono', 'Consolas', monospace;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-shadow: 0 0 8px var(--md-primary-fg-color), 0 0 2px #fff;
+}
+.courses { padding: .5rem 0 0.75rem 0; }
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1200px) {
+  .courses-grid { grid-template-columns: repeat(8, 1fr); }
+}
+@media (max-width: 900px) {
+  .hero-section {
+    padding: 1.5rem .75rem;
+  }
+  .hero-media img { max-width: 320px; }
+  .courses-grid { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 700px) {
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .courses-grid { grid-template-columns: 1fr; }
+}
+
+.course-card {
+  grid-column: span 4;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--md-default-bg-color) 92%, transparent);
+  padding: 1.1rem;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  position: relative;
+  overflow: clip;
+  /* Accent-aware visuals */
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 7%, transparent),
+    transparent 45%
+  );
+  border: 1px solid color-mix(
+    in oklab,
+    var(--course-accent, var(--md-primary-fg-color)) 24%,
+    var(--md-default-fg-color--lighter)
+  );
+  will-change: transform, box-shadow, border-color;
+  transform: none;
+}
+.course-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--course-accent, var(--md-primary-fg-color));
+  opacity: .6;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform .35s ease-out, opacity .25s ease-out;
+}
+.course-card:hover::before,
+.course-card:focus-within::before {
+  transform: scaleX(1);
+  opacity: .85;
+}
+.course-card::after {
+  content: none !important;
+}
+.course-card:hover::after {
+  content: none !important;
+}
+
+/* Subtle icon nudge on hover/focus */
+.course-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--course-accent, var(--md-primary-fg-color));
+  transition: transform .2s ease;
+}
+.course-card:hover .course-card__icon,
+.course-card:focus-within .course-card__icon {
+  transform: translateY(-2px);
+}
+
+.course-card:hover {
+  transform: translateY(-4px) scale(1.005);
+  border-color: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 60%, white);
+  box-shadow:
+    0 14px 28px rgba(0,0,0,0.22),
+    0 0 0 2px color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 22%, transparent);
+}
+.course-card:hover::after {
+  transform: translateX(120%);
+  opacity: .25;
+}
+.course-card:focus-within {
+  outline: none;
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 30%, transparent),
+    0 8px 22px rgba(0,0,0,.18);
+}
+
+/* Per-card accent mapping */
+.course-card[data-accent="python"] { --course-accent: #009485; }
+.course-card[data-accent="extensive"] { --course-accent: #1F8689; }
+.course-card[data-accent="statistics"] { --course-accent: #3E778D; }
+.course-card[data-accent="datascience"] { --course-accent: #5E6990; }
+.course-card[data-accent="vision"] { --course-accent: #7D5A94; }
+.course-card[data-accent="micropython"] { --course-accent: #9C4C98; }
+
+/* Icon uses accent */
+.course-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--course-accent, var(--md-primary-fg-color));
+}
+.course-card__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.04));
+}
+
+/* Meta badges */
+.course-card__meta {
+  display: flex;
+  gap: .35rem;
+  margin: .25rem 0 .35rem 0;
+  flex-wrap: wrap;
+}
+.course-card__meta .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .1rem .45rem;
+  font-size: .72rem;
+  border-radius: 999px;
+  color: var(--course-accent, var(--md-primary-fg-color));
+  background: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 18%, transparent);
+  border: 1px solid color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 35%, transparent);
+}
+
+/* CTA: compact outline that follows accent */
+.course-card__cta {
+  display: inline-flex !important;
+  align-items: center;
+  gap: .25rem;
+  width: auto;
+  padding: .2rem .5rem;
+  text-align: center;
+  margin: 0;
+  font-size: .82rem;
+  line-height: 1.1;
+  border-radius: 8px !important;
+  background: transparent;
+  border: 1px solid var(--course-accent, var(--md-primary-fg-color));
+  color: var(--course-accent, var(--md-primary-fg-color));
+  box-shadow: none;
+}
+.course-card__cta:hover {
+  background: var(--course-accent, var(--md-primary-fg-color));
+  color: var(--md-primary-bg-color);
+  border-color: var(--course-accent, var(--md-primary-fg-color));
+}
+.course-card__cta .twemoji.play {
+  display: block;
+}
+.course-card__cta .twemoji.play svg {
+  width: .9rem;
+  height: .9rem;
+}
+
+/* Contact */
+.contact {
+  background: color-mix(in oklab, var(--md-default-bg-color) 90%, transparent);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+}
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-top: .75rem;
+}
+.about-box {
+  /* removed background and border */
+  background: transparent;
+  border: 0;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.about-media {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: center;
+}
+.about-media img {
+  max-width: 280px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 12px rgba(0,0,0,0.08),
+    0 0 22px color-mix(in oklab, var(--md-primary-fg-color) 22%, transparent);
+}
+
+/* Right column tweaks */
+.contact-right {
+  border-left: 1px solid var(--md-default-fg-color--lighter);
+  padding-left: 1rem;
+}
+.contact-right .contacts {
+  /* was: justify-content: flex-start; flex-wrap: nowrap; */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+}
+.contact-right .contacts {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+}
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: .75rem;
+}
+.contact-card {
+  text-align: center;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  transition: background .18s ease;
+}
+.contact-card:hover {
+  background: color-mix(in oklab, var(--md-primary-fg-color) 10%, transparent);
+}
+.contact-card img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-bottom: .4rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+.contact-card__name { font-weight: 700; }
+.contact-card__mail a { font-size: .57rem; }
+
+/* Contact card: social links row */
+.contact-card__links { margin-top: .25rem; }
+.contact-card__social {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .7rem;
+  color: inherit;
+  text-decoration: none;
+}
+.contact-card__social .twemoji.github svg {
+  width: .95rem;
+  height: .95rem;
+}
+.contact-card__social.github:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* Responsive layout for contact split */
+@media (max-width: 900px) {
+  .contact-split { grid-template-columns: 1fr; }
+  .about-media img { max-width: 360px; }
+  .contact-right {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .contact-right .contacts {
+    flex-wrap: wrap;
+    justify-content: center; /* was flex-start */
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .course-card, .course-card__cta { transition: none; }
+  .hero-section::before { animation: none; }
+  .course-card::after { transition: none; }
+  .course-card::before { transition: none; transform: none; }
+  .course-card__icon { transition: none; transform: none; }
+}
+</style>
+
+{% endblock %}
+{% block content %}{% endblock %}
