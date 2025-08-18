@@ -10,11 +10,12 @@ tags:
   - Master Thesis
   - Landslides
   - GUI
+  - Machine Learning
 ---
 
 # Master Thesis - Landslide Pipeline
 
-TLDR: Landslide Pipeline is a tool that lets you select a place and time and
+TL;DR: Landslide Pipeline is a tool that lets you select a place and time and
 run a trained Machine Learning model to identify landslides using satellite
 images. It is designed to also be accessible for non-developers.
 :satellite: :world_map:
@@ -39,7 +40,7 @@ images. It is designed to also be accessible for non-developers.
 
 In short, the repo contains all the necessary code to select a time and place
 using a GUI to then be able to detect landslides with the selected parameters.
-The model in the background was trained using the
+The U-Net model in the background was trained using the
 [landslide4sense](https://github.com/iarai/Landslide4Sense-2022) baseline
 model and the provided dataset. GUI was done using
 [CustomTKinter](https://github.com/TomSchimansky/CustomTkinter) as well as

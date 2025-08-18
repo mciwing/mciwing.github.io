@@ -16,7 +16,7 @@ tags:
 
 ![md-snakeoil-post-thumbnail](../../assets/blog/md-snakeoil/md-snakeoil-thumbnail.png)
 
-TLDR: Have you ever tried to read code in a document, only to find it messy and
+TL;DR: Have you ever tried to read code in a document, only to find it messy and
 hard to follow? I often write guides and lecture materials in Markdown, but keeping
 all the code examples tidy can be a real challenge. That’s why I created 
 **md-snakeoil**, a tool that automatically cleans up Python code, making 

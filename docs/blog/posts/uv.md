@@ -15,7 +15,7 @@ tags:
 
 ![uv-post-thumbnail](../../assets/blog/uv/uv-thumbnail.png)
 
-TLDR: [`uv`](https://docs.astral.sh/uv/) simplifies the whole development 
+TL;DR: [`uv`](https://docs.astral.sh/uv/) simplifies the whole development 
 experience. I use it daily to manage my Python projects and it has become an 
 essential part of my workflow. A brief overview why `uv` is great...
 
