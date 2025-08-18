@@ -45,7 +45,7 @@ uv python install 3.13
 
 ... I can install the latest Python version.
 So with just 2 commands, I have a working Python development environment on my 
-machine. There's no need to install Python manually anymore. 🚀
+machine. There's no need to install Python manually anymore. :rocket:
 
 ???+ tip
     With
