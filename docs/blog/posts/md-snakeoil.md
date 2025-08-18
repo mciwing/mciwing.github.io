@@ -16,11 +16,11 @@ tags:
 
 ![md-snakeoil-post-thumbnail](../../assets/blog/md-snakeoil/md-snakeoil-thumbnail.png)
 
-TLDR: Have you ever tried to read code in a document, only to find it messy and
+TL;DR: Have you ever tried to read code in a document, only to find it messy and
 hard to follow? I often write guides and lecture materials in Markdown, but keeping
 all the code examples tidy can be a real challenge. That’s why I created 
 **md-snakeoil**, a tool that automatically cleans up Python code, making 
-everything look neat. 🌟
+everything look neat. :glowing_star:
 
 <p align="center">
   <a href="https://github.com/JakobKlotz/md-snakeoil" target="_blank">
@@ -118,4 +118,4 @@ If you’re curious, you can check out md-snakeoil on GitHub or PyPI.
 - [:fontawesome-brands-python: PyPI Package](https://pypi.org/project/md-snakeoil/)
 
 Want to know more about the development process or the tools involved to build
-something similar? Feel free to reach out! 😊
+something similar? Feel free to reach out! :blush:

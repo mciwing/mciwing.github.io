@@ -15,7 +15,7 @@ tags:
 
 ![uv-post-thumbnail](../../assets/blog/uv/uv-thumbnail.png)
 
-TLDR: [`uv`](https://docs.astral.sh/uv/) simplifies the whole development 
+TL;DR: [`uv`](https://docs.astral.sh/uv/) simplifies the whole development 
 experience. I use it daily to manage my Python projects and it has become an 
 essential part of my workflow. A brief overview why `uv` is great...
 
@@ -45,7 +45,7 @@ uv python install 3.13
 
 ... I can install the latest Python version.
 So with just 2 commands, I have a working Python development environment on my 
-machine. There's no need to install Python manually anymore. 🚀
+machine. There's no need to install Python manually anymore. :rocket:
 
 ???+ tip
     With
