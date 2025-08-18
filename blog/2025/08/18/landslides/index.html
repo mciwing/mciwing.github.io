@@ -8,11 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://mciwing.github.io/blog/2025/08/07/uv/">
+        <link rel="canonical" href="https://mciwing.github.io/blog/2025/08/18/landslides/">
       
       
+        <link rel="prev" href="../../08/md-snakeoil/">
       
-        <link rel="next" href="../../08/md-snakeoil/">
       
       
       <link rel="icon" href="../../../../../assets/logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>uv: My favourite Python package manager - MCI | WING</title>
+        <title>Master Thesis - Landslide Pipeline - MCI | WING</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uv-my-favourite-python-package-manager" class="md-skip">
+        <a href="#master-thesis-landslide-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              uv: My favourite Python package manager
+              Master Thesis - Landslide Pipeline
             
           </span>
         </div>
@@ -4928,36 +4928,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-uv" class="md-nav__link">
+  <a href="#what-is-landslide-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      What is uv?
+      What is Landslide Pipeline?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-uv" class="md-nav__link">
+  <a href="#how-does-it-work" class="md-nav__link">
     <span class="md-ellipsis">
-      Why uv?
+      How does it work?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#another-example" class="md-nav__link">
+  <a href="#why-landslide-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      Another example
+      Why Landslide Pipeline?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#wrap-up" class="md-nav__link">
+  <a href="#how-to-use-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Wrap up
+      How to use it?
     </span>
   </a>
   
@@ -4992,16 +4992,16 @@
                 
                   <div class="md-profile md-post__profile">
                     <span class="md-author md-author--long">
-                      <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob Klotz">
+                      <img src="https://avatars.githubusercontent.com/u/152180657?v=4" alt="Armin Muzaferovic">
                     </span>
                     <span class="md-profile__description">
                       <strong>
                         
-                          Jakob Klotz
+                          Armin Muzaferovic
                         
                       </strong>
                       <br>
-                      Developer
+                      Student
                     </span>
                   </div>
                 
@@ -5019,7 +5019,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-08-07 00:00:00+00:00" class="md-ellipsis">August 7, 2025</time>
+                        <time datetime="2025-08-18 00:00:00+00:00" class="md-ellipsis">August 18, 2025</time>
                       </div>
                     </li>
                     
@@ -5031,7 +5031,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              3 min read
+                              2 min read
                             
                           </span>
                         </div>
@@ -5058,13 +5058,25 @@
       
       
       
-        <span class="md-tag">Package Management</span>
+        <span class="md-tag">GUI</span>
       
     
       
       
       
-        <span class="md-tag">Python Development</span>
+        <span class="md-tag">Landslides</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">Machine Learning</span>
+      
+    
+      
+      
+      
+        <span class="md-tag">Master Thesis</span>
       
     
   </nav>
@@ -5074,67 +5086,55 @@
   
 
 
-<h1 id="uv-my-favourite-python-package-manager"><code>uv</code>: My favourite Python package manager</h1>
-<p><img alt="uv-post-thumbnail" src="../../../../../assets/blog/uv/uv-thumbnail.png" /></p>
-<p>TL;DR: <a href="https://docs.astral.sh/uv/"><code>uv</code></a> simplifies the whole development 
-experience. I use it daily to manage my Python projects and it has become an 
-essential part of my workflow. A brief overview why <code>uv</code> is great...</p>
+<h1 id="master-thesis-landslide-pipeline">Master Thesis - Landslide Pipeline</h1>
+<p>TL;DR: Landslide Pipeline is a tool that lets you select a place and time and
+run a trained Machine Learning model to identify landslides using satellite
+images. It is designed to also be accessible for non-developers.
+<img alt="📡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4e1.svg" title=":satellite:" /> <img alt="🗺" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f5fa.svg" title=":world_map:" /></p>
+<p align="center">
+  <a href="https://github.com/muzaferovarmin/LandslideMA" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Landslide-181717?logo=github&style=for-the-badge" alt="GitHub">
+  </a>
+</p>
+
 <!-- more -->
 
-<h2 id="what-is-uv">What is <code>uv</code>?</h2>
-<p>It lets you manage your Python packages. But not just that, with <code>uv</code> you 
-can also manage your Python installations. On top of that, it is way faster than
-other package managers like <code>pip</code>.</p>
-<h2 id="why-uv">Why <code>uv</code>?</h2>
-<p>Setting up a new development environment has never been easier. On a new machine,
-I can simply <a href="https://docs.astral.sh/uv/getting-started/installation/">install</a> 
-<code>uv</code> which is just a single command. Having <code>uv</code> installed, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>python<span class="w"> </span>list
-</span></code></pre></div>
-<p>... to list all available Python versions. With another command, for example:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.13
-</span></code></pre></div>
-<p>... I can install the latest Python version.
-So with just 2 commands, I have a working Python development environment on my 
-machine. There's no need to install Python manually anymore. <img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" title=":rocket:" /></p>
-<details class="tip" open="open">
-<summary>Tip</summary>
-<p>With</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>my_project<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>my_project
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>uv<span class="w"> </span>init<span class="w">  </span><span class="c1">#(1)!</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>uv<span class="w"> </span>sync<span class="w">  </span><span class="c1">#(2)!</span>
-</span></code></pre></div>
-<p>you can scaffold a new Python project and set up the virtual environment. 
-You can start developing right away.</p>
-<ol>
-<li><code>uv init</code> creates a new project with a default configuration.</li>
-<li><code>uv sync</code> sets up the virtual environment.</li>
-</ol>
-</details>
-<h2 id="another-example">Another example</h2>
-<p>Most of the time, programming is a team sport. Working with others on the same
-codebase can be challenging, especially when it comes to managing dependencies.
-If you set up your project with <code>uv</code>, another developer can easily install
-your project, it's as simple as:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>sync
-</span></code></pre></div>
+<hr />
 <details class="info" open="open">
 <summary>Info</summary>
-<p><code>uv sync</code> reads the <code>pyproject.toml</code> and <code>uv.lock</code> files to install the 
-required dependencies and sets up the virtual environment. If the required
-Python version is not installed, <code>uv</code> will automatically install it.</p>
+<p>This project was completed as a Master's thesis supervised by Jakob Klotz.
+The post was written by the student, Armin Muzaferovic.</p>
 </details>
-<h2 id="wrap-up">Wrap up</h2>
-<p>Although this introductory post is just a brief overview, I hope it gives you 
-an idea of how <code>uv</code> can simplify your Python development workflow. In 
-subsequent posts, I will dive deeper into specific features and use cases of 
-<code>uv</code>. Until then, you can take a look at a couple of projects that use <code>uv</code>:</p>
-<ul>
-<li>This site you're reading right now is built with <code>uv</code> - <a href="https://github.com/mciwing/mciwing.github.io">code</a>.</li>
-<li>Two Python packages I develop, <a href="https://github.com/JakobKlotz/md-snakeoil">first</a> and
-<a href="https://github.com/JakobKlotz/tiler-api">second</a></li>
-<li>An app to assess rainfall-triggered landslide risks - <a href="https://github.com/JakobKlotz/lhasa-app/tree/main/backend">here</a>.</li>
-</ul><style type="text/css">.quiz {
+<h2 id="what-is-landslide-pipeline">What is Landslide Pipeline?</h2>
+<p>In short, the repo contains all the necessary code to select a time and place
+using a GUI to then be able to detect landslides with the selected parameters.
+The U-Net model in the background was trained using the
+<a href="https://github.com/iarai/Landslide4Sense-2022">landslide4sense</a> baseline
+model and the provided dataset. GUI was done using
+<a href="https://github.com/TomSchimansky/CustomTkinter">CustomTKinter</a> as well as
+<a href="https://github.com/TomSchimansky/TkinterMapView">TkinterMap</a>.</p>
+<h2 id="how-does-it-work">How does it work?</h2>
+<p>When selecting the area on the provided map in the GUI, a request is sent to
+the ESA Copernicus API with the corresponding parameters. In the query to the
+API, 12 Layers of the Sentinel2-L1C Satellite and the Copernicus30 DEM Data are
+requested. After receiving the data and calculating the slope from the digital 
+elevation model, the data is formatted for use with the machine learning model.
+After user confirmation, the data for each pixel is evaluated to check if there
+is a landslide detected or not.</p>
+<h2 id="why-landslide-pipeline">Why Landslide Pipeline?</h2>
+<p>While there are already great models for landslide detection, the next step is
+to make it easier to generate training data or to check whether a specific 
+region has experienced a landslide. The goal of this implementation was to 
+simplify future research in the field of machine learning with satellite data, 
+making it easier to use available datasets. For example, city administrations 
+could use this tool to check their areas for possible landslide risks.</p>
+<h2 id="how-to-use-it">How to use it?</h2>
+<p>Simply visit <a href="https://github.com/muzaferovarmin/LandslideMA">GitHub - muzaferovarmin/LandslideMA</a>
+and either download the precompiled executable file for your OS or clone the
+repo and build the Python <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span> code yourself! After
+that, use your free Copernicus Dataspace account (which can be created
+<a href="https://browser.dataspace.copernicus.eu/">here</a>) to generate your API
+credentials to use and you are ready to go!</p><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -5304,22 +5304,22 @@ function resetFieldset(fieldset) {
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
-        
           
-          <a href="../../08/md-snakeoil/" class="md-footer__link md-footer__link--next" aria-label="Next: A exercise in Python packaging: md-snakeoil">
+          <a href="../../08/md-snakeoil/" class="md-footer__link md-footer__link--prev" aria-label="Previous: A exercise in Python packaging: md-snakeoil">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Next
+                Previous
               </span>
               <div class="md-ellipsis">
                 A exercise in Python packaging: md-snakeoil
               </div>
             </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
           </a>
+        
         
       </nav>
     
