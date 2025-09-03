@@ -3,7 +3,7 @@
 In this section, we'll explore the **Central Limit Theorem (CLT)**, a cornerstone of probability and statistics that works hand in hand with the **Law of Large Numbers (LLN)** you've previously learned about. The CLT is fascinating because it explains why normal (Gaussian) distributions are so prevalent in statistics, even when the underlying data doesn't seem to fit that mold. 
 
 <figure markdown="span">
-  ![Correlation Types](https://i.pinimg.com/enabled/564x/2c/67/ac/2c67acc310967612e3cbac8bc636d960.jpg){width=50% }
+  ![Correlation Types](https://i.pinimg.com/736x/2c/67/ac/2c67acc310967612e3cbac8bc636d960.jpg){width=50% }
   <figcaption>(Source: <a href="https://at.pinterest.com/pin/663999538798585356/">Pinterest</a>) </figcaption>
 </figure>
 
