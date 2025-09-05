@@ -224,6 +224,8 @@ plugins:
         # has an issue with git --follow
         # see https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/options/#enable_git_follow
         - python-extensive/data/api.md
+        # posts have their own date displayed in metadata
+        - blog/*
       enabled: !ENV [ENABLE_GIT_REVISION_DATE, true]
 
   - git-authors:
