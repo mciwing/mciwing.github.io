@@ -260,7 +260,7 @@ information of this site's project (repository):
 
 ```python hl_lines="7"
 owner = "mciwing"
-repo = "mciwing.github.io"
+repo = "code-campus"
 
 url = f"https://api.github.com/repos/{owner}/{repo}/contributors"
 
