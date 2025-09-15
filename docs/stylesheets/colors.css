@@ -1,0 +1,6 @@
+/* custom primary and accent colors */
+:root  > * {
+  --md-primary-fg-color:        #009485;
+  --md-accent-fg-color:         #FFB482;
+  
+}
