@@ -16,7 +16,7 @@ This site offers a variety of courses focused on Python, including:
 - Computer Vision
 - MicroPython
 
-📚 Visit the site [here](https://mciwing.github.io/)!
+📚 Visit the site [here](https://code-campus.at/)!
 
 ## Docker
 

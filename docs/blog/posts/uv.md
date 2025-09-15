@@ -87,7 +87,7 @@ an idea of how `uv` can simplify your Python development workflow. In
 subsequent posts, I will dive deeper into specific features and use cases of 
 `uv`. Until then, you can take a look at a couple of projects that use `uv`:
 
-- This site you're reading right now is built with `uv` - [code](https://github.com/mciwing/mciwing.github.io).
+- This site you're reading right now is built with `uv` - [code](https://github.com/mciwing/code-campus).
 - Two Python packages I develop, [first](https://github.com/JakobKlotz/md-snakeoil) and
 [second](https://github.com/JakobKlotz/tiler-api)
 - An app to assess rainfall-triggered landslide risks - [here](https://github.com/JakobKlotz/lhasa-app/tree/main/backend).

@@ -1,22 +1,22 @@
-site_name: MCI | WING
-repo_url: https://github.com/mciwing/mciwing.github.io
-site_url: https://mciwing.github.io
+site_name: Code Campus
+repo_url: https://github.com/mciwing/code-campus
+site_url: https://code-campus.at
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/logo.png
-  favicon: assets/logo.png
+  logo: assets/favicon.png
+  favicon: assets/favicon.png
   palette:
     - scheme: slate
-      primary: teal
-      accent: pink
+      primary: custom  # teal
+      accent: custom  # peachy peach
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
 
     - scheme: default
-      primary: teal
-      accent: pink
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -284,3 +284,4 @@ extra_javascript:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/colors.css
