@@ -4,8 +4,9 @@
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square&logo=creativecommons&logoColor=black)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <div align="center">
-    <img src="docs/assets/logo.png" alt="WING Logo" style="width: 100px; height: auto;">
-    <hr>
+  <h1><b>CODE CAMPUS</b></h1>
+  <img src="docs/assets/icon.PNG" alt="WING Logo" style="width: 250px; height: auto;">
+  <hr>
 </div>
 
 This site offers a variety of courses focused on Python, including:
