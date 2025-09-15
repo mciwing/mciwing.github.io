@@ -10,6 +10,7 @@
       <h1 class="hero-title">
         Code Campus
       </h1>
+      <img src="assets/icon.png" class="hero-logo" alt="Code Campus Icon">
       <div class="hero-text">
         <h2 style="text-align: center;">
           <span class="twemoji terminal">{% include ".icons/fontawesome/solid/terminal.svg" %}</span>
@@ -227,7 +228,7 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 .hero-section {
   position: relative;
   overflow: hidden;
-  padding: clamp(1.75rem, 1rem + 3vw, 3.25rem) 1rem;
+  padding: clamp(0.35rem, 0.35rem + 1vw, 0.7rem) 0.5rem; /* tighter vertical padding */
   border-radius: 16px;
   background:
     radial-gradient(75% 120% at 0% 0%,
@@ -288,7 +289,7 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 .hero-title {
   /* fallback color if gradient-clip is unsupported */
   color: var(--md-primary-fg-color);
-  margin: 0 0 .35rem 0;
+  margin: 0 0 0 0; /* remove gap below H1 */
   text-align: center;
   font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.8rem);
   line-height: 1.05;
@@ -324,14 +325,32 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
   text-shadow: 0 1px 0 rgba(0,0,0,.04);
   opacity: .9;
 }
+.hero-logo {
+  display: block;
+  margin: 0 auto -1.5rem auto; /* reduce gap */
+  margin-top: -3rem; /* reduce gap */
+  max-width: 300px;
+  width: min(65%, 300px);
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
+}
+
+/* keep small screens nice */
+@media (max-width: 700px) {
+  .hero-logo { max-width: 180px; width: min(86%, 180px); }
+  .hero-section { padding: .4rem .5rem; }
+}
 
 /* Subtitle tweaks */
 .hero-text h2 {
   /* inherit primary color from container */
   color: inherit;
   font-weight: 700;
-  font-size: clamp(1rem, .95rem + .6vw, 1.25rem);
-  opacity: .92;
+  font-size: clamp(.84rem, .84rem + .4vw, .96rem); /* slightly smaller */
+  opacity: .94;
+  margin-top: 0; /* ensure no extra gap above */
+  margin-bottom: 0.02rem; /* tiny gap */
+  line-height: 1.03;
 }
 .hero-text .twemoji.python svg {
   height: 1.2em;
@@ -469,12 +488,12 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 }
 
 /* Per-card accent mapping */
-.course-card[data-accent="python"] { --course-accent: #009485; }
-.course-card[data-accent="extensive"] { --course-accent: #1F8689; }
-.course-card[data-accent="statistics"] { --course-accent: #3E778D; }
-.course-card[data-accent="datascience"] { --course-accent: #5E6990; }
-.course-card[data-accent="vision"] { --course-accent: #7D5A94; }
-.course-card[data-accent="micropython"] { --course-accent: #9C4C98; }
+.course-card[data-accent="python"] { --course-accent: #FFB482; }
+.course-card[data-accent="extensive"] { --course-accent: #CCAE83; }
+.course-card[data-accent="statistics"] { --course-accent: #99A783; }
+.course-card[data-accent="datascience"] { --course-accent: #66A184; }
+.course-card[data-accent="vision"] { --course-accent: #339A84; }
+.course-card[data-accent="micropython"] { --course-accent: #009485; }
 
 /* Icon uses accent */
 .course-card__icon {
