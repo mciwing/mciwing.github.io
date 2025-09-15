@@ -1,6 +1,6 @@
 [project]
 name = "code-campus"
-version = "0.2.1"
+version = "0.3.0"
 description = "Hands-on Python Courses for everyone!"
 readme = "README.md"
 authors = [
