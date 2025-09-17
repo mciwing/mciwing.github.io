@@ -1,6 +1,8 @@
 # Home
 
-![header](../assets/header/ds.png)
+<div style="text-align: center">
+    <img src="../assets/header/ds-header.PNG" style="width: 500px;">
+</div>
 
 Welcome to the `Data Science Course`! :waving_hand:
 
