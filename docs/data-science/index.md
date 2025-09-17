@@ -1,6 +1,8 @@
 # Home
 
-![header](../assets/header/ds.png)
+<div style="text-align: center">
+    <img src="../assets/header/ds-header.PNG" style="width: 500px;">
+</div>
 
 Welcome to the `Data Science Course`! :waving_hand:
 
@@ -36,7 +38,7 @@ As always, we use Python and these great packages :heart:
         alt="Scikit-learn Logo" style="width: 170px;">
     </div>
     <div class="col">
-        <img src="https://pandas.pydata.org/static/img/pandas_white.svg" 
+        <img src="https://pandas.pydata.org/static/img/pandas.svg" 
         alt="Pandas Logo" style="width: 170px;">
     </div>
     <div class="col">
