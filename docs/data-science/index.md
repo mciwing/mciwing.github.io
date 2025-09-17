@@ -36,7 +36,7 @@ As always, we use Python and these great packages :heart:
         alt="Scikit-learn Logo" style="width: 170px;">
     </div>
     <div class="col">
-        <img src="https://pandas.pydata.org/static/img/pandas_white.svg" 
+        <img src="https://pandas.pydata.org/static/img/pandas.svg" 
         alt="Pandas Logo" style="width: 170px;">
     </div>
     <div class="col">
