@@ -257,6 +257,89 @@ down:
 - **Outer join**: The resulting `DataFrame` will contain all rows from both 
   `DataFrame`s.
 
+??? example "Example: Join Types"
+    
+    ```title=">>> Output"
+    DataFrame 1:
+        id value1
+    0   1      A
+    1   2      B
+    2   3      C 
+
+    DataFrame 2:
+        id value2
+    0   3      X
+    1   4      Y
+    2   5      Z 
+
+    LEFT JOIN:
+        id value1 value2
+    0   1      A    NaN
+    1   2      B    NaN
+    2   3      C      X 
+
+    RIGHT JOIN:
+        id value1 value2
+    0   3      C      X
+    1   4    NaN      Y
+    2   5    NaN      Z 
+
+    INNER JOIN:
+        id value1 value2
+    0   3      C      X 
+
+    OUTER JOIN:
+        id value1 value2
+    0   1      A    NaN
+    1   2      B    NaN
+    2   3      C      X
+    3   4    NaN      Y
+    4   5    NaN      Z 
+    ```
+
+    ??? code "Code"
+        ``` py
+        import pandas as pd
+
+        # DataFrame 1
+        data1 = pd.DataFrame({
+            'id': [1, 2, 3],
+            'value1': ['A', 'B', 'C']
+        })
+
+        # DataFrame 2
+        data2 = pd.DataFrame({
+            'id': [3, 4, 5],
+            'value2': ['X', 'Y', 'Z']
+        })
+
+        print("DataFrame 1:")
+        print(data1, "\n")
+
+        print("DataFrame 2:")
+        print(data2, "\n")
+
+        # LEFT JOIN
+        left_join = data1.merge(data2, on='id', how='left')
+        print("LEFT JOIN:")
+        print(left_join, "\n")
+
+        # RIGHT JOIN
+        right_join = data1.merge(data2, on='id', how='right')
+        print("RIGHT JOIN:")
+        print(right_join, "\n")
+
+        # INNER JOIN
+        inner_join = data1.merge(data2, on='id', how='inner')
+        print("INNER JOIN:")
+        print(inner_join, "\n")
+
+        # OUTER JOIN
+        outer_join = data1.merge(data2, on='id', how='outer')
+        print("OUTER JOIN:")
+        print(outer_join, "\n")
+
+        ```
 
 ### Perform merges
 
