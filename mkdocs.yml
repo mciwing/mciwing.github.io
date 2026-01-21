@@ -243,7 +243,10 @@ plugins:
         - data-science/algorithms/supervised/regression.md
 
   - include-markdown
-  - mkdocs_quiz
+  - mkdocs_quiz:
+      auto_submit: true
+      disable_after_submit: false
+      show_progress: false
 
 markdown_extensions:
   - attr_list
