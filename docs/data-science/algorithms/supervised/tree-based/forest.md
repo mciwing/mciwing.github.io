@@ -138,17 +138,17 @@ section [here](cart.md#fit-and-evaluate-the-model).
 ???+ question "How many trees are in the forest?"
     
     Consult the `scikit-learn` docs to find out how many trees are in the 
-    forest by default. Use following question for self-assessment.
+    forest by default. Use the following question for self-assessment.
 
-<?quiz?>
-question: How many trees form a forest by default?
-answer: None, you have to pass it as argument.
-answer: 1000
-answer: 1, the forest defaults to a single decision tree.
-answer-correct: 100
-content:
-<p>Correct, the parameter <code>n_estimators</code> defaults to 100 trees.</p>
-<?/quiz?>
+<quiz>
+How many trees form a forest by default?
+- [ ] None, you have to pass it as argument.
+- [ ] 1000
+- [ ] 1, the forest defaults to a single decision tree.
+- [x] 100
+
+The parameter `n_estimators` defaults to 100 trees.
+</quiz>
 
 ???+ info
 

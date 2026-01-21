@@ -54,17 +54,16 @@ In the skiing example, the nodes are the questions you ask yourself. With
 branches being a simple binary split (the answers to the question).
 The leaf nodes are the final predictions, in our case whether to go skiing.
 
-<?quiz?>
-question: Given the skiing decision tree, what kind of supervised learning task is this?
-answer: Multi-class classification (not previously covered)
-answer: Regression
-answer-correct: Binary classification
-answer: It's not a supervised learning task, since we are missing our target.
-content:
-<p>Correct, the leaves predict two different labels, namely "Go skiing" 
-and "No skiing" which is a classic binary classification task.
-</p>
-<?/quiz?>
+<quiz>
+Given the skiing decision tree, what kind of supervised learning task is this?
+- [ ] Multi-class classification (not previously covered)
+- [ ] Regression
+- [x] Binary classification
+- [ ] It's not a supervised learning task, since the target is missing.
+
+The leaves predict two different labels, namely "Go skiing" and "No skiing"
+which is a classic binary classification task.
+</quiz>
 
 <div style="text-align: center">
 <h3>Excited for some theory?</h3>
@@ -537,17 +536,17 @@ model = DecisionTreeClassifier(
 
     Lastly answer following quiz question to evaluate your result.
 
-<?quiz?>
-question: What is the model's accuracy (rounded to 2 decimal places)?
-answer: 92.98%
-answer-correct: 94.74%
-answer: 90.35%
-content:
+<quiz>
+What is the model's accuracy (rounded to 2 decimal places)?
+- [ ] 92.98%
+- [x] 94.74%
+- [ ] 90.35%
+
 <p>
-    Correct! The mean accuracy is 94.74% which is a bit lower than the 95.61%
-    from the logistic regression.
+Correct! The mean accuracy is 94.74% which is a bit lower than the 95.61%
+from the logistic regression.
 </p>
-<?/quiz?>
+</quiz>
 
 ## Recap
 

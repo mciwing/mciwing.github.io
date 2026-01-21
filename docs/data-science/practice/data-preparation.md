@@ -63,24 +63,24 @@ Start by checking the attribute types.
     If you need a refresher on attribute types, check out the appropriate
     [section](../data-basics/basics.md#attribute-types).
 
-<?quiz?>
-question: Which attribute types are present in the data set?
-answer: numerical
-answer: nominal, ordinal
-answer-correct: nominal, ordinal, numerical
-answer: ordinal
-answer: ordinal, numerical
-answer: nominal
-answer: nominal, numerical
-content:
-<p>Correct, we are dealing with quite a mixed data set. All three different 
+<quiz>
+Which attribute types are present in the data set?
+- [ ] numerical
+- [ ] nominal, ordinal
+- [x] nominal, ordinal, numerical
+- [ ] ordinal
+- [ ] ordinal, numerical
+- [ ] nominal
+- [ ] nominal, numerical
+
+We are dealing with quite a mixed data set. All three different
 types (nominal, ordinal and numerical) are present. For example:
-<ul>
-    <li><strong>Job</strong> - nominal</li>
-    <li><strong>Education</strong> - ordinal</li>
-    <li><strong>Age</strong> - numerical</li>
-</ul>
-<?/quiz?>
+
+- **Job** - nominal
+- **Education** - ordinal
+- **Age** - numerical
+
+</quiz>
 
 #### Feature description
 
@@ -532,15 +532,15 @@ impute = SimpleImputer(strategy="most_frequent", missing_values=None)
 The `SimpleImputer` lets us fill in missing values with the most frequent
 value in the respective column. But why did we choose this specific strategy?
 
-<?quiz?>
-question: Why do we plan to fill missing values with the most frequent value (the mode) and not the mean or median?
-answer: The mode is the most common imputation strategy.
-answer-correct: The columns with any missing values are either nominal or ordinal. Thus, the most frequent value (mode) is a valid choice for imputation. Mean and median are not suitable for nominal and ordinal data.
-answer: It is just an initial choice, we could have used any other strategy.
-answer: The mode is the most robust imputation strategy.
-content:
+<quiz>
+Why do we plan to fill missing values with the most frequent value (the mode) and not the mean or median?
+- [ ] The mode is the most common imputation strategy.
+- [x] The columns with any missing values are either nominal or ordinal. Thus, the most frequent value (mode) is a valid choice for imputation. Mean and median are not suitable for nominal and ordinal data.
+- [ ] It is just an initial choice, we could have used any other strategy.
+- [ ] The mode is the most robust imputation strategy.
+
 <p>Correct! 👍🏽</p>
-<?/quiz?>
+</quiz>
 
 ???+ info
 

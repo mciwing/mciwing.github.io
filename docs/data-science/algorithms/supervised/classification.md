@@ -197,18 +197,17 @@ tumors.
 
 ???+ question "Number of features"
 
-    Investigate the `DataFrame` `X` to the below quiz question.
+    Investigate the `DataFrame` `X` to answer the below quiz question.
 
-<?quiz?>
-question: How many features (attributes) does the breast cancer dataset have?
-answer-correct: 30
-answer: 29
-answer: 32
-content:
-<p>Correct, for example <code>X.shape</code> reveals that we are dealing
-with 30 features.
+<quiz>
+How many features (attributes) does the breast cancer dataset have?
+- [x] 30
+- [ ] 29
+- [ ] 32
+
+`X.shape` reveals that we are dealing with 30 features.
 </p>
-<?/quiz?>
+</quiz>
 
 ### Split the data
 
