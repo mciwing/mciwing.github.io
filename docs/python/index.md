@@ -50,7 +50,7 @@ This course will teach you the basics of the
 
 The below section should give you an impression of what you can do with 
 `Python`. This is not an extensive list by all means. It might sound 
-trashy but if you can imagine something you probably can build it in 
+trashy, but if you can imagine something, you can most likely build it in 
 `Python`.
 
 ???+ info
