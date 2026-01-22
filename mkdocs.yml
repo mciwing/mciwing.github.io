@@ -4,8 +4,8 @@ site_url: https://code-campus.at
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/favicon.PNG
-  favicon: assets/favicon.PNG
+  logo: assets/icons8-mouse-pointer.svg
+  favicon: assets/icons8-mouse-pointer.svg
   palette:
     - scheme: slate
       primary: custom  # teal
