@@ -10,7 +10,6 @@
       <h1 class="hero-title">
         CODE CAMPUS
       </h1>
-      <img src="assets/icon.PNG" class="hero-logo" alt="Code Campus Icon">
       <div class="hero-text">
         <h2 style="text-align: center;">
           <span class="twemoji terminal">{% include ".icons/fontawesome/solid/terminal.svg" %}</span>
@@ -20,15 +19,13 @@
         </h2>
       </div>
     </div>
-    <hr>
 
     <!-- Courses -->
     <section class="courses">
-      <h1 class="section-title">OUR COURSES</h1>
       <div class="courses-grid">
 
         <!-- Python Crash Course -->
-        <article class="course-card" data-accent="python">
+        <a href="{{ 'python/' | url }}" class="course-card" data-accent="python">
           <header class="course-card__header">
             <span class="course-card__icon">{% include ".icons/fontawesome/brands/python.svg" %}</span>
             <h3>Python Crash Course</h3>
@@ -38,14 +35,10 @@
             <span class="badge">No previous knowledge</span>
           </div>
           <p>Get started with Python basics and fundamental programming concepts.</p>
-          <a href="{{ 'python/' | url }}" class="md-button course-card__cta">
-            <img src="{{ 'assets/favicon.PNG' | url }}" alt="Start" class="cta-icon">
-            <span>Start</span>
-          </a>
-        </article>
+        </a>
 
         <!-- Python Extensive -->
-        <article class="course-card" data-accent="extensive">
+        <a href="{{ 'python-extensive/' | url }}" class="course-card" data-accent="extensive">
           <header class="course-card__header">
             <span class="course-card__icon">{% include ".icons/fontawesome/solid/code.svg" %}</span>
             <h3>Python Extensive Course</h3>
@@ -55,14 +48,10 @@
             <span class="badge">No previous knowledge</span>
           </div>
           <p>Introduction to Python with additional content, such as app development.</p>
-          <a href="{{ 'python-extensive/' | url }}" class="md-button course-card__cta">
-            <img src="{{ 'assets/favicon.PNG' | url }}" alt="Start" class="cta-icon">
-            <span>Start</span>
-          </a>
-        </article>
+        </a>
 
         <!-- Statistics -->
-        <article class="course-card" data-accent="statistics">
+        <a href="{{ 'statistics/' | url }}" class="course-card" data-accent="statistics">
           <header class="course-card__header">
             <span class="course-card__icon">{% include ".icons/fontawesome/solid/chart-line.svg" %}</span>
             <h3>Statistics</h3>
@@ -72,14 +61,10 @@
             <span class="badge">Requires Python knowledge</span>
           </div>
           <p>Descriptive and inferential statistics, hypothesis testing, plus regression.</p>
-          <a href="{{ 'statistics/' | url }}" class="md-button course-card__cta">
-          <img src="{{ 'assets/favicon.PNG' | url }}" alt="Start" class="cta-icon">
-          <span>Start</span>
-          </a>
-        </article>
+        </a>
 
         <!-- Data Science -->
-        <article class="course-card" data-accent="datascience">
+        <a href="{{ 'data-science/' | url }}" class="course-card" data-accent="datascience">
           <header class="course-card__header">
             <span class="course-card__icon">{% include ".icons/fontawesome/solid/brain.svg" %}</span>
             <h3>Data Science</h3>
@@ -89,14 +74,10 @@
             <span class="badge">Requires Python knowledge</span>
           </div>
           <p>Data preprocessing, machine learning and end-to-end pipelines.</p>
-          <a href="{{ 'data-science/' | url }}" class="md-button course-card__cta">
-          <img src="{{ 'assets/favicon.PNG' | url }}" alt="Start" class="cta-icon">
-          <span>Start</span>
-          </a>
-        </article>
+        </a>
 
         <!-- Computer Vision -->
-        <article class="course-card" data-accent="vision">
+        <a href="{{ 'yolo/' | url }}" class="course-card" data-accent="vision">
           <header class="course-card__header">
             <span class="course-card__icon">{% include ".icons/fontawesome/solid/camera.svg" %}</span>
             <h3>Computer Vision</h3>
@@ -106,14 +87,10 @@
             <span class="badge">Requires Python knowledge</span>
           </div>
           <p>Object detection and segmentation with YOLO for custom vision apps.</p>
-          <a href="{{ 'yolo/' | url }}" class="md-button course-card__cta">
-          <img src="{{ 'assets/favicon.PNG' | url }}" alt="Start" class="cta-icon">
-          <span>Start</span>
-          </a>
-        </article>
+        </a>
 
         <!-- MicroPython -->
-        <article class="course-card" data-accent="micropython">
+        <a href="{{ 'micropython/' | url }}" class="course-card" data-accent="micropython">
           <header class="course-card__header">
             <span class="course-card__icon">{% include ".icons/fontawesome/solid/microchip.svg" %}</span>
             <h3>MicroPython</h3>
@@ -123,55 +100,20 @@
             <span class="badge">Requires Python knowledge</span>
           </div>
           <p>IoT projects with ESP32, sensor data and MQTT communication.</p>
-          <a href="{{ 'micropython/' | url }}" class="md-button course-card__cta">
-          <img src="{{ 'assets/favicon.PNG' | url }}" alt="Start" class="cta-icon">
-          <span>Start</span>
-          </a>
-        </article>
+        </a>
       </div>
     </section>
 
     <!-- Contact -->
     <section class="contact">
-      <h2 class="section-title">GET INVOLVED</h2>
-      <div class="contact-split">
-        <div class="contact-left about-box">
-          <h3>
-            <span class="twemoji terminal">{% include ".icons/fontawesome/solid/terminal.svg" %}</span>
-            About
-          </h3>
-          <p>
-              All content here is <span style="color: var(--md-primary-fg-color);"><b>free</b></span>, just bring a PC and curiosity.
-            <span class="twemoji lightbulb">{% include ".icons/fontawesome/regular/lightbulb.svg" %}</span>
-          </p>
-          <div class="about-media">
-            <img src="{{ 'assets/free-open-source.gif' | url }}" alt="Free and open source">
-          </div>
-        </div>
-
-        <div class="contact-right">
+      <div class="contact-content">
           <h3>
             <span class="twemoji comments">{% include ".icons/fontawesome/solid/comments.svg" %}</span>
-            Contact Us
+            Contact
           </h3>
           <p>Questions, feedback or ideas? We're happy to help.</p>
 
           <div class="contacts">
-            <div class="contact-card">
-              <img src="https://avatars.githubusercontent.com/u/124151705?v=4" alt="Manuel">
-              <div class="contact-card__name">Manuel Ferdik</div>
-              <div class="contact-card__mail">
-                <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
-              </div>
-              <div class="contact-card__links">
-                <a class="contact-card__social github"
-                   href="https://github.com/manuf3006" target="_blank" rel="noopener"
-                   aria-label="Manuel on GitHub">
-                  <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
-                  <span>GitHub</span>
-                </a>
-              </div>
-            </div>
             <div class="contact-card">
               <img src="https://avatars.githubusercontent.com/u/177755923?v=4" alt="Jakob">
               <div class="contact-card__name">Jakob Klotz</div>
@@ -180,8 +122,23 @@
               </div>
               <div class="contact-card__links">
                 <a class="contact-card__social github"
-                   href="https://github.com/JakobKlotz" target="_blank" rel="noopener"
-                   aria-label="Jakob on GitHub">
+                  href="https://github.com/JakobKlotz" target="_blank" rel="noopener"
+                  aria-label="Jakob on GitHub">
+                  <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+            <div class="contact-card">
+              <img src="https://avatars.githubusercontent.com/u/124151705?v=4" alt="Manuel">
+              <div class="contact-card__name">Manuel Ferdik</div>
+              <div class="contact-card__mail">
+                <a href="mailto:manuel.ferdik@mci.edu">manuel.ferdik@mci.edu</a>
+              </div>
+              <div class="contact-card__links">
+                <a class="contact-card__social github"
+                  href="https://github.com/manuf3006" target="_blank" rel="noopener"
+                  aria-label="Manuel on GitHub">
                   <span class="twemoji github">{% include ".icons/fontawesome/brands/github.svg" %}</span>
                   <span>GitHub</span>
                 </a>
@@ -224,164 +181,73 @@
 }
 code, pre, kbd, samp { font-family: var(--font-mono); }
 
-/* Hero: upgraded visuals */
+/* Hero: simplified clean design */
 .hero-section {
   position: relative;
   overflow: hidden;
   padding: clamp(0.35rem, 0.35rem + 1vw, 0.7rem) 0.5rem; /* tighter vertical padding */
-  border-radius: 16px;
+  border-radius: 10px;
   background:
     radial-gradient(75% 120% at 0% 0%,
-      color-mix(in oklab, var(--md-primary-fg-color) 12%, transparent),
+      color-mix(in oklab, var(--md-primary-fg-color) 8%, transparent),
       transparent 60%),
     radial-gradient(65% 100% at 100% 10%,
-      color-mix(in oklab, var(--md-accent-fg-color, var(--md-primary-fg-color)) 12%, transparent),
+      color-mix(in oklab, var(--md-accent-fg-color, var(--md-primary-fg-color)) 8%, transparent),
       transparent 60%),
     linear-gradient(180deg,
-      color-mix(in oklab, var(--md-default-fg-color) 3%, transparent),
+      color-mix(in oklab, var(--md-default-fg-color) 2%, transparent),
       transparent 55%);
   border: 1px solid var(--md-default-fg-color--lighter);
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.12),
-    inset 0 0 0 1px color-mix(in oklab, var(--md-primary-fg-color) 6%, transparent);
-  isolation: isolate;
 }
 
-/* Hero background layers */
-.hero-section::before {
-  content: "";
-  position: absolute;
-  width: 60vmax;
-  height: 60vmax;
-  left: -25vmax;
-  top: -35vmax;
-  background:
-    radial-gradient(closest-side,
-      color-mix(in oklab, var(--md-primary-fg-color) 35%, transparent) 0%,
-      transparent 70%);
-  filter: blur(60px);
-  opacity: .35;
-  transform: translate3d(0,0,0);
-  animation: heroFloat 18s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-.hero-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to right,
-      color-mix(in oklab, var(--md-default-fg-color) 10%, transparent) 1px,
-      transparent 1px) 0 0/24px 24px,
-    linear-gradient(to bottom,
-      color-mix(in oklab, var(--md-default-fg-color) 8%, transparent) 1px,
-      transparent 1px) 0 0/24px 24px;
-  mask: linear-gradient(to bottom, rgba(0,0,0,.25), 70%, transparent);
-  opacity: .22;
-  pointer-events: none;
-}
-@keyframes heroFloat {
-  from { transform: translate3d(0%, 0%, 0) rotate(0deg); }
-  to   { transform: translate3d(12%, 6%, 0) rotate(12deg); }
-}
 
-/* Hero title: improved typography + gradient text (with fallback) */
 .hero-title {
-  /* fallback color if gradient-clip is unsupported */
-  color: var(--md-primary-fg-color);
-  margin: 0 0 0 0; /* remove gap below H1 */
+  color: color-mix(in oklab, var(--md-primary-fg-color) 70%, white) !important;
+  margin: 0 0 0.5rem 0;
   text-align: center;
-  font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.8rem);
-  line-height: 1.05;
-  font-weight: 900;
+  font-size: clamp(1.8rem, 1.2rem + 2.4vw, 2.8rem);
+  line-height: 1.15;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-@supports (-webkit-background-clip: text) {
-  .hero-title {
-    background: linear-gradient(90deg,
-      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 0%,
-      color-mix(in oklab, var(--md-primary-fg-color) 60%, #87e0ff) 50%,
-      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-@supports (background-clip: text) {
-  .hero-title {
-    background: linear-gradient(90deg,
-      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 0%,
-      color-mix(in oklab, var(--md-primary-fg-color) 60%, #87e0ff) 50%,
-      color-mix(in oklab, var(--md-primary-fg-color) 92%, #ffffff) 100%);
-    background-clip: text;
-    color: transparent;
-  }
-}
-.hero-title .brand {
-  display: inline-block;
-  margin-inline: .35rem;
-  color: color-mix(in oklab, var(--md-primary-fg-color) 75%, var(--md-default-fg-color));
-  text-shadow: 0 1px 0 rgba(0,0,0,.04);
-  opacity: .9;
-}
-.hero-logo {
-  display: block;
-  margin: 0 auto -1.5rem auto; /* reduce gap */
-  margin-top: -3rem; /* reduce gap */
-  max-width: 300px;
-  width: min(65%, 300px);
-  height: auto;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
 }
 
 /* keep small screens nice */
 @media (max-width: 700px) {
-  .hero-logo { max-width: 180px; width: min(86%, 180px); }
   .hero-section { padding: .4rem .5rem; }
 }
 
-/* Subtitle tweaks */
+/* Subtitle: simple styling */
 .hero-text h2 {
   /* inherit primary color from container */
   color: inherit;
   font-weight: 700;
-  font-size: clamp(.84rem, .84rem + .4vw, .96rem); /* slightly smaller */
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
   opacity: .94;
   margin-top: 0; /* ensure no extra gap above */
-  margin-bottom: 0.02rem; /* tiny gap */
-  line-height: 1.03;
+  margin-bottom: 0.5rem; /* tiny gap */
+  line-height: 1.2;
 }
 .hero-text .twemoji.python svg {
   height: 1.2em;
   width: 1.2em;
   transform: translateY(.12em);
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.05));
-}
-
-/* Section title: use unified sans, adjust weight/tracking */
-.section-title {
-  font-family: var(--font-sans);
-  font-size: .95rem;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-shadow: none;
-  opacity: .9;
 }
 
 /* Courses */
 .section-title {
+  color: inherit;
   text-align: center;
   margin: 0 0 1.25rem 0;
-  font-family: 'IBM Plex Mono', 'IBM Plex Sans', 'Fira Mono', 'Consolas', monospace;
-  font-size: 1rem;
-  font-weight: 900;
-  letter-spacing: 0.01em;
+  font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   text-transform: none;
-  text-shadow: 0 0 6px var(--md-primary-fg-color), 0 0 2px #fff;
 }
-.courses { padding: .5rem 0 0.75rem 0; }
+.courses { 
+  padding: .5rem 0 0.75rem 0;
+  margin-top: 2rem;
+}
 .courses-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -405,111 +271,55 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 }
 
 .course-card {
+  text-decoration: none;
+  color: var(--md-default-fg-color);
   grid-column: span 4;
   border: 1px solid var(--md-default-fg-color--lighter);
-  border-radius: 10px;
-  background: color-mix(in oklab, var(--md-default-bg-color) 92%, transparent);
-  padding: 1.1rem;
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  border-radius: 8px;
+  background: transparent;
+  padding: 1.25rem;
+  transition: border-color .2s ease;
   position: relative;
-  overflow: clip;
-  /* Accent-aware visuals */
-  background: linear-gradient(
-    180deg,
-    color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 7%, transparent),
-    transparent 45%
-  );
-  border: 1px solid color-mix(
-    in oklab,
-    var(--course-accent, var(--md-primary-fg-color)) 24%,
-    var(--md-default-fg-color--lighter)
-  );
-  will-change: transform, box-shadow, border-color;
-  transform: none;
 }
-.course-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--course-accent, var(--md-primary-fg-color));
-  opacity: .6;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  transform-origin: left center;
-  transform: scaleX(0);
-  transition: transform .35s ease-out, opacity .25s ease-out;
-}
-.course-card:hover::before,
-.course-card:focus-within::before {
-  transform: scaleX(1);
-  opacity: .85;
-}
-.course-card::after {
-  content: none !important;
-}
-.course-card:hover::after {
-  content: none !important;
+/* Ensure all text within cards uses theme color */
+.course-card p,
+.course-card h3 {
+  color: var(--md-default-fg-color);
 }
 
-/* Subtle icon nudge on hover/focus */
+/* Header layout: icon beside title */
+.course-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.course-card__header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Simple icon styling */
 .course-card__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 22px;
   height: 22px;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--course-accent, var(--md-primary-fg-color));
-  transition: transform .2s ease;
-}
-.course-card:hover .course-card__icon,
-.course-card:focus-within .course-card__icon {
-  transform: translateY(-2px);
-}
-
-.course-card:hover {
-  transform: translateY(-4px) scale(1.005);
-  border-color: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 60%, white);
-  box-shadow:
-    0 14px 28px rgba(0,0,0,0.22),
-    0 0 0 2px color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 22%, transparent);
-}
-.course-card:hover::after {
-  transform: translateX(120%);
-  opacity: .25;
-}
-.course-card:focus-within {
-  outline: none;
-  box-shadow:
-    0 0 0 3px color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 30%, transparent),
-    0 8px 22px rgba(0,0,0,.18);
-}
-
-/* Per-card accent mapping */
-.course-card[data-accent="python"] { --course-accent: #FFB482; }
-.course-card[data-accent="extensive"] { --course-accent: #CCAE83; }
-.course-card[data-accent="statistics"] { --course-accent: #99A783; }
-.course-card[data-accent="datascience"] { --course-accent: #66A184; }
-.course-card[data-accent="vision"] { --course-accent: #339A84; }
-.course-card[data-accent="micropython"] { --course-accent: #009485; }
-
-/* Icon uses accent */
-.course-card__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--course-accent, var(--md-primary-fg-color));
+  color: var(--md-default-fg-color);
 }
 .course-card__icon svg {
   width: 1.1rem;
   height: 1.1rem;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.04));
+  fill: currentColor;
+}
+
+.course-card:hover,
+.course-card:focus-within {
+  border-color: var(--md-primary-fg-color);
+  outline: none;
 }
 
 /* Meta badges */
@@ -523,102 +333,31 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
   display: inline-flex;
   align-items: center;
   padding: .1rem .45rem;
-  font-size: .72rem;
+  font-size: .6rem;
   border-radius: 999px;
-  color: var(--course-accent, var(--md-primary-fg-color));
-  background: color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 18%, transparent);
-  border: 1px solid color-mix(in oklab, var(--course-accent, var(--md-primary-fg-color)) 35%, transparent);
-}
-
-/* CTA: compact outline that follows accent */
-.course-card__cta {
-  display: inline-flex !important;
-  align-items: center;
-  gap: .25rem;
-  width: auto;
-  padding: .2rem .5rem;
-  text-align: center;
-  margin: 0;
-  font-size: .82rem;
-  line-height: 1.1;
-  border-radius: 8px !important;
-  background: transparent;
-  border: 1px solid var(--course-accent, var(--md-primary-fg-color));
-  color: var(--course-accent, var(--md-primary-fg-color));
-  box-shadow: none;
-}
-.course-card__cta .cta-icon {
-  width: 0.9rem;
-  height: 0.9rem;
-  display: inline-block;
-}
-.course-card__cta:hover {
-  background: var(--course-accent, var(--md-primary-fg-color));
-  color: var(--md-primary-bg-color);
-  border-color: var(--course-accent, var(--md-primary-fg-color));
-}
-.course-card__cta .twemoji.play {
-  display: block;
-}
-.course-card__cta .twemoji.play svg {
-  width: .9rem;
-  height: .9rem;
+  color: var(--md-primary-fg-color);
+  background: color-mix(in oklab, var(--md-primary-fg-color) 10%, transparent);
+  border: 1px solid color-mix(in oklab, var(--md-primary-fg-color) 25%, transparent);
 }
 
 /* Contact */
 .contact {
   background: color-mix(in oklab, var(--md-default-bg-color) 90%, transparent);
-  padding: 1.25rem;
   border-radius: 10px;
-  margin-top: 2rem;
   border: 1px solid var(--md-default-fg-color--lighter);
+  margin-top: 2rem;
 }
-.contact-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  align-items: start;
-  margin-top: .75rem;
-}
-.about-box {
-  /* removed background and border */
-  background: transparent;
-  border: 0;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.about-media {
+.contact-content {
   margin-top: .5rem;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
-.about-media img {
-  max-width: 280px;
-  width: 100%;
-  border-radius: 10px;
-  box-shadow:
-    0 2px 12px rgba(0,0,0,0.08),
-    0 0 22px color-mix(in oklab, var(--md-primary-fg-color) 22%, transparent);
+.contact-content h3 {
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
-
-/* Right column tweaks */
-.contact-right {
-  border-left: 1px solid var(--md-default-fg-color--lighter);
-  padding-left: 1rem;
-}
-.contact-right .contacts {
-  /* was: justify-content: flex-start; flex-wrap: nowrap; */
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  align-items: center;
-}
-.contact-right .contacts {
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  align-items: center;
+.contact-content p {
+  margin-bottom: 1rem;
 }
 .contacts {
   display: flex;
@@ -629,62 +368,60 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 }
 .contact-card {
   text-align: center;
-  padding: .5rem .75rem;
-  border-radius: 8px;
-  transition: background .18s ease;
-}
-.contact-card:hover {
-  background: color-mix(in oklab, var(--md-primary-fg-color) 10%, transparent);
+  padding: .75rem;
 }
 .contact-card img {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  margin-bottom: .4rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+  margin-bottom: .2rem;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 .contact-card__name { font-weight: 700; }
-.contact-card__mail a { font-size: .57rem; }
+.contact-card__mail a { 
+  font-size: .57rem;
+  color: var(--md-typeset-color);
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.contact-card__mail a:hover {
+  color: var(--md-primary-fg-color);
+}
 
 /* Contact card: social links row */
 .contact-card__links { margin-top: .25rem; }
 .contact-card__social {
   display: inline-flex;
   align-items: center;
-  gap: .35rem;
+  gap: .2rem;
   font-size: .7rem;
-  color: inherit;
+  color: var(--md-typeset-color) !important;
   text-decoration: none;
+  transition: color .2s ease;
+}
+.contact-card__social:hover {
+  color: var(--md-primary-fg-color) !important;
+}
+.contact-card__social svg {
+  fill: currentColor;
 }
 .contact-card__social .twemoji.github svg {
   width: .95rem;
   height: .95rem;
 }
-.contact-card__social.github:hover {
-  color: var(--md-primary-fg-color);
-}
 
-/* Responsive layout for contact split */
+/* Responsive layout for contact */
 @media (max-width: 900px) {
-  .contact-split { grid-template-columns: 1fr; }
-  .about-media img { max-width: 360px; }
-  .contact-right {
-    border-left: 0;
-    padding-left: 0;
-  }
-  .contact-right .contacts {
+  .contacts {
     flex-wrap: wrap;
-    justify-content: center; /* was flex-start */
+    justify-content: center;
   }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .course-card, .course-card__cta { transition: none; }
-  .hero-section::before { animation: none; }
-  .course-card::after { transition: none; }
-  .course-card::before { transition: none; transform: none; }
-  .course-card__icon { transition: none; transform: none; }
+  * { transition: none !important; }
 }
 </style>
 
