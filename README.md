@@ -1,13 +1,9 @@
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?style=flat-square&logo=github&logoColor=white)](https://mciwing.github.io/)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat-square&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-blue?style=flat-square&logo=python&logoColor=white)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square&logo=creativecommons&logoColor=black)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-<div align="center">
-  <h1><b>CODE CAMPUS</b></h1>
-  <img src="docs/assets/icon.PNG" alt="WING Logo" style="width: 250px; height: auto;">
-  <hr>
-</div>
+# Code Campus
 
 This site offers a variety of courses focused on Python, including:
 
@@ -72,3 +68,7 @@ will automatically trigger a reload of the site in your browser.
 ## Contributions
 
 Found a mistake, have an idea or want to report an issue? Contributions in any form are always welcome! 😊
+
+## Attributions
+
+<a target="_blank" href="https://icons8.com/icon/TdbpMMmYMvER/cursor">mouse pointer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

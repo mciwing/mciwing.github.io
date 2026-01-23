@@ -1,4 +1,4 @@
-FROM python:3.12-alpine3.20 AS builder
+FROM python:3.13-alpine AS builder
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /site
@@ -9,7 +9,7 @@ RUN apk add --no-cache git
 # Set-up the environment
 COPY pyproject.toml uv.lock /site/ 
 # Sync without updating the uv.lock file
-RUN uv sync --frozen
+RUN uv sync --locked
 
 # copy the project
 COPY . .

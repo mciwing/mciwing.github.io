@@ -278,14 +278,14 @@ components to capture a higher percentage of the variance.
     
     Use the following quiz question to evaluate your answer.
 
-<?quiz?>
-question: How many components are necessary to explain at least 95% of the variance?
-answer-correct: 146
-answer: 590
-answer: 589
-content:
-Correct! To explain at least 95% of the variance, you need 146 components.
-<?/quiz?>
+<quiz>
+How many components are necessary to explain at least 95% of variance?
+- [x] 146
+- [ ] 590
+- [ ] 589
+
+To explain at least 95% of variance, you need 146 components.
+</quiz>
 
 ### Bonus: PCA & k-means combined
 

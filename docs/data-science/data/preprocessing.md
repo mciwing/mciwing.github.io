@@ -165,17 +165,17 @@ we have to dig deeper.
     model to predict the target variable `y` (subscribed to term deposit or 
     not).
 
-<?quiz?>
-question: How are missing values encoded in this specific data set?
-answer-correct: "unknown"
-answer: -1
-answer: "NA"
-answer: 999
-content:
-<p>Correct, the label "unknown" is used for missing values. Nominal attributes 
-like <u>occupation</u>, <u>marital status</u> and ordinal attributes, for 
-example <u>education</u>, contain "unknown" values.</p>
-<?/quiz?>
+<quiz>
+How are missing values encoded in this specific data set?
+- [x] "unknown"
+- [ ] -1
+- [ ] "NA"
+- [ ] 999
+
+The label `#!python "unknown"` is used for missing values. Have a closer look
+at nominal attributes (e.g., occupation) or ordinal attributes (e.g.,
+education).
+</quiz>
 
 ### Missing values uncovered
 
@@ -645,19 +645,20 @@ Min: 0.0, Max: 1.0
     Answer the following quiz question. Look at the formula again and try 
     to answer the question without executing code.
 
-<?quiz?>
-question: What happens if you call <code>transform(new_data)</code>?
-answer: An error is raised, since the new data has not been fitted.
-answer: The new data is normalized.
-answer-correct: The normalization works, but the range [0, 1] is not preserved.
-content:
-<p>Correct, since the newly added Euribor rates of 0.5 and 5.0, are lower or 
-higher than the previous minimum and maximum respectively, the normalization 
+<quiz>
+What happens if you call `#!python transform(new_data)`?
+- [ ] An error is raised, since the new data has not been fitted.
+- [ ] The new data is normalized.
+- [x] The normalization works, but the range [0, 1] is not preserved.
+
+Since the newly added Euribor rates of 0.5 and 5.0, are lower or
+higher than the previous minimum and maximum respectively, the normalization
 will not preserve the range [0, 1], i.e. resulting in the normalized values:
-<br>
-<code>[[-0.03114187], [1.00692042], [0.43021915]]</code>
-<p>
-<?/quiz?>
+
+```python
+[[-0.03114187], [1.00692042], [0.43021915]]
+```
+</quiz>
 
 #### Z-Score Normalization
 

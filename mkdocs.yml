@@ -4,8 +4,8 @@ site_url: https://code-campus.at
 theme:
   name: material
   custom_dir: overrides
-  logo: assets/favicon.PNG
-  favicon: assets/favicon.PNG
+  logo: assets/icons8-mouse-pointer.svg
+  favicon: assets/icons8-mouse-pointer.svg
   palette:
     - scheme: slate
       primary: custom  # teal
@@ -38,7 +38,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/mciwing
 copyright:
-  © 2024 - 2025 | Manuel Ferdik & Jakob Klotz
+  © 2024 - 2026 | Manuel Ferdik & Jakob Klotz
 nav:
   - Home: index.md
 
@@ -243,7 +243,10 @@ plugins:
         - data-science/algorithms/supervised/regression.md
 
   - include-markdown
-  - mkdocs_quiz
+  - mkdocs_quiz:
+      auto_submit: true
+      disable_after_submit: false
+      show_progress: false
 
 markdown_extensions:
   - attr_list

@@ -107,15 +107,17 @@ couple of things to break down:
 
 Let's read the second file :fontawesome-solid-arrow-right: `bank-social.csv`.
 
-<?quiz?>
-question: Open the file <code>bank-social.csv</code> with your text editor. Which separator is used in the file?
-answer: : (colon)
-answer: None, it is not a valid csv file.
-answer-correct: ; (semicolon)
-answer: , (comma)
-content:
-<p>Exactly, values are separated by a semicolon.</p>
-<?/quiz?>
+<quiz>
+Open the file <code>bank-social.csv</code> with your text editor.
+Which separator is used in the file?
+
+- [ ] : (colon)
+- [ ] None, it is not a valid csv file.
+- [x] ; (semicolon)
+- [ ] , (comma)
+
+Values are separated by a semicolon.
+</quiz>
 
 ???+ question "Read the second file"
     
@@ -193,15 +195,15 @@ data = data.drop_duplicates()
     
     Check for duplicates in `data_social` and remove them if necessary.
 
-<?quiz?>
-question: How many duplicates were present in <code>data_social</code>?
-answer: None
-answer: 3760
-answer: 411
-answer-correct: 376
-content:
-<p><code>data_social</code> had 376 duplicated rows.</p>
-<?/quiz?>
+<quiz>
+How many duplicates are present in `data_social`?
+- [ ] None
+- [ ] 3760
+- [ ] 411
+- [x] 376
+
+`data_social` has 376 duplicated rows.
+</quiz>
 
 ???+ info "A note on `#!python pd.DataFrame.drop_duplicates()`"
         

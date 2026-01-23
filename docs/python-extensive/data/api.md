@@ -30,18 +30,16 @@ browser.
     Observe the response. The structure of the resulting data should already
     look familiar.
 
-<?quiz?>
-question: Which Python type does the output of your request most closely resemble?
-answer: A pandas DataFrame
-answer: A simple list
-answer-correct: A simple dictionary
-content:
-<p>Correct! The server response you got was actually in the form of a 
-<code>JSON</code> file. 
-This is a common format for APIs to return data. Later, we can easily read the 
-<code>JSON</code> with <code>Python</code> and convert it to a dictionary.
-</p>
-<?/quiz?>
+<quiz>
+Which Python type does the output of your request most closely resemble?
+- [ ] A pandas DataFrame
+- [ ] A simple list
+- [x] A simple dictionary
+
+The server response you got, was actually in the form of a `JSON` file. This is
+a common format for APIs to return data. Later, we can easily read the
+`JSON` with `Python` and convert it to a dictionary.
+</quiz>
 
 In this case, you have sent a request to the `/comments` **endpoint** to 
 retrieve some fake data containing comments. 
