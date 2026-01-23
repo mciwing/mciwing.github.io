@@ -6286,7 +6286,7 @@ which are denoted in the app as <span class="arithmatex">\(C_1, C_2, ... , C_N\)
 </div>
 </div>
 </div>
-<h4 id="elbow-method">Elbow method <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></h4>
+<h4 id="elbow-method">Elbow method <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></h4>
 <p>So far we have not discussed the number of clusters <span class="arithmatex">\(K\)</span> in depth. Since the
 algorithm requires the number of clusters as an input, it is crucial to choose 
 <span class="arithmatex">\(K\)</span> wisely.</p>
@@ -6368,7 +6368,7 @@ Spotify dataset.</p>
 <summary>Danger</summary>
 <p>K-means clustering relies on Euclidean distances, which <mark>only make 
 sense for numerical data</mark>.</p>
-<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:" /> Never use k-means for categorical data, even if you encode the 
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" title=":warning:" /> Never use k-means for categorical data, even if you encode the 
 categories as numbers or labels. Distances between categorical values 
 are not meaningful!</p>
 <p>For clustering categorical data, use specialized algorithms like k-modes or
@@ -6417,7 +6417,7 @@ point. In this case, these indices range from <code class="language-python highl
 I.e., the first track belongs to cluster <code class="language-python highlight"><span class="mi">4</span></code>, the second to cluster
 <code class="language-python highlight"><span class="mi">0</span></code>, and so on.</p>
 <p>... but wait, how do we know if <code class="language-python highlight"><span class="mi">5</span></code> is the right number of clusters?
-This is where the elbow method comes into play. <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></p>
+This is where the elbow method comes into play. <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></p>
 <h4 id="elbow-method_1">Elbow method</h4>
 <p>With the attribute <code>inertia_</code>, we can access the distortion measure <span class="arithmatex">\(J\)</span>.
 From the k-means docs:</p>
@@ -6484,7 +6484,7 @@ Now, we have to simply fit the k-means algorithm with <code class="language-pyth
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">cluster_indices</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </span></code></pre></div>
-<h4 id="make-recommendations"><img alt="🎧" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3a7.svg" title=":headphone:" /> Make recommendations</h4>
+<h4 id="make-recommendations"><img alt="🎧" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f3a7.svg" title=":headphone:" /> Make recommendations</h4>
 <div style="text-align: center;">
     <h4>Now to the fun part!</h4>
     <iframe 
@@ -6573,7 +6573,7 @@ recommendation. Try it out!</p>
 <h4 id="are-the-recommendations-good">Are the recommendations good?</h4>
 <p>As you've tried the recommender system a couple of times, you might have
 wondered if the recommendations are actually good?! 
-<img alt="🤔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" title=":thinking_face:" /></p>
+<img alt="🤔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f914.svg" title=":thinking_face:" /></p>
 <p>Simply put, you have to be the judge if we were actually able to cluster 
 similar songs together and build a good recommendation system.</p>
 <p>In this application, it's quite intuitive: If you as a user like the 
