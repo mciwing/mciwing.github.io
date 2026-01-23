@@ -151,6 +151,16 @@
 </div>
 
 <style>
+/* Hide the left sidebar on the home page for desktop, but keep for mobile drawer */
+@media screen and (min-width: 60em) {
+  .md-sidebar--primary {
+    display: none;
+  }
+  .md-content {
+    margin-left: 0;
+  }
+}
+
 /* Layout */
 .page-max-width {
   max-width: 1200px;
