@@ -294,37 +294,15 @@ complex data, speed up algorithms and improve model performance.
 
 ## Recap
 
-In this chapter, we introduced two fundamental concepts in machine learning:
-supervised and unsupervised learning. While supervised learning works with
-^^labeled^^ data to make predictions, unsupervised learning is used with 
-^^unlabeled^^ data to reduce complexity or find clusters.
+This chapter introduced two fundamental concepts in machine learning, 
+supervised and unsupervised learning:
 
-The following chapters will explore specific algorithms from both categories:
+| Concept                   | Data                   | Task                     | Goal                      |
+|---------------------------|------------------------|--------------------------|---------------------------|
+| **Supervised Learning**   | Labeled (\(X\), \(y\)) | Regression               | Predict continuous values |
+|                           |                        | Classification           | Predict categories        |
+| **Unsupervised Learning** | Unlabeled (\(X\))      | Clustering               | Group similar data        |
+|                           |                        | Dimensionality Reduction | Reduce data complexity    |
 
-**Supervised Learning**:
-
-``` mermaid
-graph LR
- A[Supervised Learning] --> B[Regression: *Linear Regression*];
- A --> C[Classification: *Logistic Regression*];
- C --> D[*Decision Tree, Random Forest*];
- B --> D;
-```
-
-- Logistic Regression for classification tasks
-- Linear Regression for predicting continuous values
-- Decision Tree and Random Forest for both regression and classification tasks
-
-**Unsupervised Learning**:
-
-``` mermaid
-graph LR
- A[Unsupervised Learning] --> B[Clustering: *k-means*];
- A --> C[Dimensionality Reduction: *Principal Component Analysis*];
-```
-
-- k-means for clustering similar data points
-- Principal Component Analysis (PCA) for dimensionality reduction
-
-We will cover the theory and illustrate each algorithm with a practical 
-example.
+The following chapters will cover algorithms for each task with theory and 
+practical examples.
