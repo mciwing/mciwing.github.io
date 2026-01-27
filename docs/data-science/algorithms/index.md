@@ -13,7 +13,7 @@ such as modelling data to make predictions for unseen data, or clustering data
 to find patterns.
 
 The consecutive chapters will introduce you to common algorithms, like 
-linear and logistic regression, decision trees, and k-means clustering. We 
+linear and logistic regression, decision trees and k-means clustering. We 
 will explore the theory as well as practical examples. First, we establish two 
 main concepts in machine learning: supervised and unsupervised learning.
 
@@ -36,7 +36,7 @@ The algorithm learns the relationship between inputs (\(X\)) and outputs
 
 ### Example
 
-Assume we want to predict apartment prices (\(y\)) based on their size plus the
+Assume we want to predict apartment prices (\(y\)) based on apartment size and
 number of rooms (\(X\)):
 
 ```python hl_lines="17 18"
@@ -107,10 +107,10 @@ cat, dolphin, tiger, elephant, etc.).
 #### Regression
 
 Regression problems, on the other hand, predict continuous numerical values.
-Instead of categorizing inputs into classes, regression models estimate a
+Instead of categorizing input into classes, regression models estimate a
 numerical value along a continuous spectrum. These models work by finding
 patterns in the data to estimate a mathematical function that best describes
-the relationship between inputs and the target variable.
+the relationship between input features and the target variable.
 
 For instance the example, predicting the price of an apartment based on 
 its size and the number of rooms is a regression task.
@@ -156,14 +156,14 @@ its size and the number of rooms is a regression task.
 
 Contrary, unsupervised learning deals with ^^unlabeled^^ data to discover 
 hidden patterns and structures. Unlike supervised learning, there is no 
-"supervisor" providing correct answers - the algorithm must find
+"supervisor" providing correct answers. The algorithm tries to find
 meaningful patterns on its own.
 
 In unsupervised learning, we solely have:
 
 - Input features (\(X\)): The characteristics or attributes of the data
 
-The algorithm's task is to find groupings, reduce complexity, or reveal
+The algorithm's task is to find groupings, reduce complexity or reveal
 underlying structures in the data.
 
 ### Example
@@ -189,9 +189,9 @@ segments = model.fit_predict(X)
 print(segments)
 ```
 
-1. Setting the `random_state` parameter ensures that you get the same results 
-    when executing the code. Reproducibility is discussed more in-depth in 
-    upcoming chapters.
+1. Setting the `random_state` parameter ensures that you always get the same 
+    results when executing the code repeatedly. Reproducibility is discussed 
+    more in-depth in upcoming chapters.
 
 ```title=">>> Output"
 [1 0 1 0 1]
@@ -217,7 +217,7 @@ colored by the cluster assignments:
 </div>
 
 The algorithm will group similar customers together without being told what
-these groups should be - it discovers the patterns from the attributes itself.
+these groups should be, it discovers the patterns based on attributes.
 
 ---
 
@@ -246,7 +246,7 @@ example.
 
 Dimensionality reduction techniques aim to reduce the number of input features
 while preserving the most important information. This can help to simplify
-complex data, speed up algorithms, and improve model performance.
+complex data, speed up algorithms and improve model performance.
 
 ---
 
@@ -267,7 +267,7 @@ complex data, speed up algorithms, and improve model performance.
 -   __Dimensionality Reduction__
 
     ---
-    Reducing the complexity of data:
+    Reducing data complexity:
   
     - Feature extraction from high-dimensional data
     - Visualization of complex datasets
@@ -289,8 +289,8 @@ complex data, speed up algorithms, and improve model performance.
 
     No matter if you're dealing with supervised or unsupervised learning,
     domain knowledge is crucial. Understanding the data and the problem you're
-    trying to solve will help you select the right algorithms, features, 
-    and interpret the results.
+    trying to solve will help you select the right algorithms, features and 
+    interpret the results.
 
 ## Recap
 
