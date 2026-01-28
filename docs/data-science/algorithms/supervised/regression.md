@@ -238,3 +238,89 @@ where:
 - \(\hat{y}\) is the predicted house price
 - \(w_0\) is the intercept (baseline house price)
 - \(w_1\) is the coefficient for the input variable *MedInc* (\(x_1\))
+
+Start by importing the linear regression model from the package.
+
+```python
+from sklearn.linear_model import LinearRegression
+
+# create an instance
+model = LinearRegression()
+```
+
+At this point, the model is not trained, however that can be easily done
+using the `fit()` method. Remember, to use the training set 
+
+```python
+model.fit(X=X_train[["MedInc"]], y=y_train)
+```
+
+#### Intercept and coefficient
+
+After training, we can inspect the model's learned parameters. The intercept 
+and coefficient that define the best-fit line:
+
+```python
+print(f"Intercept (w₀): {round(model.intercept_, 4)}")
+print(f"Coefficient (w₁): {round(model.coef_[0], 4)}")
+```
+
+```title=">>> Output"
+Intercept (w₀): 0.4446
+Coefficient (w₁): 0.4193
+```
+
+These values tell us that our linear model is:
+
+\[
+\hat{y} = 0.4446 + 0.4193 \cdot x_1
+\]
+
+**Interpretation:**
+
+- **Intercept (0.4446)**: The baseline house value when *MedInc* is zero 
+    (approximately $44,460)
+- **Coefficient (0.4193)**: For each unit increase in *MedInc*, the house value
+    increases by ~ $41,930
+
+### Predictions
+
+Now that the model is trained, we can predict house prices for new observations. 
+Let's predict the price \(\hat{y}\) for a house in an area where 
+*MedInc* is `#!python 3.5`:
+
+```python
+import pandas as pd
+
+new_house = pd.DataFrame({"MedInc": [3.5]})
+new_price = model.predict(new_house)
+print(round(new_price, 4))
+```
+
+```title=">>> Output"
+1.9123
+```
+
+The model predicts a house value of approximately **$191,230**.
+
+#### Manual validation
+
+We can verify this prediction using our linear equation. Substituting \(x_1 = 3.5\):
+
+\[
+\begin{align}
+\hat{y} &= 0.4446 + 0.4193 \cdot 3.5 \\
+&= 1.9122
+\end{align}
+\]
+
+This matches our model's prediction!
+
+???+ question "Practice: Make your own prediction"
+
+    Calculate the predicted house price for an area where *MedInc* is 
+    `#!python 5.0`.
+    
+    1. Use `#!python model.predict()` to get the prediction.
+    2. Validate it by hand using the linear equation.
+    3. Do the results match?
