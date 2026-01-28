@@ -12,6 +12,53 @@ linear regression and how to evaluate model performance (with the coefficient
 of determination \( R^2 \)), These are concepts that will accompany us 
 throughout the next few chapters.
 
+???+ info
+
+    This chapter adapts and expands upon:
+
+    ^^scikit-learn: *Ordinary Least Squares and Ridge Regression*[^1]^^
+
+    ^^scikit-learn: *Linear Models*[^2]^^ 
+
+    [^1]:
+        [https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html)
+    [^2]:
+        [https://scikit-learn.org/stable/modules/linear_model.html](https://scikit-learn.org/stable/modules/linear_model.html)
+
+## Theory
+
+Linear regression, also known as Ordinary Least Squares (OLS), models the 
+relationship between a target variable \(y\) and one or more input variables 
+\(X\). The goal is to find the best linear function that predicts \(\hat{y}\) 
+from \(X\).
+
+???+ defi "Linear combination"
+
+    \[
+    \hat{y} = w_0 + w_1 \cdot x_1 + w_2 \cdot x_2 + ... + w_n \cdot x_n
+    \]
+
+    where:
+    
+    - \(w_0\) is the **intercept** (bias term)
+    - \(w_1, w_2, ..., w_n\) are the **coefficients** (weights)
+    - \(x_1, x_2, ..., x_n\) are the input features
+
+The term "Ordinary Least Squares" refers to the optimization objective, 
+finding the weights \(w_0, w_1, ..., w_n\) that minimize the sum of squared 
+differences between the actual values \(y\) and predicted values \(\hat{y}\).
+
+???+ defi "Cost function"
+
+    \[
+    \text{min} \quad \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+    \]
+
+    where \(n\) is the number of observations.
+
+This minimization ensures that our model makes the smallest possible errors 
+on average when predicting the training data. Let's look at an example.
+
 ## Example
 
 `scikit-learn` provides a couple of data sets for download. To fit a linear 
