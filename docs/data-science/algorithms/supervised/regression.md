@@ -46,7 +46,8 @@ from \(X\).
 
 The term "Ordinary Least Squares" refers to the optimization objective, 
 finding the weights \(w_0, w_1, ..., w_n\) that minimize the sum of squared 
-differences between the actual values \(y\) and predicted values \(\hat{y}\).
+differences called residuals between the actual values \(y\) and predicted 
+values \(\hat{y}\).
 
 ???+ defi "Cost function"
 
@@ -159,12 +160,11 @@ Let's break the code snippet down:
 After splitting, we put our test data (`X_test` and `y_test`) aside and only
 use it at the very end.
 
-### Modelling
+### Intuition
 
-With data preparation done, we start modelling. For the first OLS model, we
-use a single input variable \(X\) as it allows us to easily visualize and 
-interpret the results. The choice falls on the median income at the house 
-location, referred to as *MedInc*. 
+For the first OLS model, we use a single input variable \(X\) as it allows us 
+to easily visualize and interpret the results. The choice falls on the median 
+income at the house location, referred to as *MedInc*. 
 Visualize the target and input variable in a scatter plot:
 
 ```python
@@ -180,13 +180,61 @@ ax.set(
 plt.show()
 ```
 
-<figure markdown="span">
-    <img 
-        src="/assets/data-science/algorithms/regression/scatter-plot-dark.png#only-dark"
-        width=70%
-    >
-    <img 
-        src="/assets/data-science/algorithms/regression/scatter-plot-light.png#only-light"
-        width=70%
-    >
-</figure>
+<div class="grid cards" markdown>
+
+-   __Scatter Plot__ 
+
+    --- 
+    
+    Looking at the scatter plot, you might intuitively imagine drawing a straight 
+    line through the points that best captures the trend. This intuition is 
+    exactly what OLS does mathematically, it finds the optimal line that minimizes 
+    the distance between the line and all data points. :point_down:
+
+-   <figure markdown="span">
+        <img 
+            src="/assets/data-science/algorithms/regression/scatter-dark.png#only-dark"
+        >
+        <img 
+            src="/assets/data-science/algorithms/regression/scatter-light.png#only-light"
+        >
+    </figure>
+
+-   <figure markdown="span">
+        <img 
+            src="/assets/data-science/algorithms/regression/regression-dark.png#only-dark"
+        >
+        <img 
+            src="/assets/data-science/algorithms/regression/regression-light.png#only-light"
+        >
+    </figure>
+
+-   __Best-Fit Line__
+
+    ---
+
+    The OLS model finds the line that minimizes the sum of squared residuals,
+    the vertical distances between each point and the line. Recall from the 
+    theory section that this is exactly what the cost function measures:
+    
+    \[
+    \text{min} \quad \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+    \]
+
+</div>
+
+### Train the model
+
+Our next step is to train an OLS model to automatically find this "best-fit" 
+line. Remember, since we have one input variable, the linear combination 
+simplifies to:
+
+\[
+\hat{y} = w_0 + w_1 \cdot x_1
+\]
+
+where:
+
+- \(\hat{y}\) is the predicted house price
+- \(w_0\) is the intercept (baseline house price)
+- \(w_1\) is the coefficient for the input variable *MedInc* (\(x_1\))
