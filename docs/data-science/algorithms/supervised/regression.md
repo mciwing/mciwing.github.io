@@ -93,7 +93,7 @@ Below figure shows all houses in California colored by their median value
 
 <figure markdown="span">
     <img 
-        src="/assets/data-science/algorithms/regression/california.png"
+        src="/assets/data-science/algorithms/regression/california-housing.png"
         width=75% style="border-radius: 15px;"
     >
     <figcaption>
