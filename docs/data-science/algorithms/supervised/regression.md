@@ -7,7 +7,7 @@ between variables, allowing us to both explain existing data and make
 predictions with new observations.
 
 This chapter introduces linear regression through a practical example, starting
-with a simple housing prices model. We'll explore the mathematics behind 
+with a simple housing prices model. We'll explore the theory behind 
 linear regression and how to evaluate model performance (with the coefficient 
 of determination \( R^2 \)), These are concepts that will accompany us 
 throughout the next few chapters.
@@ -20,10 +20,14 @@ throughout the next few chapters.
 
     ^^scikit-learn: *Linear Models*[^2]^^ 
 
+    ^^scikit-learn: *Metrics and scoring: quantifying the quality of predictions*[^3]^^
+
     [^1]:
         [https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html)
     [^2]:
         [https://scikit-learn.org/stable/modules/linear_model.html](https://scikit-learn.org/stable/modules/linear_model.html)
+    [^3]:
+        [https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination](https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination)
 
 ## Theory
 
@@ -83,7 +87,7 @@ Below figure shows all houses in California colored by their median value
 <figure markdown="span">
     <img 
         src="/assets/data-science/algorithms/regression/california.png"
-        width=75%
+        width=75% style="border-radius: 15px;"
     >
     <figcaption>
         California median house values (in $100,000): Higher values are 
@@ -146,10 +150,11 @@ Let's break the code snippet down:
 
 1. `train_test_split()` takes the complete data set (`X` and `y`) as input
 2. Splits off 20% for testing (`#!python test_size=0.2`)
-3. Uses a fixed seed (`#!python random_state=42`) which ensures the same
-    outcome every time the code snippet is executed.
-4. Randomly shuffles the data (`#!python shuffle=True`) to remove any inherent
+3. Randomly shuffles the data (`#!python shuffle=True`) to remove any inherent
     ordering
+4. Set a seed (`#!python random_state=42`) which ensures the same
+    outcome every time the code snippet is executed. Since the shuffle 
+    operation is stochastic, we aim for reproducibility.
 
 ???+ info "Why shuffle?"
     
@@ -157,8 +162,8 @@ Let's break the code snippet down:
     location). Shuffling ensures that both training and test sets are 
     representative of the entire data distribution.
 
-After splitting, we put our test data (`X_test` and `y_test`) aside and only
-use it at the very end.
+After splitting, we put our test data (`X_test` and `y_test`) aside and use it 
+at the very end to measure the model's performance.
 
 ### Intuition
 
@@ -278,8 +283,8 @@ These values tell us that our linear model is:
 
 **Interpretation:**
 
-- **Intercept (0.4446)**: The baseline house value when *MedInc* is zero 
-    (approximately $44,460)
+- **Intercept (0.4446)**: The baseline house value (when *MedInc* is zero) 
+    ~ $44,460
 - **Coefficient (0.4193)**: For each unit increase in *MedInc*, the house value
     increases by ~ $41,930
 
@@ -324,3 +329,66 @@ This matches our model's prediction!
     1. Use `#!python model.predict()` to get the prediction.
     2. Validate it by hand using the linear equation.
     3. Do the results match?
+
+### Evaluate the model
+
+Now we can make predictions, but we don't know how accurate they actually are. 
+We need to quantify the model's performance to determine if it generalizes 
+well to new, unseen data.
+
+Remember we set aside our test set earlier? This is where we use it. By 
+evaluating on data the model hasn't seen during training, we get an honest 
+assessment of its predictive power.
+
+To measure the model's performance, we'll use the coefficient of determination.
+
+### Coefficient of determination
+
+???+ info
+
+    This section focuses on the definition implemented by `scikit-learn`.
+
+The coefficient of determination, known as the \(R^2\) score, measures the 
+proportion of variance in the target variable that is explained by the model.
+
+???+ defi "\(R^2\) Score"
+
+    \[
+    R^2(y, \hat{y}) = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+    \]
+
+    where:
+
+    - \(y_i\) are the actual values
+    - \(\hat{y}_i\) are the predicted values
+    - \(\bar{y}\) is the mean of actual values
+
+**Interpretation:**
+
+- \(R^2 = 1\): Perfect predictions (model explains all variance)
+- \(R^2 = 0\): Model performs no better than simply predicting the mean
+- \(R^2 < 0\): Model performs worse than predicting the mean
+
+Let's calculate the \(R^2\) score for our model on the test set:
+
+```python
+from sklearn.metrics import r2_score
+
+# make predictions on test set
+y_pred = model.predict(X_test[["MedInc"]])
+
+# calculate R² score
+r2 = r2_score(y_true=y_test, y_pred=y_pred)
+print(f"R² Score: {round(r2, 4)}")
+```
+
+``` title=">>> Output"
+R² Score: 0.4589
+```
+
+???+ tip "Understanding \(R^2\)"
+
+    An \(R^2\) score of 0.4589 means the model explains 45.89% of the variance 
+    in house prices using only median income. While this is informative, it's
+    not great. It suggests that other factors (location, house size, etc.) 
+    significantly influence house prices.
