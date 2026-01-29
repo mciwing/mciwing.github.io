@@ -33,7 +33,8 @@ After we have already learned how to train a YOLO model locally, we will now use
         <iframe width="560" height="315" src="https://www.youtube.com/embed/r0RspiLG260?start=465" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
-## Setting up Google Colab
+## Google Colab
+### Setup
 
 Navigate to [Google Colab](https://colab.research.google.com/) and sign in (right upper corner) with your Google account. Create a new notebook by clicking **New notebook**.
 
@@ -104,109 +105,56 @@ The last setup step is to install the YOLO library. There are two ways to do thi
 
 ---
 
-## Preparing the files
+### Preparing the files
 
-Before training, you need to upload your dataset and the configuration file to Colab. There are several approaches:
+Before training, you need to upload your dataset and the configuration file to Colab. There are multiple options available to do this, like mounting Google Drive (especially for larger datasets), or downloading from an URL link. We take a closer look on the easiest option: to directly upload the files to the Colab session.
 
-xxxxxxxxxxxxxxx
-xxxxxxxxxxxxx
+On the left side of colab you see the files icon :material-folder-outline:. By clicking on it, something like a file explorer will open. We can now upload the files by simply dragging and dropping the files into this area. In our case, we want to upload the `annotations` folder and the `config.yaml` file. For both we need to make small changes compared to the local training.
 
+Since the upload only allows files, the `annotations` folder can not be uploaded directly. Therefore we need to create a zip file (here called `annotated.zip`) of the folder and upload this file instead.
+The upload can take a few minutes. The progress is shown in the bottom of the file explorer.
 
-xxxxxxxxxxxxxxxx
+<figure markdown="span"> ![Colab](../../assets/yolo/colab4.png){width=60% }</figure>
 
-
-### Option A: Google Drive (Recommended)
-
-The most convenient method is to upload your dataset to Google Drive and mount it in Colab.
-
-**Step 1: Upload to Google Drive**
-
-Upload your entire `annotations` folder (containing `images` and `labels` subfolders) to your Google Drive.
-
-```plaintext
-📁 My Drive/
-└── 📁 yolo_training/
-    └── 📁 annotations/
-        ├── 📁 images/
-        |   ├── 📁 train/
-        |   └── 📁 val/
-        └── 📁 labels/
-            ├── 📁 train/
-            └── 📁 val/
-```
-
-**Step 2: Mount Google Drive in Colab**
+In order to unzip the file, we need to run the following code in a new code cell in colab:
 
 ```python
-from google.colab import drive
-drive.mount('/content/drive')
+# Unzip images to a custom data folder
+!unzip -q /content/annotated.zip -d /content/dataset
 ```
 
-A popup will ask you to authorize access. After mounting, your files are accessible at `/content/drive/MyDrive/`.
-
-### Option B: Direct Upload (Small Datasets)
-
-For small datasets, you can upload directly to the Colab session:
-
-```python
-from google.colab import files
-uploaded = files.upload()  # Opens file picker
-```
+After the unzipping, the `annotations` folder should be available in the file explorer.
 
 ???+ warning "Session Storage"
     Files uploaded directly to Colab are **temporary** and will be deleted when the session ends. Use Google Drive for persistent storage.
 
-### Option C: Download from URL
 
-If your dataset is hosted online (e.g., GitHub, cloud storage):
+The second file we need to upload is the `config.yaml` file. We already created this file in the [training chapter](training.md#configuration-file). We need to make small changes to the path to the dataset.
 
-```python
-!wget https://example.com/your-dataset.zip
-!unzip your-dataset.zip -d /content/dataset
-```
-
----
-
-## Training in Colab
-
-### Install Ultralytics
-
-First, install the YOLO library:
-
-```python
-!pip install ultralytics -q
-```
-
-The `-q` flag suppresses verbose output.
-
-### Create Configuration File
-
-Create the `config.yaml` file directly in Colab. The paths need to point to your mounted Google Drive location:
-
-```python
-config_content = """
+```yaml hl_lines="2"
 # Data
-path: /content/drive/MyDrive/yolo_training/annotations
-train: images/train
-val: images/val
+path: '/content/dataset' # path to your project folder
+train: images/train # train images (relative to 'path')
+val: images/val # val images (relative to 'path')
+#test: # test images (optional) (relative to 'path')
 
-nc: 2
+nc: 2 # number of classes
 
 # Classes
 names:
-  0: 10euro
+  0: 10euro # Name of the Object
   1: 5euro
-"""
-
-with open('/content/config.yaml', 'w') as f:
-    f.write(config_content)
 ```
 
-### Start Training
+After uploading both things - the annotations and the config file - we are ready to start training.
+
+---
+
+### Training in Colab
 
 Now you can train your model exactly as you would locally:
 
-```python
+```python hl_lines="10"
 from ultralytics import YOLO
 
 # Load a pre-trained model
@@ -215,158 +163,46 @@ model = YOLO('yolo11n.pt')
 # Train the model
 results = model.train(
     data='/content/config.yaml',
-    epochs=50,
-    imgsz=640,
-    batch=16,
-    device=0  # Use GPU
+    epochs=10,
+    device=0  # Explicitly tells YOLO to use the GPU
 )
 ```
 
-???+ tip "Colab Training Settings"
-    - **batch size**: Colab's T4 GPU has ~15GB memory. You can often use `batch=32` or higher
-    - **device=0**: Explicitly tells YOLO to use the GPU
-    - **epochs**: With GPU acceleration, you can afford to train for more epochs
+???+ info "Time Consumption"
+    Some self performed tests to train the model for 10 epochs on ~300 images showed the following time consumption: 
 
-### Monitor Training Progress
+    - locally on a CPU (in this case an Intel Core i9-12900): ~8.5 minutes.
+    - locally on a GPU (in this case a NVIDIA GeForce RTX 3060): ~1.5 minutes.
+    - in Colab on a Tesla T4 GPU: ~1.5 minutes.
 
-Training progress is displayed directly in the notebook output. You can also view the generated plots:
+    What we can see here is that the performance of the training depends massively on the hardware. If you are not in possession of a GPU, it is a good idea to use Colab to train your model.
+
+
+### Working with the results
+
+After the training is finished, we can work with the results just as we did locally. In the colab file explorer you can see the `runs` folder with the same results as explained in the [training chapter](training.md#training-results).
+Everything - including the model weights - can be downloaded by right clicking on the file and selecting "Download".
+
+How to download all files? You can use the following code in a new code cell in colab:
 
 ```python
-from IPython.display import Image, display
+import os
 
-# Display training results
-display(Image(filename='/content/runs/detect/train/results.png'))
+os.system('zip -r runs.zip runs/detect/trainX')
 ```
 
----
+This will create a zip file of the `runs/detect/trainX` folder which you can then download by right clicking on the file and selecting "Download".
 
-## Saving Your Trained Model
 
-After training completes, you need to save your model before the Colab session expires.
-
-### Copy to Google Drive
-
-```python
-import shutil
-
-# Copy best model to Google Drive
-shutil.copy(
-    '/content/runs/detect/train/weights/best.pt',
-    '/content/drive/MyDrive/yolo_training/best.pt'
-)
-
-# Copy last model as backup
-shutil.copy(
-    '/content/runs/detect/train/weights/last.pt',
-    '/content/drive/MyDrive/yolo_training/last.pt'
-)
-
-print("Models saved to Google Drive!")
-```
-
-### Download to Local Machine
-
-Alternatively, download the model directly to your computer:
-
-```python
-from google.colab import files
-files.download('/content/runs/detect/train/weights/best.pt')
-```
+Now you are all set! You can download you model and try to start the [inference process](inference.md).
 
 ---
 
-## Complete Colab Notebook
 
-Here is a complete notebook template you can use:
+???+ success "🎉 Congratulations"
+    You have now trained your own YOLO model on Google Colab. If you to not have a GPU, this is a really good way to speed up the training process.
 
-```python
-# Cell 1: Setup
-from google.colab import drive
-drive.mount('/content/drive')
-
-!pip install ultralytics -q
-
-# Cell 2: Configuration
-config_content = """
-path: /content/drive/MyDrive/yolo_training/annotations
-train: images/train
-val: images/val
-nc: 2
-names:
-  0: 10euro
-  1: 5euro
-"""
-
-with open('/content/config.yaml', 'w') as f:
-    f.write(config_content)
-
-# Cell 3: Training
-from ultralytics import YOLO
-
-model = YOLO('yolo11n.pt')
-results = model.train(
-    data='/content/config.yaml',
-    epochs=50,
-    device=0
-)
-
-# Cell 4: Save Model
-import shutil
-shutil.copy(
-    '/content/runs/detect/train/weights/best.pt',
-    '/content/drive/MyDrive/yolo_training/best.pt'
-)
-print("Training complete! Model saved to Google Drive.")
-```
-
----
-
-## Tips for Colab Training
-
-???+ tip "Prevent Session Timeout"
-    Free Colab sessions disconnect after ~90 minutes of inactivity. Keep the browser tab active during training. For longer runs, consider [Colab Pro](https://colab.research.google.com/signup).
-
-???+ tip "Check GPU Allocation"
-    Sometimes Colab assigns a slower GPU or no GPU at all due to high demand. Always verify GPU availability before starting long training runs.
-
-???+ tip "Use Checkpoints"
-    If training might exceed session limits, save intermediate checkpoints to Google Drive:
-    ```python
-    model.train(data='config.yaml', epochs=50, save_period=10)  # Save every 10 epochs
-    ```
-
-???+ tip "Resume Training"
-    If your session disconnects, you can resume training from the last checkpoint:
-    ```python
-    model = YOLO('/content/drive/MyDrive/yolo_training/last.pt')
-    model.train(data='/content/config.yaml', epochs=50, resume=True)
-    ```
-
----
-
-## Alternative Cloud Platforms
-
-Google Colab is not the only option. Here are some alternatives:
-
-| Platform | Free Tier | GPU Access | Session Limit |
-|:---------|:----------|:-----------|:--------------|
-| [Google Colab](https://colab.research.google.com/) | Yes | T4/V100 | ~12 hours |
-| [Kaggle Notebooks](https://www.kaggle.com/code) | Yes | P100/T4 | 30 hours/week |
-| [Lightning AI](https://lightning.ai/) | Yes | T4 | Limited |
-| [Paperspace Gradient](https://www.paperspace.com/) | Limited | Various | Varies |
-
-Kaggle is a particularly good alternative with generous GPU quotas and a large community for machine learning.
-
----
-
-## Summary
-
-Cloud-based training with Google Colab offers a practical solution when local hardware is limited. The key advantages are:
-
-- **Free GPU access** for faster training
-- **No setup required** - pre-configured environment
-- **Accessible from anywhere** with just a browser
-
-For our Euro note detection project, Colab enables training that would otherwise be impractical on a CPU-only laptop. The trained model can then be downloaded and used locally for inference.
-
-After completing the training (either locally or in Colab), proceed to the [Inference chapter](./inference.md) to test your model on real images and video streams.
+    <div style="text-align: center; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+    <div class="tenor-gif-embed" data-postid="12090663477161380777" data-share-method="host" data-aspect-ratio="1" data-width="50%"><a href="https://tenor.com/view/going-fast-fast-riding-fast-riding-fast-bike-gif-12090663477161380777">Going Fast Riding Fast GIF</a>from <a href="https://tenor.com/search/going+fast-gifs">Going Fast GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <figcaption style="margin-top: 0.5rem;"><i>"Hold on tight!"</i></figcaption>
+    </div>

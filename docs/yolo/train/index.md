@@ -25,10 +25,6 @@ Let's get started! 🚀
 
 In addition to the theoretical foundation, we will look at the following chapters using a practical example.  This will enable us to better understand and apply the theoretical concepts.
 
-???+ warning "Training Hardware"
-    Training a YOLO model requires a lot of computational resources. The best way to train a computer vision model is to use a GPU. Since a lot of you might work on a laptop without a GPU you can try to train the model on a CPU, but it will take much longer to train the model.
-    If your hardware is limited, it is a good idea to use a free online service like [Google Colab](https://colab.research.google.com/) or [Kaggle](https://www.kaggle.com/) to train your model. In the [bonus chapter](colab.md) you will find a guide on how to use Colab to train your model.
-
 
 ## Prerequisites
 
