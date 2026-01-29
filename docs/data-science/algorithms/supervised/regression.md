@@ -342,7 +342,7 @@ assessment of its predictive power.
 
 To measure the model's performance, we'll use the coefficient of determination.
 
-### Coefficient of determination
+#### Coefficient of determination
 
 ???+ info
 
@@ -392,3 +392,31 @@ R² Score: 0.4589
     in house prices using only median income. While this is informative, it's
     not great. It suggests that other factors (location, house size, etc.) 
     significantly influence house prices.
+
+???+ question "Find a better model"
+
+    Can you improve the \(R^2\) score? Fit new models and experiment with the 
+    following:
+
+    **Model variations:**
+    
+    - Use different individual input variables (e.g., *HouseAge*, *AveRooms*, 
+        *AveBedrms*)
+    - Use a combination of multiple input variables
+    - Compare single-variable vs. multi-variable models
+    
+    **Data preparation:**
+    
+    - Adjust the train-test split ratio
+    - Remember to use `#!python random_state` for reproducibility
+    
+    **Analysis:**
+    
+    - Calculate and compare \(R^2\) scores for each model
+    - Inspect the intercept and coefficients for multi-variable models
+    - Make predictions with your best-performing model
+    - Manually verify one prediction using the linear equation
+    
+    Which combination gives you the highest \(R^2\) score? What does this 
+    tell you about which features are most important for predicting house 
+    prices?
