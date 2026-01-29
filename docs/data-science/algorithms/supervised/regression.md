@@ -1,16 +1,21 @@
 # Regression
 
-In machine learning, we often face the challenge of making predictions based on
-patterns in our data. Linear regression, a supervised method addresses 
-this by providing a straightforward approach to modeling the relationship 
-between variables, allowing us to both explain existing data and make 
-predictions with new observations.
+In machine learning, we often want to predict continuous numerical values, like 
+house prices, temperatures or sales figures. Linear regression also knows as 
+Ordinary Least Squares (OLS) provides a foundational approach to this problem 
+by modeling the relationship between input variables and a target variable 
+using a straight line.
 
-This chapter introduces linear regression through a practical example, starting
-with a simple housing prices model. We'll explore the theory behind 
-linear regression and how to evaluate model performance (with the coefficient 
-of determination \( R^2 \)), These are concepts that will accompany us 
-throughout the next few chapters.
+This chapter introduces linear regression through a hands-on example.
+You'll learn to:
+
+- Build and train a linear regression model
+- Interpret model parameters (intercept and coefficients)
+- Make predictions with new data
+- Evaluate model performance using the coefficient of determination (\(R^2\))
+- Get familiar with the `scikit-learn` workflow to train and evaluate models
+
+---
 
 ???+ info
 
@@ -32,9 +37,9 @@ throughout the next few chapters.
 ## Theory
 
 Linear regression, also known as Ordinary Least Squares (OLS), models the 
-relationship between a target variable \(y\) and one or more input variables 
-\(X\). The goal is to find the best linear function that predicts \(\hat{y}\) 
-from \(X\).
+relationship between a continuous target variable \(y\) and one or more input 
+variables \(X\). The goal is to find the best linear function that predicts 
+\(\hat{y}\) from \(X\).
 
 ???+ defi "Linear combination"
 
