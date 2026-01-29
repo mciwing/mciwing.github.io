@@ -1,4 +1,4 @@
-# Regression
+# Linear Regression
 
 In machine learning, we often want to predict continuous numerical values, like 
 house prices, temperatures or sales figures. Linear regression also knows as 
@@ -425,3 +425,40 @@ R² Score: 0.4589
     Which combination gives you the highest \(R^2\) score? What does this 
     tell you about which features are most important for predicting house 
     prices?
+
+## Detour: Model workflow
+
+The workflow you practiced here forms the foundation for all supervised 
+learning algorithms in `scikit-learn`:
+
+```python
+# 1. Split your data
+X_train, X_test, y_train, y_test = train_test_split(X, y, ...)
+
+# 2. Import and instantiate a model
+model = SomeModel()
+
+# 3. Train the model
+model.fit(X_train, y_train)
+
+# 4. Make predictions
+y_pred = model.predict(X_test)
+
+# 5. Evaluate performance
+score = model.score(y_test, y_pred)
+```
+
+This consistent pattern applies to all upcoming chapters, whether you're 
+building regression or classification models.
+
+## Recap
+
+In this chapter, you learned the fundamentals of linear regression through a 
+practical example. The key takeaways:
+
+- **Linear regression** models the relationship between input variables and a 
+    target variable using a linear combination. Find the best-fit line by
+    minimizing the sum of squared residuals.
+- **\(R^2\) score** quantifies how well the model explains variance in the 
+    target variable
+- **`scikit-learn` workflow** allows to easily train and evaluate model
