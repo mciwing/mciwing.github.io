@@ -2,7 +2,7 @@
 
 ## Logistic Regression
 
-While linear regression helps us predict continuous values, many real-world
+While linear regression helps us predict continuous values, other real-world
 problems require predicting categorical outcomes: Will a customer subscribe to
 a term deposit? Is an email spam? Is a transaction fraudulent? 
 Logistic regression addresses these binary classification problems by extending
@@ -190,9 +190,9 @@ tumors.
 
 ???+ tip
 
-    You might be wondering why the data was divided into `X`, containing the 
-    attributes and `y` holding the corresponding labels. Having attributes and 
-    labels separated, makes life a bit easier when training and testing the 
+    Just like in the previous chapter, the data is divided into `X`, containing 
+    the attributes and `y` holding the corresponding labels. Having attributes 
+    and labels separated, makes life a bit easier when training and testing the 
     model.
 
 ???+ question "Number of features"
@@ -211,13 +211,9 @@ How many features (attributes) does the breast cancer dataset have?
 
 ### Split the data
 
-Before training our model, we want to split our data into two parts:
-
-- Training set: Used to teach our model (in our example we use 80%)
-- Test set: Used to evaluate how well our model learned (the remaining 20%)
-
-This is like splitting a textbook into two parts: one for studying and one for
-taking a quiz. We learn from one part and test our knowledge with the other.
+Before training our model, we want to split our data into two parts. Just like
+in the previous chapter, we perform a 80/20 split, i.e., we use 80% to train 
+the model and evaluate it on the remaining 20%.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -227,16 +223,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 ```
 
-Let's break the code snippet down:
+???+ tip
 
-1. The whole data set (`X` and `y`) is given to the `train_test_split()` 
-   function.
-2. We specify that 20% should be used for testing (`#!python test_size=0.2`).
-3. For reproducibility, a seed is set with `#!python random_state=42` 
-   which ensures the same outcome every time the code snippet is executed.
-
-After splitting, we put our test data (`X_test` and `y_test`) aside and only
-use it at the very end to evaluate our model's performance.
+    If you need a refresh on the parameters used in `train_test_split()` 
+    revisit, the [Split the data](regression.md#split-the-data) section from 
+    the previous chapter.
 
 ### Train the model
 
