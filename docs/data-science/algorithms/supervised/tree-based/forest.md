@@ -270,7 +270,7 @@ plt.show()
 ```
 
 <figure markdown="span">
-    ![Individual trees visualized](../../../../assets/data-science/algorithms/individual-trees.png)
+    ![Individual trees visualized](../../../../assets/data-science/algorithms/tree-based/individual-trees.png)
     <figcaption>All four individual trees of this particular forest.
     </figcaption>
 </figure>

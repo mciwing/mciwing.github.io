@@ -1,4 +1,6 @@
-# Linear Regression
+# Regression
+
+## Linear Regression
 
 In machine learning, we often want to predict continuous numerical values, like 
 house prices, temperatures or sales figures. Linear regression also knows as 

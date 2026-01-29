@@ -62,7 +62,7 @@ Here is a sneak peek of selected topics we cover in this course:
     What are decision trees? How do they work?
 
 -   <figure markdown="span">
-        <img src="/assets/data-science/algorithms/tree.png">
+        <img src="/assets/data-science/algorithms/tree-based/tree.png">
     </figure>
 
 -   <figure markdown="span">

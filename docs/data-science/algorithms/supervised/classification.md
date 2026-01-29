@@ -72,7 +72,7 @@ uses the sigmoid (or logistic) function to transform \(z\) into a probability
     range (0,1).
 
 <div style="text-align: center;">
-    <iframe src="/assets/data-science/algorithms/sigmoid.html" width="600" height="450">
+    <iframe src="/assets/data-science/algorithms/classification/sigmoid.html" width="600" height="450">
     </iframe>
     <figcaption>
         An illustration of the sigmoid function often referred to as 
