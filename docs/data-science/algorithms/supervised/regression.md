@@ -305,8 +305,10 @@ Let's predict the price \(\hat{y}\) for a house in an area where
 import pandas as pd
 
 new_house = pd.DataFrame({"MedInc": [3.5]})
+# predict returns a numpy array
 new_price = model.predict(new_house)
-print(round(new_price, 4))
+# access first and only element
+print(round(new_price[0], 4))
 ```
 
 ```title=">>> Output"
