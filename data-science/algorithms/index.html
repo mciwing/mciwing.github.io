@@ -5978,7 +5978,7 @@ computer, will help to calculate an answer to a problem.</p>
 such as modelling data to make predictions for unseen data, or clustering data 
 to find patterns.</p>
 <p>The consecutive chapters will introduce you to common algorithms, like 
-linear and logistic regression, decision trees, and k-means clustering. We 
+linear and logistic regression, decision trees and k-means clustering. We 
 will explore the theory as well as practical examples. First, we establish two 
 main concepts in machine learning: supervised and unsupervised learning.</p>
 <h2 id="supervised-learning">Supervised Learning</h2>
@@ -5996,7 +5996,7 @@ training.</p>
 <p>The algorithm learns the relationship between inputs (<span class="arithmatex">\(X\)</span>) and outputs 
 (<span class="arithmatex">\(y\)</span>), creating a model that can then (hopefully!) generalize to new data.</p>
 <h3 id="example">Example</h3>
-<p>Assume we want to predict apartment prices (<span class="arithmatex">\(y\)</span>) based on their size plus the
+<p>Assume we want to predict apartment prices (<span class="arithmatex">\(y\)</span>) based on apartment size and
 number of rooms (<span class="arithmatex">\(X\)</span>):</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -6050,10 +6050,10 @@ cat, dolphin, tiger, elephant, etc.).</p>
 <hr />
 <h4 id="regression">Regression</h4>
 <p>Regression problems, on the other hand, predict continuous numerical values.
-Instead of categorizing inputs into classes, regression models estimate a
+Instead of categorizing input into classes, regression models estimate a
 numerical value along a continuous spectrum. These models work by finding
 patterns in the data to estimate a mathematical function that best describes
-the relationship between inputs and the target variable.</p>
+the relationship between input features and the target variable.</p>
 <p>For instance the example, predicting the price of an apartment based on 
 its size and the number of rooms is a regression task.</p>
 <hr />
@@ -6096,13 +6096,13 @@ power for the target variable.</p>
 <h2 id="unsupervised-learning">Unsupervised Learning</h2>
 <p>Contrary, unsupervised learning deals with <ins>unlabeled</ins> data to discover 
 hidden patterns and structures. Unlike supervised learning, there is no 
-"supervisor" providing correct answers - the algorithm must find
+"supervisor" providing correct answers. The algorithm tries to find
 meaningful patterns on its own.</p>
 <p>In unsupervised learning, we solely have:</p>
 <ul>
 <li>Input features (<span class="arithmatex">\(X\)</span>): The characteristics or attributes of the data</li>
 </ul>
-<p>The algorithm's task is to find groupings, reduce complexity, or reveal
+<p>The algorithm's task is to find groupings, reduce complexity or reveal
 underlying structures in the data.</p>
 <h3 id="example_1">Example</h3>
 <p>Let's say we want to segment customers based on their shopping behavior:</p>
@@ -6124,9 +6124,9 @@ underlying structures in the data.</p>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span>
 </span></code></pre></div>
 <ol>
-<li>Setting the <code>random_state</code> parameter ensures that you get the same results 
-    when executing the code. Reproducibility is discussed more in-depth in 
-    upcoming chapters.</li>
+<li>Setting the <code>random_state</code> parameter ensures that you always get the same 
+    results when executing the code repeatedly. Reproducibility is discussed 
+    more in-depth in upcoming chapters.</li>
 </ol>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[1 0 1 0 1]
 </span></code></pre></div>
@@ -6148,7 +6148,7 @@ colored by the cluster assignments:</p>
 </div>
 
 <p>The algorithm will group similar customers together without being told what
-these groups should be - it discovers the patterns from the attributes itself.</p>
+these groups should be, it discovers the patterns based on attributes.</p>
 <hr />
 <h3 id="clustering-dimensionality-reduction">Clustering &amp; Dimensionality Reduction</h3>
 <p>Unsupervised learning can be further divided into two main categories:</p>
@@ -6165,7 +6165,7 @@ example.</p>
 <h4 id="dimensionality-reduction">Dimensionality Reduction</h4>
 <p>Dimensionality reduction techniques aim to reduce the number of input features
 while preserving the most important information. This can help to simplify
-complex data, speed up algorithms, and improve model performance.</p>
+complex data, speed up algorithms and improve model performance.</p>
 <hr />
 <h3 id="examples_1">Examples</h3>
 <div class="grid cards">
@@ -6184,7 +6184,7 @@ complex data, speed up algorithms, and improve model performance.</p>
 <li>
 <p><strong>Dimensionality Reduction</strong></p>
 <hr />
-<p>Reducing the complexity of data:</p>
+<p>Reducing data complexity:</p>
 <ul>
 <li>Feature extraction from high-dimensional data</li>
 <li>Visualization of complex datasets</li>
@@ -6206,36 +6206,50 @@ meaningful the discovered patterns are for the specific application.</p>
 <summary>Domain knowledge</summary>
 <p>No matter if you're dealing with supervised or unsupervised learning,
 domain knowledge is crucial. Understanding the data and the problem you're
-trying to solve will help you select the right algorithms, features, 
-and interpret the results.</p>
+trying to solve will help you select the right algorithms, features and 
+interpret the results.</p>
 </details>
 <h2 id="recap">Recap</h2>
-<p>In this chapter, we introduced two fundamental concepts in machine learning:
-supervised and unsupervised learning. While supervised learning works with
-<ins>labeled</ins> data to make predictions, unsupervised learning is used with 
-<ins>unlabeled</ins> data to reduce complexity or find clusters.</p>
-<p>The following chapters will explore specific algorithms from both categories:</p>
-<p><strong>Supervised Learning</strong>:</p>
-<pre class="mermaid"><code>graph LR
- A[Supervised Learning] --&gt; B[Regression: *Linear Regression*];
- A --&gt; C[Classification: *Logistic Regression*];
- C --&gt; D[*Decision Tree, Random Forest*];
- B --&gt; D;</code></pre>
-<ul>
-<li>Logistic Regression for classification tasks</li>
-<li>Linear Regression for predicting continuous values</li>
-<li>Decision Tree and Random Forest for both regression and classification tasks</li>
-</ul>
-<p><strong>Unsupervised Learning</strong>:</p>
-<pre class="mermaid"><code>graph LR
- A[Unsupervised Learning] --&gt; B[Clustering: *k-means*];
- A --&gt; C[Dimensionality Reduction: *Principal Component Analysis*];</code></pre>
-<ul>
-<li>k-means for clustering similar data points</li>
-<li>Principal Component Analysis (PCA) for dimensionality reduction</li>
-</ul>
-<p>We will cover the theory and illustrate each algorithm with a practical 
-example.</p><style type="text/css">.quiz {
+<p>This chapter introduced two fundamental concepts in machine learning, 
+supervised and unsupervised learning:</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Data</th>
+<th>Task</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supervised Learning</strong></td>
+<td>Labeled (<span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(y\)</span>)</td>
+<td>Regression</td>
+<td>Predict continuous values</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Classification</td>
+<td>Predict categories</td>
+</tr>
+<tr>
+<td><strong>Unsupervised Learning</strong></td>
+<td>Unlabeled (<span class="arithmatex">\(X\)</span>)</td>
+<td>Clustering</td>
+<td>Group similar data</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Dimensionality Reduction</td>
+<td>Reduce data complexity</td>
+</tr>
+</tbody>
+</table>
+<p>The following chapters will cover algorithms for each task with theory and 
+practical examples.</p><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -7496,7 +7510,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 1, 2025 13:39:38 UTC"><span class="timeago" datetime="2025-04-01T13:39:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 1, 2025 13:39:38 UTC">2025-04-01</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="January 27, 2026 14:49:34 UTC"><span class="timeago" datetime="2026-01-27T14:49:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 27, 2026 14:49:34 UTC">2026-01-27</span>
   </span>
 
     
