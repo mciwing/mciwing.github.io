@@ -44,7 +44,7 @@ To get a better understanding of the terms node, branch and leaf, consider
 the illustration of a (rotated) tree.
 
 <figure markdown="span">
-    ![Decision tree illustration](../../../../assets/data-science/algorithms/tree.png)
+    ![Decision tree illustration](../../../../assets/data-science/algorithms/tree-based/tree.png)
     <figcaption>The same decision tree with literal illustrations of 
         node, branch and leaf.
     </figcaption>
@@ -364,7 +364,7 @@ plt.show()  # use matplotlib to show the plot
 ```
 
 <figure markdown="span">
-    ![A huge tree](../../../../assets/data-science/algorithms/monstrous-tree.png)
+    ![A huge tree](../../../../assets/data-science/algorithms/tree-based/monstrous-tree.png)
     <figcaption>Yes, that's the actual tree. :sweat_smile: 
     </figcaption>
 </figure>
@@ -436,7 +436,7 @@ plt.show()
     So don't shy away from reading the documentation!
 
 <figure markdown="span">
-    ![A small tree](../../../../assets/data-science/algorithms/small-tree.png)
+    ![A small tree](../../../../assets/data-science/algorithms/tree-based/small-tree.png)
     </figcaption>
         The tree is in a stark contrast to the one we had before; it is way 
         smaller.
