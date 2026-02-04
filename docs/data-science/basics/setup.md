@@ -144,9 +144,9 @@ uv sync
 
 ???+ tip "Virtual Environments?"
 
-    If you need a refresh on virtual environments, what they do, and their 
+    If you need a refresh on virtual environments, what they do and their 
     purpose, read through the corresponding section in the Python course: 
-    [link](../../python-extensive/packages/#virtual-environments)
+    [link](../../python-extensive/packages.md#virtual-environments)
 
 #### What happens during `uv sync`?
 
@@ -258,3 +258,91 @@ Again, you can check both `pyproject.toml` and `uv.lock` which are automatically
         ```
     3. Determine necessary packages to get this script running and install them with `uv`.
     4. Lastly, the script with `uv`.
+
+
+## Python Scripts or Jupyter Notebooks?
+
+For this course, you can work with Python scripts (`.py` files) and/or 
+Jupyter Notebooks (`.ipynb` files). Both are supported in VS Code and each has
+its strengths.
+
+<div class="grid cards" markdown>
+
+-   :fontawesome-brands-python:{ .lg .middle } __Python Scripts__
+
+    ---
+
+    :fontawesome-regular-thumbs-up: Advantages
+
+    - Better for production code and reusability
+    - Easier version control and collaboration
+    - Runs faster without cell-by-cell overhead
+    - Cleaner debugging with standard tools
+
+    ---
+
+    :fontawesome-regular-thumbs-down: Disadvantages
+
+    - Less interactive during exploration
+    - Need to rerun entire script for changes
+    - Harder to visualize intermediate results
+
+-   :simple-jupyter:{ .lg .middle } __Jupyter Notebooks__
+
+    ---
+
+    :fontawesome-regular-thumbs-up: Advantages
+
+    - Great for exploration and prototyping
+    - Inline visualizations
+    - Combines documentation and code
+    - Easier to share findings with non-programmers
+
+    ---
+
+    :fontawesome-regular-thumbs-down: Disadvantages
+
+    - Can become messy with non-linear execution
+    - Harder to maintain as projects grow
+    - More challenging for version control
+    - Not ideal for reusability
+
+</div>
+
+???+ tip "Our recommendation"
+
+    Many data scientists use both: notebooks for exploration, scripts for 
+    production. Simply experiment with both. For quick prototyping lean towards
+    a :simple-jupyter: Jupyter Notebook. For more refined code switch to 
+    :fontawesome-brands-python: Python scripts. 
+
+---
+
+## Wrap-Up
+
+You've successfully set up your development environment! Throughout this 
+course, you'll create multiple projects using the workflow covered in 
+sections 1-4. Don't worry about memorizing every step—just refer back to this 
+page when needed.
+
+For quick reference, here's a cheat sheet:
+
+???+ note "Cheat Sheet - Project Setup"
+
+    1. Create a new folder for your project
+    2. Open the folder in VS Code
+    3. In the terminal, run:
+       ```bash
+       uv init --vcs none
+       uv sync
+       ```
+    4. Install packages as needed:
+       ```bash
+       uv add <package-name>
+       ```
+    5. Run your code:
+       ```bash
+       uv run <script-name>.py
+       ```
+    
+    **Need help?** Run `uv --help` for more commands and options.
