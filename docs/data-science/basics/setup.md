@@ -5,34 +5,55 @@ of steps to get ready, no prerequisites needed.
 
 ## Visual Studio Code
 
-First, install a code editor. We urge you to instal Visual Studio Code (VS Code)
-a free and open-source editor developed by Microsoft 
+First, install a code editor. We urge you to instal Visual Studio Code 
+(VS Code) a free and open-source editor developed by Microsoft 
 :fontawesome-brands-windows:.
 
-If you don't have Visual Studio Code already installed on your machine visit
-the IDE chapter from the Python Course [here](../../python-extensive/ide.md)
+If you don't have Visual Studio Code already installed, download it from their 
+Website: <https://code.visualstudio.com/>.
+
+### Profile
+
+To quickstart your VS Code setup, download our profile that includes essential 
+plugins and convenient settings tailored for data science work.
+
+<div class="center-button" markdown>
+[VS Code Profile :fontawesome-solid-download:](../../assets/data-science/vscode-profile/Data-Science.code-profile){ .md-button }
+</div>
+
+#### Included Extensions
+
+The profile comes with the following essential extensions:
+
+- **Python** - Core Python language support
+- **Python Debugger** - Debug your Python code
+- **Jupyter** - Work with Jupyter Notebooks directly in VS Code
+
+Additionally, stylistic plugins are included for a more pleasant coding 
+experience and auto-save is enabled by default so you never lose your work. 
+:rocket:
 
 ## `uv`
 
 From the Python course you should already be familiar with the package manager
-`pip`. That background will help you quickly understand `uv`, a modern tool that 
-not only replaces `pip` for package management but also handles Python 
+`pip`. That background will help you quickly understand `uv`, a modern tool 
+that not only replaces `pip` for package management but also handles Python 
 installations.
 
-**Why the switch?** While `pip` remains widely used and important to understand,
-this course aims to prepare you for modern real-world projects. `uv` has 
-become a popular, state-of-the-art tool in modern Python development and 
-learning it now will give you a competitive advantage.
+**Why the switch?** While `pip` remains widely used and important to 
+understand, this course aims to prepare you for modern real-world projects. 
+`uv` has become a popular, state-of-the-art tool in modern Python development 
+and learning it now will give you a competitive advantage.
 
 ???+ tip "No prior Python install necessary"
 
-    A key benefit of uv is that you don’t need to install Python manually.
+    A key benefit of `uv` is that you don’t need to install Python manually.
 
 ### Install `uv`
 
 === ":fontawesome-brands-windows: Windows"
 
-    Open Windows Powershell. Visit the uv documentation under under 
+    Open Windows Powershell. Visit the `uv` documentation under under 
     "Standalone installer" [link](https://docs.astral.sh/uv/getting-started/installation/#__tabbed_1_2).
     Make sure the Windows tab is selected.
     
@@ -42,7 +63,7 @@ learning it now will give you a competitive advantage.
 
 === ":fontawesome-brands-apple: MacOS / :fontawesome-brands-linux: Linux"
 
-    On macOS or Linux, open Terminal. Visit the uv documentation under 
+    On macOS or Linux, open Terminal. Visit the `uv` documentation under 
     "Standalone installer", [link](https://docs.astral.sh/uv/getting-started/installation/). 
     Make sure the macOS or Linux tab is selected.
     
@@ -105,7 +126,7 @@ uv init --vcs none  # (1)!
     By default `--vcs git` is set, which initializes a git repository. Since 
     git is not within the scope of this project, we set `--vcs` to none.
 
-This initializes the project. uv creates a few files in your folder. 
+This initializes the project. `uv` creates a few files in your folder. 
 Your workspace should look like this:
 
 <figure markdown="span">
@@ -232,7 +253,8 @@ Let's remove the package with the `remove` command:
 uv remove pandas
 ```
 
-Again, you can check both `pyproject.toml` and `uv.lock` which are automatically updated accordingly.
+Again, you can check both `pyproject.toml` and `uv.lock` which are 
+automatically updated accordingly.
 
 ???+ question "Get a script running"
 
@@ -256,7 +278,8 @@ Again, you can check both `pyproject.toml` and `uv.lock` which are automatically
         ax.set(aspect=1)
         plt.show()
         ```
-    3. Determine necessary packages to get this script running and install them with `uv`.
+    3. Determine necessary packages to get this script running and install 
+        them with `uv`.
     4. Lastly, the script with `uv`.
 
 
