@@ -5,8 +5,9 @@ of steps to get ready, no prerequisites needed.
 
 ## Visual Studio Code
 
-First, install a code editor. We urge you to instal Visual Studio Code a free 
-and open-source editor developed by Microsoft :fontawesome-brands-windows:.
+First, install a code editor. We urge you to instal Visual Studio Code (VS Code)
+a free and open-source editor developed by Microsoft 
+:fontawesome-brands-windows:.
 
 If you don't have Visual Studio Code already installed on your machine visit
 the IDE chapter from the Python Course [here](../../python-extensive/ide.md)
@@ -64,3 +65,53 @@ Windows).
 
     The following steps are OS-agnostic; they are the same for Windows, macOS 
     and Linux.
+
+### 2. Create a project
+
+Now, set up a new project.
+
+???+ info
+
+    A project is a folder that contains all scripts, configuration and data 
+    files that belong together. Everything for the project lives in that 
+    folder.
+
+Create a new folder named `data-science` in an easy-to-find location you’ll 
+use throughout this course.
+
+Open VS Code. Go to File → Open Folder…, select the `data-science` folder. 
+VS Code will open a new window.
+
+???+ tip
+
+    For more on navigating VS Code, see the Python course chapter: 
+    [link](../../python-extensive/ide.md)
+
+### 3. Initialize the project
+
+In VS Code, open the integrated terminal (via Terminal → New Terminal).
+
+```bash
+uv init --vcs none
+```
+
+This initializes the project. uv creates a few files in your folder. 
+Your workspace should look like this:
+
+<figure markdown="span">
+    <img 
+        src="/assets/data-science/basics/setup/uv-init.png" width=75% 
+        style="border-radius: 15px;"
+    >
+</figure>
+
+#### Explore the new files
+
+Click through these new files:
+
+- `.python-version` Contains the Python version used by your virtual 
+    environment.
+- `main.py` An entry script to verify the setup (we’ll revisit this later).
+- `pyproject.toml` Project metadata such as name and version.
+- `README.md` An empty README for a project description; you can ignore it for 
+    now.
