@@ -28,7 +28,7 @@ learning it now will give you a competitive advantage.
 
     A key benefit of uv is that you don’t need to install Python manually.
 
-### 1. Install `uv`
+### Install `uv`
 
 === ":fontawesome-brands-windows: Windows"
 
@@ -72,9 +72,9 @@ Windows).
     The following steps are OS-agnostic; they are the same for Windows, macOS 
     and Linux.
 
-### 2. Create a project
+### 1. Create a project
 
-Now, set up a new project.
+Now, we will cover a typical workflow to set up and initialize a new project.
 
 ???+ info
 
@@ -93,7 +93,7 @@ VS Code will open a new window.
     For more on navigating VS Code, see the Python course chapter: 
     [link](../../python-extensive/ide.md)
 
-### 3. Initialize the project
+### 2. Initialize the project
 
 In VS Code, open the integrated terminal (via Terminal → New Terminal).
 
@@ -126,7 +126,7 @@ Click through these new files:
 - `README.md` An empty README for a project description; you can ignore it for 
     now.
 
-### 4. Virtual Environment
+### 3. Virtual Environment
 
 With an initialized project we can easily set up a virtual environment. To do 
 so simply run:
@@ -175,6 +175,86 @@ during initialization:
 uv run main.py
 ```
 
+If you have a similar output, you've successfully created your first project. 
+:tada:
+
 ```title=">>> Output"
 Hello from data-science!
 ```
+
+### 4. Packages
+
+Since, we will be working with a couple of different packages, we have to 
+discuss commands for installing and removing packages.
+
+To install packages use the `add` command:
+
+```bash
+uv add <package-name>
+```
+
+replace `<package-name>` for example with `pandas`:
+
+```bash
+uv add pandas
+```
+
+After a successful installation, take some time to open the `pyproject.toml` 
+file. Under dependencies you should find the `pandas` package.
+
+```toml title="pyproject.toml" hl_lines="7-9" linenums="1"
+[project]
+name = "data-science"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "pandas>=3.0.0",
+]
+```
+
+The content of `uv.lock` was changed as well, the file contains more info on 
+the installed packages such as `pandas` and its dependencies as well 
+(i.e., `numpy`, `python-dateutil`, `six` and `tzdata`).
+
+???+ tip "Share a project"
+
+    If you share your project, be sure to include the files `.python-version`,
+    `pyproject.toml` and `uv.lock`. These allow for a recreation of your 
+    virtual environment.
+
+---
+
+Let's remove the package with the `remove` command:
+
+```bash
+uv remove pandas
+```
+
+Again, you can check both `pyproject.toml` and `uv.lock` which are automatically updated accordingly.
+
+???+ question "Get a script running"
+
+    1. Create a new script called `plot.py`
+    2. Paste following example (taken from [matplotlib docs](https://matplotlib.org/stable/gallery/lines_bars_and_markers/curve_error_band.html)) within your script:
+
+        ```python title="plot.py" linenums="1"
+        import matplotlib.pyplot as plt
+        import numpy as np
+
+        from matplotlib.patches import PathPatch
+        from matplotlib.path import Path
+
+        N = 400
+        t = np.linspace(0, 2 * np.pi, N)
+        r = 0.5 + np.cos(t)
+        x, y = r * np.cos(t), r * np.sin(t)
+
+        fig, ax = plt.subplots()
+        ax.plot(x, y, "k")
+        ax.set(aspect=1)
+        plt.show()
+        ```
+    3. Determine necessary packages to get this script running and install them with `uv`.
+    4. Lastly, the script with `uv`.
