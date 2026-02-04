@@ -98,8 +98,12 @@ VS Code will open a new window.
 In VS Code, open the integrated terminal (via Terminal → New Terminal).
 
 ```bash
-uv init --vcs none
+uv init --vcs none  # (1)!
 ```
+
+1. With the `--vcs` flag a **v**ersion **c**ontrol **s**ystem can be specified.
+    By default `--vcs git` is set, which initializes a git repository. Since 
+    git is not within the scope of this project, we set `--vcs` to none.
 
 This initializes the project. uv creates a few files in your folder. 
 Your workspace should look like this:
@@ -121,3 +125,56 @@ Click through these new files:
 - `pyproject.toml` Project metadata such as name and version.
 - `README.md` An empty README for a project description; you can ignore it for 
     now.
+
+### 4. Virtual Environment
+
+With an initialized project we can easily set up a virtual environment. To do 
+so simply run:
+
+```bash
+uv sync
+```
+
+<figure markdown="span">
+    <img 
+        src="/assets/data-science/basics/setup/uv-sync.png" width=75% 
+        style="border-radius: 15px;"
+    >
+</figure>
+
+???+ tip "Virtual Environments?"
+
+    If you need a refresh on virtual environments, what they do, and their 
+    purpose, read through the corresponding section in the Python course: 
+    [link](../../python-extensive/packages/#virtual-environments)
+
+#### What happens during `uv sync`?
+
+When you run `uv sync`, three things happen automatically:
+
+1. **Python installation**: `uv` checks the `.python-version` file and installs 
+   the specified Python version if it's not already available on your machine.
+
+2. **Virtual environment**: A `.venv` folder is created at the root of your 
+   project, containing an isolated Python environment for your project.
+
+3. **Dependency locking**: A `uv.lock` file is generated. This file pins all 
+   package versions used in your project, ensuring anyone else can faithfully 
+   recreate the exact same environment.
+
+???+ danger "No manual edits"
+
+    Since the `uv.lock` is auto-generated, never ever manually edit this file!
+
+#### Test your setup
+
+Let's verify everything works by running the `main.py` script that was created 
+during initialization:
+
+```bash
+uv run main.py
+```
+
+```title=">>> Output"
+Hello from data-science!
+```
