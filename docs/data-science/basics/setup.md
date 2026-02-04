@@ -14,9 +14,15 @@ the IDE chapter from the Python Course [here](../../python-extensive/ide.md)
 
 ## `uv`
 
-One of this course’s aims is to give you as much insight into real-world 
-projects as possible. We use uv, a popular, state-of-the-art tool to manage 
-both your Python installations and virtual environments. 
+From the Python course you should already be familiar with the package manager
+`pip`. That background will help you quickly understand `uv`, a modern tool that 
+not only replaces `pip` for package management but also handles Python 
+installations.
+
+**Why the switch?** While `pip` remains widely used and important to understand,
+this course aims to prepare you for modern real-world projects. `uv` has 
+become a popular, state-of-the-art tool in modern Python development and 
+learning it now will give you a competitive advantage.
 
 ???+ tip "No prior Python install necessary"
 
