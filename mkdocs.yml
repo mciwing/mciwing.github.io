@@ -150,11 +150,11 @@ nav:
   - Data Science:
       - Home: data-science/index.md
 
-      - Data Basics:
-        - Definition of Key Terms: data-science/data-basics/terms.md
-        - Data vs. Big Data: data-science/data-basics/data.md
-        - Data Basics: data-science/data-basics/basics.md
-
+      - Basics:
+        - Introduction: data-science/basics/intro.md
+        - Setup: data-science/basics/setup.md
+        - Data Basics: data-science/basics/data.md
+      
       - Data Preparation & Preprocessing:
         - Data Preparation: data-science/data/preparation.md
         - Data Preprocessing: data-science/data/preprocessing.md
