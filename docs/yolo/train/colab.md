@@ -192,7 +192,7 @@ How to download all files? You can use the following code in a new code cell in 
 This will create a zip file of the `runs/detect/trainX` folder which you can then download by right clicking on the file and selecting "Download".
 
 
-Now you are all set! You can download you model and try to start the [inference process](inference.md).
+Now you are all set! You can download your model and try to start the [inference process](inference.md).
 
 ---
 
