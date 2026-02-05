@@ -153,9 +153,9 @@ nav:
       - Basics:
         - Introduction: data-science/basics/intro.md
         - Setup: data-science/basics/setup.md
-        - Data Basics: data-science/basics/data.md
       
       - Data Preparation & Preprocessing:
+        - Data Basics: data-science/data/basics.md
         - Data Preparation: data-science/data/preparation.md
         - Data Preprocessing: data-science/data/preprocessing.md
 

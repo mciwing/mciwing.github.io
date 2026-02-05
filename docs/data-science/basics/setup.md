@@ -10,7 +10,7 @@ First, install a code editor. We urge you to instal Visual Studio Code
 :fontawesome-brands-windows:.
 
 If you don't have Visual Studio Code already installed, download it from their 
-Website: <https://code.visualstudio.com/>.
+website: <https://code.visualstudio.com/>.
 
 ### Profile
 
