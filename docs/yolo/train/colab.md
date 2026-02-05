@@ -185,10 +185,8 @@ Everything - including the model weights - can be downloaded by right clicking o
 
 How to download all files? You can use the following code in a new code cell in Colab:
 
-```python
-import os
-
-os.system('zip -r runs.zip runs/detect/trainX')
+```bash
+!zip -r runs.zip runs/detect/trainX
 ```
 
 This will create a zip file of the `runs/detect/trainX` folder which you can then download by right clicking on the file and selecting "Download".
