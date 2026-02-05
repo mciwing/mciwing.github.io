@@ -197,6 +197,7 @@ nav:
       - yolo/train/annotation.md
       - yolo/train/training.md
       - yolo/train/inference.md
+      - 'Bonus: Training with Colab': yolo/train/colab.md
   
   - MicroPython:
     - micropython/index.md

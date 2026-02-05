@@ -25,6 +25,7 @@ Let's get started! 🚀
 
 In addition to the theoretical foundation, we will look at the following chapters using a practical example.  This will enable us to better understand and apply the theoretical concepts.
 
+
 ## Prerequisites
 
 ### 0. :trophy: What's our goal?
