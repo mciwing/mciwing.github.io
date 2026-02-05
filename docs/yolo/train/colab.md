@@ -85,7 +85,7 @@ The last setup step is to install the YOLO library. There are two ways to do thi
 
 === "Terminal"
 
-    To install the YOLO library, you can use the terminal (left button of the page) by running the following command:
+    To install the YOLO library, you can use the terminal (left bottom of the page) by running the following command:
     
     ```bash
     pip install ultralytics
