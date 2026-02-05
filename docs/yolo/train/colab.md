@@ -198,7 +198,7 @@ Now you are all set! You can download your model and try to start the [inference
 
 
 ???+ success "🎉 Congratulations"
-    You have now trained your own YOLO model on Google Colab. If you to not have a GPU, this is a really good way to speed up the training process.
+    You have now trained your own YOLO model on Google Colab. If you do not have a GPU, this is a really good way to speed up the training process.
 
     <div style="text-align: center; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
     <div class="tenor-gif-embed" data-postid="12090663477161380777" data-share-method="host" data-aspect-ratio="1" data-width="50%"><a href="https://tenor.com/view/going-fast-fast-riding-fast-riding-fast-bike-gif-12090663477161380777">Going Fast Riding Fast GIF</a>from <a href="https://tenor.com/search/going+fast-gifs">Going Fast GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
