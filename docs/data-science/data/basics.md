@@ -184,8 +184,10 @@ max      6300.000000
 Name: body_mass_g, dtype: float64
 ```
 
-The mean body mass is roughly 4200g with a minium and maximum at 2700g and 
-6300g respectively. The standard deviation is 802g.
+The mean body mass is roughly 4200g (about 4.2kg or 9.3 pounds), with values 
+ranging from 2700g to 6300g. This variation is quite substantial, the heaviest 
+penguins are more than twice the weight of the lightest ones! The standard 
+deviation of 802g indicates considerable variability in penguin sizes.
 
 ???+ info "Missing values"
 
@@ -248,3 +250,74 @@ plt.show()
         width=75% style="border-radius: 10px;"
     >
 </figure>
+
+For numerical data, other suitable plots include histograms 
+(`#!python kind="hist"`) for showing distribution patterns, or scatter plots 
+(`#!python kind="scatter"`) for revealing relationships between two numerical
+variables (like `#!python "flipper_length_mm"` vs. `#!python "body_mass_g"`).
+
+#### Categorical
+
+For categorical data like penguin `#!python "sex"`, a bar chart or pie chart 
+displays the frequency of each category.
+
+```python
+# first, we need the counts of each category (male, female)
+counts = penguins["sex"].value_counts()
+counts.plot(kind="pie")
+plt.show()
+```
+
+<figure markdown="span">
+    <img 
+        src="/assets/data-science/data/basics/penguins-sex-pie.svg"
+        width=75% style="border-radius: 10px;"
+    >
+</figure>
+
+The visualization reveals that male and female penguins are nearly equally 
+distributed in the dataset.
+
+???+ tip "Choosing the right plot for categorical data"
+
+    While pie charts work well for showing proportions, bar charts are often 
+    preferred when comparing more than 3-4 categories or when precise comparison 
+    of values is important. Try `#!python kind="bar"` to see the difference!
+
+#### Exercises
+
+???+ question "Exercise 1: Explore bill length"
+
+    1. Calculate basic statistics for `#!python "bill_length_mm"`
+    2. Create a histogram to visualize its distribution
+
+    What's the median bill length? Do you notice any patterns?
+
+???+ question "Exercise 2: Island distribution"
+
+    1. Count how many penguins were observed on each island
+    2. Create a bar chart showing the distribution
+
+    Which island has the most penguin observations?
+
+## Recap
+
+In this chapter, we established the foundation for understanding data:
+
+- Tabular data organizes information in rows (observations) and columns
+(attributes/features)
+- Numerical data represents measurable quantities (continuous or discrete)
+- Categorical data represents groups or categories (nominal or ordinal)
+- Different data types require different visualization approaches
+
+## Further Reading
+
+Expand your knowledge with these related topics:
+
+- **[Plotting Guide](../../python-extensive/plotting.md)**:
+    Learn to configure plots, add styling, titles and customize visualizations
+- **[Distributions](../../statistics/univariate/Frequency.md)**:
+    Dive deeper into statistical distributions and advanced visualization techniques
+- **[Pandas Documentation](https://pandas.pydata.org/docs/user_guide/index.html)**:
+    Comprehensive guide to data manipulation with pandas
+
