@@ -169,7 +169,7 @@ results = model.train(
 ```
 
 ???+ info "Time Consumption"
-    Some self performed tests to train the model for 10 epochs on ~300 images showed the following time consumption: 
+    Some self-performed tests to train the model for 10 epochs on ~300 images showed the following time consumption: 
 
     - locally on a CPU (in this case an Intel Core i9-12900): ~8.5 minutes.
     - locally on a GPU (in this case a NVIDIA GeForce RTX 3060): ~1.5 minutes.
