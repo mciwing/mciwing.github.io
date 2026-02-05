@@ -31,6 +31,19 @@ Let's explore them to get a better understanding of this course's content.
 
 ---
 
+## What to Expect
+
+Before diving into examples and workflows, let's set realistic expectations.
+
+Data science is fundamentally about **understanding and insight**, not 
+perfection. You won't find models that are 100% accurate and that's okay - it's
+not the goal. Instead, data science helps us:
+
+- **Uncover patterns** in complex data that humans can't easily spot
+- **Make informed decisions** based on evidence rather than intuition alone
+- **Quantify uncertainty** by understanding where and why models make mistakes
+- **Provide actionable insights** that drive business or research value
+
 ## Examples
 
 Chances are you've already used services built by data scientists today:
