@@ -110,3 +110,47 @@ PhD).
 
 Now that we understand different data types, let's see them in action with 
 real data.
+
+## Penguins
+
+We'll use the Palmer Penguins dataset, which contains measurements of three 
+penguin species observed on islands in the Palmer Archipelago, Antarctica.
+
+???+ info
+
+    The Palmer Penguins dataset was collected and made available by 
+    Dr. Kristen Gorman and the Palmer Station, Antarctica LTER.[^1] It's 
+    become a popular dataset for education.
+
+    [^1]:
+        Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 
+        R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.
+
+<div style="text-align: center">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33687766.0689931!2d-46.851737808150574!3d-43.213299436835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc78dd6dc38c572b%3A0xe609367aeed33087!2sPalmer-Archipel!5e0!3m2!1sde!2sat!4v1770285077736!5m2!1sde!2sat" 
+    width="600" height="450" style="border:0;border-radius:15px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+### Loading the Data
+
+Let's load the penguins dataset and explore its structure.
+
+```python
+import seaborn as sns
+
+penguins = sns.load_dataset("penguins")
+print(penguins.head())
+```
+
+<quiz>
+How many rows and columns has the `penguin` dataset?
+
+- [ ] 4 rows and 7 columns
+- [ ] 5 rows and 7 columns
+- [ ] 5 rows and 8 columns
+- [x] 344 rows and 7 columns
+
+The data set has 344 rows (penguins) and 7 columns (features). Use `data.shape`
+to quickly get the datasets dimensions.
+</quiz>
