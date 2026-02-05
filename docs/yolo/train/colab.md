@@ -180,10 +180,10 @@ results = model.train(
 
 ### Working with the results
 
-After the training is finished, we can work with the results just as we did locally. In the colab file explorer you can see the `runs` folder with the same results as explained in the [training chapter](training.md#training-results).
+After the training is finished, we can work with the results just as we did locally. In the Colab file explorer you can see the `runs` folder with the same results as explained in the [training chapter](training.md#training-results).
 Everything - including the model weights - can be downloaded by right clicking on the file and selecting "Download".
 
-How to download all files? You can use the following code in a new code cell in colab:
+How to download all files? You can use the following code in a new code cell in Colab:
 
 ```python
 import os
