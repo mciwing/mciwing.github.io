@@ -186,3 +186,65 @@ Name: body_mass_g, dtype: float64
 
 The mean body mass is roughly 4200g with a minium and maximum at 2700g and 
 6300g respectively. The standard deviation is 802g.
+
+???+ info "Missing values"
+
+    You might wonder why the count is 342. There are two missing values within
+    `#!python "body_mass_g"`, resulting again in 344 penguins.
+
+    For now, we don't worry about missing values as pandas excludes them when
+    applying methods such as the `describe()` method above. The subsequent 
+    chapters will dive into missing values.
+
+### Categorical attributes
+
+For categorical attributes, let's examine `#!python "sex"`. Just like with
+numerical attributes, we can apply the `describe()` method.
+
+```python
+print(penguins["sex"].describe())
+```
+
+```title=">>> Output"
+count      333
+unique       2
+top       Male
+freq       168
+```
+
+Notice how pandas automatically infers the data type and calculates appropriate
+metrics. Unlike numerical data, calculating mean, min or max would be 
+meaningless for categorical data.
+
+### Visualizing different attribute types
+
+A key component of data science is visualization, which helps us understand
+patterns and distributions in our data. Different attribute types require 
+different visualization approaches.
+
+#### Numerical
+
+For numerical attributes like `#!python "body_mass_g"`, we can create a 
+boxplot which shows the median, quartiles and outliers.
+
+???+ tip "Plotting with pandas"
+
+    Both `pandas.DataFrame` and `pandas.Series` objects have a built-in 
+    `plot()` method that provides quick access to various plot types. Check out
+    the documentation for [DataFrame.plot()](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html)
+    and [Series.plot()](https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html)
+    to see which plots are supported via the `kind` argument.
+
+```python
+import matplotlib.pyplot as plt
+
+penguins["body_mass_g"].plot(kind="box")
+plt.show()
+```
+
+<figure markdown="span">
+    <img 
+        src="/assets/data-science/data/basics/penguins-mass-boxplot.svg"
+        width=75% style="border-radius: 10px;"
+    >
+</figure>
