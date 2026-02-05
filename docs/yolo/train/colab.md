@@ -129,7 +129,7 @@ After the unzipping, the `annotations` folder should be available in the file ex
     Files uploaded directly to Colab are **temporary** and will be deleted when the session ends. Use Google Drive for persistent storage.
 
 
-The second file we need to upload is the `config.yaml` file. We already created this file in the [training chapter](training.md#configuration-file). We need to make small changes to the path to the dataset.
+The second file we need to upload is the `config.yaml` file. We already created this file in the [training chapter](training.md#configuration-file). We need to make small changes to the dataset path.
 
 ```yaml hl_lines="2"
 # Data
