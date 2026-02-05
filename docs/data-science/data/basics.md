@@ -71,3 +71,42 @@ Examples include number of students (5) or age (22).
 
     A simple rule of thumb: If you can meaningfully have fractional values, 
     it's continuous. If counting whole units makes more sense, it's discrete.
+
+### Categorical (Qualitative)
+
+Categorical data represents qualities or characteristics that place 
+observations into groups or categories.
+
+```python
+colors = pd.Series(["red", "blue", "green", "red", "yellow"])
+
+print(f"Unique colors: {colors.nunique()}")
+print(f"Most common: {colors.mode().squeeze()}")  # (1)!
+```
+
+1. The `mode()` method returns a `pd.Series` with a single value, hence we 
+    `squeeze()` the value.
+
+```title=">>> Output"
+Unique colors: 4
+Most common: red
+```
+
+Categorical data can be further divided into two types:
+
+#### Nominal
+
+Nominal data has no inherent order, the categories are just different names 
+or labels. Examples include colors or country names.
+
+#### Ordinal
+
+Ordinal data has a meaningful order or ranking between categories, but the 
+distance between categories isn't necessarily equal. Examples include t-shirt 
+sizes (XS, S, M, L, XL) or education levels (High School, Bachelor's, Master's, 
+PhD).
+
+---
+
+Now that we understand different data types, let's see them in action with 
+real data.
