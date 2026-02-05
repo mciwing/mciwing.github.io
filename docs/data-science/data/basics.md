@@ -154,3 +154,35 @@ How many rows and columns has the `penguin` dataset?
 The data set has 344 rows (penguins) and 7 columns (features). Use `data.shape`
 to quickly get the datasets dimensions.
 </quiz>
+
+???+ question "Identify attribute types"
+
+    Looking at the dataset, can you identify which attributes are:
+
+    - Numerical?
+    - Categorical?
+
+### Numerical attributes
+
+The dataset contains several numerical measurements. Let's focus on
+`#!python "body_mass_g"` as our primary example. Easily get basic statistics
+with the `describe()` method:
+
+```python
+print(penguins["body_mass_g"].describe())
+```
+
+```title=">>> Output"
+count     342.000000
+mean     4201.754386
+std       801.954536
+min      2700.000000
+25%      3550.000000
+50%      4050.000000
+75%      4750.000000
+max      6300.000000
+Name: body_mass_g, dtype: float64
+```
+
+The mean body mass is roughly 4200g with a minium and maximum at 2700g and 
+6300g respectively. The standard deviation is 802g.
