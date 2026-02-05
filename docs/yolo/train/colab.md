@@ -158,7 +158,7 @@ Now you can train your model exactly as you would locally:
 from ultralytics import YOLO
 
 # Load a pre-trained model
-model = YOLO('yolo11n.pt')
+model = YOLO('yolov8n.pt')
 
 # Train the model
 results = model.train(
