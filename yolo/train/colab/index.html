@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://code-campus.at/python-extensive/variables/">
+        <link rel="canonical" href="https://code-campus.at/yolo/train/colab/">
       
       
-        <link rel="prev" href="../ide/">
+        <link rel="prev" href="../inference/">
       
       
-        <link rel="next" href="../types/strings/">
+        <link rel="next" href="../../../micropython/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/icons8-mouse-pointer.svg">
+      <link rel="icon" href="../../../assets/icons8-mouse-pointer.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Variables - Code Campus</title>
+        <title>Bonus: Training with Colab - Code Campus</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,13 +51,13 @@
       
     
     
-      <link rel="stylesheet" href="../../css/timeago.css">
+      <link rel="stylesheet" href="../../../css/timeago.css">
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../stylesheets/colors.css">
+      <link rel="stylesheet" href="../../../stylesheets/colors.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#variables" class="md-skip">
+        <a href="#bonus-training-on-google-colab" class="md-skip">
           Skip to content
         </a>
       
@@ -98,9 +98,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Code Campus" class="md-header__button md-logo" aria-label="Code Campus" data-md-component="logo">
+    <a href="../../.." title="Code Campus" class="md-header__button md-logo" aria-label="Code Campus" data-md-component="logo">
       
-  <img src="../../assets/icons8-mouse-pointer.svg" alt="logo">
+  <img src="../../../assets/icons8-mouse-pointer.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Variables
+              Bonus: Training with Colab
             
           </span>
         </div>
@@ -222,7 +222,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -243,7 +243,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../python/" class="md-tabs__link">
+        <a href="../../../python/" class="md-tabs__link">
           
   
   
@@ -261,13 +261,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../python-extensive/" class="md-tabs__link">
           
   
   
@@ -289,7 +287,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../statistics/" class="md-tabs__link">
+        <a href="../../../statistics/" class="md-tabs__link">
           
   
   
@@ -311,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../data-science/" class="md-tabs__link">
+        <a href="../../../data-science/" class="md-tabs__link">
           
   
   
@@ -329,11 +327,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../yolo/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -355,7 +355,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../micropython/" class="md-tabs__link">
+        <a href="../../../micropython/" class="md-tabs__link">
           
   
   
@@ -377,7 +377,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+        <a href="../../../blog/" class="md-tabs__link">
           
   
   
@@ -446,9 +446,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Code Campus" class="md-nav__button md-logo" aria-label="Code Campus" data-md-component="logo">
+    <a href="../../.." title="Code Campus" class="md-nav__button md-logo" aria-label="Code Campus" data-md-component="logo">
       
-  <img src="../../assets/icons8-mouse-pointer.svg" alt="logo">
+  <img src="../../../assets/icons8-mouse-pointer.svg" alt="logo">
 
     </a>
     Code Campus
@@ -475,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -543,7 +543,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../python/" class="md-nav__link ">
+            <a href="../../../python/" class="md-nav__link ">
               
   
   
@@ -587,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/installation/" class="md-nav__link">
+      <a href="../../../python/installation/" class="md-nav__link">
         
   
   
@@ -615,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/ide/" class="md-nav__link">
+      <a href="../../../python/ide/" class="md-nav__link">
         
   
   
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/variables/" class="md-nav__link">
+      <a href="../../../python/variables/" class="md-nav__link">
         
   
   
@@ -729,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/types/strings/" class="md-nav__link">
+      <a href="../../../python/types/strings/" class="md-nav__link">
         
   
   
@@ -757,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/types/numbers/" class="md-nav__link">
+      <a href="../../../python/types/numbers/" class="md-nav__link">
         
   
   
@@ -785,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/types/bool_and_none/" class="md-nav__link">
+      <a href="../../../python/types/bool_and_none/" class="md-nav__link">
         
   
   
@@ -821,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/comparisons_and_logic/" class="md-nav__link">
+      <a href="../../../python/comparisons_and_logic/" class="md-nav__link">
         
   
   
@@ -907,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/containers/list/" class="md-nav__link">
+      <a href="../../../python/containers/list/" class="md-nav__link">
         
   
   
@@ -935,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/containers/dict/" class="md-nav__link">
+      <a href="../../../python/containers/dict/" class="md-nav__link">
         
   
   
@@ -963,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/containers/tuple/" class="md-nav__link">
+      <a href="../../../python/containers/tuple/" class="md-nav__link">
         
   
   
@@ -1055,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/control-structures/for/" class="md-nav__link">
+      <a href="../../../python/control-structures/for/" class="md-nav__link">
         
   
   
@@ -1083,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/control-structures/if/" class="md-nav__link">
+      <a href="../../../python/control-structures/if/" class="md-nav__link">
         
   
   
@@ -1119,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/functions/" class="md-nav__link">
+      <a href="../../../python/functions/" class="md-nav__link">
         
   
   
@@ -1147,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/packages/" class="md-nav__link">
+      <a href="../../../python/packages/" class="md-nav__link">
         
   
   
@@ -1175,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../python/pandas/" class="md-nav__link">
+      <a href="../../../python/pandas/" class="md-nav__link">
         
   
   
@@ -1207,8 +1207,6 @@
       
   
   
-    
-  
   
   
     
@@ -1234,21 +1232,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../python-extensive/" class="md-nav__link ">
               
   
   
@@ -1266,13 +1261,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1289,10 +1284,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1309,11 +1302,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -1334,7 +1327,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1408,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../../python-extensive/installation/" class="md-nav__link">
         
   
   
@@ -1436,7 +1429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ide/" class="md-nav__link">
+      <a href="../../../python-extensive/ide/" class="md-nav__link">
         
   
   
@@ -1469,37 +1462,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Variables
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../python-extensive/variables/" class="md-nav__link">
         
   
   
@@ -1515,109 +1481,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting started
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#variable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variable
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Variable">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#print" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        print()
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Comments
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#variable-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Variable naming
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#errors-nameerror" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Errors (NameError)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recap
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1688,7 +1551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/strings/" class="md-nav__link">
+      <a href="../../../python-extensive/types/strings/" class="md-nav__link">
         
   
   
@@ -1716,7 +1579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/numbers/" class="md-nav__link">
+      <a href="../../../python-extensive/types/numbers/" class="md-nav__link">
         
   
   
@@ -1744,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../types/bool_and_none/" class="md-nav__link">
+      <a href="../../../python-extensive/types/bool_and_none/" class="md-nav__link">
         
   
   
@@ -1844,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparisons_and_logic/" class="md-nav__link">
+      <a href="../../../python-extensive/comparisons_and_logic/" class="md-nav__link">
         
   
   
@@ -1930,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/list/" class="md-nav__link">
+      <a href="../../../python-extensive/containers/list/" class="md-nav__link">
         
   
   
@@ -1958,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/dict/" class="md-nav__link">
+      <a href="../../../python-extensive/containers/dict/" class="md-nav__link">
         
   
   
@@ -1986,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../containers/tuple/" class="md-nav__link">
+      <a href="../../../python-extensive/containers/tuple/" class="md-nav__link">
         
   
   
@@ -2142,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control-structures/for/" class="md-nav__link">
+      <a href="../../../python-extensive/control-structures/for/" class="md-nav__link">
         
   
   
@@ -2170,7 +2033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control-structures/if/" class="md-nav__link">
+      <a href="../../../python-extensive/control-structures/if/" class="md-nav__link">
         
   
   
@@ -2206,7 +2069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/" class="md-nav__link">
+      <a href="../../../python-extensive/functions/" class="md-nav__link">
         
   
   
@@ -2300,7 +2163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../packages/" class="md-nav__link">
+      <a href="../../../python-extensive/packages/" class="md-nav__link">
         
   
   
@@ -2328,7 +2191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pandas/" class="md-nav__link">
+      <a href="../../../python-extensive/pandas/" class="md-nav__link">
         
   
   
@@ -2356,7 +2219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plotting/" class="md-nav__link">
+      <a href="../../../python-extensive/plotting/" class="md-nav__link">
         
   
   
@@ -2448,7 +2311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DataBasics/" class="md-nav__link">
+      <a href="../../../python-extensive/DataBasics/" class="md-nav__link">
         
   
   
@@ -2532,7 +2395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/tabular/" class="md-nav__link">
+      <a href="../../../python-extensive/data/tabular/" class="md-nav__link">
         
   
   
@@ -2560,7 +2423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data/api/" class="md-nav__link">
+      <a href="../../../python-extensive/data/api/" class="md-nav__link">
         
   
   
@@ -2664,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oop/" class="md-nav__link">
+      <a href="../../../python-extensive/oop/" class="md-nav__link">
         
   
   
@@ -2692,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tkinter/" class="md-nav__link">
+      <a href="../../../python-extensive/tkinter/" class="md-nav__link">
         
   
   
@@ -2720,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../streamlit/" class="md-nav__link">
+      <a href="../../../python-extensive/streamlit/" class="md-nav__link">
         
   
   
@@ -2748,7 +2611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tkinter_streamlit/" class="md-nav__link">
+      <a href="../../../python-extensive/tkinter_streamlit/" class="md-nav__link">
         
   
   
@@ -2818,7 +2681,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../statistics/" class="md-nav__link ">
+            <a href="../../../statistics/" class="md-nav__link ">
               
   
   
@@ -2920,7 +2783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databasics/Terms/" class="md-nav__link">
+      <a href="../../../databasics/Terms/" class="md-nav__link">
         
   
   
@@ -2948,7 +2811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databasics/Data/" class="md-nav__link">
+      <a href="../../../databasics/Data/" class="md-nav__link">
         
   
   
@@ -2976,7 +2839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../databasics/DataBasics/" class="md-nav__link">
+      <a href="../../../databasics/DataBasics/" class="md-nav__link">
         
   
   
@@ -3126,7 +2989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/univariate/Frequency/" class="md-nav__link">
+      <a href="../../../statistics/univariate/Frequency/" class="md-nav__link">
         
   
   
@@ -3154,7 +3017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/univariate/CentralTend/" class="md-nav__link">
+      <a href="../../../statistics/univariate/CentralTend/" class="md-nav__link">
         
   
   
@@ -3182,7 +3045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/univariate/Dispersion/" class="md-nav__link">
+      <a href="../../../statistics/univariate/Dispersion/" class="md-nav__link">
         
   
   
@@ -3274,7 +3137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/bivariate/Frequency/" class="md-nav__link">
+      <a href="../../../statistics/bivariate/Frequency/" class="md-nav__link">
         
   
   
@@ -3302,7 +3165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/bivariate/Correlation/" class="md-nav__link">
+      <a href="../../../statistics/bivariate/Correlation/" class="md-nav__link">
         
   
   
@@ -3464,7 +3327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/General/" class="md-nav__link">
+      <a href="../../../statistics/probability/General/" class="md-nav__link">
         
   
   
@@ -3492,7 +3355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/Sampling/" class="md-nav__link">
+      <a href="../../../statistics/probability/Sampling/" class="md-nav__link">
         
   
   
@@ -3520,7 +3383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/LawOfLargeNumbers/" class="md-nav__link">
+      <a href="../../../statistics/probability/LawOfLargeNumbers/" class="md-nav__link">
         
   
   
@@ -3548,7 +3411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/probability/CentralLimitTheorem/" class="md-nav__link">
+      <a href="../../../statistics/probability/CentralLimitTheorem/" class="md-nav__link">
         
   
   
@@ -3646,7 +3509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/General/" class="md-nav__link">
+      <a href="../../../statistics/hypothesis/General/" class="md-nav__link">
         
   
   
@@ -3674,7 +3537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/Testing/" class="md-nav__link">
+      <a href="../../../statistics/hypothesis/Testing/" class="md-nav__link">
         
   
   
@@ -3702,7 +3565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/Metrics/" class="md-nav__link">
+      <a href="../../../statistics/hypothesis/Metrics/" class="md-nav__link">
         
   
   
@@ -3730,7 +3593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/Ttest/" class="md-nav__link">
+      <a href="../../../statistics/hypothesis/Ttest/" class="md-nav__link">
         
   
   
@@ -3758,7 +3621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/hypothesis/ANOVA/" class="md-nav__link">
+      <a href="../../../statistics/hypothesis/ANOVA/" class="md-nav__link">
         
   
   
@@ -3848,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics/regression/LinearRegression/" class="md-nav__link">
+      <a href="../../../statistics/regression/LinearRegression/" class="md-nav__link">
         
   
   
@@ -3928,7 +3791,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../data-science/" class="md-nav__link ">
+            <a href="../../../data-science/" class="md-nav__link ">
               
   
   
@@ -4030,7 +3893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data-basics/terms/" class="md-nav__link">
+      <a href="../../../data-science/data-basics/terms/" class="md-nav__link">
         
   
   
@@ -4058,7 +3921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data-basics/data/" class="md-nav__link">
+      <a href="../../../data-science/data-basics/data/" class="md-nav__link">
         
   
   
@@ -4086,7 +3949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data-basics/basics/" class="md-nav__link">
+      <a href="../../../data-science/data-basics/basics/" class="md-nav__link">
         
   
   
@@ -4178,7 +4041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data/preparation/" class="md-nav__link">
+      <a href="../../../data-science/data/preparation/" class="md-nav__link">
         
   
   
@@ -4206,7 +4069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/data/preprocessing/" class="md-nav__link">
+      <a href="../../../data-science/data/preprocessing/" class="md-nav__link">
         
   
   
@@ -4267,7 +4130,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../data-science/algorithms/" class="md-nav__link ">
+            <a href="../../../data-science/algorithms/" class="md-nav__link ">
               
   
   
@@ -4369,7 +4232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/regression/" class="md-nav__link">
+      <a href="../../../data-science/algorithms/supervised/regression/" class="md-nav__link">
         
   
   
@@ -4397,7 +4260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/classification/" class="md-nav__link">
+      <a href="../../../data-science/algorithms/supervised/classification/" class="md-nav__link">
         
   
   
@@ -4481,7 +4344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/tree-based/cart/" class="md-nav__link">
+      <a href="../../../data-science/algorithms/supervised/tree-based/cart/" class="md-nav__link">
         
   
   
@@ -4509,7 +4372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/supervised/tree-based/forest/" class="md-nav__link">
+      <a href="../../../data-science/algorithms/supervised/tree-based/forest/" class="md-nav__link">
         
   
   
@@ -4609,7 +4472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/unsupervised/clustering/" class="md-nav__link">
+      <a href="../../../data-science/algorithms/unsupervised/clustering/" class="md-nav__link">
         
   
   
@@ -4637,7 +4500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/algorithms/unsupervised/dim-reduction/" class="md-nav__link">
+      <a href="../../../data-science/algorithms/unsupervised/dim-reduction/" class="md-nav__link">
         
   
   
@@ -4710,7 +4573,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../data-science/practice/" class="md-nav__link ">
+            <a href="../../../data-science/practice/" class="md-nav__link ">
               
   
   
@@ -4754,7 +4617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/practice/data-preparation/" class="md-nav__link">
+      <a href="../../../data-science/practice/data-preparation/" class="md-nav__link">
         
   
   
@@ -4782,7 +4645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/practice/modelling/" class="md-nav__link">
+      <a href="../../../data-science/practice/modelling/" class="md-nav__link">
         
   
   
@@ -4810,7 +4673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/practice/end-to-end/" class="md-nav__link">
+      <a href="../../../data-science/practice/end-to-end/" class="md-nav__link">
         
   
   
@@ -4838,7 +4701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data-science/practice/bonus/" class="md-nav__link">
+      <a href="../../../data-science/practice/bonus/" class="md-nav__link">
         
   
   
@@ -4878,6 +4741,8 @@
       
   
   
+    
+  
   
   
     
@@ -4901,18 +4766,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../yolo/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -4930,13 +4798,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4956,7 +4824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/approaches/" class="md-nav__link">
+      <a href="../../approaches/" class="md-nav__link">
         
   
   
@@ -4984,7 +4852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/yolo/" class="md-nav__link">
+      <a href="../../yolo/" class="md-nav__link">
         
   
   
@@ -5070,7 +4938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/image/detection/" class="md-nav__link">
+      <a href="../../image/detection/" class="md-nav__link">
         
   
   
@@ -5098,7 +4966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/image/segmentation/" class="md-nav__link">
+      <a href="../../image/segmentation/" class="md-nav__link">
         
   
   
@@ -5126,7 +4994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/image/kp-extraction/" class="md-nav__link">
+      <a href="../../image/kp-extraction/" class="md-nav__link">
         
   
   
@@ -5185,7 +5053,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../yolo/video/" class="md-nav__link ">
+            <a href="../../video/" class="md-nav__link ">
               
   
   
@@ -5229,7 +5097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/video/solutions/" class="md-nav__link">
+      <a href="../../video/solutions/" class="md-nav__link">
         
   
   
@@ -5262,6 +5130,8 @@
                 
   
   
+    
+  
   
   
     
@@ -5288,15 +5158,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../yolo/train/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -5320,7 +5190,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5340,7 +5210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/acquisition/" class="md-nav__link">
+      <a href="../acquisition/" class="md-nav__link">
         
   
   
@@ -5368,7 +5238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/annotation/" class="md-nav__link">
+      <a href="../annotation/" class="md-nav__link">
         
   
   
@@ -5396,7 +5266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/training/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   
@@ -5424,7 +5294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yolo/train/inference/" class="md-nav__link">
+      <a href="../inference/" class="md-nav__link">
         
   
   
@@ -5449,10 +5319,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../yolo/train/colab/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonus: Training with Colab
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5468,6 +5365,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-cloud-based-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use Cloud-Based Training?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Colab
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Colab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparing-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing the files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-in-colab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training in Colab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with the results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5526,7 +5515,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../micropython/" class="md-nav__link ">
+            <a href="../../../micropython/" class="md-nav__link ">
               
   
   
@@ -5570,7 +5559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../micropython/setup/" class="md-nav__link">
+      <a href="../../../micropython/setup/" class="md-nav__link">
         
   
   
@@ -5598,7 +5587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../micropython/sensors/" class="md-nav__link">
+      <a href="../../../micropython/sensors/" class="md-nav__link">
         
   
   
@@ -5626,7 +5615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../micropython/actuator/" class="md-nav__link">
+      <a href="../../../micropython/actuator/" class="md-nav__link">
         
   
   
@@ -5654,7 +5643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../micropython/mqtt/" class="md-nav__link">
+      <a href="../../../micropython/mqtt/" class="md-nav__link">
         
   
   
@@ -5682,7 +5671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../micropython/system/" class="md-nav__link">
+      <a href="../../../micropython/system/" class="md-nav__link">
         
   
   
@@ -5740,7 +5729,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -5840,7 +5829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025/" class="md-nav__link">
+      <a href="../../../blog/archive/2025/" class="md-nav__link">
         
   
   
@@ -5903,10 +5892,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#why-use-cloud-based-training" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting started
+        Why Use Cloud-Based Training?
       
     </span>
   </a>
@@ -5914,22 +5903,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#variable" class="md-nav__link">
+  <a href="#google-colab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Variable
+        Google Colab
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Variable">
+    <nav class="md-nav" aria-label="Google Colab">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#print" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        print()
+        Setup
       
     </span>
   </a>
@@ -5937,10 +5926,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
+  <a href="#preparing-the-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Comments
+        Preparing the files
       
     </span>
   </a>
@@ -5948,10 +5937,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-naming" class="md-nav__link">
+  <a href="#training-in-colab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Variable naming
+        Training in Colab
       
     </span>
   </a>
@@ -5959,10 +5948,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#errors-nameerror" class="md-nav__link">
+  <a href="#working-with-the-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Errors (NameError)
+        Working with the results
       
     </span>
   </a>
@@ -5971,17 +5960,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recap
-      
-    </span>
-  </a>
   
 </li>
       
@@ -6042,185 +6020,156 @@
   
 
 
-<!-- Do not edit this file -->
-<h1 id="variables">Variables</h1>
-<details class="info" open="open">
-<summary>Info</summary>
-<p>The structure of following sections is based on the official <a href="https://docs.python.org/3/tutorial/index.html">Python
-tutorial</a>.</p>
-<p>Many thanks to <a href="https://github.com/jhumci">@jhumci</a> for providing
-the initial resource materials!</p>
-</details>
-<h2 id="getting-started">Getting started</h2>
+<h1 id="bonus-training-on-google-colab">Bonus: Training on Google Colab</h1>
+<figure>
+  <img alt="Google Colab" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1280px-Google_Colaboratory_SVG_Logo.svg.png" width="250" />
+</figure>
+<p>Training a YOLO model can be computationally demanding, especially when working with large datasets or running multiple training iterations. This bonus chapter explains how to use <strong>Google Colab</strong> as an alternative to local training and why cloud-based solutions can be advantageous.</p>
 <hr />
-<p><span style="color: red;">
-  <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512m0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64m0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"/></svg></span>
-  Important
-  <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 1 0-512 256 256 0 1 1 0 512m0-192a32 32 0 1 0 0 64 32 32 0 1 0 0-64m0-192c-18.2 0-32.7 15.5-31.4 33.7l7.4 104c.9 12.6 11.4 22.3 23.9 22.3 12.6 0 23-9.7 23.9-22.3l7.4-104c1.3-18.2-13.1-33.7-31.4-33.7z"/></svg></span>
-</span></p>
-<p>We encourage you to execute <strong>all</strong> upcoming code snippets on your machine.
-You can easily copy each code snippet to your clipboard, by clicking the icon
-in the top right corner. By doing so, you will be prepared for all upcoming
-tasks within the sections. Tasks are indicated by a
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m0-336c-17.7 0-32 14.3-32 32 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-44.2 35.8-80 80-80s80 35.8 80 80c0 47.2-36 67.2-56 74.5v3.8c0 13.3-10.7 24-24 24s-24-10.7-24-24v-8.1c0-20.5 14.8-35.2 30.1-40.2 6.4-2.1 13.2-5.5 18.2-10.3 4.3-4.2 7.7-10 7.7-19.6 0-17.7-14.3-32-32-32zm-32 192a32 32 0 1 1 64 0 32 32 0 1 1-64 0"/></svg></span>-icon.</p>
-<p>We recommend to create a new notebook for each chapter, e.g. create
-<code>variables.ipynb</code> for this chapter. Doing so, your notebooks will follow
-the structure of this crash course.</p>
-<p>You will encounter multiple info boxes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512m-32-352a32 32 0 1 1 64 0 32 32 0 1 1-64 0m-8 64h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-80c-13.3 0-24-10.7-24-24s10.7-24 24-24h24v-64h-24c-13.3 0-24-10.7-24-24s10.7-24 24-24"/></svg></span> 
-throughout the course. They provide additional information, tips, and tricks. 
-Be sure to read them thoroughly.</p>
-<hr />
-<p>Let's start with the first task.</p>
-<details class="question" open="open">
-<summary>Notebook &amp; first code cell</summary>
-<p>Create a new Jupyter notebook and name it <code>variables.ipynb</code>.
-Paste the following code snippet into a new cell and execute it.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The output should be:</p>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Hello World!
-</span></code></pre></div>
-</details>
-<details class="info" open="open">
-<summary>Info</summary>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The upcoming content contains a lot of code snippets. They are easily 
-recognizable due to their colourful syntax highlighting, such as:</p>
-<p>Code snippets are an integral part, to illustrate concepts, which are 
-introduced and explained along the way. Commonly, these code snippets are
-accompanied by an output block to display the result, for instance:</p>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>2
-</span></code></pre></div>
-<p>Nevertheless note, output blocks can be missing as there is not always 
-an explicit result.</p>
-<p>Again, execute and experiment with all code snippets on your machine to 
-verify the results and get familiar with <code>Python</code> 
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span>!</p>
-</details>
-<h2 id="variable">Variable</h2>
-<p>Computers can store lots of information. To do so, in <code>Python</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span>
-we use variables. A variable is a name that refers to a value. The following code
-snippet, assigns the value <code class="language-python highlight"><span class="mi">4</span></code> to the variable <code>number</code>. In 
-general, you pick the variable name on the left hand side, assign a value 
-with <code>=</code> and the value itself is on the right hand side.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">4</span>
-</span></code></pre></div>
-<p>You can change the value of a variable in your program at any time, and
-Python will always keep track of its current value.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">4</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">4000</span>
-</span></code></pre></div>
-<p>You will notice that none of the cells had any output. To display the value
-of a variable we use the <code class="language-python highlight"><span class="nb">print</span><span class="p">()</span></code> function.</p>
-<h3 id="print"><code class="language-python highlight"><span class="nb">print</span><span class="p">()</span></code></h3>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">4</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>4
-</span></code></pre></div>
-<p>Now, we can also verify that in the above snippet the value of <code>number</code> was
-actually changed.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">4</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">number</span> <span class="o">=</span> <span class="mi">4000</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>4
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>4000
-</span></code></pre></div>
-<details class="info" open="open">
-<summary>Info</summary>
-<p>Within a notebook, the variables are stored in the background and can be 
-overwritten at any time. Therefore, it is good practice to execute all 
-cells from top to bottom of the notebook in the right order so that 
-nothing unexpected is stored in a variable.</p>
-</details>
-<h3 id="comments">Comments</h3>
-<p>Comments exist within your code but are not executed. They are used to
-describe your code and are ignored by the <code>Python</code> interpreter. Comments
-are prefaced by a <code class="language-python highlight"><span class="c1">#</span></code>.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># this is a comment</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Hello World!
-</span></code></pre></div>
-<details class="info" open="open">
-<summary>Info</summary>
-<p>Comments help you and others understand what your code is doing. It is
-good practice to use comments as a tool for documentation.</p>
-</details>
-<h3 id="variable-naming">Variable naming</h3>
-<p>When you’re using variables in <code>Python</code>, you need to adhere to a few rules and
-guidelines. Breaking some of these rules will cause errors; other guidelines
-just help you write code that’s easier to read and understand. Be sure to keep
-the following rules in mind:</p>
+<h2 id="why-use-cloud-based-training">Why Use Cloud-Based Training?</h2>
+<p>Training machine learning models locally is not always practical. Most laptops and desktop computers do not have a dedicated GPU suitable for deep learning. Training on a CPU can take <strong>10-50 times longer</strong> than on a GPU. For our Euro note detection model, what takes 5 minutes on a GPU could take over an hour on a CPU.</p>
+<p>While local training on GPU is possible, it requires a lot of setup and maintenance. You need to install the CUDA driver, cuDNN libraries, PyTorch with CUDA support, and manage dependency conflicts. Google Colab comes <strong>pre-configured</strong> with all necessary deep learning libraries and GPU drivers. You can start training within minutes without any installation hassle.</p>
+<p>Local development still has advantages in some scenarios:</p>
 <ul>
-<li>Variable names are lower case and can contain only letters, numbers, and
-  underscores.
-  They can start with a letter or an underscore, but not with a number.
-  For instance, you can call a variable <code>message_1</code> but not <code>1_message</code>.</li>
-<li>Whitespace is not allowed in variable names, but an underscores <code>_</code> can be
-  used to separate words in variable names. For example, <code>greeting_message</code>
-  works, but <code>greeting message</code> won't.</li>
-<li>Avoid using <code>Python</code> keywords and function names as variable names;
-  that is, do not use words that <code>Python</code> has reserved for a particular
-  programmatic purpose, such as the word <code>print</code>.</li>
-<li>Variable names should be short but descriptive. For example, <code>name</code> is better
-  than <code>n</code>, <code>student_name</code> is better than <code>s_n</code>, and <code>name_length</code> is better
-  than <code>length_of_persons_name</code>.</li>
+<li><strong>Data privacy</strong>: Sensitive data should not be uploaded to cloud services</li>
+<li><strong>Large datasets</strong>: Uploading/downloading gigabytes of data can be slow</li>
+<li><strong>Long training runs</strong>: Free Colab sessions have time limits (~12 hours)</li>
+<li><strong>Production deployment</strong>: Final models often need local testing</li>
 </ul>
-<h3 id="errors-nameerror">Errors (<code class="language-python highlight"><span class="ne">NameError</span></code>)</h3>
-<p>Every programmer makes mistakes and even after years of experience, mistakes
-are part of the process. With time, you get more efficient in debugging 
-(=process of finding and fixing errors).</p>
-<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="670"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/thzuhm/debugging_tactics/">Debugging tactics</a><br> by<a href="https://www.reddit.com/user/0ajs0jas/">u/0ajs0jas</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote>
-<script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
-
-<p>Let’s look at an error you’re likely to make early on and learn how to fix it.
-We’ll write some code that throws an error message on purpose. Copy the code
-and run your cell.</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello Python Crash Course reader!&quot;</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">mesage</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Which should result in:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>NameError: name &#39;mesage&#39; is not defined
-</span></code></pre></div>
-<p>When an error occurs in your program, the <code>Python</code> interpreter does its best to
-help you figure out where the problem is. The interpreter provides a traceback
-which is a record of where the interpreter ran into trouble when trying to
-execute your code.
-Here’s an example of the traceback that <code>Python</code> provides, after you’ve
-accidentally misspelled a variable’s name:</p>
-<div class="language-pytb highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gt">Traceback (most recent call last):</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  File <span class="nb">&quot;C:\\IPython\core\interactiveshell.py&quot;</span>, line <span class="m">3577</span>, in <span class="n">run_code</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="n">exec</span><span class="p">(</span><span class="n">code_obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_global_ns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ns</span><span class="p">)</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  File <span class="nb">&quot;&lt;ipython-input-35-c8f2adeaed02&gt;&quot;</span>, line <span class="m">2</span>, in <span class="n">&lt;module&gt;</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">mesage</span><span class="p">)</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">          </span><span class="pm">^^^^^^</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="gr">NameError</span>: <span class="n">name &#39;mesage&#39; is not defined. Did you mean: &#39;message&#39;?</span>
-</span></code></pre></div>
-<p>The output reports that an error occurs in <em>line 2</em>. The interpreter shows this
-line to help us spot the error quickly and tells us what kind of error it
-found. In this case, it found a <code class="language-python highlight"><span class="ne">NameError</span></code> and reports that
-the variable <code>mesage</code> has not been defined. A name error usually means we made
-a spelling mistake when entering the variable’s name or that the variable
-simply does not exist.</p>
-<details class="question" open="open">
-<summary>Your first fix</summary>
-<p>Fix the <code class="language-python highlight"><span class="ne">NameError</span></code> in your code cell.</p>
+<p>After we have already learned how to train a YOLO model locally, we will now use Google Colab to train our model.</p>
+<hr />
+<details class="info" open="open">
+<summary>Video Tutorial</summary>
+<p>If you prefer a visual guide, here is a video tutorial on how to train a YOLO model on Google Colab:</p>
+<p><div style="text-align: center;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/r0RspiLG260?start=465" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></p>
 </details>
-<h2 id="recap">Recap</h2>
-<p>In this section, we have covered variables in <code>Python</code>
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span>.</p>
-<p>You have learned (about):</p>
+<h2 id="google-colab">Google Colab</h2>
+<h3 id="setup">Setup</h3>
+<p>Navigate to <a href="https://colab.research.google.com/">Google Colab</a> and sign in (right upper corner) with your Google account. Create a new notebook by clicking <strong>New notebook</strong>.</p>
+<p>On the top left you see the name of the current notebook. You can also change the name by clicking on it and typing a new name.</p>
+<figure> <img alt="Colab" src="../../../assets/yolo/colab1.png" width="100%" /></figure>
+<p>By default, Colab uses a CPU to run your code. To enable GPU acceleration - which is the reason we are using Colab in the first place - you need to change the runtime type to a GPU runtime. Therefore:</p>
+<ol>
+<li>Go to <strong>Runtime &gt; Change runtime type</strong></li>
+<li>Select <strong>T4 GPU</strong> (or any available GPU option)</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<figure> <img alt="Colab" src="../../../assets/yolo/colab2.png" width="60%" /></figure>
+<p>You can verify the GPU availability by running the following code in a new code cell in colab:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPU available: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPU name: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="grid cards">
 <ul>
-<li>To create and assign a value to a variable</li>
-<li><code class="language-python highlight"><span class="nb">print</span><span class="p">()</span></code> to display the value of a variable</li>
-<li>Comments</li>
-<li>Naming conventions for variables</li>
-<li>How to fix a <code class="language-python highlight"><span class="ne">NameError</span></code></li>
-</ul><style type="text/css">.quiz {
+<li>
+<p><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2705.svg" title=":white_check_mark:" /> <strong>Correct Setup</strong></p>
+<hr />
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GPU available: True
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GPU name: Tesla T4
+</span></code></pre></div>
+</li>
+<li>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/274c.svg" title=":x:" /> <strong>Faulty Setup</strong></p>
+<hr />
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GPU available: False
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>GPU name: N/A
+</span></code></pre></div>
+</li>
+</ul>
+</div>
+<p>The last setup step is to install the YOLO library. There are two ways to do this:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Terminal</label><label for="__tabbed_1_2">Inline Code</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To install the YOLO library, you can use the terminal (left bottom of the page) by running the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+</span></code></pre></div>
+<p><figure markdown="span"> <img alt="Colab" src="../../../assets/yolo/colab3.png" width="100%" /></figure></p>
+</div>
+<div class="tabbed-block">
+<p>You can also install the YOLO library by running the following code in a new code cell in colab:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ultralytics</span>
+</span></code></pre></div>
+<p>Note that the <code>!</code> is used to run shell commands in the terminal.</p>
+</div>
+</div>
+</div>
+<hr />
+<h3 id="preparing-the-files">Preparing the files</h3>
+<p>Before training, you need to upload your dataset and the configuration file to Colab. There are multiple options available to do this, like mounting Google Drive (especially for larger datasets), or downloading from an URL link. We take a closer look on the easiest option: to directly upload the files to the Colab session.</p>
+<p>On the left side of colab you see the files icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 18H4V8h16m0-2h-8l-2-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2"/></svg></span>. By clicking on it, something like a file explorer will open. We can now upload the files by simply dragging and dropping the files into this area. In our case, we want to upload the <code>annotations</code> folder and the <code>config.yaml</code> file. For both we need to make small changes compared to the local training.</p>
+<p>Since the upload only allows files, the <code>annotations</code> folder can not be uploaded directly. Therefore we need to create a zip file (here called <code>annotated.zip</code>) of the folder and upload this file instead.
+The upload can take a few minutes. The progress is shown in the bottom of the file explorer.</p>
+<figure> <img alt="Colab" src="../../../assets/yolo/colab4.png" width="60%" /></figure>
+<p>In order to unzip the file, we need to run the following code in a new code cell in colab:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Unzip images to a custom data folder</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">!</span><span class="n">unzip</span> <span class="o">-</span><span class="n">q</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">annotated</span><span class="o">.</span><span class="n">zip</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">dataset</span>
+</span></code></pre></div>
+<p>After the unzipping, the <code>annotations</code> folder should be available in the file explorer.</p>
+<details class="warning" open="open">
+<summary>Session Storage</summary>
+<p>Files uploaded directly to Colab are <strong>temporary</strong> and will be deleted when the session ends. Use Google Drive for persistent storage.</p>
+</details>
+<p>The second file we need to upload is the <code>config.yaml</code> file. We already created this file in the <a href="../training/#configuration-file">training chapter</a>. We need to make small changes to the dataset path.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Data</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="hll"><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/content/dataset&#39;</span><span class="w"> </span><span class="c1"># path to your project folder</span>
+</span></span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to &#39;path&#39;)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to &#39;path&#39;)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">#test: # test images (optional) (relative to &#39;path&#39;)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nt">nc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"> </span><span class="c1"># number of classes</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Classes</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nt">names</span><span class="p">:</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10euro</span><span class="w"> </span><span class="c1"># Name of the Object</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5euro</span>
+</span></code></pre></div>
+<p>After uploading both things - the annotations and the config file - we are ready to start training.</p>
+<hr />
+<h3 id="training-in-colab">Training in Colab</h3>
+<p>Now you can train your model exactly as you would locally:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Load a pre-trained model</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">&#39;yolov8n.pt&#39;</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Train the model</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">data</span><span class="o">=</span><span class="s1">&#39;/content/config.yaml&#39;</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="hll">    <span class="n">device</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># Explicitly tells YOLO to use the GPU</span>
+</span></span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">)</span>
+</span></code></pre></div>
+<details class="info" open="open">
+<summary>Time Consumption</summary>
+<p>Some self-performed tests to train the model for 10 epochs on ~300 images showed the following time consumption: </p>
+<ul>
+<li>locally on a CPU (in this case an Intel Core i9-12900): ~8.5 minutes.</li>
+<li>locally on a GPU (in this case a NVIDIA GeForce RTX 3060): ~1.5 minutes.</li>
+<li>in Colab on a Tesla T4 GPU: ~1.5 minutes.</li>
+</ul>
+<p>What we can see here is that the performance of the training depends massively on the hardware. If you are not in possession of a GPU, it is a good idea to use Colab to train your model.</p>
+</details>
+<h3 id="working-with-the-results">Working with the results</h3>
+<p>After the training is finished, we can work with the results just as we did locally. In the Colab file explorer you can see the <code>runs</code> folder with the same results as explained in the <a href="../training/#training-results">training chapter</a>.
+Everything - including the model weights - can be downloaded by right clicking on the file and selecting "Download".</p>
+<p>How to download all files? You can use the following code in a new code cell in Colab:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>!zip<span class="w"> </span>-r<span class="w"> </span>runs.zip<span class="w"> </span>runs/detect/trainX
+</span></code></pre></div>
+<p>This will create a zip file of the <code>runs/detect/trainX</code> folder which you can then download by right clicking on the file and selecting "Download".</p>
+<p>Now you are all set! You can download your model and try to start the <a href="../inference/">inference process</a>.</p>
+<hr />
+<details class="success" open="open">
+<summary>🎉 Congratulations</summary>
+<p>You have now trained your own YOLO model on Google Colab. If you do not have a GPU, this is a really good way to speed up the training process.</p>
+<p><div style="text-align: center; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+<div class="tenor-gif-embed" data-postid="12090663477161380777" data-share-method="host" data-aspect-ratio="1" data-width="50%"><a href="https://tenor.com/view/going-fast-fast-riding-fast-riding-fast-bike-gif-12090663477161380777">Going Fast Riding Fast GIF</a>from <a href="https://tenor.com/search/going+fast-gifs">Going Fast GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <figcaption style="margin-top: 0.5rem;"><i>"Hold on tight!"</i></figcaption>
+</div></p>
+</details><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -7481,7 +7430,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 29, 2024 12:19:35 UTC"><span class="timeago" datetime="2024-11-29T12:19:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 29, 2024 12:19:35 UTC">2024-11-29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 5, 2026 14:58:34 UTC"><span class="timeago" datetime="2026-02-05T14:58:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 5, 2026 14:58:34 UTC">2026-02-05</span>
   </span>
 
     
@@ -7496,7 +7445,7 @@ window.mkdocsQuizConfig = {
       
     </span>
     <nav>
-      Jakob Klotz
+      manuf3006
     </nav>
   </span>
 
@@ -7531,7 +7480,7 @@ window.mkdocsQuizConfig = {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IDE">
+          <a href="../inference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Inference">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -7541,20 +7490,20 @@ window.mkdocsQuizConfig = {
                 Previous
               </span>
               <div class="md-ellipsis">
-                IDE
+                Inference
               </div>
             </div>
           </a>
         
         
           
-          <a href="../types/strings/" class="md-footer__link md-footer__link--next" aria-label="Next: Strings">
+          <a href="../../../micropython/" class="md-footer__link md-footer__link--next" aria-label="Next: Home">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Strings
+                Home
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -7611,16 +7560,16 @@ window.mkdocsQuizConfig = {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate", "navigation.footer", "navigation.top", "header.autohide", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "content.code.copy", "content.code.annotate", "navigation.footer", "navigation.top", "header.autohide", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../js/timeago.min.js"></script>
+        <script src="../../../js/timeago.min.js"></script>
       
-        <script src="../../js/timeago_mkdocs_material.js"></script>
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
