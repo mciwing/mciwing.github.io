@@ -90,9 +90,9 @@ Start with creating the following project structure:
     ├───── 📄 bank-merged.csv
     ```
 
-### 3. :computer: Virtual environment
+### 3. :computer: Project initialization
 
-Create a [virtual environment](../../python/packages.md#create-a-virtual-environment).
+Initialize the project with `uv` ([`uv` wrap-up](../basics/setup.md#wrap-up))
 Now, you should have the following structure:
 
 ```plaintext
@@ -100,9 +100,11 @@ Now, you should have the following structure:
 ├── 📁 .venv/
 ├── 📁 data/
 ├───── 📄 bank-merged.csv
+├── 📄 .python-version
+├── 📄 pyproject.toml
+├── 📄 README.md
+├── 📄 uv.lock
 ```
-
-Be sure to activate the environment!
 
 ### 4. :package: Install packages
 

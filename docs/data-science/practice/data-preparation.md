@@ -17,6 +17,7 @@ Create a new notebook or script.
 ├── 📁 data/
 ├───── 📄 bank-merged.csv
 ├── 📄 preparation.ipynb
+├── ...
 ```
 
 ## Data

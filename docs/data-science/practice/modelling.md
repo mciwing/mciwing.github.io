@@ -11,6 +11,7 @@ Create a new notebook or script. Your project should now look like this:
 ├───── 📄 bank-merged.csv
 ├── 📄 preparation.ipynb
 ├── 📄 modelling.ipynb
+├── ...
 ```
 
 Copy the code block from the previous recap section to get started. 
