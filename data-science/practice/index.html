@@ -3846,8 +3846,6 @@
       
         
       
-        
-      
     
     
     
@@ -3869,7 +3867,7 @@
   <span class="md-ellipsis">
     
   
-    Data Basics
+    Basics
   
 
     
@@ -3885,7 +3883,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Data Basics
+    Basics
   
 
           </label>
@@ -3898,14 +3896,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-basics/terms/" class="md-nav__link">
+      <a href="../basics/intro/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Definition of Key Terms
+    Introduction
   
 
     
@@ -3926,42 +3924,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-basics/data/" class="md-nav__link">
+      <a href="../basics/setup/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Data vs. Big Data
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../data-basics/basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data Basics
+    Setup
   
 
     
@@ -3991,6 +3961,8 @@
   
     
     
+      
+        
       
         
       
@@ -4038,6 +4010,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5829,10 +5829,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-virtual-environment" class="md-nav__link">
+  <a href="#3-project-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Virtual environment
+        3. Project initialization
       
     </span>
   </a>
@@ -5976,15 +5976,18 @@ we urge you to re-download it and place it within your <code>data/</code> folder
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├───── 📄 bank-merged.csv
 </span></code></pre></div>
 </details>
-<h3 id="3-virtual-environment">3. <img alt="💻" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4bb.svg" title=":computer:" /> Virtual environment</h3>
-<p>Create a <a href="../../python/packages/#create-a-virtual-environment">virtual environment</a>.
+<h3 id="3-project-initialization">3. <img alt="💻" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4bb.svg" title=":computer:" /> Project initialization</h3>
+<p>Initialize the project with <code>uv</code> (<a href="../basics/setup/#wrap-up"><code>uv</code> wrap-up</a>)
 Now, you should have the following structure:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📁 bank_model/
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── 📁 .venv/
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── 📁 data/
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├───── 📄 bank-merged.csv
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── 📄 .python-version
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── 📄 pyproject.toml
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── 📄 README.md
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>├── 📄 uv.lock
 </span></code></pre></div>
-<p>Be sure to activate the environment!</p>
 <h3 id="4-install-packages">4. <img alt="📦" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4e6.svg" title=":package:" /> Install packages</h3>
 <p>Install the necessary packages - <code>pandas</code> and <code>scikit-learn</code>.</p>
 <div class="footnote">
@@ -7256,7 +7259,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 10, 2025 07:39:20 UTC"><span class="timeago" datetime="2025-03-10T07:39:20+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 10, 2025 07:39:20 UTC">2025-03-10</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 6, 2026 09:05:57 UTC"><span class="timeago" datetime="2026-02-06T09:05:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 6, 2026 09:05:57 UTC">2026-02-06</span>
   </span>
 
     
