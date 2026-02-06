@@ -2,6 +2,7 @@
 # and adapted
 name: ci
 on:
+  workflow_dispatch:  # Enable manual trigger
   push:
     branches:
       - main
@@ -12,6 +13,11 @@ on:
       - .dockerignore
       - docker-compose.yaml
       - Dockerfile
+
+concurrency:
+  group: pages-deployment
+  cancel-in-progress: false  # Wait for previous deployments to finish
+
 permissions:
   contents: write
 jobs:
