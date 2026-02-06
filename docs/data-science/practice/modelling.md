@@ -9,8 +9,9 @@ Create a new notebook or script. Your project should now look like this:
 ├── 📁 .venv/
 ├── 📁 data/
 ├───── 📄 bank-merged.csv
-├── 📄 preparation.ipynb
-├── 📄 modelling.ipynb
+├── 🐍 preparation.py
+├── 🐍 modelling.py
+├── ...
 ```
 
 Copy the code block from the previous recap section to get started. 

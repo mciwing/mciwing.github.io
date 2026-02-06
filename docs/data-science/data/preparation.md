@@ -33,13 +33,12 @@
 
 ???+ tip "Set up a project"
 
-    As always, we strongly recommend to set up a new project *including* a 
-    virtual environment. We will perform all steps from data merging to 
-    saving the model in this project.
+    Once again, set up a new project with `uv`. Call this one `bank_marketing`.
+    We will perform all steps from data merging to saving the model in this 
+    project.
 
     If you are having trouble setting up a virtual environment, please refer 
-    to the [virtual environment creation](../../python-extensive/packages.md#create-a-virtual-environment) 
-    guide.
+    to the [`uv` wrap-up](../basics/setup.md#wrap-up) section.
 
 Let's dive right in and download both files:
 
@@ -234,14 +233,6 @@ to perform a merge. The most common ones are:
 - `#!python "right"`
 - `#!python "inner"`
 - `#!python "outer"`
-
-<div style="text-align: center;">
- <iframe src="https://giphy.com/embed/kaq6GnxDlJaBq" width="218" height="240" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chloe-concerned-kaq6GnxDlJaBq"></a></p>
- <figcaption style="text-align: center;">
-      And now what?!
- </figcaption>
-
-</div>
 
 In order to be able to choose the appropriate method, we need to break them 
 down:
