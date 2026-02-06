@@ -213,10 +213,24 @@ If you have a similar output, you've successfully created your first project.
 Hello from data-science!
 ```
 
+???+ info "No activation needed"
+
+    Notice that the `run` command automatically invokes the project's virtual 
+    environment, meaning you do not have to activate the environment 
+    beforehand. In practice that means you create your scripts and simply 
+    execute them without an activated environment.
+
 ### 4. Packages
 
 Since, we will be working with a couple of different packages, we have to 
 discuss commands for installing and removing packages.
+
+???+ info "Again, no activation needed"
+
+    Once again, you don't have to activate your environment to install and 
+    remove packages. With `uv`, you can manage dependencies directly from any 
+    terminal in your project folder, the virtual environment is "handled" 
+    automatically in the background.
 
 To install packages use the `add` command:
 
