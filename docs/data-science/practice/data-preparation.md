@@ -61,7 +61,7 @@ Start by checking the attribute types.
     are generally present in the dataset. Answer, the following quiz question.
 
     If you need a refresher on attribute types, check out the appropriate
-    [section](../basics/data.md).
+    [chapter](../data/basics.md).
 
 <quiz>
 Which attribute types are present in the data set?
