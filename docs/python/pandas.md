@@ -1,8 +1,6 @@
 <!-- Header start -->
 # `pandas`
 
-## Introduction
-
 <figure markdown="span">
   ![Spotify Top 50 Austria](https://pandas.pydata.org/static/img/pandas_white.svg){ width="250" }
 </figure>
@@ -20,15 +18,8 @@ chapters from now on.
 <!-- Body start -->
 ???+ info
 
-    At the time of writing, `pandas` version `2.2.3` was used. Keep in mind,
-    that `pandas` is actively developed and some functionalities might 
-    change in the future. However, as always, we try to keep the content 
-    up-to-date.
-
-    This section is heavily based on the excellent [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/index.html#user-guide) 
+    This section is heavily based on the excellent [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html) 
     guide.
-
----
 
 ## The data set
 
@@ -190,7 +181,7 @@ Index(['spotify_id', 'name', 'artists', 'daily_rank', 'daily_movement',
        'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
        'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo',
        'time_signature'],
-      dtype='object')
+      dtype='str')
 ```
 
 Similarly, we can print the row indices.
