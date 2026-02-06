@@ -116,6 +116,16 @@ real data.
 We'll use the Palmer Penguins dataset, which contains measurements of three 
 penguin species observed on islands in the Palmer Archipelago, Antarctica.
 
+<figure markdown="span">
+    <img src="/assets/data-science/data/basics/penguins-species.PNG" 
+        width=75% style="border-radius:15px"
+    >
+    <figcaption>
+        The Palmer Penguins dataset contains three species: Adelie, Chinstrap 
+        and Gentoo penguins, each with distinct physical characteristics.
+    </figcaption>
+</figure>
+
 ???+ info
 
     The Palmer Penguins dataset was collected and made available by 
