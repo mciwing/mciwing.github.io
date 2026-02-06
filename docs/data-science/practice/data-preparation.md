@@ -16,7 +16,7 @@ Create a new notebook or script.
 ├── 📁 .venv/
 ├── 📁 data/
 ├───── 📄 bank-merged.csv
-├── 📄 preparation.ipynb
+├── 🐍 preparation.py
 ├── ...
 ```
 

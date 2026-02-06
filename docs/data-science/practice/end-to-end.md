@@ -1,25 +1,25 @@
 ## Introduction
 
 We distill all relevant code blocks from the previous two chapters into
-one cohesive notebook. This notebook will be an end-to-end example to fit
+one cohesive script/notebook. This file will be an end-to-end example to fit
 a machine learning model on the bank marketing data set. Lastly, we will
 save the model to disk.
 
 ???+ tip
 
-    The notebook we will create, can serve as a reference point for your 
+    The script/notebook we will create, can serve as a reference point for your 
     further data science projects.
 
-So start by creating yet another notebook.
+So start by creating yet another script/notebook.
 
 ```plaintext hl_lines="7"
 📁 bank_model/
 ├── 📁 .venv/
 ├── 📁 data/
 ├───── 📄 bank-merged.csv
-├── 📄 preparation.ipynb
-├── 📄 modelling.ipynb
-├── 📄 end-to-end.ipynb
+├── 🐍 preparation.py
+├── 🐍 modelling.py
+├── 🐍 end-to-end.py
 ```
 
 ## Previously...
@@ -244,7 +244,7 @@ with open("bank-model.pkl", "wb") as file:
 
 ???+ question "Load the model"
 
-    Create a new notebook which we will use to test the saved model.
+    Create a new script or notebook which we will use to test the saved model.
     
     Use the following code block to load the `model` `#!python dict`.
 
