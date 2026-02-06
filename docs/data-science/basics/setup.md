@@ -136,6 +136,16 @@ Your workspace should look like this:
     >
 </figure>
 
+With the project structure:
+
+```plaintext
+📁 data-science/
+├── 📄 .python-version
+├── 🐍 main.py
+├── 📄 pyproject.toml
+├── 📄 README.md
+```
+
 #### Explore the new files
 
 Click through these new files:
