@@ -146,7 +146,7 @@ Nevertheless, `GET` is not the only method, there are also `POST`, `PUT`,
 We will continue solely with `GET` methods.
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" width="373" height="280" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/retro-thumbs-up-XreQmk7ETCak0"></a></p>
+    <iframe src="https://giphy.com/embed/ftYpwfV6ZcerEa8poV" width="336" height="276" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Friends-season-9-episode-16-friends-tv-ftYpwfV6ZcerEa8poV"></a></p>
 </div>
 
 ???+ info
@@ -277,9 +277,11 @@ for contributor in response.json():
 print(n_contributions)
 ```
 
-1. Remember, we are dealing with a `#!python dict` hence, we can easily access the number of contributions using the corresponding key `#!python "contributions"`.
+1. Remember, we are dealing with a `#!python dict` hence, we can easily access 
+    the number of contributions using the corresponding key 
+    `#!python "contributions"`.
 
-At the time of writing `#!python 605` contributions were made by all authors 
+At the time of writing `#!python 813` contributions were made by all authors 
 to build this site. If you execute the code, the number has changed 
 as we are continually working on the site. 
 
@@ -327,10 +329,10 @@ API documentation will guide you through the process.
 
 To conclude the chapter you will look at another real world example and 
 get the current astronomy picture of the day (APOD) from NASA. :milky_way:
-Here is the one from the 10th of April 2025:
+Here is the one from the 6th of February 2026:
 
 <div style="text-align: center;">
-    <img src="https://apod.nasa.gov/apod/image/2504/38h_M81-group_1024.jpeg" 
+    <img src="https://apod.nasa.gov/apod/image/2502/289_lorand_fenyes_coddington_ic2574_nagy1024.jpg" 
     alt="NASA APOD" width="500" style="border-radius: 15px;"/>
 </div>
 
