@@ -181,7 +181,7 @@ Index(['spotify_id', 'name', 'artists', 'daily_rank', 'daily_movement',
        'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
        'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo',
        'time_signature'],
-      dtype='object')
+      dtype='str')
 ```
 
 Similarly, we can print the row indices.
