@@ -234,14 +234,6 @@ to perform a merge. The most common ones are:
 - `#!python "inner"`
 - `#!python "outer"`
 
-<div style="text-align: center;">
- <iframe src="https://giphy.com/embed/kaq6GnxDlJaBq" width="218" height="240" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chloe-concerned-kaq6GnxDlJaBq"></a></p>
- <figcaption style="text-align: center;">
-      And now what?!
- </figcaption>
-
-</div>
-
 In order to be able to choose the appropriate method, we need to break them 
 down:
 
