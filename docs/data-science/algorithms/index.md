@@ -175,13 +175,7 @@ Let's say we want to segment customers based on their shopping behavior:
 from sklearn.cluster import KMeans
 
 # customer data [annual_spending, avg_basket_size]
-X = [
-    [1200, 50],
-    [5000, 150],
-    [800, 30],
-    [4500, 140],
-    [1000, 45]
-]
+X = [[1200, 50], [5000, 150], [800, 30], [4500, 140], [1000, 45]]
 
 # use k-means to find customer segments
 model = KMeans(n_clusters=2, random_state=42)  # (1)!

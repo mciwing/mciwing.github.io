@@ -274,7 +274,9 @@ Or how about a pie chart for nominal attributes like `#!python "marital"`?
 ```python
 # first, count the occurrence of each category
 marital_count = data["marital"].value_counts()
-marital_count.plot(kind="pie", autopct="%1.0f%%", title="Marital status")  # (1)!
+marital_count.plot(
+    kind="pie", autopct="%1.0f%%", title="Marital status"
+)  # (1)!
 plt.show()
 ```
 
@@ -367,7 +369,7 @@ Just like in the Data preprocessing chapter we could apply each technique one
 at a time, e.g.:
 
 ```python
-from sklearn.preprocessing import OneHotEncoder, KBinsDiscretizer
+from sklearn.preprocessing import KBinsDiscretizer, OneHotEncoder
 
 nominal_encoder = OneHotEncoder()
 nominal_encoder.fit_transform(data[nominal])
@@ -399,9 +401,7 @@ To explain the term information leakage, let's look at an example.
     from sklearn.preprocessing import StandardScaler
 
     scaler = StandardScaler()
-    features = scaler.fit_transform(
-        data[["emp.var.rate", "euribor3m"]]
-    )
+    features = scaler.fit_transform(data[["emp.var.rate", "euribor3m"]])
     ```
 
     As always, we are splitting the data into training and test set to later
@@ -458,7 +458,11 @@ First, we import all necessary classes:
 
 ```python hl_lines="1"
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import KBinsDiscretizer, OneHotEncoder, StandardScaler
+from sklearn.preprocessing import (
+    KBinsDiscretizer,
+    OneHotEncoder,
+    StandardScaler,
+)
 ```
 
 Next, we can already initiate our transformer. We define the exact same steps
@@ -468,17 +472,38 @@ as we did in written form at the beginning of this section. Note that the
 ```python linenums="1"
 preprocessor = ColumnTransformer(
     transformers=[
-        ("nominal", OneHotEncoder(), 
-         ["default", "housing", "loan", "contact", "poutcome", "job", "marital"]),
-        
-        ("ordinal", OneHotEncoder(), 
-         ["month", "day_of_week", "education"]),
-        
-        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),  # (1)!
-         ["age", "campaign", "pdays", "previous"]),
-        
-        ("zscore", StandardScaler(), 
-         ["emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed"]),
+        (
+            "nominal",
+            OneHotEncoder(),
+            [
+                "default",
+                "housing",
+                "loan",
+                "contact",
+                "poutcome",
+                "job",
+                "marital",
+            ],
+        ),
+        ("ordinal", OneHotEncoder(), ["month", "day_of_week", "education"]),
+        (
+            "binning",
+            KBinsDiscretizer(
+                n_bins=5, strategy="uniform", encode="onehot"
+            ),  # (1)!
+            ["age", "campaign", "pdays", "previous"],
+        ),
+        (
+            "zscore",
+            StandardScaler(),
+            [
+                "emp.var.rate",
+                "cons.price.idx",
+                "cons.conf.idx",
+                "euribor3m",
+                "nr.employed",
+            ],
+        ),
     ]
 )
 ```
@@ -563,8 +588,12 @@ chapter can be distilled to:
 ```python linenums="1"
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import KBinsDiscretizer, OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import (
+    KBinsDiscretizer,
+    OneHotEncoder,
+    StandardScaler,
+)
 
 data = pd.read_csv("data/bank-merged.csv")
 data = data.replace("unknown", None)
@@ -573,17 +602,36 @@ impute = SimpleImputer(strategy="most_frequent", missing_values=None)
 
 preprocessor = ColumnTransformer(
     transformers=[
-        ("nominal", OneHotEncoder(), 
-         ["default", "housing", "loan", "contact", "poutcome", "job", "marital"]),
-        
-        ("ordinal", OneHotEncoder(), 
-         ["month", "day_of_week", "education"]),
-        
-        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
-         ["age", "campaign", "pdays", "previous"]),
-        
-        ("zscore", StandardScaler(), 
-         ["emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed"]),
+        (
+            "nominal",
+            OneHotEncoder(),
+            [
+                "default",
+                "housing",
+                "loan",
+                "contact",
+                "poutcome",
+                "job",
+                "marital",
+            ],
+        ),
+        ("ordinal", OneHotEncoder(), ["month", "day_of_week", "education"]),
+        (
+            "binning",
+            KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
+            ["age", "campaign", "pdays", "previous"],
+        ),
+        (
+            "zscore",
+            StandardScaler(),
+            [
+                "emp.var.rate",
+                "cons.price.idx",
+                "cons.conf.idx",
+                "euribor3m",
+                "nr.employed",
+            ],
+        ),
     ]
 )
 ```

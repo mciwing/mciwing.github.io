@@ -34,6 +34,7 @@ If you just need a blueprint for your next project, here's the whole thing.
 
     ```python linenums="1"
     {% include "../../assets/data-science/practical/bonus.py" %}
+
     ```
 
 1. Open the `bank_model` project (from the Data Science in Practice block).
@@ -291,8 +292,7 @@ X, y = data.drop(columns="y"), data["y"]
 search.fit(X, y)
 
 print(
-    f"Best score: {search.best_score_}\n"
-    f"Best estimator: {search.best_params_}"
+    f"Best score: {search.best_score_}\nBest estimator: {search.best_params_}"
 )
 ```
 
@@ -326,3 +326,4 @@ ______________________________________________________________________
 </div>
 
 ______________________________________________________________________
+

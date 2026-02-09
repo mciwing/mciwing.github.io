@@ -58,17 +58,36 @@ impute = SimpleImputer(strategy="most_frequent", missing_values=None)
 
 preprocessor = ColumnTransformer(
     transformers=[
-        ("nominal", OneHotEncoder(),
-         ["default", "housing", "loan", "contact", "poutcome", "job", "marital"]),
-
-        ("ordinal", OneHotEncoder(),
-         ["month", "day_of_week", "education"]),
-
-        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
-         ["age", "campaign", "pdays", "previous"]),
-
-        ("zscore", StandardScaler(),
-         ["emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed"]),
+        (
+            "nominal",
+            OneHotEncoder(),
+            [
+                "default",
+                "housing",
+                "loan",
+                "contact",
+                "poutcome",
+                "job",
+                "marital",
+            ],
+        ),
+        ("ordinal", OneHotEncoder(), ["month", "day_of_week", "education"]),
+        (
+            "binning",
+            KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
+            ["age", "campaign", "pdays", "previous"],
+        ),
+        (
+            "zscore",
+            StandardScaler(),
+            [
+                "emp.var.rate",
+                "cons.price.idx",
+                "cons.conf.idx",
+                "euribor3m",
+                "nr.employed",
+            ],
+        ),
     ]
 )
 
@@ -105,7 +124,7 @@ forest = RandomForestClassifier(
     max_depth=10,
     min_samples_leaf=10,
     random_state=42,
-    class_weight="balanced"
+    class_weight="balanced",
 )
 forest.fit(X_train, y_train)
 
@@ -309,7 +328,8 @@ client = pd.DataFrame(
         "job": "retired",
         "marital": "divorced",
         "education": "professional.course",
-    }, index=[0]
+    },
+    index=[0],
 )
 ```
 

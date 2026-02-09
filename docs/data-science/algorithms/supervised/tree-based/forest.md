@@ -158,10 +158,7 @@ The parameter `n_estimators` defaults to 100 trees.
     split should be \(\frac{m}{3}\) for regression.
 
     ```python hl_lines="2"
-    RandomForestRegressor(
-        max_features=len(X_train.columns) // 3,
-        random_state=784
-    )
+    RandomForestRegressor(max_features=len(X_train.columns) // 3, random_state=784)
     ```
 
     By default, `scikit-learn` considers \(m\) features for each split.
@@ -224,10 +221,7 @@ illustrate the different trees. First, we generate the data.
 ```python
 from sklearn.datasets import make_classification
 
-X, y = make_classification(
-    random_state=42,
-    n_clusters_per_class=1
-)
+X, y = make_classification(random_state=42, n_clusters_per_class=1)
 ```
 
 Next, we initialize and fit a random forest classifier.

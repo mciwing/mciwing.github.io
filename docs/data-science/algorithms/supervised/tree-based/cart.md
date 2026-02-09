@@ -406,10 +406,10 @@ import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 
 plot_tree(
-    model, 
-    filled=True,   # (1)!
+    model,
+    filled=True,  # (1)!
     feature_names=X.columns,  # (2)!
-    proportion=True  # (3)!
+    proportion=True,  # (3)!
 )
 plt.show()
 ```
@@ -510,7 +510,9 @@ from sklearn.tree import DecisionTreeClassifier
 
 model = DecisionTreeClassifier(
     # again, set max_depth and min_samples_leaf to prevent growing a huge tree
-    random_state=784, max_depth=7, min_samples_leaf=5
+    random_state=784,
+    max_depth=7,
+    min_samples_leaf=5,
 )
 ```
 

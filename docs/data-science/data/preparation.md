@@ -161,7 +161,9 @@ ______________________________________________________________________
 Let's examine the shape of both `DataFrame`s as well.
 
 ```python
-print(f"Shape of data: {data.shape}; Shape of data_social: {data_social.shape}")
+print(
+    f"Shape of data: {data.shape}; Shape of data_social: {data_social.shape}"
+)
 ```
 
 ```title=">>> Output"

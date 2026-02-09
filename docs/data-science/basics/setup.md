@@ -293,7 +293,6 @@ automatically updated accordingly.
         ```python title="plot.py" linenums="1"
         import matplotlib.pyplot as plt
         import numpy as np
-
         from matplotlib.patches import PathPatch
         from matplotlib.path import Path
 
