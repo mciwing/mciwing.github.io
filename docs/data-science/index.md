@@ -14,19 +14,19 @@ examples!
 ## Course overview
 
 1. Basics: Introduction to various terms (data science, machine learning, etc.)
-   and data basics such as attribute types.
-2. Data Preparation & Preprocessing: Data cleaning, integration, and 
-   transformation.
-3. Supervised vs. Unsupervised Learning: Exploration of both terms, and 
-   coverage of various algorithms.
-4. Data Science in Practice: Step-by-step guide to a real-world data science 
-   project.
+    and data basics such as attribute types.
+1. Data Preparation & Preprocessing: Data cleaning, integration, and
+    transformation.
+1. Supervised vs. Unsupervised Learning: Exploration of both terms, and
+    coverage of various algorithms.
+1. Data Science in Practice: Step-by-step guide to a real-world data science
+    project.
 
 ## Tools
 
 As always, we use Python and these great packages :heart:
 
----
+______________________________________________________________________
 
 <div class="row" style="display: flex; justify-content: space-around;">
     <div class="col">
@@ -47,7 +47,7 @@ As always, we use Python and these great packages :heart:
     </div>
 </div>
 
----
+______________________________________________________________________
 
 ## Sneak peek
 
@@ -55,55 +55,55 @@ Here is a sneak peek of selected topics we cover in this course:
 
 <div class="grid cards" markdown>
 
--   __:deciduous_tree: Decision trees__ 
+- __:deciduous_tree: Decision trees__
 
-    --- 
-    
+    ______________________________________________________________________
+
     What are decision trees? How do they work?
 
--   <figure markdown="span">
-        <img src="/assets/data-science/algorithms/tree-based/tree.png">
+- <figure markdown="span">
+    <img src="/assets/data-science/algorithms/tree-based/tree.png">
     </figure>
 
--   <figure markdown="span">
-        <img 
-            src="/assets/data-science/index/spotify-snippet.png" 
-            style="border-radius: 15px;"
-        >
+- <figure markdown="span">
+    <img
+    src="/assets/data-science/index/spotify-snippet.png"
+    style="border-radius: 15px;"
+    >
     </figure>
 
--   __:musical_note: Recommender system__ 
+- __:musical_note: Recommender system__
 
-    --- 
-    
-    With a large Spotify data set, we build a recommender system. At the end
-    you will be able to recommend songs.
+    ______________________________________________________________________
 
--   __:mechanical_arm: Elbow method__ 
+    With a large Spotify data set, we build a recommender system. At the end you
+    will be able to recommend songs.
 
-    --- 
-    
-    We introduce the elbow method and how it can help us to (for example) 
-    refine the recommender system.
- 
--   <figure markdown="span">
-        <img src="/assets/data-science/algorithms/clustering/elbow-method.png">
+- __:mechanical_arm: Elbow method__
+
+    ______________________________________________________________________
+
+    We introduce the elbow method and how it can help us to (for example) refine
+    the recommender system.
+
+- <figure markdown="span">
+    <img src="/assets/data-science/algorithms/clustering/elbow-method.png">
     </figure>
 
--   <figure markdown="span">
-        <img 
-            src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/12/split-images-of-transformers-anime.jpg" 
-            style="border-radius: 15px;"
-        >
+- <figure markdown="span">
+    <img
+    src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/12/split-images-of-transformers-anime.jpg"
+    style="border-radius: 15px;"
+    >
     </figure>
 
--   __:chart_with_upwards_trend: Data Science in Practice__ 
+- __:chart_with_upwards_trend: Data Science in Practice__
 
-    ---
+    ______________________________________________________________________
 
-    We present a step-by-step guide to a real-world data science project. 
-    The project applies concepts, algorithms and techniques introduced up to 
-    this point.
+    We present a step-by-step guide to a real-world data science project. The
+    project applies concepts, algorithms and techniques introduced up to this
+    point.
 
     ... oh, and along the way we cover a different type of transformer.
 
@@ -116,10 +116,10 @@ science field. Additionally, you will be capable of preprocessing real-world
 data, selecting and applying appropriate algorithms to solve practical
 problems.
 
----
+______________________________________________________________________
 
 <div style="text-align: center">
     <h3>Let's get started! 🚀</h3>
 </div>
 
----
+______________________________________________________________________

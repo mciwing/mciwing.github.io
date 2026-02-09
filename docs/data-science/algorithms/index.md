@@ -1,37 +1,36 @@
 # Introduction
 
-With extensive data preparation knowledge, we can tackle the next
-big part of the course: algorithms. An algorithm is a
+With extensive data preparation knowledge, we can tackle the next big part of
+the course: algorithms. An algorithm is a
 
 > a set of mathematical instructions or rules that, especially if given to a
 > computer, will help to calculate an answer to a problem.
-> 
+>
 > [Cambridge Dictionary](https://dictionary.cambridge.org/de/worterbuch/englisch/algorithm)
 
-In data science/machine learning, algorithms are used to solve problems, 
-such as modelling data to make predictions for unseen data, or clustering data 
-to find patterns.
+In data science/machine learning, algorithms are used to solve problems, such
+as modelling data to make predictions for unseen data, or clustering data to
+find patterns.
 
-The consecutive chapters will introduce you to common algorithms, like 
-linear and logistic regression, decision trees and k-means clustering. We 
-will explore the theory as well as practical examples. First, we establish two 
-main concepts in machine learning: supervised and unsupervised learning.
+The consecutive chapters will introduce you to common algorithms, like linear
+and logistic regression, decision trees and k-means clustering. We will explore
+the theory as well as practical examples. First, we establish two main concepts
+in machine learning: supervised and unsupervised learning.
 
 ## Supervised Learning
 
-Supervised learning is a type of machine learning where algorithms learn from 
-^^labeled^^ training data to make predictions on new, unseen data. The term 
-"supervised" comes from the idea that the algorithm is guided by a 
-"supervisor" (the labeled data) that provides the correct answers during
-training.
+Supervised learning is a type of machine learning where algorithms learn from
+^^labeled^^ training data to make predictions on new, unseen data. The term
+"supervised" comes from the idea that the algorithm is guided by a "supervisor"
+(the labeled data) that provides the correct answers during training.
 
 In supervised learning, each training example consists of:
 
-- Input features (\(X\)): The characteristics or attributes we use to make 
+- Input features (\(X\)): The characteristics or attributes we use to make
     predictions
 - Target variable (\(y\)): The correct output we want to predict
 
-The algorithm learns the relationship between inputs (\(X\)) and outputs 
+The algorithm learns the relationship between inputs (\(X\)) and outputs
 (\(y\)), creating a model that can then (hopefully!) generalize to new data.
 
 ### Example
@@ -60,49 +59,49 @@ new_apartment = [[150, 5]]
 predicted_price = model.predict(new_apartment)
 ```
 
-1. Underscores can be used as visual separators in numeric literals
-   to improve readability. They have no effect on the value of the number. For
-   example, `#!python 500_000` is the same as `#!python 500000`.
+1. Underscores can be used as visual separators in numeric literals to improve
+    readability. They have no effect on the value of the number. For example,
+    `#!python 500_000` is the same as `#!python 500000`.
 
 For each new observation, we can use the trained model to predict the price.
-The apartment with 150m² and 5 rooms has a predicted price of `#!python 
-775000`.
+The apartment with 150m² and 5 rooms has a predicted price of
+`#!python 775000`.
 
 ???+ info
 
-    Whether this estimate is actually close to reality depends on the
-    quality of the model and its underlying data. Later, we will 
-    discuss how to measure a model's quality.
+    Whether this estimate is actually close to reality depends on the quality of
+    the model and its underlying data. Later, we will discuss how to measure a
+    model's quality.
 
----
+______________________________________________________________________
 
 ### Classification vs. Regression
 
 Supervised learning encapsulates ^^both^^ classification and regression tasks.
 
-``` mermaid
+```mermaid
 graph LR
   A[Supervised Learning] --> B[Classification];
   A --> C[Regression];
 ```
 
----
+______________________________________________________________________
 
 #### Classification
 
 Classification problems involve predicting discrete categories or labels. The
 output is always one of a fixed set of classes. For instance, in binary
-classification, the model decides between two possibilities. 
+classification, the model decides between two possibilities.
 
-For example, the Portuguese retail bank data can be used to predict 
-whether a customer would subscribe to a term deposit. The target variable is 
-binary: yes or no.
+For example, the Portuguese retail bank data can be used to predict whether a
+customer would subscribe to a term deposit. The target variable is binary: yes
+or no.
 
-On the other hand, multiclass classification handles three or more categories 
-(like classifying animals in photos :fontawesome-solid-arrow-right: dog, 
-cat, dolphin, tiger, elephant, etc.).
+On the other hand, multiclass classification handles three or more categories
+(like classifying animals in photos :fontawesome-solid-arrow-right: dog, cat,
+dolphin, tiger, elephant, etc.).
 
----
+______________________________________________________________________
 
 #### Regression
 
@@ -112,18 +111,19 @@ numerical value along a continuous spectrum. These models work by finding
 patterns in the data to estimate a mathematical function that best describes
 the relationship between input features and the target variable.
 
-For instance the example, predicting the price of an apartment based on 
-its size and the number of rooms is a regression task.
+For instance the example, predicting the price of an apartment based on its
+size and the number of rooms is a regression task.
 
----
+______________________________________________________________________
 
 #### Examples
 
 <div class="grid cards" markdown>
 
--   __Classification__
+- __Classification__
 
-    ---
+    ______________________________________________________________________
+
     Predicting a ^^categorical^^ target variable:
 
     - Spam or not spam
@@ -133,11 +133,12 @@ its size and the number of rooms is a regression task.
     - Image classification (cat, dog, dolphin, etc.)
     - ...
 
--   __Regression__
+- __Regression__
 
-    ---
+    ______________________________________________________________________
+
     Predicting a ^^continuous^^ target variable:
-  
+
     - Apartment prices (like in the example above)
     - Temperature
     - Sales revenue
@@ -146,18 +147,18 @@ its size and the number of rooms is a regression task.
 </div>
 
 ???+ info
-  
-    No matter if you're dealing with a classification or regression task, the 
-    key to successful supervised learning lies in having high-quality labeled
-    data and selecting appropriate features (variables) that have predictive 
-    power for the target variable.
+
+    No matter if you're dealing with a classification or regression task, the key
+    to successful supervised learning lies in having high-quality labeled data and
+    selecting appropriate features (variables) that have predictive power for the
+    target variable.
 
 ## Unsupervised Learning
 
-Contrary, unsupervised learning deals with ^^unlabeled^^ data to discover 
-hidden patterns and structures. Unlike supervised learning, there is no 
-"supervisor" providing correct answers. The algorithm tries to find
-meaningful patterns on its own.
+Contrary, unsupervised learning deals with ^^unlabeled^^ data to discover
+hidden patterns and structures. Unlike supervised learning, there is no
+"supervisor" providing correct answers. The algorithm tries to find meaningful
+patterns on its own.
 
 In unsupervised learning, we solely have:
 
@@ -189,22 +190,22 @@ segments = model.fit_predict(X)
 print(segments)
 ```
 
-1. Setting the `random_state` parameter ensures that you always get the same 
-    results when executing the code repeatedly. Reproducibility is discussed 
+1. Setting the `random_state` parameter ensures that you always get the same
+    results when executing the code repeatedly. Reproducibility is discussed
     more in-depth in upcoming chapters.
 
 ```title=">>> Output"
 [1 0 1 0 1]
 ```
 
-The variable `segments` contains the cluster assignments for each customer. 
-The cluster assignment is simply an `#!python int` indicating which group the 
-customer belongs to. In this example, we have two clusters with the first 
-customer (`#!python [1200, 50]`) belonging to cluster 1 and the second 
-customer (`#!python [5000, 150]`) to cluster 0 and so on.
+The variable `segments` contains the cluster assignments for each customer. The
+cluster assignment is simply an `#!python int` indicating which group the
+customer belongs to. In this example, we have two clusters with the first
+customer (`#!python [1200, 50]`) belonging to cluster 1 and the second customer
+(`#!python [5000, 150]`) to cluster 0 and so on.
 
-The following plot visualizes the input data as scatter plot 
-colored by the cluster assignments:
+The following plot visualizes the input data as scatter plot colored by the
+cluster assignments:
 
 <div style="text-align: center;">
     <iframe src="/assets/data-science/algorithms/clusters.html" width="600" height="450">
@@ -219,28 +220,28 @@ colored by the cluster assignments:
 The algorithm will group similar customers together without being told what
 these groups should be, it discovers the patterns based on attributes.
 
----
+______________________________________________________________________
 
 ### Clustering & Dimensionality Reduction
 
 Unsupervised learning can be further divided into two main categories:
 
-``` mermaid
+```mermaid
 graph LR
   A[Unsupervised Learning] --> B[Clustering];
   A --> C[Dimensionality Reduction];
 ```
 
----
+______________________________________________________________________
 
 #### Clustering
 
 Clustering algorithms group similar data points together based on their
-features. The goal is to find cluster/groups in the data without any 
-prior knowledge of the groups just like in the previous customer segmentation
+features. The goal is to find cluster/groups in the data without any prior
+knowledge of the groups just like in the previous customer segmentation
 example.
 
----
+______________________________________________________________________
 
 #### Dimensionality Reduction
 
@@ -248,15 +249,16 @@ Dimensionality reduction techniques aim to reduce the number of input features
 while preserving the most important information. This can help to simplify
 complex data, speed up algorithms and improve model performance.
 
----
+______________________________________________________________________
 
 ### Examples
 
 <div class="grid cards" markdown>
 
--   __Clustering__
+- __Clustering__
 
-    ---
+    ______________________________________________________________________
+
     Clustering/grouping of similar data points:
 
     - Customer segmentation in marketing (like in the example above)
@@ -264,11 +266,12 @@ complex data, speed up algorithms and improve model performance.
     - Product recommendations
     - ...
 
--   __Dimensionality Reduction__
+- __Dimensionality Reduction__
 
-    ---
+    ______________________________________________________________________
+
     Reducing data complexity:
-  
+
     - Feature extraction from high-dimensional data
     - Visualization of complex datasets
     - Noise reduction in signals
@@ -283,26 +286,26 @@ complex data, speed up algorithms and improve model performance.
     answers to compare against. The value of the results often depends on how
     meaningful the discovered patterns are for the specific application.
 
----
+______________________________________________________________________
 
 ???+ tip "Domain knowledge"
 
-    No matter if you're dealing with supervised or unsupervised learning,
-    domain knowledge is crucial. Understanding the data and the problem you're
-    trying to solve will help you select the right algorithms, features and 
-    interpret the results.
+    No matter if you're dealing with supervised or unsupervised learning, domain
+    knowledge is crucial. Understanding the data and the problem you're trying to
+    solve will help you select the right algorithms, features and interpret the
+    results.
 
 ## Recap
 
-This chapter introduced two fundamental concepts in machine learning, 
+This chapter introduced two fundamental concepts in machine learning,
 supervised and unsupervised learning:
 
 | Concept                   | Data                   | Task                     | Goal                      |
-|---------------------------|------------------------|--------------------------|---------------------------|
+| ------------------------- | ---------------------- | ------------------------ | ------------------------- |
 | **Supervised Learning**   | Labeled (\(X\), \(y\)) | Regression               | Predict continuous values |
 |                           |                        | Classification           | Predict categories        |
 | **Unsupervised Learning** | Unlabeled (\(X\))      | Clustering               | Group similar data        |
 |                           |                        | Dimensionality Reduction | Reduce data complexity    |
 
-The following chapters will cover algorithms for each task with theory and 
+The following chapters will cover algorithms for each task with theory and
 practical examples.
