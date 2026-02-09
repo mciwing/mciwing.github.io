@@ -1,13 +1,13 @@
 ## Introduction
 
-We distill all relevant code blocks from the previous two chapters into
-one cohesive script/notebook. This file will be an end-to-end example to fit
-a machine learning model on the bank marketing data set. Lastly, we will
-save the model to disk.
+We distill all relevant code blocks from the previous two chapters into one
+cohesive script/notebook. This file will be an end-to-end example to fit a
+machine learning model on the bank marketing data set. Lastly, we will save the
+model to disk.
 
 ???+ tip
 
-    The script/notebook we will create, can serve as a reference point for your 
+    The script/notebook we will create, can serve as a reference point for your
     further data science projects.
 
 So start by creating yet another script/notebook.
@@ -27,13 +27,13 @@ So start by creating yet another script/notebook.
 In the previous chapters, we:
 
 1. Loaded the data
-2. Defined techniques to impute (`SimpleImputer`) and preprocess the data
-   (`ColumnTransformer`)
-3. Split the data into train and test sets
-4. Applied imputation and preprocessing techniques to the data
-5. Evaluated different model types and concluded that a 
-   `RandomForestClassifier` is the best model (we found) for this task
-6. Fit and evaluated the random forest
+1. Defined techniques to impute (`SimpleImputer`) and preprocess the data
+    (`ColumnTransformer`)
+1. Split the data into train and test sets
+1. Applied imputation and preprocessing techniques to the data
+1. Evaluated different model types and concluded that a
+    `RandomForestClassifier` is the best model (we found) for this task
+1. Fit and evaluated the random forest
 
 Here are the bullet points distilled in one code block:
 
@@ -58,17 +58,36 @@ impute = SimpleImputer(strategy="most_frequent", missing_values=None)
 
 preprocessor = ColumnTransformer(
     transformers=[
-        ("nominal", OneHotEncoder(),
-         ["default", "housing", "loan", "contact", "poutcome", "job", "marital"]),
-
-        ("ordinal", OneHotEncoder(),
-         ["month", "day_of_week", "education"]),
-
-        ("binning", KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
-         ["age", "campaign", "pdays", "previous"]),
-
-        ("zscore", StandardScaler(),
-         ["emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed"]),
+        (
+            "nominal",
+            OneHotEncoder(),
+            [
+                "default",
+                "housing",
+                "loan",
+                "contact",
+                "poutcome",
+                "job",
+                "marital",
+            ],
+        ),
+        ("ordinal", OneHotEncoder(), ["month", "day_of_week", "education"]),
+        (
+            "binning",
+            KBinsDiscretizer(n_bins=5, strategy="uniform", encode="onehot"),
+            ["age", "campaign", "pdays", "previous"],
+        ),
+        (
+            "zscore",
+            StandardScaler(),
+            [
+                "emp.var.rate",
+                "cons.price.idx",
+                "cons.conf.idx",
+                "euribor3m",
+                "nr.employed",
+            ],
+        ),
     ]
 )
 
@@ -105,7 +124,7 @@ forest = RandomForestClassifier(
     max_depth=10,
     min_samples_leaf=10,
     random_state=42,
-    class_weight="balanced"
+    class_weight="balanced",
 )
 forest.fit(X_train, y_train)
 
@@ -121,17 +140,16 @@ Balanced accuracy: 0.7445
 
 ???+ question "Copy and execute the block"
 
-    Since the code block is nothing new, simply copy and execute it.
-    If everything went smoothly, you should see the balanced accuracy score 
-    printed.
+    Since the code block is nothing new, simply copy and execute it. If everything
+    went smoothly, you should see the balanced accuracy score printed.
 
 ## Re-fit on whole data set
 
-Previously, we split our data into train and test sets. Using the test set 
-we were able to estimate the performance of our model. That's the whole 
-purpose of the test set.
+Previously, we split our data into train and test sets. Using the test set we
+were able to estimate the performance of our model. That's the whole purpose of
+the test set.
 
-Now, our goal is to save the trained model for future use. Therefore, in 
+Now, our goal is to save the trained model for future use. Therefore, in
 practice, we want to leverage the power of the whole data set. Thus, we re-fit
 the model on the whole data set to make use of all available data.
 
@@ -146,8 +164,8 @@ y = encoder.transform(y)
 ```
 
 To preprocess the whole data set, we can reuse the `impute` and `preprocessor`
-objects. We only need to transform the data and encode the target. Lastly,
-we fit the model on the whole data set. It's as simple as:
+objects. We only need to transform the data and encode the target. Lastly, we
+fit the model on the whole data set. It's as simple as:
 
 ```python
 forest.fit(X, y)
@@ -155,17 +173,17 @@ forest.fit(X, y)
 
 ???+ info
 
-    Note, we can simply call `fit()` again, this will "overwrite" the previous 
+    Note, we can simply call `fit()` again, this will "overwrite" the previous
     model and uses the whole data set to fit the model once-again.
 
-The `forest` is now fitted on the whole data set. That's it! We have our final 
+The `forest` is now fitted on the whole data set. That's it! We have our final
 model which we will save to disk. :party_popper:
 
 ## Model persistence
 
-To save the model to disk, we can use 
-[`pickle`](https://docs.python.org/3.12/library/pickle.html). It's a part of 
-base :fontawesome-brands-python: Python. With `pickle`, you can save any Python 
+To save the model to disk, we can use
+[`pickle`](https://docs.python.org/3.12/library/pickle.html). It's a part of
+base :fontawesome-brands-python: Python. With `pickle`, you can save any Python
 object and load it back later.
 
 <div style="text-align: center; border-radius: 15px;">
@@ -194,11 +212,11 @@ with open("list.pkl", "wb") as file:
 
 Let's break down the code block:
 
-1. We open a new file named `list.pkl`; `.pkl` is just a common extension 
-   for `pickle` files.
-2. The file is opened in write-binary mode (`"wb"`) - as pickle files are 
-   binary files.
-3. We use `pickle.dump()` to save the object `simple_list` to the file.
+1. We open a new file named `list.pkl`; `.pkl` is just a common extension for
+    `pickle` files.
+1. The file is opened in write-binary mode (`"wb"`) - as pickle files are
+    binary files.
+1. We use `pickle.dump()` to save the object `simple_list` to the file.
 
 ???+ info
 
@@ -207,7 +225,7 @@ Let's break down the code block:
 ### Save the model
 
 Let's extend this knowledge to save our model. Unfortunately, it's not just a
-matter of saving the `forest` object. First, we look at the steps we need to 
+matter of saving the `forest` object. First, we look at the steps we need to
 take to make a prediction for a new client:
 
 <div style="text-align: center;">
@@ -230,16 +248,16 @@ To get our prediction process working, we need to save all objects involved:
 
 ???+ warning "Critical: Save ALL preprocessing objects!"
 
-    **You must save every single object** used in the prediction pipeline, not
-    just the model!
-    
+    **You must save every single object** used in the prediction pipeline, not just
+    the model!
+
     Missing even one object will break your predictions:
-    
+
     - Missing `impute` → Cannot handle new missing values
     - Missing `preprocessor` → Cannot transform features correctly
     - Missing `encoder` → Cannot convert predictions back to original labels
     - Missing `forest` → Cannot make predictions
-    
+
     **The model is useless without its preprocessing pipeline!** :warning:
 
 We can save all these objects in one file using a simple `#!python dict`:
@@ -256,14 +274,14 @@ with open("bank-model.pkl", "wb") as file:
     pickle.dump(model, file)
 ```
 
-Bundling all objects in a dictionary ensures you never accidentally 
-forget a component. When you load `bank-model.pkl`, you have **everything** 
-needed for predictions in one place.
+Bundling all objects in a dictionary ensures you never accidentally forget a
+component. When you load `bank-model.pkl`, you have **everything** needed for
+predictions in one place.
 
 ???+ question "Load the model"
 
     Create a new script or notebook which we will use to test the saved model.
-    
+
     Use the following code block to load the `model` `#!python dict`.
 
     ```python
@@ -277,14 +295,13 @@ needed for predictions in one place.
 
 ???+ danger
 
-    Do not download and load `pickle` files from the internet, unless you 
-    trust the source. Since, `pickle` can execute arbitrary code, it can be 
-    a security risk.
+    Do not download and load `pickle` files from the internet, unless you trust the
+    source. Since, `pickle` can execute arbitrary code, it can be a security risk.
 
 ## Predictions
 
-Let's run the prediction process. Assume the bank contacted another client 
-with following attributes:
+Let's run the prediction process. Assume the bank contacted another client with
+following attributes:
 
 ```python
 import pandas as pd
@@ -311,7 +328,8 @@ client = pd.DataFrame(
         "job": "retired",
         "marital": "divorced",
         "education": "professional.course",
-    }, index=[0]
+    },
+    index=[0],
 )
 ```
 
@@ -322,41 +340,41 @@ Does the client subscribe to a term deposit? :thinking:
     Predict if the client will subscribe to a term deposit.
 
     1. Use the above code snippet to create a new observation `client`.
-    2. Use all objects in the dictionary `model` to make a prediction.
-    
-    Hint: To make a prediction, simply implement the above prediction process 
+    1. Use all objects in the dictionary `model` to make a prediction.
+
+    Hint: To make a prediction, simply implement the above prediction process
     illustrated as a graph.
 
-Try to solve the task on your own. For completeness, we provide one possible 
+Try to solve the task on your own. For completeness, we provide one possible
 solution.
 
 ??? info
-    
+
     ```python
     def predict(model, client):
         # preprocess the client data
         X = model["imputer"].transform(client)
         X = pd.DataFrame(X, columns=client.columns)
         X = model["preprocessor"].transform(X)
-    
+
         # make a prediction
         prediction = model["forest"].predict(X)
         # inverse transform (0, 1) to ("no", "yes")
         prediction = model["target-encoder"].inverse_transform(prediction)
-    
+
         return prediction
     ```
 
 ## Conclusion
 
-Across three chapters, we successfully reached our end goal: To build a 
-machine learning model on the bank marketing data set. We ended up with a 
-random forest model with a balanced accuracy of 74.45%.
+Across three chapters, we successfully reached our end goal: To build a machine
+learning model on the bank marketing data set. We ended up with a random forest
+model with a balanced accuracy of 74.45%.
 
 The saved model can be deployed in a production environment. The prediction
 process is straightforward and can be easily applied on new clients.
 
----
+______________________________________________________________________
 
 <div style="text-align: center;">
     <h3>
@@ -365,22 +383,22 @@ process is straightforward and can be easily applied on new clients.
     </h3>
 </div>
 
----
+______________________________________________________________________
 
 ## Outlook
 
-There are many more avenues to explore in the data science/machine learning 
+There are many more avenues to explore in the data science/machine learning
 landscape:
-
 
 ### :rocket: Model deployment
 
-Learn how to deploy a model in a production environment. This can be done
-with a REST API, a web application or a mobile application (among others).
+Learn how to deploy a model in a production environment. This can be done with
+a REST API, a web application or a mobile application (among others).
 
 Start with:
 
-- `fastapi` for building APIs [:octicons-link-external-16:](https://fastapi.tiangolo.com/)
+- `fastapi` for building APIs
+    [:octicons-link-external-16:](https://fastapi.tiangolo.com/)
 
 which is a great way to serve your model.
 
@@ -389,29 +407,32 @@ which is a great way to serve your model.
 The Open Neural Network Exchange (ONNX) format provides an interesting
 alternative to `pickle`. ONNX allows you to convert your trained models into a
 standardized format that can be run efficiently across different platforms and
-programming languages. 
+programming languages.
 
-For example, `onnx` allows you to build the model in 
-:fontawesome-brands-python: Python and deploy it with :fontawesome-brands-js: 
+For example, `onnx` allows you to build the model in
+:fontawesome-brands-python: Python and deploy it with :fontawesome-brands-js:
 JavaScript.
 
 Start with:
 
-- `onnx` documentation for Python [:octicons-link-external-16:](https://onnx.ai/onnx/intro/python.html)
-- `onnx` with `scikit-learn` [:octicons-link-external-16:](https://scikit-learn.org/stable/model_persistence.html#onnx)
+- `onnx` documentation for Python
+    [:octicons-link-external-16:](https://onnx.ai/onnx/intro/python.html)
+- `onnx` with `scikit-learn`
+    [:octicons-link-external-16:](https://scikit-learn.org/stable/model_persistence.html#onnx)
 
 ### :toolbox: Expand your model toolkit
 
-We covered a selection of different model types, yet there are many more to 
-explore. `scikit-learn` offers many more models for classification, regression, 
+We covered a selection of different model types, yet there are many more to
+explore. `scikit-learn` offers many more models for classification, regression,
 clustering or dimensionality reduction.
 
 Since you're already familiar with `scikit-learn`, applying these models is
-straightforward. 
+straightforward.
 
 Start with:
 
-- `scikit-learn` documentation. [:octicons-link-external-16:](https://scikit-learn.org/stable/index.html)
+- `scikit-learn` documentation.
+    [:octicons-link-external-16:](https://scikit-learn.org/stable/index.html)
 
 ### :wrench: Advanced pipeline techniques
 
