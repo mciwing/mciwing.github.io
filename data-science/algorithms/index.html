@@ -5997,33 +5997,32 @@
 
 
 <h1 id="introduction">Introduction</h1>
-<p>With extensive data preparation knowledge, we can tackle the next
-big part of the course: algorithms. An algorithm is a</p>
+<p>With extensive data preparation knowledge, we can tackle the next big part of
+the course: algorithms. An algorithm is a</p>
 <blockquote>
 <p>a set of mathematical instructions or rules that, especially if given to a
 computer, will help to calculate an answer to a problem.</p>
 <p><a href="https://dictionary.cambridge.org/de/worterbuch/englisch/algorithm">Cambridge Dictionary</a></p>
 </blockquote>
-<p>In data science/machine learning, algorithms are used to solve problems, 
-such as modelling data to make predictions for unseen data, or clustering data 
-to find patterns.</p>
-<p>The consecutive chapters will introduce you to common algorithms, like 
-linear and logistic regression, decision trees and k-means clustering. We 
-will explore the theory as well as practical examples. First, we establish two 
-main concepts in machine learning: supervised and unsupervised learning.</p>
+<p>In data science/machine learning, algorithms are used to solve problems, such
+as modelling data to make predictions for unseen data, or clustering data to
+find patterns.</p>
+<p>The consecutive chapters will introduce you to common algorithms, like linear
+and logistic regression, decision trees and k-means clustering. We will explore
+the theory as well as practical examples. First, we establish two main concepts
+in machine learning: supervised and unsupervised learning.</p>
 <h2 id="supervised-learning">Supervised Learning</h2>
-<p>Supervised learning is a type of machine learning where algorithms learn from 
-<ins>labeled</ins> training data to make predictions on new, unseen data. The term 
-"supervised" comes from the idea that the algorithm is guided by a 
-"supervisor" (the labeled data) that provides the correct answers during
-training.</p>
+<p>Supervised learning is a type of machine learning where algorithms learn from
+<ins>labeled</ins> training data to make predictions on new, unseen data. The term
+"supervised" comes from the idea that the algorithm is guided by a "supervisor"
+(the labeled data) that provides the correct answers during training.</p>
 <p>In supervised learning, each training example consists of:</p>
 <ul>
-<li>Input features (<span class="arithmatex">\(X\)</span>): The characteristics or attributes we use to make 
+<li>Input features (<span class="arithmatex">\(X\)</span>): The characteristics or attributes we use to make
     predictions</li>
 <li>Target variable (<span class="arithmatex">\(y\)</span>): The correct output we want to predict</li>
 </ul>
-<p>The algorithm learns the relationship between inputs (<span class="arithmatex">\(X\)</span>) and outputs 
+<p>The algorithm learns the relationship between inputs (<span class="arithmatex">\(X\)</span>) and outputs
 (<span class="arithmatex">\(y\)</span>), creating a model that can then (hopefully!) generalize to new data.</p>
 <h3 id="example">Example</h3>
 <p>Assume we want to predict apartment prices (<span class="arithmatex">\(y\)</span>) based on apartment size and
@@ -6048,17 +6047,18 @@ number of rooms (<span class="arithmatex">\(X\)</span>):</p>
 </span></span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="hll"><span class="n">predicted_price</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_apartment</span><span class="p">)</span>
 </span></span></code></pre></div>
 <ol>
-<li>Underscores can be used as visual separators in numeric literals
-   to improve readability. They have no effect on the value of the number. For
-   example, <code class="language-python highlight"><span class="mi">500_000</span></code> is the same as <code class="language-python highlight"><span class="mi">500000</span></code>.</li>
+<li>Underscores can be used as visual separators in numeric literals to improve
+    readability. They have no effect on the value of the number. For example,
+    <code class="language-python highlight"><span class="mi">500_000</span></code> is the same as <code class="language-python highlight"><span class="mi">500000</span></code>.</li>
 </ol>
 <p>For each new observation, we can use the trained model to predict the price.
-The apartment with 150m² and 5 rooms has a predicted price of <code class="language-python highlight"><span class="mi">775000</span></code>.</p>
+The apartment with 150m² and 5 rooms has a predicted price of
+<code class="language-python highlight"><span class="mi">775000</span></code>.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Whether this estimate is actually close to reality depends on the
-quality of the model and its underlying data. Later, we will 
-discuss how to measure a model's quality.</p>
+<p>Whether this estimate is actually close to reality depends on the quality of
+the model and its underlying data. Later, we will discuss how to measure a
+model's quality.</p>
 </details>
 <hr />
 <h3 id="classification-vs-regression">Classification vs. Regression</h3>
@@ -6070,13 +6070,13 @@ discuss how to measure a model's quality.</p>
 <h4 id="classification">Classification</h4>
 <p>Classification problems involve predicting discrete categories or labels. The
 output is always one of a fixed set of classes. For instance, in binary
-classification, the model decides between two possibilities. </p>
-<p>For example, the Portuguese retail bank data can be used to predict 
-whether a customer would subscribe to a term deposit. The target variable is 
-binary: yes or no.</p>
-<p>On the other hand, multiclass classification handles three or more categories 
-(like classifying animals in photos <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> dog, 
-cat, dolphin, tiger, elephant, etc.).</p>
+classification, the model decides between two possibilities.</p>
+<p>For example, the Portuguese retail bank data can be used to predict whether a
+customer would subscribe to a term deposit. The target variable is binary: yes
+or no.</p>
+<p>On the other hand, multiclass classification handles three or more categories
+(like classifying animals in photos <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> dog, cat,
+dolphin, tiger, elephant, etc.).</p>
 <hr />
 <h4 id="regression">Regression</h4>
 <p>Regression problems, on the other hand, predict continuous numerical values.
@@ -6084,8 +6084,8 @@ Instead of categorizing input into classes, regression models estimate a
 numerical value along a continuous spectrum. These models work by finding
 patterns in the data to estimate a mathematical function that best describes
 the relationship between input features and the target variable.</p>
-<p>For instance the example, predicting the price of an apartment based on 
-its size and the number of rooms is a regression task.</p>
+<p>For instance the example, predicting the price of an apartment based on its
+size and the number of rooms is a regression task.</p>
 <hr />
 <h4 id="examples">Examples</h4>
 <div class="grid cards">
@@ -6118,16 +6118,16 @@ its size and the number of rooms is a regression task.</p>
 </div>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>No matter if you're dealing with a classification or regression task, the 
-key to successful supervised learning lies in having high-quality labeled
-data and selecting appropriate features (variables) that have predictive 
-power for the target variable.</p>
+<p>No matter if you're dealing with a classification or regression task, the key
+to successful supervised learning lies in having high-quality labeled data and
+selecting appropriate features (variables) that have predictive power for the
+target variable.</p>
 </details>
 <h2 id="unsupervised-learning">Unsupervised Learning</h2>
-<p>Contrary, unsupervised learning deals with <ins>unlabeled</ins> data to discover 
-hidden patterns and structures. Unlike supervised learning, there is no 
-"supervisor" providing correct answers. The algorithm tries to find
-meaningful patterns on its own.</p>
+<p>Contrary, unsupervised learning deals with <ins>unlabeled</ins> data to discover
+hidden patterns and structures. Unlike supervised learning, there is no
+"supervisor" providing correct answers. The algorithm tries to find meaningful
+patterns on its own.</p>
 <p>In unsupervised learning, we solely have:</p>
 <ul>
 <li>Input features (<span class="arithmatex">\(X\)</span>): The characteristics or attributes of the data</li>
@@ -6139,34 +6139,28 @@ underlying structures in the data.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># customer data [annual_spending, avg_basket_size]</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">X</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="p">[</span><span class="mi">4500</span><span class="p">,</span> <span class="mi">140</span><span class="p">],</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">]</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># use k-means to find customer segments</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="hll"><span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># (1)!</span>
-</span></span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="hll"><span class="n">segments</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</span></span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span> <span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">4500</span><span class="p">,</span> <span class="mi">140</span><span class="p">],</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">45</span><span class="p">]]</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># use k-means to find customer segments</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># (1)!</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">segments</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span>
 </span></code></pre></div>
 <ol>
-<li>Setting the <code>random_state</code> parameter ensures that you always get the same 
-    results when executing the code repeatedly. Reproducibility is discussed 
+<li>Setting the <code>random_state</code> parameter ensures that you always get the same
+    results when executing the code repeatedly. Reproducibility is discussed
     more in-depth in upcoming chapters.</li>
 </ol>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[1 0 1 0 1]
 </span></code></pre></div>
-<p>The variable <code>segments</code> contains the cluster assignments for each customer. 
-The cluster assignment is simply an <code class="language-python highlight"><span class="nb">int</span></code> indicating which group the 
-customer belongs to. In this example, we have two clusters with the first 
-customer (<code class="language-python highlight"><span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span></code>) belonging to cluster 1 and the second 
-customer (<code class="language-python highlight"><span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span></code>) to cluster 0 and so on.</p>
-<p>The following plot visualizes the input data as scatter plot 
-colored by the cluster assignments:</p>
+<p>The variable <code>segments</code> contains the cluster assignments for each customer. The
+cluster assignment is simply an <code class="language-python highlight"><span class="nb">int</span></code> indicating which group the
+customer belongs to. In this example, we have two clusters with the first
+customer (<code class="language-python highlight"><span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span></code>) belonging to cluster 1 and the second customer
+(<code class="language-python highlight"><span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span></code>) to cluster 0 and so on.</p>
+<p>The following plot visualizes the input data as scatter plot colored by the
+cluster assignments:</p>
 <div style="text-align: center;">
     <iframe src="/assets/data-science/algorithms/clusters.html" width="600" height="450">
     </iframe>
@@ -6188,8 +6182,8 @@ these groups should be, it discovers the patterns based on attributes.</p>
 <hr />
 <h4 id="clustering">Clustering</h4>
 <p>Clustering algorithms group similar data points together based on their
-features. The goal is to find cluster/groups in the data without any 
-prior knowledge of the groups just like in the previous customer segmentation
+features. The goal is to find cluster/groups in the data without any prior
+knowledge of the groups just like in the previous customer segmentation
 example.</p>
 <hr />
 <h4 id="dimensionality-reduction">Dimensionality Reduction</h4>
@@ -6234,13 +6228,13 @@ meaningful the discovered patterns are for the specific application.</p>
 <hr />
 <details class="tip" open="open">
 <summary>Domain knowledge</summary>
-<p>No matter if you're dealing with supervised or unsupervised learning,
-domain knowledge is crucial. Understanding the data and the problem you're
-trying to solve will help you select the right algorithms, features and 
-interpret the results.</p>
+<p>No matter if you're dealing with supervised or unsupervised learning, domain
+knowledge is crucial. Understanding the data and the problem you're trying to
+solve will help you select the right algorithms, features and interpret the
+results.</p>
 </details>
 <h2 id="recap">Recap</h2>
-<p>This chapter introduced two fundamental concepts in machine learning, 
+<p>This chapter introduced two fundamental concepts in machine learning,
 supervised and unsupervised learning:</p>
 <table>
 <thead>
@@ -6278,7 +6272,7 @@ supervised and unsupervised learning:</p>
 </tr>
 </tbody>
 </table>
-<p>The following chapters will cover algorithms for each task with theory and 
+<p>The following chapters will cover algorithms for each task with theory and
 practical examples.</p><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
@@ -7540,7 +7534,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="January 27, 2026 14:49:34 UTC"><span class="timeago" datetime="2026-01-27T14:49:34+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 27, 2026 14:49:34 UTC">2026-01-27</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 14:15:05 UTC"><span class="timeago" datetime="2026-02-09T14:15:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 14:15:05 UTC">2026-02-09</span>
   </span>
 
     

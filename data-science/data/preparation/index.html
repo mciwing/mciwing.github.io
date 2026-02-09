@@ -6103,39 +6103,50 @@
 <details class="info" open="open">
 <summary>Info</summary>
 <p>Starting with this chapter, we will work with <ins>adapted data</ins> from:</p>
-<p><ins>S. Moro, P. Cortez and P. Rita (2014). <em>A Data-Driven Approach to 
-Predict the Success of Bank Telemarketing</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
-<p>The publicly available dataset is from a Portuguese retail bank 
-and houses information on direct marketing campaigns (phone calls). Bank 
-customers were contacted and asked to subscribe to a term deposit. Using 
-this practical example, we will explore the realms of:</p>
+<p><ins>S. Moro, P. Cortez and P. Rita (2014). <em>A Data-Driven Approach to Predict the
+Success of Bank Telemarketing</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
+<p>The publicly available dataset is from a Portuguese retail bank and houses
+information on direct marketing campaigns (phone calls). Bank customers were
+contacted and asked to subscribe to a term deposit. Using this practical
+example, we will explore the realms of:</p>
 <ul>
-<li>Data merging</li>
-<li>Data cleaning</li>
-<li>Data transformation</li>
-<li>Machine learning (with selected algorithms)</li>
-<li>Comparison of model performance</li>
-<li>Model persistence (practical guide on how to save and load machine 
-  learning models)</li>
-</ul>
+<li>
+<p>Data merging</p>
+</li>
+<li>
+<p>Data cleaning</p>
+</li>
+<li>
+<p>Data transformation</p>
+</li>
+<li>
+<p>Machine learning (with selected algorithms)</p>
+</li>
+<li>
+<p>Comparison of model performance</p>
+</li>
+<li>
+<p>Model persistence (practical guide on how to save and load machine learning
+    models)</p>
 <p>Eventually, you will end up with a model that predicts whether a customer
-  will subscribe to a term deposit or not.</p>
+will subscribe to a term deposit or not.</p>
+</li>
+</ul>
 </details>
 <h2 id="obtaining-the-data">Obtaining the data</h2>
 <details class="tip" open="open">
 <summary>Set up a project</summary>
-<p>Once again, set up a new project with <code>uv</code>. Call this one <code>bank_marketing</code>.
-We will perform all steps from data merging to saving the model in this 
-project.</p>
-<p>If you are having trouble setting up a virtual environment, please refer 
-to the <a href="../../basics/setup/#wrap-up"><code>uv</code> wrap-up</a> section.</p>
+<p>Once again, set up a new project with <code>uv</code>. Call this one <code>bank_marketing</code>. We
+will perform all steps from data merging to saving the model in this project.</p>
+<p>If you are having trouble setting up a virtual environment, please refer to the
+<a href="../../basics/setup/#wrap-up"><code>uv</code> wrap-up</a> section.</p>
 </details>
 <p>Let's dive right in and download both files:</p>
 <div class="center-button">
 <p><a class="md-button" href="../../../assets/data-science/data/bank.tsv">Bank Marketing <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v210.7l-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7zM64 320c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64h-46.9l-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg></span></a>
 <a class="md-button" href="../../../assets/data-science/data/bank-social.csv">Bank Marketing Social Features <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v210.7l-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7zM64 320c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64h-46.9l-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg></span></a></p>
 </div>
-<p>Place the files in a new folder called <code>data</code>. Your project now should look 
+<p>Place the files in a new folder called <code>data</code>. Your project now should look
 like this:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>📁 bank_marketing/
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── 📁 .venv/
@@ -6145,44 +6156,41 @@ like this:</p>
 </span></code></pre></div>
 <details class="question" open="open">
 <summary>Open the files</summary>
-<p>Before we start, simply open the files with a text editor.
-Scroll through both files and read a couple of rows to get acquainted with 
-the data.</p>
+<p>Before we start, simply open the files with a text editor. Scroll through both
+files and read a couple of rows to get acquainted with the data.</p>
 </details>
 <h2 id="read-the-files">Read the files</h2>
-<p>Since we are obviously dealing with two rather large files, we opt to read 
-them with <code>Python</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span>. At the end of this section
-we end up with a single (clean!) data set.</p>
+<p>Since we are obviously dealing with two rather large files, we opt to read them
+with <code>Python</code> <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg></span>. At the end of this section we end up
+with a single (clean!) data set.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Conveniently, in our case the data was already collected, saving us hours 
-and hours of work. Thus, we can focus on the data preparation step. 
-Since data is commonly obtained from different sources and in various 
-different formats, both data sets we have at hand (<code>bank.tsv</code> and <code>bank-social.csv</code>)
-will mimic theses scenarios.</p>
+<p>Conveniently, in our case the data was already collected, saving us hours and
+hours of work. Thus, we can focus on the data preparation step. Since data is
+commonly obtained from different sources and in various different formats, both
+data sets we have at hand (<code>bank.tsv</code> and <code>bank-social.csv</code>) will mimic theses
+scenarios.</p>
 </details>
-<p>To start, we are using <code>pandas</code> for reading and manipulating data. If you 
-haven't already, install the package within your environment. 
-Assuming your Jupyter Notebook or script is located at the project's root, we
-start by reading the first file <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> <code>bank.tsv</code>.</p>
+<p>To start, we are using <code>pandas</code> for reading and manipulating data. If you
+haven't already, install the package within your environment. Assuming your
+Jupyter Notebook or script is located at the project's root, we start by
+reading the first file <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> <code>bank.tsv</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/bank.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Although, we can use a simple single-liner to read the file, there are a 
-couple of things to break down:</p>
+<p>Although, we can use a simple single-liner to read the file, there are a couple
+of things to break down:</p>
 <ol>
-<li>We are dealing with a tab-separated file, meaning values within the file 
-   are separated by a tab character (<code>\t</code>). The fact that we are dealing 
-   with a tab-separated file is indicated by the file extension <code>.tsv</code> and 
-   the space surrounding the values within the file.</li>
-<li>Although we do not have a <code>csv</code> file at hand, <code>pandas</code> is versatile enough 
-   to handle different separators. 
-   Thus, we can utilize the <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span></code> function to read the 
-   file. <mark>Tip</mark>: All sorts of text files can be usually read with 
-   <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span></code>.</li>
-<li>Lastly, the <code>sep</code> parameter is set to <code>\t</code> to indicate the tab 
-   separation.</li>
+<li>We are dealing with a tab-separated file, meaning values within the file are
+    separated by a tab character (<code>\t</code>). The fact that we are dealing with a
+    tab-separated file is indicated by the file extension <code>.tsv</code> and the space
+    surrounding the values within the file.</li>
+<li>Although we do not have a <code>csv</code> file at hand, <code>pandas</code> is versatile enough
+    to handle different separators. Thus, we can utilize the
+    <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span></code> function to read the file. <mark>Tip</mark>: All sorts of
+    text files can be usually read with <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span></code>.</li>
+<li>Lastly, the <code>sep</code> parameter is set to <code>\t</code> to indicate the tab separation.</li>
 </ol>
 <p>Let's read the second file <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> <code>bank-social.csv</code>.</p>
 <div class="quiz" data-show-correct="true" data-auto-submit="true" id="quiz-0">
@@ -6197,18 +6205,18 @@ Which separator is used in the file?</p>
                     <div class="quiz-feedback hidden"></div>
 
                 </form>
-                <section class="content hidden"><p>Values are separated by a semicolon.</p></section>
+                <section class="content hidden"><p>Values are separated by a semicolon. </p></section>
             </div>
 
 <details class="question" open="open">
 <summary>Read the second file</summary>
-<p>Simply read the second file (<code>bank-social.csv</code>) with <code>pd.read_csv()</code> 
-and specify the appropriate separator. Store the <code>DataFrame</code> in a 
-variable called <code>data_social</code>.</p>
+<p>Simply read the second file (<code>bank-social.csv</code>) with <code>pd.read_csv()</code> and
+specify the appropriate separator. Store the <code>DataFrame</code> in a variable called
+<code>data_social</code>.</p>
 </details>
 <h2 id="duplicated-data">Duplicated data</h2>
-<p>Now, with both files in memory, let's examine them closer in order to 
-perform a merge.</p>
+<p>Now, with both files in memory, let's examine them closer in order to perform a
+merge.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><code>print(data.head())</code></label><label for="__tabbed_1_2"><code>print(data_social.head())</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6284,11 +6292,10 @@ perform a merge.</p>
 </tr>
 </tbody>
 </table>
-<p>The rows represent customers and the columns are features of the 
-  customers. The column <code>y</code> indicates whether a customer subscribed to a 
-  term deposit or not. Customers are uniquely identified by the <code>id</code> 
-  column. Later on, we will have a closer look at the attributes when 
-  modelling the data.</p>
+<p>The rows represent customers and the columns are features of the customers. The
+column <code>y</code> indicates whether a customer subscribed to a term deposit or not.
+Customers are uniquely identified by the <code>id</code> column. Later on, we will have a
+closer look at the attributes when modelling the data.</p>
 </div>
 <div class="tabbed-block">
 <table>
@@ -6333,21 +6340,22 @@ perform a merge.</p>
 </tr>
 </tbody>
 </table>
-<p>Again, each row represents a customer (uniquely identified with <code>id</code>).
-  The remaining columns <code>job</code>, <code>marital</code>, and <code>education</code> are social
-  attributes.</p>
+<p>Again, each row represents a customer (uniquely identified with <code>id</code>). The
+remaining columns <code>job</code>, <code>marital</code>, and <code>education</code> are social attributes.</p>
 </div>
 </div>
 </div>
 <hr />
 <p>Let's examine the shape of both <code>DataFrame</code>s as well.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of data: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">; Shape of data_social: </span><span class="si">{</span><span class="n">data_social</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="sa">f</span><span class="s2">&quot;Shape of data: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">; Shape of data_social: </span><span class="si">{</span><span class="n">data_social</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Shape of data: (4530, 18); Shape of data_social: (4304, 4)
 </span></code></pre></div>
 <p>The output indicates that <code>data</code> contains more observations (customers) than
-<code>data_social</code>. However, first and foremost it is good practice to check 
-for duplicated data.</p>
+<code>data_social</code>. However, first and foremost it is good practice to check for
+duplicated data.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># check for duplicated rows</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </span></code></pre></div>
@@ -6371,62 +6379,62 @@ for duplicated data.</p>
         <div class="quiz-feedback hidden"></div>
 
     </form>
-    <section class="content hidden"><p><code>data_social</code> has 376 duplicated rows.</p></section>
+    <section class="content hidden"><p><code>data_social</code> has 376 duplicated rows. </p></section>
 </div>
 
 <details class="info" open="open">
 <summary>A note on <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span></code></summary>
-<p>By default, the method <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span></code> removes
-all duplicated rows. However, you can pass an argument to <code>subset</code> in 
-order to remove duplicates based on specific columns. For example, if we 
-want to drop duplicates based on the <code>id</code> column, we can do so by:</p>
+<p>By default, the method <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span></code> removes all
+duplicated rows. However, you can pass an argument to <code>subset</code> in order to
+remove duplicates based on specific columns. For example, if we want to drop
+duplicates based on the <code>id</code> column, we can do so by:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">data_social</span> <span class="o">=</span> <span class="n">data_social</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
 </span></code></pre></div>
 <p><code>subset</code> can also be all list of multiple columns.</p>
 </details>
 <h2 id="merge-methods">Merge methods</h2>
-<p>To combine both data sets we will use the <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">merge</span><span class="p">()</span></code> 
+<p>To combine both data sets we will use the <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">merge</span><span class="p">()</span></code>
 method to</p>
 <blockquote>
 <p>Merge DataFrame or named Series objects with a database-style join</p>
-<p>-- <cite><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">pandas <code>merge()</code>docs</a></cite></p>
+<p><cite><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">pandas <code>merge()</code>docs</a></cite></p>
 </blockquote>
-<p>Looking at the <code>how</code> parameter we are presented with 5 (!) different options 
-to perform a merge. The most common ones are:</p>
+<p>Looking at the <code>how</code> parameter we are presented with 5 (!) different options to
+perform a merge. The most common ones are:</p>
 <ul>
 <li><code class="language-python highlight"><span class="s2">&quot;left&quot;</span></code></li>
 <li><code class="language-python highlight"><span class="s2">&quot;right&quot;</span></code></li>
 <li><code class="language-python highlight"><span class="s2">&quot;inner&quot;</span></code></li>
 <li><code class="language-python highlight"><span class="s2">&quot;outer&quot;</span></code></li>
 </ul>
-<p>In order to be able to choose the appropriate method, we need to break them 
+<p>In order to be able to choose the appropriate method, we need to break them
 down:</p>
 <p><img alt="Merge types" src="../../../assets/data-science/data/merge-types.png" /></p>
 <ul>
-<li><strong>Left join</strong>: The resulting <code>DataFrame</code> will contain all rows from the 
-  left <code>DataFrame</code> (data 1) and the matched rows from the right <code>DataFrame</code> 
-  (data 2).</li>
-<li><strong>Right join</strong>: The resulting <code>DataFrame</code> will contain all rows from the 
-  right <code>DataFrame</code> (data 2) and the matched rows from the left <code>DataFrame</code> 
-  (data 1).</li>
-<li><strong>Inner join</strong>: The resulting <code>DataFrame</code> will contain only the rows that 
-  have matching values in both <code>DataFrame</code>s.</li>
-<li><strong>Outer join</strong>: The resulting <code>DataFrame</code> will contain all rows from both 
-  <code>DataFrame</code>s.</li>
+<li><strong>Left join</strong>: The resulting <code>DataFrame</code> will contain all rows from the left
+    <code>DataFrame</code> (data 1) and the matched rows from the right <code>DataFrame</code> (data
+    2).</li>
+<li><strong>Right join</strong>: The resulting <code>DataFrame</code> will contain all rows from the
+    right <code>DataFrame</code> (data 2) and the matched rows from the left <code>DataFrame</code>
+    (data 1).</li>
+<li><strong>Inner join</strong>: The resulting <code>DataFrame</code> will contain only the rows that
+    have matching values in both <code>DataFrame</code>s.</li>
+<li><strong>Outer join</strong>: The resulting <code>DataFrame</code> will contain all rows from both
+    <code>DataFrame</code>s.</li>
 </ul>
 <h3 id="perform-merges">Perform merges</h3>
-<p>To get further acquainted with merge methods, we simply perform them all.
-But first, we need to pick a column which uniquely identifies a row (customer)
-in both data sets. Conveniently, we have the <code>id</code> column. Regardless
-of the merge we perform, the parameter <code>on</code> requires a column to match the 
-rows (in our case we set <code class="language-python highlight"><span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span></code>).</p>
+<p>To get further acquainted with merge methods, we simply perform them all. But
+first, we need to pick a column which uniquely identifies a row (customer) in
+both data sets. Conveniently, we have the <code>id</code> column. Regardless of the merge
+we perform, the parameter <code>on</code> requires a column to match the rows (in our case
+we set <code class="language-python highlight"><span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span></code>).</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">left_join</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_social</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">right_join</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_social</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">inner_join</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_social</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">outer_join</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_social</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="a-closer-look">A closer look</h4>
-<p>To comprehend on of these merges, have a look at the resulting shape and the 
+<p>To comprehend on of these merges, have a look at the resulting shape and the
 identifiers the <code>DataFrame</code> contains. Let's examine the <code>right_join</code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">equal_nrows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_social</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">right_join</span><span class="p">)</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Merged data has the same number of rows as data_social: </span><span class="si">{</span><span class="n">equal_nrows</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -6440,22 +6448,22 @@ identifiers the <code>DataFrame</code> contains. Let's examine the <code>right_j
 <p>A breakdown of the code snippet:</p>
 <ol>
 <li>
-<p><code>equal_nrows</code> indicates that all rows from <code>data_social</code> are present in 
-   <code>right_join</code>.</p>
+<p><code>equal_nrows</code> indicates that all rows from <code>data_social</code> are present in
+    <code>right_join</code>.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p><code class="language-python highlight"><span class="nb">len</span><span class="p">(</span><span class="n">data_social</span><span class="p">)</span></code> is equivalent to 
+<p><code class="language-python highlight"><span class="nb">len</span><span class="p">(</span><span class="n">data_social</span><span class="p">)</span></code> is equivalent to
 <code class="language-python highlight"><span class="n">data_social</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></code>.</p>
 </details>
 </li>
 <li>
-<p>To verify that <code>right_join</code> contains all identifiers of <code>data_social</code>, 
-   we make use of the <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">isin</span><span class="p">()</span></code> method. This method checks 
-   whether each element of a <code>Series</code> is contained in another <code>Series</code>.</p>
+<p>To verify that <code>right_join</code> contains all identifiers of <code>data_social</code>, we
+    make use of the <code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">isin</span><span class="p">()</span></code> method. This method checks
+    whether each element of a <code>Series</code> is contained in another <code>Series</code>.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p><code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></code> returns <code class="language-python highlight"><span class="kc">True</span></code> if all elements in 
-the <code>Series</code> are <code class="language-python highlight"><span class="kc">True</span></code>.</p>
+<p><code class="language-python highlight"><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></code> returns <code class="language-python highlight"><span class="kc">True</span></code> if all elements in the
+<code>Series</code> are <code class="language-python highlight"><span class="kc">True</span></code>.</p>
 </details>
 </li>
 </ol>
@@ -6467,35 +6475,32 @@ the <code>Series</code> are <code class="language-python highlight"><span class=
 <li>Are all identifiers from <code>data</code> present in <code>right_join</code>?</li>
 </ol>
 </details>
-<p>Our examinations should conclude that <code>right_join</code> contains all 
-rows/customer data from <code>data_social</code> and solely the matching records 
-from <code>data</code>.</p>
+<p>Our examinations should conclude that <code>right_join</code> contains all rows/customer
+data from <code>data_social</code> and solely the matching records from <code>data</code>.</p>
 <hr />
 <details class="question" open="open">
 <summary>Examine remaining merges</summary>
-<p>Look at the shapes of the remaining merges (<code>left_join</code>, 
-<code>inner_join</code>, <code>outer_join</code>) to get a better understanding of the
-different merge methods and its results.</p>
-<p>Compare the shape of each merge with the shapes of <code>data</code> and 
-<code>data_social</code>.</p>
+<p>Look at the shapes of the remaining merges (<code>left_join</code>, <code>inner_join</code>,
+<code>outer_join</code>) to get a better understanding of the different merge methods and
+its results.</p>
+<p>Compare the shape of each merge with the shapes of <code>data</code> and <code>data_social</code>.</p>
 </details>
 <h3 id="final-merge-application">Final merge (application)</h3>
-<p>With a solid understanding of different merge methods, we revisit our 
-initial task to join both data sets. But how can we choose the appropriate 
-method? The short answer; it depends on your data and task at hand. 
-There is no method that fits all scenarios.</p>
+<p>With a solid understanding of different merge methods, we revisit our initial
+task to join both data sets. But how can we choose the appropriate method? The
+short answer; it depends on your data and task at hand. There is no method that
+fits all scenarios.</p>
 <blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/13oxtqs/sql_explained/">SQL Explained</a><br> by<a href="https://www.reddit.com/user/UnorthodoxPrimitive/">u/UnorthodoxPrimitive</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote>
 <script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
 
-<p>Since we are eventually fitting a machine learning model on the data, we are 
-interested in customer data that is present in both data sets. I.e., we 
-want to prevent the introduction of additional missing values that would 
-result from an outer join. Furthermore, a left join would leave us with missing
-attributes from <code>social_data</code>. The same applies to a right join, just vice 
-versa.</p>
-<p>Long story short, we opt for an <code class="language-python highlight"><span class="s2">&quot;inner&quot;</span></code> merge (or join) which 
-leaves us with only the customers that are present in both data sets. The 
-final merge is as simple as:</p>
+<p>Since we are eventually fitting a machine learning model on the data, we are
+interested in customer data that is present in both data sets. I.e., we want to
+prevent the introduction of additional missing values that would result from an
+outer join. Furthermore, a left join would leave us with missing attributes
+from <code>social_data</code>. The same applies to a right join, just vice versa.</p>
+<p>Long story short, we opt for an <code class="language-python highlight"><span class="s2">&quot;inner&quot;</span></code> merge (or join) which leaves
+us with only the customers that are present in both data sets. The final merge
+is as simple as:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">data_merged</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_social</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Let's examine the shape of the merged data set.</p>
@@ -6504,14 +6509,14 @@ final merge is as simple as:</p>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Shape of data_merged: (3928, 21)
 </span></code></pre></div>
 <p>We end up with <code class="language-python highlight"><span class="mi">3928</span></code> customers that are present in both data sets.
-Lastly, we can write the merged data set to a new file. Let's use a common 
+Lastly, we can write the merged data set to a new file. Let's use a common
 format <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> <code>csv</code> with the default <code>,</code> as separator.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">data_merged</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/bank-merged.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span></code></pre></div>
 <p>With <code class="language-python highlight"><span class="n">index</span><span class="o">=</span><span class="kc">False</span></code>, we do <mark>not</mark></p>
 <blockquote>
 <p>Write row names (index).</p>
-<p>-- <cite><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html">pandas <code>to_csv()</code> docs</a></cite></p>
+<p><cite><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html">pandas <code>to_csv()</code> docs</a></cite></p>
 </blockquote>
 <div style="text-align: center;">
 
@@ -6523,10 +6528,10 @@ format <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 
 </div>
 
 <h2 id="recap">Recap</h2>
-<p>Using the bank marketing data, we have seen how to find and remove duplicated 
+<p>Using the bank marketing data, we have seen how to find and remove duplicated
 data, explored different merge methods and ended up with a single data set.</p>
-<p>In the next chapter, we will explore this data further, look for missing 
-values and perform some basic data transformations.</p>
+<p>In the next chapter, we will explore this data further, look for missing values
+and perform some basic data transformations.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -7796,7 +7801,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 6, 2026 08:53:57 UTC"><span class="timeago" datetime="2026-02-06T08:53:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 6, 2026 08:53:57 UTC">2026-02-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 14:15:05 UTC"><span class="timeago" datetime="2026-02-09T14:15:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 14:15:05 UTC">2026-02-09</span>
   </span>
 
     

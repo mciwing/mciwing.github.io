@@ -6180,71 +6180,72 @@
 
 <h1 id="dimensionality-reduction">Dimensionality Reduction</h1>
 <h2 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
-<p>In data science and machine learning, we often encounter data sets with 
-hundreds or even thousands of features. We speak of high-dimensional data 
-sets. While these features may contain valuable information, working with 
-such high-dimensional data can be computationally expensive, prone to 
-overfitting, and difficult to visualize. This is where another 
-unsupervised method, dimensionality reduction comes in — a technique used to 
-simplify data sets, while retaining much of the critical information.</p>
-<p>One of the most widely used methods for dimensionality reduction is 
-Principal Component Analysis (PCA). PCA transforms a high-dimensional (= 
-lots of features) data set into a smaller set of features (components). In
-practice, PCA can reduce hundreds of features down to just 2 or 3 
-features, making PCA an ideal tool for visualization, preprocessing, and 
-feature extraction.</p>
-<p>In this section, we will explain the inner workings of PCA and apply it to
-the semiconductor data set.</p>
+<p>In data science and machine learning, we often encounter data sets with
+hundreds or even thousands of features. We speak of high-dimensional data sets.
+While these features may contain valuable information, working with such
+high-dimensional data can be computationally expensive, prone to overfitting,
+and difficult to visualize. This is where another unsupervised method,
+dimensionality reduction comes in — a technique used to simplify data sets,
+while retaining much of the critical information.</p>
+<p>One of the most widely used methods for dimensionality reduction is Principal
+Component Analysis (PCA). PCA transforms a high-dimensional (= lots of
+features) data set into a smaller set of features (components). In practice,
+PCA can reduce hundreds of features down to just 2 or 3 features, making PCA an
+ideal tool for visualization, preprocessing, and feature extraction.</p>
+<p>In this section, we will explain the inner workings of PCA and apply it to the
+semiconductor data set.</p>
 <h3 id="what-is-pca">What is PCA?</h3>
-<p>PCA is a <strong>linear transformation technique</strong> that identifies the directions 
-(also called <strong>principal components</strong>) in which the data varies the most. 
-These principal components capture as much variance as possible. PCA has a 
-variety of applications, such as:</p>
+<p>PCA is a <strong>linear transformation technique</strong> that identifies the directions
+(also called <strong>principal components</strong>) in which the data varies the most. These
+principal components capture as much variance as possible. PCA has a variety of
+applications, such as:</p>
 <ul>
 <li><strong>Data visualization</strong>: Plot a dimensionality reduced data set in 2D.</li>
 <li><strong>Preprocessing</strong>: Removing noise or redundant features while retaining the
-  essential patterns in data.</li>
+    essential patterns in data.</li>
 <li><strong>Feature engineering</strong>: Summarizing high-dimensional data into a smaller set
-  of meaningful features.</li>
+    of meaningful features.</li>
 </ul>
 <h3 id="how-does-it-work">How does it work?</h3>
 <p>PCA follows these essential steps:</p>
 <ol>
 <li>
 <p><strong>Compute the covariance matrix</strong>: PCA captures relationships between
-   features by calculating the covariance between them.</p>
+    features by calculating the covariance between them.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Think of the covariance matrix as the "spread" of the data. PCA looks 
-at the interaction <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> the correlation of 
-features with each other. Visit the 
+<p>Think of the covariance matrix as the "spread" of the data. PCA looks at the
+interaction <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> the correlation of features with
+each other. Visit the
 <a href="../../../../statistics/bivariate/Correlation/#covariance">correlation chapter</a>
 in the statistics course to learn more about covariance.</p>
 </details>
 </li>
 <li>
 <p><strong>Eigen decomposition</strong>: Identify the eigenvalues and eigenvectors of the
-   covariance matrix. The eigenvectors represent the directions of the
-   principal components, while the eigenvalues represent the amount of variance
-   captured by each component.</p>
+    covariance matrix. The eigenvectors represent the directions of the
+    principal components, while the eigenvalues represent the amount of
+    variance captured by each component.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>If you want to know more about eigenvalues and eigenvectors, check out
-this <a href="https://www.mathsisfun.com/algebra/eigenvalue.html">site</a>.</p>
+<p>If you want to know more about eigenvalues and eigenvectors, check out this
+<a href="https://www.mathsisfun.com/algebra/eigenvalue.html">site</a>.</p>
 </details>
 </li>
 <li>
 <p><strong>Rank components</strong>: Components are ranked by their eigenvalues. The first
-   principal component captures the most variance, the second captures the
-   next-most, and so on.</p>
+    principal component captures the most variance, the second captures the
+    next-most, and so on.</p>
 </li>
-<li><strong>Transform the data</strong>: Project the original data onto the top principal
-   components to reduce its dimensionality.</li>
+<li>
+<p><strong>Transform the data</strong>: Project the original data onto the top principal
+    components to reduce its dimensionality.</p>
+</li>
 </ol>
 <h3 id="the-mathematical-objective">The mathematical objective</h3>
-<p>Let’s assume we have a data set <span class="arithmatex">\(X\)</span> with <span class="arithmatex">\(p\)</span> features (dimensions). We
-aim to transform <span class="arithmatex">\(X\)</span> into a new matrix <span class="arithmatex">\(Z\)</span> with <span class="arithmatex">\(k\)</span> features such
-that <span class="arithmatex">\(k &lt; p\)</span>, while retaining as much variance as possible.</p>
+<p>Let’s assume we have a data set <span class="arithmatex">\(X\)</span> with <span class="arithmatex">\(p\)</span> features (dimensions). We aim
+to transform <span class="arithmatex">\(X\)</span> into a new matrix <span class="arithmatex">\(Z\)</span> with <span class="arithmatex">\(k\)</span> features such that
+<span class="arithmatex">\(k &lt; p\)</span>, while retaining as much variance as possible.</p>
 <p>The transformation (described previously under point 4) is defined as:</p>
 <details class="defi" open="open">
 <summary>PCA transformation</summary>
@@ -6260,16 +6261,15 @@ Z = X W
 </details>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>Dimensionality reduction helps in combating the <em>curse of dimensionality</em>, 
-a phenomenon where the performance of algorithms deteriorates with an 
-increase in the number of features. Algorithms like clustering 
-often struggle to find meaningful patterns when working with a 
-high-dimensional data set.</p>
+<p>Dimensionality reduction helps in combating the <em>curse of dimensionality</em>, a
+phenomenon where the performance of algorithms deteriorates with an increase in
+the number of features. Algorithms like clustering often struggle to find
+meaningful patterns when working with a high-dimensional data set.</p>
 </details>
 <h2 id="example">Example</h2>
-<p>It’s time to apply PCA to real-world data. We'll revisit the semiconductor
-data set that we used in the previous clustering chapter. The first goal 
-is to use PCA to reduce the data set's dimensions and visualize them.</p>
+<p>It’s time to apply PCA to real-world data. We'll revisit the semiconductor data
+set that we used in the previous clustering chapter. The first goal is to use
+PCA to reduce the data set's dimensions and visualize them.</p>
 <h3 id="prepare-the-data">Prepare the data</h3>
 <p>First, we load the data set. If you haven’t already downloaded it, you can grab
 it below:</p>
@@ -6296,19 +6296,19 @@ numerical ranges from dominating the principal components.</p>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">scaled_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="apply-pca">Apply PCA</h3>
-<p>We now apply PCA to reduce the dimensions. First, we fit the PCA model on
-the <code>scaled_data</code>:</p>
+<p>We now apply PCA to reduce the dimensions. First, we fit the PCA model on the
+<code>scaled_data</code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># (1)!</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">components</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">)</span>
 </span></code></pre></div>
 <ol>
-<li>Although the above definition of PCA is deterministic, the actual 
-   implementation can be stochastic (depending on the solver used). Since
-   <code>svd_solver</code> is set to <code class="language-python highlight"><span class="s2">&quot;auto&quot;</span></code> by default, the results can 
-   vary slightly. Long story short, setting <code>random_state</code> ensures 
-   reproducibility in all cases.</li>
+<li>Although the above definition of PCA is deterministic, the actual
+    implementation can be stochastic (depending on the solver used). Since
+    <code>svd_solver</code> is set to <code class="language-python highlight"><span class="s2">&quot;auto&quot;</span></code> by default, the results can vary
+    slightly. Long story short, setting <code>random_state</code> ensures reproducibility
+    in all cases.</li>
 </ol>
 <p><code>n_components=2</code> specifies that we want to reduce the data set to 2 dimensions.</p>
 <details class="question" open="open">
@@ -6327,7 +6327,7 @@ the <code>scaled_data</code>:</p>
 </span></code></pre></div>
 <ol>
 <li>The <code>alpha</code> parameter controls the transparency of the points. A value of
-   <code class="language-python highlight"><span class="mf">0.5</span></code> makes the points semi-transparent.</li>
+    <code class="language-python highlight"><span class="mf">0.5</span></code> makes the points semi-transparent.</li>
 </ol>
 <figure>
     <img alt="PCA visualized" src="../../../../assets/data-science/algorithms/dim-reduction/pca.svg" />
@@ -6337,29 +6337,28 @@ the <code>scaled_data</code>:</p>
         the y-axis.
     </figcaption>
 </figure>
-<p>To quickly recap so far:
-We were able to reduce the semiconductor data set from <code class="language-python highlight"><span class="mi">590</span></code> 
-features to just <code class="language-python highlight"><span class="mi">2</span></code>.</p>
+<p>To quickly recap so far: We were able to reduce the semiconductor data set from
+<code class="language-python highlight"><span class="mi">590</span></code> features to just <code class="language-python highlight"><span class="mi">2</span></code>.</p>
 <h4 id="plot-interpretation">Plot interpretation</h4>
-<p>The scatter plot shows the data set in a 2D space with each observation as
-a point. Additionally, we can observe clusters. Since, principal 
-components are ranked by the amount of variance they capture, the first
-component (PC1) is "more important" than the second component (PC2).</p>
+<p>The scatter plot shows the data set in a 2D space with each observation as a
+point. Additionally, we can observe clusters. Since, principal components are
+ranked by the amount of variance they capture, the first component (PC1) is
+"more important" than the second component (PC2).</p>
 <p>Therefore, differences along the x-axis (PC1) are more significant than
-differences along the y-axis (PC2). As we are interested in potential 
-anomalies in semiconductor products, we can detect some observations that might
-be well worth some further investigation:</p>
+differences along the y-axis (PC2). As we are interested in potential anomalies
+in semiconductor products, we can detect some observations that might be well
+worth some further investigation:</p>
 <figure>
     <img alt="Potential anomalies" src="../../../../assets/data-science/algorithms/dim-reduction/potential-anomalies.png" />
     <figcaption>
         Potential anomalies in the semiconductor data set.
     </figcaption>
 </figure>
-<p>A majority of the data points are clustered in the upper left corner. 
-Contrary, these single observations with a high difference on the x-axis 
-(PC1) might be anomalies (annotated by these arrows). Although, samples 
-within the encircled area have their differences on the y-axis (PC2),
-they are still worth investigating.</p>
+<p>A majority of the data points are clustered in the upper left corner. Contrary,
+these single observations with a high difference on the x-axis (PC1) might be
+anomalies (annotated by these arrows). Although, samples within the encircled
+area have their differences on the y-axis (PC2), they are still worth
+investigating.</p>
 <details class="question" open="open">
 <summary>Re-apply PCA on unscaled data</summary>
 <p>What would happen if you apply PCA to the unscaled data?</p>
@@ -6373,12 +6372,12 @@ they are still worth investigating.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
 <p>PCA is sensitive to the scale of the data. Thus, the scaled data nicely
-separates the clusters, while the unscaled data does not. So be sure to 
-pick the right preprocessing steps for your data.</p>
+separates the clusters, while the unscaled data does not. So be sure to pick
+the right preprocessing steps for your data.</p>
 </details>
 <h3 id="explained-variance">Explained variance</h3>
 <p>When evaluating a PCA model, it is crucial to understand how much variance is
-captured by each principal component. Simply access the 
+captured by each principal component. Simply access the
 <code>explained_variance_ratio_</code> attribute:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
 </span></code></pre></div>
@@ -6390,35 +6389,34 @@ while the second component captures <code>3.67%</code>. Together, the two compon
 capture roughly <code>10%</code> of the variance.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>Put simply, our two principal components capture <code>10%</code> of the variance
-of the original <code class="language-python highlight"><span class="mi">590</span></code> features which is not that great. 
+<p>Put simply, our two principal components capture <code>10%</code> of the variance of the
+original <code class="language-python highlight"><span class="mi">590</span></code> features which is not that great.
 <img alt="🙁" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f641.svg" title=":slightly_frowning_face:" /></p>
 </details>
 <p>Unfortunately, when dealing with real world data, results may not be as
-promising as expected. In this case, we might need to consider more
-components to capture a higher percentage of the variance.</p>
+promising as expected. In this case, we might need to consider more components
+to capture a higher percentage of the variance.</p>
 <details class="info" open="open">
 <summary>Choosing the number of components</summary>
 <p>It is essential to choose the right number of components. For example, you
-could use the components as features for another machine learning model,
-hence you want to retain as much information as possible.</p>
-<p>However, the choice of how many components to keep is subjective. 
-A common approach is to retain enough components to explain 90-95% of 
-the variance.</p>
+could use the components as features for another machine learning model, hence
+you want to retain as much information as possible.</p>
+<p>However, the choice of how many components to keep is subjective. A common
+approach is to retain enough components to explain 90-95% of the variance.</p>
 </details>
 <details class="question" open="open">
 <summary>Number of components to exceed 95% variance</summary>
 <p>Using the <em>scaled</em> semiconductor dataset:</p>
 <ol>
 <li>Create a PCA model to analyze the variance in the data</li>
-<li>Determine the minimum number of principal components needed to explain 
-   at least 95% of the total variance</li>
+<li>Determine the minimum number of principal components needed to explain at
+    least 95% of the total variance</li>
 </ol>
 <p>Solution approaches:</p>
 <ul>
 <li>You can use the <code>explained_variance_ratio_</code> attribute, OR</li>
-<li>There is an alternative approach that requires only 3 lines of code 
-  maximum (hint: google and check the PCA documentation)</li>
+<li>There is an alternative approach that requires only 3 lines of code maximum
+    (hint: google and check the PCA documentation)</li>
 </ul>
 <p>Use the following quiz question to evaluate your answer.</p>
 </details>
@@ -6560,12 +6558,12 @@ solution.</p>
 </span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46"></a><span class="p">)</span>
 </span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div></td></tr></table></div>
-<p>To summarize, we applied the same preprocessing steps, reduced the data to
-2 dimensions using PCA. Afterward, we called the elbow method on the 2 
-components to determine the optimal number of clusters. Then we applied
-k-means with <code class="language-python highlight"><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span></code>. Finally, we plot the 2 components and 
-color the observations according to their corresponding clusters. Have a look 
-at the resulting plots.</p>
+<p>To summarize, we applied the same preprocessing steps, reduced the data to 2
+dimensions using PCA. Afterward, we called the elbow method on the 2 components
+to determine the optimal number of clusters. Then we applied k-means with
+<code class="language-python highlight"><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span></code>. Finally, we plot the 2 components and color the
+observations according to their corresponding clusters. Have a look at the
+resulting plots.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Clustered components</label><label for="__tabbed_1_2">Elbow method</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6575,9 +6573,9 @@ at the resulting plots.</p>
         Clustered semiconductor data in a 2D space using PCA and k-means.
     </figcaption>
 </figure></p>
-<p>The plot shows the semiconductor data set clustered into 5 groups. 
-Each color represents a different cluster. The clusters are well 
-separated in the 2D space.</p>
+<p>The plot shows the semiconductor data set clustered into 5 groups. Each color
+represents a different cluster. The clusters are well separated in the 2D
+space.</p>
 </div>
 <div class="tabbed-block">
 <p><figure markdown="span">
@@ -6586,23 +6584,21 @@ separated in the 2D space.</p>
         Elbow method applied on 2 principal components.
     </figcaption>
 </figure></p>
-<p>The plot shows the distortion (inertia) for different numbers of 
-clusters. This time around, we can distinctly see an elbow at <code>k=5</code> 
-clusters. <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></p>
+<p>The plot shows the distortion (inertia) for different numbers of clusters. This
+time around, we can distinctly see an elbow at <code>k=5</code> clusters. <img alt="💪" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f4aa.svg" title=":flexed_biceps:" /></p>
 </div>
 </div>
 </div>
 <hr />
 <h2 id="recap">Recap</h2>
-<p>In this chapter, we concluded the Supervised vs. Unsupervised Learning 
-portion of this course and introduced <strong>Principal Component Analysis 
-(PCA)</strong>, a linear technique for dimensionality reduction.</p>
-<p>We discussed the inner workings of PCA and applied it to the semiconductor 
-data set, where we could identify potential anomalies in the data. We also
+<p>In this chapter, we concluded the Supervised vs. Unsupervised Learning portion
+of this course and introduced <strong>Principal Component Analysis (PCA)</strong>, a linear
+technique for dimensionality reduction.</p>
+<p>We discussed the inner workings of PCA and applied it to the semiconductor data
+set, where we could identify potential anomalies in the data. We also
 visualized the data set in a 2D space, making it easier to interpret and
-analyze.
-Lastly, a combination of PCA and k-means revealed distinct clusters in the 
-semiconductor data set.</p><style type="text/css">.quiz {
+analyze. Lastly, a combination of PCA and k-means revealed distinct clusters in
+the semiconductor data set.</p><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -7863,7 +7859,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="January 21, 2026 15:27:51 UTC"><span class="timeago" datetime="2026-01-21T15:27:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 21, 2026 15:27:51 UTC">2026-01-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 13:36:05 UTC"><span class="timeago" datetime="2026-02-09T13:36:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 13:36:05 UTC">2026-02-09</span>
   </span>
 
     

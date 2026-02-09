@@ -6239,11 +6239,11 @@
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="hll">├── 🐍 modelling.py
 </span></span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── ...
 </span></code></pre></div>
-<p>Copy the code block from the previous recap section to get started. 
+<p>Copy the code block from the previous recap section to get started.
 <a href="../data-preparation/#code-recap"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 <h2 id="apply-preprocessing">Apply preprocessing</h2>
-<p>Now it is time to actually apply all preprocessing steps. To prevent 
-information leakage, we will split the data into training and test sets first. </p>
+<p>Now it is time to actually apply all preprocessing steps. To prevent
+information leakage, we will split the data into training and test sets first.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># remove the target from data and assign it to y</span>
@@ -6256,14 +6256,14 @@ information leakage, we will split the data into training and test sets first. <
 </span></code></pre></div>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>By default <code>train_test_split()</code> shuffles the data before splitting which
-is a good practice. It helps to avoid any bias that might be present in the
-order of the data.</p>
-<p>However, if you are ever working with data that is dependent on the order
-(time series data), you should not shuffle the data. In that case, set 
+<p>By default <code>train_test_split()</code> shuffles the data before splitting which is a
+good practice. It helps to avoid any bias that might be present in the order of
+the data.</p>
+<p>However, if you are ever working with data that is dependent on the order (time
+series data), you should not shuffle the data. In that case, set
 <code class="language-python highlight"><span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span></code>.</p>
 </details>
-<p>Now apply the preprocessing steps (from the previous chapter) to the training 
+<p>Now apply the preprocessing steps (from the previous chapter) to the training
 and test sets:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># impute missing values</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">impute</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
@@ -6281,10 +6281,9 @@ and test sets:</p>
 </span></code></pre></div>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>The <code>impute.transform()</code> method returns an array.
-Since the <code>preprocessor</code> requires the column names of our data, we need to 
-convert the array back to a <code>DataFrame</code>. Else the <code>preprocessor</code> will not
-work!</p>
+<p>The <code>impute.transform()</code> method returns an array. Since the <code>preprocessor</code>
+requires the column names of our data, we need to convert the array back to a
+<code>DataFrame</code>. Else the <code>preprocessor</code> will not work!</p>
 </details>
 <hr />
 <blockquote>
@@ -6296,17 +6295,17 @@ work!</p>
 <p>For example, when <code>impute.fit(X_train)</code> is called, the <code>SimpleImputer</code>
 calculates the mode solely from the training data - <code>X_train</code>. When
 <code>impute.transform(X_test)</code> is called, the <code>SimpleImputer</code> uses the mode
-calculated from <code>X_train</code> to fill in missing values in <code>X_test</code>. So we 
-never use the test set to calculate the mode.</p>
-<p>The same principles apply to the <code>preprocessor</code> and thus we can prevent 
+calculated from <code>X_train</code> to fill in missing values in <code>X_test</code>. So we never
+use the test set to calculate the mode.</p>
+<p>The same principles apply to the <code>preprocessor</code> and thus we can prevent
 information leakage.</p>
 </details>
 <hr />
 <h2 id="train-a-model">Train a model</h2>
 <p>For starters, we will train a simple decision tree. First, we need to encode
-our target <code class="language-python highlight"><span class="s2">&quot;y&quot;</span></code> as we are still dealing with <code class="language-python highlight"><span class="nb">str</span></code> 
-labels (<code class="language-python highlight"><span class="s2">&quot;yes&quot;</span></code> or <code class="language-python highlight"><span class="s2">&quot;no&quot;</span></code>). For this purpose, we can use
-the <a href="../../data/preprocessing/#label-encoding"><code>LabelEncoder</code></a>.</p>
+our target <code class="language-python highlight"><span class="s2">&quot;y&quot;</span></code> as we are still dealing with <code class="language-python highlight"><span class="nb">str</span></code> labels
+(<code class="language-python highlight"><span class="s2">&quot;yes&quot;</span></code> or <code class="language-python highlight"><span class="s2">&quot;no&quot;</span></code>). For this purpose, we can use the
+<a href="../../data/preprocessing/#label-encoding"><code>LabelEncoder</code></a>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
@@ -6314,9 +6313,9 @@ the <a href="../../data/preprocessing/#label-encoding"><code>LabelEncoder</code>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">y_train</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">y_test</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Now, we fit the first model. We set the parameters <code>max_depth</code> and 
-<code>min_samples_leaf</code> to <a href="../../algorithms/supervised/tree-based/cart/#to-fix">prune</a>
-the tree.</p>
+<p>Now, we fit the first model. We set the parameters <code>max_depth</code> and
+<code>min_samples_leaf</code> to
+<a href="../../algorithms/supervised/tree-based/cart/#to-fix">prune</a> the tree.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
@@ -6328,11 +6327,11 @@ the tree.</p>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Accuracy: 0.89
 </span></code></pre></div>
-<p>89 % accuracy seems like a perfect start! But don't get too excited yet, we 
+<p>89 % accuracy seems like a perfect start! But don't get too excited yet, we
 overlooked a small yet crucial detail.</p>
 <h3 id="detour-class-imbalance">Detour: Class imbalance</h3>
-<p>In classification, the accuracy is a good metric to evaluate the performance 
-of a model. However, it is not always the most appropriate one. Here's why:</p>
+<p>In classification, the accuracy is a good metric to evaluate the performance of
+a model. However, it is not always the most appropriate one. Here's why:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>y
@@ -6341,16 +6340,16 @@ of a model. However, it is not always the most appropriate one. Here's why:</p>
 </span></code></pre></div>
 <p>The target variable <code class="language-python highlight"><span class="s2">&quot;y&quot;</span></code> is imbalanced. The class <code class="language-python highlight"><span class="s2">&quot;no&quot;</span></code>
 occurs in 89% of the cases, while <code class="language-python highlight"><span class="s2">&quot;yes&quot;</span></code> accounts for roughly 11%.
-This means that a model that constantly predicts <code class="language-python highlight"><span class="s2">&quot;no&quot;</span></code> for every 
+This means that a model that constantly predicts <code class="language-python highlight"><span class="s2">&quot;no&quot;</span></code> for every
 observation would achieve an accuracy of 89%.</p>
-<p>Thus, our decision tree is not as good as it seems, and we need to 
-consider other metrics to evaluate its performance. For our task, we pick the 
-balanced accuracy score.</p>
+<p>Thus, our decision tree is not as good as it seems, and we need to consider
+other metrics to evaluate its performance. For our task, we pick the balanced
+accuracy score.</p>
 <h4 id="confusion-matrix">Confusion matrix</h4>
 <p>To understand the balanced accuracy score, we first need to understand the
 confusion matrix. Let's calculate it and explain it step by step.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">,</span> <span class="n">confusion_matrix</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># calculate the matrix</span>
@@ -6369,35 +6368,33 @@ confusion matrix. Let's calculate it and explain it step by step.</p>
 
 <details class="info" open="open">
 <summary>Info</summary>
-<p>The labels in red were added by the author and their creation is not 
-part of the code block. They are simply used to facilitate the 
-following explanation.</p>
+<p>The labels in red were added by the author and their creation is not part of
+the code block. They are simply used to facilitate the following explanation.</p>
 </details>
 <p>Put simply, the confusion matrix compares the actual values with the predicted
 values (of our test set). The matrix is divided into four quadrants:</p>
 <ul>
-<li><strong>True Positives (TP)</strong>: The model correctly predicted the positive class 
-  (yes - client subscribed to a term deposit). We have <code class="language-python highlight"><span class="mi">20</span></code> true 
-  positive cases.</li>
-<li><strong>True Negatives (TN)</strong>: The model correctly predicted the negative class 
-  (no - client did not subscribe to a term deposit). In our instance, 
-  <code class="language-python highlight"><span class="mi">683</span></code> true negative cases.</li>
+<li><strong>True Positives (TP)</strong>: The model correctly predicted the positive class
+    (yes - client subscribed to a term deposit). We have <code class="language-python highlight"><span class="mi">20</span></code> true
+    positive cases.</li>
+<li><strong>True Negatives (TN)</strong>: The model correctly predicted the negative class (no
+    - client did not subscribe to a term deposit). In our instance,
+    <code class="language-python highlight"><span class="mi">683</span></code> true negative cases.</li>
 </ul>
-<p>With the first diagonal covered, we move on to the instances that were 
+<p>With the first diagonal covered, we move on to the instances that were
 incorrectly predicted:</p>
 <ul>
-<li><strong>False Positives (FP)</strong>: The model predicted the positive class, but the 
-  actual class was negative. <code class="language-python highlight"><span class="mi">16</span></code> to be specific.</li>
-<li><strong>False Negatives (FN)</strong>: The model predicted the negative class, but the 
-  actual class was positive. <code class="language-python highlight"><span class="mi">67</span></code> to be exact.</li>
+<li><strong>False Positives (FP)</strong>: The model predicted the positive class, but the
+    actual class was negative. <code class="language-python highlight"><span class="mi">16</span></code> to be specific.</li>
+<li><strong>False Negatives (FN)</strong>: The model predicted the negative class, but the
+    actual class was positive. <code class="language-python highlight"><span class="mi">67</span></code> to be exact.</li>
 </ul>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>A perfect model would have 0 false positives and 0 false negatives.
-Hence, we want to minimize the false positives and false negatives.</p>
-<p>Generally, the confusion matrix is a great tool to understand the
-performance of a model. It is especially useful when dealing with
-imbalanced classes.</p>
+<p>A perfect model would have 0 false positives and 0 false negatives. Hence, we
+want to minimize the false positives and false negatives.</p>
+<p>Generally, the confusion matrix is a great tool to understand the performance
+of a model. It is especially useful when dealing with imbalanced classes.</p>
 </details>
 <p>Regarding our first model, we can simply conclude that there is still a lot of
 room for improvement. With an understanding of the confusion matrix, we can
@@ -6411,7 +6408,7 @@ extend our knowledge to the balanced accuracy score.</p>
 \]</div>
 </details>
 <blockquote>
-<p>In the binary case, balanced accuracy is equal to the arithmetic mean of 
+<p>In the binary case, balanced accuracy is equal to the arithmetic mean of
 sensitivity (true positive rate) and specificity (true negative rate)</p>
 <p><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score"><code>scikit-learn</code>: Balanced accuracy score</a></p>
 </blockquote>
@@ -6421,8 +6418,8 @@ perfect model.</p>
 <summary>Manual calculation</summary>
 <p>Calculate the balanced accuracy score for the decision tree model.</p>
 <p>Use the results from the above confusion matrix and the formula for the
-balanced accuracy score. You can perform the calculation on a piece of 
-paper or use simple arithmetic in Python.</p>
+balanced accuracy score. You can perform the calculation on a piece of paper or
+use simple arithmetic in Python.</p>
 </details>
 <p>Let's compare your result with the one calculated by <code>scikit-learn</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">balanced_accuracy_score</span>
@@ -6435,20 +6432,20 @@ paper or use simple arithmetic in Python.</p>
 <p>Hopefully, your result matches the one calculated by <code>scikit-learn</code>.</p>
 <p>Compared to the accuracy of 89%, the balanced accuracy score of 60% gives a
 more realistic view of the model's performance. In turn, this means we have to
-improve our model. </p>
+improve our model.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>If you want to know more about different metrics and scoring, check out 
-this excellent guide. It not only covers classification metrics, but also 
-multiple ways to score regression models (apart from the <span class="arithmatex">\(R^2\)</span>).</p>
+<p>If you want to know more about different metrics and scoring, check out this
+excellent guide. It not only covers classification metrics, but also multiple
+ways to score regression models (apart from the <span class="arithmatex">\(R^2\)</span>).</p>
 <p><a href="https://scikit-learn.org/stable/modules/model_evaluation.html"><code>scikit-learn</code>: Metrics and scoring: quantifying the quality of predictions</a></p>
 </details>
 <h2 id="detour-reproducibility">Detour: Reproducibility</h2>
-<p>Since, we are already on detours, let's take another one. Up until now, we 
-have always set the <code>random_state</code> parameter (if available). As we have covered
-multiple times, this ensures the reproducibility of our results. We set it 
-when splitting the data, when initializing a model, etc.</p>
-<p>But what happens if you forget to set the <code>random_state</code> parameter? To 
+<p>Since, we are already on detours, let's take another one. Up until now, we have
+always set the <code>random_state</code> parameter (if available). As we have covered
+multiple times, this ensures the reproducibility of our results. We set it when
+splitting the data, when initializing a model, etc.</p>
+<p>But what happens if you forget to set the <code>random_state</code> parameter? To
 demonstrate the outcome, we generate a data set. In a loop we split the data,
 train a tree and calculate the balanced accuracy score. We repeat this process
 10 times:</p>
@@ -6518,40 +6515,42 @@ train a tree and calculate the balanced accuracy score. We repeat this process
 <details class="danger" open="open">
 <summary>Danger</summary>
 <p>The code block illustrates the importance of the <code>random_state</code> parameter.
-Without it, you won't be able to reproduce your own results and others 
-won't be able to reproduce your results either.</p>
-<p>Specifically, in a science setting and real-world applications, 
-reproducibility is crucial to validate findings and conclusions. So 
-ensure reproducibility!</p>
+Without it, you won't be able to reproduce your own results and others won't be
+able to reproduce your results either.</p>
+<p>Specifically, in a science setting and real-world applications, reproducibility
+is crucial to validate findings and conclusions. So ensure reproducibility!</p>
 </details>
 <h2 id="more-modelling">More modelling</h2>
-<p>Let's get back on track and try out more models. We will compare their 
+<p>Let's get back on track and try out more models. We will compare their
 performance with the balanced accuracy score.</p>
 <h3 id="random-forest">Random forest</h3>
-<p>Naturally, since we started with a CART (decision tree), we try a random 
+<p>Naturally, since we started with a CART (decision tree), we try a random
 forest.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>  <span class="c1"># (1)!</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">)</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">score_forest</span> <span class="o">=</span> <span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="n">max_depth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>  <span class="c1"># (1)!</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="p">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forest balanced accuracy: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">score_forest</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="n">score_forest</span> <span class="o">=</span> <span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Forest balanced accuracy: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">score_forest</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <ol>
 <li>We adopt the values for <code>max_depth</code> and <code>min_samples_leaf</code> from the decision
-   tree.</li>
+    tree.</li>
 </ol>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Forest balanced accuracy: 0.5927
 </span></code></pre></div>
 <p>Compared to the decision tree (balanced accuracy of 60.35%), the random forest
 has a balanced accuracy of 59.27%. Somehow, the performance got even worse!</p>
 <h4 id="class_weight-parameter"><code>class_weight</code> parameter</h4>
-<p>We can try to improve the performance by setting the <code>class_weight</code> parameter 
+<p>We can try to improve the performance by setting the <code>class_weight</code> parameter
 to <code class="language-python highlight"><span class="n">balanced</span></code>. This takes the class imbalance into consideration.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
@@ -6575,18 +6574,20 @@ to <code class="language-python highlight"><span class="n">balanced</span></code
 <summary>Logistic regression</summary>
 <p>What about a logistic regression model? How does it perform?</p>
 <ol>
-<li>Initialize and fit a <code>LogisticRegression</code> model with <code class="language-python highlight"><span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span></code>. Don't forget to set the <code>random_state</code>.</li>
+<li>Initialize and fit a <code>LogisticRegression</code> model with
+    <code class="language-python highlight"><span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span></code>. Don't forget to set the
+    <code>random_state</code>.</li>
 <li>Calculate the balanced accuracy score for the test set.</li>
 <li>Compare the results to the decision tree and random forest.</li>
 </ol>
 </details>
 <details class="info">
 <summary>Info</summary>
-<p>Depending on the parameter settings, the logistic regression model 
-achieves similar performance to the random forest. </p>
+<p>Depending on the parameter settings, the logistic regression model achieves
+similar performance to the random forest.</p>
 </details>
-<p>As you can see, with a preprocessed data set, we can now easily compare 
-different models. </p>
+<p>As you can see, with a preprocessed data set, we can now easily compare
+different models.</p>
 <p>These are our results so far:</p>
 <ul>
 <li>Decision tree: 60.35%</li>
@@ -6594,13 +6595,13 @@ different models. </p>
 <li>Logistic regression: ? (your result)</li>
 </ul>
 <h2 id="hyperparameter-tuning">Hyperparameter tuning</h2>
-<p>So far, we've used arbitrary values for our model parameters 
-(<code class="language-python highlight"><span class="n">max_depth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span></code>, etc.). However, these
-might not be optimal for our specific problem. Therefore, we apply 
-hyperparameter tuning. Hyperparameter tuning is the process of finding the 
-best combination of model parameters to maximize performance.</p>
-<p>For starters, we will perform a manual hyperparameter tuning for the 
-maximum depth (<code>max_depth</code>) parameter. We will test the values
+<p>So far, we've used arbitrary values for our model parameters
+(<code class="language-python highlight"><span class="n">max_depth</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span></code>, etc.). However, these might not
+be optimal for our specific problem. Therefore, we apply hyperparameter tuning.
+Hyperparameter tuning is the process of finding the best combination of model
+parameters to maximize performance.</p>
+<p>For starters, we will perform a manual hyperparameter tuning for the maximum
+depth (<code>max_depth</code>) parameter. We will test the values
 <code class="language-python highlight"><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span></code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="hll"><span class="n">max_depth</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 </span></span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
@@ -6610,7 +6611,7 @@ maximum depth (<code>max_depth</code>) parameter. We will test the values
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="hll">        <span class="n">max_depth</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
 </span></span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>        <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 </span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>        <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>        <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">,</span>
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>    <span class="p">)</span>
 </span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    <span class="n">forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -6623,37 +6624,37 @@ maximum depth (<code>max_depth</code>) parameter. We will test the values
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>max_depth=20: 0.733
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>max_depth=25: 0.733
 </span></code></pre></div>
-<p>The best performance is achieved with a <code>max_depth</code> of <code class="language-python highlight"><span class="mi">10</span></code>. So the 
-initial value of <code class="language-python highlight"><span class="mi">15</span></code> was not optimal. Next, we could try to 
-optimize the number of trees (<code>n_estimators</code>), the minimum number of samples
-required to be at a leaf node (<code>min_samples_leaf</code>), etc. You get the point ...</p>
+<p>The best performance is achieved with a <code>max_depth</code> of <code class="language-python highlight"><span class="mi">10</span></code>. So the
+initial value of <code class="language-python highlight"><span class="mi">15</span></code> was not optimal. Next, we could try to optimize
+the number of trees (<code>n_estimators</code>), the minimum number of samples required to
+be at a leaf node (<code>min_samples_leaf</code>), etc. You get the point ...</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>However, this manual tuning is time-consuming and not always feasible.
-In the last (advanced) chapter of this course, we will introduce you to 
-automated hyperparameter tuning.</p>
+<p>However, this manual tuning is time-consuming and not always feasible. In the
+last (advanced) chapter of this course, we will introduce you to automated
+hyperparameter tuning.</p>
 </details>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>You can spend hours tuning hyperparameters. So, don't get lost in the
 hyperparameter tuning process.</p>
-<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" title=":warning:" /> <em>Spoiler alert</em> <img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" title=":warning:" />: With this specific data set and 
-hyperparameter tuning, you won't significantly surpass the results we 
-have achieved so far.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" title=":warning:" /> <em>Spoiler alert</em> <img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" title=":warning:" />: With this specific data set and
+hyperparameter tuning, you won't significantly surpass the results we have
+achieved so far.</p>
 </details>
 <h2 id="the-result">The result</h2>
-<p>We conclude that a </p>
+<p>We conclude that a</p>
 <hr />
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">RandomForestClassifier</span><span class="p">(</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">RandomForestClassifier</span><span class="p">(</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> 
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">,</span>
 </span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="p">)</span>
 </span></code></pre></div>
-is the best model we have found for our task. It achieves a balanced 
-accuracy of 74.45%.</p>
+<p>is the best model we have found for our task. It achieves a balanced accuracy
+of 74.45%.</p>
 <hr />
 <div style="text-align: center;">
     <h4>Here is the main takeaway:</h4>
@@ -6661,27 +6662,27 @@ accuracy of 74.45%.</p>
 
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>Unfortunately, with real world data sets you won't always achieve 
-astounding results. But that's okay! <img alt="😊" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f60a.svg" title=":blush:" /></p>
-<p>If the performance does not meet your expectations, you can try 
-following things:</p>
+<p>Unfortunately, with real world data sets you won't always achieve astounding
+results. But that's okay! <img alt="😊" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f60a.svg" title=":blush:" /></p>
+<p>If the performance does not meet your expectations, you can try following
+things:</p>
 <ul>
 <li>Feature engineering: Create new features or modify existing ones.</li>
 <li>Preprocessing: Try different preprocessing steps.</li>
 <li>Model selection: Try different models.</li>
 </ul>
-<p>But sometimes, it is also a possibility that the features can't describe
-the target variable well enough or you simply need more data.</p>
+<p>But sometimes, it is also a possibility that the features can't describe the
+target variable well enough or you simply need more data.</p>
 </details>
 <h2 id="recap">Recap</h2>
 <p>We tried different models and evaluated their performance using the balanced
-accuracy score. Ultimately, we concluded that a random forest model 
-performed best. </p>
-<p>Along the way, we introduced class imbalance, confusion matrix, balanced 
-accuracy and hyperparameter tuning. Another example illustrated the 
-importance of reproducibility.</p>
-<p>Next, we distill our findings in an end-to-end example and save the 
-final model to disk.</p><style type="text/css">.quiz {
+accuracy score. Ultimately, we concluded that a random forest model performed
+best.</p>
+<p>Along the way, we introduced class imbalance, confusion matrix, balanced
+accuracy and hyperparameter tuning. Another example illustrated the importance
+of reproducibility.</p>
+<p>Next, we distill our findings in an end-to-end example and save the final model
+to disk.</p><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -7942,7 +7943,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 6, 2026 09:18:04 UTC"><span class="timeago" datetime="2026-02-06T09:18:04+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 6, 2026 09:18:04 UTC">2026-02-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 13:36:05 UTC"><span class="timeago" datetime="2026-02-09T13:36:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 13:36:05 UTC">2026-02-09</span>
   </span>
 
     

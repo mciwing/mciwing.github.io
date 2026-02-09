@@ -6277,26 +6277,25 @@
 
 
 <h1 id="data-basics">Data Basics</h1>
-<p>This chapter kicks off the foundational building blocks of a data science 
-pipeline. We start by taking a closer look at data itself. Understanding 
-different attribute types is crucial for choosing appropriate visualizations, 
+<p>This chapter kicks off the foundational building blocks of a data science
+pipeline. We start by taking a closer look at data itself. Understanding
+different attribute types is crucial for choosing appropriate visualizations,
 preprocessing techniques and machine learning algorithms.</p>
 <details class="question" open="open">
 <summary>Create a new project</summary>
 <ol>
-<li>For this chapter create a new project. Revisit the 
+<li>For this chapter create a new project. Revisit the
     <a href="../../basics/setup/#wrap-up">wrap-up</a> section from the setup guide.</li>
 <li>Install the packages <code>seaborn</code> and <code>pandas</code></li>
 </ol>
 </details>
 <h2 id="tabular-data">Tabular Data</h2>
-<p>Throughout this course, we will primarily work with <strong>tabular data</strong>, simply 
-think of spreadsheets. Tabular data is organized in a rectangular 
-format with:</p>
+<p>Throughout this course, we will primarily work with <strong>tabular data</strong>, simply
+think of spreadsheets. Tabular data is organized in a rectangular format with:</p>
 <ul>
 <li><strong>Rows</strong>: Individual observations or samples (e.g., one student)</li>
 <li><strong>Columns</strong>: Attributes or features describing each observation (e.g., name,
-  age, average grade)</li>
+    age, average grade)</li>
 </ul>
 <table>
 <thead>
@@ -6324,17 +6323,17 @@ format with:</p>
 </tr>
 </tbody>
 </table>
-<p>Each row represents one student, while each column contains a specific 
+<p>Each row represents one student, while each column contains a specific
 attribute about that student.</p>
-<p>Understanding the structure of tabular data is essential because most machine 
-learning algorithms expect data in this format. Now let's explore what types 
-of information each column can contain.</p>
+<p>Understanding the structure of tabular data is essential because most machine
+learning algorithms expect data in this format. Now let's explore what types of
+information each column can contain.</p>
 <h2 id="attribute-types">Attribute Types</h2>
-<p>Not all data is created equal. The type of data in each column determines 
-what operations we can perform and which visualizations make sense. We 
-distinguish between two main categories: numerical and categorical data.</p>
+<p>Not all data is created equal. The type of data in each column determines what
+operations we can perform and which visualizations make sense. We distinguish
+between two main categories: numerical and categorical data.</p>
 <h3 id="numerical-quantitative">Numerical (Quantitative)</h3>
-<p>Numerical data represents measurable quantities, i.e., values you can perform 
+<p>Numerical data represents measurable quantities, i.e., values you can perform
 mathematical operations on.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -6347,17 +6346,17 @@ mathematical operations on.</p>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Maximum temperature: 25.1°C
 </span></code></pre></div>
 <p>Numerical data comes in two types:</p>
-<p><strong>Continuous</strong>: Can take any value within a range, including decimals. 
-Examples include temperature (22.5°C), body mass (3750.5g) or height (1.75m).</p>
-<p><strong>Discrete</strong>: Can only take specific, countable values, typically integers. 
+<p><strong>Continuous</strong>: Can take any value within a range, including decimals. Examples
+include temperature (22.5°C), body mass (3750.5g) or height (1.75m).</p>
+<p><strong>Discrete</strong>: Can only take specific, countable values, typically integers.
 Examples include number of students (5) or age (22).</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>A simple rule of thumb: If you can meaningfully have fractional values, 
-it's continuous. If counting whole units makes more sense, it's discrete.</p>
+<p>A simple rule of thumb: If you can meaningfully have fractional values, it's
+continuous. If counting whole units makes more sense, it's discrete.</p>
 </details>
 <h3 id="categorical-qualitative">Categorical (Qualitative)</h3>
-<p>Categorical data represents qualities or characteristics that place 
+<p>Categorical data represents qualities or characteristics that place
 observations into groups or categories.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">colors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">])</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
@@ -6365,7 +6364,7 @@ observations into groups or categories.</p>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Most common: </span><span class="si">{</span><span class="n">colors</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># (1)!</span>
 </span></code></pre></div>
 <ol>
-<li>The <code>mode()</code> method returns a <code>pd.Series</code> with a single value, hence we 
+<li>The <code>mode()</code> method returns a <code>pd.Series</code> with a single value, hence we
     <code>squeeze()</code> the value.</li>
 </ol>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Unique colors: 4
@@ -6373,18 +6372,18 @@ observations into groups or categories.</p>
 </span></code></pre></div>
 <p>Categorical data can be further divided into two types:</p>
 <h4 id="nominal">Nominal</h4>
-<p>Nominal data has no inherent order, the categories are just different names 
-or labels. Examples include colors or country names.</p>
+<p>Nominal data has no inherent order, the categories are just different names or
+labels. Examples include colors or country names.</p>
 <h4 id="ordinal">Ordinal</h4>
-<p>Ordinal data has a meaningful order or ranking between categories, but the 
-distance between categories isn't necessarily equal. Examples include t-shirt 
-sizes (XS, S, M, L, XL) or education levels (High School, Bachelor's, Master's, 
+<p>Ordinal data has a meaningful order or ranking between categories, but the
+distance between categories isn't necessarily equal. Examples include t-shirt
+sizes (XS, S, M, L, XL) or education levels (High School, Bachelor's, Master's,
 PhD).</p>
 <hr />
-<p>Now that we understand different data types, let's see them in action with 
-real data.</p>
+<p>Now that we understand different data types, let's see them in action with real
+data.</p>
 <h2 id="penguins">Penguins</h2>
-<p>We'll use the Palmer Penguins dataset, which contains measurements of three 
+<p>We'll use the Palmer Penguins dataset, which contains measurements of three
 penguin species observed on islands in the Palmer Archipelago, Antarctica.</p>
 <figure>
     <img src="/assets/data-science/data/basics/penguins-species.PNG" 
@@ -6397,9 +6396,9 @@ penguin species observed on islands in the Palmer Archipelago, Antarctica.</p>
 </figure>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>The Palmer Penguins dataset was collected and made available by 
-Dr. Kristen Gorman and the Palmer Station, Antarctica LTER.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> It's 
-become a popular dataset for education.</p>
+<p>The Palmer Penguins dataset was collected and made available by Dr. Kristen
+Gorman and the Palmer Station, Antarctica LTER.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> It's become a popular
+dataset for education.</p>
 </details>
 <div style="text-align: center">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d33687766.0689931!2d-46.851737808150574!3d-43.213299436835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc78dd6dc38c572b%3A0xe609367aeed33087!2sPalmer-Archipel!5e0!3m2!1sde!2sat!4v1770285077736!5m2!1sde!2sat" 
@@ -6453,17 +6452,17 @@ with the <code>describe()</code> method:</p>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>max      6300.000000
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Name: body_mass_g, dtype: float64
 </span></code></pre></div>
-<p>The mean body mass is roughly 4200g (about 4.2kg or 9.3 pounds), with values 
-ranging from 2700g to 6300g. This variation is quite substantial, the heaviest 
-penguins are more than twice the weight of the lightest ones! The standard 
+<p>The mean body mass is roughly 4200g (about 4.2kg or 9.3 pounds), with values
+ranging from 2700g to 6300g. This variation is quite substantial, the heaviest
+penguins are more than twice the weight of the lightest ones! The standard
 deviation of 802g indicates considerable variability in penguin sizes.</p>
 <details class="info" open="open">
 <summary>Missing values</summary>
 <p>You might wonder why the count is 342. There are two missing values within
 <code class="language-python highlight"><span class="s2">&quot;body_mass_g&quot;</span></code>, resulting again in 344 penguins.</p>
 <p>For now, we don't worry about missing values as pandas excludes them when
-applying methods such as the <code>describe()</code> method above. The subsequent 
-chapters will dive into missing values.</p>
+applying methods such as the <code>describe()</code> method above. The subsequent chapters
+will dive into missing values.</p>
 </details>
 <h3 id="categorical-attributes">Categorical attributes</h3>
 <p>For categorical attributes, let's examine <code class="language-python highlight"><span class="s2">&quot;sex&quot;</span></code>. Just like with
@@ -6476,21 +6475,23 @@ numerical attributes, we can apply the <code>describe()</code> method.</p>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>freq       168
 </span></code></pre></div>
 <p>Notice how pandas automatically infers the data type and calculates appropriate
-metrics. Unlike numerical data, calculating mean, min or max would be 
+metrics. Unlike numerical data, calculating mean, min or max would be
 meaningless for categorical data.</p>
 <h3 id="visualizing-different-attribute-types">Visualizing different attribute types</h3>
 <p>A key component of data science is visualization, which helps us understand
-patterns and distributions in our data. Different attribute types require 
+patterns and distributions in our data. Different attribute types require
 different visualization approaches.</p>
 <h4 id="numerical">Numerical</h4>
-<p>For numerical attributes like <code class="language-python highlight"><span class="s2">&quot;body_mass_g&quot;</span></code>, we can create a 
-boxplot which shows the median, quartiles and outliers.</p>
+<p>For numerical attributes like <code class="language-python highlight"><span class="s2">&quot;body_mass_g&quot;</span></code>, we can create a boxplot
+which shows the median, quartiles and outliers.</p>
 <details class="tip" open="open">
 <summary>Plotting with pandas</summary>
-<p>Both <code>pandas.DataFrame</code> and <code>pandas.Series</code> objects have a built-in 
-<code>plot()</code> method that provides quick access to various plot types. Check out
-the documentation for <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">DataFrame.plot()</a>
-and <a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html">Series.plot()</a>
+<p>Both <code>pandas.DataFrame</code> and <code>pandas.Series</code> objects have a built-in <code>plot()</code>
+method that provides quick access to various plot types. Check out the
+documentation for
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">DataFrame.plot()</a>
+and
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.plot.html">Series.plot()</a>
 to see which plots are supported via the <code>kind</code> argument.</p>
 </details>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -6504,12 +6505,12 @@ to see which plots are supported via the <code>kind</code> argument.</p>
         width=75% style="border-radius: 10px;"
     >
 </figure>
-<p>For numerical data, other suitable plots include histograms 
-(<code class="language-python highlight"><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span></code>) for showing distribution patterns, or scatter plots 
+<p>For numerical data, other suitable plots include histograms
+(<code class="language-python highlight"><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span></code>) for showing distribution patterns, or scatter plots
 (<code class="language-python highlight"><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span></code>) for revealing relationships between two numerical
 variables (like <code class="language-python highlight"><span class="s2">&quot;flipper_length_mm&quot;</span></code> vs. <code class="language-python highlight"><span class="s2">&quot;body_mass_g&quot;</span></code>).</p>
 <h4 id="categorical">Categorical</h4>
-<p>For categorical data like penguin <code class="language-python highlight"><span class="s2">&quot;sex&quot;</span></code>, a bar chart or pie chart 
+<p>For categorical data like penguin <code class="language-python highlight"><span class="s2">&quot;sex&quot;</span></code>, a bar chart or pie chart
 displays the frequency of each category.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># first, we need the counts of each category (male, female)</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">counts</span> <span class="o">=</span> <span class="n">penguins</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -6522,13 +6523,13 @@ displays the frequency of each category.</p>
         width=75% style="border-radius: 10px;"
     >
 </figure>
-<p>The visualization reveals that male and female penguins are nearly equally 
+<p>The visualization reveals that male and female penguins are nearly equally
 distributed in the dataset.</p>
 <details class="tip" open="open">
 <summary>Choosing the right plot for categorical data</summary>
-<p>While pie charts work well for showing proportions, bar charts are often 
-preferred when comparing more than 3-4 categories or when precise comparison 
-of values is important. Try <code class="language-python highlight"><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span></code> to see the difference!</p>
+<p>While pie charts work well for showing proportions, bar charts are often
+preferred when comparing more than 3-4 categories or when precise comparison of
+values is important. Try <code class="language-python highlight"><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span></code> to see the difference!</p>
 </details>
 <h4 id="exercises">Exercises</h4>
 <details class="question" open="open">
@@ -6551,7 +6552,7 @@ of values is important. Try <code class="language-python highlight"><span class=
 <p>In this chapter, we established the foundation for understanding data:</p>
 <ul>
 <li>Tabular data organizes information in rows (observations) and columns
-(attributes/features)</li>
+    (attributes/features)</li>
 <li>Numerical data represents measurable quantities (continuous or discrete)</li>
 <li>Categorical data represents groups or categories (nominal or ordinal)</li>
 <li>Different data types require different visualization approaches</li>
@@ -6559,10 +6560,10 @@ of values is important. Try <code class="language-python highlight"><span class=
 <h2 id="further-reading">Further Reading</h2>
 <p>Expand your knowledge with these related topics:</p>
 <ul>
-<li><strong><a href="../../../python-extensive/plotting/">Plotting Guide</a></strong>:
-    Learn to configure plots, add styling, titles and customize visualizations</li>
-<li><strong><a href="../../../statistics/univariate/Frequency/">Distributions</a></strong>:
-    Dive deeper into statistical distributions and advanced visualization techniques</li>
+<li><strong><a href="../../../python-extensive/plotting/">Plotting Guide</a></strong>: Learn to configure
+    plots, add styling, titles and customize visualizations</li>
+<li><strong><a href="../../../statistics/univariate/Frequency/">Distributions</a></strong>: Dive deeper
+    into statistical distributions and advanced visualization techniques</li>
 <li><strong><a href="https://pandas.pydata.org/docs/user_guide/index.html">Pandas Documentation</a></strong>:
     Comprehensive guide to data manipulation with pandas</li>
 </ul>
@@ -6570,8 +6571,9 @@ of values is important. Try <code class="language-python highlight"><span class=
 <hr />
 <ol>
 <li id="fn:1">
-<p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 
-R package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago
+(Antarctica) penguin data. R package version 0.1.0.
+https://allisonhorst.github.io/palmerpenguins/. doi: 10.5281/zenodo.3960218.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div><style type="text/css">.quiz {
@@ -7835,7 +7837,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 6, 2026 11:00:52 UTC"><span class="timeago" datetime="2026-02-06T11:00:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 6, 2026 11:00:52 UTC">2026-02-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 13:36:05 UTC"><span class="timeago" datetime="2026-02-09T13:36:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 13:36:05 UTC">2026-02-09</span>
   </span>
 
     

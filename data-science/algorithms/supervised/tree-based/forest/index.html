@@ -6246,13 +6246,13 @@ CART (Classification and Regression Trees) algorithm, we can dive right in.</p>
 <h2 id="the-basics">The basics</h2>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Random forests were introduced by Leo Breiman in 2001. The following 
-section closely follows the original paper.</p>
+<p>Random forests were introduced by Leo Breiman in 2001. The following section
+closely follows the original paper.</p>
 <p><ins>Breiman, L. Random Forests. <em>Machine Learning 45</em>, 5–32 (2001).</ins>
 <a href="https://doi.org/10.1023/A:1010933404324">https://doi.org/10.1023/A:1010933404324</a></p>
 </details>
 <p>A random forest combines multiple decision trees to create an ensemble model.
-The idea is to grow multiple trees and average their predictions. Thus, 
+The idea is to grow multiple trees and average their predictions. Thus,
 resulting in a more robust model that improves generalization and reduces
 overfitting.</p>
 <p>The randomness in a random forest stems from two techniques:</p>
@@ -6261,46 +6261,46 @@ overfitting.</p>
 <li>Random feature selection</li>
 </ol>
 <h3 id="bootstrap-sampling">Bootstrap sampling</h3>
-<p>The first technique is known as <strong>bootstrap sampling</strong>. Given a
-training set of size <span class="arithmatex">\(N\)</span>, we draw <span class="arithmatex">\(N\)</span> samples <mark>with replacement</mark>. This means 
-that some samples may be repeated, while others may not be included at all. 
-This results in a new training set of the same size as the original, but with 
-some samples missing and others duplicated.</p>
-<p>Each tree is fit on a different bootstrap sample. Intuitively speaking, this 
+<p>The first technique is known as <strong>bootstrap sampling</strong>. Given a training set of
+size <span class="arithmatex">\(N\)</span>, we draw <span class="arithmatex">\(N\)</span> samples <mark>with replacement</mark>. This means that some
+samples may be repeated, while others may not be included at all. This results
+in a new training set of the same size as the original, but with some samples
+missing and others duplicated.</p>
+<p>Each tree is fit on a different bootstrap sample. Intuitively speaking, this
 means that each tree sees a slightly different "version" of the training data.</p>
 <h3 id="random-feature-selection">Random feature selection</h3>
-<p>The second technique is <strong>random feature selection</strong>. 
-Remember, that a CART is grown by selecting the best split at each node.
-This is done by considering all features. Contrary when growing trees for a 
-random forest, we only consider a random subset of features at each split. </p>
+<p>The second technique is <strong>random feature selection</strong>. Remember, that a CART is
+grown by selecting the best split at each node. This is done by considering all
+features. Contrary when growing trees for a random forest, we only consider a
+random subset of features at each split.</p>
 <hr />
 <h3 id="putting-it-all-together">Putting it all together</h3>
 <p>Each tree in a random forest is fit on a bootstrap sample and uses a random
-subset of features at each split.
-In case of regression, the predictions of all trees are simply averaged. In 
-case of classification, the majority vote is taken. The majority vote in a 
-random forest classification means that the class predicted most frequently by
-the individual trees is selected as the final prediction.</p>
-<p>No matter the task, classification or regression: it was observed that 
-introducing randomness in the tree-growing process improves the model 
+subset of features at each split. In case of regression, the predictions of all
+trees are simply averaged. In case of classification, the majority vote is
+taken. The majority vote in a random forest classification means that the class
+predicted most frequently by the individual trees is selected as the final
+prediction.</p>
+<p>No matter the task, classification or regression: it was observed that
+introducing randomness in the tree-growing process improves the model
 performance.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Contrary to the classic CART, random forests do not constrain the tree 
-growth. I.e., trees are fully grown and not pruned.</p>
+<p>Contrary to the classic CART, random forests do not constrain the tree growth.
+I.e., trees are fully grown and not pruned.</p>
 </details>
 <h2 id="examples">Examples</h2>
-<p>With a basic understanding of random forests we take a look at some 
-examples. As always, we'll use our favorite machine learning package 
-<code>scikit-learn</code> (at least that of the author <img alt="😉" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f609.svg" title=":wink:" />).</p>
+<p>With a basic understanding of random forests we take a look at some examples.
+As always, we'll use our favorite machine learning package <code>scikit-learn</code> (at
+least that of the author <img alt="😉" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f609.svg" title=":wink:" />).</p>
 <p>In order to focus on the random forest implementation and its parameters, we'll
 reuse the California housing data (for regression) and the breast cancer data
 (for classification). Both were utilized in the decision tree examples.</p>
 <h3 id="regression">Regression</h3>
 <p>Let's start with building a random forest to predict California housing prices.</p>
 <h4 id="load-data">Load data</h4>
-<p>As usual, we load the data and split it into a training and test set in 
-order to evaluate the model later on.</p>
+<p>As usual, we load the data and split it into a training and test set in order
+to evaluate the model later on.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_california_housing</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -6311,8 +6311,8 @@ order to evaluate the model later on.</p>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="fit-the-model">Fit the model</h4>
-<p>Just like with decision trees, <code>scikit-learn</code> provides two separate classes 
-for regression and classification, namely <code>RandomForestRegressor</code> and 
+<p>Just like with decision trees, <code>scikit-learn</code> provides two separate classes for
+regression and classification, namely <code>RandomForestRegressor</code> and
 <code>RandomForestClassifier</code>. Both are part of the <code>ensemble</code> module.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -6320,8 +6320,8 @@ for regression and classification, namely <code>RandomForestRegressor</code> and
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span></code></pre></div>
 <ol>
-<li>As a random forest is well random <img alt="😅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f605.svg" title=":sweat_smile:" />, we set the 
-   <code>random_state</code> to ensure the reproducibility of our results.</li>
+<li>As a random forest is well random <img alt="😅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f605.svg" title=":sweat_smile:" />, we set the <code>random_state</code>
+    to ensure the reproducibility of our results.</li>
 </ol>
 <p>Depending on your setup, the fitting process might take a couple of seconds.</p>
 <h4 id="evaluate-the-model">Evaluate the model</h4>
@@ -6332,17 +6332,17 @@ for regression and classification, namely <code>RandomForestRegressor</code> and
 </span></code></pre></div>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Remember, that the <code>score()</code> method of a decision tree regressor 
-(<code>DecisionTreeRegressor</code>) returned the coefficient of determination 
-<span class="arithmatex">\(R^2\)</span>. The same applies to random forests regressors.</p>
+<p>Remember, that the <code>score()</code> method of a decision tree regressor
+(<code>DecisionTreeRegressor</code>) returned the coefficient of determination <span class="arithmatex">\(R^2\)</span>.
+The same applies to random forests regressors.</p>
 </details>
 <p>Compared to a single tree with an <span class="arithmatex">\(R^2\)</span> of 0.61, the random forest performs
-considerably better with an <span class="arithmatex">\(R^2\)</span> of 0.81. You can re-visit the according 
+considerably better with an <span class="arithmatex">\(R^2\)</span> of 0.81. You can re-visit the according
 section <a href="../cart/#fit-and-evaluate-the-model">here</a>.</p>
 <details class="question" open="open">
 <summary>How many trees are in the forest?</summary>
-<p>Consult the <code>scikit-learn</code> docs to find out how many trees are in the 
-forest by default. Use the following question for self-assessment.</p>
+<p>Consult the <code>scikit-learn</code> docs to find out how many trees are in the forest by
+default. Use the following question for self-assessment.</p>
 </details>
 <div class="quiz" data-show-correct="true" data-auto-submit="true" id="quiz-0">
     <a href="#quiz-0" class="quiz-header-link">#</a>
@@ -6360,23 +6360,20 @@ forest by default. Use the following question for self-assessment.</p>
 
 <details class="info" open="open">
 <summary>Info</summary>
-<p>If you want to get closer to the original definition of a random forest 
-regressor by Breiman, you have to set the <code>max_features</code> parameter. 
-Specifically, with <span class="arithmatex">\(m\)</span> features, the number of features considered at 
-each split should be <span class="arithmatex">\(\frac{m}{3}\)</span> for regression.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">RandomForestRegressor</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="hll">    <span class="n">max_features</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span>
-</span></span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">784</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">)</span>
+<p>If you want to get closer to the original definition of a random forest
+regressor by Breiman, you have to set the <code>max_features</code> parameter.
+Specifically, with <span class="arithmatex">\(m\)</span> features, the number of features considered at each
+split should be <span class="arithmatex">\(\frac{m}{3}\)</span> for regression.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">784</span><span class="p">)</span>
 </span></code></pre></div>
 <p>By default, <code>scikit-learn</code> considers <span class="arithmatex">\(m\)</span> features for each split.</p>
 </details>
 <details class="tip" open="open">
 <summary>Tip</summary>
 <p>If you're unsure how to set parameters of a model (such as <code>max_features</code>),
-stick to the defaults. <code>scikit-learn</code> provides sensible defaults 
-that work well. In later chapters, we will explore methods to 
-automatically tune these hyperparameters.</p>
+stick to the defaults. <code>scikit-learn</code> provides sensible defaults that work
+well. In later chapters, we will explore methods to automatically tune these
+hyperparameters.</p>
 </details>
 <h3 id="classification">Classification</h3>
 <p>Next, we switch to a classification task.</p>
@@ -6389,8 +6386,8 @@ automatically tune these hyperparameters.</p>
 <li>Fit the model.</li>
 <li>Evaluate the model on the test set.</li>
 </ol>
-<p>Hint: This and the previous chapter should provide all necessary
-information, to solve the tasks.</p>
+<p>Hint: This and the previous chapter should provide all necessary information,
+to solve the tasks.</p>
 </details>
 <h4 id="inspecting-the-forest">Inspecting the forest</h4>
 <p>We can even inspect all individual trees of our ensemble forest. Simply access
@@ -6408,19 +6405,15 @@ the attribute <code>estimators_</code> of your fitted model.</p>
 </span></code></pre></div>
 <p><code>estimators_</code> is a list of individual tree instances. If you're dealing with a
 <code>RandomForestRegressor</code>, <code>estimators_</code> is a list of <code>DecisionTreeRegressor</code>.</p>
-<p>In most cases, you won't need to inspect the individual trees. Nevertheless,
-we can utilize this information to solidify our understanding of random 
-forests.</p>
+<p>In most cases, you won't need to inspect the individual trees. Nevertheless, we
+can utilize this information to solidify our understanding of random forests.</p>
 <hr />
 <h3 id="stronger-together">Stronger together</h3>
-<p>We fit a random forest classifier on a synthetic data set to 
-<mark>literally</mark> illustrate the different trees. First, we generate the data.</p>
+<p>We fit a random forest classifier on a synthetic data set to <mark>literally</mark>
+illustrate the different trees. First, we generate the data.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Next, we initialize and fit a random forest classifier.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">classifier</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
@@ -6428,12 +6421,12 @@ forests.</p>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">)</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Note, that we set the number of trees to <code class="language-python highlight"><span class="mi">4</span></code>. We keep the number 
-small as we visualize them later on. The <code>max_depth</code> parameter limits the 
-depth of each tree to <code class="language-python highlight"><span class="mi">3</span></code>. This is done to perform pruning and thus 
-keep the trees simple and easier to plot.</p>
+<p>Note, that we set the number of trees to <code class="language-python highlight"><span class="mi">4</span></code>. We keep the number small
+as we visualize them later on. The <code>max_depth</code> parameter limits the depth of
+each tree to <code class="language-python highlight"><span class="mi">3</span></code>. This is done to perform pruning and thus keep the
+trees simple and easier to plot.</p>
 <p>Finally, we visualize all trees. We access the trees via the <code>estimators_</code>
-attribute and plot them using the familiar <code>plot_tree()</code> function. Everything 
+attribute and plot them using the familiar <code>plot_tree()</code> function. Everything
 else is just plot customization.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_tree</span>
@@ -6459,22 +6452,22 @@ else is just plot customization.</p>
     <figcaption>All four individual trees of this particular forest.
     </figcaption>
 </figure>
-<p>Although there is a lot of information cramped inside one figure, at first 
-glance it is obvious that all four trees are different. Each of them differs
-in splits (feature and threshold), number of nodes and predictions.</p>
+<p>Although there is a lot of information cramped inside one figure, at first
+glance it is obvious that all four trees are different. Each of them differs in
+splits (feature and threshold), number of nodes and predictions.</p>
 <p>Each one of these trees on their own might not generalize well, hence they are
-often referred to as weak learners. However, when combined, they form a 
+often referred to as weak learners. However, when combined, they form a
 "strong" model. That's the essence of an ensemble method!</p>
 <h3 id="feature-importance">Feature importance</h3>
-<p>One of the most powerful attribute of random forests is their ability to 
-assess feature importance: measuring how much each input variable contributes 
-to predicting the target variable.</p>
-<p>Remember that trees are fitted on a <a href="./#bootstrap-sampling">bootstrap</a> 
-training set. Since some samples are left out during this process, we can use 
-these to measure the importance of each feature. These unused observations are 
-called "out-of-bag" (OOB) samples. For each feature, the OOB samples are 
-randomly permuted (shuffled) and the increase in prediction error is measured. 
-Features that lead to larger increases in error when permuted are considered 
+<p>One of the most powerful attribute of random forests is their ability to assess
+feature importance: measuring how much each input variable contributes to
+predicting the target variable.</p>
+<p>Remember that trees are fitted on a <a href="./#bootstrap-sampling">bootstrap</a>
+training set. Since some samples are left out during this process, we can use
+these to measure the importance of each feature. These unused observations are
+called "out-of-bag" (OOB) samples. For each feature, the OOB samples are
+randomly permuted (shuffled) and the increase in prediction error is measured.
+Features that lead to larger increases in error when permuted are considered
 more important.</p>
 <p>Let's examine feature importance using the breast cancer dataset:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -6491,25 +6484,24 @@ more important.</p>
 <summary>Info</summary>
 <p>To keep the example concise, we did not perform a train test split.</p>
 </details>
-<p>Feature importance values are a <code class="language-python highlight"><span class="nb">list</span></code> of <code class="language-python highlight"><span class="nb">float</span></code>s. 
-Each value corresponds to a feature in the order they were passed to the
-model. The values are normalized and sum to <code class="language-python highlight"><span class="mf">1.0</span></code>. 
-A higher value indicates that the feature contributes more to making correct 
-predictions.</p>
+<p>Feature importance values are a <code class="language-python highlight"><span class="nb">list</span></code> of <code class="language-python highlight"><span class="nb">float</span></code>s. Each
+value corresponds to a feature in the order they were passed to the model. The
+values are normalized and sum to <code class="language-python highlight"><span class="mf">1.0</span></code>. A higher value indicates that
+the feature contributes more to making correct predictions.</p>
 <p>Feature importance can help with:</p>
 <ol>
 <li>Feature selection: Identifying which features are most relevant for
-   predictions</li>
+    predictions</li>
 <li>Model interpretation: Understanding which features drive the model's
-   decisions</li>
+    decisions</li>
 <li>Data collection: Guiding future data collection efforts by highlighting
-   important measurements</li>
+    important measurements</li>
 </ol>
 <details class="question" open="open">
 <summary>Visualize the feature importance</summary>
-<p>Generate a bar plot to visualize the feature importance.
-Use any package of your choice. For convenience, you can use the 
-following code snippet to get started.</p>
+<p>Generate a bar plot to visualize the feature importance. Use any package of
+your choice. For convenience, you can use the following code snippet to get
+started.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">feature_importance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -6533,7 +6525,7 @@ selection, they address the main drawbacks of decision trees - overfitting and
 sensitivity to data changes. While slightly less interpretable than single
 trees, random forests provide better generalization, more robust predictions,
 and useful insights through feature importance measures.</p>
-<p>With <code>scikit-learn</code>, you are now able to build a random forest for regression 
+<p>With <code>scikit-learn</code>, you are now able to build a random forest for regression
 and classification tasks. You have also learned how to inspect individual trees
 and assess feature importance.</p><style type="text/css">.quiz {
   border: 1px solid black;
@@ -7796,7 +7788,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 3, 2026 07:41:52 UTC"><span class="timeago" datetime="2026-02-03T07:41:52+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 3, 2026 07:41:52 UTC">2026-02-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 14:15:05 UTC"><span class="timeago" datetime="2026-02-09T14:15:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 14:15:05 UTC">2026-02-09</span>
   </span>
 
     

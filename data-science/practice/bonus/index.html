@@ -6105,9 +6105,9 @@
   <h1>Bonus</h1>
 
 <h2 id="introduction">Introduction</h2>
-<p>This bonus chapter demonstrates the usage of a pipeline in conjunction with 
-a grid search to automate the modelling process. Again, we are utilizing 
-the bank marketing data. However, this time around we streamline the following:</p>
+<p>This bonus chapter demonstrates the usage of a pipeline in conjunction with a
+grid search to automate the modelling process. Again, we are utilizing the bank
+marketing data. However, this time around we streamline the following:</p>
 <ul>
 <li>Data preprocessing</li>
 <li>Model evaluation</li>
@@ -6115,17 +6115,16 @@ the bank marketing data. However, this time around we streamline the following:<
 <li>Model selection</li>
 <li>Re-training the model on the entire dataset</li>
 </ul>
-<p>... basically every step we had taken in "Data Science in Practice" block. 
-Moreover, with a pipeline and grid search, we can easily evaluate additional 
+<p>... basically every step we had taken in "Data Science in Practice" block.
+Moreover, with a pipeline and grid search, we can easily evaluate additional
 model types and apply a more sophisticated way to evaluate their performance.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>This chapter serves as an additional outlook for further topics you 
-could explore, targeting your curiosity. Some concepts and techniques 
-used in this chapter were not covered in this course. We won't explain 
-them in much detail here, as they are beyond the scope of this course. 
-Nonetheless, they could prove valuable for your future machine learning 
-journey.</p>
+<p>This chapter serves as an additional outlook for further topics you could
+explore, targeting your curiosity. Some concepts and techniques used in this
+chapter were not covered in this course. We won't explain them in much detail
+here, as they are beyond the scope of this course. Nonetheless, they could
+prove valuable for your future machine learning journey.</p>
 </details>
 <p>If you're still around, great! Let's get started with some code. <img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f680.svg" title=":rocket:" /></p>
 <hr />
@@ -6404,8 +6403,8 @@ journey.</p>
 <li>Grid defining all models and parameters to be evaluated</li>
 <li>Grid search to find the best model</li>
 </ol>
-<p>Then we simply need to apply the pipeline and grid search to the data. 
-Finally, we save the best model.</p>
+<p>Then we simply need to apply the pipeline and grid search to the data. Finally,
+we save the best model.</p>
 <h2 id="implementation">Implementation</h2>
 <h3 id="1-custom-transformer">1. Custom transformer</h3>
 <p>We start by defining a custom transformer that imputes missing values in a
@@ -6431,22 +6430,24 @@ Finally, we save the best model.</p>
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="p">)</span>
 </span></code></pre></div>
-<p>The custom transformer has implement the <code>fit()</code> and <code>transform()</code> methods. 
+<p>The custom transformer has implement the <code>fit()</code> and <code>transform()</code> methods.
 Since we are not passing the target variable <code>y</code> to the <code>fit</code> method, we
 "ignore" it by defining it as <code class="language-python highlight"><span class="n">y</span><span class="o">=</span><span class="kc">None</span></code>.</p>
-<p>If you want to know more about custom transformers or even custom estimators 
+<p>If you want to know more about custom transformers or even custom estimators
 (models), check out these resources:</p>
 <ul>
-<li>Custom transformer from a function <a href="https://scikit-learn.org/stable/modules/preprocessing.html#custom-transformers"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
-<li><code>TransformerMixin</code> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
-<li>Custom estimator <a href="https://scikit-learn.org/stable/developers/develop.html#rolling-your-own-estimator"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li>Custom transformer from a function
+    <a href="https://scikit-learn.org/stable/modules/preprocessing.html#custom-transformers"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li><code>TransformerMixin</code>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li>Custom estimator
+    <a href="https://scikit-learn.org/stable/developers/develop.html#rolling-your-own-estimator"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
 </ul>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p><code>DataFrameImputer</code> returns a <code>pandas</code> <code>DataFrame</code> which allows us to 
-easily chain the imputation step together with our trusted 
-<code>ColumnTransformer</code> within a pipeline. In this case, that's the whole 
-purpose of the custom transformer.</p>
+<p><code>DataFrameImputer</code> returns a <code>pandas</code> <code>DataFrame</code> which allows us to easily
+chain the imputation step together with our trusted <code>ColumnTransformer</code> within
+a pipeline. In this case, that's the whole purpose of the custom transformer.</p>
 </details>
 <h3 id="2-columntransformer">2. <code>ColumnTransformer</code></h3>
 <p>Speaking of the <code>ColumnTransformer</code>, it simply stays the same as before.</p>
@@ -6497,8 +6498,8 @@ purpose of the custom transformer.</p>
 </span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="3-pipeline">3. Pipeline</h3>
-<p>A pipeline is a sequence of steps where each step is a tuple containing
-a name and a transformer/estimator.</p>
+<p>A pipeline is a sequence of steps where each step is a tuple containing a name
+and a transformer/estimator.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">VarianceThreshold</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
@@ -6515,15 +6516,15 @@ a name and a transformer/estimator.</p>
 <ol>
 <li><code class="language-python highlight"><span class="s2">&quot;imputer&quot;</span></code> - Impute missing values</li>
 <li><code class="language-python highlight"><span class="s2">&quot;preprocessor&quot;</span></code> - Apply all further preprocessing steps</li>
-<li><code class="language-python highlight"><span class="s2">&quot;variance&quot;</span></code> - Remove features with zero variance (removes all 
-   constant features)</li>
+<li><code class="language-python highlight"><span class="s2">&quot;variance&quot;</span></code> - Remove features with zero variance (removes all
+    constant features)</li>
 <li><code class="language-python highlight"><span class="s2">&quot;classifier&quot;</span></code> - Apply a classifier (to be defined later)</li>
 </ol>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>You can modify pipelines to your liking. For example you could add 
-another feature selection step. Or what about applying a PCA and then a 
-classifier? The possibilities are endless!</p>
+<p>You can modify pipelines to your liking. For example you could add another
+feature selection step. Or what about applying a PCA and then a classifier? The
+possibilities are endless!</p>
 </details>
 <h3 id="4-grid">4. Grid</h3>
 <p>Next, we define a grid with all models and hyperparameters to be evaluated.</p>
@@ -6561,7 +6562,7 @@ classifier? The possibilities are endless!</p>
 <p>We will evaluate all these models and each hyperparameter combination.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Names in the grid dictionary must match the names in the pipeline 
+<p>Names in the grid dictionary must match the names in the pipeline
 (<code class="language-python highlight"><span class="s2">&quot;classifier&quot;</span></code>). The double underscore <code class="language-python highlight"><span class="s2">&quot;__&quot;</span></code> is used to
 indicate that the parameter belongs to the classifier in the pipeline.</p>
 </details>
@@ -6580,24 +6581,26 @@ indicate that the parameter belongs to the classifier in the pipeline.</p>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">)</span>
 </span></code></pre></div>
 <ol>
-<li>Use all available CPU cores (<code class="language-python highlight"><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span></code>). This speeds up the 
-   process significantly.</li>
-<li>We use a stratified k-fold cross-validation with 5 splits. Each fold 
-   preserves the percentage of samples for each class.</li>
+<li>Use all available CPU cores (<code class="language-python highlight"><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span></code>). This speeds up the
+    process significantly.</li>
+<li>We use a stratified k-fold cross-validation with 5 splits. Each fold
+    preserves the percentage of samples for each class.</li>
 </ol>
 <p>Basically, we are evaluating all models and hyperparameters using a
-(stratified) k-fold cross-validation (read more about cross-validation 
+(stratified) k-fold cross-validation (read more about cross-validation
 <a href="https://scikit-learn.org/stable/modules/cross_validation.html#k-fold">here</a>).
 The <code>StratifiedKFold</code> thus replaces our simple <code>train_test_split()</code>.</p>
-<p>To evaluate the models, we are calculating two performance metrics: balanced 
-accuracy and ROC AUC (<code class="language-python highlight"><span class="n">scoring</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;balanced_accuracy&quot;</span><span class="p">,</span> <span class="s2">&quot;roc_auc&quot;</span><span class="p">]</span></code>).
-The best model is selected based on the balanced accuracy (<code class="language-python highlight"><span class="n">refit</span><span class="o">=</span><span class="s2">&quot;balanced_accuracy&quot;</span></code>) and then <mark>retrained on the entire dataset</mark>!</p>
+<p>To evaluate the models, we are calculating two performance metrics: balanced
+accuracy and ROC AUC (<code class="language-python highlight"><span class="n">scoring</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;balanced_accuracy&quot;</span><span class="p">,</span> <span class="s2">&quot;roc_auc&quot;</span><span class="p">]</span></code>). The
+best model is selected based on the balanced accuracy
+(<code class="language-python highlight"><span class="n">refit</span><span class="o">=</span><span class="s2">&quot;balanced_accuracy&quot;</span></code>) and then <mark>retrained on the entire
+dataset</mark>!</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>The grid search eliminates the need to compare models manually, it performs 
-hyperparameter tuning, and it selects the best model for us. Lastly, we 
-won't even have to re-train it on the entire dataset, as the grid search
-already does that for us! <img alt="🤯" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f92f.svg" title=":exploding_head:" /></p>
+<p>The grid search eliminates the need to compare models manually, it performs
+hyperparameter tuning, and it selects the best model for us. Lastly, we won't
+even have to re-train it on the entire dataset, as the grid search already does
+that for us! <img alt="🤯" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f92f.svg" title=":exploding_head:" /></p>
 </details>
 <h2 id="application">Application</h2>
 <p>With all things defined, we simply need to apply the grid search to the data.</p>
@@ -6609,9 +6612,8 @@ already does that for us! <img alt="🤯" class="twemoji" src="https://cdn.jsdel
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="sa">f</span><span class="s2">&quot;Best score: </span><span class="si">{</span><span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="sa">f</span><span class="s2">&quot;Best estimator: </span><span class="si">{</span><span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="sa">f</span><span class="s2">&quot;Best score: </span><span class="si">{</span><span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="si">}</span><span class="se">\n</span><span class="s2">Best estimator: </span><span class="si">{</span><span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">)</span>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Best score: 0.7407486855434444
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Best estimator: {
@@ -7895,7 +7897,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 20, 2025 16:36:39 UTC"><span class="timeago" datetime="2025-02-20T16:36:39+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 20, 2025 16:36:39 UTC">2025-02-20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 14:15:05 UTC"><span class="timeago" datetime="2026-02-09T14:15:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 14:15:05 UTC">2026-02-09</span>
   </span>
 
     

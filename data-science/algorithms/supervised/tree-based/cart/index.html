@@ -6371,14 +6371,14 @@
 
 
 <h1 id="decision-tree">Decision Tree</h1>
-<p>So far we have covered linear regression and logistic regression which are 
-limited to linear relationships. In contrast, decision trees are non-linear 
-models able to capture complex relationships in the data. They are easy to 
+<p>So far we have covered linear regression and logistic regression which are
+limited to linear relationships. In contrast, decision trees are non-linear
+models able to capture complex relationships in the data. They are easy to
 interpret and visualize, making them a popular choice for many applications.</p>
 <p>Moreover, decision trees can be used for both regression <ins><em>and</em></ins>
 classification!</p>
 <p>In this chapter, we will explore the theory behind decision trees followed by
-practical examples. As always we will use <code>scikit-learn</code> for hands-on 
+practical examples. As always we will use <code>scikit-learn</code> for hands-on
 experience.</p>
 <h2 id="basic-intuition">Basic intuition</h2>
 <p>Although you might not know it, you're already familiar with decision trees.
@@ -6397,21 +6397,20 @@ or not. You might ask yourself:</p>
     style E fill:#e92063,stroke:#ffffff</code></pre>
 <p>Depending on the answers, you can decide whether to go skiing or not.</p>
 <p>A decision tree resembles a flowchart where each internal node represents a
-decision based on a feature (e.g., Is there any snow?), each branch represents 
-the outcome of that decision, and each leaf node represents a final 
-prediction (either a class label for classification or a continuous value 
-for regression). </p>
-<p>To get a better understanding of the terms node, branch and leaf, consider 
-the illustration of a (rotated) tree.</p>
+decision based on a feature (e.g., Is there any snow?), each branch represents
+the outcome of that decision, and each leaf node represents a final prediction
+(either a class label for classification or a continuous value for regression).</p>
+<p>To get a better understanding of the terms node, branch and leaf, consider the
+illustration of a (rotated) tree.</p>
 <figure>
     <img alt="Decision tree illustration" src="../../../../../assets/data-science/algorithms/tree-based/tree.png" />
     <figcaption>The same decision tree with literal illustrations of 
         node, branch and leaf.
     </figcaption>
 </figure>
-<p>In the skiing example, the nodes are the questions you ask yourself. With 
-branches being a simple binary split (the answers to the question).
-The leaf nodes are the final predictions, in our case whether to go skiing.</p>
+<p>In the skiing example, the nodes are the questions you ask yourself. With
+branches being a simple binary split (the answers to the question). The leaf
+nodes are the final predictions, in our case whether to go skiing.</p>
 <div class="quiz" data-show-correct="true" data-auto-submit="true" id="quiz-0">
                 <a href="#quiz-0" class="quiz-header-link">#</a>
 
@@ -6438,12 +6437,11 @@ which is a classic binary classification task.</p></section>
 <h2 id="theory">Theory</h2>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>This theoretical section on decision trees follows: <ins>Christopher M. 
-Bishop. 2006. <em>Pattern Recognition and Machine Learning</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
-<p>We focus on a particular algorithm called CART 
-(=<strong>C</strong>lassification <strong>A</strong>nd <strong>R</strong>egression <strong>T</strong>rees).
-The theoretical foundations of CART were developed by:
-<ins>Leo Breiman, Jerome Friedman, Richard Olshen, and Charles Stone. 1984.
+<p>This theoretical section on decision trees follows: <ins>Christopher M. Bishop.
+2006. <em>Pattern Recognition and Machine Learning</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
+<p>We focus on a particular algorithm called CART (=<strong>C</strong>lassification <strong>A</strong>nd
+<strong>R</strong>egression <strong>T</strong>rees). The theoretical foundations of CART were developed
+by: <ins>Leo Breiman, Jerome Friedman, Richard Olshen, and Charles Stone. 1984.
 <em>Classification and Regression Trees</em><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></ins></p>
 </details>
 <hr />
@@ -6463,75 +6461,74 @@ The theoretical foundations of CART were developed by:
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9C364 289.7 384 243.2 384 192 384 86 298 0 192 0S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9h201.7zm-4.9 48H96v16c0 44.2 35.8 80 80 80h32c44.2 0 80-35.8 80-80zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24"/></svg></span> <strong>Intuition</strong></p>
 <hr />
 <ol>
-<li>Which questions do we ask? Why did we ask "Can I 
-   get to a skiing resort?" and "Is there any snow?"?</li>
-<li>It does not have to be a simple yes/no question. It can be a
-   threshold for continuous values as well. E.g., "Is there more than 
-   10cm of fresh snow?" But how do we choose the threshold?</li>
+<li>Which questions do we ask? Why did we ask "Can I get to a skiing resort?"
+    and "Is there any snow?"?</li>
+<li>It does not have to be a simple yes/no question. It can be a threshold for
+    continuous values as well. E.g., "Is there more than 10cm of fresh
+    snow?" But how do we choose the threshold?</li>
 <li>How many questions do we ask? Why only 2 and not more?</li>
 </ol>
 </li>
 </ul>
 </div>
-<p>With these questions in mind, let's dive into the theory of decision trees 
-in order to tackle them.</p>
+<p>With these questions in mind, let's dive into the theory of decision trees in
+order to tackle them.</p>
 <hr />
 <h3 id="greedy-optimization">Greedy optimization</h3>
 <p>As a decision tree is a supervised learning algorithm, the goal is to predict
 the target variable <span class="arithmatex">\(y\)</span> with a set of features <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span>.</p>
-<p>With the data at hand, the CART algorithm finds the optimal tree 
-structure that minimizes the prediction error. In turn, the 
-optimal tree structure depends on the chosen splits. </p>
+<p>With the data at hand, the CART algorithm finds the optimal tree structure that
+minimizes the prediction error. In turn, the optimal tree structure depends on
+the chosen splits.</p>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>A split in CART is a binary decision rule that divides the dataset into two
 subsets based on a specific feature and threshold.</p>
-<p>Imagine if we extend our skiing example with the split "Is there more than 
-10cm of fresh snow?". The split divides the data into two subsets: one 
-where observations have more than 10cm of fresh snow and another where
-observations don't. With <em>amount of fresh snow</em> being the feature and <em>10cm</em> 
-the threshold.</p>
+<p>Imagine if we extend our skiing example with the split "Is there more than 10cm
+of fresh snow?". The split divides the data into two subsets: one where
+observations have more than 10cm of fresh snow and another where observations
+don't. With <em>amount of fresh snow</em> being the feature and <em>10cm</em> the threshold.</p>
 </details>
-<p>However, given large data sets, there are simply too many splitting 
-possibilities to consider at once. Hence, the tree is grown in a greedy fashion.</p>
-<p>The greedy optimization starts with a single root node splitting the data 
-into two partitions and adds additional nodes one at a time. At each step, the
+<p>However, given large data sets, there are simply too many splitting
+possibilities to consider at once. Hence, the tree is grown in a greedy
+fashion.</p>
+<p>The greedy optimization starts with a single root node splitting the data into
+two partitions and adds additional nodes one at a time. At each step, the
 algorithm chooses a split using exhaustive search. The best split is determined
-by a criterion. Remember, that decision trees can deal with regression and 
+by a criterion. Remember, that decision trees can deal with regression and
 classification problems. Hence, the criterion differs for the two tasks.</p>
 <hr />
 <h4 id="regression">Regression</h4>
-<p>For regression trees, the best split (feature threshold combination) at each 
-node is determined by minimizing the <em>residual sum-of-squares error (RSS)</em>, 
+<p>For regression trees, the best split (feature threshold combination) at each
+node is determined by minimizing the <em>residual sum-of-squares error (RSS)</em>,
 defined as:</p>
 <details class="defi" open="open">
 <summary>Residual sum-of-squares (RSS)</summary>
-<div class="arithmatex">\[ 
-    RSS = \sum_{i \in t_L} (y_i - \bar{y}_L)^2 + \sum_{i \in t_R} (y_i -
-    \bar{y}_R)^2 
+<div class="arithmatex">\[
+RSS = \sum_{i \in t_L} (y_i - \bar{y}_L)^2 + \sum_{i \in t_R} (y_i -
+            \bar{y}_R)^2
 \]</div>
 </details>
 <p>where <span class="arithmatex">\(t_L\)</span> and <span class="arithmatex">\(t_R\)</span> are the left and right child nodes after the split,
 and <span class="arithmatex">\(\bar{y}_L\)</span> and <span class="arithmatex">\(\bar{y}_R\)</span> are the mean target values in the
 respective nodes.</p>
-<p>The algorithm searches through all possible splits to find the one that 
+<p>The algorithm searches through all possible splits to find the one that
 minimizes this RSS criterion.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Since each split separates the input data into two partitions, the
-prediction is the mean of the target variable <span class="arithmatex">\(y\)</span> in the respective 
-partition.</p>
-<p>Hence, intuitively speaking, we do not optimize the entire tree at once 
-but rather optimize each split locally.</p>
+<p>Since each split separates the input data into two partitions, the prediction
+is the mean of the target variable <span class="arithmatex">\(y\)</span> in the respective partition.</p>
+<p>Hence, intuitively speaking, we do not optimize the entire tree at once but
+rather optimize each split locally.</p>
 </details>
 <h4 id="classification">Classification</h4>
-<p>For classification tasks, the best split at each node is determined by minimizing 
-the <em>Gini impurity</em>. </p>
+<p>For classification tasks, the best split at each node is determined by
+minimizing the <em>Gini impurity</em>.</p>
 <details class="defi" open="open">
 <summary>Gini impurity</summary>
 <p>For a node <span class="arithmatex">\(t\)</span> with <span class="arithmatex">\(K\)</span> classes, the Gini impurity is defined as:</p>
 <div class="arithmatex">\[
-   Gini(t) = \sum_{k=1}^K p_{k}(1-p_{k}) = 1 - \sum_{k=1}^K p_{k}^2
+Gini(t) = \sum_{k=1}^K p_{k}(1-p_{k}) = 1 - \sum_{k=1}^K p_{k}^2
 \]</div>
 <p>where <span class="arithmatex">\(p_k\)</span> is the proportion of class <span class="arithmatex">\(k\)</span> observations.</p>
 </details>
@@ -6539,35 +6536,35 @@ the <em>Gini impurity</em>. </p>
 where the majority of observations belong to a single class.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>The prediction at each leaf node is the majority class among the training 
+<p>The prediction at each leaf node is the majority class among the training
 observations in that node.</p>
 </details>
 <hr />
 <h4 id="tldr">TLDR</h4>
-<p>No matter the task (regression or classification), with a greedy optimization 
-strategy, the CART algorithm searches for the best split using an exhaustive 
+<p>No matter the task (regression or classification), with a greedy optimization
+strategy, the CART algorithm searches for the best split using an exhaustive
 search at each node to ultimately minimize the prediction error. Thus answering
-the first two questions, <em>a</em> (How do we pick the right feature for a split?) 
+the first two questions, <em>a</em> (How do we pick the right feature for a split?)
 and <em>b</em> (What's the decision criteria at each node?).</p>
-<p>A CART can be seen as a piecewise-constant model, as it partitions the feature 
-space into regions and assigns a constant prediction (either the mean of a 
+<p>A CART can be seen as a piecewise-constant model, as it partitions the feature
+space into regions and assigns a constant prediction (either the mean of a
 continuous value or a label) to each region.</p>
 <h3 id="tree-size">Tree size</h3>
-<p>Lastly, we answer question, <em>c</em> (How large do we grow the tree?).
-Put differently, when should we stop adding nodes? </p>
-<p>First, the tree is grown as large as possible until a stopping criterion is 
-met. This criterion can be the maximum tree depth or a minimum number of 
-observations per leaf. Second, the tree is pruned back. Pruning is the process 
-of removing nodes that do not improve the model's performance. It balances the 
+<p>Lastly, we answer question, <em>c</em> (How large do we grow the tree?). Put
+differently, when should we stop adding nodes?</p>
+<p>First, the tree is grown as large as possible until a stopping criterion is
+met. This criterion can be the maximum tree depth or a minimum number of
+observations per leaf. Second, the tree is pruned back. Pruning is the process
+of removing nodes that do not improve the model's performance. It balances the
 RSS error or Gini impurity against model complexity.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>If you want to dive deeper into tree pruning, we recommend reading page 665
-of Bishop's book <em>Pattern Recognition and Machine Learning</em><sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>If you want to dive deeper into tree pruning, we recommend reading page 665 of
+Bishop's book <em>Pattern Recognition and Machine Learning</em><sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </details>
 <hr />
 <h2 id="advantages-and-limitations">Advantages and Limitations</h2>
-<p>Decision trees offer several significant advantages, but they also have their 
+<p>Decision trees offer several significant advantages, but they also have their
 limitations:</p>
 <div class="grid cards">
 <ul>
@@ -6583,10 +6580,10 @@ limitations:</p>
 <p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m360 32 7.4.4c35 3.6 62.5 32.2 64.4 67.7 17.8 11.8 30.1 31.4 32 53.9l.2 6c0 5.7-.7 11.2-2 16.5 10.2 11.5 16.8 26.3 17.8 42.7l.2 4.8c0 13.2-3.6 25.4-9.8 36 4.9 8.4 8.2 17.9 9.3 28l.4 8c0 37.3-28.3 67.9-64.6 71.6l-7.4.4H298.2l14.1 30 3.1 7.6c12.5 35.7-1.8 75.5-34.2 95l-7.2 3.9c-37.5 17.6-81.7 3.6-102.6-31.2l-.6-.9-2.7-5-.6-1.2-30.1-64c-9.4 17.8-28 29.9-49.5 29.9h-32c-30.9 0-56-25.1-56-56L0 152c0-30.9 25.1-56 56-56h32c12.4 0 23.9 4.1 33.2 11 13.2-21.4 32-39.4 55-51.6l12.2-6.5.7-.3 6.6-3.2.7-.3 7.1-3c16.7-6.6 34.5-9.9 52.6-9.9zM255.9 80c-12 0-23.9 2.3-35.1 6.6l-4.7 2-5.3 2.6-12.2 6.5c-29.2 15.5-48.3 44.9-50.7 77.6l-.2 8v112.9l.1 4.1c.5 8.2 2.5 16.2 6 23.7l56.8 120.9 2.1 3.8c8.4 13.7 26 19.1 40.8 12.2l2.9-1.6c13-7.8 18.7-23.7 13.7-38l-1.2-3-30.2-64.2c-3.5-7.4-2.9-16.1 1.5-23.1s12-11.1 20.2-11.1h147.5l2.4-.1c11.3-1.1 20.3-10.1 21.4-21.4l.1-2.5c0-7.1-3.1-13.5-8.2-18-5.2-4.6-8.2-11.1-8.2-18s3-13.4 8.2-18c4.4-3.9 7.4-9.3 8-15.3l.2-2.7c0-8.4-4.4-15.9-11.2-20.2-10.7-6.9-14.2-20.9-8-32 1.5-2.6 2.5-5.6 2.9-8.6l.2-3.2c0-10.6-6.9-19.6-16.6-22.8-11.7-3.8-18.7-15.9-16-28 .2-.9.3-1.8.4-2.6l.2-2.6c0-12.4-9.5-22.6-21.6-23.8L360 80zM56 144c-4.4 0-8 3.6-8 8v224c0 4.4 3.6 8 8 8h32c4.4 0 8-3.6 8-8V152c0-4.4-3.6-8-8-8z"/></svg></span> <strong>Limitations</strong></p>
 <hr />
 <ul>
-<li>Prone to overfitting, i.e., building a model that perfectly fits the 
-  training data but fails to generalize on new (unseen) data.</li>
-<li>Sensitive to data, i.e., small changes in the data can lead to 
-  significantly different trees.</li>
+<li>Prone to overfitting, i.e., building a model that perfectly fits the
+    training data but fails to generalize on new (unseen) data.</li>
+<li>Sensitive to data, i.e., small changes in the data can lead to
+    significantly different trees.</li>
 </ul>
 </li>
 </ul>
@@ -6594,12 +6591,12 @@ limitations:</p>
 <h2 id="examples">Examples</h2>
 <p>As mentioned earlier, we will use <code>scikit-learn</code> for hands-on experience.
 <code>scikit-learn</code> contains an implementation of the CART algorithm discussed.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
-<p>Functionalities around decision trees are all part of the 
+<p>Functionalities around decision trees are all part of the
 <a href="https://scikit-learn.org/stable/api/sklearn.tree.html"><code>tree</code> module</a> in
 <code>scikit-learn</code>.</p>
 <h3 id="regression_1">Regression</h3>
-<p>First, we start with a regression task. We will use the California housing
-data to predict house prices using a decision tree regressor.</p>
+<p>First, we start with a regression task. We will use the California housing data
+to predict house prices using a decision tree regressor.</p>
 <h4 id="load-data">Load data</h4>
 <p>Load the data and split it into training and test sets. If you need a refresh
 on training and test splits, visit the
@@ -6614,7 +6611,7 @@ chapter.</p>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>As always, a seed is set for reproducibility (<code class="language-python highlight"><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span></code>). It 
+<p>As always, a seed is set for reproducibility (<code class="language-python highlight"><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span></code>). It
 can be any integer, you can simply pick any number.</p>
 <h4 id="fit-and-evaluate-the-model">Fit and evaluate the model</h4>
 <p>Next, we load the class <code>DecisionTreeRegressor</code> from the <code>tree</code> module.</p>
@@ -6630,15 +6627,15 @@ can be any integer, you can simply pick any number.</p>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Model performance (R²): 0.61
 </span></code></pre></div>
-<p>The <code>score()</code> method returns the coefficient of determination <span class="arithmatex">\(R^2\)</span>. 
-You should be already familiar with <span class="arithmatex">\(R^2\)</span>, as it was first introduced 
-in the <a href="../../regression/#coefficient-of-determination">Regression chapter</a> to 
-evaluate the fit of a linear regression.</p>
-<p>The decision tree model achieved an <span class="arithmatex">\(R^2\)</span> of 0.61 on the test set, which 
+<p>The <code>score()</code> method returns the coefficient of determination <span class="arithmatex">\(R^2\)</span>. You
+should be already familiar with <span class="arithmatex">\(R^2\)</span>, as it was first introduced in the
+<a href="../../regression/#coefficient-of-determination">Regression chapter</a> to evaluate
+the fit of a linear regression.</p>
+<p>The decision tree model achieved an <span class="arithmatex">\(R^2\)</span> of 0.61 on the test set, which
 leaves room for improvement.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>On a side note: Although we fitted a decision tree on <code class="language-python highlight"><span class="mi">16512</span></code> 
+<p>On a side note: Although we fitted a decision tree on <code class="language-python highlight"><span class="mi">16512</span></code>
 observations, the process of actually training the model is quite fast!</p>
 </details>
 <h4 id="plot-the-tree">Plot the tree</h4>
@@ -6647,8 +6644,8 @@ observations, the process of actually training the model is quite fast!</p>
 We can easily visualize the tree using the <code>plot_tree</code> function.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>This is the first time that we discourage you from running the code 
-snippet below. Soon you will know why.</p>
+<p>This is the first time that we discourage you from running the code snippet
+below. Soon you will know why.</p>
 </details>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_tree</span>
@@ -6661,12 +6658,12 @@ snippet below. Soon you will know why.</p>
     <figcaption>Yes, that's the actual tree. <img alt="😅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f605.svg" title=":sweat_smile:" /> 
     </figcaption>
 </figure>
-<p>Though we can't read any of the information present, the plot hints at a huge 
+<p>Though we can't read any of the information present, the plot hints at a huge
 tree. Due to its complexity, the model does not add much value to the
 understanding of the data (it's simply not interpretable).</p>
-<p>Actually visualizing this particular tree takes some time, hence we 
-discouraged you from executing the code.</p>
-<p>But why do we get such a huge tree? By default, the CART implementation in 
+<p>Actually visualizing this particular tree takes some time, hence we discouraged
+you from executing the code.</p>
+<p>But why do we get such a huge tree? By default, the CART implementation in
 <code>scikit-learn</code> grows the tree as large as possible and does <em>not</em> prune it.</p>
 <h5 id="to-fix">... to fix</h5>
 <p>To prevent the tree from growing too large, we can set two parameters.</p>
@@ -6680,9 +6677,9 @@ discouraged you from executing the code.</p>
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># fit the model again</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span></code></pre></div>
-<p>The <code>max_depth</code> parameter limits the depth of the tree, while <code>min_samples_leaf</code>
-sets the minimum number of samples (observations) required to be in a leaf 
-node. Both prevent the tree from growing too large.</p>
+<p>The <code>max_depth</code> parameter limits the depth of the tree, while
+<code>min_samples_leaf</code> sets the minimum number of samples (observations) required
+to be in a leaf node. Both prevent the tree from growing too large.</p>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>Remember, we want to prevent overfitting. By setting these parameters, we
@@ -6694,27 +6691,27 @@ Additionally, it results in a smaller tree which is easier to interpret.</p>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_tree</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="hll"><span class="n">plot_tree</span><span class="p">(</span>
-</span></span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">model</span><span class="p">,</span> 
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># (1)!</span>
+</span></span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">model</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># (1)!</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>  <span class="c1"># (2)!</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">proportion</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># (3)!</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">proportion</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># (3)!</span>
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">)</span>
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <ol>
-<li><code class="language-python highlight"><span class="n">filled</span><span class="o">=</span><span class="kc">True</span></code> colors nodes according to prediction values. 
-   A stronger color indicating a higher value.</li>
+<li><code class="language-python highlight"><span class="n">filled</span><span class="o">=</span><span class="kc">True</span></code> colors nodes according to prediction values. A
+    stronger color indicating a higher value.</li>
 <li>The parameter <code>feature_names</code> is used to label the features in the tree.</li>
 <li><code>proportion=True</code> displays the proportion of samples in each node.</li>
 </ol>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>Generally, it is always good practice to consult the documentation, if 
-you are unsure about the usage of a function/class.</p>
-<p>Regarding <code>plot_tree()</code>, you might find some useful information in the 
+<p>Generally, it is always good practice to consult the documentation, if you are
+unsure about the usage of a function/class.</p>
+<p>Regarding <code>plot_tree()</code>, you might find some useful information in the
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.plot_tree.html">docs</a>
-that can help you customize the plot to your liking.
-So don't shy away from reading the documentation!</p>
+that can help you customize the plot to your liking. So don't shy away from
+reading the documentation!</p>
 </details>
 <figure>
     <img alt="A small tree" src="../../../../../assets/data-science/algorithms/tree-based/small-tree.png" />
@@ -6726,23 +6723,21 @@ So don't shy away from reading the documentation!</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
 <p>The nodes are quite easy to read:</p>
-<p>Starting with the root node, the feature <code>MedInc</code> performs 
-the first split. If the median income is less than 5.086, we follow the 
-left branch else the right branch. The resulting <code>squared_error</code> of the 
-split is shown as well. At the root node, the <code>squared_error</code> (sum of the 
-squared differences between the actual values and the predicted value)
-is 1.337. The lower the <code>squared_error</code>, the better the split. A "perfect
-split" would result in a <code>squared_error</code> of 0.</p>
-<p>The root node splits the data into two subsets, the left branch results 
-in a subest containing 79.3% of the training data and the right branch 
-20.7%. Compared to the root node, both additional splits lead to a 
-decrease of the <code>squared_error</code> and thus increase the predictive power. 
-After two more splits, we reach the leaf nodes. Each leaf node contains 
-a value, the final prediction.</p>
+<p>Starting with the root node, the feature <code>MedInc</code> performs the first split. If
+the median income is less than 5.086, we follow the left branch else the right
+branch. The resulting <code>squared_error</code> of the split is shown as well. At the
+root node, the <code>squared_error</code> (sum of the squared differences between the
+actual values and the predicted value) is 1.337. The lower the <code>squared_error</code>,
+the better the split. A "perfect split" would result in a <code>squared_error</code> of 0.</p>
+<p>The root node splits the data into two subsets, the left branch results in a
+subest containing 79.3% of the training data and the right branch 20.7%.
+Compared to the root node, both additional splits lead to a decrease of the
+<code>squared_error</code> and thus increase the predictive power. After two more splits,
+we reach the leaf nodes. Each leaf node contains a value, the final prediction.</p>
 </details>
-<p>Now we have a pruned tree, which reduced the risk of overfitting. However, at 
-the cost of model performance. The <span class="arithmatex">\(R^2\)</span> decreased from 0.61 to 0.42 which 
-might indicate that such a simple tree might not capture the complexity of the 
+<p>Now we have a pruned tree, which reduced the risk of overfitting. However, at
+the cost of model performance. The <span class="arithmatex">\(R^2\)</span> decreased from 0.61 to 0.42 which
+might indicate that such a simple tree might not capture the complexity of the
 data well.</p>
 <div style="text-align: center">
 <h3>Now get to the point!</h3>
@@ -6753,12 +6748,12 @@ data well.</p>
 </div>
 
 <p>In practice, you have to find the right parameters to balance model complexity
-and performance. Unfortunately, there is no one-size-fits-all solution. You 
+and performance. Unfortunately, there is no one-size-fits-all solution. You
 have to tune the parameters based on the data and the task at hand.</p>
 <details class="question" open="open">
 <summary>Parameter tuning</summary>
-<p>Try some different combinations of <code>max_depth</code> and <code>min_samples_leaf</code>.
-Use the same train test split, we defined earlier.</p>
+<p>Try some different combinations of <code>max_depth</code> and <code>min_samples_leaf</code>. Use the
+same train test split, we defined earlier.</p>
 <ol>
 <li>Manually change the values.</li>
 <li>Fit the model.</li>
@@ -6769,8 +6764,8 @@ Use the same train test split, we defined earlier.</p>
 <p>Can you get an <span class="arithmatex">\(R^2\)</span> higher than <code class="language-python highlight"><span class="mf">0.7</span></code>?</p>
 </details>
 <h3 id="classification_1">Classification</h3>
-<p>Next, we switch to a classification task. We will re-use the breast cancer 
-data set introduced in the previous Classification chapter.</p>
+<p>Next, we switch to a classification task. We will re-use the breast cancer data
+set introduced in the previous Classification chapter.</p>
 <h4 id="load-data_1">Load data</h4>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_breast_cancer</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
@@ -6780,21 +6775,23 @@ data set introduced in the previous Classification chapter.</p>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="fit-and-evaluate-the-model_1">Fit and evaluate the model</h4>
-<p>For classification trees, <code>scikit-learn</code> provides the class 
+<p>For classification trees, <code>scikit-learn</code> provides the class
 <code>DecisionTreeClassifier</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 </span></span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="c1"># again, set max_depth and min_samples_leaf to prevent growing a huge tree</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">5</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">)</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">)</span>
 </span></code></pre></div>
 <details class="question" open="open">
 <summary>Fit and evaluate the model</summary>
 <p>Now it is your time to fit and evaluate the model. Although, you have never
-used an instance of <code>DecisionClassifier</code> before, you can use the same 
-methods as with other models in <code>scikit-learn</code>. Simply refer to the 
-previous regression example.</p>
+used an instance of <code>DecisionClassifier</code> before, you can use the same methods
+as with other models in <code>scikit-learn</code>. Simply refer to the previous regression
+example.</p>
 <ol>
 <li>Fit the model on <code>X_train</code> and <code>y_train</code>.</li>
 <li>Evaluate the model on <code>X_test</code> and <code>y_test</code>.</li>
@@ -6821,26 +6818,27 @@ from the logistic regression.
             </div>
 
 <h2 id="recap">Recap</h2>
-<p>We comprehensively explored decision trees, focusing on the CART algorithm. 
-The theory section illuminated its core mechanisms, while practical 
-examples demonstrated building and evaluating decision trees for regression and
+<p>We comprehensively explored decision trees, focusing on the CART algorithm. The
+theory section illuminated its core mechanisms, while practical examples
+demonstrated building and evaluating decision trees for regression and
 classification tasks. Key takeaways include:</p>
 <ul>
 <li>Algorithm insights into tree construction</li>
-<li>Practical implementation skills </li>
+<li>Practical implementation skills</li>
 <li>Understanding of decision trees' interpretability and overfitting risks</li>
 </ul>
-<p>Next, we'll extend our knowledge to Random Forests, an ensemble method 
+<p>Next, we'll extend our knowledge to Random Forests, an ensemble method
 combining multiple decision trees to enhance predictive performance.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>Christopher M. Bishop. Pattern Recognition and Machine Learning. 
-Springer, 2006. <a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">Link</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Christopher M. Bishop. Pattern Recognition and Machine Learning.
+Springer, 2006.
+<a href="https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf">Link</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Leo Breiman, Jerome Friedman, Richard Olshen, and Charles Stone. 
+<p>Leo Breiman, Jerome Friedman, Richard Olshen, and Charles Stone.
 Classification and Regression Trees. Chapman and Hall/CRC, 1984.
 <a href="https://doi.org/10.1201/9781315139470">https://doi.org/10.1201/9781315139470</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
@@ -8109,7 +8107,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="January 29, 2026 09:30:43 UTC"><span class="timeago" datetime="2026-01-29T09:30:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="January 29, 2026 09:30:43 UTC">2026-01-29</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 14:15:05 UTC"><span class="timeago" datetime="2026-02-09T14:15:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 14:15:05 UTC">2026-02-09</span>
   </span>
 
     

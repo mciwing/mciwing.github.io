@@ -6236,13 +6236,13 @@
 
 <h1 id="regression">Regression</h1>
 <h2 id="linear-regression">Linear Regression</h2>
-<p>In machine learning, we often want to predict continuous numerical values, like 
-house prices, temperatures or sales figures. Linear regression also knows as 
-Ordinary Least Squares (OLS) provides a foundational approach to this problem 
-by modeling the relationship between input variables and a target variable 
+<p>In machine learning, we often want to predict continuous numerical values, like
+house prices, temperatures or sales figures. Linear regression also knows as
+Ordinary Least Squares (OLS) provides a foundational approach to this problem
+by modeling the relationship between input variables and a target variable
 using a straight line.</p>
-<p>This chapter introduces linear regression through a hands-on example.
-You'll learn to:</p>
+<p>This chapter introduces linear regression through a hands-on example. You'll
+learn to:</p>
 <ul>
 <li>Build and train a linear regression model</li>
 <li>Interpret model parameters (intercept and coefficients)</li>
@@ -6254,14 +6254,16 @@ You'll learn to:</p>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>This chapter adapts and expands upon:</p>
-<p><ins>scikit-learn: <em>Ordinary Least Squares and Ridge Regression</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
-<p><ins>scikit-learn: <em>Linear Models</em><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></ins> </p>
-<p><ins>scikit-learn: <em>Metrics and scoring: quantifying the quality of predictions</em><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></ins></p>
+<ul>
+<li><ins>scikit-learn: <em><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html">Ordinary Least Squares and Ridge Regression</a></em></ins></li>
+<li><ins>scikit-learn: <em><a href="https://scikit-learn.org/stable/modules/linear_model.html">Linear Models</a></em></ins> </li>
+<li><ins>scikit-learn: <em><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination">Metrics and scoring: quantifying the quality of predictions</a></em></ins></li>
+</ul>
 </details>
 <h2 id="theory">Theory</h2>
-<p>Linear regression, also known as Ordinary Least Squares (OLS), models the 
-relationship between a continuous target variable <span class="arithmatex">\(y\)</span> and one or more input 
-variables <span class="arithmatex">\(X\)</span>. The goal is to find the best linear function that predicts 
+<p>Linear regression, also known as Ordinary Least Squares (OLS), models the
+relationship between a continuous target variable <span class="arithmatex">\(y\)</span> and one or more input
+variables <span class="arithmatex">\(X\)</span>. The goal is to find the best linear function that predicts
 <span class="arithmatex">\(\hat{y}\)</span> from <span class="arithmatex">\(X\)</span>.</p>
 <details class="defi" open="open">
 <summary>Linear combination</summary>
@@ -6275,10 +6277,10 @@ variables <span class="arithmatex">\(X\)</span>. The goal is to find the best li
 <li><span class="arithmatex">\(x_1, x_2, ..., x_n\)</span> are the input features</li>
 </ul>
 </details>
-<p>The term "Ordinary Least Squares" refers to the optimization objective, 
-finding the weights <span class="arithmatex">\(w_0, w_1, ..., w_n\)</span> that minimize the sum of squared 
-differences called residuals between the actual values <span class="arithmatex">\(y\)</span> and predicted 
-values <span class="arithmatex">\(\hat{y}\)</span>.</p>
+<p>The term "Ordinary Least Squares" refers to the optimization objective, finding
+the weights <span class="arithmatex">\(w_0, w_1, ..., w_n\)</span> that minimize the sum of squared differences
+called residuals between the actual values <span class="arithmatex">\(y\)</span> and predicted values
+<span class="arithmatex">\(\hat{y}\)</span>.</p>
 <details class="defi" open="open">
 <summary>Cost function</summary>
 <div class="arithmatex">\[
@@ -6286,24 +6288,23 @@ values <span class="arithmatex">\(\hat{y}\)</span>.</p>
 \]</div>
 <p>where <span class="arithmatex">\(n\)</span> is the number of observations.</p>
 </details>
-<p>This minimization ensures that our model makes the smallest possible errors 
-on average when predicting the training data. Let's look at an example.</p>
+<p>This minimization ensures that our model makes the smallest possible errors on
+average when predicting the training data. Let's look at an example.</p>
 <h2 id="example">Example</h2>
-<p><code>scikit-learn</code> provides a couple of data sets for download. To fit a linear 
+<p><code>scikit-learn</code> provides a couple of data sets for download. To fit a linear
 regression on a real-world example, we choose the California housing data set.
-More information about the California Housing data set can be found 
+More information about the California Housing data set can be found
 <a href="https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset">here</a>.</p>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>Data reference:</p>
-<p><ins>Pace, R. Kelley and Ronald Barry, Sparse Spatial Autoregressions, 
-Statistics and Probability Letters, 33:291-297, 1997</ins></p>
+<p><ins>Pace, R. Kelley and Ronald Barry, Sparse Spatial Autoregressions, Statistics
+and Probability Letters, 33:291-297, 1997</ins></p>
 </details>
-<p>Our objective is to model the target variable <span class="arithmatex">\(y\)</span> using input variables 
-<span class="arithmatex">\(X\)</span>. In this case, <span class="arithmatex">\(y\)</span> corresponds to the median house value, expressed in 
-hundreds of thousands of dollars ($100,000).
-Below figure shows all houses in California colored by their median value 
-<span class="arithmatex">\(y\)</span>.</p>
+<p>Our objective is to model the target variable <span class="arithmatex">\(y\)</span> using input variables
+<span class="arithmatex">\(X\)</span>. In this case, <span class="arithmatex">\(y\)</span> corresponds to the median house value, expressed in
+hundreds of thousands of dollars ($100,000). Below figure shows all houses in
+California colored by their median value <span class="arithmatex">\(y\)</span>.</p>
 <figure>
     <img 
         src="/assets/data-science/algorithms/regression/california-housing.png"
@@ -6322,33 +6323,34 @@ Below figure shows all houses in California colored by their median value
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="hll"><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </span></code></pre></div>
-<p>Conveniently, by setting <code class="language-python highlight"><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span></code>, the function splits the 
+<p>Conveniently, by setting <code class="language-python highlight"><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span></code>, the function splits the
 input variables <span class="arithmatex">\(X\)</span> and the target <span class="arithmatex">\(y\)</span>. Note, <span class="arithmatex">\(X\)</span> contains multiple input
-variables such as such as house age <em>HouseAge</em> and average bedrooms <em>AveBedrms</em>.
-However, some are not needed.</p>
+variables such as such as house age <em>HouseAge</em> and average bedrooms
+<em>AveBedrms</em>. However, some are not needed.</p>
 <details class="question" open="open">
 <summary>Question</summary>
-<p>The data frame <code>X</code> contains the variables <code class="language-python highlight"><span class="s2">&quot;Latitude&quot;</span></code> and 
-<code class="language-python highlight"><span class="s2">&quot;Longitude&quot;</span></code>, remove them from the data frame. Tip: Consult the 
-pandas <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html">documentation</a>.</p>
+<p>The data frame <code>X</code> contains the variables <code class="language-python highlight"><span class="s2">&quot;Latitude&quot;</span></code> and
+<code class="language-python highlight"><span class="s2">&quot;Longitude&quot;</span></code>, remove them from the data frame. Tip: Consult the
+pandas
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html">documentation</a>.</p>
 </details>
 <h3 id="split-the-data">Split the data</h3>
-<p>Before training our OLS model, we need to split our data into two distinct sets:</p>
+<p>Before training our OLS model, we need to split our data into two distinct
+sets:</p>
 <ul>
-<li><strong>Training set</strong>: Used to fit the model and learn the optimal weights 
-    (80% of data)</li>
-<li><strong>Test set</strong>: Used to evaluate the model's performance on unseen data 
-    (20% of data)</li>
+<li><strong>Training set</strong>: Used to fit the model and learn the optimal weights (80% of
+    data)</li>
+<li><strong>Test set</strong>: Used to evaluate the model's performance on unseen data (20% of
+    data)</li>
 </ul>
-<p>Think of this like preparing for an exam: you study from practice problems 
-(training set) and then test your knowledge with new questions (test set). 
-This separation allows us to assess whether our model can accurately predict 
-house prices it hasn't seen before, rather than just memorizing the training 
-data.</p>
+<p>Think of this like preparing for an exam: you study from practice problems
+(training set) and then test your knowledge with new questions (test set). This
+separation allows us to assess whether our model can accurately predict house
+prices it hasn't seen before, rather than just memorizing the training data.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>The 80/20 split is a common convention, but not a strict rule. Depending on
-the data set size, other split ratios might be a better fit.</p>
+<p>The 80/20 split is a common convention, but not a strict rule. Depending on the
+data set size, other split ratios might be a better fit.</p>
 </details>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -6362,23 +6364,23 @@ the data set size, other split ratios might be a better fit.</p>
 <li>Splits off 20% for testing (<code class="language-python highlight"><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span></code>)</li>
 <li>Randomly shuffles the data (<code class="language-python highlight"><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span></code>) to remove any inherent
     ordering</li>
-<li>Set a seed (<code class="language-python highlight"><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span></code>) which ensures the same
-    outcome every time the code snippet is executed. Since the shuffle 
-    operation is stochastic, we aim for reproducibility.</li>
+<li>Set a seed (<code class="language-python highlight"><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span></code>) which ensures the same outcome every
+    time the code snippet is executed. Since the shuffle operation is
+    stochastic, we aim for reproducibility.</li>
 </ol>
 <details class="info" open="open">
 <summary>Why shuffle?</summary>
 <p>Some data sets may have inherent order (e.g., the houses could be sorted by
-location). Shuffling ensures that both training and test sets are 
+location). Shuffling ensures that both training and test sets are
 representative of the entire data distribution.</p>
 </details>
-<p>After splitting, we put our test data (<code>X_test</code> and <code>y_test</code>) aside and use it 
+<p>After splitting, we put our test data (<code>X_test</code> and <code>y_test</code>) aside and use it
 at the very end to measure the model's performance.</p>
 <h3 id="intuition">Intuition</h3>
-<p>For the first OLS model, we use a single input variable <span class="arithmatex">\(X\)</span> as it allows us 
-to easily visualize and interpret the results. The choice falls on the median 
-income at the house location, referred to as <em>MedInc</em>. 
-Visualize the target and input variable in a scatter plot:</p>
+<p>For the first OLS model, we use a single input variable <span class="arithmatex">\(X\)</span> as it allows us
+to easily visualize and interpret the results. The choice falls on the median
+income at the house location, referred to as <em>MedInc</em>. Visualize the target and
+input variable in a scatter plot:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -6393,39 +6395,39 @@ Visualize the target and input variable in a scatter plot:</p>
 <div class="grid cards">
 <ul>
 <li>
-<p><strong>Scatter Plot</strong> </p>
+<p><strong>Scatter Plot</strong></p>
 <hr />
-<p>Looking at the scatter plot, you might intuitively imagine drawing a straight 
-line through the points that best captures the trend. This intuition is 
-exactly what OLS does mathematically, it finds the optimal line that minimizes 
-the distance between the line and all data points. <img alt="👇" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f447.svg" title=":point_down:" /></p>
+<p>Looking at the scatter plot, you might intuitively imagine drawing a straight
+line through the points that best captures the trend. This intuition is
+exactly what OLS does mathematically, it finds the optimal line that
+minimizes the distance between the line and all data points. <img alt="👇" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f447.svg" title=":point_down:" /></p>
 </li>
 <li>
 <p><figure markdown="span">
-        <img 
-            src="/assets/data-science/algorithms/regression/scatter-dark.png#only-dark"
-        >
-        <img 
-            src="/assets/data-science/algorithms/regression/scatter-light.png#only-light"
-        >
+    <img
+    src="/assets/data-science/algorithms/regression/scatter-dark.png#only-dark"
+    >
+    <img
+    src="/assets/data-science/algorithms/regression/scatter-light.png#only-light"
+    >
     </figure></p>
 </li>
 <li>
 <p><figure markdown="span">
-        <img 
-            src="/assets/data-science/algorithms/regression/regression-dark.png#only-dark"
-        >
-        <img 
-            src="/assets/data-science/algorithms/regression/regression-light.png#only-light"
-        >
+    <img
+    src="/assets/data-science/algorithms/regression/regression-dark.png#only-dark"
+    >
+    <img
+    src="/assets/data-science/algorithms/regression/regression-light.png#only-light"
+    >
     </figure></p>
 </li>
 <li>
 <p><strong>Best-Fit Line</strong></p>
 <hr />
-<p>The OLS model finds the line that minimizes the sum of squared residuals,
-the vertical distances between each point and the line. Recall from the 
-theory section that this is exactly what the cost function measures:</p>
+<p>The OLS model finds the line that minimizes the sum of squared residuals, the
+vertical distances between each point and the line. Recall from the theory
+section that this is exactly what the cost function measures:</p>
 <div class="arithmatex">\[
 \text{min} \quad \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
 \]</div>
@@ -6433,8 +6435,8 @@ theory section that this is exactly what the cost function measures:</p>
 </ul>
 </div>
 <h3 id="train-the-model">Train the model</h3>
-<p>Our next step is to train an OLS model to automatically find this "best-fit" 
-line. Remember, since we have one input variable, the linear combination 
+<p>Our next step is to train an OLS model to automatically find this "best-fit"
+line. Remember, since we have one input variable, the linear combination
 simplifies to:</p>
 <div class="arithmatex">\[
 \hat{y} = w_0 + w_1 \cdot x_1
@@ -6451,12 +6453,12 @@ simplifies to:</p>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># create an instance</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 </span></code></pre></div>
-<p>At this point, the model is not trained, however that can be easily done
-using the <code>fit()</code> method. Remember, to use the training set </p>
+<p>At this point, the model is not trained, however that can be easily done using
+the <code>fit()</code> method. Remember, to use the training set</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_train</span><span class="p">[[</span><span class="s2">&quot;MedInc&quot;</span><span class="p">]],</span> <span class="n">y</span><span class="o">=</span><span class="n">y_train</span><span class="p">)</span>
 </span></code></pre></div>
 <h4 id="intercept-and-coefficient">Intercept and coefficient</h4>
-<p>After training, we can inspect the model's learned parameters. The intercept 
+<p>After training, we can inspect the model's learned parameters. The intercept
 and coefficient that define the best-fit line:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Intercept (w₀): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coefficient (w₁): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -6470,14 +6472,14 @@ and coefficient that define the best-fit line:</p>
 \]</div>
 <p><strong>Interpretation:</strong></p>
 <ul>
-<li><strong>Intercept (0.4446)</strong>: The baseline house value (when <em>MedInc</em> is zero) 
-    ~ $44,460</li>
+<li><strong>Intercept (0.4446)</strong>: The baseline house value (when <em>MedInc</em> is zero)
+    is around $44,460</li>
 <li><strong>Coefficient (0.4193)</strong>: For each unit increase in <em>MedInc</em>, the house value
     increases by ~ $41,930</li>
 </ul>
 <h3 id="predictions">Predictions</h3>
-<p>Now that the model is trained, we can predict house prices for new observations. 
-Let's predict the price <span class="arithmatex">\(\hat{y}\)</span> for a house in an area where 
+<p>Now that the model is trained, we can predict house prices for new
+observations. Let's predict the price <span class="arithmatex">\(\hat{y}\)</span> for a house in an area where
 <em>MedInc</em> is <code class="language-python highlight"><span class="mf">3.5</span></code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
@@ -6491,7 +6493,8 @@ Let's predict the price <span class="arithmatex">\(\hat{y}\)</span> for a house 
 </span></code></pre></div>
 <p>The model predicts a house value of approximately <strong>$191,230</strong>.</p>
 <h4 id="manual-validation">Manual validation</h4>
-<p>We can verify this prediction using our linear equation. Substituting <span class="arithmatex">\(x_1 = 3.5\)</span>:</p>
+<p>We can verify this prediction using our linear equation. Substituting
+<span class="arithmatex">\(x_1 = 3.5\)</span>:</p>
 <div class="arithmatex">\[
 \begin{align}
 \hat{y} &amp;= 0.4446 + 0.4193 \cdot 3.5 \\
@@ -6501,7 +6504,7 @@ Let's predict the price <span class="arithmatex">\(\hat{y}\)</span> for a house 
 <p>This matches our model's prediction!</p>
 <details class="question" open="open">
 <summary>Practice: Make your own prediction</summary>
-<p>Calculate the predicted house price for an area where <em>MedInc</em> is 
+<p>Calculate the predicted house price for an area where <em>MedInc</em> is
 <code class="language-python highlight"><span class="mf">5.0</span></code>.</p>
 <ol>
 <li>Use <code class="language-python highlight"><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span></code> to get the prediction.</li>
@@ -6510,11 +6513,11 @@ Let's predict the price <span class="arithmatex">\(\hat{y}\)</span> for a house 
 </ol>
 </details>
 <h3 id="evaluate-the-model">Evaluate the model</h3>
-<p>Now we can make predictions, but we don't know how accurate they actually are. 
-We need to quantify the model's performance to determine if it generalizes 
-well to new, unseen data.</p>
-<p>Remember we set aside our test set earlier? This is where we use it. By 
-evaluating on data the model hasn't seen during training, we get an honest 
+<p>Now we can make predictions, but we don't know how accurate they actually are.
+We need to quantify the model's performance to determine if it generalizes well
+to new, unseen data.</p>
+<p>Remember we set aside our test set earlier? This is where we use it. By
+evaluating on data the model hasn't seen during training, we get an honest
 assessment of its predictive power.</p>
 <p>To measure the model's performance, we'll use the coefficient of determination.</p>
 <h4 id="coefficient-of-determination">Coefficient of determination</h4>
@@ -6522,7 +6525,7 @@ assessment of its predictive power.</p>
 <summary>Info</summary>
 <p>This section focuses on the definition implemented by <code>scikit-learn</code>.</p>
 </details>
-<p>The coefficient of determination, known as the <span class="arithmatex">\(R^2\)</span> score, measures the 
+<p>The coefficient of determination, known as the <span class="arithmatex">\(R^2\)</span> score, measures the
 proportion of variance in the target variable that is explained by the model.</p>
 <details class="defi" open="open">
 <summary><span class="arithmatex">\(R^2\)</span> Score</summary>
@@ -6556,18 +6559,18 @@ R^2(y, \hat{y}) = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (
 </span></code></pre></div>
 <details class="tip" open="open">
 <summary>Understanding <span class="arithmatex">\(R^2\)</span></summary>
-<p>An <span class="arithmatex">\(R^2\)</span> score of 0.4589 means the model explains 45.89% of the variance 
-in house prices using only median income. While this is informative, it's
-not great. It suggests that other factors (location, house size, etc.) 
+<p>An <span class="arithmatex">\(R^2\)</span> score of 0.4589 means the model explains 45.89% of the variance in
+house prices using only median income. While this is informative, it's not
+great. It suggests that other factors (location, house size, etc.)
 significantly influence house prices.</p>
 </details>
 <details class="question" open="open">
 <summary>Find a better model</summary>
-<p>Can you improve the <span class="arithmatex">\(R^2\)</span> score? Fit new models and experiment with the 
+<p>Can you improve the <span class="arithmatex">\(R^2\)</span> score? Fit new models and experiment with the
 following:</p>
 <p><strong>Model variations:</strong></p>
 <ul>
-<li>Use different individual input variables (e.g., <em>HouseAge</em>, <em>AveRooms</em>, 
+<li>Use different individual input variables (e.g., <em>HouseAge</em>, <em>AveRooms</em>,
     <em>AveBedrms</em>)</li>
 <li>Use a combination of multiple input variables</li>
 <li>Compare single-variable vs. multi-variable models</li>
@@ -6584,12 +6587,11 @@ following:</p>
 <li>Make predictions with your best-performing model</li>
 <li>Manually verify one prediction using the linear equation</li>
 </ul>
-<p>Which combination gives you the highest <span class="arithmatex">\(R^2\)</span> score? What does this 
-tell you about which features are most important for predicting house 
-prices?</p>
+<p>Which combination gives you the highest <span class="arithmatex">\(R^2\)</span> score? What does this tell you
+about which features are most important for predicting house prices?</p>
 </details>
 <h2 id="detour-model-workflow">Detour: Model workflow</h2>
-<p>The workflow you practiced here forms the foundation for all supervised 
+<p>The workflow you practiced here forms the foundation for all supervised
 learning algorithms in <code>scikit-learn</code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 1. Split your data</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
@@ -6606,33 +6608,19 @@ learning algorithms in <code>scikit-learn</code>:</p>
 </span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># 5. Evaluate performance</span>
 </span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 </span></code></pre></div>
-<p>This consistent pattern applies to all upcoming chapters, whether you're 
+<p>This consistent pattern applies to all upcoming chapters, whether you're
 building regression or classification models.</p>
 <h2 id="recap">Recap</h2>
-<p>In this chapter, you learned the fundamentals of linear regression through a 
+<p>In this chapter, you learned the fundamentals of linear regression through a
 practical example. The key takeaways:</p>
 <ul>
-<li><strong>Linear regression</strong> models the relationship between input variables and a 
+<li><strong>Linear regression</strong> models the relationship between input variables and a
     target variable using a linear combination. Find the best-fit line by
     minimizing the sum of squared residuals.</li>
-<li><strong><span class="arithmatex">\(R^2\)</span> score</strong> quantifies how well the model explains variance in the 
+<li><strong><span class="arithmatex">\(R^2\)</span> score</strong> quantifies how well the model explains variance in the
     target variable</li>
 <li><strong><code>scikit-learn</code> workflow</strong> allows to easily train and evaluate model</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p><a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html">https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols_ridge.html</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html">https://scikit-learn.org/stable/modules/linear_model.html</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination">https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div><style type="text/css">.quiz {
+</ul><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -7893,7 +7881,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 3, 2026 07:28:37 UTC"><span class="timeago" datetime="2026-02-03T07:28:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 3, 2026 07:28:37 UTC">2026-02-03</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 13:36:05 UTC"><span class="timeago" datetime="2026-02-09T13:36:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 13:36:05 UTC">2026-02-09</span>
   </span>
 
     

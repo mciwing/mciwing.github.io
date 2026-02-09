@@ -5914,10 +5914,10 @@
 
 <h1 id="data-science-in-practice">Data Science in Practice</h1>
 <h2 id="introduction">Introduction</h2>
-<p>In this course block and its subsequent chapters we will demonstrate how to 
-build a machine learning model in practice. In the end, you will have a 
-"ready-to-go" model that can predict whether a bank customer will subscribe 
-to a term deposit.</p>
+<p>In this course block and its subsequent chapters we will demonstrate how to
+build a machine learning model in practice. In the end, you will have a
+"ready-to-go" model that can predict whether a bank customer will subscribe to
+a term deposit.</p>
 <p>Along the way we will explore useful functionalities of <code>scikit-learn</code>, common
 pitfalls in data science projects, how to properly save a model, and conclude
 with a bonus section on pipelines to automate the entire modelling process.</p>
@@ -5929,15 +5929,15 @@ couple of chapters? Well, it's time to bring it back!</p>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>The bank marketing data was adapted from:</p>
-<p><ins>S. Moro, P. Cortez and P. Rita (2014). <em>A Data-Driven Approach to 
-Predict the Success of Bank Telemarketing</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
-<p>The publicly available dataset is from a Portuguese retail bank 
-and houses information on direct marketing campaigns (phone calls). Bank 
-customers were contacted and asked to subscribe to a term deposit.</p>
+<p><ins>S. Moro, P. Cortez and P. Rita (2014). <em>A Data-Driven Approach to Predict the
+Success of Bank Telemarketing</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
+<p>The publicly available dataset is from a Portuguese retail bank and houses
+information on direct marketing campaigns (phone calls). Bank customers were
+contacted and asked to subscribe to a term deposit.</p>
 </details>
 <h2 id="prerequisites">Prerequisites</h2>
 <h3 id="0-whats-our-goal">0. <img alt="🏆" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/1f3c6.svg" title=":trophy:" /> What's our goal?</h3>
-<p>First, let's define the end goal: </p>
+<p>First, let's define the end goal:</p>
 <div style="text-align: center; margin-top: 1em;">
     <p>
         <i>Build a machine learning model that can predict whether a bank 
@@ -5947,14 +5947,13 @@ customers were contacted and asked to subscribe to a term deposit.</p>
 
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>Put simply, a term deposit is a type of bank account where you agree to
-lock away your money for a fixed period of time (the "term") in exchange 
-for a guaranteed interest rate that's typically higher than a regular 
-savings account.</p>
+<p>Put simply, a term deposit is a type of bank account where you agree to lock
+away your money for a fixed period of time (the "term") in exchange for a
+guaranteed interest rate that's typically higher than a regular savings
+account.</p>
 </details>
-<p>Using information such as clients' demographic details, economic 
-indicators, and marketing campaign data, we aim to solve this binary 
-classification task.</p>
+<p>Using information such as clients' demographic details, economic indicators,
+and marketing campaign data, we aim to solve this binary classification task.</p>
 <hr />
 <p>Before we dive in, you have to set up the project which will be used throughout
 the remainder of this course.</p>
@@ -5966,8 +5965,8 @@ the remainder of this course.</p>
 <h3 id="2-download-data">2. <img alt="⬇" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2b07.svg" title=":down_arrow:" /> Download data</h3>
 <details class="danger" open="open">
 <summary>Danger</summary>
-<p>Since we want to make sure that everyone uses the same initial data set,
-we urge you to re-download it and place it within your <code>data/</code> folder.</p>
+<p>Since we want to make sure that everyone uses the same initial data set, we
+urge you to re-download it and place it within your <code>data/</code> folder.</p>
 <p><div class="center-button" markdown>
 <a class="md-button" href="../../assets/data-science/data/bank-merged.csv">Bank marketing <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v210.7l-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7zM64 320c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64h-46.9l-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg></span></a>
 </div></p>
@@ -7259,7 +7258,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 6, 2026 09:05:57 UTC"><span class="timeago" datetime="2026-02-06T09:05:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 6, 2026 09:05:57 UTC">2026-02-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 13:36:05 UTC"><span class="timeago" datetime="2026-02-09T13:36:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 13:36:05 UTC">2026-02-09</span>
   </span>
 
     

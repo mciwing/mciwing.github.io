@@ -6216,26 +6216,26 @@
 <h2 id="logistic-regression">Logistic Regression</h2>
 <p>While linear regression helps us predict continuous values, other real-world
 problems require predicting categorical outcomes: Will a customer subscribe to
-a term deposit? Is an email spam? Is a transaction fraudulent? 
-Logistic regression addresses these binary classification problems by extending
-the concepts we learned in linear regression to predict probabilities between 
-0 and 1.</p>
+a term deposit? Is an email spam? Is a transaction fraudulent? Logistic
+regression addresses these binary classification problems by extending the
+concepts we learned in linear regression to predict probabilities between 0 and
+1.</p>
 <p>We will cover the theory and apply logistic regression to the breast cancer
 dataset to predict whether a tumor is malignant or benign.</p>
 <h3 id="theory">Theory</h3>
 <details class="info" open="open">
 <summary>Info</summary>
 <p>The theoretical part is adapted from:</p>
-<p><ins>Daniel Jurafsky and James H. Martin. 2025. Speech and Language 
-Processing: <em>An Introduction to Natural Language Processing, Computational 
-Linguistics, and Speech Recognition with Language Models</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
+<p><ins>Daniel Jurafsky and James H. Martin. 2025. Speech and Language Processing:
+<em>An Introduction to Natural Language Processing, Computational Linguistics, and
+Speech Recognition with Language Models</em><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></ins></p>
 </details>
 <h4 id="deja-vu-linear-regression">Deja vu: Linear regression</h4>
-<p>Just like in linear regression, we have a set of features <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span>
-describing an outcome <span class="arithmatex">\(y\)</span>. But instead of predicting a continuous value, <span class="arithmatex">\(y\)</span>
-is binary: 0 or 1.</p>
+<p>Just like in linear regression, we have a set of features
+<span class="arithmatex">\(x_1, x_2, ..., x_n\)</span> describing an outcome <span class="arithmatex">\(y\)</span>. But instead of predicting a
+continuous value, <span class="arithmatex">\(y\)</span> is binary: 0 or 1.</p>
 <p>Similar to linear regression, logistic regression uses a linear combination of
-the features to predict the outcome. I.e., each feature is assigned a 
+the features to predict the outcome. I.e., each feature is assigned a
 <strong>weight</strong>, and a <strong>bias term</strong> is added at the end.</p>
 <details class="defi" open="open">
 <summary>Linear combination</summary>
@@ -6243,16 +6243,16 @@ the features to predict the outcome. I.e., each feature is assigned a
 z = b_1 \cdot x_1 + b_2 \cdot x_2 + ... + b_n \cdot x_n + a
 \]</div>
 </details>
-<p>with <span class="arithmatex">\(a\)</span> being the bias term and <span class="arithmatex">\(b_1, b_2, ..., b_n\)</span> the weights. 
-"The resulting single number <span class="arithmatex">\(z\)</span> expresses the weighted sum
-of the evidence for the class." (Jurafsky &amp; Martin, 2025 p. 79)
-Bias, weights and the intercept are all real numbers.</p>
-<p>So far, logistic regression is the same as linear regression with the sole 
-difference that in <a href="../regression/#linear-regression">linear regression</a> we 
-referred to the bias <span class="arithmatex">\(a\)</span> as the intercept, and the 
-weights <span class="arithmatex">\(b_1, b_2, ..., b_n\)</span> as coefficients or slope.</p>
-<p>However, <span class="arithmatex">\(z\)</span> is not the final prediction, since it can take real values 
-and in fact ranges from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span>. Thus, <span class="arithmatex">\(z\)</span> needs to be 
+<p>with <span class="arithmatex">\(a\)</span> being the bias term and <span class="arithmatex">\(b_1, b_2, ..., b_n\)</span> the weights. "The
+resulting single number <span class="arithmatex">\(z\)</span> expresses the weighted sum of the evidence for
+the class." (Jurafsky &amp; Martin, 2025 p. 79) Bias, weights and the intercept are
+all real numbers.</p>
+<p>So far, logistic regression is the same as linear regression with the sole
+difference that in <a href="../regression/#linear-regression">linear regression</a> we
+referred to the bias <span class="arithmatex">\(a\)</span> as the intercept, and the weights
+<span class="arithmatex">\(b_1, b_2, ..., b_n\)</span> as coefficients or slope.</p>
+<p>However, <span class="arithmatex">\(z\)</span> is not the final prediction, since it can take real values and
+in fact ranges from <span class="arithmatex">\(-\infty\)</span> to <span class="arithmatex">\(+\infty\)</span>. Thus, <span class="arithmatex">\(z\)</span> needs to be
 transformed to a probability between 0 and 1. This is where the sigmoid
 function comes into play.</p>
 <h4 id="the-sigmoid-function">The sigmoid function</h4>
@@ -6263,8 +6263,8 @@ uses the sigmoid (or logistic) function to transform <span class="arithmatex">\(
 <div class="arithmatex">\[
 \sigma(z) = \frac{1}{1 + e^{-z}}
 \]</div>
-<p>The sigmoid function takes the real number <span class="arithmatex">\(z\)</span> and transforms it to the 
-range (0,1).</p>
+<p>The sigmoid function takes the real number <span class="arithmatex">\(z\)</span> and transforms it to the range
+(0,1).</p>
 </details>
 <div style="text-align: center;">
     <iframe src="/assets/data-science/algorithms/classification/sigmoid.html" width="600" height="450">
@@ -6275,32 +6275,30 @@ range (0,1).</p>
     </figcaption>
 </div>
 
-<p>For given input features <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span>, we can calculate the 
-linear combination <span class="arithmatex">\(z\)</span> and then apply the sigmoid function to get the 
-probability of the outcome.
-To compute the probability of the outcome being 1 
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> <span class="arithmatex">\(P(y=1|x)\)</span>, for example 
-if an email is spam, we have to set a decision boundary.</p>
+<p>For given input features <span class="arithmatex">\(x_1, x_2, ..., x_n\)</span>, we can calculate the linear
+combination <span class="arithmatex">\(z\)</span> and then apply the sigmoid function to get the probability of
+the outcome. To compute the probability of the outcome being 1
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> <span class="arithmatex">\(P(y=1|x)\)</span>, for example if an email is spam,
+we have to set a decision boundary.</p>
 <details class="defi" open="open">
 <summary>Decision boundary</summary>
 <p>If <span class="arithmatex">\(\sigma(z) \gt 0.5\)</span>, we predict <span class="arithmatex">\(y=1\)</span>, otherwise <span class="arithmatex">\(y=0\)</span>.</p>
 </details>
-<p>For instance, if the probability of an email being spam is 0.7, we predict
-that the email is spam <span class="arithmatex">\((0.7 \gt 0.5)\)</span>. With a probability of 0.4, we 
-predict that the email is <em>not</em> spam <span class="arithmatex">\((0.4 \le 0.5)\)</span>.</p>
+<p>For instance, if the probability of an email being spam is 0.7, we predict that
+the email is spam <span class="arithmatex">\((0.7 \gt 0.5)\)</span>. With a probability of 0.4, we predict that
+the email is <em>not</em> spam <span class="arithmatex">\((0.4 \le 0.5)\)</span>.</p>
 <h4 id="the-optimization-problem">The optimization problem</h4>
-<p>But how do we find the best parameter combination (weights and bias) for our 
-logistic regression model?
-Unlike linear regression, which uses ordinary least squares, logistic
-regression typically uses Maximum Likelihood Estimation (MLE), i.e., the best
-parameters (weights and bias) that maximize the likelihood of the observed
-data.</p>
+<p>But how do we find the best parameter combination (weights and bias) for our
+logistic regression model? Unlike linear regression, which uses ordinary least
+squares, logistic regression typically uses Maximum Likelihood Estimation
+(MLE), i.e., the best parameters (weights and bias) that maximize the
+likelihood of the observed data.</p>
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/3ohs7KViF6rA4aan5u" width="480" height="355" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
     <figcaption>Lo and behold, even more math...</figcaption>
 </div>
 
-<p>For optimization purposes we use the negative log-likelihood as our loss 
+<p>For optimization purposes we use the negative log-likelihood as our loss
 function:</p>
 <details class="defi" open="open">
 <summary>Negative log-likelihood</summary>
@@ -6317,30 +6315,30 @@ J(\theta) = -\frac{1}{m}\sum_{i=1}^m [y_i\log(\sigma(z_i)) + (1-y_i)\log(1-\sigm
 </details>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>Intuitively speaking, the loss function penalizes the model for making 
-wrong predictions. If the model predicts a probability of 0.9 for a 
-spam email, and the email is actually spam (<span class="arithmatex">\(y=1\)</span>), the loss is small.
-On the other hand, if the model predicts a probability of 0.1 for a 
-spam email, and the email is spam (<span class="arithmatex">\(y=1\)</span>), the loss will be high. </p>
-<p>The weights are gradually adjusted to minimize the loss.
-Think of it like turning knobs slowly until we get better predictions.</p>
-<p>Gradually adjusting these knobs to minimize the loss is referred to as
-gradient descent.</p>
+<p>Intuitively speaking, the loss function penalizes the model for making wrong
+predictions. If the model predicts a probability of 0.9 for a spam email, and
+the email is actually spam (<span class="arithmatex">\(y=1\)</span>), the loss is small. On the other hand, if
+the model predicts a probability of 0.1 for a spam email, and the email is spam
+(<span class="arithmatex">\(y=1\)</span>), the loss will be high.</p>
+<p>The weights are gradually adjusted to minimize the loss. Think of it like
+turning knobs slowly until we get better predictions.</p>
+<p>Gradually adjusting these knobs to minimize the loss is referred to as gradient
+descent.</p>
 </details>
-<p>Conveniently, <code>scikit-learn</code> provides a logistic regression implementation
-that takes care of the optimization for us. Finally, we look at a 
-practical example to see logistic regression in action.</p>
+<p>Conveniently, <code>scikit-learn</code> provides a logistic regression implementation that
+takes care of the optimization for us. Finally, we look at a practical example
+to see logistic regression in action.</p>
 <h2 id="example">Example</h2>
 <p>Let's apply logistic regression to the breast cancer dataset, a classic binary
-classification problem where we need to predict whether a tumor is <em>malignant 
+classification problem where we need to predict whether a tumor is <em>malignant
 or benign</em> based on various features.</p>
 <p>With class labels <span class="arithmatex">\(y\)</span> being 0 (malignant) or 1 (benign), we can use logistic
-regression to predict the probability of a tumor being benign. The features 
+regression to predict the probability of a tumor being benign. The features
 were calculated from digitized images of a breast mass.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>See the <a href="https://doi.org/10.24432/C5DW2B">UCI Machine Learning Repository</a>
-for more information on the data set.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>See the <a href="https://doi.org/10.24432/C5DW2B">UCI Machine Learning Repository</a> for
+more information on the data set.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 </details>
 <h3 id="load-the-data">Load the data</h3>
 <p>Conveniently, <code>scikit-learn</code> provides a couple of data sets for both regression
@@ -6360,10 +6358,9 @@ and classification tasks. One of them is the breast cancer dataset.</p>
 tumors.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>Just like in the previous chapter, the data is divided into <code>X</code>, containing 
-the attributes and <code>y</code> holding the corresponding labels. Having attributes 
-and labels separated, makes life a bit easier when training and testing the 
-model.</p>
+<p>Just like in the previous chapter, the data is divided into <code>X</code>, containing the
+attributes and <code>y</code> holding the corresponding labels. Having attributes and
+labels separated, makes life a bit easier when training and testing the model.</p>
 </details>
 <details class="question" open="open">
 <summary>Number of features</summary>
@@ -6380,13 +6377,13 @@ model.</p>
                     <div class="quiz-feedback hidden"></div>
 
                 </form>
-                <section class="content hidden"><p><code>X.shape</code> reveals that we are dealing with 30 features.
-</p></p></section>
+                <section class="content hidden"><p><code>X.shape</code> reveals that we are dealing with 30 features.</p>
+</p></section>
             </div>
 
 <h3 id="split-the-data">Split the data</h3>
 <p>Before training our model, we want to split our data into two parts. Just like
-in the previous chapter, we perform a 80/20 split, i.e., we use 80% to train 
+in the previous chapter, we perform a 80/20 split, i.e., we use 80% to train
 the model and evaluate it on the remaining 20%.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
@@ -6396,9 +6393,9 @@ the model and evaluate it on the remaining 20%.</p>
 </span></code></pre></div>
 <details class="tip" open="open">
 <summary>Tip</summary>
-<p>If you need a refresh on the parameters used in <code>train_test_split()</code> 
-revisit, the <a href="../regression/#split-the-data">Split the data</a> section from 
-the previous chapter.</p>
+<p>If you need a refresh on the parameters used in <code>train_test_split()</code> revisit,
+the <a href="../regression/#split-the-data">Split the data</a> section from the previous
+chapter.</p>
 </details>
 <h3 id="train-the-model">Train the model</h3>
 <p>Now that we have our training data, we can train the logistic regression model.</p>
@@ -6408,55 +6405,55 @@ the previous chapter.</p>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </span></code></pre></div>
 <ol>
-<li>The <code>random_state</code> parameter ensures reproducibility, while
-    <code>max_iter</code> specifies the maximum number of iterations taken for the solver 
-    to converge (i.e., solving the optimization problem to find the best 
+<li>The <code>random_state</code> parameter ensures reproducibility, while <code>max_iter</code>
+    specifies the maximum number of iterations taken for the solver to
+    converge (i.e., solving the optimization problem to find the best
     parameter combination).</li>
 </ol>
 <p><code class="language-python highlight"><span class="n">model</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="o">...</span><span class="p">)</span></code> creates an instance of the logistic
-regression model. Only after calling the <code>fit()</code> method, the <code>model</code> is 
-actually trained. Since we separated attributes and labels into <code>X_train</code> and 
-<code>y_train</code> respectively, we can directly call the method without any 
-further data handling.</p>
+regression model. Only after calling the <code>fit()</code> method, the <code>model</code> is
+actually trained. Since we separated attributes and labels into <code>X_train</code> and
+<code>y_train</code> respectively, we can directly call the method without any further
+data handling.</p>
 <h4 id="weights-and-bias">Weights and bias</h4>
-<p>With a trained model at hand, we can look at the weights <span class="arithmatex">\((b_1, b_2, ..., 
+<p>With a trained model at hand, we can look at the weights <span class="arithmatex">\((b_1, b_2, ...,
 b_n)\)</span> and bias <span class="arithmatex">\((a)\)</span>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model weights: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Model weights: [[ 0.98208299  0.22519686 -0.36688444  0.0262268 ... ]]
 </span></code></pre></div>
-<p>The <code>coef_</code> attribute contains the weight for each feature. 
+<p>The <code>coef_</code> attribute contains the weight for each feature.
 <a href="#deja-vu-linear-regression">As discussed</a>, the weights are real numbers.</p>
 <details class="warning" open="open">
 <summary>You might not have the exact same results</summary>
-<p>Your model weights might differ slightly from the ones shown above. 
-This is completely normal and happens because:</p>
-<p><strong>Numerical precision</strong>: The default optimization solver 
-(<code class="language-python highlight"><span class="s2">&quot;lbfgs&quot;</span></code>) behind <code>LogisticRegression</code> encounters tiny 
-hardware-specific variations. The underlying libraries handle 
-floating-point arithmetic differently across hardware platforms. During the
-iterative optimization, these tiny rounding differences  accumulate, 
-causing the solver to converge to slightly different solutions.</p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9C364 289.7 384 243.2 384 192 384 86 298 0 192 0S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9h201.7zm-4.9 48H96v16c0 44.2 35.8 80 80 80h32c44.2 0 80-35.8 80-80zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24"/></svg></span> These small differences don't affect your 
-model's predictions or accuracy.</p>
+<p>Your model weights might differ slightly from the ones shown above. This is
+completely normal and happens because:</p>
+<p><strong>Numerical precision</strong>: The default optimization solver (<code class="language-python highlight"><span class="s2">&quot;lbfgs&quot;</span></code>)
+behind <code>LogisticRegression</code> encounters tiny hardware-specific variations. The
+underlying libraries handle floating-point arithmetic differently across
+hardware platforms. During the iterative optimization, these tiny rounding
+differences accumulate, causing the solver to converge to slightly different
+solutions.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9C364 289.7 384 243.2 384 192 384 86 298 0 192 0S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9h201.7zm-4.9 48H96v16c0 44.2 35.8 80 80 80h32c44.2 0 80-35.8 80-80zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24"/></svg></span> These small differences don't affect your model's
+predictions or accuracy.</p>
 </details>
 <p>Now, it's your turn to look at the bias.</p>
 <details class="question" open="open">
 <summary>Model bias</summary>
 <ol>
 <li>Open the <code>scikit-learn</code> docs on the
-   <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"><code>LogisticRegression</code></a>
-   class.</li>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"><code>LogisticRegression</code></a>
+    class.</li>
 <li>Find out how to access the bias term of the model.</li>
 <li>Simply print the bias term of the model.</li>
 </ol>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9C364 289.7 384 243.2 384 192 384 86 298 0 192 0S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9h201.7zm-4.9 48H96v16c0 44.2 35.8 80 80 80h32c44.2 0 80-35.8 80-80zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24"/></svg></span> Remember, the bias is often referred to as 
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9C364 289.7 384 243.2 384 192 384 86 298 0 192 0S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9h201.7zm-4.9 48H96v16c0 44.2 35.8 80 80 80h32c44.2 0 80-35.8 80-80zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24"/></svg></span> Remember, the bias is often referred to as
 intercept.</p>
 </details>
 <h3 id="predictions">Predictions</h3>
-<p>Since, the main purpose of a machine learning model is to make predictions,
-we will do just that.</p>
-<p>Predicting, is as simple as using the <code>predict()</code> method. We will use the 
+<p>Since, the main purpose of a machine learning model is to make predictions, we
+will do just that.</p>
+<p>Predicting, is as simple as using the <code>predict()</code> method. We will use the
 patient measurements of the test set - <code>X_test</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
@@ -6465,46 +6462,45 @@ patient measurements of the test set - <code>X_test</code>.</p>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[1 0 0 1 1]
 </span></code></pre></div>
-<p>Congratulations, you just build a machine learning model to predict breast 
-cancer. But how good is the model? To conclude the chapter, we will briefly 
+<p>Congratulations, you just build a machine learning model to predict breast
+cancer. But how good is the model? To conclude the chapter, we will briefly
 evaluate the model's performance.</p>
 <h3 id="evaluate-the-model">Evaluate the model</h3>
-<p>Surely, we could just manually compare the predictions (<code>y_pred</code>) with the 
-actual labels (<code>y_test</code>) and evaluate how often the model was correct. Or 
+<p>Surely, we could just manually compare the predictions (<code>y_pred</code>) with the
+actual labels (<code>y_test</code>) and evaluate how often the model was correct. Or
 instead, we can leverage another method called <code>score()</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </span></code></pre></div>
-<p>First, the <code>score()</code> method takes <code>X_test</code> and makes the corresponding 
-predictions and programmatically compares the predictions with the actual 
-labels <code>y_test</code>. <code>score()</code> returns the accuracy 
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span> the proportion of correctly
-classified instances. </p>
+<p>First, the <code>score()</code> method takes <code>X_test</code> and makes the corresponding
+predictions and programmatically compares the predictions with the actual
+labels <code>y_test</code>. <code>score()</code> returns the accuracy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7L297.3 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span>
+the proportion of correctly classified instances.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model accuracy: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">score</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Model accuracy: 0.9561
 </span></code></pre></div>
-<p>In our case, the model correctly classified 95.61% of the test set. In 
-other words, in 95.61% of instances, the model was able to correctly predict 
-if a tumor is malignant or benign.</p>
+<p>In our case, the model correctly classified 95.61% of the test set. In other
+words, in 95.61% of instances, the model was able to correctly predict if a
+tumor is malignant or benign.</p>
 <details class="tip" open="open">
 <summary>Tip</summary>
 <p>As the test set (both attributes and labels) were never used to train the
-model, the accuracy is a good indicator of how well the model generalizes
-to unseen data.</p>
+model, the accuracy is a good indicator of how well the model generalizes to
+unseen data.</p>
 </details>
 <h2 id="recap">Recap</h2>
 <p>We covered logistic regression, a popular algorithm for binary classification.</p>
-<p>Upon discussing the theory, we discovered similarities to linear regression 
-in regard to the linear combination of features. With the help of the 
-sigmoid function, we transformed the linear combination into probabilities
-between 0 and 1.</p>
-<p>Subsequently, we trained a logistic regression model on the breast cancer
-data to predict whether a tumor is malignant or benign. To evaluate the 
-model we split the data and finally calculated the accuracy.</p>
+<p>Upon discussing the theory, we discovered similarities to linear regression in
+regard to the linear combination of features. With the help of the sigmoid
+function, we transformed the linear combination into probabilities between 0
+and 1.</p>
+<p>Subsequently, we trained a logistic regression model on the breast cancer data
+to predict whether a tumor is malignant or benign. To evaluate the model we
+split the data and finally calculated the accuracy.</p>
 <details class="info" open="open">
 <summary>Info</summary>
-<p>In subsequent chapters we will explore more sophisticated ways to split 
-data and evaluate models.</p>
+<p>In subsequent chapters we will explore more sophisticated ways to split data
+and evaluate models.</p>
 </details>
 <p>Next up, we will dive into algorithms, like decision trees and random forest,
 that can handle both regression and classification problems.</p>
@@ -6516,9 +6512,8 @@ that can handle both regression and classification problems.</p>
 <a href="https://web.stanford.edu/~jurafsky/slp3">https://web.stanford.edu/~jurafsky/slp3</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Wolberg, W., Mangasarian, O., Street, N., &amp; Street, W. (1993). 
-Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine 
-Learning Repository. 
+<p>Wolberg, W., Mangasarian, O., Street, N., &amp; Street, W. (1993). Breast
+Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository.
 <a href="https://doi.org/10.24432/C5DW2B">https://doi.org/10.24432/C5DW2B</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
@@ -7783,7 +7778,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 07:58:43 UTC"><span class="timeago" datetime="2026-02-09T07:58:43+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 07:58:43 UTC">2026-02-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 13:36:05 UTC"><span class="timeago" datetime="2026-02-09T13:36:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 13:36:05 UTC">2026-02-09</span>
   </span>
 
     
