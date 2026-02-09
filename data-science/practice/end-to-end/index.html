@@ -6456,6 +6456,19 @@ take to make a prediction for a new client:</p>
 <li><code>encoder</code></li>
 <li><code>forest</code></li>
 </ul>
+<details class="warning" open="open">
+<summary>Critical: Save ALL preprocessing objects!</summary>
+<p><strong>You must save every single object</strong> used in the prediction pipeline, not
+just the model!</p>
+<p>Missing even one object will break your predictions:</p>
+<ul>
+<li>Missing <code>impute</code> → Cannot handle new missing values</li>
+<li>Missing <code>preprocessor</code> → Cannot transform features correctly</li>
+<li>Missing <code>encoder</code> → Cannot convert predictions back to original labels</li>
+<li>Missing <code>forest</code> → Cannot make predictions</li>
+</ul>
+<p><strong>The model is useless without its preprocessing pipeline!</strong> <img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/26a0.svg" title=":warning:" /></p>
+</details>
 <p>We can save all these objects in one file using a simple <code class="language-python highlight"><span class="nb">dict</span></code>:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">model</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;imputer&quot;</span><span class="p">:</span> <span class="n">impute</span><span class="p">,</span>
@@ -6467,6 +6480,9 @@ take to make a prediction for a new client:</p>
 </span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;bank-model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
 </span></code></pre></div>
+<p>Bundling all objects in a dictionary ensures you never accidentally 
+forget a component. When you load <code>bank-model.pkl</code>, you have <strong>everything</strong> 
+needed for predictions in one place.</p>
 <details class="question" open="open">
 <summary>Load the model</summary>
 <p>Create a new script or notebook which we will use to test the saved model.</p>
@@ -7858,7 +7874,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 6, 2026 09:18:04 UTC"><span class="timeago" datetime="2026-02-06T09:18:04+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 6, 2026 09:18:04 UTC">2026-02-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 9, 2026 07:12:39 UTC"><span class="timeago" datetime="2026-02-09T07:12:39+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 9, 2026 07:12:39 UTC">2026-02-09</span>
   </span>
 
     
