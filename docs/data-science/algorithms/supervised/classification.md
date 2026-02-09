@@ -236,7 +236,7 @@ Now that we have our training data, we can train the logistic regression model.
 ```python
 from sklearn.linear_model import LogisticRegression
 
-model = LogisticRegression(random_state=42, max_iter=3_000)  # (1)!
+model = LogisticRegression(random_state=42, max_iter=5_000)  # (1)!
 model.fit(X_train, y_train)
 ```
 
@@ -261,7 +261,7 @@ print(f"Model weights: {model.coef_}")
 ```
 
 ```title=">>> Output"
-Model weights: [[ 0.98293997  0.22667548 -0.36956971  0.02637225 ... ]]
+Model weights: [[ 0.98208299  0.22519686 -0.36688444  0.0262268 ... ]]
 ```
 
 The `coef_` attribute contains the weight for each feature. 
