@@ -66,9 +66,10 @@ we provide a distilled version of the code from
 Again, we urge you to use a virtual environment which by now, should be second 
 nature anyway.
 
-???+ info "Create a new notebook"
+???+ info
 
-    To follow along, create a new Jupyter notebook within your project.
+    To follow along, create a new script or Jupyter notebook within your 
+    project.
 
 ## Missing values
 

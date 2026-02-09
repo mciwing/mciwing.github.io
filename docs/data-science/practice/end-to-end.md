@@ -228,6 +228,20 @@ To get our prediction process working, we need to save all objects involved:
 - `encoder`
 - `forest`
 
+???+ warning "Critical: Save ALL preprocessing objects!"
+
+    **You must save every single object** used in the prediction pipeline, not
+    just the model!
+    
+    Missing even one object will break your predictions:
+    
+    - Missing `impute` → Cannot handle new missing values
+    - Missing `preprocessor` → Cannot transform features correctly
+    - Missing `encoder` → Cannot convert predictions back to original labels
+    - Missing `forest` → Cannot make predictions
+    
+    **The model is useless without its preprocessing pipeline!** :warning:
+
 We can save all these objects in one file using a simple `#!python dict`:
 
 ```python
@@ -241,6 +255,10 @@ model = {
 with open("bank-model.pkl", "wb") as file:
     pickle.dump(model, file)
 ```
+
+Bundling all objects in a dictionary ensures you never accidentally 
+forget a component. When you load `bank-model.pkl`, you have **everything** 
+needed for predictions in one place.
 
 ???+ question "Load the model"
 
