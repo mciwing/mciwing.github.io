@@ -1308,10 +1308,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#activate-a-environment" class="md-nav__link">
+  <a href="#activate-an-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activate a environment
+        Activate an environment
       
     </span>
   </a>
@@ -1319,10 +1319,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deactivate-a-environment" class="md-nav__link">
+  <a href="#select-the-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deactivate a environment
+        Select the virtual environment
       
     </span>
   </a>
@@ -6075,10 +6075,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#activate-a-environment" class="md-nav__link">
+  <a href="#activate-an-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Activate a environment
+        Activate an environment
       
     </span>
   </a>
@@ -6086,10 +6086,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#deactivate-a-environment" class="md-nav__link">
+  <a href="#select-the-virtual-environment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Deactivate a environment
+        Select the virtual environment
       
     </span>
   </a>
@@ -6357,18 +6357,38 @@ searching for packages, certain versions, etc.</p>
 <h2 id="virtual-environments">Virtual environments</h2>
 <p>Previously, we have installed the package <code>seaborn</code>. The package itself was
 available system-wide as we did not create a virtual environment beforehand.
+This means, if you open a new folder/project and you select the same python kernel (typically the global python installation), the package will be available and you do not need to install it again.
 That might not sound too bad, but it's actually considered bad practice. But
 what is good practice and what the heck is a virtual environment?</p>
-<p>To answer the latter, simply put, a virtual environment is a folder which
-encapsulates all packages for a specific project. Each project should have its
-own virtual environment. With a package manager like <code>pip</code>, you install the
-necessary packages into the project's virtual environment. <code>pip</code> lets you
-manage these packages/dependencies.</p>
 <h3 id="why">Why?</h3>
+<p>To understand virtual environments, let's use an analogy from everyday life: cooking in a kitchen.
+Imagine you are baking two different cakes in the same kitchen.
+One is a regular chocolate cake, and the other must be gluten-free because someone has an allergy.</p>
+<figure>
+  <img src="https://c.tenor.com/I-gQ6tL2eaQAAAAd/tenor.gif" alt="Cake mixing analogy GIF" style="width: 60%;">
+<br />
+<figcaption style="text-align: center;">Allergic Reaction (Source: <a href="https://tenor.com/de/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Tenor</a>)</figcaption>
+</figure>
+<p>Even though both cakes are made in the same kitchen, you would not casually reuse the same bowls, spoons, and surfaces without cleaning them carefully. If flour from the regular cake gets into the gluten-free one, the result is ruined - and potentially harmful. <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M260 12.6c0-8.3-7.6-14.5-15.5-12.1-60.9 18.8-105.1 75.8-105.1 143.1 0 25.1 6.1 48.7 17 69.5-21 1.8-42 8.2-61.5 19.5C37 266.2 10.1 332.8 24 395.1c1.9 8.4 11.4 12 18.9 7.6 5-2.9 7.6-8.6 7.1-14.4-.3-3.3-.4-6.6-.4-10.1 0-123.5 184.4-123.5 184.4 0 0 88.4-94.5 113.6-148.2 75.4-4.5-3.2-10.5-3.9-15.3-1.1-7 4.1-8.6 13.6-2.7 19.1 46.6 43.8 118 53.9 176.1 20.2 17.9-10.4 32.8-23.9 44.5-39.4 11.7 15.6 26.6 29.1 44.5 39.4 58.1 33.7 129.5 23.6 176.1-20.2 5.9-5.5 4.3-15.1-2.7-19.1-4.8-2.8-10.8-2.1-15.3 1.1-53.7 38.2-148.2 13-148.2-75.4 0-123.5 184.4-123.5 184.4 0 0 3.4-.1 6.8-.4 10.1-.5 5.8 2.1 11.5 7.1 14.4 7.4 4.3 17 .8 18.9-7.6 13.9-62.2-13-128.9-70.9-162.5-19.5-11.3-40.4-17.7-61.5-19.5 10.9-20.8 17-44.4 17-69.5 0-67.3-44.2-124.3-105.1-143.1-7.9-2.4-15.5 3.8-15.5 12.1 0 5.9 4 11 9.5 13.2 83.4 33.6 70.8 178.4-37.8 178.4s-121.4-144.8-38-178.4c5.5-2.2 9.5-7.3 9.5-13.2M248.4 288a40 40 0 1 1 80 0 40 40 0 1 1-80 0M435 317.7c-16.2 0-31.4 5.5-42.1 15-10.1 9.1-18.1 23.4-18.1 45.6 0 21.1 7.2 35 16.5 44.1 32.2-24.6 55.5-60.5 63.9-101.8-6.3-1.9-13.2-3-20.2-3zm-233 60.6c0-22.3-8-36.6-18.1-45.6-10.7-9.6-25.9-15-42.1-15-7 0-13.9 1-20.2 3 8.4 41.3 31.6 77.2 63.9 101.8 9.4-9.1 16.5-23.1 16.5-44.2M243.2 154c9 10.2 23.2 18.2 45.2 18.2s36.2-8 45.2-18.2c6.7-7.6 11.5-17.5 13.6-28.4-18.3-6.8-38.2-10.5-58.8-10.5s-40.5 3.7-58.8 10.5c2.2 10.9 6.9 20.8 13.6 28.5z"/></svg></span></p>
+<p>So what do you do? You create separate, clean work areas with the exact ingredients and tools needed for each cake.</p>
+<p>A virtual environment in Python works the same way.</p>
+<ul>
+<li>Your computer is the kitchen.</li>
+<li>Each project is a different recipe.</li>
+<li>The packages (like seaborn, numpy, or pandas) are the ingredients.</li>
+</ul>
+<p>If all projects share the same global Python installation, it's like throwing all ingredients into one giant bowl. Sooner or later, versions clash, dependencies break, and one project can accidentally ruin another.</p>
+<p>A virtual environment gives each project its own clean workspace, with its own set of packages and versions, completely separated from other projects - even though everything still runs on the same computer.</p>
+<figure>
+    <img src="https://docs-beta.kelvininc.com/assets/installation-common-venv-overview.jpg" style="width: 100%;">
+    <figcaption style="text-align: center;">Virtual Environment (Source: <a href="https://docs-beta.kelvininc.com/developer-tools/how-to/workspace/windows/venv/">kelvininc</a>)</figcaption>
+</figure>
+<p>That is why using virtual environments is considered best practice.</p>
 <p>To summarize, the <code>pip</code>/virtual environment combination facilitates:</p>
 <ul>
 <li><strong>Dependency management</strong>: You can keep track of the packages that your
-  project needs to function.</li>
+  project needs to function. Packages are typically built on top of other packages. 
+  For example, <code>seaborn</code> is built on top of <code>pandas</code> and <code>matplotlib</code>. If you want to use <code>seaborn</code>, you need to install <code>pandas</code> and <code>matplotlib</code> first and sometimes in a specific version.</li>
 <li><strong>Version management</strong>: You can specify the exact versions of a package that
   your project needs. This is important, because different versions of a 
   package may have different functionalities or bugs.</li>
@@ -6376,75 +6396,100 @@ manage these packages/dependencies.</p>
   single machine as you can install multiple versions of a package on a
   per-project basis.</li>
 <li><strong>Shareable</strong>: Your projects will be shareable with other developers as they
-  can easily install all dependencies with a single command. No more it worked
-  on my machine excuses!</li>
+  can easily install all dependencies with a single command. No more "it worked
+  on my machine" excuses!</li>
 </ul>
-<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/70we66/it_works_on_my_machine/">It works on my machine...</a><br> by<a href="https://www.reddit.com/user/Shaheenthebean/">u/Shaheenthebean</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote>
-<script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
-
 <h3 id="how">How?</h3>
+<p>To work with virtual environments, you need to follow three steps: </p>
+<details class="info" open="open">
+<summary>The three steps to work with virtual environments</summary>
+<ol>
+<li>Create a virtual environment</li>
+<li>Activate the virtual environment</li>
+<li>Select the virtual environment as your Jupyter or Python kernel</li>
+</ol>
+</details>
 <h4 id="create-a-virtual-environment">Create a virtual environment</h4>
 <p>To create a virtual environment, open a new command prompt within VSCode (you
-can use the shortcut <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <code>ö</code>).</p>
-<p>Execute the following command:</p>
+can use the shortcut <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-shift">Shift</kbd></span> + <code>ö</code>). Check if the terminal is opened in the correct folder. This should be your current project folder. If not, you can change the folder by typing <code>cd &lt;path/folder-name&gt;</code> in the terminal or by right clicking in the file explorer and selecting "Open in Integrated Terminal".</p>
+<p>Then execute the following command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 </span></code></pre></div>
-<p>This command creates a new folder structure. The folder is called <code>.venv</code>.
+<p>This command creates a new folder called <code>.venv</code> within your project folder.
 Instead of <code>.venv</code> you can choose any name you want. However, this section
 assumes that you named it <code>.venv</code>.</p>
-<h4 id="activate-a-environment">Activate a environment</h4>
-<p>Now, we have to activate the environment in order to use it. Depending on your
-operating system, the command is slightly different.</p>
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>The virtual environment folder should never be touched by the user. Initially a clean copy of your global Python installation will be created. 
+This includes absolute paths to the Python installation and the Python executable. 
+Therefore the virtual environment folder <strong>cannot be moved</strong> or sent to another machine.</p>
+<p>Furthermore, your Jupyter or Python files should always be in the project folder. NEVER in the virtual environment folder. A typical structure of a project folder might look like this:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>project_folder/
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├── .venv/
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>├── data/
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>└── my_script.ipynb
+</span></code></pre></div>
+</details>
+<h4 id="activate-an-environment">Activate an environment</h4>
+<p>So far we have created the virtual environment. But that is not enough. We need to activate it in order to use it.
+Depending on your operating system, the command to activate the environment is slightly different.</p>
 <hr />
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m0 93.7 183.6-25.3v177.4H0zm0 324.6 183.6 25.3V268.4H0zm203.8 28L448 480V268.4H203.8zm0-380.6v180.1H448V32z"/></svg></span></label><label for="__tabbed_1_2">macOS/Linux <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8.9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9m-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3"/></svg></span>/<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7M199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4m221 278.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7M223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8m-40.7-11.5c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1m-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3q-2.1-7.35 4.2-12.3m3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4v-.2c2.4-7.6.6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9m-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7.8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4.6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1.8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7.4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2m257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6.8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1.3-.2.7-.3 1-.5.8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6M173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5"/></svg></span></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>As a Windows user type</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>.venv\Scripts\activate
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>.venv\Scripts\activate
 </span></code></pre></div>
+<details class="info" open="open">
+<summary>If an error occurs</summary>
 <p>If an error occurs ("the execution of scripts is deactivated on this 
 system") run</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Set-ExecutionPolicy Unrestricted -Scope Process
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Set-ExecutionPolicy Unrestricted -Scope Process
 </span></code></pre></div>
 <p>... and use the previous command again.</p>
+</details>
 </div>
 <div class="tabbed-block">
 <p>Type</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
 <p>to activate your environment.</p>
 </div>
 </div>
 </div>
-<hr />
-<h4 id="deactivate-a-environment">Deactivate a environment</h4>
+<p>Once the environment is activated, you can see the name of the environment (here <code>.venv</code>) in the terminal.</p>
+<p><img align="center" alt="Venv in the Terminal" src="../../assets/python-extensive/venv_terminal.png" /></p>
+<p>From now on, every package you install from this activated terminal (for example with <code>pip install</code>) will be installed into the virtual environment. In VS Code or Jupyter you also need to select this virtual environment as the Python/Jupyter kernel for your notebook or script (see next section); this kernel selection is separate from activating the environment in the terminal. Use activation whenever you run terminal commands that should use the virtual environment. Note that once you close the terminal or VS Code, the environment in that terminal will be deactivated, but files that use the virtual-environment kernel will still run with the packages from that environment.</p>
 <p>Deactivating the environment is the same on all operating systems.
 To deactivate it, simply use</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>deactivate
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>deactivate
 </span></code></pre></div>
 <p>in your command prompt/terminal.</p>
+<h4 id="select-the-virtual-environment">Select the virtual environment</h4>
+<p>So now we have created the virtual environment and activated it in order to install packages. Now the third and last step is to select the virtual environment for your file as Jupyter or Python kernel.</p>
+<p><img align="center" alt="Select the virtual environment" src="../../assets/python-extensive/venv_select.png" /></p>
 <hr />
 <details class="question" open="open">
 <summary>Fit a machine learning model</summary>
 <p>Assuming your virtual environment is activated, try to get the following
 code cell running. </p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span>  <span class="c1"># (1)!</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_california_housing</span>  <span class="c1">#(2)!</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span><span class="p">,</span> <span class="n">plot_tree</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1"># load data</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># fit a decision tree</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">15</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="p">)</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="c1"># visualize the tree</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="n">plot_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">proportion</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span>  <span class="c1"># (1)!</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_california_housing</span>  <span class="c1">#(2)!</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span><span class="p">,</span> <span class="n">plot_tree</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># load data</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c1"># fit a decision tree</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    <span class="n">random_state</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">15</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="p">)</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="c1"># visualize the tree</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="n">plot_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">proportion</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <ol>
 <li><code>pyplot</code> is a submodule of <code>matplotlib</code> and can be directly imported 
@@ -6462,9 +6507,7 @@ easily accessible packages with a lot of functionality ready to use. 🦾</p>
 important thing is to get the code running. With the above exercise, you've 
 reproduced the result from the <a href="../#machine-learning">motivational section</a>.</p>
 <h3 id="requirementstxt"><code>requirements.txt</code></h3>
-<p>In the following exercise, you will learn how to export all your packages 
-(your project's dependencies) to a file. We will cover a simple command that 
-facilitates sharing your project/code with co-developers.</p>
+<p>As we have mentioned before, virtual environments are a great way to isolate project dependencies. However, sharing the whole virtual environment folder (e.g. <code>.venv</code>) is impractical. It often contains thousands of files, OS-specific binaries and absolute paths, so copying it to another machine or location usaually breaks. A better approach is to export the environment's installed packages to a simple text file that others can use to recreate the environment no matter if they are working on MacOS, Linux or Windows.</p>
 <details class="question" open="open">
 <summary>Export dependencies</summary>
 <p>Assume you want to share the code snippet from the previous task with 
@@ -6473,13 +6516,13 @@ get the code running. With no more information, one has to read the code
 and manually determine which packages are necessary.
 To circumvent such situations, you export all your packages to a file. 
 Open a command prompt/terminal and execute</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
 </span></code></pre></div>
 <p>A <code>requirements.txt</code> is written which contains all your used 
 packages.</p>
 </details>
 <p>Your colleague can now take the file and install all packages needed, at once.</p>
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </span></code></pre></div>
 ... is the corresponding command.</p>
 <details class="info" open="open">
@@ -7774,7 +7817,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 12, 2025 09:35:15 UTC"><span class="timeago" datetime="2025-02-12T09:35:15+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 12, 2025 09:35:15 UTC">2025-02-12</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 10, 2026 06:55:37 UTC"><span class="timeago" datetime="2026-02-10T06:55:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 10, 2026 06:55:37 UTC">2026-02-10</span>
   </span>
 
     
