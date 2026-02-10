@@ -216,8 +216,6 @@ One is a regular chocolate cake, and the other must be gluten-free because someo
   <figcaption style="text-align: center;">Allergic Reaction (Source: <a href="https://tenor.com/de/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Tenor</a>)</figcaption>
 </figure>
 
-
-
 Even though both cakes are made in the same kitchen, you would not casually reuse the same bowls, spoons, and surfaces without cleaning them carefully. If flour from the regular cake gets into the gluten-free one, the result is ruined - and potentially harmful. :fontawesome-solid-biohazard:
 
 So what do you do? You create separate, clean work areas with the exact ingredients and tools needed for each cake.
