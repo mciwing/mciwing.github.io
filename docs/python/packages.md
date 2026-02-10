@@ -200,7 +200,7 @@ searching for packages, certain versions, etc.
 ## Virtual environments
 
 Previously, we have installed the package `seaborn`. The package itself was
-available system-wide as we did not create a virtual environment beforehand. 
+available system-wide as we did not create a virtual environment beforehand.
 This means, if you open a new folder/project and you select the same python kernel (typically the global python installation), the package will be available and you do not need to install it again.
 That might not sound too bad, but it's actually considered bad practice. But
 what is good practice and what the heck is a virtual environment?
@@ -211,12 +211,10 @@ To understand virtual environments, let's use an analogy from everyday life: coo
 Imagine you are baking two different cakes in the same kitchen.
 One is a regular chocolate cake, and the other must be gluten-free because someone has an allergy.
 
-<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 1rem;">
-  <div class="tenor-gif-embed" data-postid="23277809" data-share-method="host" data-aspect-ratio="1.33891" data-width="50%">
-    <a href="https://tenor.com/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Allergies Allergic Reaction GIF</a>from <a href="https://tenor.com/search/allergies-gifs">Allergies GIFs</a>
-  </div>
-  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-</div>
+<figure markdown="span">
+  <img src="https://c.tenor.com/I-gQ6tL2eaQAAAAd/tenor.gif" alt="Cake mixing analogy GIF" style="width: 60%;">
+  <figcaption style="text-align: center;">Allergic Reaction (Source: <a href="https://tenor.com/de/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Tenor</a>)</figcaption>
+</figure>
 
 
 
@@ -245,7 +243,8 @@ That is why using virtual environments is considered best practice.
 To summarize, the `pip`/virtual environment combination facilitates:
 
 - **Dependency management**: You can keep track of the packages that your
-  project needs to function.
+  project needs to function. Packages are typically built on top of other packages. 
+  For example, `seaborn` is built on top of `pandas` and `matplotlib`. If you want to use `seaborn`, you need to install `pandas` and `matplotlib` first and sometimes in a specific version.
 - **Version management**: You can specify the exact versions of a package that
   your project needs. This is important, because different versions of a 
   package may have different functionalities or bugs.
@@ -264,7 +263,7 @@ To work with virtual environments, you need to follow three steps:
 
     1. Create a virtual environment
     2. Activate the virtual environment
-    3. Select the virtual environment as you Jupyter or Python kernel
+    3. Select the virtual environment as your Jupyter or Python kernel
 
 #### Create a virtual environment
 
@@ -284,7 +283,7 @@ assumes that you named it `.venv`.
 ???+ warning
     The virtual environment folder should never be touched by the user. Initially a clean copy of your global Python installation will be created. 
     This includes absolute paths to the Python installation and the Python executable. 
-    Therefore the virtual environment folder **can not be moved** or sent to another machine.
+    Therefore the virtual environment folder **cannot be moved** or sent to another machine.
     
 
     Furthermore, your Jupyter or Python files should always be in the project folder. NEVER in the virtual environment folder. A typical structure of a project folder might look like this:
@@ -296,7 +295,7 @@ assumes that you named it `.venv`.
     └── my_script.ipynb
     ```
 
-#### Activate a environment
+#### Activate an environment
 
 So far we have created the virtual environment. But that is not enough. We need to activate it in order to use it.
 Depending on your operating system, the command to activate the environment is slightly different.
@@ -336,10 +335,9 @@ Depending on your operating system, the command to activate the environment is s
 
 Once the environment is activated, you can see the name of the environment (here `.venv`) in the terminal.
 
-![Venv in the Terminal](../assets/python-extensive/venv_terminal.png){ align=center  }
+![Venv in the Terminal](../assets/python-extensive/venv_terminal.png){ align=center }
 
-From now on, every package you install will be installed in the virtual environment and only available if you select the virtual environment for you Jupyter or Python file (see next section). You can check if a package is installed by typing `pip list` in the terminal. Note, that once you close the terminal or VSCode, the environment will be deactivated. You only need to activate the environment if you want to install or remove a package from your virtual environment. You can use it in your file even if the environment is not activated.
-
+From now on, every package you install from this activated terminal (for example with `pip install`) will be installed into the virtual environment. In VS Code or Jupyter you also need to select this virtual environment as the Python/Jupyter kernel for your notebook or script (see next section); this kernel selection is separate from activating the environment in the terminal. Use activation whenever you run terminal commands that should use the virtual environment. Note that once you close the terminal or VS Code, the environment in that terminal will be deactivated, but files that use the virtual-environment kernel will still run with the packages from that environment.
 
 Deactivating the environment is the same on all operating systems.
 To deactivate it, simply use
@@ -403,10 +401,7 @@ reproduced the result from the [motivational section](index.md/#machine-learning
 
 ### `requirements.txt`
 
-As we have mentioned before, virtual environments are a great way to manage dependencies. 
-However, it is not always easy to share the virtual environment with other developers (due to absolute paths). 
-Therefore, you will learn how to export all your packages (your project's dependencies) to a file. 
-We will cover a simple command that facilitates sharing your project/code with co-developers.
+As we have mentioned before, virtual environments are a great way to isolate project dependencies. However, sharing the whole virtual environment folder (e.g. `.venv`) is impractical. It often contains thousands of files, OS-specific binaries and absolute paths, so copying it to another machine or location usaually breaks. A better approach is to export the environment's installed packages to a simple text file that others can use to recreate the environment no matter if they are working on MacOS, Linux or Windows.
 
 ???+ question "Export dependencies"
 
