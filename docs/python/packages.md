@@ -213,7 +213,7 @@ One is a regular chocolate cake, and the other must be gluten-free because someo
 
 <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-bottom: 1rem;">
   <div class="tenor-gif-embed" data-postid="23277809" data-share-method="host" data-aspect-ratio="1.33891" data-width="50%">
-    <a href="https://tenor.com/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Allergies Allergic Reaction GIF</a>from <a href="https://tenor.com/search/allergies-gifs">Allergies GIFs</a>
+    <a href="https://tenor.com/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Allergies Allergic Reaction GIF</a> from <a href="https://tenor.com/search/allergies-gifs">Allergies GIFs</a>
   </div>
   <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </div>
