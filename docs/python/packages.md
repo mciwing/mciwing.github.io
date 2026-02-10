@@ -201,21 +201,48 @@ searching for packages, certain versions, etc.
 
 Previously, we have installed the package `seaborn`. The package itself was
 available system-wide as we did not create a virtual environment beforehand.
+This means, if you open a new folder/project and you select the same python kernel (typically the global python installation), the package will be available and you do not need to install it again.
 That might not sound too bad, but it's actually considered bad practice. But
 what is good practice and what the heck is a virtual environment?
 
-To answer the latter, simply put, a virtual environment is a folder which
-encapsulates all packages for a specific project. Each project should have its
-own virtual environment. With a package manager like `pip`, you install the
-necessary packages into the project's virtual environment. `pip` lets you
-manage these packages/dependencies.
-
 ### Why?
+
+To understand virtual environments, let's use an analogy from everyday life: cooking in a kitchen.
+Imagine you are baking two different cakes in the same kitchen.
+One is a regular chocolate cake, and the other must be gluten-free because someone has an allergy.
+
+<figure markdown="span">
+  <img src="https://c.tenor.com/I-gQ6tL2eaQAAAAd/tenor.gif" alt="Cake mixing analogy GIF" style="width: 60%;">
+  <figcaption style="text-align: center;">Allergic Reaction (Source: <a href="https://tenor.com/de/view/allergies-allergic-reaction-the-big-bang-theory-howard-wolowitz-peanut-reaction-gif-23277809">Tenor</a>)</figcaption>
+</figure>
+
+Even though both cakes are made in the same kitchen, you would not casually reuse the same bowls, spoons, and surfaces without cleaning them carefully. If flour from the regular cake gets into the gluten-free one, the result is ruined - and potentially harmful. :fontawesome-solid-biohazard:
+
+So what do you do? You create separate, clean work areas with the exact ingredients and tools needed for each cake.
+
+A virtual environment in Python works the same way.
+
+- Your computer is the kitchen.
+- Each project is a different recipe.
+- The packages (like seaborn, numpy, or pandas) are the ingredients.
+
+If all projects share the same global Python installation, it's like throwing all ingredients into one giant bowl. Sooner or later, versions clash, dependencies break, and one project can accidentally ruin another.
+
+A virtual environment gives each project its own clean workspace, with its own set of packages and versions, completely separated from other projects - even though everything still runs on the same computer.
+
+<figure markdown="span">
+    <img src="https://docs-beta.kelvininc.com/assets/installation-common-venv-overview.jpg" style="width: 100%;">
+    <figcaption style="text-align: center;">Virtual Environment (Source: <a href="https://docs-beta.kelvininc.com/developer-tools/how-to/workspace/windows/venv/">kelvininc</a>)</figcaption>
+</figure>
+
+That is why using virtual environments is considered best practice.
+
 
 To summarize, the `pip`/virtual environment combination facilitates:
 
 - **Dependency management**: You can keep track of the packages that your
-  project needs to function.
+  project needs to function. Packages are typically built on top of other packages. 
+  For example, `seaborn` is built on top of `pandas` and `matplotlib`. If you want to use `seaborn`, you need to install `pandas` and `matplotlib` first and sometimes in a specific version.
 - **Version management**: You can specify the exact versions of a package that
   your project needs. This is important, because different versions of a 
   package may have different functionalities or bugs.
@@ -223,32 +250,53 @@ To summarize, the `pip`/virtual environment combination facilitates:
   single machine as you can install multiple versions of a package on a
   per-project basis.
 - **Shareable**: Your projects will be shareable with other developers as they
-  can easily install all dependencies with a single command. No more it worked
-  on my machine excuses!
-
-<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="740"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/70we66/it_works_on_my_machine/">It works on my machine...</a><br> by<a href="https://www.reddit.com/user/Shaheenthebean/">u/Shaheenthebean</a> in<a href="https://www.reddit.com/r/ProgrammerHumor/">ProgrammerHumor</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
+  can easily install all dependencies with a single command. No more "it worked
+  on my machine" excuses!
 
 ### How?
+
+To work with virtual environments, you need to follow three steps: 
+
+???+ info "The three steps to work with virtual environments"
+
+    1. Create a virtual environment
+    2. Activate the virtual environment
+    3. Select the virtual environment as your Jupyter or Python kernel
 
 #### Create a virtual environment
 
 To create a virtual environment, open a new command prompt within VSCode (you
-can use the shortcut ++ctrl++ + `ö`).
+can use the shortcut ++ctrl++ + ++shift++ + `ö`). Check if the terminal is opened in the correct folder. This should be your current project folder. If not, you can change the folder by typing `cd <path/folder-name>` in the terminal or by right clicking in the file explorer and selecting "Open in Integrated Terminal".
 
-Execute the following command:
+Then execute the following command:
 
 ```bash
 python -m venv .venv
 ```
 
-This command creates a new folder structure. The folder is called `.venv`.
+This command creates a new folder called `.venv` within your project folder.
 Instead of `.venv` you can choose any name you want. However, this section
 assumes that you named it `.venv`.
 
-#### Activate a environment
+???+ warning
+    The virtual environment folder should never be touched by the user. Initially a clean copy of your global Python installation will be created. 
+    This includes absolute paths to the Python installation and the Python executable. 
+    Therefore the virtual environment folder **cannot be moved** or sent to another machine.
+    
 
-Now, we have to activate the environment in order to use it. Depending on your
-operating system, the command is slightly different.
+    Furthermore, your Jupyter or Python files should always be in the project folder. NEVER in the virtual environment folder. A typical structure of a project folder might look like this:
+
+    ```plaintext
+    project_folder/
+    ├── .venv/
+    ├── data/
+    └── my_script.ipynb
+    ```
+
+#### Activate an environment
+
+So far we have created the virtual environment. But that is not enough. We need to activate it in order to use it.
+Depending on your operating system, the command to activate the environment is slightly different.
 
 ---
 
@@ -260,14 +308,17 @@ operating system, the command is slightly different.
     .venv\Scripts\activate
     ```
     
-    If an error occurs ("the execution of scripts is deactivated on this 
-    system") run
-    
-    ```
-    Set-ExecutionPolicy Unrestricted -Scope Process
-    ```
-    
-    ... and use the previous command again.
+    ???+ info "If an error occurs"
+
+        If an error occurs ("the execution of scripts is deactivated on this 
+        system") run
+
+        
+        ```
+        Set-ExecutionPolicy Unrestricted -Scope Process
+        ```
+        
+        ... and use the previous command again.
 
 === "macOS/Linux :fontawesome-brands-apple:/:fontawesome-brands-linux:"
 
@@ -279,9 +330,12 @@ operating system, the command is slightly different.
     
     to activate your environment.
 
----
 
-#### Deactivate a environment
+Once the environment is activated, you can see the name of the environment (here `.venv`) in the terminal.
+
+![Venv in the Terminal](../assets/python-extensive/venv_terminal.png){ align=center }
+
+From now on, every package you install from this activated terminal (for example with `pip install`) will be installed into the virtual environment. In VS Code or Jupyter you also need to select this virtual environment as the Python/Jupyter kernel for your notebook or script (see next section); this kernel selection is separate from activating the environment in the terminal. Use activation whenever you run terminal commands that should use the virtual environment. Note that once you close the terminal or VS Code, the environment in that terminal will be deactivated, but files that use the virtual-environment kernel will still run with the packages from that environment.
 
 Deactivating the environment is the same on all operating systems.
 To deactivate it, simply use
@@ -291,6 +345,14 @@ deactivate
 ```
 
 in your command prompt/terminal.
+
+#### Select the virtual environment
+
+So now we have created the virtual environment and activated it in order to install packages. Now the third and last step is to select the virtual environment for your file as Jupyter or Python kernel.
+
+
+![Select the virtual environment](../assets/python-extensive/venv_select.png){ align=center }
+
 
 ---
 
@@ -337,9 +399,7 @@ reproduced the result from the [motivational section](index.md/#machine-learning
 
 ### `requirements.txt`
 
-In the following exercise, you will learn how to export all your packages 
-(your project's dependencies) to a file. We will cover a simple command that 
-facilitates sharing your project/code with co-developers.
+As we have mentioned before, virtual environments are a great way to isolate project dependencies. However, sharing the whole virtual environment folder (e.g. `.venv`) is impractical. It often contains thousands of files, OS-specific binaries and absolute paths, so copying it to another machine or location usaually breaks. A better approach is to export the environment's installed packages to a simple text file that others can use to recreate the environment no matter if they are working on MacOS, Linux or Windows.
 
 ???+ question "Export dependencies"
 
