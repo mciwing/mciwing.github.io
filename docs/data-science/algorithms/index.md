@@ -17,6 +17,12 @@ and logistic regression, decision trees and k-means clustering. We will explore
 the theory as well as practical examples. First, we establish two main concepts
 in machine learning: supervised and unsupervised learning.
 
+???+ tip
+
+    Create a single project for the entire *Supervised vs. Unsupervised Learning*
+    block. In this intro chapter, read and take notes only. Begin implementing and
+    testing the code examples in the subsequent chapters.
+
 ## Supervised Learning
 
 Supervised learning is a type of machine learning where algorithms learn from
