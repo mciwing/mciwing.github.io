@@ -4,11 +4,11 @@ requires-python = ">=3.11, <3.14"
 
 [[package]]
 name = "babel"
-version = "2.17.0"
+version = "2.18.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/7d/6b/d52e42361e1aa00709585ecc30b3f9684b3ab62530771402248b1b1d6240/babel-2.17.0.tar.gz", hash = "sha256:0c54cffb19f690cdcc52a3b50bcbf71e07a808d1c80d549f2459b9d2cf0afb9d", size = 9951852, upload-time = "2025-02-01T15:17:41.026Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/b2/51899539b6ceeeb420d40ed3cd4b7a40519404f9baf3d4ac99dc413a834b/babel-2.18.0.tar.gz", hash = "sha256:b80b99a14bd085fcacfa15c9165f651fbb3406e66cc603abf11c5750937c992d", size = 9959554, upload-time = "2026-02-01T12:30:56.078Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b7/b8/3fe70c75fe32afc4bb507f75563d39bc5642255d1d94f1f23604725780bf/babel-2.17.0-py3-none-any.whl", hash = "sha256:4d0b53093fdfb4b21c92b5213dba5a1b23885afa8383709427046b21c366e5f2", size = 10182537, upload-time = "2025-02-01T15:17:37.39Z" },
+    { url = "https://files.pythonhosted.org/packages/77/f5/21d2de20e8b8b0408f0681956ca2c69f1320a3848ac50e6e7f39c6159675/babel-2.18.0-py3-none-any.whl", hash = "sha256:e2b422b277c2b9a9630c1d7903c2a00d0830c409c59ac8cae9081c92f1aeba35", size = 10196845, upload-time = "2026-02-01T12:30:53.445Z" },
 ]
 
 [[package]]
@@ -129,7 +129,7 @@ requires-dist = [
     { name = "mkdocs-git-revision-date-localized-plugin", specifier = ">=1.5.0" },
     { name = "mkdocs-include-markdown-plugin", specifier = ">=7.2.0" },
     { name = "mkdocs-material", specifier = ">=9.7.1" },
-    { name = "mkdocs-quiz", specifier = ">=1.3.0" },
+    { name = "mkdocs-quiz", specifier = ">=1.5.4" },
 ]
 
 [[package]]
@@ -200,11 +200,23 @@ wheels = [
 
 [[package]]
 name = "markdown"
-version = "3.10.1"
+version = "3.10.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/b7/b1/af95bcae8549f1f3fd70faacb29075826a0d689a27f232e8cee315efa053/markdown-3.10.1.tar.gz", hash = "sha256:1c19c10bd5c14ac948c53d0d762a04e2fa35a6d58a6b7b1e6bfcbe6fefc0001a", size = 365402, upload-time = "2026-01-21T18:09:28.206Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2b/f4/69fa6ed85ae003c2378ffa8f6d2e3234662abd02c10d216c0ba96081a238/markdown-3.10.2.tar.gz", hash = "sha256:994d51325d25ad8aa7ce4ebaec003febcce822c3f8c911e3b17c52f7f589f950", size = 368805, upload-time = "2026-02-09T14:57:26.942Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/59/1b/6ef961f543593969d25b2afe57a3564200280528caa9bd1082eecdd7b3bc/markdown-3.10.1-py3-none-any.whl", hash = "sha256:867d788939fe33e4b736426f5b9f651ad0c0ae0ecf89df0ca5d1176c70812fe3", size = 107684, upload-time = "2026-01-21T18:09:27.203Z" },
+    { url = "https://files.pythonhosted.org/packages/de/1f/77fa3081e4f66ca3576c896ae5d31c3002ac6607f9747d2e3aa49227e464/markdown-3.10.2-py3-none-any.whl", hash = "sha256:e91464b71ae3ee7afd3017d9f358ef0baf158fd9a298db92f1d4761133824c36", size = 108180, upload-time = "2026-02-09T14:57:25.787Z" },
+]
+
+[[package]]
+name = "markdown-it-py"
+version = "4.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mdurl" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3", size = 73070, upload-time = "2025-08-11T12:57:52.854Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/94/54/e7d793b573f298e1c9013b8c4dade17d481164aa517d1d7148619c2cedbf/markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147", size = 87321, upload-time = "2025-08-11T12:57:51.923Z" },
 ]
 
 [[package]]
@@ -257,6 +269,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/80/d6/2d1b89f6ca4bff1036499b1e29a1d02d282259f3681540e16563f27ebc23/markupsafe-3.0.3-cp313-cp313t-win32.whl", hash = "sha256:69c0b73548bc525c8cb9a251cddf1931d1db4d2258e9599c28c07ef3580ef354", size = 14612, upload-time = "2025-09-27T18:37:02.639Z" },
     { url = "https://files.pythonhosted.org/packages/2b/98/e48a4bfba0a0ffcf9925fe2d69240bfaa19c6f7507b8cd09c70684a53c1e/markupsafe-3.0.3-cp313-cp313t-win_amd64.whl", hash = "sha256:1b4b79e8ebf6b55351f0d91fe80f893b4743f104bff22e90697db1590e47a218", size = 15200, upload-time = "2025-09-27T18:37:03.582Z" },
     { url = "https://files.pythonhosted.org/packages/0e/72/e3cc540f351f316e9ed0f092757459afbc595824ca724cbc5a5d4263713f/markupsafe-3.0.3-cp313-cp313t-win_arm64.whl", hash = "sha256:ad2cf8aa28b8c020ab2fc8287b0f823d0a7d8630784c31e9ee5edea20f406287", size = 13973, upload-time = "2025-09-27T18:37:04.929Z" },
+]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729, upload-time = "2022-08-14T12:40:10.846Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979, upload-time = "2022-08-14T12:40:09.779Z" },
 ]
 
 [[package]]
@@ -379,15 +400,18 @@ wheels = [
 
 [[package]]
 name = "mkdocs-quiz"
-version = "1.3.0"
+version = "1.5.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "mkdocs" },
     { name = "polib" },
+    { name = "questionary" },
+    { name = "requests" },
+    { name = "rich-click" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6a/d3/0af3e5ab26e4176b75609dc23375931c4487574cf0f0d11288cc72969ee4/mkdocs_quiz-1.3.0.tar.gz", hash = "sha256:c0c268c0f758b6b1bcc6acac0aba0ea4e9ebd94c4ac158a7abe4ca7ad808a73b", size = 55315, upload-time = "2025-12-18T07:37:13.903Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4e/8c/bc9fd71f3520ccae5c94a93c0175b6e569ee428602c6a36c25d6fc546355/mkdocs_quiz-1.5.4.tar.gz", hash = "sha256:42f5ee7c0eefaa5111c3851d31c565eb8e79e6a68c967a3f69d60219beb8ee3c", size = 98096, upload-time = "2026-01-30T16:14:28.848Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/de/41/6dfdf161d3422a775793988e1b32de023f6b56f4c3b7ca66d03a5ac60110/mkdocs_quiz-1.3.0-py3-none-any.whl", hash = "sha256:51b46031cc2e753c71d2f1953091b5e96f799c399821549d673376676c2382dd", size = 56089, upload-time = "2025-12-18T07:37:11.667Z" },
+    { url = "https://files.pythonhosted.org/packages/b3/0a/6f62dd82c157e48a6247d98dcfdcdc6f05f6eb79dfd63abb8ea5c84ddb9b/mkdocs_quiz-1.5.4-py3-none-any.whl", hash = "sha256:70c2c442ecc71c0d99580173a02d34636bf789f85347c5cbfd955f8fe83922bd", size = 90564, upload-time = "2026-01-30T16:14:27.149Z" },
 ]
 
 [[package]]
@@ -433,6 +457,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/10/9a/79b1067d27e38ddf84fe7da6ec516f1743f31f752c6122193e7bce38bdbf/polib-1.2.0.tar.gz", hash = "sha256:f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b", size = 161658, upload-time = "2023-02-23T17:53:56.873Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6b/99/45bb1f9926efe370c6dbe324741c749658e44cb060124f28dad201202274/polib-1.2.0-py2.py3-none-any.whl", hash = "sha256:1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d", size = 20634, upload-time = "2023-02-23T17:53:59.919Z" },
+]
+
+[[package]]
+name = "prompt-toolkit"
+version = "3.0.52"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "wcwidth" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a1/96/06e01a7b38dce6fe1db213e061a4602dd6032a8a97ef6c1a862537732421/prompt_toolkit-3.0.52.tar.gz", hash = "sha256:28cde192929c8e7321de85de1ddbe736f1375148b02f2e17edd840042b1be855", size = 434198, upload-time = "2025-08-27T15:24:02.057Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/84/03/0d3ce49e2505ae70cf43bc5bb3033955d2fc9f932163e84dc0779cc47f48/prompt_toolkit-3.0.52-py3-none-any.whl", hash = "sha256:9aac639a3bbd33284347de5ad8d68ecc044b91a762dc39b7c21095fcd6a19955", size = 391431, upload-time = "2025-08-27T15:23:59.498Z" },
 ]
 
 [[package]]
@@ -519,6 +555,18 @@ wheels = [
 ]
 
 [[package]]
+name = "questionary"
+version = "2.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "prompt-toolkit" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f6/45/eafb0bba0f9988f6a2520f9ca2df2c82ddfa8d67c95d6625452e97b204a5/questionary-2.1.1.tar.gz", hash = "sha256:3d7e980292bb0107abaa79c68dd3eee3c561b83a0f89ae482860b181c8bd412d", size = 25845, upload-time = "2025-08-28T19:00:20.851Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3c/26/1062c7ec1b053db9e499b4d2d5bc231743201b74051c973dadeac80a8f43/questionary-2.1.1-py3-none-any.whl", hash = "sha256:a51af13f345f1cdea62347589fbb6df3b290306ab8930713bfae4d475a7d4a59", size = 36753, upload-time = "2025-08-28T19:00:19.56Z" },
+]
+
+[[package]]
 name = "requests"
 version = "2.32.5"
 source = { registry = "https://pypi.org/simple" }
@@ -531,6 +579,33 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz", hash = "sha256:dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf", size = 134517, upload-time = "2025-08-18T20:46:02.573Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl", hash = "sha256:2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6", size = 64738, upload-time = "2025-08-18T20:46:00.542Z" },
+]
+
+[[package]]
+name = "rich"
+version = "14.3.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markdown-it-py" },
+    { name = "pygments" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/74/99/a4cab2acbb884f80e558b0771e97e21e939c5dfb460f488d19df485e8298/rich-14.3.2.tar.gz", hash = "sha256:e712f11c1a562a11843306f5ed999475f09ac31ffb64281f73ab29ffdda8b3b8", size = 230143, upload-time = "2026-02-01T16:20:47.908Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ef/45/615f5babd880b4bd7d405cc0dc348234c5ffb6ed1ea33e152ede08b2072d/rich-14.3.2-py3-none-any.whl", hash = "sha256:08e67c3e90884651da3239ea668222d19bea7b589149d8014a21c633420dbb69", size = 309963, upload-time = "2026-02-01T16:20:46.078Z" },
+]
+
+[[package]]
+name = "rich-click"
+version = "1.9.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "rich" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/04/27/091e140ea834272188e63f8dd6faac1f5c687582b687197b3e0ec3c78ebf/rich_click-1.9.7.tar.gz", hash = "sha256:022997c1e30731995bdbc8ec2f82819340d42543237f033a003c7b1f843fc5dc", size = 74838, upload-time = "2026-01-31T04:29:27.707Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ca/e5/d708d262b600a352abe01c2ae360d8ff75b0af819b78e9af293191d928e6/rich_click-1.9.7-py3-none-any.whl", hash = "sha256:2f99120fca78f536e07b114d3b60333bc4bb2a0969053b1250869bcdc1b5351b", size = 71491, upload-time = "2026-01-31T04:29:26.777Z" },
 ]
 
 [[package]]
@@ -606,4 +681,13 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/79/3e/c0bdc27cf06f4e47680bd5803a07cb3dfd17de84cde92dd217dcb9e05253/wcmatch-10.1.tar.gz", hash = "sha256:f11f94208c8c8484a16f4f48638a85d771d9513f4ab3f37595978801cb9465af", size = 117421, upload-time = "2025-06-22T19:14:02.49Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/eb/d8/0d1d2e9d3fabcf5d6840362adcf05f8cf3cd06a73358140c3a97189238ae/wcmatch-10.1-py3-none-any.whl", hash = "sha256:5848ace7dbb0476e5e55ab63c6bbd529745089343427caa5537f230cc01beb8a", size = 39854, upload-time = "2025-06-22T19:14:00.978Z" },
+]
+
+[[package]]
+name = "wcwidth"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz", hash = "sha256:cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159", size = 159684, upload-time = "2026-02-06T19:19:40.919Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/68/5a/199c59e0a824a3db2b89c5d2dade7ab5f9624dbf6448dc291b46d5ec94d3/wcwidth-0.6.0-py3-none-any.whl", hash = "sha256:1a3a1e510b553315f8e146c54764f4fb6264ffad731b3d78088cdb1478ffbdad", size = 94189, upload-time = "2026-02-06T19:19:39.646Z" },
 ]

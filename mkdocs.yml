@@ -248,6 +248,8 @@ plugins:
       auto_submit: true
       disable_after_submit: false
       show_progress: false
+      show_correct: false
+      shuffle_answers: true
 
 markdown_extensions:
   - attr_list
