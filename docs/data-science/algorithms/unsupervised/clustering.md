@@ -9,7 +9,7 @@ similar observations.
 
 ## K-means
 
-K-means was briefly introduced in the [Introduction](../index.md#example_1) to
+K-means was briefly introduced in the [Introduction](../intro.md#example_1) to
 Supervised vs. Unsupervised Learning and used to segment customers based on
 their annual spending and average basket size.
 

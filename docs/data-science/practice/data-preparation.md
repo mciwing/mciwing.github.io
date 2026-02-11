@@ -555,13 +555,13 @@ The `SimpleImputer` lets us fill in missing values with the most frequent value
 in the respective column. But why did we choose this specific strategy?
 
 <quiz>
-Why do we plan to fill missing values with the most frequent value (the mode) and not the mean or median?
+Why do we plan to fill missing values with the most frequent value (the mode) and *not* the mean or median?
 - [ ] The mode is the most common imputation strategy.
 - [x] The columns with any missing values are either nominal or ordinal. Thus, the most frequent value (mode) is a valid choice for imputation. Mean and median are not suitable for nominal and ordinal data.
 - [ ] It is just an initial choice, we could have used any other strategy.
 - [ ] The mode is the most robust imputation strategy.
 
-<p>Correct! 👍🏽</p>
+Because the columns in question are categorical (nominal or ordinal).
 </quiz>
 
 ???+ info

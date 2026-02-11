@@ -39,6 +39,10 @@ like this:
 With `bank-merged.csv` being the `#!python "inner"` join of `bank.csv` and
 `social.csv`, minus all duplicated customer data.
 
+???+ tip
+
+    Use the `bank_marketing` project for this chapter as well.
+
 If you are missing the file `bank-merged.csv`, we strongly recommend you to go
 back and complete the previous chapter. For the sake of completeness, we
 provide a distilled version of the code from
@@ -440,11 +444,10 @@ Step by step, we are getting closer to actually training a machine learning
 model. Beforehand, we introduce data transformations that are commonly applied
 to improve the fit of the model.
 
-For starters, install the `scikit-learn` package within your activated
-environment.
+For starters, install the `scikit-learn` package:
 
 ```bash
-pip install scikit-learn
+uv add scikit-learn
 ```
 
 <div style="text-align: center;">
