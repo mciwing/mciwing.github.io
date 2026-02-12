@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://code-campus.at/python-extensive/oop/">
       
       
-        <link rel="prev" href="../data/api/">
+        <link rel="prev" href="../functions/">
       
       
-        <link rel="next" href="../tkinter/">
+        <link rel="next" href="../packages/">
       
       
         
@@ -1230,6 +1230,8 @@
       
         
       
+        
+      
     
     
     
@@ -2107,6 +2109,236 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-oop-helps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How OOP Helps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts-of-oop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts of OOP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initialization-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialization Method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-__str__-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The __str__ Method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attributes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encapsulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-overriding-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance: Overriding Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Remarks
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     
@@ -2129,10 +2361,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
             
   
   
@@ -2150,8 +2382,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2277,10 +2509,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
             
   
   
@@ -2298,8 +2530,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2361,10 +2593,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_6_2" id="__nav_3_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_7_2" id="__nav_3_7_2_label" tabindex="0">
             
   
   
@@ -2382,8 +2614,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_6_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2469,10 +2701,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2482,8 +2712,6 @@
       
         
       
-        
-      
     
     
     
@@ -2491,14 +2719,14 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
         
           
-          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
             
   
   
@@ -2516,8 +2744,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2526,175 +2754,6 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Object-Oriented Programming
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Object-Oriented Programming
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-self-driving-car" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: Self-Driving Car
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-oop-helps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How OOP Helps
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#core-concepts-of-oop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Concepts of OOP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Class Definition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#initialization-method" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Initialization Method
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#encapsulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Encapsulation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#definition-of-the-data-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Definition of the Data Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
             
               
                 
@@ -5948,29 +6007,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Introduction">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-self-driving-car" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: Self-Driving Car
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#how-oop-helps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5980,28 +6016,12 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#core-concepts-of-oop" class="md-nav__link">
     <span class="md-ellipsis">
       
         Core Concepts of OOP
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Class Definition
       
     </span>
   </a>
@@ -6020,6 +6040,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-__str__-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The __str__ Method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attributes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Class Attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#encapsulation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6031,10 +6101,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#definition-of-the-data-structure" class="md-nav__link">
+  <a href="#exceptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Definition of the Data Structure
+        Exceptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inheritance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-overriding-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance: Overriding Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putting-it-all-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting It All Together
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-remarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Remarks
       
     </span>
   </a>
@@ -6099,281 +6219,646 @@
 
 
 <h1 id="object-oriented-programming">Object-Oriented Programming</h1>
-<h2 id="introduction">Introduction</h2>
-<p>As code complexity grows, managing and understanding functionality becomes increasingly challenging. <strong>Object-Oriented Programming (OOP)</strong> addresses this by breaking down large tasks into smaller, modular components.</p>
-<h3 id="example-self-driving-car">Example: Self-Driving Car</h3>
-<p>Imagine developing software for a self-driving car. Instead of coding everything in a single block, you can organize the project into modules like <strong>camera systems, lane detection, navigation, and battery management</strong>. Each module is easier to develop, test, and maintain. Moreover, these modules can be reused in other applications, such as drone control, if similar functionalities are required.</p>
-<h3 id="how-oop-helps">How OOP Helps</h3>
-<p>OOP enhances modularity by allowing each module (or class) to operate independently. Different team members can work on separate classes, improving scalability and collaboration. Think of it like running a restaurant: instead of handling every task yourself, roles like chef, waiter, and cleaner are delegated to specialized staff, making operations efficient and scalable.</p>
+<p>As code complexity grows, managing and understanding functionality becomes increasingly challenging. <strong>Object-Oriented Programming (OOP)</strong> addresses this by breaking down large tasks into smaller, modular components. Each module does one job.</p>
+<h2 id="how-oop-helps">How OOP Helps</h2>
+<p>Imagine developing a simple game. For instance, your game includes different characters: heroes, enemies, and healers. Instead of coding everything in a single block, you can organize the project into different modules (classes): <strong>Hero class, Enemy class, and Healer class</strong>. Each one has its own job. That makes your game easier to develop, test, and maintain. Moreover, the individual modules can be reused in other applications if similar functionalities are required. Different team members can work on separate classes, improving scalability and collaboration.  </p>
+<p>Think of it like running a restaurant: instead of handling every task yourself, roles like chef, waiter, and cleaner are delegated to specialized staff, making operations efficient and scalable.</p>
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/yoJC2J9ftjg7eKtMSQ" width="390" height="293" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-customer-service-waiter-yoJC2J9ftjg7eKtMSQ"></a></p>
 </div>
 
-<h3 id="core-concepts-of-oop">Core Concepts of OOP</h3>
-<p>Object-Oriented Programming (OOP) is based on the concept of <strong>objects</strong>, which are instances of <strong>classes</strong> (modules).</p>
+<h2 id="core-concepts-of-oop">Core Concepts of OOP</h2>
+<p>Object-Oriented Programming is based on the concept of <strong>objects</strong>, which are instances of <strong>classes</strong>.</p>
 <p><strong>Classes and Objects</strong>:  </p>
 <ul>
-<li><strong>Class</strong>: A blueprint defining attributes (properties) and methods (actions) for objects.</li>
-<li><strong>Object</strong>: An instance of a class, created using the class blueprint.</li>
+<li><strong>Class</strong>: A class is just a recipe.</li>
+<li><strong>Object</strong>: An object is something you made from the recipe.</li>
 </ul>
+<p>For example, a cookie recipe would represent a class in Python, whereas the cookie itself is the object made from that recipe. Let's make our first class and create our first object:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">pass</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">()</span>
+</span></code></pre></div>
+<details class="info" open="open">
+<summary>Explanation</summary>
+<p><code>GameCharacter</code> → the recipe (class)<br />
+<code>hero</code> → the actual character (object)<br />
+<code>pass</code> is a placeholder that indicates that no action is executed. It is used to define an empty code block.  </p>
+</details>
+<p>Just like with functions, the code inside the class is indented. Classes can be defined in the same script or in a separate script file, which can then be included using <code>import</code>.   </p>
 <p>Objects combine <strong>attributes</strong> (what they "have") and <strong>methods</strong> (what they "do"). </p>
 <p><strong>Attributes and Methods</strong>:  </p>
 <ul>
-<li><strong>Attributes</strong>: Properties specific to the object (e.g., resolution, lens type).</li>
-<li><strong>Methods</strong>: Functions defining object behavior (e.g., capturing images, detecting objects).</li>
+<li><strong>Attributes</strong>: Information stored inside an object (e.g., name, health, level).</li>
 </ul>
-<p>For instance, a <code>Camera</code> class in a self-driving car may define attributes like resolution and lens type, along with methods for capturing images or detecting objects. Multiple objects (e.g., front and rear cameras) can be created from this class, each with unique attribute values.</p>
-<p>OOP makes it easy to reuse and extend code, simplifying the development of complex systems like self-driving cars.</p>
-<div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/KXYojKgWCzoQ0" width="350" height="293" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/gifnews-car-csaba-klement-KXYojKgWCzoQ0"></a></p>
-</div>
-
-<h2 id="class-definition">Class Definition</h2>
-<p>Classes define the structure of objects, specifying their attributes and methods. Use the syntax:<br />
-<code class="language-python highlight"><span class="k">class</span><span class="w"> </span><span class="nc">ClassName</span><span class="p">:</span></code>  <br />
-Just like with functions, the code inside the class is indented. Classes can be defined in the same script or in a separate script file, which can then be included using <code>import</code>. <br />
-Changes to the class definition only apply to new objects, meaning that all objects from the old definition must be removed from the workspace.     </p>
-<p>A class for a <code>Camera</code> module in a self-driving car could be defined as follows:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">pass</span>
-</span></code></pre></div>
+<p>Let's add an attribute:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span></span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">health</span><span class="p">)</span>
+</span></span></code></pre></div></p>
 <details class="info" open="open">
-<summary>Info</summary>
-<p><code>pass</code> is a placeholder that indicates that no action is executed. It is used to define an empty code block.</p>
+<summary>Explanation</summary>
+<p><code>__init__</code> runs when we create an object<br />
+<code>self</code> means: “this character”<br />
+<code>self.name</code> → stores the name <br />
+<code>self.health</code> → stores the health</p>
 </details>
-<p>You can create <strong>Camera</strong> objects — instances of the class — by assigning them using  <code>Camera()</code>.</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">pass</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Creating instances of the Camera class</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="hll"><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
-</span></span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="hll"><span class="n">rear_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
-</span></span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">front_camera</span><span class="p">))</span> 
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">rear_camera</span><span class="p">))</span>  
+<ul>
+<li><strong>Methods</strong>: Functions defining an object's behavior (e.g., attack, heal, talk).</li>
+</ul>
+<p>Let's add a method:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="hll">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi, I am&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="hll"><span class="n">hero</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+</span></span></code></pre></div></p>
+<details class="info" open="open">
+<summary>Explanation</summary>
+<p><code>say_hello</code> is a method<br />
+<code>hero.say_hello()</code> calls the method  </p>
+</details>
+<details class="tip" open="open">
+<summary>Basic OOP Syntax in Python</summary>
+<p>When working with classes and objects in Python, some simple rules and conventions help you write clean and readable code. These rules are widely used in real Python projects. <br />
+1. <strong>Class Names (PascalCase)</strong>: start with a capital letter. Each new word is also capitalized.<br />
+    Every class starts with the keyword <code>class</code> and ends with a colon <code>:</code>.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1">#class code goes here</span>
 </span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;class &#39;__main__.Camera&#39;&gt;
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&lt;class &#39;__main__.Camera&#39;&gt;
+❌ Avoid:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">gamecharacter</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">game_character</span><span class="p">:</span>
 </span></code></pre></div>
-This demonstrates that <code>front_camera</code> and <code>rear_camera</code> are instances of the <code>Camera</code> class, even though the class currently has no defined attributes or methods.    </p>
-<p>Variables or attributes can be defined within a class. As a result, all objects of the class will have this variable with the specified value. The attribute can be accessed using a <strong>dot operator</strong>.</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1"># Defining a class attribute</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">lens_type</span> <span class="o">=</span> <span class="s2">&quot;wide-angle&quot;</span> 
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Creating an instance of the Camera class</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Accessing the attribute using the dot operator</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="n">front_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="p">)</span>
-</span></span></code></pre></div>
-The <code>lens_type</code> attribute is a <strong>class attribute</strong>, meaning it is shared by all instances of the class.  <br />
-Changing the value of the class attribute (<code>Camera.lens_type</code>) affects all objects created from the class, as they share the same attribute. </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="c1"># Defining a class attribute</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">lens_type</span> <span class="o">=</span> <span class="s2">&quot;wide-angle&quot;</span>  
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Creating two instances of the Camera class</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">rear_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Accessing the shared attribute</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Front camera lens type: </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rear camera lens type: </span><span class="si">{</span><span class="n">rear_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># Changing the class attribute</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="hll"><span class="n">Camera</span><span class="o">.</span><span class="n">lens_type</span> <span class="o">=</span> <span class="s2">&quot;telephoto&quot;</span>
-</span></span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># Both instances reflect the updated value</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Front camera lens type: </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rear camera lens type: </span><span class="si">{</span><span class="n">rear_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+2. <strong>Object Names (snake_case)</strong>: use lowercase letters. Words are separated with underscores.<br />
+    Objects are created by calling the class with parentheses <code>()</code>.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">main_hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">()</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">princess</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">()</span>
 </span></code></pre></div>
+3. <strong>Methods and <code>self</code></strong>: All methods inside a class must use <code>self</code> as the first parameter. <code>self</code> refers to the current object.<br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+When calling the method, do not write <code>self</code>.<br />
+The dot (<code>.</code>) is used to access attributes and methods (data). 
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">princess</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">()</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">princess</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>
+</span></code></pre></div>
+ 4. <strong>Attributes and <code>self</code></strong>: Attributes store data inside an object. Without <code>self.</code> the value is not saved in the object.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></code></pre></div></p>
+</details>
 <h2 id="initialization-method">Initialization Method</h2>
-<p>The <code>__init__(self, property)</code> method is called each time a new object is instantiated.   </p>
-<p><strong>Attributes</strong> are characteristics that describe an object (e.g., camera_type, lens_type). Within the <code>__init__</code> method, the term <strong><code>self</code></strong> refers to the object being created, and additional attributes can be added to it. This <strong>initialization method</strong> ensures that the Camera object is set up with specific values (e.g., camera_type and lens_type) right when it is created. An error message occurs if these specific values are missing.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="c1"># Setting the attributes camera_type and lens_tpye</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type</span><span class="p">,</span> <span class="n">lens_type</span><span class="p">):</span>
-</span></span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">camera_type</span> <span class="o">=</span> <span class="n">camera_type</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lens_type</span> <span class="o">=</span> <span class="n">lens_type</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Creating an instance of the Camera class       </span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">,</span><span class="s2">&quot;wide-angle&quot;</span><span class="p">)</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># Creating another instance of the Camera class</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">rear_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
+<p>The <code>__init__(self, property)</code> method is called automatically every time a new object is created from a class.   <br />
+Inside the <code>__init__</code> method, the word <strong><code>self</code></strong> refers to the object that is being created. It is used to store information about the object.<br />
+The job of the <strong>initialization method</strong> is to make sure that the object is ready to use. For example, a character can be given a name and a health amount.  </p>
+<p>If required values are missing when the object is created, Python will show an error, just like it does with functions.<br />
+Except if a default value is used, no error will be raised. In this example, health has a default value of 100, so if no health value is provided, it will automatically be set to 100.  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Creating objects of the GameCharacter class       </span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">hero</span><span class="o">.</span><span class="n">health</span><span class="p">)</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">enemy</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Bowser&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">enemy</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">enemy</span><span class="o">.</span><span class="n">health</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">anti_hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">()</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">anti_hero</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">anti_hero</span><span class="o">.</span><span class="n">health</span><span class="p">)</span>
 </span></code></pre></div>
 <details class="question" open="open">
 <summary>Initialization Method</summary>
 <p>Why does this code generate an error message? Identify the cause and modify the code to ensure it runs without errors.</p>
 </details>
-<p><strong>Initialization parameters</strong> allow optional customization when creating an object. If no values are provided, default values will be used.</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="c1"># Setting the attributes camera_type, lens_tpye and resolution</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type</span><span class="p">,</span> <span class="n">lens_type</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">1080</span><span class="p">):</span>
-</span></span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">camera_type</span> <span class="o">=</span> <span class="n">camera_type</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lens_type</span> <span class="o">=</span> <span class="n">lens_type</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolution</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># Creating an instance of the Camera class w/o defining the resolution      </span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">,</span><span class="s2">&quot;wide-angle&quot;</span><span class="p">)</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2"> &quot;</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">)</span>
+<h2 id="the-__str__-method">The <code>__str__</code> Method</h2>
+<p>Notice that when you print an object created from a class, the output often provides unhelpful information:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Creating objects of the GameCharacter class       </span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Creating an instance of the Camera class with defining the resolution       </span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">,</span><span class="s2">&quot;wide-angle&quot;</span><span class="p">,</span><span class="mi">720</span><span class="p">)</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">lens_type</span><span class="si">}</span><span class="s2"> &quot;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="sa">f</span><span class="s2">&quot;and </span><span class="si">{</span><span class="n">front_camera</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span>
-</span></code></pre></div></p>
-<h2 id="encapsulation">Encapsulation</h2>
-<p><strong>Encapsulation</strong> separates what a class shows (<strong>public</strong> properties and methods) from its hidden internal details (<strong>private</strong> implementation). If data is <strong>public</strong>, it can be directly accessed and changed using the <strong>dot operator</strong>.</p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="c1"># Setting the attributes camera_type and lens_tpye</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type</span><span class="p">,</span> <span class="n">lens_type</span><span class="p">):</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">camera_type</span> <span class="o">=</span> <span class="n">camera_type</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lens_type</span> <span class="o">=</span> <span class="n">lens_type</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Creating an instance of the Camera class          </span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">,</span><span class="s2">&quot;wide-angle&quot;</span><span class="p">)</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span><span class="p">)</span>
-</span></span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Changing the attribute camera_type</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="hll"><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span> <span class="o">=</span> <span class="s2">&quot;rear&quot;</span>
-</span></span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span><span class="p">)</span>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>&lt;__main__.GameCharacter object at 0x000002075A42B0E0&gt;
 </span></code></pre></div>
-If data is <strong>private</strong>, it allows access only through specific <strong>methods</strong>, protecting the object's internal workings. Using double underscores before the attribute name (<code>__name</code>), restricts access to the <strong>private</strong> attribute. </p>
-<p><div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="c1"># Setting the private attributes camera_type and lens_tpye</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type</span><span class="p">,</span> <span class="n">lens_type</span><span class="p">):</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span> <span class="o">=</span> <span class="n">camera_type</span>
-</span></span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">__lens_type</span> <span class="o">=</span> <span class="n">lens_type</span>
-</span></span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Creating an instance of the Camera class </span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">front_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">&quot;front&quot;</span><span class="p">,</span><span class="s2">&quot;wide-angle&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Incorrect usage: Accessing the attribute camera_type</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">front_camera</span><span class="o">.</span><span class="n">camera_type</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>---------------------------------------------------------------------------
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>AttributeError                            Traceback (most recent call last)
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Cell In[8], line 2
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>      1 # Incorrect usage: Accessing the attribute camera_type
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>----&gt; 2 print(front_camera.camera_type)
+The <code>__str__</code> method is a built-in Python function that defines how an object appears when it is converted to a string, such as when it is printed. <br />
+Although <code>__str__</code> is not required for OOP, it makes your objects more readable, user-friendly, and easier to work with.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
 </span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>AttributeError: &#39;Camera&#39; object has no attribute &#39;camera_type&#39;
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="c1"># Creating the string method</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">health</span><span class="si">}</span><span class="s2"> HP.&quot;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1"># Creating objects of the GameCharacter class       </span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">)</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Mario, 100 HP.
 </span></code></pre></div></p>
-<p>By defining appropriate <strong>methods</strong>, interface functions can be provided to allow the user to modify and read <strong>private</strong> attributes (e.g., change_camera_type, display_data). The <strong>dot operator</strong> is used when calling the function.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="c1"># Setting the private attributes camera_type and lens_tpye</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type</span><span class="p">,</span> <span class="n">lens_type</span><span class="p">):</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span> <span class="o">=</span> <span class="n">camera_type</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__lens_type</span> <span class="o">=</span> <span class="n">lens_type</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="c1"># Creating the method change_camera_type</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="nf">change_camera_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type_new</span><span class="p">):</span>
-</span></span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span> <span class="o">=</span> <span class="n">camera_type_new</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="c1"># Creating the method display</span>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="hll">    <span class="k">def</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object of Camera Class:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Camera Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lens Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<h2 id="attributes">Attributes</h2>
+<p>As shown in the example above, the <code>GameCharacter</code> class has attributes such as name and health, as well as methods for actions like talking. From this class, we can create multiple objects (characters).    </p>
+<p>In the case of attributes, we can differ between two main types:    <br />
+- <strong>Instance Attributes</strong>: belong to each individual object. <br />
+- <strong>Class Attributes</strong>: are shared by all objects of the class.   </p>
+<h3 id="instance-attributes">Instance Attributes</h3>
+<p>Instance attributes store information that is different for each character, such as their name, health, or level.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        <span class="c1"># Defining an instance attribute</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span></code></pre></div>
+Here, <code>name</code> and <code>health</code> are <strong>instance attributes</strong>. Each character can have different values.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Creating objects of the GameCharacter class</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">enemy</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Bowser&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># Accessing the instance attribute using the dot operator</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>   <span class="c1"># Mario</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">enemy</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># Bowser</span>
+</span></code></pre></div></p>
+<h3 id="class-attributes">Class Attributes</h3>
+<p>Sometimes, all characters need to share the same information. For example, they may all start in the same world.
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="c1"># Defining a class attribute</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="n">world</span> <span class="o">=</span> <span class="s2">&quot;Mushroom Kingdom&quot;</span> 
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="c1"># Defining an instance attribute</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1"># Creating objects of the GameCharacter class</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="n">enemy</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Bowser&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="c1"># Accessing the class attribute using the dot operator</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">world</span><span class="p">)</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">enemy</span><span class="o">.</span><span class="n">world</span><span class="p">)</span>
+</span></code></pre></div>
+Here, <code>world</code> is a class attribute. It belongs to the class itself, not to individual objects. All objects created from <code>GameCharacter</code> share this same value. <br />
+If we change the value of a <strong>class attribute</strong>, the change affects all objects that use it.</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Changing the class attribute</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">GameCharacter</span><span class="o">.</span><span class="n">world</span> <span class="o">=</span> <span class="s2">&quot;Dinosaur Land&quot;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Both objects reflect the updated value</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">world</span><span class="p">)</span>  
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">enemy</span><span class="o">.</span><span class="n">world</span><span class="p">)</span>    
+</span></code></pre></div>
+<strong>Quick Comparison</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Instance Attribute</th>
+<th>Class Attribute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Belongs to</td>
+<td>one object</td>
+<td>the whole class</td>
+</tr>
+<tr>
+<td>Different for each object?</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Defined using</td>
+<td><code>self.attribute</code></td>
+<td><code>ClassName.attribute</code></td>
+</tr>
+<tr>
+<td>Example</td>
+<td><code>self.name</code></td>
+<td><code>world</code></td>
+</tr>
+</tbody>
+</table>
+<details class="question" open="open">
+<summary>Attributes</summary>
+<p>Change the <code>hero</code> object's <code>name</code> attribute to Luigi instead of Mario using the <strong>dot operator</strong>.</p>
+</details>
+<h2 id="encapsulation">Encapsulation</h2>
+<p>Sometimes you don't want others to change data freely. <strong>Encapsulation</strong> is the idea of controlling how data in a class can be seen and changed. It separates what can be accessed directly (<strong>public</strong> properties and methods) from what is hidden inside the class (<strong>private</strong> data and methods).   </p>
+<p>For example, we want to prevent users from changing a character’s health directly. Instead, health should only be updated in controlled ways. We can mark the health attribute as private by using double underscores before its name (<code>__health</code>).   </p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__health</span> <span class="o">=</span> <span class="n">health</span>  <span class="c1">#private</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># Creating an object of the GameCharacter class          </span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">)</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">health</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>---------------------------------------------------------------------------
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>AttributeError                            Traceback (most recent call last)
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Cell In[11], line 10
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>      8 hero = GameCharacter(&quot;Mario&quot;)
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>      9 print(hero.name)
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>---&gt; 10 print(hero.health)
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>AttributeError: &#39;GameCharacter&#39; object has no attribute &#39;health&#39;
+</span></code></pre></div>
+When an attribute is private, it cannot be accessed directly from outside the class. If you try, Python will raise an <code>AttributeError</code>. <br />
+Instead, private data should be accessed and changed only through special methods (such as <code>show_health()</code> or <code>take_damage()</code>). To call these methods, we use again the <strong>dot operator</strong>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__health</span> <span class="o">=</span> <span class="n">health</span>  <span class="c1">#private</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    <span class="c1"># Creating the method show_health</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">show_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__health</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    <span class="c1"># Creating the method take_damage</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_damage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__health</span> <span class="o">-=</span> <span class="n">amount</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="c1"># Creating an object of the GameCharacter class          </span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">)</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">show_health</span><span class="p">())</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="n">hero</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">show_health</span><span class="p">())</span>
 </span></code></pre></div>
 <details class="question" open="open">
 <summary>Encapsulation</summary>
-<p>Create a new instance of the <code>Camera</code> class (e.g., <code>front_camera</code>), then update its <code>camera_type</code> attribute.</p>
+<p>Create a new character of the <code>GameCharacter</code> class (e.g., enemy), then update and print its <code>health</code> attribute.</p>
 </details>
-<h2 id="definition-of-the-data-structure">Definition of the Data Structure</h2>
-<p>The structure of data — such as data types and dimensions — can still be freely chosen by the user, which may lead to undesired behavior. For example, the attribute <em>camera_type</em> might be assigned a list (<strong>list</strong>) instead of a string (<strong>str</strong>), or <em>resolution</em> might be given a string (<strong>str</strong>) instead of an integer (<strong>int</strong>) without any warning about the incorrect input. Also a method could receive an attribute with the correct type but an invalid value (e.g., a negative number where only positives make sense).  </p>
+<h2 id="exceptions">Exceptions</h2>
+<p>The structure of data, such as its type and allowed values, can still be chosen freely at this point by the user. This can lead to unwanted behavior. <br />
+For example, the attribute <em>name</em> might be given a list (<strong>list</strong>) or a number (<strong>int</strong>) instead of a text value (<strong>str</strong>). Similarly, <em>health</em> might be set to a negative value without any warning.   </p>
+<p>These kinds of incorrect inputs can cause problems in a program. Luckily, there are ways to prevent this and make sure that only valid data is used:</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># Creating an object of the GameCharacter class          </span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="hll">        <span class="k">if</span> <span class="n">health</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="hll">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Health cannot be a negative value&quot;</span><span class="p">)</span>
+</span></span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="c1"># Creating an object of the GameCharacter class          </span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+</span></code></pre></div></p>
 <details class="info" open="open">
-<summary>Causing errors for others</summary>
-<p>Up until now, you have encountered various different errors.
-For example, we encountered a <code class="language-python highlight"><span class="ne">NameError</span></code> when misspelling a 
-variable name, a <code class="language-python highlight"><span class="ne">TypeError</span></code> when using an incorrect data type, 
-or a <code class="language-python highlight"><span class="ne">IndentationError</span></code> when the code was not properly indented.</p>
-<p>Now it's your time to raise an error (or often called exception) yourself, 
-which can be a helpful and informative way to guide the user in case of 
-incorrect use. 
-<a href="https://docs.python.org/3.12/library/exceptions.html#exception-hierarchy">Here</a>
-is a comprehensive list of all built-in exceptions in Python. </p>
+<summary>Causing Errors for Others</summary>
+<p>The statement <code class="language-python highlight"><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Error message&quot;</span><span class="p">)</span></code> is used to create a general error when a value is not acceptable. For example, it can be used to show that the health value cannot be negative. <br />
+If you want to check whether an attribute has the wrong data type (for example, giving a string when a number is expected), you can raise a <code>TypeError</code> with a clear message: <code class="language-python highlight"><span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Error message&quot;</span><span class="p">)</span></code> <br />
+There are many other types of errors (or often called exceptions), that you can raise in Python. Using the right exception helps explain what went wrong and makes your program easier to understand and use.<br />
+<a href="https://docs.python.org/3.12/library/exceptions.html#exception-hierarchy">Here</a> is a comprehensive list of all built-in exceptions in Python.  </p>
+<p>In addition, note that in the example above, the attribute <code>__health</code> is a <strong>private attribute</strong>. Making an attribute private is common practice when you want to control and validate changes, for example, to raise an error if an invalid value is given. <strong>Public attributes</strong>, by contrast, can be accessed and changed freely from outside the class, which is fine only when there is no risk of invalid values.</p>
 </details>
-<p>To prevent this, data structures can be validated within the class definition. If the input is incorrect, a general error message can be raised using:<br />
-<code class="language-python highlight"><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Error message&quot;</span><span class="p">)</span></code>   <br />
-To specifically check if an attribute is of an incorrect type (e.g., passing a string when a number is expected), you can raise a <code>TypeError</code> with a descriptive message:  <br />
-<code class="language-python highlight"><span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Error message&quot;</span><span class="p">)</span></code>       </p>
 <div style="text-align: center;">
     <iframe src="https://giphy.com/embed/3o7WTDH9gYo71TurPq" width="390" height="220" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/glitch-art-professorlightwav-3o7WTDH9gYo71TurPq"></a></p>
 </div>
 
-<p>You can check the data type with the command:<br />
-<code class="language-python highlight"><span class="nb">isinstance</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">data_type</span><span class="p">)</span></code>    </p>
-<p>Possible attributes of a category can also be defined in a list, for example:<br />
-<em><code>__camera_types = ["front", "rear", "left", "right", "top", "not stated"]</code></em>  <br />
-<em><code>orientation = ["horizontal", "vertical", "not stated"]</code></em>    </p>
-<p>By validating the data types during object creation, you can ensure the object behaves as expected and avoid unexpected errors later in the program.   </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Camera</span><span class="p">:</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="hll">    <span class="n">__camera_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;front&quot;</span><span class="p">,</span><span class="s2">&quot;rear&quot;</span><span class="p">,</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="s2">&quot;right&quot;</span><span class="p">,</span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="s2">&quot;not stated&quot;</span><span class="p">]</span>
-</span></span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="c1"># Setting the attributes with restrictions</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">camera_type</span><span class="p">,</span> <span class="n">lens_type</span><span class="p">,</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;not stated&quot;</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="p">):</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>        <span class="k">if</span> <span class="n">camera_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__camera_types</span><span class="p">:</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>            <span class="c1"># Check if camera_type is one attribute from list.</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="hll">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span></span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="hll">                <span class="sa">f</span><span class="s2">&quot;Camera type must be one of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__camera_types</span><span class="si">}</span><span class="s2">.&quot;</span>
-</span></span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="hll">            <span class="p">)</span>  
-</span></span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lens_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> 
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>            <span class="c1"># Check if lens_type is a string.                     </span>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="hll">            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Lens type must be a string.&quot;</span><span class="p">)</span>  
-</span></span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>   
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>            <span class="c1"># Check if resolution is an integer.                                                      </span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="hll">            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Resolution must be an integer.&quot;</span><span class="p">)</span>  
-</span></span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>        <span class="k">if</span> <span class="n">orientation</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span><span class="s2">&quot;not stated&quot;</span><span class="p">]:</span>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>            <span class="c1"># Check if orientation is one attribute from list.</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="hll">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span></span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="hll">                <span class="s2">&quot;Orientation must be either &#39;horizontal&#39;, &quot;</span>
-</span></span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="hll">                <span class="s2">&quot;&#39;vertical&#39; or &#39;not stated&#39;.&quot;</span>
-</span></span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="hll">            <span class="p">)</span>  
-</span></span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span> <span class="o">=</span> <span class="n">camera_type</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__lens_type</span> <span class="o">=</span> <span class="n">lens_type</span>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolution</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">orientation</span>
-</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>
-</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>    <span class="c1"># Creating the method change_camera_type with data type restrictions</span>
-</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">change_camera_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera_type_new</span><span class="p">):</span>
-</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>        <span class="k">if</span> <span class="n">camera_type_new</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__camera_types</span><span class="p">:</span>
-</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a><span class="hll">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span></span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="hll">                <span class="sa">f</span><span class="s2">&quot;Camera type must be one of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__camera_types</span><span class="si">}</span><span class="s2">.&quot;</span>
-</span></span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="hll">            <span class="p">)</span>
-</span></span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span> <span class="o">=</span> <span class="n">camera_type_new</span>
-</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>
-</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>    <span class="c1"># Creating the method set_orientation with data type restrictions</span>
-</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_orientation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orientation</span><span class="p">):</span>
-</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>        <span class="k">if</span> <span class="n">orientation</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span><span class="s2">&quot;not stated&quot;</span><span class="p">]:</span>
-</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a><span class="hll">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-</span></span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="hll">                <span class="s2">&quot;Orientation must be either &#39;horizontal&#39;, &quot;</span>
-</span></span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a><span class="hll">                <span class="s2">&quot;&#39;vertical&#39; or &#39;not stated&#39;.&quot;</span>
-</span></span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a><span class="hll">            <span class="p">)</span>
-</span></span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">orientation</span>
-</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>
-</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>    <span class="c1"># Creating the method display</span>
-</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">disp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object of Camera Class</span><span class="se">\n</span><span class="s2">:&quot;</span><span class="p">)</span>
-</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Camera Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__camera_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lens Type: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__lens_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resolution: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">p&quot;</span><span class="p">)</span>
-</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Orientation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">orientation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>One can check the data type of a value using the following command:  <br />
+<code class="language-python highlight"><span class="nb">isinstance</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">data_type</span><span class="p">)</span></code>  </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Name must be a string&quot;</span><span class="p">)</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">health</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Health must be a number&quot;</span><span class="p">)</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>        <span class="k">if</span> <span class="n">health</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Health cannot be a negative value&quot;</span><span class="p">)</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="c1"># Creating an object of the GameCharacter class          </span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span><span class="s2">&quot;-100&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <details class="question" open="open">
-<summary>Data Structure</summary>
-<p>Create two instances of the <code>Camera</code> class. Ensure one is created correctly, and intentionally cause an error with the other.</p>
-</details><style type="text/css">.quiz {
+<summary>Control Data Type and Value</summary>
+<p>Why does this code generate an error message? Identify the cause and modify the code to ensure it runs without errors.</p>
+</details>
+<p>You can also limit the possible values of an attribute by using a list, for example: <br />
+<code>allowed_skills = ["heal", "attack", "defend", "run", "jump", "not stated"]</code>  <br />
+<code>allowed_movements = ["forward", "backward", "up", "down", "not stated"]</code> </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="c1">#Setting the class attribute allowed_movements</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">allowed_movements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;forward&quot;</span><span class="p">,</span> <span class="s2">&quot;backward&quot;</span><span class="p">,</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span> <span class="s2">&quot;not stated&quot;</span><span class="p">]</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="c1"># Setting the instance attributes name and movement</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">movement</span><span class="o">=</span><span class="s2">&quot;not stated&quot;</span><span class="p">):</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="k">if</span> <span class="n">movement</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">GameCharacter</span><span class="o">.</span><span class="n">allowed_movements</span><span class="p">:</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>                <span class="sa">f</span><span class="s2">&quot;Movement must be one of: </span><span class="si">{</span><span class="n">GameCharacter</span><span class="o">.</span><span class="n">allowed_movements</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__movement</span> <span class="o">=</span> <span class="n">movement</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>    <span class="c1"># Creating the method show_movement</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">show_movement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__movement</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>    <span class="c1"># Creating the method set_movement</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_movement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_movement</span><span class="p">):</span>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>        <span class="k">if</span> <span class="n">new_movement</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">GameCharacter</span><span class="o">.</span><span class="n">allowed_movements</span><span class="p">:</span>
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>                <span class="sa">f</span><span class="s2">&quot;Movement must be one of: </span><span class="si">{</span><span class="n">GameCharacter</span><span class="o">.</span><span class="n">allowed_movements</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__movement</span> <span class="o">=</span> <span class="n">new_movement</span>
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a><span class="c1">#Creating an object of the GameCharacter class</span>
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="s2">&quot;forward&quot;</span><span class="p">)</span>
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">show_movement</span><span class="p">())</span>
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="n">hero</span><span class="o">.</span><span class="n">set_movement</span><span class="p">(</span><span class="s2">&quot;up&quot;</span><span class="p">)</span>
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="o">.</span><span class="n">show_movement</span><span class="p">())</span>
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a><span class="n">hero</span><span class="o">.</span><span class="n">set_movement</span><span class="p">(</span><span class="s2">&quot;side&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<details class="question" open="open">
+<summary>Limit Allowed Values</summary>
+<p>Add a new attribute <code>skills</code> to the example above and limit its allowed values to: <br />
+<code>allowed_skills = ["heal", "attack", "defend", "run", "jump", "not stated"]</code>. <br />
+Additionally, create two new methods <code>show_skills()</code> and <code>set_skills()</code>, then test your code to make sure the attribute works correctly.  </p>
+</details>
+<h2 id="inheritance">Inheritance</h2>
+<p>Inheritance is one of the most important features of object-oriented programming. It allows one class to reuse code from another class. A class can inherit attributes and methods from an existing class and then add new features or change how they work.   </p>
+<p>In a game, many characters are similar. All of them have a name, health, and basic abilities. However, some characters also have special skills: warriors can fight or healers can heal. <br />
+With inheritance, we can define these shared features only once and reuse them, instead of writing the same code again and again. This helps keep programs simple, organized, and easier to maintain.   </p>
+<p><strong>Step 1: Create a Parent Class</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="c1"># Setting the attributes name and health</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    <span class="c1"># Creating the method show_health</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">show_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">health</span><span class="si">}</span><span class="s2"> HP.&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>All characters created from the <strong>parent class</strong> have the attributes <code>name</code> and <code>health</code>, as well as the method <code>show_health</code>.</p>
+<p><strong>Step 2: Create Child Classes</strong> <br />
+Based on this parent class, we can create different child classes with special abilities.    </p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="hll"><span class="k">class</span><span class="w"> </span><span class="nc">Hero</span><span class="p">(</span><span class="n">GameCharacter</span><span class="p">):</span>
+</span></span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">150</span><span class="p">):</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="hll">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">)</span>
+</span></span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>    <span class="c1"># Creating the method take_damage</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_damage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">amount</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="hll"><span class="k">class</span><span class="w"> </span><span class="nc">Healer</span><span class="p">(</span><span class="n">GameCharacter</span><span class="p">):</span>
+</span></span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">healing_power</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="hll">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">)</span>
+</span></span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">healing_power</span> <span class="o">=</span> <span class="n">healing_power</span>
+</span></span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>    <span class="c1"># Creating the method heal</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">heal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>        <span class="n">target</span><span class="o">.</span><span class="n">health</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">healing_power</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> heals </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">healing_power</span><span class="si">}</span><span class="s2"> HP.&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<details class="info" open="open">
+<summary>Explanation</summary>
+<p>The line <code>super().__init__(name, health)</code> inside each child class means: <em>run the parent's setup code first</em>.<br />
+This ensures that <code>GameCharacter</code> sets the attributes <code>name</code> and <code>health</code> and provides the <code>show_health</code> method.    </p>
+<p>After that, the child classes <code>Hero</code> and <code>Healer</code> add their own attributes (<code>healing_power</code>) and methods (<code>take_damage</code> and <code>heal</code>).  </p>
+</details>
+<p><strong>Step 3: Creating Different Characters</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">enemy</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Bowser&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">Hero</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">healer</span> <span class="o">=</span> <span class="n">Healer</span><span class="p">(</span><span class="s2">&quot;Toad&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="n">enemy</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="n">hero</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="n">healer</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="n">hero</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="n">healer</span><span class="o">.</span><span class="n">heal</span><span class="p">(</span><span class="n">hero</span><span class="p">)</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="n">hero</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span></code></pre></div>
+In the last step, we create an enemy called Bowser from the <code>GameCharacter</code> class, a hero called Mario from the <code>Hero</code> class, and a healer called Toad from the <code>Healer</code> class.   </p>
+<details class="tip" open="open">
+<summary>Tip</summary>
+<p>Think of the base class <code>GameCharacter</code> as the shared template for all characters. The child classes <code>Hero</code> and <code>Healer</code> inherit everything from this template (the attributes <code>name</code> and <code>health</code>, as well as the <code>show_health()</code> method), but then add their own specialized features on top of it.   </p>
+<p>This way, you write the common code only once and reuse it everywhere!</p>
+</details>
+<h3 id="inheritance-overriding-methods">Inheritance: Overriding Methods</h3>
+<p>A child class can also change how a method from the parent class works. This is called <strong>method overriding</strong>.  <br />
+For example, the <code>Hero</code> class wants to display a different message in the <code>show_health</code> method: <br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Hero</span><span class="p">(</span><span class="n">GameCharacter</span><span class="p">):</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">):</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">)</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="c1"># Overriding the method show_health</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">show_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="hll">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hero, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, has </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">health</span><span class="si">}</span><span class="s2"> HP.&quot;</span><span class="p">)</span>
+</span></span></code></pre></div>
+Although we have only just learned about <strong>inheritance</strong>, we have actually been using it all along when working with <strong>exceptions</strong>.  <br />
+If you go back to the page about exceptions <a href="https://docs.python.org/3.12/library/exceptions.html#exception-hierarchy">(here)</a>, you can see that they are organized in a hierarchy with parent and child classes. Some exceptions are more general, while others are more specific and inherit from them. This hierarchy shows how inheritance works in practice.   </p>
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+<p>Let's now put it all together in a mini-game example:   </p>
+<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-30-10">10</a></span>
+<span class="normal"><a href="#__codelineno-30-11">11</a></span>
+<span class="normal"><a href="#__codelineno-30-12">12</a></span>
+<span class="normal"><a href="#__codelineno-30-13">13</a></span>
+<span class="normal"><a href="#__codelineno-30-14">14</a></span>
+<span class="normal"><a href="#__codelineno-30-15">15</a></span>
+<span class="normal"><a href="#__codelineno-30-16">16</a></span>
+<span class="normal"><a href="#__codelineno-30-17">17</a></span>
+<span class="normal"><a href="#__codelineno-30-18">18</a></span>
+<span class="normal"><a href="#__codelineno-30-19">19</a></span>
+<span class="normal"><a href="#__codelineno-30-20">20</a></span>
+<span class="normal"><a href="#__codelineno-30-21">21</a></span>
+<span class="normal"><a href="#__codelineno-30-22">22</a></span>
+<span class="normal"><a href="#__codelineno-30-23">23</a></span>
+<span class="normal"><a href="#__codelineno-30-24">24</a></span>
+<span class="normal"><a href="#__codelineno-30-25">25</a></span>
+<span class="normal"><a href="#__codelineno-30-26">26</a></span>
+<span class="normal"><a href="#__codelineno-30-27">27</a></span>
+<span class="normal"><a href="#__codelineno-30-28">28</a></span>
+<span class="normal"><a href="#__codelineno-30-29">29</a></span>
+<span class="normal"><a href="#__codelineno-30-30">30</a></span>
+<span class="normal"><a href="#__codelineno-30-31">31</a></span>
+<span class="normal"><a href="#__codelineno-30-32">32</a></span>
+<span class="normal"><a href="#__codelineno-30-33">33</a></span>
+<span class="normal"><a href="#__codelineno-30-34">34</a></span>
+<span class="normal"><a href="#__codelineno-30-35">35</a></span>
+<span class="normal"><a href="#__codelineno-30-36">36</a></span>
+<span class="normal"><a href="#__codelineno-30-37">37</a></span>
+<span class="normal"><a href="#__codelineno-30-38">38</a></span>
+<span class="normal"><a href="#__codelineno-30-39">39</a></span>
+<span class="normal"><a href="#__codelineno-30-40">40</a></span>
+<span class="normal"><a href="#__codelineno-30-41">41</a></span>
+<span class="normal"><a href="#__codelineno-30-42">42</a></span>
+<span class="normal"><a href="#__codelineno-30-43">43</a></span>
+<span class="normal"><a href="#__codelineno-30-44">44</a></span>
+<span class="normal"><a href="#__codelineno-30-45">45</a></span>
+<span class="normal"><a href="#__codelineno-30-46">46</a></span>
+<span class="normal"><a href="#__codelineno-30-47">47</a></span>
+<span class="normal"><a href="#__codelineno-30-48">48</a></span>
+<span class="normal"><a href="#__codelineno-30-49">49</a></span>
+<span class="normal"><a href="#__codelineno-30-50">50</a></span>
+<span class="normal"><a href="#__codelineno-30-51">51</a></span>
+<span class="normal"><a href="#__codelineno-30-52">52</a></span>
+<span class="normal"><a href="#__codelineno-30-53">53</a></span>
+<span class="normal"><a href="#__codelineno-30-54">54</a></span>
+<span class="normal"><a href="#__codelineno-30-55">55</a></span>
+<span class="normal"><a href="#__codelineno-30-56">56</a></span>
+<span class="normal"><a href="#__codelineno-30-57">57</a></span>
+<span class="normal"><a href="#__codelineno-30-58">58</a></span>
+<span class="normal"><a href="#__codelineno-30-59">59</a></span>
+<span class="normal"><a href="#__codelineno-30-60">60</a></span>
+<span class="normal"><a href="#__codelineno-30-61">61</a></span>
+<span class="normal"><a href="#__codelineno-30-62">62</a></span>
+<span class="normal"><a href="#__codelineno-30-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="c1"># Parent class: GameCharacter</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">GameCharacter</span><span class="p">:</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3"></a>    <span class="c1"># Class attribute shared by all characters</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4"></a>    <span class="n">world</span> <span class="o">=</span> <span class="s2">&quot;Mushroom Kingdom&quot;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5"></a>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>  <span class="c1"># default value</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7"></a>        <span class="k">if</span> <span class="n">health</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Health cannot be negative&quot;</span><span class="p">)</span>  <span class="c1"># exception</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11"></a>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12"></a>    <span class="c1"># __str__ method</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">health</span><span class="si">}</span><span class="s2"> HP)&quot;</span>
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15"></a>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">take_damage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">-=</span> <span class="n">amount</span>
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">health</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> takes </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2"> damage!&quot;</span><span class="p">)</span>
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21"></a>
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">show_health</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">health</span><span class="si">}</span><span class="s2"> HP in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24"></a>
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25"></a><span class="c1"># Child class: Enemy</span>
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26"></a><span class="k">class</span><span class="w"> </span><span class="nc">Enemy</span><span class="p">(</span><span class="n">GameCharacter</span><span class="p">):</span>
+</span><span id="__span-30-27"><a id="__codelineno-30-27" name="__codelineno-30-27"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+</span><span id="__span-30-28"><a id="__codelineno-30-28" name="__codelineno-30-28"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">)</span>
+</span><span id="__span-30-29"><a id="__codelineno-30-29" name="__codelineno-30-29"></a>
+</span><span id="__span-30-30"><a id="__codelineno-30-30" name="__codelineno-30-30"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">attack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">damage</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+</span><span id="__span-30-31"><a id="__codelineno-30-31" name="__codelineno-30-31"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> attacks </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">damage</span><span class="si">}</span><span class="s2"> damage!&quot;</span><span class="p">)</span>
+</span><span id="__span-30-32"><a id="__codelineno-30-32" name="__codelineno-30-32"></a>        <span class="n">target</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="n">damage</span><span class="p">)</span>
+</span><span id="__span-30-33"><a id="__codelineno-30-33" name="__codelineno-30-33"></a>
+</span><span id="__span-30-34"><a id="__codelineno-30-34" name="__codelineno-30-34"></a><span class="c1"># Child class: Healer</span>
+</span><span id="__span-30-35"><a id="__codelineno-30-35" name="__codelineno-30-35"></a><span class="k">class</span><span class="w"> </span><span class="nc">Healer</span><span class="p">(</span><span class="n">GameCharacter</span><span class="p">):</span>
+</span><span id="__span-30-36"><a id="__codelineno-30-36" name="__codelineno-30-36"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">healing_power</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>
+</span><span id="__span-30-37"><a id="__codelineno-30-37" name="__codelineno-30-37"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">health</span><span class="p">)</span>
+</span><span id="__span-30-38"><a id="__codelineno-30-38" name="__codelineno-30-38"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">healing_power</span> <span class="o">=</span> <span class="n">healing_power</span>
+</span><span id="__span-30-39"><a id="__codelineno-30-39" name="__codelineno-30-39"></a>
+</span><span id="__span-30-40"><a id="__codelineno-30-40" name="__codelineno-30-40"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">heal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+</span><span id="__span-30-41"><a id="__codelineno-30-41" name="__codelineno-30-41"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> heals </span><span class="si">{</span><span class="n">target</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">healing_power</span><span class="si">}</span><span class="s2"> HP!&quot;</span><span class="p">)</span>
+</span><span id="__span-30-42"><a id="__codelineno-30-42" name="__codelineno-30-42"></a>        <span class="n">target</span><span class="o">.</span><span class="n">health</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">healing_power</span>
+</span><span id="__span-30-43"><a id="__codelineno-30-43" name="__codelineno-30-43"></a>
+</span><span id="__span-30-44"><a id="__codelineno-30-44" name="__codelineno-30-44"></a><span class="c1"># Create characters</span>
+</span><span id="__span-30-45"><a id="__codelineno-30-45" name="__codelineno-30-45"></a><span class="n">hero</span> <span class="o">=</span> <span class="n">GameCharacter</span><span class="p">(</span><span class="s2">&quot;Mario&quot;</span><span class="p">)</span>
+</span><span id="__span-30-46"><a id="__codelineno-30-46" name="__codelineno-30-46"></a><span class="n">enemy</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="s2">&quot;Bowser&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+</span><span id="__span-30-47"><a id="__codelineno-30-47" name="__codelineno-30-47"></a><span class="n">healer</span> <span class="o">=</span> <span class="n">Healer</span><span class="p">(</span><span class="s2">&quot;Toad&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-30-48"><a id="__codelineno-30-48" name="__codelineno-30-48"></a>
+</span><span id="__span-30-49"><a id="__codelineno-30-49" name="__codelineno-30-49"></a><span class="c1"># Start game</span>
+</span><span id="__span-30-50"><a id="__codelineno-30-50" name="__codelineno-30-50"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Initial Status ---&quot;</span><span class="p">)</span>
+</span><span id="__span-30-51"><a id="__codelineno-30-51" name="__codelineno-30-51"></a><span class="nb">print</span><span class="p">(</span><span class="n">hero</span><span class="p">)</span>
+</span><span id="__span-30-52"><a id="__codelineno-30-52" name="__codelineno-30-52"></a><span class="nb">print</span><span class="p">(</span><span class="n">enemy</span><span class="p">)</span>
+</span><span id="__span-30-53"><a id="__codelineno-30-53" name="__codelineno-30-53"></a><span class="nb">print</span><span class="p">(</span><span class="n">healer</span><span class="p">)</span>
+</span><span id="__span-30-54"><a id="__codelineno-30-54" name="__codelineno-30-54"></a>
+</span><span id="__span-30-55"><a id="__codelineno-30-55" name="__codelineno-30-55"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Battle ---&quot;</span><span class="p">)</span>
+</span><span id="__span-30-56"><a id="__codelineno-30-56" name="__codelineno-30-56"></a><span class="n">enemy</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">hero</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span><span id="__span-30-57"><a id="__codelineno-30-57" name="__codelineno-30-57"></a><span class="n">enemy</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-30-58"><a id="__codelineno-30-58" name="__codelineno-30-58"></a><span class="n">healer</span><span class="o">.</span><span class="n">heal</span><span class="p">(</span><span class="n">hero</span><span class="p">)</span>
+</span><span id="__span-30-59"><a id="__codelineno-30-59" name="__codelineno-30-59"></a>
+</span><span id="__span-30-60"><a id="__codelineno-30-60" name="__codelineno-30-60"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Final Status ---&quot;</span><span class="p">)</span>
+</span><span id="__span-30-61"><a id="__codelineno-30-61" name="__codelineno-30-61"></a><span class="n">hero</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span><span id="__span-30-62"><a id="__codelineno-30-62" name="__codelineno-30-62"></a><span class="n">enemy</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span><span id="__span-30-63"><a id="__codelineno-30-63" name="__codelineno-30-63"></a><span class="n">healer</span><span class="o">.</span><span class="n">show_health</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+<details class="question" open="open">
+<summary>Final Project: Build Your Own Zoo</summary>
+<p>In this project, you will create your own classes and objects to simulate a mini-zoo. You’ll practice everything you’ve learned about classes, objects, attributes, methods, encapsulation, exceptions, and inheritance.    </p>
+<p><strong>Step 1: Define the Parent Class</strong> <code>Animal</code> <br />
+1. Create a class called <code>Animal</code>. <br />
+2. Add a class attribute <code>zoo_name</code> that is shared by all animals. <br />
+3. Add <strong>two</strong> instance attributes: <code>name</code> (the animal's name) and <code>energy</code> (the animal's energy level) <br />
+4. Exception: make sure that <code>energy</code> is not a negative value. If it is, raise a <code>ValueError</code> with a message like <code>Energy cannot be negative</code>. <br />
+5. Add a <code>__str__</code> method so printing the object shows something readable like <code>Leo (80 energy)</code>. <br />
+6. Add a method <code>show_status()</code> that prints the animal’s name, energy, and the zoo it belongs to. <br />
+7. Add a method <code>eat()</code> that increases the animal’s energy.   </p>
+<p><strong>Step 2: Create Child Classes</strong>  <br />
+1. Create at least one child class, for example <code>Lion</code> or <code>Monkey</code>. <br />
+2. Add an additional method to the child class, for example <code>roar()</code> or <code>play()</code> that decreases the animal's energy.   </p>
+<p><strong>Step 3: Create Objects</strong>  <br />
+1. Create at least two animal objects from your classes, for example <code>leo = Lion("Leo", 80)</code>.  <br />
+2. Use the methods you created to simulate a change in the animal's energy, for example <code>eat()</code> or <code>roar()</code>.  <br />
+3. Print the status of each animal before and after the interactions using <code>show_status()</code> or the <code>__str__</code> method.   </p>
+</details>
+<h2 id="final-remarks">Final Remarks</h2>
+<p>As an introductory course, we have focused on the fundamentals of classes, objects, attributes, and methods. There are other features commonly used in Python OOP that we have not explored in detail here. For example: <br />
+- <strong>Getter and Setter methods</strong> (<code>@property</code>): allow controlled access to private attributes. <br />
+- <strong>Class methods</strong> (<code>@classmethod</code>): methods that operate on the class itself rather than individual objects. <br />
+- <strong>Static methods</strong> (<code>@staticmethod</code>): methods that belong to a class but do not access class or instance data. <br />
+- <strong>Polymorphism</strong>: the ability for different classes to respond to the same method call in their own way. <br />
+- <strong>Advanced Data Validation</strong>: further techniques to protect attributes and ensure only valid data is stored.    </p>
+<p>As you continue learning Python, you will naturally encounter and use these additional concepts. The goal here is to understand the basic principles: how classes organize code, how objects store data and behavior, and how OOP helps make programs modular, maintainable, and easier to scale. </p>
+<details class="info" open="open">
+<summary>Connecting to Previous Work</summary>
+<p>Although it may not have been stated directly earlier in this course, you have been using classes and objects from the very beginning. Many of the data types you use every day in Python are actually objects created from built-in classes: <br />
+- For example, <code>float</code> is a class in Python. It is used to create decimal numbers, such as 3.14 or 0.5, and provides methods for working with them. <br />
+- Similarly, <code>str</code> is also a class. When you use methods like <code>str.upper()</code> or <code>str.replace()</code>, you are calling methods that belong to the <code>str</code> class.  <br />
+- The <code>list</code> type is another built-in class. It contains many useful methods, such as <code>list.sort()</code>  and <code>list.remove()</code>, which help you manage collections of data.   </p>
+<p>To see how you have been using classes all along, you can use the <code>type()</code> function in your console: <br />
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">))</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">({}))</span>
+</span></code></pre></div>
+This shows that <code>3.14</code> belongs to the <code>float</code> class, "python" belongs to the <code>str</code> class, and <code>{}</code> to the <code>dict</code> class.</p>
+</details>
+<div style="text-align: center;">
+    <iframe src="https://giphy.com/embed/fAnEC88LccN7a" width="305" height="300" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/boss-childhood-fAnEC88LccN7a">via GIPHY</a></p>
+</div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -7903,7 +8388,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 14, 2025 09:10:00 UTC"><span class="timeago" datetime="2025-03-14T09:10:00+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 14, 2025 09:10:00 UTC">2025-03-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 12, 2026 11:02:48 UTC"><span class="timeago" datetime="2026-02-12T11:02:48+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 12, 2026 11:02:48 UTC">2026-02-12</span>
   </span>
 
     
@@ -7953,7 +8438,7 @@ window.mkdocsQuizConfig = {
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../data/api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: API">
+          <a href="../functions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Functions">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -7963,20 +8448,20 @@ window.mkdocsQuizConfig = {
                 Previous
               </span>
               <div class="md-ellipsis">
-                API
+                Functions
               </div>
             </div>
           </a>
         
         
           
-          <a href="../tkinter/" class="md-footer__link md-footer__link--next" aria-label="Next: Graphical User Interfaces with Tkinter">
+          <a href="../packages/" class="md-footer__link md-footer__link--next" aria-label="Next: Package Management">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Graphical User Interfaces with Tkinter
+                Package Management
               </div>
             </div>
             <div class="md-footer__button md-icon">
