@@ -478,7 +478,13 @@ hero.take_damage(25)
 healer.heal(hero)
 hero.show_health()
 ``` 
-In the last step, we create an enemy called Bowser from the `GameCharacter` class, a hero called Mario from the `Hero` class, and a healer called Toad from the `Healer` class.  
+In the last step, we create an enemy called Bowser from the `GameCharacter` class, a hero called Mario from the `Hero` class, and a healer called Toad from the `Healer` class.   
+
+???+ tip
+
+    Think of the base class `GameCharacter` as the shared template for all characters. The child classes `Hero` and `Healer` inherit everything from this template (the attributes `name` and `health`, as well as the `show_health()` method), but then add their own specialized features on top of it.   
+    
+    This way, you write the common code only once and reuse it everywhere!
 
 ### Inheritance: Overriding Methods
 A child class can also change how a method from the parent class works. This is called **method overriding**.    
