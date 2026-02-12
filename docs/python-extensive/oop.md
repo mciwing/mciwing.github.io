@@ -41,7 +41,7 @@ Objects combine **attributes** (what they "have") and **methods** (what they "do
 - **Attributes**: Information stored inside an object (e.g., name, health, level).
 
 Let's add an attribute:
-```python
+```python hl_lines="3 4 8 9"
 class GameCharacter:
     def __init__(self, name, health):
         self.name = name
