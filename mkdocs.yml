@@ -98,6 +98,8 @@ nav:
 
       - Functions: python-extensive/functions.md  # TODO: methods vs. functions; variable scope
 
+    - Object-Oriented Programming: python-extensive/oop.md
+
     - Dev Tools & Data Handling:
       - Package Management: python-extensive/packages.md
       - Pandas: python-extensive/pandas.md
@@ -110,7 +112,6 @@ nav:
         - API: python-extensive/data/api.md
 
     - Graphical User Interface:
-      - Object-Oriented Programming: python-extensive/oop.md
       - Graphical User Interfaces with Tkinter: python-extensive/tkinter.md
       - Building Web Applications with Streamlit: python-extensive/streamlit.md
       - Tkinter vs Streamlit: python-extensive/tkinter_streamlit.md
