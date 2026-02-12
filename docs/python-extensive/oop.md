@@ -61,7 +61,7 @@ print(hero.health)
 - **Methods**: Functions defining an object's behavior (e.g., attack, heal, talk).
 
 Let's add a method:
-```python
+```python hl_lines="6 7 10"
 class GameCharacter:
     def __init__(self, name, health):
         self.name = name
