@@ -498,7 +498,7 @@ If you go back to the page about exceptions [(here)](https://docs.python.org/3.1
 ## Putting It All Together
 Let's now put it all together in a mini-game example:   
 
-```python
+```python linenums="1"
 # Parent class: GameCharacter
 class GameCharacter:
     # Class attribute shared by all characters
