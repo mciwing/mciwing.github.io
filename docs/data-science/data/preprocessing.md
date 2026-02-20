@@ -121,10 +121,10 @@ print(data.isna().sum().sum())
 
 The output once more indicates that the whole data set has `#!python 0` missing
 values. So far so good, but this is not the end of the story (who saw that
-coming 🤯).
+coming :exploding_head:).
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/aWPGuTlDqq2yc" width="480" height="254" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/celebrity-reshuffle-aWPGuTlDqq2yc"></a></p>
+    <img src="https://media.giphy.com/media/aWPGuTlDqq2yc/giphy.gif" width="480" height="254">
     <figcaption>
         Plot twist...
     </figcaption>
@@ -451,7 +451,7 @@ uv add scikit-learn
 ```
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/xT5LMxAxpGSb5AZt8A" width="480" height="362" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-5-the-simpsons-5x8-xT5LMxAxpGSb5AZt8A"></a></p>
+    <img src="https://media.giphy.com/media/xT5LMxAxpGSb5AZt8A/giphy.gif" width="480">
     <figcaption>
         <code>scikit-learn</code> the swiss-army knife for data 
         preprocessing and machine learning in Python.

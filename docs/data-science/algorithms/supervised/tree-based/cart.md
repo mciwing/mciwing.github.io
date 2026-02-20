@@ -66,10 +66,7 @@ which is a classic binary classification task.
 
 <div style="text-align: center">
 <h3>Excited for some theory?</h3>
-<iframe 
-    src="https://giphy.com/embed/zZC2AqB84z7zFnlkbF" width="360" height="360" 
-    style="" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
+<img src="https://media.giphy.com/media/zZC2AqB84z7zFnlkbF/giphy.gif" width="360" height="360">
 </div>
 
 ## Theory
@@ -461,10 +458,7 @@ data well.
 
 <div style="text-align: center">
 <h3>Now get to the point!</h3>
-<iframe 
-    src="https://giphy.com/embed/l1AsRdc4mnfIB6OhW" width="480" height="360" 
-    style="" frameBorder="0" class="giphy-embed" allowFullScreen>
-</iframe>
+<img src="https://media.giphy.com/media/l1AsRdc4mnfIB6OhW/giphy.gif" width="480" height="360">
 </div>
 
 In practice, you have to find the right parameters to balance model complexity

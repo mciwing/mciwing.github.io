@@ -371,10 +371,7 @@ cluster_indices = kmeans.fit_predict(X)
 
 <div style="text-align: center;">
     <h4>Now to the fun part!</h4>
-    <iframe 
-        src="https://giphy.com/embed/LpXU1smaWaVwR2v6Gu" width="348" height="260"
-        style="" frameBorder="0" class="giphy-embed" allowFullScreen>
-    </iframe>
+    <img src="https://media.giphy.com/media/LpXU1smaWaVwR2v6Gu/giphy.gif" width="348" heigh="260">
 </div>
 
 The goal of this exercise is to recommend a song based on a previous track. The
