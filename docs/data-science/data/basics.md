@@ -160,8 +160,8 @@ How many rows and columns has the `penguin` dataset?
 - [ ] 5 rows and 8 columns
 - [x] 344 rows and 7 columns
 
-The data set has 344 rows (penguins) and 7 columns (features). Use `data.shape`
-to quickly get the datasets dimensions.
+The data set has 344 rows (penguins) and 7 columns (features). Use 
+`penguins.shape` to quickly get the datasets dimensions.
 </quiz>
 
 ???+ question "Identify attribute types"
