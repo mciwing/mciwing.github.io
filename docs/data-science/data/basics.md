@@ -71,6 +71,26 @@ Examples include number of students (5) or age (22).
     A simple rule of thumb: If you can meaningfully have fractional values, it's
     continuous. If counting whole units makes more sense, it's discrete.
 
+???+ warning "Numbers aren't always numerical data"
+
+    Just because data is stored as numbers doesn't make it numerical. 
+    Consider ZIP codes, their mean is mathematically possible but conceptually 
+    meaningless.
+
+    ```python
+    zip_codes = pd.Series([6020, 1050, 6011, 1010])
+    print(f"Average ZIP code: {zip_codes.mean()}")  # Makes no sense!
+    ```
+
+    ```title=">>> Output"
+    Average ZIP code: 3522.75 
+    ```
+
+    If you can't meaningfully add, subtract or average the values, it's 
+    categorical data in disguise.
+
+    Other examples are customer IDs or coordinates.
+
 ### Categorical (Qualitative)
 
 Categorical data represents qualities or characteristics that place
