@@ -320,6 +320,73 @@ result = square_number(5)
     function for each subtask and then combine them to solve the problem as a 
     whole.
 
+## Detour: Scope of a variable
+
+The scope refers to the region of a program where variables are defined and can be accessed. Local variables, such as those declared inside a function, are only available within that function. In contrast, variables defined in the main body of the program are called global variables and can be accessed in any part of the program. 
+
+The following example demonstrates that a local variable  created inside a function can be used within that function. 
+
+```py
+def greet_user():
+	inside_user_name = "Max Mustermann"
+	print(f"Hello, {inside_user_name}!")
+
+greet_user()
+```
+
+```title=">>> Output"
+Hello Max Mustermann!
+```
+
+The local variable `inside_user_name` exists only within the function otherwise an error occurs.
+
+```py
+def greet_user():
+	inside_user_name = "Max Mustermann"
+
+greet_user()
+print(f"Hello, {inside_user_name}!")
+```
+
+```title=">>> Output"
+NameError: name 'inside_user_name' is not defined
+```
+
+Therefore, attempting to print the local variable in the main body results in a `NameError`.
+Global variables definied in the main body of the program can also be used within functions.
+
+```py
+def greet_user():
+	print(f"Hello, {outside_user_name}!")
+
+outside_user_name = "Maximilian Muster"
+greet_user()
+```
+
+```title=">>> Output"
+Hello Maximilian Muster!
+```
+
+Modifying a global variable inside a function does not overwrite the variable's value.
+
+```py
+def greet_user():
+	outside_user_name = "change name"
+
+outside_user_name = "Maximilian Muster"
+greet_user()
+print(f"Hello, {outside_user_name}!")
+```
+
+```title=">>> Output"
+Hello Maximilian Muster!
+```
+
+Within the function, a new local variable with the same name is defined, but it has no effect on the value of the global variable.
+
+The best way to avoid mistakes is to pass data into and out of functions using arguments and return values.
+
+
 ## Recap
 
 This section introduced the concept of functions to better structure your 
@@ -332,3 +399,4 @@ code, make it more readable and reusable. We have covered:
 - Defining default values for parameters
 - The `#!python return` statement
 - How to use functions to solve smaller subtasks and structure your code
+- Detour on global versus local variables
