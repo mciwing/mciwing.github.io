@@ -33,6 +33,22 @@ Additionally, stylistic plugins are included for a more pleasant coding
 experience and auto-save is enabled by default so you never lose your work.
 :rocket:
 
+### Installation
+
+To activate the profile, you can follow the :fontawesome-solid-video: video
+below.
+
+<div style="text-align: center;">
+    <iframe width="840" height="473"
+        src="https://www.youtube.com/embed/7h4BcbM2goU?si=YtcC9YFrub-cbH3h"
+        title="YouTube video player" frameborder="0" allow="accelerometer;
+        autoplay; clipboard-write; encrypted-media; gyroscope; 
+        picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+        style="border-radius: 15px;">
+    </iframe>
+</div>
+
 ## `uv`
 
 From the Python course you should already be familiar with the package manager

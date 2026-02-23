@@ -370,8 +370,7 @@ With `#!python index=False`, we do ==not==
 > <cite>[pandas `to_csv()` docs](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)</cite>
 
 <div style="text-align: center;">
-
-    <iframe src="https://giphy.com/embed/3oKIPf3C7HqqYBVcCk" width="480" height="269" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/reactionseditor-3oKIPf3C7HqqYBVcCk"></a></p>
+    <img src="https://media.giphy.com/media/3oKIPf3C7HqqYBVcCk/giphy.gif" width="480" height="269">
     <figcaption>
         Congratulations! 🎉 You have finally completed your quest to merge the
         data.

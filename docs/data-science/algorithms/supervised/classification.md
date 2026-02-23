@@ -102,7 +102,7 @@ squares, logistic regression typically uses Maximum Likelihood Estimation
 likelihood of the observed data.
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/3ohs7KViF6rA4aan5u" width="480" height="355" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <img src="https://media.giphy.com/media/3ohs7KViF6rA4aan5u/giphy.gif" width="480" heigh="355">
     <figcaption>Lo and behold, even more math...</figcaption>
 </div>
 
