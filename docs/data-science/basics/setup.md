@@ -143,6 +143,18 @@ uv init --vcs none  # (1)!
     By default `--vcs git` is set, which initializes a git repository. Since
     git is not within the scope of this project, we set `--vcs` to none.
 
+???+ warning "Restart VS Code if command fails"
+
+    If the command returns an error saying `uv` was not found, close and reopen
+    VS Code. This allows your system to recognize the newly installed `uv` 
+    executable. Then run the command again.
+
+???+ tip "Navigate command history"
+
+    There's no need to re-type old commands. Press ++arrow-up++ / 
+    ++arrow-down++ to cycle through previously executed commands in the 
+    terminal.
+
 This initializes the project. `uv` creates a few files in your folder. Your
 workspace should look like this:
 
