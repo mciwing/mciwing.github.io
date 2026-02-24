@@ -149,6 +149,12 @@ uv init --vcs none  # (1)!
     VS Code. This allows your system to recognize the newly installed `uv` 
     executable. Then run the command again.
 
+???+ tip "Navigate command history"
+
+    There's no need to re-type old commands. Press ++arrow-up++ / 
+    ++arrow-down++ to cycle through previously executed commands in the 
+    terminal.
+
 This initializes the project. `uv` creates a few files in your folder. Your
 workspace should look like this:
 
