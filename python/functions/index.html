@@ -1301,6 +1301,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detour-scope-of-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detour: Scope of a variable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recap" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6097,6 +6108,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detour-scope-of-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detour: Scope of a variable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#recap" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -6399,6 +6421,61 @@ times (to generate the <code>very_secure_db</code> and within your own function)
 function for each subtask and then combine them to solve the problem as a 
 whole.</p>
 </details>
+<h2 id="detour-scope-of-a-variable">Detour: Scope of a variable</h2>
+<p>The scope refers to the region of a program where variables are defined and can be accessed. Local variables, such as those declared inside a function, are only available within that function. In contrast, variables defined in the main body of the program are called global variables and can be accessed in any part of the program. </p>
+<p>The following example demonstrates that a local variable  created inside a function can be used within that function. </p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">():</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="n">inside_user_name</span> <span class="o">=</span> <span class="s2">&quot;Max Mustermann&quot;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">inside_user_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="n">greet_user</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Hello Max Mustermann!
+</span></code></pre></div>
+<p>The local variable <code>inside_user_name</code> exists only within the function otherwise an error occurs.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">():</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="n">inside_user_name</span> <span class="o">=</span> <span class="s2">&quot;Max Mustermann&quot;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="n">greet_user</span><span class="p">()</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">inside_user_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>NameError: name &#39;inside_user_name&#39; is not defined
+</span></code></pre></div>
+<p>Therefore, attempting to print the local variable in the main body results in a <code>NameError</code>.
+Global variables definied in the main body of the program can also be used within functions.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">():</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">outside_user_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="n">outside_user_name</span> <span class="o">=</span> <span class="s2">&quot;Maximilian Muster&quot;</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">greet_user</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Hello Maximilian Muster!
+</span></code></pre></div>
+<p>Modifying a global variable inside a function does not overwrite the variable's value.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">():</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    <span class="n">outside_user_name</span> <span class="o">=</span> <span class="s2">&quot;change name&quot;</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="n">outside_user_name</span> <span class="o">=</span> <span class="s2">&quot;Maximilian Muster&quot;</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">greet_user</span><span class="p">()</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">outside_user_name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><span class="filename">>>> Output</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Hello Maximilian Muster!
+</span></code></pre></div>
+<p>Within the function, a new local variable with the same name is defined, but it has no effect on the value of the global variable.</p>
+<details class="tip" open="open">
+<summary>Tip</summary>
+<p>The best way to avoid mistakes is to pass data into and out of functions 
+using arguments and return values.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">(</span><span class="n">user_name</span><span class="p">):</span>  <span class="c1"># accept an argument</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    <span class="n">greeting</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">user_name</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>    <span class="k">return</span> <span class="n">greeting</span>  <span class="c1"># explicit return</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="c1"># pass data in, without a global variable</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="n">result</span> <span class="o">=</span> <span class="n">greet_user</span><span class="p">(</span><span class="s2">&quot;Maximilian Muster&quot;</span><span class="p">)</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
 <h2 id="recap">Recap</h2>
 <p>This section introduced the concept of functions to better structure your 
 code, make it more readable and reusable. We have covered:</p>
@@ -6410,6 +6487,7 @@ code, make it more readable and reusable. We have covered:</p>
 <li>Defining default values for parameters</li>
 <li>The <code class="language-python highlight"><span class="k">return</span></code> statement</li>
 <li>How to use functions to solve smaller subtasks and structure your code</li>
+<li>Detour on global versus local variables</li>
 </ul><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
@@ -7940,7 +8018,7 @@ window.mkdocsQuizConfig = {
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 28, 2025 14:16:17 UTC"><span class="timeago" datetime="2025-02-28T14:16:17+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 28, 2025 14:16:17 UTC">2025-02-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="February 24, 2026 08:35:57 UTC"><span class="timeago" datetime="2026-02-24T08:35:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="February 24, 2026 08:35:57 UTC">2026-02-24</span>
   </span>
 
     
@@ -7955,7 +8033,7 @@ window.mkdocsQuizConfig = {
       
     </span>
     <nav>
-      Jakob Klotz, manuf3006
+      Jakob Klotz, christinastampfer, manuf3006
     </nav>
   </span>
 
