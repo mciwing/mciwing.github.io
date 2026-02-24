@@ -384,7 +384,21 @@ Hello Maximilian Muster!
 
 Within the function, a new local variable with the same name is defined, but it has no effect on the value of the global variable.
 
-The best way to avoid mistakes is to pass data into and out of functions using arguments and return values.
+???+ tip
+
+    The best way to avoid mistakes is to pass data into and out of functions 
+    using arguments and return values.
+
+    ```py
+    def greet_user(user_name):  # accept an argument
+        greeting = f"Hello, {user_name}!"
+
+        return greeting  # explicit return
+
+    # pass data in, without a global variable
+    result = greet_user("Maximilian Muster")
+    print(result)
+    ```
 
 
 ## Recap
