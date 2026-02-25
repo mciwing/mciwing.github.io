@@ -23,7 +23,7 @@ ______________________________________________________________________
             autoplay; clipboard-write; encrypted-media; gyroscope; 
             picture-in-picture; web-share" 
             referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
+            allowfullscreen style="border-radius: 15px;">
         </iframe>
     </div>
 
@@ -31,16 +31,18 @@ ______________________________________________________________________
 
     <h2>Step 1: :fontawesome-solid-download: Download</h2>
 
-    We recommend installing **:fontawesome-brands-python: Python** `3.14`.
+    We recommend installing **:fontawesome-brands-python: Python** `3.14`!
 
     1. Visit the official website
         [python.org :octicons-link-external-16:](https://www.python.org)
     1. Navigate to **Downloads**
-    1. Select the *Python install manager* to automatically trigger the download
-    1. Once downloaded, open the MSIX file (MSIX is the Windows application
-        distribution format)
+    1. A section **"Download for Windows"** will automatically appear
+    1. Click the button **Python install manager**
+    1. Locate the downloaded `.msix` file in your Downloads folder
 
     <h2>Step 2: :fontawesome-solid-arrow-pointer: Run installer</h2>
+
+    1. Double-click the `.msix` file to launch the install manager.
 
     1. Click **"Install Python"** to begin the installation
 
@@ -69,9 +71,10 @@ ______________________________________________________________________
         - Press ++enter++ to skip this step
         - The terminal will close automatically
 
-    <h3>Step 3: :fontawesome-solid-check-circle: Verify Installation</h3>
+    <h2>Step 3: :fontawesome-solid-check-circle: Verify Installation</h2>
 
-    1. Open a new terminal window (use Windows search with the keyword `terminal`)
+    1. Open a new terminal window (use Windows search with the keyword 
+        `terminal`)
 
     1. Check your installation by running:
 
@@ -82,41 +85,69 @@ ______________________________________________________________________
     1. You should see output similar to:
 
         ```
-        Python 3.14.*
+        Python 3.14.x
         ```
 
-        where `*` represents the specific patch version.
+        where `x` represents the specific patch version (e.g., `3.14.3` or 
+        `3.14.4`).
 
 === ":fontawesome-brands-apple: macOS"
 
-    ???+ tip ":fontawesome-brands-apple: Are you on Apple silicon?"
-
-        If you are using an Apple silicon Mac (M1, ... M4), you can also pick the
-        `macOS 64-bit universal2 installer`.
-
     ???+ info
 
-        Unfortunately, we do not have a installation video for macOS (yet). If you're
-        having any trouble, please reach out to us!
+        Unfortunately, we do not have a installation video for macOS (yet). 
+        If you're having any trouble, reach out to us!
+    
+    <h2>Step 1: :fontawesome-solid-download: Download</h2>
 
-    Nevertheless, the installation process is straightforward. Double click the
-    downloaded `python-3.12.9-macos11.pkg` file and follow the installation
-    instructions.
+    We recommend installing **:fontawesome-brands-python: Python** `3.14`.
 
-    Make sure to `Add python to PATH` during the installation process!
+    1. Visit the official website
+        [python.org :octicons-link-external-16:](https://www.python.org)
+    1. Navigate to the **Downloads** tab
+    1. A section **"Download for macOS"** will automatically appear
+    1. Click the **Python 3.14.x** button to download
+    1. Locate the downloaded `.pkg` file in your Downloads folder
 
-    After the successful installation, open a terminal (use the spotlight search
-    with the keyword `terminal`) and verify the installation by typing
+    <h2>Step 2: :fontawesome-solid-arrow-pointer: Run installer</h2>
 
-    ```bash
-    python3 --version
-    ```
+    1. Double-click the `.pkg` file to launch the installer
+    1. Follow the installation wizard:
+        - Click **Continue** through the introduction screens
+        - Accept the license agreement
+        - Click **Install** and enter your password if prompted
+        - Wait for the installation to complete
+    
+    ???+ danger
 
-    which should result in
+        **Important:** After installation completes, Finder will automatically open,
+        showing the Python installation folder. You **must** complete this final step:
+        
+        - Double-click the `Install Certificates.command` file
+        - A Terminal window will open and execute the certificate installation
+        - Wait for it to complete and close automatically
+        
+        This step is required for Python to make secure HTTPS connections.
 
-    ```
-    Python 3.12.9
-    ```
+    <h2>Step 3: :fontawesome-solid-check-circle: Verify Installation</h2>
+
+    1. After the successful installation, open a terminal (use the spotlight 
+        search with the keyword `terminal`)
+
+    1. Verify the installation by typing:
+
+        ```bash
+        python3 --version
+        ```
+
+    1. You should see output similar to:
+
+        ```
+        Python 3.14.x
+        ```
+
+        where `x` represents the specific patch version (e.g., `3.14.3` or 
+        `3.14.4`).
 
 ______________________________________________________________________
 
