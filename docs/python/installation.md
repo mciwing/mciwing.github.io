@@ -123,14 +123,10 @@ ______________________________________________________________________
 <h2>Done!</h2>
 
 If everything went smoothly, you have successfully installed
-**:fontawesome-brands-python: Python**!
+**:fontawesome-brands-python: Python**! :tada:
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" 
-    width="336" height="252" style="" frameBorder="0" class="giphy-embed" 
-    allowFullScreen
-    >
-    </iframe>
+    <img src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" />
 </div>
 
 ______________________________________________________________________
