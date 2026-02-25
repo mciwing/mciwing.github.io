@@ -27,7 +27,9 @@ ______________________________________________________________________
         </iframe>
     </div>
 
-    If you prefer a written guide follow the next couple of sections.
+    ???+ info
+    
+        If you prefer a written guide follow the next couple of sections.
 
     <h2>Step 1: :fontawesome-solid-download: Download</h2>
 
