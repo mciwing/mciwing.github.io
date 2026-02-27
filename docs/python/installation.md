@@ -77,6 +77,11 @@ ______________________________________________________________________
 
     1. Open a new terminal window (use Windows search with the keyword 
         `terminal`)
+        
+        ???+ info
+
+            If you are using Windows 10, search for **Command Prompt** (`cmd`) 
+            instead of Terminal. All consecutive steps stay the same.
 
     1. Check your installation by running:
 
