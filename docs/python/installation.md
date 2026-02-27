@@ -36,7 +36,7 @@ ______________________________________________________________________
     We recommend installing **:fontawesome-brands-python: Python** `3.14`!
 
     1. Visit the official website
-        [python.org :octicons-link-external-16:](https://www.python.org)
+        [python.org :octicons-link-external-16:](https://www.python.org){target="_blank" rel="noreferrer"}
     1. Navigate to **Downloads**
     1. A section **"Download for Windows"** will automatically appear
     1. Click the button **Python install manager**
@@ -77,7 +77,7 @@ ______________________________________________________________________
 
     1. Open a new terminal window (use Windows search with the keyword 
         `terminal`)
-        
+
         ???+ info
 
             If you are using Windows 10, search for **Command Prompt** (`cmd`) 
@@ -110,7 +110,7 @@ ______________________________________________________________________
     We recommend installing **:fontawesome-brands-python: Python** `3.14`.
 
     1. Visit the official website
-        [python.org :octicons-link-external-16:](https://www.python.org)
+        [python.org :octicons-link-external-16:](https://www.python.org){target="_blank" rel="noreferrer"}
     1. Navigate to the **Downloads** tab
     1. A section **"Download for macOS"** will automatically appear
     1. Click the **Python 3.14.x** button to download
