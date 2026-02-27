@@ -5,211 +5,169 @@ In this section, we will guide you through the installation process of
 
 ???+ danger
 
-    Before you skip the content and proceed with the installation, we encourage
-    you to read our instructions. Following them, will save you some time
-    and potential headaches with the setup process!
+    Before you skip the content and proceed with the installation, we encourage you
+    to read our instructions. Following them, will save you some time and potential
+    headaches with the setup process!
 
----
-
-## Step 1: :fontawesome-solid-download: Download
-
-We urge you to install **:fontawesome-brands-python: Python** `3.12.9`. 
-Visit the official website [python.org :octicons-link-external-16:](https://www.python.org/downloads/release/python-3129/), 
-scroll to the bottom of the page and download the installer for your operating 
-system.
-
-Now, <span style="color:red">do not run the installer just yet</span> - watch 
-the below video first! It will save you time! :ok_hand:
-
-???+ tip ":fontawesome-brands-apple: Are you on Apple silicon?"
-
-    If you are using an Apple silicon Mac (M1, ... M4), you can also pick 
-    the `macOS 64-bit universal2 installer`.
-
-## Step 2: :fontawesome-solid-arrow-pointer: Run installer
-
-No matter which operating system you're on, When installing Python, make sure 
-that you check the box `Add python to PATH`!
-
-Now run the Python installer.
+______________________________________________________________________
 
 === ":fontawesome-brands-windows: Windows"
 
+    Following video walks you through the installation steps for
+    :fontawesome-brands-windows: Windows.
+
     <div style="text-align: center;">
-        <iframe 
-            width="840" height="473" 
-            src="https://www.youtube.com/embed/fpxdo5QYvmM?si=vjsmF84v80GsgeK6"
-            title="YouTube video player" frameborder="5" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-            gyroscope; picture-in-picture;" 
-            referrerpolicy="strict-origin-when-cross-origin"
-        >
+        <iframe width="840" height="480" 
+            src="https://www.youtube.com/embed/wqawj4XK8UE?si=Wjlt4L-KfU7Ho2qQ"
+            title="YouTube video player" frameborder="0" allow="accelerometer;
+            autoplay; clipboard-write; encrypted-media; gyroscope; 
+            picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen style="border-radius: 15px;">
         </iframe>
     </div>
 
-    After the successful installation, we recommend to open a command prompt
-    (use the Windows search with the keyword `cmd`) and verify the installation
-    by typing 
-
-    ```commandline
-    python --version
-    ```
-
-    which should result in
+    ???+ info
     
-    ```title="CMD Output"
-    Python 3.12.9
-    ```
+        If you prefer a written guide follow the next couple of sections.
+
+    <h2>Step 1: :fontawesome-solid-download: Download</h2>
+
+    We recommend installing **:fontawesome-brands-python: Python** `3.14`!
+
+    1. Visit the official website
+        [python.org :octicons-link-external-16:](https://www.python.org){target="_blank" rel="noreferrer"}
+    1. Navigate to **Downloads**
+    1. A section **"Download for Windows"** will automatically appear
+    1. Click the button **Python install manager**
+    1. Locate the downloaded `.msix` file in your Downloads folder
+
+    <h2>Step 2: :fontawesome-solid-arrow-pointer: Run installer</h2>
+
+    1. Double-click the `.msix` file to launch the install manager.
+
+    1. Click **"Install Python"** to begin the installation
+
+    1. A new Terminal window will open
+
+    1. **Optional:** If prompted with "Open Settings to modify App execution
+        aliases":
+
+        - Type `y` and press ++enter++
+        - In the Settings app, search for `alias`
+        - Navigate to **App execution aliases**
+        - Toggle the Python aliases **on**
+
+        ???+ info
+
+            The app alias configuration is an optional step that may appear during
+            installation. It might not be necessary on your machine. Properly configured
+            aliases allow you to execute Python commands from the terminal.
+
+    1. When prompted `Install CPython now? [Y/n]`:
+
+        - Press ++enter++ to accept the default option (Yes)
+
+    1. When prompted `View online help? [y/N]`:
+
+        - Press ++enter++ to skip this step
+        - The terminal will close automatically
+
+    <h2>Step 3: :fontawesome-solid-check-circle: Verify Installation</h2>
+
+    1. Open a new terminal window (use Windows search with the keyword 
+        `terminal`)
+
+        ???+ info
+
+            If you are using Windows 10, search for **Command Prompt** (`cmd`) 
+            instead of Terminal. All consecutive steps stay the same.
+
+    1. Check your installation by running:
+
+        ```commandline
+        python --version
+        ```
+
+    1. You should see output similar to:
+
+        ```
+        Python 3.14.x
+        ```
+
+        where `x` represents the specific patch version (e.g., `3.14.3` or 
+        `3.14.4`).
 
 === ":fontawesome-brands-apple: macOS"
-    
+
     ???+ info
 
         Unfortunately, we do not have a installation video for macOS (yet). 
-        If you're having any trouble, please reach out to us!
-
-    Nevertheless, the installation process is straightforward. Double click the
-    downloaded `python-3.12.9-macos11.pkg` file and follow the installation
-    instructions.
-
-    Make sure to `Add python to PATH` during the installation process!
-
-    After the successful installation, open a terminal (use the spotlight search
-    with the keyword `terminal`) and verify the installation by typing 
-
-    ```bash
-    python3 --version
-    ```
-
-    which should result in
+        If you're having any trouble, reach out to us!
     
-    ```
-    Python 3.12.9
-    ```
+    <h2>Step 1: :fontawesome-solid-download: Download</h2>
 
----
+    We recommend installing **:fontawesome-brands-python: Python** `3.14`.
 
-## Step 3: :fontawesome-solid-check: Done!
+    1. Visit the official website
+        [python.org :octicons-link-external-16:](https://www.python.org){target="_blank" rel="noreferrer"}
+    1. Navigate to the **Downloads** tab
+    1. A section **"Download for macOS"** will automatically appear
+    1. Click the **Python 3.14.x** button to download
+    1. Locate the downloaded `.pkg` file in your Downloads folder
 
-If everything went smoothly, you have successfully installed 
-**:fontawesome-brands-python: Python**! You can now skip the 
-troubleshooting part and proceed with the next chapter. :party_popper:
+    <h2>Step 2: :fontawesome-solid-arrow-pointer: Run installer</h2>
+
+    1. Double-click the `.pkg` file to launch the installer
+    1. Follow the installation wizard:
+        - Click **Continue** through the introduction screens
+        - Accept the license agreement
+        - Click **Install** and enter your password if prompted
+        - Wait for the installation to complete
+    
+    ???+ danger
+
+        **Important:** After installation completes, Finder will automatically open,
+        showing the Python installation folder. You **must** complete this final step:
+        
+        - Double-click the `Install Certificates.command` file
+        - A Terminal window will open and execute the certificate installation
+        - Wait for it to complete and close automatically
+        
+        This step is required for Python to make secure HTTPS connections.
+
+    <h2>Step 3: :fontawesome-solid-check-circle: Verify Installation</h2>
+
+    1. After the successful installation, open a terminal (use the spotlight 
+        search with the keyword `terminal`)
+
+    1. Verify the installation by typing:
+
+        ```bash
+        python3 --version
+        ```
+
+    1. You should see output similar to:
+
+        ```
+        Python 3.14.x
+        ```
+
+        where `x` represents the specific patch version (e.g., `3.14.3` or 
+        `3.14.4`).
+
+______________________________________________________________________
+
+<h2>Done!</h2>
+
+If everything went smoothly, you have successfully installed
+**:fontawesome-brands-python: Python**! :tada:
 
 <div style="text-align: center;">
-    <iframe src="https://giphy.com/embed/XreQmk7ETCak0" 
-    width="336" height="252" style="" frameBorder="0" class="giphy-embed" 
-    allowFullScreen
-    >
-    </iframe>
+    <img src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" />
 </div>
 
----
-
-## Optional: Troubleshooting
-
-???+ info
-
-    The troubleshooting section is specific to :fontawesome-brands-windows:
-    Windows. If you're on :fontawesome-brands-apple: macOS and encounter 
-    issues, please reach out to us!
-
-### PATH issues
-
-If you didn't check the box `Add python.exe to PATH` during 
-installation, or you encounter an error message along the lines of 
-
-```commandline
-'python' is not recognized as an internal or external command
-```
-
-you need to add Python to your PATH (the error means that
-**:fontawesome-brands-python: Python** is simply not found).
-
-We cover two options to fix the PATH issue, either use the command prompt 
-or the GUI.
-
-=== "Option 1: GUI"
-
-    **Step 1**:
-    
-    First, we need to find the path to the executable. 
-    
-    Open the :fontawesome-brands-windows: Windows search and type `python`.
-    Select `Dateispeicherort öffnen` (open file location). Open the context menu
-    of `Python` (that's just a shortcut) and select `Eigenschaften` (properties)
-    :octicons-arrow-right-24: `Dateipfad öffnen` (open file path). 
-    Lastly, copy the path of the newly opened explorer window.
-    
-    <img
-        height="750" src="/assets/python/installation/get-path.gif"
-        style="border-radius: 10px;"
-    />
-    <figcaption style="text-align: center;">
-        Determine the path to the Python executable.
-    </figcaption>
-    
-    **Step 2**:
-    
-    Now, we need to add the path to the environment variables. Again use 
-    the :fontawesome-brands-windows: Windows search and type 
-    `Umgebungsvariablen` (Environment variables). Select the Path value in the 
-    `Benutzervariablen für <user-name>` (User variables) section. Click on 
-    `Neu` (New) and paste the copied path.
-    
-    <div style="text-align: center;">
-        <img
-            height="750" src="/assets/python/installation/add-path.gif" width="400" 
-            style="border-radius: 10px;"
-        />
-        <figcaption style="text-align: center;">
-            Add the path to the user variables.
-        </figcaption>
-    </div>
-
-=== "Option 2: Command prompt"
-
-    **Step 1**:
-
-    Determine the path to the **:fontawesome-brands-python: Python** executable 
-    using the Python launcher `py` (which is part of the Python installation and 
-    is on PATH by default).
-
-    
-    ```commandline
-    py -3.12 -c "import sys; print(sys.executable)"
-    ```
-    
-    In my case, the output is:
-
-    
-    ```title="CMD Output"
-    C:\Users\ztklotz\AppData\Local\Programs\Python\Python312\python.exe
-    ```
-    
-    Copy your path *without* the `python.exe` part.
-    
-    **Step 2**:
-    
-    Set the PATH variable using the command prompt.
-
-    
-    ```commandline
-    setx PATH "%PATH%;<copied-path>"
-    ```
-    
-    For instance (using my path):
-
-    
-    ```commandline
-    setx PATH "%PATH%;C:\Users\ztklotz\AppData\Local\Programs\Python\Python312"
-    ```
-
-**Step 3**:
-
-Again, verify the installation by typing `python --version` within a command 
-prompt.
-
----
+______________________________________________________________________
 
 With **:fontawesome-brands-python: Python** installed, the next step is to set
 up a code editor. In the following section, we will install Visual Studio Code
