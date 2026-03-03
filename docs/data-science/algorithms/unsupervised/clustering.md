@@ -101,7 +101,7 @@ global minimum. The final solution depends on the initial cluster centers.
 
     <div style="text-align: center;">
         <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/R2e3Ls9H_fc?si=Lz4jq8Fbxjr1BmeL" 
+            src="https://www.youtube.com/embed/R2e3Ls9H_fc?si=Lz4jq8Fbxjr1BmeL&rel=0" 
             title="YouTube video player" frameborder="0" allow="accelerometer; 
             autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
             web-share" referrerpolicy="strict-origin-when-cross-origin" 

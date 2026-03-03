@@ -40,7 +40,7 @@ below.
 
 <div style="text-align: center;">
     <iframe width="840" height="473"
-        src="https://www.youtube.com/embed/7h4BcbM2goU?si=YtcC9YFrub-cbH3h"
+        src="https://www.youtube.com/embed/7h4BcbM2goU?si=YtcC9YFrub-cbH3h&rel=0"
         title="YouTube video player" frameborder="0" allow="accelerometer;
         autoplay; clipboard-write; encrypted-media; gyroscope; 
         picture-in-picture; web-share"
