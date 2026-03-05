@@ -338,7 +338,7 @@ automatically updated accordingly.
     1. Determine necessary packages to get this script running and install them
         with `uv`.
 
-    1. Lastly, the script with `uv`.
+    1. Lastly, `run` the script with `uv`.
 
 ## Python Scripts or Jupyter Notebooks?
 
