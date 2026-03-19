@@ -487,6 +487,7 @@ set introduced in the previous Classification chapter.
 
 ```python hl_lines="3"
 from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
 
 X, y = load_breast_cancer(return_X_y=True, as_frame=True)
 X_train, X_test, y_train, y_test = train_test_split(
