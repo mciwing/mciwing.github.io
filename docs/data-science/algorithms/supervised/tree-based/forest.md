@@ -227,6 +227,8 @@ X, y = make_classification(random_state=42, n_clusters_per_class=1)
 Next, we initialize and fit a random forest classifier.
 
 ```python
+from sklearn.ensemble import RandomForestClassifier
+
 classifier = RandomForestClassifier(
     random_state=42, n_estimators=4, max_depth=3
 )
