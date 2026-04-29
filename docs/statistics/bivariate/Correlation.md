@@ -31,7 +31,7 @@ print(f"Covariance: {Covariance}")
 8.29
 ```
 
-By default, the degree of freedom `#!python ddof=1`. In this case the population formular will be used. For the sample formular, the `#!python ddof=0` needs to be set.
+By default, the degree of freedom `#!python ddof=1`. In this case the sample formular will be used. For the population formular, the `#!python ddof=0` needs to be set.
 
 
 ???+ example "Example: Covariance of House Price" 

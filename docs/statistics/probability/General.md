@@ -254,7 +254,7 @@ The **probability distribution** of a discrete random variable shows the likelih
             title=dict(
                     text=f'<b><span style="font-size: 10pt">Experiment: Flipping 20 Coins </span></b>',
                 ),
-            bargap=0.1,
+            bargap=0.1)
 
         for i in range(0, 2):
             fig.add_shape(

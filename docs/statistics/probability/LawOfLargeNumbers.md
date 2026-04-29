@@ -61,6 +61,11 @@ roll it 50 times (sample size)
 
 ??? code "Code"
     ``` py
+    import random
+    import plotly.express as px
+    import numpy as np
+    die_fair = [1, 2, 3, 4, 5, 6]
+    fair = random.choices(die_fair, k=50)
     fig = px.scatter(y=fair, x=np.arange(50), labels={'y': 'Die Number', 'x': 'Roll'})
     fig.update_traces(marker=dict(color='rgba(0, 65, 110, 0.6)'))
     fig.update_layout(
