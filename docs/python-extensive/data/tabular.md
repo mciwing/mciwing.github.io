@@ -227,7 +227,7 @@ You might have noticed that the HTML code is quite complex. Nevertheless,
 we can easily extract all the tables on the page with `pandas`:
 
 ```python
-tables = pd.read_html("https://en.wikipedia.org/wiki/Austrian_Traded_Index")
+tables = pd.read_html("https://en.wikipedia.org/wiki/Austrian_Traded_Index", storage_options={"User-Agent": "Mozilla/5.0"})
 print(type(tables))
 ```
 
