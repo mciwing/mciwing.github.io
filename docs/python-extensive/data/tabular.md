@@ -235,6 +235,11 @@ print(type(tables))
 <class 'list'>
 ```
 
+???+ info
+    Some websites, including Wikipedia, may reject or throttle requests that do not provide a valid HTTP User-Agent header.
+    Depending on the installed versions of pandas and the underlying HTTP libraries, `#!python read_html()` may send a minimal or missing User-Agent, which can lead to HTTP errors (for example 403 Forbidden).
+    Setting a browser-like User-Agent makes the request appear similar to a normal web browser visit and improves compatibility.
+
 Simply by passing the URL to `#!python pd.read_html()`, we get a list
 of `DataFrame` objects. Each `DataFrame` corresponds to a table found on the
 page.
