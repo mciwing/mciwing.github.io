@@ -227,13 +227,18 @@ You might have noticed that the HTML code is quite complex. Nevertheless,
 we can easily extract all the tables on the page with `pandas`:
 
 ```python
-tables = pd.read_html("https://en.wikipedia.org/wiki/Austrian_Traded_Index")
+tables = pd.read_html("https://en.wikipedia.org/wiki/Austrian_Traded_Index", storage_options={"User-Agent": "Mozilla/5.0"})
 print(type(tables))
 ```
 
 ```title=">>> Output"
 <class 'list'>
 ```
+
+???+ info
+    Some websites, including Wikipedia, may reject or throttle requests that do not provide a valid HTTP User-Agent header.
+    Depending on the installed versions of pandas and the underlying HTTP libraries, `#!python read_html()` may send a minimal or missing User-Agent, which can lead to HTTP errors (for example 403 Forbidden).
+    Setting a browser-like User-Agent makes the request appear similar to a normal web browser visit and improves compatibility.
 
 Simply by passing the URL to `#!python pd.read_html()`, we get a list
 of `DataFrame` objects. Each `DataFrame` corresponds to a table found on the
