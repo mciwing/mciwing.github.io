@@ -258,7 +258,7 @@ information of this site's project (repository):
 
 ```python hl_lines="7"
 owner = "mciwing"
-repo = "code-campus"
+repo = "mciwing.github.io"
 
 url = f"https://api.github.com/repos/{owner}/{repo}/contributors"
 
