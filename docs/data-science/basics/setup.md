@@ -136,12 +136,14 @@ Code will open a new window.
 In VS Code, open the integrated terminal (via Terminal → New Terminal).
 
 ```bash
-uv init --vcs none  # (1)!
+uv init --vcs none --no-package  # (1)!
 ```
 
 1. With the `--vcs` flag a **v**ersion **c**ontrol **s**ystem can be specified.
     By default `--vcs git` is set, which initializes a git repository. Since
-    git is not within the scope of this project, we set `--vcs` to none.
+    git is not within the scope of this project, we set `--vcs` to none. 
+    Additionally, with the --no-package flag, we omit uv to create a 
+    installable python package by default. 
 
 ???+ warning "Restart VS Code if command fails"
 
@@ -413,7 +415,7 @@ For quick reference, here's a cheat sheet:
     1. Open the folder in VS Code
     1. In the terminal, run:
         ```bash
-        uv init --vcs none
+        uv init --vcs none --no-package
         uv sync
         ```
     1. Install packages as needed:
