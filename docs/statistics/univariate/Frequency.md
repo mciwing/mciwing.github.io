@@ -436,12 +436,12 @@ When the number of values \( k \) for a metrically scaled variable is small, it 
             # Generate Histogram
             fig = px.histogram(
                 data, 
-                x="draw_size",
+                x="d_size",
             )
 
             # Adjust the plot
             fig.update_layout(
-                xaxis_title_text='Draw Size',
+                xaxis_title_text='D Size',
                 yaxis_title_text='Absolute Frequency',
                 title=dict(
                         text='<b><span style="font-size: 10pt">Small Number of Values</span> <br> <span style="font-size:5">Data: atp_matches_2023.csv; variable: draw_size</span></b>',
