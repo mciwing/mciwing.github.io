@@ -259,7 +259,7 @@ Faster R-CNN, also from 2015, introduced the Region Proposal Network (RPN), maki
 
 <figure markdown="span">
     <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*tTqg3W165itg-LVRFxHJfA.jpeg" style="width: 100%;">
-    <figcaption style="text-align: center;">Faster R-CNN Architecture (Source: <a href="https://towardsdatascience.com/faster-r-cnn-for-object-detection-a-technical-summary-474c5b857b46">Geeksforgeeks.org</a>)</figcaption>
+    <figcaption style="text-align: center;">Faster R-CNN Architecture (Source: <a href="https://towardsdatascience.com/faster-r-cnn-for-object-detection-a-technical-summary-474c5b857b46">Towardsdatascience</a>)</figcaption>
 </figure>
 
 <div class="grid cards" markdown>

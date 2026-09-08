@@ -230,8 +230,8 @@ Next, the t-value of the sample can be calculated (using the before mentioned [f
 
 
     <figure markdown="span">
-    ![Tutor](https://memecreator.org/static/images/memes/4321085.jpg){width=70% }
-    <figcaption>(Source: <a href="https://www.memecreator.org/meme/need-a-tutor-i-noah-guy/">Memecreator</a>) </figcaption>
+    ![Tutor](../../assets/statistics/meme_tutor.jpg){width=70% }
+    <figcaption>(Source: <a href="https://imgflip.com/i/b0n0ya">imgflip</a>) </figcaption>
     </figure>
 
 
@@ -686,7 +686,7 @@ For the results of the two-sample t-test to be valid, the following assumptions 
 
 ???+ question "Task: Firefighter Test Results"
     <figure markdown="span">
-    ![Tutor](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Firefighter%2C_Ashton_Bay%2C_March_2017.jpg/320px-Firefighter%2C_Ashton_Bay%2C_March_2017.jpg){width=1000% }
+    ![Tutor](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Firefighter%2C_Ashton_Bay%2C_March_2017.jpg/500px-Firefighter%2C_Ashton_Bay%2C_March_2017.jpg){width=1000% }
     <figcaption>(Source: <a href="https://de.wikipedia.org/wiki/Datei:Firefighter,_Ashton_Bay,_March_2017.jpg">Wikipedia</a> | Copyright: Steven Terblanche) </figcaption>
     </figure>
 

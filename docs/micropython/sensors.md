@@ -109,7 +109,8 @@ In short, the ADC acts as a bridge between the analog world of sensors and the d
 
 
 <figure markdown="span">
-    ![ADC](https://www.arrow.de/-/media/arrow/images/miscellaneous/0/0418_adc_signal_2.jpg)
+    ![ADC](../assets/micropython/adc_sampling.svg){width=60% }
+    <figcaption>(Source: <a href="https://commons.wikimedia.org/wiki/File:Pcm.svg">Wikimedia Commons</a> | License: CC BY-SA 3.0) </figcaption>
 </figure>
 
 For our project we will use GPIO32 as input pin for the sensor value. The wiring diagram is shown below. Connect all components as shown. 

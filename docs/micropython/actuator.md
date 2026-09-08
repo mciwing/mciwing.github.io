@@ -27,7 +27,7 @@ Microcontrollers like the ESP32 cannot directly power components such as motors 
 In this project, we use a **MOSFET driver module** like this one:
 
 <figure markdown="span">
-    <img src="https://www.roboter-bausatz.de/media/image/0b/f4/f0/RBS10306_1_600x600.jpg" alt="MOSFET driver module" style="width: 50%; border-radius: 15px;">
+    <img src="https://www.roboter-bausatz.de/media/43/c0/0b/1718120225/rbs10306_1.jpg" alt="MOSFET driver module" style="width: 50%; border-radius: 15px;">
 </figure>
 
 It acts like an electronically controlled switch: the small signal from a GPIO pin controls whether a larger current flows through the pump. A MOSFET has three terminals:

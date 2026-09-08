@@ -117,7 +117,7 @@ Thus, random variables enable us to quantify the outcomes of random processes, a
 
     <figure markdown="span">
     ![Correlation Types](../../assets/statistics/meme_dice.jpg){width=50% }
-    <figcaption>(Source: <a href="https://imgflip.com/i/9599pd">imgflip</a>) </figcaption>
+    <figcaption>(Source: <a href="https://imgflip.com/">imgflip</a>) </figcaption>
     </figure>
 
     1. Now generate your own random number. Use the commands `randint`, `random` and `choices`. A good documentation can be found [here](https://www.w3schools.com/python/module_random.asp)

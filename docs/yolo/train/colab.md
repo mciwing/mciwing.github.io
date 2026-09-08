@@ -1,7 +1,7 @@
 # Bonus: Training on Google Colab
 
 <figure markdown="span">
-  ![Google Colab](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Google_Colaboratory_SVG_Logo.svg/1280px-Google_Colaboratory_SVG_Logo.svg.png){ width="250" }
+  ![Google Colab](../../assets/yolo/colab_logo.svg){ width="250" }
 </figure>
 
 
