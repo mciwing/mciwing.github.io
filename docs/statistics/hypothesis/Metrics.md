@@ -23,6 +23,7 @@ In simpler terms, it answers the question: *If there is no real effect or differ
     ``` py
     import numpy as np
     import pandas as pd
+    from scipy.stats import norm
     import plotly.express as px
 
     # Generate the data for the normal distribution
