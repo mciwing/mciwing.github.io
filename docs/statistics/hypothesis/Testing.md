@@ -108,16 +108,16 @@ Again we stick with the `age` example and compare the age differences of mutlipl
     import numpy as np
     import pandas as pd
 
-    sample_means_dif = []
+    sample_means_difa = []
     for i in range(10000):
-        sample_means_dif.append(np.mean(random.sample(list(data[data['sex']=="Male"].age), 20))-np.mean(random.sample(list(data[data['sex']=="Female"].age), 20)))
+        sample_means_difa.append(np.mean(random.sample(list(data[data['sex']=="Male"].age), 20))-np.mean(random.sample(list(data[data['sex']=="Female"].age), 20)))
 
 
-    fig = px.histogram(x=sample_means_dif)
+    fig = px.histogram(x=sample_means_difa)
     fig.update_traces(marker=dict(color='rgba(0, 65, 110, 0.8)'))
 
     # Add a horizontal line for the population mean
-    fig.add_vline(x=np.mean(sample_means_dif), line_dash="dash", annotation_text="Mean Difference: "+str(np.mean(sample_means_dif)), annotation_position="top right", line_color="#E87F2B")
+    fig.add_vline(x=np.mean(sample_means_difa), line_dash="dash", annotation_text="Mean Difference: "+str(np.mean(sample_means_difa)), annotation_position="top right", line_color="#E87F2B")
 
     fig.update_layout(
             barmode='overlay',
